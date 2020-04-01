@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-   
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Registro</title>
-    <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
-</head>
+    <head>
+    
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Registro</title>
+        <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
+        <script> 
+            function salvar(t){ 
+                        window.location='data:application/octet-stream;base64,'+btoa(t); 
+            } 
+        </script> 
+    </head>
     <body>
 
         <div class="continer"> 
@@ -33,6 +38,8 @@
             <div class="form-group">
                     <label for="descriptionFormTextarea">Descripción</label>
                     <textarea class="form-control" id="descriptionFormTextarea" rows="3"></textarea>
+                    <input onclick="salvar(descriptionFormTextarea.value)" type="button" name="Submit" value="Descargar" id="Submit" /> 
+                    <br>
                     <label for="requirementsFormTextarea">Requisitos</label>
                     <textarea class="form-control" id="requirementsFormTextarea" rows="3"></textarea>
                     <label for="docsFormTextarea">Documentos a presentar</label>
