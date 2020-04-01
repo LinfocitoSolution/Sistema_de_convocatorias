@@ -8,11 +8,11 @@ class registrarConvocatoriaController extends Controller
 {
     public function guardarDatos()
     {
-        $descripcion=GET["descriptionFormTextarea"];
-        $requisitos=GET["requirementsFormTextarea"];
-        $documentos=GET["docsFormTextarea"];
-        $formato=GET["formatFormTextarea"];
-        return "prueba de las variables son" . $descripcion . $requisitos . $documentos . $formato;
+        $descripcion=GET["description"];
+        $requisitos=GET["requirements"];
+        $documentos=GET["docs"];
+        $formato=GET["format"];
+        return 'prueba de las variables son'.$descripcion.$requisitos.$documentos.$formato;
     }
 
 }

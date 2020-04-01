@@ -35,18 +35,19 @@
         </div>
 
         <div class="container">
+
             <div class="form-group">
-                    <label for="descriptionFormTextarea">Descripción</label>
-                    <textarea class="form-control" id="descriptionFormTextarea" rows="3"></textarea>
-                    <input onclick="salvar(descriptionFormTextarea.value)" type="button" name="Submit" value="Descargar" id="Submit" /> 
-                    <br>
-                    <label for="requirementsFormTextarea">Requisitos</label>
-                    <textarea class="form-control" id="requirementsFormTextarea" rows="3"></textarea>
-                    <label for="docsFormTextarea">Documentos a presentar</label>
-                    <textarea class="form-control" id="docsFormTextarea" rows="3"></textarea>
-                    <label for="formatFormTextarea">Formato de entrega</label>
-                    <textarea class="form-control" id="formatFormTextarea" rows="3"></textarea>
-                    
+                    <label for="">Descripción</label>
+                    <textarea class="form-control" name="description" rows="3"></textarea>
+                    <label for="">Requisitos</label>
+                    <textarea class="form-control" name="requirements" rows="3"></textarea>
+                    <label for="">Documentos a presentar</label>
+                    <textarea class="form-control" name="docs" rows="3"></textarea>
+                    <label for="">Formato de entrega</label>
+                    <textarea class="form-control" name="format" rows="3"></textarea>    
+                   {{-- 
+                    <input onclick="salvar(description.value)" type="button" name="Submit" value="Descargar" id="Submit" />                         
+                     --}}
             </div>
 
         </div>
