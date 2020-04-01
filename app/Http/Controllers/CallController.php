@@ -11,7 +11,19 @@ class CallController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function login()
+     {
+        return view("calls.login");
+     }
+     public function register()
+     {
+        return view("calls.register");
+     }
+     public function unregistered()
+     {
+        return view("calls.unregistered");
+     }
+     public function index()
     {
         return 'Hello there';
     }
@@ -23,7 +35,7 @@ class CallController extends Controller
      */
     public function create()
     {
-        return view('calls.register');
+        //return view('calls.register');
     }
 
     /**
