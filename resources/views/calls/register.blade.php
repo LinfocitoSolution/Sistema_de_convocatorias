@@ -9,7 +9,7 @@
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
 </head>
     <body>
-
+    <form name="form1" method="get" action="app/Http/Controllers/registrarConvocatoriaController.php">
         <div class="continer"> 
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-brand" href="#">Registro</a>
@@ -41,7 +41,9 @@
                     <textarea class="form-control" id="formatFormTextarea" rows="3"></textarea>
                     
             </div>
-        </div>
 
+        </div>
+        <button class="btn btn-primary" type="submit">Submit form</button>
+    </form>
     </body>
 </html>
