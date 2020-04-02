@@ -63,6 +63,6 @@
      @include("layouts.footer")
    </footer>
 </div>
-
+<script src="{{aseet('js/bootstrap.min.js')}}"  type="text/javascrpt"></script>
 </body>
 </html>

@@ -23,8 +23,8 @@
           Comisiones
         </a>
         <div class="dropdown-menu" >
-          <a class="dropdown-item  text-white" href="#">Meritos</a>
-          <a class="dropdown-item  text-white" href="#">Conocimiento</a>
+          <a class="dropdown-item" href="#">Meritos</a>
+          <a class="dropdown-item" href="#">Conocimiento</a>
         </div>  
       </li>
     </ul>
