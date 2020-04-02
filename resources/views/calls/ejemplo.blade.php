@@ -8,5 +8,4 @@
 @endsection
 
 @section("pie")
-Linfocitos Solutions
 @endsection
