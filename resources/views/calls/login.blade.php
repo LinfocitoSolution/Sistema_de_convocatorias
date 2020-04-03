@@ -1,12 +1,18 @@
 <!doctype html>
+@extends("layouts.plantilla")
 <html>
+
 <head>
+
 <meta charset="utf-8">
 <title>Documento sin titulo</title>
 <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
 </head>
 
 <body>
+@section("cabecera")
+@endsection
+@section("infoGeneral")
 <div class="container">
 	<div class="d-flex justify-content-center h-100">
 		<div class="card">
@@ -54,5 +60,9 @@
 		</div>
 	</div>
 </div>
+@endsection
 </body>
+@section("pie")
+
+@endsection
 </html>
