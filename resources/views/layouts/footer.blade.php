@@ -1,7 +1,8 @@
 <style>
 footer {
 	background-color:#1A1A1A;
-	height: 50%;
+	position: absolute;
+  height: 50%;
   color: white;
   padding: 15px;
   
