@@ -17,8 +17,7 @@
 
 
 @yield("pie")
-linfocitos solutions
-avenida siempre viva 542
+@include("layouts.footer")
 
 
 </body>
