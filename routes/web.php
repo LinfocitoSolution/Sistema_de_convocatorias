@@ -14,7 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::resource('ejemplo','CallController@ejemplo');
 Route::resource('registro_convocatoria', 'CallController@register');
 Route::resource('noregister', 'CallController@noregister');
 Route::resource('login', 'CallController@login');
-Route::resource('unregistered', 'CallController@unregistered');
+
