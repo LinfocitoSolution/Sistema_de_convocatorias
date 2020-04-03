@@ -32,9 +32,9 @@ class CallController extends Controller
     {
         return view("calls.ejemplo");
     }
-    public function prueba()
+    public function formulariopost()
     {
-        return view("calls.prueba");
+        return view("calls.formulariopost");
     }
 
     /**
