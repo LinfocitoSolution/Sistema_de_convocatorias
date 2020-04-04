@@ -4,6 +4,7 @@ footer {
 	height: 40%;
   color: white;
   padding: 15px;
+  
 }
 
 .main1 { 

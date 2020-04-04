@@ -17,21 +17,25 @@ class CallController extends Controller
      }
      public function register()
      {
+    public function login()
+    {
+        return view("calls.login");
+    }
+    public function register()
+    {
         return view("calls.register");
-     }
- 
+    }
      public function noregister()
-     {
+    {
         return view("calls.noregister");
-     }
-     
-     public function index()
+    }
+    public function unregistered()
+    {
+        return view("calls.unregistered");
+    }
+    public function index()
     {
         return 'Hello there';
-    }
-    public function ejemplo()
-    {
-        return view("calls.ejemplo");
     }
     public function formulariopost()
     {
@@ -68,7 +72,13 @@ class CallController extends Controller
      */
     public function store(Request $request)
     {
-        return $request->textarea('description','docs');
+        //return $request->textarea('description','docs');
+        $convocatoria = new Convocatoria();
+        $convocatoria->$request->input('titulo_convocatoria');
+        $convocatoria->save();
+
+        return 'Saved';
+        //return $request->
     }
 
     /**
@@ -115,4 +125,43 @@ class CallController extends Controller
     {
         //
     }
+    public function postulante(Request $request)
+    {
+        return view('calls.postulante');
+    }
+
+
+    public function regJefDep(Request $request)
+    {
+        return view('calls.registro_jefeDep');
+    }
+
+    public function regDirector(Request $request)
+    {
+        return view('calls.registro_director');
+    }
+
+    public function comMerito(Request $request)
+    {
+        return view('calls.comision_merito');
+    }
+
+    public function conocimiento()
+    {
+        return view('calls.comision_conocimiento');
+    }
+
+    public function secretaria()
+    {
+        return view('calls.secretaria');
+    }
+    public function plantilla()
+    {
+        return view('layouts.plantilla');
+    }
+    public function log()
+    {
+        return view('calls.log');
+    }
+
 }
