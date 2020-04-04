@@ -45,7 +45,7 @@
 <div id="contenedor">
    <header>
      @yield("cabecera")
-     @include("layouts.navbar")
+     
    </header>
 
    <section>

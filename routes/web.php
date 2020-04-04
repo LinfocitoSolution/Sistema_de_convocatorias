@@ -16,6 +16,8 @@ Route::get('/', function () {
 });
 Route::resource('registro_convocatoria', 'CallController@register');
 Route::resource('noregister', 'CallController@noregister');
-Route::resource('login', 'CallController@login');
+Route::resource('docencia', 'CallController@docencia');
 Route::resource('formulariopost', 'CallController@formulariopost');
-
+Route::resource('convocatorias', 'CallController@convocatorias');
+Route::resource('calendario', 'CallController@calendario');
+Route::resource('showlogin', 'CallController@showlogin');
