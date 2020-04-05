@@ -42,7 +42,7 @@ a img:hover {
     <div class="row"> 
 
         <div class="col-md-12 text-right">
-            <p class="text-muted small">José Miguel, arte y belleza @2016.<br> Todos los derechos reservados.</p>
+            <p class="text-muted small">LinfocitoSolution @2020.<br> Todos los derechos reservados.</p>
         </div>
         
     </div>
