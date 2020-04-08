@@ -7,19 +7,23 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Registro</title>
         <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
-        <script> 
-            function salvar(t){ 
-                        window.location='data:application/octet-stream;base64,'+btoa(t); 
-            } 
-        </script> 
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.1/jspdf.debug.js" integrity="sha384-THVO/sM0mFD9h7dfSndI6TS0PgAGavwKvB5hAxRRvc0o9cPLohB0wb/PTA7LdUHs" crossorigin="anonymous"></script>
-        <script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script>
-
+     
+        <script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script> 
+      
         <script> function saveToPDF(){
              var doc = new jsPDF();
              doc.text(20,20, description.value.replace(/\n/g, "\r\n"));
+             doc.lstext(requirements.value.replace(/\n/g, "\r\n"),20,30,0);//h,v,espacio
+             doc.lstext(docs.value.replace(/\n/g, "\r\n"),20,40,0);
+             doc.lstext(format.value.replace(/\n/g, "\r\n"),20,50,0);
              doc.save('document.pdf');
+            }
+        </script>
+        <script> function getHTML(){
+
+                var doc = new jsPDF();
+                doc.html(document.body);
+                doc.save('html.pdf');
             }
         </script>
                    
@@ -60,7 +64,9 @@
                 </div>
                                         
             </div>
-            <button onclick="saveToPDF();">DscargarPDF</button>    
+           
+            <button onclick="saveToPDF();">DscargarPDF</button>
+            <button onclick="getHTML();">DscargarHTML</button>       
       </form>
     </body>
 </html>

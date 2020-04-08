@@ -9,9 +9,11 @@
     <body>
         @yield("cabecera")
         @include("layouts.navbar")
+        
         @yield("infoGeneral")
 
         @yield("pie")
         @include("layouts.footer")
+
     </body>
 </html>

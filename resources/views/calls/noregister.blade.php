@@ -35,9 +35,7 @@
                     <label for="descriptionFormTextarea">Descripción</label>
                     <textarea class="form-control" id="descriptionFormTextarea" rows="3"></textarea>
                     <label for="requirementsFormTextarea">Documento</label>
-                    <textarea class="form-control" id="requirementsFormTextarea" rows="3"></textarea>
-                   
-                    
+                    <textarea class="form-control" id="requirementsFormTextarea" rows="3"></textarea>                    
             </div>
         </div>
 
