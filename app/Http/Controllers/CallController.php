@@ -18,9 +18,16 @@ class CallController extends Controller
     public function register()
     {
         return view("calls.register");
+<<<<<<< HEAD
     }
     public function noregister()
     {
+=======
+     }
+ 
+     public function noregister()
+     {
+>>>>>>> master
         return view("calls.noregister");
     }
     public function unregistered()
@@ -54,7 +61,7 @@ class CallController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $request->textarea('description','docs');
     }
 
     /**

@@ -23,36 +23,29 @@ a img:hover {
 <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
 <footer>
   <div class="container">
-    <div class="row">
-        <div class="col-xs-12 col-md-6 text-left">
-            <h4 class="text-warning">CONTACTO:</h4>
-            <h6 class="text-white">
-            Avenida 6 de agosto. Esquina moxos numero 542<br>
-            cochabamba.<br>
-            Teléfono: 4795260.<br>
-            Celular: 75978930.<br>
-            Correo: linfositossolution@gmail.com.<br>
-            </h6>
-        </div>
+      <div class="row">
+          <div class="col-xs-12 col-md-6 text-left">
+              <h6 class="text-muted lead">CONTACTO:</h6>
+              <h6 class="text-muted">
+              Avenida 6 de agosto. Esquina moxos numero 542<br>
+              cochabamba.<br>
+              Teléfonos: 4795260.<br>
+              </h6>
+          </div>
 
-        <div class="col-xs-12 col-md-6 text-right">
-            <h4 class="text-warning">PAGINAS DE INTERES</h4>
-            <div class="redes-footer"> 
-              <a href="http://websis.umss.edu.bo/"><img src="{{ asset('imagenes/websis.JPG') }}" width="40" height="40"></a>
-              <a href="http://www.cs.umss.edu.bo/"><img src="{{ asset('imagenes/cs.JPG') }}" width="40" height="40"></a>
-              <a href="http://www.umss.edu.bo/"><img src="{{ asset('imagenes/umss.PNG') }}" width="40" height="40"></a>
-            </div>
-            <div class="row"> 
-               <div class="col-md-12 text-right">
-                 <p class="text-white small">Empresa LINFOCITOSOLUTION.<br> 
-                  Todos los derechos reservados.</p>
+          <div class="col-xs-12 col-md-6 text-right">
+              <h6 class="text-muted lead">ENCUENTRANOS EN LAS REDES</h6>
+              <div class="redes-footer">
+                <a href="https://www.facebook.com/"><img src="imagenes/facebook-2.png"></a>
+                <a href="https://twitter.com/"><img src="imagenes/twitter-2.png"></a>
+                <a href="https://www.youtube.com/"><img src="imagenes/youtube-2.png"></a>
               </div>
-            </div>
-
-        </div>
-     </div>
-      
-   </div>
-  </div>  
-</div>
+          </div>
+       </div>
+      <div class="row">
+          <div class="col-md-12 text-right">
+              <p class="text-muted small">LinfocitoSolution @2020.<br> Todos los derechos reservados.</p>
+          </div>  
+      </div>
+    </div>
 </footer>
