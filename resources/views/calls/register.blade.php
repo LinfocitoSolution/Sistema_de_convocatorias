@@ -1,5 +1,7 @@
 <!DOCTYPE html>
+@extends("layouts.plantilla")
 <html lang="en">
+<<<<<<< HEAD
 <head>
    
     <meta charset="UTF-8">
@@ -28,6 +30,29 @@
                 </div>
             </nav>
         </div>
+=======
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Registro</title>
+        
+        <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
+        <script> 
+            function salvar(t){ 
+                        window.location='data:application/octet-stream;base64,'+btoa(t); 
+            } 
+        </script> 
+    </head>
+    <body>
+    @section("cabecera")
+
+    @endsection
+
+   @section("infoGeneral")
+    <form name="form1" method="get" action="app/Http/Controllers/registrarConvocatoriaController.php">
+       
+>>>>>>> master
 
         <div class="container">
             <div class="form-group">
@@ -42,6 +67,14 @@
                     
             </div>
         </div>
+<<<<<<< HEAD
 
+=======
+        <button class="btn btn-primary" type="submit">Submit form</button>
+    </form>
+    @endsection
+>>>>>>> master
     </body>
+    @section("pie")
+    @endsection
 </html>

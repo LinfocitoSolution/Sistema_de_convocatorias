@@ -31,6 +31,10 @@ class CallController extends Controller
     {
         return 'Hello there';
     }
+    public function prueba()
+    {
+        return view("calls.prueba");
+    }
 
     /**
      * Show the form for creating a new resource.
