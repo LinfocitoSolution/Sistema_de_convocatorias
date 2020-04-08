@@ -35,8 +35,7 @@
                 </div>
                 <div class="col">    
                     <label for="requirementsFormTextarea">Documento</label>
-                    <textarea class="form-control" id="requirementsFormTextarea" rows="3"></textarea>
-                </div>    
+                    <textarea class="form-control" id="requirementsFormTextarea" rows="3"></textarea>                    
             </div>
           </form>  
         </div>
