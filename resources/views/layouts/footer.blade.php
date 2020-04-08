@@ -1,13 +1,7 @@
 <style>
 footer {
-<<<<<<< HEAD
-	background-color:#1A1A1A;
-	
-  height: 50%;
-=======
 	background-color:#0052cc;
 	height: 40%;
->>>>>>> master
   color: white;
   padding: 15px;
   
