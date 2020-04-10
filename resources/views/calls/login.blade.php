@@ -69,7 +69,7 @@
 			</div>
 		</div>
 		@endsection
-		<script src="{{asset('jquery/jquery-3.4.1.slim.min.js')}}" type="text/javascript"></script>
+		
 	</body>
 	 
 </html>
