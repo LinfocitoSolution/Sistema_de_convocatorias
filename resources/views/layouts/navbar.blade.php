@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-info">
-  <a class="navbar-brand  text-white" href="#" tabindex="-1" >Inicio</a>
+  <a class="navbar-brand  text-white" href="{{url('noregister')}}" tabindex="-1" >Inicio</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -10,7 +10,7 @@
         <a class="nav-link text-white" href="#" tabindex="-2" >Usuarios<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white" href="#" tabindex="-2" >Postulantes</a>
+        <a class="nav-link text-white" href="{{url('login')}}" tabindex="-2" >Postulantes</a>
       </li>
       <li class="nav-item">
         <a class="nav-link text-white " href="#" tabindex="-2">Secretaria</a>

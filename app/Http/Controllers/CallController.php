@@ -19,6 +19,7 @@ class CallController extends Controller
      {
         return view("calls.register");
      }
+ 
      public function noregister()
      {
         return view("calls.noregister");
@@ -32,9 +33,9 @@ class CallController extends Controller
     {
         return view("calls.ejemplo");
     }
-    public function prueba()
+    public function formulariopost()
     {
-        return view("calls.prueba");
+        return view("calls.formulariopost");
     }
 
     /**
@@ -55,7 +56,7 @@ class CallController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $request->textarea('description','docs');
     }
 
     /**
