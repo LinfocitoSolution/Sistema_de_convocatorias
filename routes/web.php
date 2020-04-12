@@ -1,3 +1,4 @@
+
 <?php
 
 /*
@@ -18,4 +19,10 @@ Route::resource('registro_convocatoria', 'CallController@register');
 Route::resource('noregister', 'CallController@noregister');
 Route::resource('login', 'CallController@login');
 Route::resource('formulariopost', 'CallController@formulariopost');
-
+Route::get("/leer",function(){//ruta del modelo
+    $articulos=App\Articulo::all();//namespace del modelo, importante
+    foreach($articulos as $articulo)
+    {
+        echo "Nombre:  " .  $articulo->Nombre_Articulo . " <br> " . "precio: " . $articulo->Precio . "<br>";
+    }
+});
