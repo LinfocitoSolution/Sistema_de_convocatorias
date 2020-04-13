@@ -18,16 +18,9 @@ class CallController extends Controller
     public function register()
     {
         return view("calls.register");
-<<<<<<< HEAD
     }
-    public function noregister()
-    {
-=======
-     }
- 
      public function noregister()
-     {
->>>>>>> master
+    {
         return view("calls.noregister");
     }
     public function unregistered()
@@ -111,5 +104,26 @@ class CallController extends Controller
     public function registerUser(Request $request)
     {
         return view('calls.form_user');
+    }
+
+
+    public function regJefDep(Request $request)
+    {
+        return view('calls.registro_jefeDep');
+    }
+
+    public function regDirector(Request $request)
+    {
+        return view('calls.registro_director');
+    }
+
+    public function comMerito(Request $request)
+    {
+        return view('calls.comision_merito');
+    }
+
+    public function conocimiento()
+    {
+        return view('calls.comision_conocimiento');
     }
 }

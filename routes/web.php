@@ -17,10 +17,20 @@ Route::get('/', function () {
 Route::resource('registro_convocatoria', 'CallController@register');
 Route::resource('noregister', 'CallController@noregister');
 Route::resource('login', 'CallController@login');
-<<<<<<< HEAD
 Route::resource('unregistered', 'CallController@unregistered');
 Route::get('registro_usuario', 'CallController@registerUser');
-=======
-Route::resource('prueba', 'CallController@prueba');
+Route::get('registro_jefeDep', 'CallController@regJefDep');
+Route::get('registro_director', 'CallController@regDirector');
+Route::get('comision_merito', 'CallController@comMerito');
 
->>>>>>> master
+Route::get('comision_conocimiento', 'CallController@conocimiento');
+
+Route::get('/register', [
+    'as' => 'auth.register',
+    'uses' => 'Auth\RegisterController@showRegistrationForm'
+]);
+
+Route::post('/register_store', [
+    'as' => 'auth.register_store',
+    'uses' => 'Auth\RegisterController@storeRegistration'
+]);

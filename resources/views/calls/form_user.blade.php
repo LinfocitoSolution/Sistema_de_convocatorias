@@ -1,17 +1,25 @@
 <!doctype html>
+@extends('layouts.plantillaReg')
 <html>
 <head>
 <meta charset="utf-8">
 <title>Documento sin titulo</title>
 <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
 </head>
+<style>
+body{
+background-image: url('imagenes/celeste.jpg');
+}
+</style>
 
 <body>
+
+
 <div class="container">
 	<div class="d-flex justify-content-center h-100">
 		<div class="card">
 			<div class="card-header">
-				<h3>RegistroUsuario</h3>
+				<h3>Registro Postulante</h3>
 				<div class="d-flex justify-content-end social_icon">
 					<span><i class="fab fa-facebook-square"></i></span>
 					<span><i class="fab fa-google-plus-square"></i></span>
@@ -20,7 +28,7 @@
 			</div>
 			<div class="card-body">
 				<form method="post" action="">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
-                @csrf
+            
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -63,5 +71,6 @@
 		</div>
 	</div>
 </div>
+ 
 </body>
 </html>
