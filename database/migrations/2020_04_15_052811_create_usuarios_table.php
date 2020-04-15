@@ -15,12 +15,9 @@ class CreateUsuariosTable extends Migration
     {
         Schema::create('usuarios', function (Blueprint $table) {
             $table->increments('id');
-<<<<<<< Updated upstream
-=======
             $table->string('NombreUsuario');
             $table->string('password');
             
->>>>>>> Stashed changes
             $table->timestamps();
         });
     }
