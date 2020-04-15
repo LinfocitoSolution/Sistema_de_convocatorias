@@ -15,4 +15,9 @@ class LoginController extends Controller
     {
         
     }
+    public function login()
+    {
+        $articulos=App\usuarios::where("NombreUsuario","NombreUsuario"/*variable de form*/ );
+        return $articulos;
+    }
 }
