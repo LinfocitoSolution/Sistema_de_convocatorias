@@ -34,11 +34,7 @@ class usuarioController extends Controller
      */
     public function store(Request $request)
     {
-<<<<<<< Updated upstream
         //
-=======
-        
->>>>>>> Stashed changes
     }
 
     /**

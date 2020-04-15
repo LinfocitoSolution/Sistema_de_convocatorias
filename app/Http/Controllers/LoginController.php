@@ -17,7 +17,11 @@ class LoginController extends Controller
     }
     public function login()
     {
+<<<<<<< Updated upstream
         $articulos=App\usuarios::where("NombreUsuario","NombreUsuario"/*variable de form*/ );
         return $articulos;
+=======
+        
+>>>>>>> Stashed changes
     }
 }
