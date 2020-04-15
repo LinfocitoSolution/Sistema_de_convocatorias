@@ -34,7 +34,11 @@ class usuarioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $usuario = new Usuario();
+        $usuario->nombre_usuario = $request->input('nombre');
+        $usu
+        $trainer->save();
+        return 'Saved';
     }
 
     /**
