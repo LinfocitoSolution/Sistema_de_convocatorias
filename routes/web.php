@@ -18,7 +18,7 @@ Route::resource('registro_convocatoria', 'CallController@register');
 Route::resource('noregister', 'CallController@noregister');
 Route::resource('login', 'CallController@login');
 Route::resource('unregistered', 'CallController@unregistered');
-Route::get('registro_usuario', 'CallController@registerUser');
+Route::get('postulante', 'CallController@postulante');
 Route::get('registro_jefeDep', 'CallController@regJefDep');
 Route::get('registro_director', 'CallController@regDirector');
 Route::get('comision_merito', 'CallController@comMerito');
@@ -34,3 +34,6 @@ Route::post('/register_store', [
     'as' => 'auth.register_store',
     'uses' => 'Auth\RegisterController@storeRegistration'
 ]);
+Route::get('secretaria', 'CallController@secretaria');
+Route::get('plantilla', 'CallController@plantilla');
+Route::resource('log', 'CallController@log');

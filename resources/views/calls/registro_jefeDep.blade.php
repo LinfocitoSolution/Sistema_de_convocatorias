@@ -8,7 +8,7 @@
 </head>
 <style>
 body{
-background-image: url('imagenes/celeste.jpg');
+background-image: url('imagenes/ligthblue.jpg');
 }
 </style>
 

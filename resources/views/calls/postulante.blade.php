@@ -8,7 +8,7 @@
 </head>
 <style>
 body{
-background-image: url('imagenes/celeste.jpg');
+background-image: url('imagenes/ligthblue.jpg');
 }
 </style>
 
@@ -56,7 +56,7 @@ background-image: url('imagenes/celeste.jpg');
 						</div>
 						<input type="password" class="form-control" placeholder="confirmPassword" name="confirmpassword">
 					</div>
-                   
+                   <h1 class="m-5">
 					
 					<div class="form-group">
 						<input type="submit" value="Register" class="btn float-right login_btn">

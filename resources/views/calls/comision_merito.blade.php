@@ -8,7 +8,7 @@
 </head>
 <style>
 body{
-background-image: url('imagenes/celeste.jpg');
+background-image: url('imagenes/ligthblue.jpg');
 }
 </style>
 
@@ -43,6 +43,7 @@ background-image: url('imagenes/celeste.jpg');
 						<input type="text" class="form-control" placeholder="apellidos" name="apellidos">
 						  
 					</div>
+					
 
                     <div class="input-group form-group">
 						<div class="input-group-prepend">

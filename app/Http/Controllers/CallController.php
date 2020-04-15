@@ -101,9 +101,9 @@ class CallController extends Controller
     {
         //
     }
-    public function registerUser(Request $request)
+    public function postulante(Request $request)
     {
-        return view('calls.form_user');
+        return view('calls.postulante');
     }
 
 
@@ -126,4 +126,18 @@ class CallController extends Controller
     {
         return view('calls.comision_conocimiento');
     }
+
+    public function secretaria()
+    {
+        return view('calls.secretaria');
+    }
+    public function plantilla()
+    {
+        return view('layouts.plantilla');
+    }
+    public function log()
+    {
+        return view('calls.log');
+    }
+
 }
