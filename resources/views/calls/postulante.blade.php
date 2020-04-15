@@ -33,10 +33,48 @@ background-image: url('imagenes/ligthblue.jpg');
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-						<input type="text" class="form-control" placeholder="username" name="username">
+						<input type="text" class="form-control" placeholder="Nombre" name="Nombre">
 						  
 					</div>
-                    <div class="input-group form-group">
+                    
+					
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-user"></i></span>
+						</div>
+						<input type="text" class="form-control" placeholder="Apellidos" name="Apellidos">
+						  
+					</div>
+
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-user"></i></span>
+						</div>
+						<input type="text" class="form-control" placeholder="C.I" name="C.I">
+						  
+					</div>
+                    
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-user"></i></span>
+						</div>
+						<input type="text" class="form-control" placeholder="Fecha_Nacimiento" name="Fecha_Nacimiento">
+						  
+					</div>
+
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-user"></i></span>
+						</div>
+						<input type="text" class="form-control" placeholder="Carrera" name="Carrera">
+						  
+					</div>
+                    
+					
+                    
+					
+                    
+					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
@@ -48,7 +86,7 @@ background-image: url('imagenes/ligthblue.jpg');
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-						<input type="password" class="form-control" placeholder="password">
+						<input type="Contraseña" class="form-control" placeholder="Contraseña">
 					</div>
                     <div class="input-group form-group">
 						<div class="input-group-prepend">
