@@ -15,9 +15,24 @@ class CallController extends Controller
      {
         return view("calls.login");
      }
+     public function save(Request $request)
+    {
+ 
+       //obtenemos el campo file definido en el formulario
+       $file = $request->file('file');
+ 
+       //obtenemos el nombre del archivo
+       $nombre = $file->getClientOriginalName();
+ 
+       //indicamos que queremos guardar un nuevo archivo en el disco local
+       \Storage::disk('local')->put($nombre,  \File::get($file));
+ 
+       return "archivo guardado";
+    }
      public function register()
      {
-        return view("calls.register");
+        return \View::make('calls.register');
+        //return view("calls.register");
      }
  
      public function noregister()
@@ -56,7 +71,13 @@ class CallController extends Controller
      */
     public function store(Request $request)
     {
-        return $request->textarea('description','docs');
+        //return $request->textarea('description','docs');
+        $convocatoria = new Convocatoria();
+        $convocatoria->$request->input('titulo_convocatoria');
+        $convocatoria->save();
+
+        return 'Saved';
+        //return $request->
     }
 
     /**

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-@extends("layouts.plantilla")
+
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -62,12 +62,41 @@
                         <textarea class="form-control" id="docs" rows="3"></textarea>
                         <label for="">Formato de entrega</label>
                         <textarea class="form-control" id="format" rows="3"></textarea>                        
+
                 </div>
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                      <div class="panel panel-default">
+                        <div class="panel-heading">Agregar archivos</div>
+                          <div class="panel-body">
+                            <form method="POST" action="http://127.0.0.1:8000/pruebaCorrecta/public/storage/" accept-charset="UTF-8" enctype="multipart/form-data">
+                              
+                              <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                              
+                              <div class="form-group">
+                                <label class="col-md-4 control-label">Nuevo Archivo</label>
+                                <div class="col-md-6">
+                                  <input type="file" class="form-control" name="file" >
+                                </div>
+                              </div>
+                   
+                              <div class="form-group">
+                                    <div class="col-md-6 col-md-offset-4">
+                                         <button type="submit" class="btn btn-primary">Enviar</button>
+                                    </div>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                                         
             </div>
            
             <button onclick="saveToPDF();">DscargarPDF</button>
-            <button onclick="getHTML();">DscargarHTML</button>       
+            <button onclick="getHTML();">DscargarHTML</button>  
+           
+
       </form>
     </body>
     @section("pie")
