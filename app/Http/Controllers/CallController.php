@@ -54,7 +54,13 @@ class CallController extends Controller
      */
     public function store(Request $request)
     {
-        return $request->textarea('description','docs');
+        //return $request->textarea('description','docs');
+        $convocatoria = new Convocatoria();
+        $convocatoria->$request->input('titulo_convocatoria');
+        $convocatoria->save();
+
+        return 'Saved';
+        //return $request->
     }
 
     /**
