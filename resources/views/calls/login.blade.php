@@ -1,7 +1,7 @@
 <!doctype html>
 @extends("layouts.plantilla")
 <html>
-
+{{ csrf_field() }}
 	<head>
 		<meta charset="utf-8">
 		<title>Documento sin titulo</title>

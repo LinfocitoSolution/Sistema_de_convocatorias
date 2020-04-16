@@ -12,41 +12,24 @@ class CallController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function login()
-     {
-        return view("calls.login");
-     }
-     public function save(Request $request)
     {
- 
-       //obtenemos el campo file definido en el formulario
-       $file = $request->file('file');
- 
-       //obtenemos el nombre del archivo
-       $nombre = $file->getClientOriginalName();
- 
-       //indicamos que queremos guardar un nuevo archivo en el disco local
-       \Storage::disk('local')->put($nombre,  \File::get($file));
- 
-       return "archivo guardado";
+        return view("calls.login");
     }
-     public function register()
-     {
-        return \View::make('calls.register');
-        //return view("calls.register");
-     }
- 
+    public function register()
+    {
+        return view("calls.register");
+    }
      public function noregister()
-     {
+    {
         return view("calls.noregister");
-     }
-     
-     public function index()
+    }
+    public function unregistered()
+    {
+        return view("calls.unregistered");
+    }
+    public function index()
     {
         return 'Hello there';
-    }
-    public function ejemplo()
-    {
-        return view("calls.ejemplo");
     }
     public function formulariopost()
     {
@@ -124,4 +107,43 @@ class CallController extends Controller
     {
         //
     }
+    public function postulante(Request $request)
+    {
+        return view('calls.postulante');
+    }
+
+
+    public function regJefDep(Request $request)
+    {
+        return view('calls.registro_jefeDep');
+    }
+
+    public function regDirector(Request $request)
+    {
+        return view('calls.registro_director');
+    }
+
+    public function comMerito(Request $request)
+    {
+        return view('calls.comision_merito');
+    }
+
+    public function conocimiento()
+    {
+        return view('calls.comision_conocimiento');
+    }
+
+    public function secretaria()
+    {
+        return view('calls.secretaria');
+    }
+    public function plantilla()
+    {
+        return view('layouts.plantilla');
+    }
+    public function log()
+    {
+        return view('calls.log');
+    }
+
 }
