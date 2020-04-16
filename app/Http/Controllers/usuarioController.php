@@ -41,8 +41,7 @@ class usuarioController extends Controller
         $usuario->password = $request->input('password');
         $usuario->save();
         return 'Saved';*/
-        return $request->all();
-        
+        return $request->all();   
     }
 
     /**

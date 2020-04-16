@@ -27,50 +27,66 @@ background-image: url('imagenes/ligthblue.jpg');
 				</div>
 			</div>
 			<div class="card-body">
-		
-				<form class="form-group" method="POST" action="/users">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
-					{{ csrf_field() }}
+				<form method="post" action="">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+            
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-						<input type="text" class="form-control" placeholder="Nombre" name="Nombre"> 
+						<input type="text" class="form-control" placeholder="Nombre" name="Nombre">
+						  
 					</div>
+                    
+					
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
 						<input type="text" class="form-control" placeholder="Apellidos" name="Apellidos">
+						  
 					</div>
+
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-						<input type="text" class="form-control" placeholder="C.I" name="Ci">
+						<input type="text" class="form-control" placeholder="C.I" name="C.I">
+						  
 					</div>
+                    
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-						<input type="text" class="form-control" placeholder="Fecha_Nacimiento" name="Fecha_nacimiento">
+						<input type="text" class="form-control" placeholder="Fecha_Nacimiento" name="Fecha_Nacimiento">
+						  
 					</div>
+
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
 						<input type="text" class="form-control" placeholder="Carrera" name="Carrera">
+						  
 					</div>
+                    
+					
+                    
+					
+                    
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-						<input type="text" class="form-control" placeholder="email" name="Email">
+						<input type="text" class="form-control" placeholder="email" name="email">
+						  
 					</div>
+                    
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-						<input type="password" class="form-control" placeholder="Password">
+						<input type="Contraseña" class="form-control" placeholder="Contraseña">
 					</div>
                     <div class="input-group form-group">
 						<div class="input-group-prepend">
@@ -78,13 +94,12 @@ background-image: url('imagenes/ligthblue.jpg');
 						</div>
 						<input type="password" class="form-control" placeholder="confirmPassword" name="confirmpassword">
 					</div>
-						
-					<button type="submit" class="btn btn-primary"> Registrar </button>
-					{{-- float-right login_btn --}}
+                   <h1 class="m-5">
 					
-
+					<div class="form-group">
+						<input type="submit" value="Register" class="btn float-right login_btn">
+					</div>
 				</form>
-		
 			</div>
 			<div class="card-footer">
 				<div class="d-flex justify-content-center links">
@@ -92,10 +107,8 @@ background-image: url('imagenes/ligthblue.jpg');
 				</div>
 			</div>
 		</div>
-	
 	</div>
 </div>
-
  
 </body>
 </html>
