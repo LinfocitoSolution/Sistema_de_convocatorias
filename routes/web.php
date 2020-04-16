@@ -15,11 +15,14 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::post('registro_convocatoria', 'CallController@register');
+Route::resource('registro_convocatoria', 'CallController@register');
 Route::resource('noregister', 'CallController@noregister');
 Route::resource('login', 'CallController@login');
 Route::resource('unregistered', 'CallController@unregistered');
-Route::get('postulante', 'CallController@postulante');
+
+//users/create
+Route::resource('users', 'usuarioController');
+
 Route::get('registro_jefeDep', 'CallController@regJefDep');
 Route::get('registro_director', 'CallController@regDirector');
 Route::get('comision_merito', 'CallController@comMerito');
