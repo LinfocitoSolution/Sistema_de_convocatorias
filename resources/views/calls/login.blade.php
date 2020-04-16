@@ -57,7 +57,7 @@
 					</div>-->
 					<br>
 					<div class="form-group" >
-					<button class="btn btn-outline-primary mr-sm-2" type="menu">INGRESAR</button>
+					<button class="btn btn-outline-primary mr-sm-2" type="submit">INGRESAR</button>
 					</div>
 				</form>
 			</div>
