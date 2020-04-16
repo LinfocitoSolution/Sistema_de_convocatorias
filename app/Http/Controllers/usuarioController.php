@@ -36,13 +36,12 @@ class usuarioController extends Controller
      */
     public function store(Request $request)
     {
-        /*$usuario = new Usuario();
+        $usuario = new Usuario();
         $usuario->nombre_usuario = $request->input('nombre');
         $usuario->password = $request->input('password');
         $usuario->save();
-        return 'Saved';*/
-        return $request->all();
-        
+        return 'Saved';
+        //return $request->all();   
     }
 
     /**

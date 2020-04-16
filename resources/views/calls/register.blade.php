@@ -20,9 +20,8 @@
                 doc.save('html.pdf');
             }
         </script>
-
-                <div class="container">
-                    <div class="form-group">
+                    <form class="form-group" method="post" action="">
+                        {{ csrf_field() }}
                             <label for="descriptionFormTextarea">Descripción</label>
                             <textarea class="form-control" id="description" rows="3"></textarea>
                             <label for="requirementsFormTextarea">Requisitos</label>
@@ -31,8 +30,7 @@
                             <textarea class="form-control" id="docs" rows="3"></textarea>
                             <label for="formatFormTextarea">Formato de entrega</label>
                             <textarea class="form-control" id="format" rows="3"></textarea>
-                    </div>
-                </div>
+                    </form>
                     
                 <button onclick="saveToPDF();">DscargarPDF</button>
                 <button onclick="getHTML();">DscargarHTML</button>  

@@ -29,7 +29,7 @@ background-image: url('imagenes/ligthblue.jpg');
 			<div class="card-body">
 		
 				<form class="form-group" method="POST" action="/users">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
-				 @csrf
+					{{ csrf_field() }}
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
