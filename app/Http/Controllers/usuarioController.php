@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
+use App\Usuario;
 
 class usuarioController extends Controller
 {
@@ -23,7 +25,7 @@ class usuarioController extends Controller
      */
     public function create()
     {
-        //
+        return view('users.postulante');
     }
 
     /**
@@ -34,7 +36,13 @@ class usuarioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        /*$usuario = new Usuario();
+        $usuario->nombre_usuario = $request->input('nombre');
+        $usuario->password = $request->input('password');
+        $usuario->save();
+        return 'Saved';*/
+        return $request->all();
+        
     }
 
     /**

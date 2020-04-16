@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+
 class LoginController extends Controller
 {
     
@@ -11,17 +12,5 @@ class LoginController extends Controller
     {
        return view("calls.register");
     }
-    public function store()
-    {
-        
-    }
-    public function login()
-    {
-<<<<<<< Updated upstream
-        $articulos=App\usuarios::where("NombreUsuario","NombreUsuario"/*variable de form*/ );
-        return $articulos;
-=======
-        
->>>>>>> Stashed changes
-    }
+
 }

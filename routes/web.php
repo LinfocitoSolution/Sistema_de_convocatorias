@@ -18,33 +18,26 @@ Route::get('/', function () {
 Route::resource('registro_convocatoria', 'CallController@register');
 Route::resource('noregister', 'CallController@noregister');
 Route::resource('login', 'CallController@login');
-Route::resource('formulariopost', 'CallController@formulariopost');
-Route::get("/leer",function(){//ruta del modelo
-   /* $articulos=App\Articulo::all();//namespace del modelo, importante
-    foreach($articulos as $articulo)
-    {
-        echo "Nombre:  " .  $articulo->Nombre_Articulo . " <br> " . "precio: " . $articulo->Precio . "<br>";
-    }*/
-    $articulos=App\Articulo::where("Seccion","Ceramica")->min("precio");
-    return $articulos;
-});
-Route::get("/insertar",function(){//ruta del modelo
-    $articulos=new App\Articulo;
-    $articulos->Nombre_Articulo="pantalones";
-    $articulos->Precio="60";
-    $articulos->Pais_origen="bolivia";
-    $articulos->observaciones="lijado con lija";
-    $articulos->seccion="confeccion";
-   
-    $articulos->save();
- });
- Route::get("/actualizar",function(){//ruta del modelo
-    $articulos=App\Articulo::find(1240);
-    $articulos->Nombre_Articulo="pantalones";
-    $articulos->Precio="90";
-    $articulos->Pais_origen="bolivia";
-    $articulos->observaciones="lijado con lija";
-    $articulos->seccion="confeccion";
-   
-    $articulos->save();
- });
+Route::resource('unregistered', 'CallController@unregistered');
+
+//users/create
+Route::resource('users', 'usuarioController');
+
+Route::get('registro_jefeDep', 'CallController@regJefDep');
+Route::get('registro_director', 'CallController@regDirector');
+Route::get('comision_merito', 'CallController@comMerito');
+
+Route::get('comision_conocimiento', 'CallController@conocimiento');
+
+Route::get('/register', [
+    'as' => 'auth.register',
+    'uses' => 'Auth\RegisterController@showRegistrationForm'
+]);
+
+Route::post('/register_store', [
+    'as' => 'auth.register_store',
+    'uses' => 'Auth\RegisterController@storeRegistration'
+]);
+Route::get('secretaria', 'CallController@secretaria');
+Route::get('plantilla', 'CallController@plantilla');
+Route::resource('log', 'CallController@log');
