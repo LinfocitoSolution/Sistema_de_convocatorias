@@ -11,10 +11,14 @@ class CallController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function login()
-    {
-        return view("calls.login");
-    }
+    public function docencia()
+     {
+        return view("calls.docencia");
+     }
+     public function login()
+     {
+        return view("logins.login");
+     }
     public function register()
     {
         return view("calls.register");
@@ -30,6 +34,14 @@ class CallController extends Controller
     public function formulariopost()
     {
         return view("calls.formulariopost");
+    }
+    public function convocatorias()
+    {
+        return view("calls.convocatorias");
+    }
+    public function calendario()
+    {
+        return view("calls.calendario");
     }
 
     /**
