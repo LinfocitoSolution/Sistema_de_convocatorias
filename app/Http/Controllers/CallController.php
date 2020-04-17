@@ -13,7 +13,7 @@ class CallController extends Controller
      */
     public function login()
     {
-        return view("calls.login");
+        return view("logins.login");
     }
     public function register()
     {
