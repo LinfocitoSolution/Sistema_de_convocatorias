@@ -20,7 +20,6 @@
         margin:7px 2px;
         margin-bottom:0px;
         border-color:white;
-    
     }
     section{
         background:lightblue;
@@ -31,9 +30,6 @@
         margin-top:1px;
         margin:2px
         /*position:relative;*/
-    }
-    .login{
-        margin-top:1px;
     }
     footer{
         border:0px solid;

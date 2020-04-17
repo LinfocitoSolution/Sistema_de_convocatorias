@@ -37,11 +37,11 @@
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="{{ asset('imagenes/web.JPG') }}" class="d-block w-100" alt="web" width="1000" height="600">
+      <img src="{{ asset('imagenes/aula.JPG') }}"  class="d-block w-100" alt="web" width="1000" height="600">
           <div class="carousel-caption" >
-            <div class="text-dark">
-             <h2>CONVOCATORIA A AUXILIATURAS EN LABORATORIO DE COMPUTACION,<br>
-                                DE MANTENIMIENTO Y DESARROLLO</h2>
+            <div class="text-white">
+             <h1>CONVOCATORIA A AUXILIATURAS EN LABORATORIO DE COMPUTACION,<br>
+                                DE MANTENIMIENTO Y DESARROLLO</h1>
             </div>
            </div>
     </div>
@@ -54,7 +54,12 @@
          </div>
     </div>
     <div class="carousel-item">
-      <img src="{{ asset('imagenes/lenguaje.JPG') }}" class="d-block w-100" alt="lenguaje" width="1000" height="600">
+      <img src="{{ asset('imagenes/archivos.JPG') }}" class="d-block w-100" alt="lenguaje" width="1000" height="600">
+        <div class="carousel-caption">
+           <div class="text-dark">
+             <h1>CONVOCATORIA A LA SECCION DE ARCHIVOS</h1>
+           </div>
+        </div>
     </div>
     <div class="carousel-item">
       <img src="{{ asset('imagenes/programacion.JPG') }}" class="d-block w-100" alt="prog" width="1000" height="600">
