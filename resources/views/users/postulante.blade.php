@@ -40,7 +40,7 @@ background-image: url('imagenes/ligthblue.jpg');
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-						<input type="text" class="form-control" placeholder="Apellidos" name="Apellidos">
+						<input type="text" class="form-control" placeholder="Apellidos" name="Apellido">
 					</div>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
@@ -70,7 +70,7 @@ background-image: url('imagenes/ligthblue.jpg');
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-						<input type="password" class="form-control" placeholder="Password">
+						<input type="password" class="form-control" placeholder="Password" name="Password">
 					</div>
                     <div class="input-group form-group">
 						<div class="input-group-prepend">
@@ -80,8 +80,6 @@ background-image: url('imagenes/ligthblue.jpg');
 					</div>
 						
 					<button type="submit" class="btn btn-primary"> Registrar </button>
-					{{-- float-right login_btn --}}
-					
 
 				</form>
 		

@@ -36,12 +36,17 @@ class usuarioController extends Controller
      */
     public function store(Request $request)
     {
-        /*$usuario = new Usuario();
-        $usuario->nombre_usuario = $request->input('nombre');
-        $usuario->password = $request->input('password');
+        $usuario = new Usuario();
+        $usuario->nombre = $request->input('Nombre');
+        $usuario->apellido = $request->input('Apellido');
+        //$usuario->cedula = $request->input('Ci');
+        //$usuario->fechaNac = $request->input('Fecha_nacimiento');
+        $usuario->carrera = $request->input('Carrera');
+        $usuario->email = $request->input('Email');
+        $usuario->password = $request->input('Password');
         $usuario->save();
-        return 'Saved';*/
-        return $request->all();   
+        return 'Saved';
+       // return $request->all();   
     }
 
     /**

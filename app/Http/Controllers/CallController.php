@@ -23,10 +23,6 @@ class CallController extends Controller
     {
         return view("calls.noregister");
     }
-    public function unregistered()
-    {
-        return view("calls.unregistered");
-    }
     public function index()
     {
         return 'Hello there';
