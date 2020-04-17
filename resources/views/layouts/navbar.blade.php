@@ -28,7 +28,7 @@
     </ul>
   <form class="form-inline">
     
-    <a class="btn btn-outline-success  text-white my-2 my-sm-0" type="submit" href="{{url('showlogin')}}">Iniciar Sesion</a>
+    <a class="btn btn-outline-success  text-white my-2 my-sm-0" type="submit" href="{{url('login')}}">Iniciar Sesion</a>
   </form>
   </div>
 </nav>

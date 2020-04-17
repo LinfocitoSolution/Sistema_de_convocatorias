@@ -15,12 +15,10 @@ class CallController extends Controller
      {
         return view("calls.docencia");
      }
-     public function register()
+     public function login()
      {
-    public function login()
-    {
-        return view("calls.login");
-    }
+        return view("logins.login");
+     }
     public function register()
     {
         return view("calls.register");
@@ -48,10 +46,6 @@ class CallController extends Controller
     public function calendario()
     {
         return view("calls.calendario");
-    }
-    public function showlogin()
-    {
-        return view("login.showlogin");
     }
 
     /**
