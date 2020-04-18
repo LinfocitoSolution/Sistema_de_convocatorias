@@ -4,14 +4,11 @@
 {{ csrf_field() }}
 	<head>
 		<meta charset="utf-8">
-		<title>Documento sin titulo</title>
+		<title>login</title>
 		<link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
 	</head>
 
-<meta charset="utf-8">
-<title>Login Postulantes</title>
-<link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
-</head>
+
 <style>
     .container{
 		margin-top:20px;
@@ -22,7 +19,7 @@
 </style>
 <body>
 @section("cabecera")
-<nav class="navbar navbar-expand-lg navbar-light bg-info">
+<nav class="navbar navbar-expand-lg navbar-light bg-info sticky-top">
   <a class="navbar-brand  text-white" href="{{url('noregister')}}" tabindex="-1" >Inicio</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
