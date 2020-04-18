@@ -117,7 +117,7 @@ class CallController extends Controller
     }
     public function postulante(Request $request)
     {
-        return view('calls.postulante');
+        return view('registro.postulante');
     }
 
 

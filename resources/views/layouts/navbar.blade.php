@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-info">
+<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-info">
   <a class="navbar-brand  text-white" href="{{url('noregister')}}" tabindex="-1" >Inicio</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -26,9 +26,8 @@
         </div>  
       </li>
     </ul>
-  <form class="form-inline">
-    
-    <a class="btn btn-outline-success  text-white my-2 my-sm-0" type="submit" href="{{url('login')}}">Iniciar Sesion</a>
-  </form>
+      <form class="form-inline">
+         <a class="btn btn-outline-success  text-white my-2 my-sm-0" type="submit" href="{{url('login')}}">Iniciar Sesion</a>
+      </form>
   </div>
 </nav>

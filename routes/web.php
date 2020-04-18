@@ -18,7 +18,7 @@ Route::get('/', function () {
 Route::resource('registro_convocatoria', 'CallController@register');
 Route::resource('noregister', 'CallController@noregister');
 Route::resource('login', 'CallController@login');
-Route::resource('unregistered', 'CallController@unregistered');
+Route::resource('postulante', 'CallController@postulante');
 
 //users/create
 Route::resource('users', 'usuarioController');
