@@ -15,11 +15,23 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::resource('registro_convocatoria', 'CallController@register');
+
 Route::resource('noregister', 'CallController@noregister');
 Route::resource('login', 'CallController@login');
 Route::resource('unregistered', 'CallController@unregistered');
 
+//call/create
+Route::resource('call', 'CallController');
+//Para ver las convocatorias, aún no funciona xD
+Route::get('call/{archivo}', function ($archivo) {
+     $public_path = public_path();
+     $url = $public_path.'/convocatorias/'.$archivo;
+     if (Storage::exists($archivo))
+     {
+       return response()->download($url);
+     }
+     abort(404);
+});
 //users/create
 Route::resource('users', 'usuarioController');
 
