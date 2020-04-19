@@ -22,15 +22,13 @@ Route::resource('unregistered', 'CallController@unregistered');
 
 //call/create
 Route::resource('call', 'CallController');
-//Para ver las convocatorias, aún no funciona xD
-Route::get('call/{archivo}', function ($archivo) {
-     $public_path = public_path();
-     $url = $public_path.'/convocatorias/'.$archivo;
-     if (Storage::exists($archivo))
-     {
-       return response()->download($url);
-     }
-     abort(404);
+//Para descargar las convocatorias
+Route::get('calls/{file_name}', function ($file_name) {
+        $file_path = public_path('convocatorias/'.$file_name);
+        //echo (substr($file_name,10,strlen($file_name)-10));
+        return response()->download($file_path);//cambiando 'download' por 'file' hacemos que solo se abra el archivo y no se descargue
+    
+     //abort(404);
 });
 //users/create
 Route::resource('users', 'usuarioController');
