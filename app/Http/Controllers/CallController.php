@@ -105,23 +105,23 @@ class CallController extends Controller
     }
     public function postulante(Request $request)
     {
-        return view('calls.postulante');
+        return view('users.postulante');
     }
 
 
     public function regJefDep(Request $request)
     {
-        return view('calls.registro_jefeDep');
+        return view('users.registro_jefeDep');
     }
 
     public function regDirector(Request $request)
     {
-        return view('calls.registro_director');
+        return view('users.registro_director');
     }
 
     public function comMerito(Request $request)
     {
-        return view('calls.comision_merito');
+        return view('users.comision_merito');
     }
 
     public function conocimiento()
@@ -131,15 +131,11 @@ class CallController extends Controller
 
     public function secretaria()
     {
-        return view('calls.secretaria');
+        return view('users.secretaria');
     }
     public function plantilla()
     {
         return view('layouts.plantilla');
     }
-    public function log()
-    {
-        return view('calls.log');
-    }
-
+   
 }

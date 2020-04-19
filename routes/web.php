@@ -41,3 +41,4 @@ Route::post('/register_store', [
 Route::get('secretaria', 'CallController@secretaria');
 Route::get('plantilla', 'CallController@plantilla');
 Route::resource('log', 'CallController@log');
+Route::resource('postulante', 'CallController@postulante');

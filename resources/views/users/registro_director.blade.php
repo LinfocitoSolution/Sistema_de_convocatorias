@@ -1,5 +1,5 @@
 <!doctype html>
-@extends('layouts.plantillaReg')
+@extends('layouts.footer')
 <html>
 <head>
 <meta charset="utf-8">
