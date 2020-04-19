@@ -1,19 +1,27 @@
 <!doctype html>
-@extends('layouts.plantillaReg')
+@extends('registro.plantillapost')
 <html>
 <head>
 <meta charset="utf-8">
-<title>Documento sin titulo</title>
+<title>postulante</title>
 <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
 </head>
 <style>
-body{
-background-image: url('imagenes/ligthblue.jpg');
+.container{
+    margin-top:30px;
 }
 </style>
 
 <body>
-
+@section("cabecera")
+<nav class="navbar navbar-expand-lg navbar-light bg-info sticky-top">
+  <a class="navbar-brand  text-white" href="{{url('noregister')}}" tabindex="-1" >Inicio</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+</nav>
+@endsection
+@section("infoGeneral")
 
 <div class="container">
 	<div class="d-flex justify-content-center h-100">
@@ -70,11 +78,7 @@ background-image: url('imagenes/ligthblue.jpg');
 						  
 					</div>
                     
-					
-                    
-					
-                    
-					<div class="input-group form-group">
+			       <div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
@@ -94,10 +98,9 @@ background-image: url('imagenes/ligthblue.jpg');
 						</div>
 						<input type="password" class="form-control" placeholder="confirmPassword" name="confirmpassword">
 					</div>
-                   <h1 class="m-5">
 					
 					<div class="form-group">
-						<input type="submit" value="Register" class="btn float-right login_btn">
+					<a href="#" class="btn btn-primary">Registrar</a>
 					</div>
 				</form>
 			</div>
@@ -109,6 +112,8 @@ background-image: url('imagenes/ligthblue.jpg');
 		</div>
 	</div>
 </div>
- 
+@endsection
 </body>
+@section("pie")
+    @endsection
 </html>
