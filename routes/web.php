@@ -39,6 +39,9 @@ Route::post('/register_store', [
     'uses' => 'Auth\RegisterController@storeRegistration'
 ]);
 Route::post('/verificar','LoginController@LoginUsuario');
+Route::get('logout', 'LoginController@logout');
+
+
 Route::get('secretaria', 'CallController@secretaria');
 Route::get('plantilla', 'CallController@plantilla');
 Route::resource('log', 'CallController@log');

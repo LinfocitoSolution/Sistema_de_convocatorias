@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Validator,Redirect,Response;
 use App\Usuario;
-use \Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Session;
 
 
 class LoginController extends Controller
@@ -30,13 +32,34 @@ class LoginController extends Controller
         
         if(Auth::attempt(array('NombreUsuario'=>$NombreUsuario, 'password'=>$password)))
         {
-            return "funciona";
+            //return "funciona :v";
+            return redirect()->intended('noregister');
         }
         else 
         {
-            return 'tmr sigue sin funcionar ;v' . "n" . $NombreUsuario . "p" . $password;
+            
+            return Redirect::to("login")->withSuccess('nel mijo tienes que registrarte');
+            //return 'tmr sigue sin funcionar ;v' . "n" . $NombreUsuario . "p" . $password;
         }
     }
+    public function dashboard()
+    {
+        if(Auth::check())
+        {
+            return view("/noregister");
+        }
+        else 
+        {
+            Redirect::to("/login")->withSuccess('nel mijo no pasaste el check');
+        }
+    }
+    public function logout()
+    {
+        Session::flush();
+        Auth::logout();
+        return Redirect('login');
+    }
+
 
 
    
