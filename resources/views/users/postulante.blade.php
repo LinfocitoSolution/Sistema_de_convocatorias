@@ -1,9 +1,9 @@
 <!doctype html>
-@extends('registro.plantillapost')
+@extends('layouts.plantillapost')
 <html>
 <head>
 <meta charset="utf-8">
-<title>Registrar Postulante</title>
+<title>postulante</title>
 <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
 </head>
 <style>
