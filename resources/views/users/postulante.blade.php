@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>postulante</title>
+<title>Registrar Postulante</title>
 <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
 </head>
 <style>

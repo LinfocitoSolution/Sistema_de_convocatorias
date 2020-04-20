@@ -15,7 +15,9 @@ class usuarioController extends Controller
      */
     public function index()
     {
-        //
+        //la vista index mostrará el listado de postulantes registrados
+        $postulantes = Usuario::all();
+        return view('users.index', compact('postulantes')); //compact genera un array de postulantes
     }
 
     /**
@@ -36,6 +38,7 @@ class usuarioController extends Controller
      */
     public function store(Request $request)
     {
+        
         $usuario = new Usuario();
         $usuario->nombre = $request->input('Nombre');
         $usuario->apellido = $request->input('Apellido');
