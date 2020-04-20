@@ -20,4 +20,7 @@ class Usuario extends Model implements AuthenticatableContract
         "NombreUsuario",
         "password",
     ];
+    public function setPasswordAttribute($value) {
+        $this->attributes['password'] = bcrypt($value);
+    }
 }
