@@ -37,8 +37,8 @@ Route::get('calls/{file_name}', function ($file_name) {
 //users/create
 Route::resource('users', 'usuarioController');
 
-Route::get('registro_jefeDep', 'CallController@regJefDep');
-Route::get('registro_director', 'CallController@regDirector');
+Route::get('jefeDep', 'CallController@regJefDep');
+Route::get('director', 'CallController@regdirector');
 Route::get('comision_merito', 'CallController@comMerito');
 
 Route::get('comision_conocimiento', 'CallController@conocimiento');
@@ -58,4 +58,4 @@ Route::post('/register_store', [
 Route::get('secretaria', 'CallController@secretaria');
 Route::get('plantilla', 'CallController@plantilla');
 Route::resource('log', 'CallController@log');
-//Route::get('/login', 'LoginController@showLoginForm');
+Route::resource('postulante', 'CallController@postulante');
