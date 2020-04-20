@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title></title>
+<script> 
+function salvar(t){ 
+            window.location='data:application/octet-stream;base64,'+btoa(t); 
+} 
+
+</script> 
+</head> 
+
+<body> 
+<form id="form1" name="form1"> 
+  <textarea name="textarea" cols="80" rows="5" id="textarea"></textarea> 
+  <input onclick="salvar(textarea.value)" type="button" name="Submit" 
+    value="descargar como txt" id="Submit" /> 
+</form> 
+
+</body> 
+</html>
+
+
+

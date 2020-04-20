@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Convocatoria;
 
 class CallController extends Controller
 {
@@ -19,10 +20,7 @@ class CallController extends Controller
      {
         return view("logins.login");
      }
-    public function register()
-    {
-        return view("calls.register");
-    }
+    
      public function noregister()
     {
         return view("calls.noregister");
@@ -51,7 +49,7 @@ class CallController extends Controller
      */
     public function create()
     {
-        //return view('calls.register');
+        return view('calls.register');
     }
 
     /**
@@ -62,13 +60,26 @@ class CallController extends Controller
      */
     public function store(Request $request)
     {
-        //return $request->textarea('description','docs');
         $convocatoria = new Convocatoria();
-        $convocatoria->$request->input('titulo_convocatoria');
-        $convocatoria->save();
+        $convocatoria->titulo_convocatoria=$request->input('titulo');
 
-        return 'Saved';
-        //return $request->
+        if($request->hasFile('archivo')){
+            $file = $request->file('archivo');
+            $nombre = time().$file->getClientOriginalName();
+            //Se almacena en: C:\laragon\www\[nombreProyecto]\public\convocatorias
+            $file->move(public_path().'/convocatorias/', $nombre);
+            $convocatoria->pdf_file=$nombre;
+            $convocatoria->save();
+            return 'Saved';
+        }
+        else{
+            return 'Error';
+        }
+        
+       
+
+     
+        //return $request->all();  
     }
 
     /**
