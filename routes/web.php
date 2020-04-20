@@ -23,8 +23,8 @@ Route::resource('postulante', 'CallController@postulante');
 //users/create
 Route::resource('users', 'usuarioController');
 
-Route::get('registro_jefeDep', 'CallController@regJefDep');
-Route::get('registro_director', 'CallController@regDirector');
+Route::get('jefeDep', 'CallController@regJefDep');
+Route::get('director', 'CallController@regdirector');
 Route::get('comision_merito', 'CallController@comMerito');
 
 Route::get('comision_conocimiento', 'CallController@conocimiento');

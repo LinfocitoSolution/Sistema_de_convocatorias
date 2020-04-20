@@ -123,12 +123,12 @@ class CallController extends Controller
 
     public function regJefDep(Request $request)
     {
-        return view('users.registro_jefeDep');
+        return view('users.jefeDep');
     }
 
     public function regDirector(Request $request)
     {
-        return view('users.registro_director');
+        return view('users.director');
     }
 
     public function comMerito(Request $request)

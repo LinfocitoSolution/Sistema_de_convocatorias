@@ -1,21 +1,29 @@
 <!doctype html>
-@extends('layouts.footer')
+@extends('registro.plantillapost')
 <html>
 <head>
 <meta charset="utf-8">
-<title>Documento sin titulo</title>
+<title>postulante</title>
 <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
 </head>
 <style>
-body{
-background-image: url('imagenes/ligthblue.jpg');
+.container{
+    margin-top:30px;
 }
 </style>
 
 <body>
+@section("cabecera")
+<nav class="navbar navbar-expand-lg navbar-light bg-info sticky-top">
+  <a class="navbar-brand  text-white" href="{{url('noregister')}}" tabindex="-1" >Inicio</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+</nav>
+@endsection
+@section("infoGeneral")
 
- <div class="container">
- <h1 class="m-3"> </h1>
+<div class="container">
 	<div class="d-flex justify-content-center h-100">
 		<div class="card">
 			<div class="card-header">
@@ -28,67 +36,66 @@ background-image: url('imagenes/ligthblue.jpg');
 			</div>
 			<div class="card-body">
 				<form method="post" action="">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
-                
+            
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-						<input type="text" class="form-control" placeholder="nombre" name="nombre">
-						  
-					</div>
-
-                    <div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-user"></i></span>
-						</div>
-						<input type="text" class="form-control" placeholder="apellidos" name="apellidos">
-						  
-					</div>
-
-                    <div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-user"></i></span>
-						</div>
-						<input type="text" class="form-control" placeholder="usuario" name="usuario">
-						  
-					</div>
-
-
-                    <div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-user"></i></span>
-						</div>
-						<input type="text" class="form-control" placeholder="email" name="email">
+						<input type="text" class="form-control" placeholder="Nombres" name="Nombres">
 						  
 					</div>
                     
-					<div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-key"></i></span>
-						</div>
-						<input type="password" class="form-control" placeholder="password">
-					</div>
-                    <div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-key"></i></span>
-						</div>
-						<input type="password" class="form-control" placeholder="confirmPassword" name="confirmpassword">
-					</div>
-                   
 					
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-						<input type="text" class="form-control" placeholder="facultad" name="facultad">
+						<input type="text" class="form-control" placeholder="Apellidos" name="Apellidos">
+						  
+					</div>
+
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-user"></i></span>
+						</div>
+						<input type="text" class="form-control" placeholder="Correo" name="Correo">
+						  
+					</div>
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-user"></i></span>
+						</div>
+						<input type="text" class="form-control" placeholder="Facultad" name="Facultad">
 						  
 					</div>
                     
+					
+
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-user"></i></span>
+						</div>
+						<input type="text" class="form-control" placeholder="Usuario" name="Usuario">
+						  
+					</div>
                     
-				
+			       
                     
-                    <div class="form-group">
-						<input type="submit" value="Register" class="btn float-right login_btn">
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-key"></i></span>
+						</div>
+						<input type="Contraseña" class="form-control" placeholder="Contraseña">
+					</div>
+                    <div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-key"></i></span>
+						</div>
+						<input type="password" class="form-control" placeholder="confirmPaswoord" name="confirmPaswoord">
+					</div>
+					
+					<div class="form-group">
+					<a href="#" class="btn btn-primary">Registrar</a>
 					</div>
 				</form>
 			</div>
@@ -100,8 +107,8 @@ background-image: url('imagenes/ligthblue.jpg');
 		</div>
 	</div>
 </div>
+@endsection
 </body>
-</body>
-
-                   
+@section("pie")
+    @endsection
 </html>
