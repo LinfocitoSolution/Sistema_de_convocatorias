@@ -47,6 +47,7 @@ class usuarioController extends Controller
         $usuario->carrera = $request->input('Carrera');
         $usuario->email = $request->input('Email');
         $usuario->password = $request->input('Password');
+        $usuario->password = (bcrypt($usuario->password));
         $usuario->save();
         return 'Saved';
        // return $request->all();   
