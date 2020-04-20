@@ -16,8 +16,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('noregister', 'CallController@noregister');
+Route::resource('noregister', 'LoginController@noregister');
 Route::resource('login', 'CallController@login');
+Route::post('/verificar','LoginController@LoginUsuario');
+Route::get('logout', 'LoginController@logout');
+
+
 Route::resource('postulante', 'CallController@postulante');
 
 //call/create
@@ -48,8 +52,7 @@ Route::post('/register_store', [
     'as' => 'auth.register_store',
     'uses' => 'Auth\RegisterController@storeRegistration'
 ]);
-Route::post('/verificar','LoginController@LoginUsuario');
-Route::get('logout', 'LoginController@logout');
+
 
 
 Route::get('secretaria', 'CallController@secretaria');

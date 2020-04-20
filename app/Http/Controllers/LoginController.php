@@ -42,15 +42,15 @@ class LoginController extends Controller
             //return 'tmr sigue sin funcionar ;v' . "n" . $NombreUsuario . "p" . $password;
         }
     }
-    public function dashboard()
+    public function noregister()
     {
         if(Auth::check())
         {
-            return view("/noregister");
+            return view("calls.noregister");
         }
         else 
         {
-            Redirect::to("/login")->withSuccess('nel mijo no pasaste el check');
+            Redirect::to("login")->withSuccess('nel mijo no pasaste el check');
         }
     }
     public function logout()
