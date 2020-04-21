@@ -22,7 +22,7 @@
         border-color:white;
     }
     section{
-        background-image: url('imagenes/celeste.jpg');;
+        background-image: url('imagenes/celeste.jpg');
         border: 1px solid;
         border-color:lightblue;
         width:99,8%;
