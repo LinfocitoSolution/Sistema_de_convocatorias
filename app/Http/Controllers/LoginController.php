@@ -19,7 +19,7 @@ class LoginController extends Controller
     {
         return 'funciona';
     }*/
-    protected $guard='login';
+    //protected $guard='login';
     public function loginUsername()
  {
      return 'NombreUsuario';
@@ -44,7 +44,7 @@ class LoginController extends Controller
     }
     public function noregister()
     {
-        if(Auth::check())
+        /*if(Auth::check())
         {
             $user=Auth::user();
             if($user->esRol())
@@ -62,7 +62,8 @@ class LoginController extends Controller
         else 
         {
             Redirect::to("login")->withSuccess('nel mijo no pasaste el check');
-        }
+        }*/
+        return view("calls.noregister");
         
     }
     public function logout()
