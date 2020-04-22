@@ -20,4 +20,18 @@ class Usuario extends Model implements AuthenticatableContract
         "NombreUsuario",
         "password",
     ];
+    public function setPasswordAttribute($value) {
+        $this->attributes['password'] = bcrypt($value);
+    }
+    public function role()
+    {
+        return $this->belongsTo('App\Role');
+    }
+    public function esRol()
+    {
+        if($this->role['nombre_rol']=='administrador')
+        {
+            return true;
+        }
+    }
 }

@@ -1,6 +1,8 @@
 
 <?php
 
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,12 +14,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('welcome', 'LoginController@welcome' );
 
-Route::resource('noregister', 'CallController@noregister');
+Route::resource('noregister', 'LoginController@noregister');
 Route::resource('login', 'CallController@login');
+Route::resource('/verificar','LoginController@LoginUsuario');
+Route::get('logout', 'LoginController@logout');
+Route::get('/admin','AdministradorController@welcome');
+
+
 Route::resource('postulante', 'CallController@postulante');
 
 //call/create
@@ -48,7 +53,9 @@ Route::post('/register_store', [
     'as' => 'auth.register_store',
     'uses' => 'Auth\RegisterController@storeRegistration'
 ]);
-Route::post('/verificar','LoginController@LoginUsuario');
+
+
+
 Route::get('secretaria', 'CallController@secretaria');
 Route::get('plantilla', 'CallController@plantilla');
 Route::resource('log', 'CallController@log');
