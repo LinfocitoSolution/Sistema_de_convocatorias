@@ -1,6 +1,8 @@
 
 <?php
 
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,9 +14,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('welcome', 'LoginController@rol' );
 
 Route::resource('noregister', 'LoginController@noregister');
 Route::resource('login', 'CallController@login');

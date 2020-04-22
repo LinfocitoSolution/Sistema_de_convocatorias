@@ -21,6 +21,7 @@ class CreateUsuariosTable extends Migration
             $table->string("carrera");
             $table->string('NombreUsuario')->unique();
             $table->string('password');
+            
             $table->rememberToken();
             $table->timestamps();
             

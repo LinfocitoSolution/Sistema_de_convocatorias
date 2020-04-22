@@ -46,7 +46,17 @@ class LoginController extends Controller
     {
         if(Auth::check())
         {
-            return view("calls.noregister");
+            $user=Auth::user();
+            if($user->esRol())
+            {
+                
+               return  'que hay : ' . $user->nombre . 'hola' . $user->role->nombre_rol;
+            }
+            else {
+                return 'hola no administrador';
+            }
+            
+            //return view("calls.noregister");
         }
         else 
         {
@@ -58,6 +68,10 @@ class LoginController extends Controller
         Session::flush();
         Auth::logout();
         return Redirect('login');
+    }
+    public function welcome()
+    {
+        return view('welcome');
     }
 
 
