@@ -13,15 +13,15 @@ class CallController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function docencia()
-     {
+    {
         return view("calls.docencia");
-     }
-     public function login()
-     {
+    }
+    public function login()
+    {
         return view("logins.login");
-     }
+    }
     
-     public function noregister()
+    public function noregister()
     {
         return view("calls.noregister");
     }
@@ -63,7 +63,7 @@ class CallController extends Controller
         $convocatoria = new Convocatoria();
         $convocatoria->titulo_convocatoria=$request->input('titulo');
 
-        if($request->hasFile('archivo')){
+        if ($request->hasFile('archivo')) {
             $file = $request->file('archivo');
             $nombre = time().$file->getClientOriginalName();
             //Se almacena en: C:\laragon\www\[nombreProyecto]\public\convocatorias
@@ -71,15 +71,14 @@ class CallController extends Controller
             $convocatoria->pdf_file=$nombre;
             $convocatoria->save();
             return 'Saved';
-        }
-        else{
+        } else {
             return 'Error';
         }
         
        
 
      
-        //return $request->all();  
+        //return $request->all();
     }
 
     /**
@@ -137,5 +136,9 @@ class CallController extends Controller
     {
         return view('layouts.plantilla');
     }
-   
+
+    public function registrado()
+    {
+        return view("calls.registrado");
+    }
 }
