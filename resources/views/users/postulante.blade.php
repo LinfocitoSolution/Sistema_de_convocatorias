@@ -96,7 +96,7 @@ background-image: url('imagenes/ligthblue.jpg');
 	
 	</div>
 </div>
-@endsection
+
  
 </body>
 </html>
