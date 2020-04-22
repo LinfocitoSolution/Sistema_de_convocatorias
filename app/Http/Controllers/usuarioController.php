@@ -97,4 +97,31 @@ class usuarioController extends Controller
     {
         //
     }
+    public function comMerito(Request $request)
+    {
+        return view('users.comision_merito');
+    }
+
+    public function regJefDep(Request $request)
+    {
+        return view('users.registro_jefeDep');
+    }
+
+    public function regDirector(Request $request)
+    {
+        return view('users.registro_director');
+    }
+
+    
+
+    public function conocimiento()
+    {
+        return view('users.comision_conocimiento');
+    }
+
+    public function secretaria()
+    {
+        return view('users.secretaria');
+    }
+    
 }

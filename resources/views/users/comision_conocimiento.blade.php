@@ -1,5 +1,5 @@
 <!doctype html>
-@extends('registro.plantillapost')
+@extends('layouts.plantillapost')
 <html>
 <head>
 <meta charset="utf-8">

@@ -33,11 +33,11 @@ Route::get('calls/{file_name}', function ($file_name) {
 //users/create
 Route::resource('users', 'usuarioController');
 
-Route::get('jefeDep', 'CallController@regJefDep');
-Route::get('director', 'CallController@regdirector');
-Route::get('comision_merito', 'CallController@comMerito');
+Route::get('jefeDep', 'usuarioController@regJefDep');
+Route::get('director', 'usuarioController@regdirector');
+Route::get('comision_merito', 'usuarioController@comMerito');
 
-Route::get('comision_conocimiento', 'CallController@conocimiento');
+Route::get('comision_conocimiento', 'usuarioController@conocimiento');
 
 Route::get('/register', [
     'as' => 'auth.register',
@@ -49,7 +49,7 @@ Route::post('/register_store', [
     'uses' => 'Auth\RegisterController@storeRegistration'
 ]);
 Route::post('/verificar','LoginController@LoginUsuario');
-Route::get('secretaria', 'CallController@secretaria');
+Route::get('secretaria', 'usuarioController@secretaria');
 Route::get('plantilla', 'CallController@plantilla');
 Route::resource('log', 'CallController@log');
 Route::resource('postulante', 'CallController@postulante');

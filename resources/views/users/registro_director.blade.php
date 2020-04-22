@@ -1,32 +1,18 @@
 <!doctype html>
-<<<<<<< HEAD
-@extends('registro.plantillapost')
+@extends('layouts.plantillapost')
 <html>
 <head>
 <meta charset="utf-8">
-<title>postulante</title>
+<title>Director</title>
 <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
 </head>
 <style>
 .container{
     margin-top:30px;
-=======
-@extends('layouts.plantillaReg')
-<html>
-<head>
-<meta charset="utf-8">
-<title>Documento sin titulo</title>
-<link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
-</head>
-<style>
-body{
-background-image: url('imagenes/ligthblue.jpg');
->>>>>>> Joel
 }
 </style>
 
 <body>
-<<<<<<< HEAD
 @section("cabecera")
 <nav class="navbar navbar-expand-lg navbar-light bg-info sticky-top">
   <a class="navbar-brand  text-white" href="{{url('noregister')}}" tabindex="-1" >Inicio</a>
@@ -38,11 +24,6 @@ background-image: url('imagenes/ligthblue.jpg');
 @section("infoGeneral")
 
 <div class="container">
-=======
-
- <div class="container">
- <h1 class="m-3"> </h1>
->>>>>>> Joel
 	<div class="d-flex justify-content-center h-100">
 		<div class="card">
 			<div class="card-header">
@@ -55,16 +36,11 @@ background-image: url('imagenes/ligthblue.jpg');
 			</div>
 			<div class="card-body">
 				<form method="post" action="">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
-<<<<<<< HEAD
             
-=======
-                
->>>>>>> Joel
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-<<<<<<< HEAD
 						<input type="text" class="form-control" placeholder="Nombres" name="Nombres">
 						  
 					</div>
@@ -105,76 +81,21 @@ background-image: url('imagenes/ligthblue.jpg');
                     
 			       
                     
-=======
-						<input type="text" class="form-control" placeholder="nombre" name="nombre">
-						  
-					</div>
-
-                    <div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-user"></i></span>
-						</div>
-						<input type="text" class="form-control" placeholder="apellidos" name="apellidos">
-						  
-					</div>
-
-                    <div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-user"></i></span>
-						</div>
-						<input type="text" class="form-control" placeholder="usuario" name="usuario">
-						  
-					</div>
-
-
-                    <div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-user"></i></span>
-						</div>
-						<input type="text" class="form-control" placeholder="email" name="email">
-						  
-					</div>
-                    
->>>>>>> Joel
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-<<<<<<< HEAD
 						<input type="Contraseña" class="form-control" placeholder="Contraseña">
-=======
-						<input type="password" class="form-control" placeholder="password">
->>>>>>> Joel
 					</div>
                     <div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-<<<<<<< HEAD
 						<input type="password" class="form-control" placeholder="confirmPaswoord" name="confirmPaswoord">
 					</div>
 					
 					<div class="form-group">
 					<a href="#" class="btn btn-primary">Registrar</a>
-=======
-						<input type="password" class="form-control" placeholder="confirmPassword" name="confirmpassword">
-					</div>
-                   
-					
-					<div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-user"></i></span>
-						</div>
-						<input type="text" class="form-control" placeholder="facultad" name="facultad">
-						  
-					</div>
-                    
-                    
-				
-                    
-                    <div class="form-group">
-						<input type="submit" value="Register" class="btn float-right login_btn">
->>>>>>> Joel
 					</div>
 				</form>
 			</div>
@@ -186,15 +107,8 @@ background-image: url('imagenes/ligthblue.jpg');
 		</div>
 	</div>
 </div>
-<<<<<<< HEAD
 @endsection
 </body>
 @section("pie")
     @endsection
-=======
-</body>
-</body>
-
-                   
->>>>>>> Joel
 </html>

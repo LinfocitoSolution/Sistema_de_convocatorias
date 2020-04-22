@@ -132,30 +132,7 @@ class CallController extends Controller
     }
 
 
-    public function regJefDep(Request $request)
-    {
-        return view('users.jefeDep');
-    }
-
-    public function regDirector(Request $request)
-    {
-        return view('users.director');
-    }
-
-    public function comMerito(Request $request)
-    {
-        return view('users.comision_merito');
-    }
-
-    public function conocimiento()
-    {
-        return view('calls.comision_conocimiento');
-    }
-
-    public function secretaria()
-    {
-        return view('users.secretaria');
-    }
+    
     public function plantilla()
     {
         return view('layouts.plantilla');
