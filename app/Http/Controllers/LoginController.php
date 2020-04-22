@@ -19,7 +19,7 @@ class LoginController extends Controller
     {
         return 'funciona';
     }*/
-    protected $guard='login';
+    //protected $guard='login';
     public function loginUsername()
  {
      return 'NombreUsuario';
