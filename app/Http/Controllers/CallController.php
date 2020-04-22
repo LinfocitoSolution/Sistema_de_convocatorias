@@ -39,7 +39,7 @@ class CallController extends Controller
     }
     public function calendario()
     {
-        return view("calls.calendario");
+        return view("layouts.calendario");
     }
 
     /**
