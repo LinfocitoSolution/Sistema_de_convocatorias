@@ -49,8 +49,9 @@ class LoginController extends Controller
             $user=Auth::user();
             if($user->esRol())
             {
-                
-               return  'que hay : ' . $user->nombre . 'hola' . $user->role->nombre_rol;
+                //return redirect()->intended('noregister');
+               echo 'que hay : ' . $user->nombre . 'hola' . $user->role->nombre_rol;
+               return view('welcome');
             }
             else {
                 return 'hola no administrador';

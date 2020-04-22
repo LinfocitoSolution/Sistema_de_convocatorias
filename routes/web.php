@@ -14,11 +14,11 @@
 |
 */
 
-Route::get('welcome', 'LoginController@rol' );
+Route::get('welcome', 'LoginController@welcome' );
 
 Route::resource('noregister', 'LoginController@noregister');
 Route::resource('login', 'CallController@login');
-Route::post('/verificar','LoginController@LoginUsuario');
+Route::resource('/verificar','LoginController@LoginUsuario');
 Route::get('logout', 'LoginController@logout');
 
 
