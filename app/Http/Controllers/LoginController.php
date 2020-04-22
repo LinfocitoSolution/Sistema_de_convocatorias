@@ -33,7 +33,7 @@ class LoginController extends Controller
         if(Auth::attempt(array('NombreUsuario'=>$NombreUsuario, 'password'=>$password)))
         {
             //return "funciona :v";
-            return redirect()->intended('noregister');
+            return redirect()->intended('registrado');
         }
         else 
         {
@@ -43,6 +43,22 @@ class LoginController extends Controller
         }
     }
     public function noregister()
+    {
+       
+        return view("calls.noregister");
+        
+    }
+    public function logout()
+    {
+        Session::flush();
+        Auth::logout();
+        return Redirect('login');
+    }
+    public function welcome()
+    {
+        return view('welcome');
+    }
+    public function registrado()
     {
         if(Auth::check())
         {
@@ -57,29 +73,46 @@ class LoginController extends Controller
                 return 'hola no administrador';
             }
             
-            return view("calls.noregister");
+            return view("calls.registrado");
         }
         else 
         {
             Redirect::to("login")->withSuccess('nel mijo no pasaste el check');
         }
-        return view("calls.noregister");
-        
-    }
-    public function logout()
-    {
-        Session::flush();
-        Auth::logout();
-        return Redirect('login');
-    }
-    public function welcome()
-    {
-        return view('welcome');
+       
     }
 
 
 
    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     /*public function LoginUsuario(request $request)
     {
        
