@@ -44,26 +44,26 @@ class LoginController extends Controller
     }
     public function noregister()
     {
-        /*if(Auth::check())
+        if(Auth::check())
         {
             $user=Auth::user();
             if($user->esRol())
             {
                 //return redirect()->intended('noregister');
                echo 'que hay : ' . $user->nombre . 'hola' . $user->role->nombre_rol;
-               return view('welcome');
+               //return view('welcome');
             }
             else {
                 return 'hola no administrador';
             }
             
-            //return view("calls.noregister");
+            return view("calls.noregister");
         }
         else 
         {
             Redirect::to("login")->withSuccess('nel mijo no pasaste el check');
-        }*/
-        return view('welcome');
+        }
+        
     }
     public function logout()
     {
