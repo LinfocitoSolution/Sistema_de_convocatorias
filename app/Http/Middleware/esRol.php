@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Support\Facades\Auth;
 
 class esRol
 {
@@ -15,6 +16,24 @@ class esRol
      */
     public function handle($request, Closure $next)
     {
-        return $next($request);
+        //return $next($request);
+        if(Auth::check())
+        {
+            $user=Auth::user();
+            if(!$user->esRol())
+            {
+                //return redirect()->intended('noregister');
+               return redirect()->intended("login");
+            }
+            else {
+                return $next($request);
+            }
+            
+            //return view("calls.noregister");
+        }
+        else 
+        {
+            Redirect::to("login")->withSuccess('nel mijo no pasaste el check');
+        }
     }
 }
