@@ -59,4 +59,4 @@ Route::get('plantilla', 'CallController@plantilla');
 Route::resource('log', 'CallController@log');
 Route::resource('postulante', 'CallController@postulante');
 
-Route::resource('registrado', 'CallController@registrado');
+Route::resource('registrado', 'LoginController@registrado');

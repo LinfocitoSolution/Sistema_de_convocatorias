@@ -137,8 +137,5 @@ class CallController extends Controller
         return view('layouts.plantilla');
     }
 
-    public function registrado()
-    {
-        return view("calls.registrado");
-    }
+    
 }
