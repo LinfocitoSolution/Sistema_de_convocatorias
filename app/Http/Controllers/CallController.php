@@ -37,9 +37,9 @@ class CallController extends Controller
     {
         return view("calls.convocatorias");
     }
-    public function plantadmin()
+    public function administrador()
     {
-        return view("admin.plantadmin");
+        return view("admin.administrador");
     }
 
     /**
