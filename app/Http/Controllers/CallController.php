@@ -37,9 +37,9 @@ class CallController extends Controller
     {
         return view("calls.convocatorias");
     }
-    public function calendario()
+    public function plantadmin()
     {
-        return view("layouts.calendario");
+        return view("admin.plantadmin");
     }
 
     /**

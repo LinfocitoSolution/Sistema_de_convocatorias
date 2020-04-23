@@ -10,6 +10,9 @@
 body{
 background-image: url('imagenes/ligthblue.jpg');
 }
+.formulario{
+	margin-top:30px;
+}
 
 </style>
 
@@ -26,7 +29,7 @@ background-image: url('imagenes/ligthblue.jpg');
 
 
 
-<div class="container">
+<div class="formulario">
 	<div class="d-flex justify-content-center h-100">
 		<div class="card">
 			<div class="card-header">

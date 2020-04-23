@@ -21,8 +21,8 @@ Route::resource('login', 'CallController@login');
 Route::resource('/verificar','LoginController@LoginUsuario');
 Route::get('logout', 'LoginController@logout');
 Route::get('/admin','AdministradorController@welcome');
-
-
+Route::resource('plantadmin', 'CallController@plantadmin');
+Route::resource('administrador', 'CallController@administrador');
 Route::resource('postulante', 'CallController@postulante');
 
 //call/create
