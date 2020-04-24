@@ -42,7 +42,8 @@ class usuarioController extends Controller
         $usuario = new Usuario();
         $usuario->nombre = $request->input('Nombre');
         $usuario->apellido = $request->input('Apellido');
-        $usuario->NombreUsuario = $request->input('Username');
+        //$usuario->cedula = $request->input('Ci');
+        //$usuario->fechaNac = $request->input('Fecha_nacimiento');
         $usuario->carrera = $request->input('Carrera');
         $usuario->email = $request->input('Email');
         $usuario->password = $request->input('Password');
