@@ -48,6 +48,10 @@ class LoginController extends Controller
         return view("calls.noregister");
         
     }
+    public function login()
+    {
+        return view("logins.login");
+    }
     public function logout()
     {
         Session::flush();

@@ -17,7 +17,7 @@
 Route::get('welcome', 'LoginController@welcome' );
 
 Route::resource('noregister', 'LoginController@noregister');
-Route::resource('login', 'CallController@login');
+Route::resource('login', 'LoginController@login');
 Route::resource('/verificar','LoginController@LoginUsuario');
 Route::get('logout', 'LoginController@logout');
 Route::get('/admin','AdministradorController@welcome');
