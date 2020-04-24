@@ -16,7 +16,10 @@ class CallController extends Controller
     {
         return view("calls.docencia");
     }
-    
+    public function login()
+    {
+        return view("logins.login");
+    }
     
     public function noregister()
     {
