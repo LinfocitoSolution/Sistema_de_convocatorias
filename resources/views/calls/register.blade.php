@@ -91,8 +91,7 @@
                            </div>
                          </div>
                       <br>
-                      <input type="file" name="archivo">
-                      
+                      <input type="file" name="archivo"> 
                 </div>
                    <br>
                       
