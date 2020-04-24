@@ -23,9 +23,18 @@ background-image: url('imagenes/ligthblue.jpg');
 @endsection
 @section("infoGeneral")
 <body>
-
-
-
+	<script>
+		function verificarPass(){
+				if(Password.value() == confirmpassword.value()){
+					alert('Saved');
+				}
+				else{
+					alert('Las contraseñas no son las mismas');
+					Password.placeholder()='';
+					confirmpassword.placeholder()='';
+				}
+		}
+	</script>
 <div class="container">
 	<div class="d-flex justify-content-center h-100">
 		<div class="card">
@@ -53,17 +62,12 @@ background-image: url('imagenes/ligthblue.jpg');
 						</div>
 						<input type="text" class="form-control" placeholder="Apellidos" name="Apellido">
 					</div>
+					
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-						<input type="text" class="form-control" placeholder="C.I" name="Ci">
-					</div>
-					<div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-user"></i></span>
-						</div>
-						<input type="text" class="form-control" placeholder="Fecha_Nacimiento" name="Fecha_nacimiento">
+						<input type="text" class="form-control" placeholder="Nombre de usuario" name="Username">
 					</div>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
@@ -75,7 +79,7 @@ background-image: url('imagenes/ligthblue.jpg');
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-						<input type="text" class="form-control" placeholder="email" name="Email">
+						<input type="text" class="form-control" placeholder="Email" name="Email">
 					</div>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
@@ -87,10 +91,10 @@ background-image: url('imagenes/ligthblue.jpg');
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-						<input type="password" class="form-control" placeholder="confirmPassword" name="confirmpassword">
+						<input type="password" class="form-control" placeholder="Confirmar Password" name="confirmpassword">
 					</div>
-						
-					<button type="submit" class="btn btn-primary"> Registrar </button>
+					
+					<button type="submit" class="btn btn-primary" > Registrar </button>
 
 				</form>
 		
