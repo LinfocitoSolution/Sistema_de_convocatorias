@@ -17,7 +17,7 @@ class usuarioController extends Controller
     {
         //la vista index mostrará el listado de postulantes registrados
         $postulantes = Usuario::all();
-        return view('users.index', compact('postulantes')); //compact genera un array de postulantes
+        return view('users.listaPostulante', compact('postulantes')); //compact genera un array de postulantes
     }
 
     /**
