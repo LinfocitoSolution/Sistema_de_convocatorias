@@ -17,7 +17,7 @@ class usuarioController extends Controller
     {
         //la vista index mostrará el listado de postulantes registrados
         $postulantes = Usuario::all();
-        return view('users.index', compact('postulantes')); //compact genera un array de postulantes
+        return view('users.listaPostulante', compact('postulantes')); //compact genera un array de postulantes
     }
 
     /**
@@ -42,8 +42,7 @@ class usuarioController extends Controller
         $usuario = new Usuario();
         $usuario->nombre = $request->input('Nombre');
         $usuario->apellido = $request->input('Apellido');
-        //$usuario->cedula = $request->input('Ci');
-        //$usuario->fechaNac = $request->input('Fecha_nacimiento');
+        $usuario->NombreUsuario = $request->input('Username');
         $usuario->carrera = $request->input('Carrera');
         $usuario->email = $request->input('Email');
         $usuario->password = $request->input('Password');

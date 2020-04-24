@@ -1,5 +1,5 @@
 <!doctype html>
-@extends("logins.ejemplo")
+@extends("logins.plantillaLogin")
 <html>
 {{ csrf_field() }}
 	<head>
