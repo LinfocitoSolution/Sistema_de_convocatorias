@@ -26,9 +26,6 @@ background-image: url('imagenes/ligthblue.jpg');
 @endsection
 @section("infoGeneral")
 <body>
-
-
-
 <div class="formulario">
 	<div class="d-flex justify-content-center h-100">
 		<div class="card">
@@ -100,7 +97,7 @@ background-image: url('imagenes/ligthblue.jpg');
 			</div>
 			<div class="card-footer">
 				<div class="d-flex justify-content-center links">
-					Si ya tienes cuenta iniciar sesion?<a href="#">Login</a>
+					Si ya tienes cuenta inicia sesion?<a href="#">Login</a>
 				</div>
 			</div>
 		</div>
