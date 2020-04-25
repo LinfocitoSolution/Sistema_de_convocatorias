@@ -21,7 +21,6 @@ Route::resource('login', 'CallController@login');
 Route::resource('/verificar','LoginController@LoginUsuario');
 Route::get('logout', 'LoginController@logout');
 Route::get('/admin','AdministradorController@welcome');
-Route::resource('plantadmin', 'CallController@plantadmin');
 Route::resource('administrador', 'CallController@administrador');
 Route::resource('postulante', 'CallController@postulante');
 
@@ -59,4 +58,4 @@ Route::get('plantilla', 'CallController@plantilla');
 Route::resource('log', 'CallController@log');
 Route::resource('postulante', 'CallController@postulante');
 
-Route::resource('registrado', 'LoginController@registrado');
+Route::resource('registrado', 'CallController@registrado');
