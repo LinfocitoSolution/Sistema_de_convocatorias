@@ -66,9 +66,9 @@
 			</div>
 			<div class="card-body">
 			<form method="POST" action="{{url('/verificar')}}">
-				{{ csrf_field() }}
+				<!--{{ csrf_field() }}-->
 				
-				<!--<input type="hidden" name="_token" value="{{ csrf_token() }}">-->
+				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
