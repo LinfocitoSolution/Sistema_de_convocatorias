@@ -94,8 +94,8 @@
                         <div class="card-body">
                           <h5 class="card-title">Convocatoria auxiliaturas de Laboratorios</h5>
                           <p class="card-text">Convocatoria para aquellos estudiantes que desean ser auxiliares en las diferentes areas, como ser el laboratorio de computo, laboratorio de desarrollo y laboratorio de mantenimiento.</p>
-                          <a href="#" class="btn btn-success">Ver Convocatria</a>
-                          <a href="{{url('postulante')}}" class="btn btn-primary">Registrate</a>
+                          <a href="#" class="btn btn-success rounded-pill active">Ver Convocatria</a>
+                          <a href="{{url('postulante')}}" class="btn btn-primary rounded-pill active">Registrate</a>
                         </div>
                     </div>
                 </div>
@@ -105,8 +105,8 @@
                             <div class="card-body">
                               <h5 class="card-title">Convocatoria auxiliaturas de docencia</h5>
                               <p class="card-text">Convocatoria para aquellos estudiantes que desean ser auxiliares de las materias de introduccion a la programacion, elementos  de programacion y estructuras de datos, teoria de grafos y computacion I.</p>
-                              <a href="#" class="btn btn-success">Ver Convocatria</a>
-                              <a href="{{url('postulante')}}" class="btn btn-primary">Registrate</a>
+                              <a href="#" class="btn btn-success rounded-pill active">Ver Convocatria</a>
+                              <a href="{{url('postulante')}}" class="btn btn-primary rounded-pill active">Registrate</a>
                             </div>
                     </div>                    
                  </div>
@@ -118,8 +118,8 @@
                         <div class="card-body">
                           <h5 class="card-title">Convocatoria archivos</h5>
                           <p class="card-text">Convocatoria para aquellos estudiantes que desean trabajar en la secion de archivos.</p>
-                          <a href="#" class="btn btn-success">Ver Convocatria</a>
-                          <a href="{{url('postulante')}}" class="btn btn-primary">Registrate</a>
+                          <a href="#" class="btn btn-success rounded-pill active">Ver Convocatria</a>
+                          <a href="{{url('postulante')}}" class="btn btn-primary rounded-pill active">Registrate</a>
                         </div>
                     </div>
                 </div>
@@ -129,8 +129,8 @@
                             <div class="card-body">
                               <h5 class="card-title">Convocatoria </h5>
                               <p class="card-text">Convocatoria para aquellos estudiantes que desean ser auxiliares en lago .</p>
-                              <a href="#" class="btn btn-success">Ver Convocatria</a>
-                              <a href="{{url('postulante')}}"  class="btn btn-primary">Registrate</a>
+                              <a href="#" class="btn btn-success rounded-pill active">Ver Convocatria</a>
+                              <a href="{{url('postulante')}}"  class="btn btn-primary rounded-pill active">Registrate</a>
                             </div>
                     </div>                    
                  </div>
