@@ -25,7 +25,7 @@ Route::get('logout', 'LoginController@logout');
 Route::get('admin','rolesController@adminV');
 
 
-Route::resource('postulante', 'CallController@postulante');
+Route::resource('postulante', 'UsuarioController@create');
 
 //call/create
 Route::resource('call', 'CallController');
