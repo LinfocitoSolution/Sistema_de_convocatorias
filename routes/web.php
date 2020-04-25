@@ -14,14 +14,17 @@
 |
 */
 
+Route::get('logout','LoginController@logout');
+
 Route::get('welcome', 'LoginController@welcome' );
 
-Route::resource('noregister', 'LoginController@noregister');
-Route::resource('login', 'CallController@login');
-Route::resource('/verificar','LoginController@LoginUsuario');
+Route::get('noregister', 'LoginController@noregister');
+Route::get('login', 'LoginController@login');
+//Route::resource('/verificar','LoginController@LoginUsuario');
 Route::get('logout', 'LoginController@logout');
-Route::get('/admin','AdministradorController@welcome');
-Route::resource('administrador', 'CallController@administrador');
+Route::get('admin','rolesController@adminV');
+
+
 Route::resource('postulante', 'CallController@postulante');
 
 //call/create
@@ -36,6 +39,7 @@ Route::get('calls/{file_name}', function ($file_name) {
 });
 //users/create
 Route::resource('users', 'usuarioController');
+Route::resource('registrarPostulante', 'usuarioController@registro');
 
 Route::get('jefeDep', 'usuarioController@regJefDep');
 Route::get('director', 'usuarioController@regdirector');
@@ -56,6 +60,6 @@ Route::post('/verificar','LoginController@LoginUsuario');
 Route::get('secretaria', 'usuarioController@secretaria');
 Route::get('plantilla', 'CallController@plantilla');
 Route::resource('log', 'CallController@log');
-Route::resource('postulante', 'CallController@postulante');
+//Route::resource('postulante', 'UsuarioController');
 
-Route::resource('registrado', 'CallController@registrado');
+Route::get('registrado', 'LoginController@registrado');

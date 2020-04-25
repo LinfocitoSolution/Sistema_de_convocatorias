@@ -58,7 +58,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <i class="fas fa-user mr-2"></i>Perfil
                 </a>
               <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">
+                <a class="dropdown-item" href="{{url('logout')}}">
                   <i class="fas fa-times-circle mr-2"></i>Cerrar Sesion
                 </a>
               

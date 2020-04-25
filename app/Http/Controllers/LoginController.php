@@ -48,10 +48,16 @@ class LoginController extends Controller
         return view("calls.noregister");
         
     }
+    public function login()
+    {
+        return view("logins.login");
+    }
     public function logout()
     {
         Session::flush();
         Auth::logout();
+        //$user=Auth::user();
+        //echo 'adios : ' . $user->nombre . 'hasta nunca' . $user->role->nombre_rol;
         return Redirect('login');
     }
     public function welcome()
@@ -63,17 +69,60 @@ class LoginController extends Controller
         if(Auth::check())
         {
             $user=Auth::user();
-            if($user->esRol())
+            if($user->esRol()=='administrador')
             {
                 //return redirect()->intended('noregister');
                echo 'que hay : ' . $user->nombre . 'hola' . $user->role->nombre_rol;
-               //return view('welcome');
+               
+               return view("admin.administrador");
+            }
+            if($user->esRol()=='postulante')
+            {
+                //return redirect()->intended('noregister');
+               echo 'que hay : ' . $user->nombre . 'hola' . $user->role->nombre_rol;
+               
+               return view("users.postulante");
+            }
+            if($user->esRol()=='secretaria')
+            {
+                //return redirect()->intended('noregister');
+               echo 'que hay : ' . $user->nombre . 'hola' . $user->role->nombre_rol;
+               
+               return view("users.secretaria");
+            }
+            if($user->esRol()=='jefe de departamento')
+            {
+                //return redirect()->intended('noregister');
+               echo 'que hay : ' . $user->nombre . 'hola' . $user->role->nombre_rol;
+               
+               return view("users.jefeDep");
+            }
+            if($user->esRol()=='comision merito')
+            {
+                //return redirect()->intended('noregister');
+               echo 'que hay : ' . $user->nombre . 'hola' . $user->role->nombre_rol;
+               
+               return view("users.comision_merito");
+            }
+            if($user->esRol()=='comision conocimiento')
+            {
+                //return redirect()->intended('noregister');
+               echo 'que hay : ' . $user->nombre . 'hola' . $user->role->nombre_rol;
+               
+               return view("users.comision_conocimiento");
+            }
+            if($user->esRol()=='director de carrera')
+            {
+                //return redirect()->intended('noregister');
+               echo 'que hay : ' . $user->nombre . 'hola' . $user->role->nombre_rol;
+               
+               return view("users.director");
             }
             else {
-                return 'hola no administrador';
+                echo 'hola no administrador';
             }
             
-            return view("calls.registrado");
+            //return view("calls.registrado");
         }
         else 
         {

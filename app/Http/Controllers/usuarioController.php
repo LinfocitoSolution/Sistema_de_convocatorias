@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Usuario;
+use App\Http\Controllers\Controller;
+use Validator;
 
 class usuarioController extends Controller
 {
@@ -17,7 +19,7 @@ class usuarioController extends Controller
     {
         //la vista index mostrará el listado de postulantes registrados
         $postulantes = Usuario::all();
-        return view('users.listaPostulante', compact('postulantes')); //compact genera un array de postulantes
+        return view('users.listaPostulantes', compact('postulantes')); //compact genera un array de postulantes
     }
 
     /**
@@ -30,6 +32,13 @@ class usuarioController extends Controller
         return view('users.postulante');
     }
 
+    public function registro()
+    {
+        return view('users.postulante');
+    }
+    
+    
+
     /**
      * Store a newly created resource in storage.
      *
@@ -38,18 +47,32 @@ class usuarioController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $validator = Validator::make($request->all(), [
+            'Nombre' => 'required | max: 50 | alpha | min:3',
+            'Apellido' => 'required | max: 50 | alpha | min:3' , 
+            'Username' => 'required | max: 20 | alpha',
+            'Carrera' => 'required | max: 25 | alpha',
+            'Email' => 'required | email',
+            'Password' => 'required | max: 25 | min:8',
+            'confirmpassword' => 'required|same:Password'
+        ]);
+
+       if ($validator->fails()) {
+            return redirect('users/create')
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+
         $usuario = new Usuario();
         $usuario->nombre = $request->input('Nombre');
         $usuario->apellido = $request->input('Apellido');
-        //$usuario->cedula = $request->input('Ci');
-        //$usuario->fechaNac = $request->input('Fecha_nacimiento');
+        $usuario->NombreUsuario = $request->input('Username');  
         $usuario->carrera = $request->input('Carrera');
         $usuario->email = $request->input('Email');
         $usuario->password = $request->input('Password');
         //$usuario->password = (bcrypt($usuario->password));
         $usuario->save();
-        return 'Saved';
+        return view("calls.noregister");
        // return $request->all();   
     }
 
@@ -112,8 +135,6 @@ class usuarioController extends Controller
         return view('users.registro_director');
     }
 
-    
-
     public function conocimiento()
     {
         return view('users.comision_conocimiento');
@@ -123,5 +144,6 @@ class usuarioController extends Controller
     {
         return view('users.secretaria');
     }
+
     
 }

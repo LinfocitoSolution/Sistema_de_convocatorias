@@ -19,7 +19,7 @@ class CreateUsuariosTable extends Migration
             $table->string('apellido');
             $table->string("email")->unique();
             $table->string("carrera");
-            $table->string('NombreUsuario')->unique();
+            $table->string('nombreUsuario')->unique();
             $table->string('password');
             $table->integer('role_id');
             

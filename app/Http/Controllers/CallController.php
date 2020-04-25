@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Convocatoria;
+use Validator;
 
 class CallController extends Controller
 {
@@ -16,11 +17,6 @@ class CallController extends Controller
     {
         return view("calls.docencia");
     }
-    public function login()
-    {
-        return view("logins.login");
-    }
-    
     public function noregister()
     {
         return view("calls.noregister");
@@ -41,7 +37,6 @@ class CallController extends Controller
     {
         return view("admin.administrador");
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -51,7 +46,6 @@ class CallController extends Controller
     {
         return view('calls.register');
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -60,6 +54,17 @@ class CallController extends Controller
      */
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'titulo' => 'required | max: 50',
+            'archivo' => 'required | max:5000 | file | mimes:pdf'  
+        ]);
+
+       if ($validator->fails()) {
+            return redirect('call/create')
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+
         $convocatoria = new Convocatoria();
         $convocatoria->titulo_convocatoria=$request->input('titulo');
 
@@ -74,11 +79,6 @@ class CallController extends Controller
         } else {
             return 'Error';
         }
-        
-       
-
-     
-        //return $request->all();
     }
 
     /**
@@ -125,12 +125,6 @@ class CallController extends Controller
     {
         //
     }
-    public function postulante(Request $request)
-    {
-        return view('users.postulante');
-    }
-
-
     
     public function plantilla()
     {
