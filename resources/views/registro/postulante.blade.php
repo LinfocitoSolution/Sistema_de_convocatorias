@@ -3,10 +3,14 @@
 <html>
 	<head>
 		<title>Registro - Postulante</title>
+    <style>	
+		.formulario{
+		 margin-top:30px;
+	 }
+	</style>	
     </head>
-		<style>
-			body{	background-image: url('imagenes/ligthblue.jpg');}
-		</style>
+	
+	 
 
 	@section("cabecera")
 		<nav class="navbar navbar-expand-lg navbar-light bg-info sticky-top">
@@ -30,7 +34,7 @@
 			</div>
 		@endif
 
-			<div class="container">
+			<div class="formulario">
 				<div class="d-flex justify-content-center h-100">
 					<div class="card">
 						<div class="card-header">
