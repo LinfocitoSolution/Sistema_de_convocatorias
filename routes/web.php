@@ -37,9 +37,10 @@ Route::get('calls/{file_name}', function ($file_name) {
     
      //abort(404);
 });
-//users/create
+//Muestra los usuarios registrados en la BD
 Route::resource('users', 'usuarioController');
-Route::resource('registrarPostulante', 'usuarioController@registro');
+//Permite el registro de un postulante
+Route::resource('registro_postulante', 'usuarioController@create');
 
 Route::get('jefeDep', 'usuarioController@regJefDep');
 Route::get('director', 'usuarioController@regdirector');
@@ -60,6 +61,6 @@ Route::post('/verificar','LoginController@LoginUsuario');
 Route::get('secretaria', 'usuarioController@secretaria');
 Route::get('plantilla', 'CallController@plantilla');
 Route::resource('log', 'CallController@log');
-//Route::resource('postulante', 'UsuarioController');
+
 
 Route::get('registrado', 'LoginController@registrado');

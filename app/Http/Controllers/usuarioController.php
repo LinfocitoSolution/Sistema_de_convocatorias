@@ -29,15 +29,9 @@ class usuarioController extends Controller
      */
     public function create()
     {
-        return view('users.postulante');
+        return view('registro.postulante');
     }
 
-    public function registro()
-    {
-        return view('users.postulante');
-    }
-    
-    
 
     /**
      * Store a newly created resource in storage.
