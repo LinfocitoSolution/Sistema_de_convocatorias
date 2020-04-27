@@ -14,6 +14,8 @@
 |
 */
 
+Route::get('logout','LoginController@logout');
+
 Route::get('welcome', 'LoginController@welcome' );
 
 Route::get('noregister', 'LoginController@noregister');
@@ -58,6 +60,6 @@ Route::post('/verificar','LoginController@LoginUsuario');
 Route::get('secretaria', 'usuarioController@secretaria');
 Route::get('plantilla', 'CallController@plantilla');
 Route::resource('log', 'CallController@log');
-Route::resource('postulante', 'CallController@postulante');
+//Route::resource('postulante', 'UsuarioController');
 
 Route::get('registrado', 'LoginController@registrado');

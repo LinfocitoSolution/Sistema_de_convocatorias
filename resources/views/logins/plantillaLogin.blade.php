@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <meta charset="utf-8">
 <title> plantilla </title>
 <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">

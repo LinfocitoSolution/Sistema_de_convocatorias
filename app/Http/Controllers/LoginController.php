@@ -56,6 +56,8 @@ class LoginController extends Controller
     {
         Session::flush();
         Auth::logout();
+        //$user=Auth::user();
+        //echo 'adios : ' . $user->nombre . 'hasta nunca' . $user->role->nombre_rol;
         return Redirect('login');
     }
     public function welcome()

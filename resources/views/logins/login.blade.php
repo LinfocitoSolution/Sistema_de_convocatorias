@@ -2,6 +2,7 @@
 @extends("logins.plantillaLogin")
 <html>
 	<input type="hidden" name="_token" value="{{ csrf_token() }}">
+	
 	<head>
 		<meta charset="utf-8">
 		<title>login</title>
