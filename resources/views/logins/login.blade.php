@@ -1,7 +1,7 @@
 <!doctype html>
 @extends("logins.plantillaLogin")
 <html>
-	<input type="hidden" name="_token" value="{{ csrf_token() }}">
+	<!--<input type="hidden" name="_token" value="{{ csrf_token() }}">-->
 	
 	<head>
 		<meta charset="utf-8">
@@ -66,7 +66,9 @@
 			</div>
 			<div class="card-body">
 			<form method="POST" action="{{url('/verificar')}}">
-				<input type="hidden" name="_token" value="{{ csrf_token() }}">
+				{{ csrf_field() }}
+				
+				<!--<input type="hidden" name="_token" value="{{ csrf_token() }}">-->
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
