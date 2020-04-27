@@ -20,13 +20,44 @@ class esRol
         if(Auth::check())
         {
             $user=Auth::user();
-            if(!$user->esRol())
+            if($user->esRol()=='administrador')
             {
                 //return redirect()->intended('noregister');
-               return redirect()->intended("login");
+                return $next($request);
+            }
+            if($user->esRol()=='postulante')
+            {
+                //return redirect()->intended('noregister');
+                return $next($request);
+            }
+            if($user->esRol()=='secretaria')
+            {
+                //return redirect()->intended('noregister');
+                return $next($request);
+            }
+            if($user->esRol()=='jefe de departamento')
+            {
+                //return redirect()->intended('noregister');
+                return $next($request);
+            }
+            if($user->esRol()=='comision merito')
+            {
+                //return redirect()->intended('noregister');
+                return $next($request);
+            }
+            if($user->esRol()=='comision conocimiento')
+            {
+                //return redirect()->intended('noregister');
+                return $next($request);
+            }
+            if($user->esRol()=='director de carrera')
+            {
+                //return redirect()->intended('noregister');
+                return $next($request);
             }
             else {
-                return $next($request);
+                
+                return redirect()->intended("login");
             }
             
             //return view("calls.noregister");

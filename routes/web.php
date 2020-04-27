@@ -16,12 +16,13 @@
 
 Route::get('welcome', 'LoginController@welcome' );
 
-Route::resource('noregister', 'LoginController@noregister');
-Route::resource('login', 'LoginController@login');
-Route::resource('/verificar','LoginController@LoginUsuario');
+Route::get('noregister', 'LoginController@noregister');
+Route::get('login', 'LoginController@login');
+//Route::resource('/verificar','LoginController@LoginUsuario');
 Route::get('logout', 'LoginController@logout');
-Route::get('/admin','AdministradorController@welcome');
-Route::resource('administrador', 'CallController@administrador');
+Route::get('admin','rolesController@adminV');
+
+
 Route::resource('postulante', 'CallController@postulante');
 
 //call/create
@@ -57,5 +58,6 @@ Route::post('/verificar','LoginController@LoginUsuario');
 Route::get('secretaria', 'usuarioController@secretaria');
 Route::get('plantilla', 'CallController@plantilla');
 Route::resource('log', 'CallController@log');
-//Route::resource('postulante', 'CallController@postulante');
-Route::resource('registrado', 'LoginController@registrado');
+Route::resource('postulante', 'CallController@postulante');
+
+Route::get('registrado', 'LoginController@registrado');
