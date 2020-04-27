@@ -26,22 +26,26 @@ class LoginController extends Controller
  }
     public function LoginUsuario(Request $request)
     {
-        $NombreUsuario=$request->get('NombreUsuarioP');
+        $username_or_email=$request->get('NombreUsuarioP');
         $password=$request->get('passwordP');
 
-        
-        if(Auth::attempt(array('NombreUsuario'=>$NombreUsuario, 'password'=>$password)))
+        if(Auth::attempt(array('NombreUsuario'=>$username_or_email, 'password'=>$password)))
         {
             //return "funciona :v";
             return redirect()->intended('registrado');
         }
-        else 
-        {
-            
-            return Redirect::to("login")->withSuccess('nel mijo tienes que registrarte');
-            //return 'tmr sigue sin funcionar ;v' . "n" . $NombreUsuario . "p" . $password;
+        elseif(Auth::attempt(array('email'=>$username_or_email, 'password'=>$password)))
+        { 
+            return redirect()->intended('registrado');
         }
+            
+            //return Redirect::to("login")->withSuccess('nel mijo tienes que registrarte');
+            return Redirect::to("login")->withErrors([
+                'error' => 'Se ha producido un error. Verifique sus credenciales o regístrese',
+            ]);
+            //return 'tmr sigue sin funcionar ;v' . "n" . $NombreUsuario . "p" . $password;
     }
+    
     public function noregister()
     {
        

@@ -53,6 +53,16 @@
 @endsection
 @section("infoGeneral")
 
+		@if (count($errors) > 0)
+			<div class="alert alert-danger">
+				<ul>
+					@foreach ($errors->all() as $error)
+						<li>{{ $error }}</li>
+					@endforeach
+				</ul>
+			</div>
+		@endif
+
 <div class="container">
 	<div class="d-flex justify-content-center h-100">
 		<div class="card">
@@ -73,7 +83,7 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-						<input type="text" class="form-control" placeholder="Nombre Usuario" name="NombreUsuarioP" id="NombreUsuario">
+						<input type="text" class="form-control" placeholder="Nombre Usuario o Email" name="NombreUsuarioP" id="NombreUsuario">
 					</div>
                     <!--<small id="passwordHelpBlock" class="form-text text-muted"> Nombre de usuario</small>-->
 					<div class="input-group form-group">
@@ -94,7 +104,7 @@
 			</div>
 			<div class="card-footer">
 				<div class="d-flex justify-content-center links">
-					No tienes cuenta?<a href="#">REGISTRATE</a>
+					No tienes cuenta?<a href={{url('registro_postulante')}}>REGISTRATE</a>
 				</div>
 				<div class="d-flex justify-content-center">
 					<a href="#">Olviste tu contraseña?</a>
