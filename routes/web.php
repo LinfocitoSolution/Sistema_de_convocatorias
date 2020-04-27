@@ -36,6 +36,7 @@ Route::get('calls/{file_name}', function ($file_name) {
 });
 //users/create
 Route::resource('users', 'usuarioController');
+Route::resource('registrarPostulante', 'usuarioController@registro');
 
 Route::get('jefeDep', 'usuarioController@regJefDep');
 Route::get('director', 'usuarioController@regdirector');
@@ -56,6 +57,5 @@ Route::post('/verificar','LoginController@LoginUsuario');
 Route::get('secretaria', 'usuarioController@secretaria');
 Route::get('plantilla', 'CallController@plantilla');
 Route::resource('log', 'CallController@log');
-Route::resource('postulante', 'CallController@postulante');
-
-Route::resource('registrado', 'CallController@registrado');
+//Route::resource('postulante', 'CallController@postulante');
+Route::resource('registrado', 'LoginController@registrado');

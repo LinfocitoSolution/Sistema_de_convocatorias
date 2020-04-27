@@ -47,6 +47,15 @@
 <!--@section('title','Registro')-->
 
 @section("informacion")
+@if (count($errors) > 0)
+			<div class="alert alert-danger">
+				<ul>
+					@foreach ($errors->all() as $error)
+						<li>{{ $error }}</li>
+					@endforeach
+				</ul>
+			</div>
+		@endif
   <div class="medio">
     <script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script> 
         <script> function saveToPDF(){
@@ -87,8 +96,8 @@
                              <input type="text" name="titulo" class="form-control">
                            </div>
                            <div class="col">
-                              <button type="submit" class="btn btn-primary" margin-left="50">Guardar</button>
-                           </div>
+                            <button type="submit" class="btn btn-primary" margin-left="50">Guardar</button>
+                         </div>
                          </div>
                       <br>
                       <input type="file" name="archivo">                      
@@ -98,8 +107,10 @@
                    
             </form>
                     
+               {{-- 
                 <button class="btn btn-primary" onclick="saveToPDF();">DscargarPDF</button>
                 <button class="btn btn-success" onclick="getHTML();">DscargarHTML</button>  
+                comment --}}
        
    </div>      
 @endsection
