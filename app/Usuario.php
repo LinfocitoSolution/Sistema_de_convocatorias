@@ -31,7 +31,32 @@ class Usuario extends Model implements AuthenticatableContract
     {
         if($this->role['nombre_rol']=='administrador')
         {
-            return true;
+            return 'administrador';
         }
+        else  if($this->role['nombre_rol']=='postulante')
+        {
+            return 'postulante';
+        }
+        else  if($this->role['nombre_rol']=='secretaria')
+        {
+            return 'secretaria';
+        }
+        else  if($this->role['nombre_rol']=='jefe de departamento')
+        {
+            return 'jefe de departamento';
+        }
+        else  if($this->role['nombre_rol']=='comision merito')
+        {
+            return 'comision merito';
+        }
+        else  if($this->role['nombre_rol']=='comision conocimiento')
+        {
+            return 'comision conocimiento';
+        }
+        else  if($this->role['nombre_rol']=='director de carrera')
+        {
+            return 'director de carrera';
+        }
+
     }
 }
