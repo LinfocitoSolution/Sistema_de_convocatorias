@@ -13,7 +13,7 @@
     #contenedor{
         width:100%;
         margin:0 auto;
-        border=1px;
+        border:1px;
     }
     header{
         border:1px solid;

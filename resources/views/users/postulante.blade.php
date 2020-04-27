@@ -10,6 +10,9 @@
 body{
 background-image: url('imagenes/ligthblue.jpg');
 }
+.formulario{
+	margin-top:30px;
+}
 
 </style>
 
@@ -23,19 +26,10 @@ background-image: url('imagenes/ligthblue.jpg');
 @endsection
 @section("infoGeneral")
 <body>
-	<script>
-		function verificarPass(){
-				if(Password.value() == confirmpassword.value()){
-					alert('Saved');
-				}
-				else{
-					alert('Las contraseñas no son las mismas');
-					Password.placeholder()='';
-					confirmp	assword.placeholder()='';
-				}
-		}
-	</script>
-<div class="container">
+
+
+
+<div class="formulario">
 	<div class="d-flex justify-content-center h-100">
 		<div class="card">
 			<div class="card-header">
