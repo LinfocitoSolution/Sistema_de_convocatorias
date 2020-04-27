@@ -72,7 +72,7 @@ class LoginController extends Controller
                 //return redirect()->intended('noregister');
                echo 'que hay : ' . $user->nombre . 'hola' . $user->role->nombre_rol;
                
-               return view("welcome");
+               return view("admin.administrador");
             }
             if($user->esRol()=='postulante')
             {

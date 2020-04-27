@@ -15,7 +15,7 @@ class rolesController extends Controller
     {
         $nombre=Auth::user();
         echo "hola administrador/director: " . "" . $nombre->nombre;
-        return view('welcome');
+        return view('admin.administrador');
     }
     public function comisionConocimientoV()
     {
