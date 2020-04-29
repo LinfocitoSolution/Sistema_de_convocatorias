@@ -66,7 +66,8 @@ class usuarioController extends Controller
         $usuario->password = $request->input('Password');
         //$usuario->password = (bcrypt($usuario->password));
         $usuario->save();
-        return view("calls.noregister");
+        // return view("calls.noregister");Richard
+        return view("layouts.index");
        // return $request->all();   
     }
 

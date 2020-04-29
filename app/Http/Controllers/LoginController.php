@@ -31,7 +31,6 @@ class LoginController extends Controller
 
         if(Auth::attempt(array('NombreUsuario'=>$username_or_email, 'password'=>$password)))
         {
-            //return "funciona :v";
             return redirect()->intended('registrado');
         }
         elseif(Auth::attempt(array('email'=>$username_or_email, 'password'=>$password)))
@@ -49,7 +48,8 @@ class LoginController extends Controller
     public function noregister()
     {
        
-        return view("calls.noregister");
+        // return view("calls.noregister");
+        return view("layouts.index");
         
     }
     public function login()

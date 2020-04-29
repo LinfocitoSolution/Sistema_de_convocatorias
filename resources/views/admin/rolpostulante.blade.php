@@ -9,7 +9,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>Administrador</title>
+  <title>Rol Postulante</title>
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
@@ -39,7 +39,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <li class="nav-item d-none d-sm-inline-block">
         <a href="{{url('noregister')}}" class="nav-link text-white">Inicio</a>
       </li>
-      
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="#" class="nav-link text-white">Convocatorias</a>
+      </li>
     </ul>
 
     <!-- Right navbar links -->
@@ -49,7 +51,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <form class="form-inline ml-3">
         <img src="{{ asset('imagenes/documentos.png') }}" alt="perfil" class="rounded-circle" width="30" height="30">
         <div class="btn-group">
-          <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">Secretaria</button>
+          <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">Postulante</button>
             <div class="dropdown-menu">
               <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#">
@@ -72,7 +74,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <a href="#" class="brand-link">
       <img src="{{ asset('imagenes/linfocito.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">Secretaria</span>
+      <span class="brand-text font-weight-light">Postulante</span>
     </a>
 
     <!-- Sidebar -->
@@ -80,10 +82,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="dist/img/user7-128x128.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">{{ ucfirst(Auth()->user()->nombre) }}</a>
+          <a href="#" class="d-block">postperengano</a>
         </div>
       </div>
 
@@ -104,40 +106,38 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="#" class="nav-link">
-                  <i class="fas fa-user-circle nav-icon"></i>
-                  <p>Lista de postulantes</p>
+                  <i class="nav-icon fa fa-barcode "></i>
+                  <p>Resultados</p>
                 </a>
               </li>
-              
-           
-          
-              
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="fa fa-comment nav-icon"></i>
+                  <p>Notificaciones</p>
+                </a>
+              </li>
             </ul>
           </li>
-          <!--fin convocatorias-->
-          <!--areas-->
+          <!--fin de acceso-->
+          <!--convocatorias-->
           <li class="nav-item has-treeview menu-open">
             <a href="#" class="nav-link active">
-              <i class="nav-icon fa fa-th-large"></i>
+              <i class="nav-icon fas fa-file"></i>
               <p>
-                Documentos
+                Convocatorias
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="#" class="nav-link">
-                  
-                  <p>Certificados</p>
+                  <i class="nav-icon fa fa-eye"></i>
+                  <p>Ver</p>
                 </a>
               </li>
-              
-           
-          
-              
             </ul>
-            
-           
+          </li>
+          <!--fin convocatorias-->
           <!--fin de areas-->
         </ul>
       </nav>
@@ -153,7 +153,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">¡¡Bienvenido Secretaria!!</h1>
+            <h1 class="m-0 text-dark">¡¡Bienvenido Postulante!!</h1>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
