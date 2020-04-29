@@ -18,7 +18,9 @@ Route::get('logout','LoginController@logout');
 
 Route::get('welcome', 'LoginController@welcome' );
 
-Route::get('noregister', 'LoginController@noregister');
+
+// noregister ser cambio por index
+Route::get('index', 'LoginController@noregister');
 Route::get('login', 'LoginController@login');
 //Route::resource('/verificar','LoginController@LoginUsuario');
 Route::get('logout', 'LoginController@logout');
@@ -37,7 +39,7 @@ Route::get('calls/{file_name}', function ($file_name) {
     
      //abort(404);
 });
-//Muestra los usuarios registrados en la BD
+//users/create##########Richard users no se implentara, registrar postulante esta
 Route::resource('users', 'usuarioController');
 //Permite el registro de un postulante
 Route::resource('registro_postulante', 'usuarioController@create');
@@ -61,6 +63,18 @@ Route::post('/verificar','LoginController@LoginUsuario');
 Route::get('secretaria', 'usuarioController@secretaria');
 Route::get('plantilla', 'CallController@plantilla');
 Route::resource('log', 'CallController@log');
-
+// Route::resource('postulante', 'UsuarioController');
 
 Route::get('registrado', 'LoginController@registrado');
+
+
+
+Route::get('vistaadmi', function () {
+    // return view('admin.administrador');
+    //  return view('logins.login');
+    //   return view('layouts.index');
+    return view('calls.registrado');
+
+});
+
+// Route::resource('user', 'UsersController');
