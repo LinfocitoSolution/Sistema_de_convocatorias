@@ -31,7 +31,6 @@ class LoginController extends Controller
 
         if(Auth::attempt(array('NombreUsuario'=>$username_or_email, 'password'=>$password)))
         {
-            //return "funciona :v";
             return redirect()->intended('registrado');
         }
         elseif(Auth::attempt(array('email'=>$username_or_email, 'password'=>$password)))
