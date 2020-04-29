@@ -25,12 +25,12 @@ class LoginController extends Controller
      return 'NombreUsuario';
  }
     public function LoginUsuario(Request $request)
-    {
-        $username_or_email=$request->get('NombreUsuarioP');
-        $password=$request->get('passwordP');
-
-        if(Auth::attempt(array('NombreUsuario'=>$username_or_email, 'password'=>$password)))
-        {
+    {        
+        $NombreUsuario=$request->get('NombreUsuarioP');
+        $password=$request->get('passwordP');        
+        if(Auth::attempt(array('NombreUsuario'=>$NombreUsuario, 'password'=>$password)))
+        {        
+            // dd($NombreUsuario);
             //return "funciona :v";
             return redirect()->intended('registrado');
         }
@@ -49,7 +49,8 @@ class LoginController extends Controller
     public function noregister()
     {
        
-        return view("calls.noregister");
+        // return view("calls.noregister");
+        return view("layouts.index");
         
     }
     public function login()
