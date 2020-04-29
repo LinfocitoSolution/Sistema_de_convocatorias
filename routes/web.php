@@ -21,7 +21,7 @@ Route::get('welcome', 'LoginController@welcome' );
 Route::get('noregister', 'LoginController@noregister');
 Route::get('login', 'LoginController@login');
 //Route::resource('/verificar','LoginController@LoginUsuario');
-Route::get('logout', 'LoginController@logout');
+Route::post('logout', 'LoginController@logout');
 Route::get('admin','rolesController@adminV');
 
 

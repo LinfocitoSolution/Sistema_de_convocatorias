@@ -5,8 +5,16 @@
 	
 	<head>
 		<meta charset="utf-8">
+		<meta name="csrf-token" content="{{ csrf_token() }}">
 		<title>login</title>
 		<link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
+		
+		<script>
+			window.Laravel = <?php echo json_encode([
+				'csrfToken' => csrf_token(),
+			]); ?>
+		</script>
+		
 	</head>
 
 
@@ -76,9 +84,9 @@
 			</div>
 			<div class="card-body">
 			<form method="POST" action="{{url('/verificar')}}">
-				<!--{{ csrf_field() }}-->
+				{{ csrf_field() }}
 				
-				<input type="hidden" name="_token" value="{{ csrf_token() }}">
+				<!--<input type="hidden" name="_token" value="{{ csrf_token() }}">-->
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
