@@ -25,13 +25,12 @@ class LoginController extends Controller
      return 'NombreUsuario';
  }
     public function LoginUsuario(Request $request)
-    {        
-        $NombreUsuario=$request->get('NombreUsuarioP');
-        $password=$request->get('passwordP');        
-        if(Auth::attempt(array('NombreUsuario'=>$NombreUsuario, 'password'=>$password)))
-        {        
-            // dd($NombreUsuario);
-            //return "funciona :v";
+    {
+        $username_or_email=$request->get('NombreUsuarioP');
+        $password=$request->get('passwordP');
+
+        if(Auth::attempt(array('NombreUsuario'=>$username_or_email, 'password'=>$password)))
+        {
             return redirect()->intended('registrado');
         }
         elseif(Auth::attempt(array('email'=>$username_or_email, 'password'=>$password)))
