@@ -3,14 +3,25 @@
 <head>
 
 <meta charset="utf-8">
-<title> Plantilla </title>
+<title> INDEX </title>
+<!-- CSRF Token -->
+<meta name="csrf-token" content="{{ csrf_token() }}">
+
+<!-- Styles -->
 <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
+<link href="{{asset('css/plantillaIndex/clases.css')}}" rel="stylesheet">
+<!-- Scripts -->
+<script>
+  window.Laravel = <?php echo json_encode([
+      'csrfToken' => csrf_token(),
+  ]); ?>
+</script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
 <style>
-    #contenedor{
+    contenedor{
         width:100%;
         margin:0 auto;
         border=1px;
@@ -45,7 +56,7 @@
 <div id="contenedor">
    <header>
      @yield("cabecera")
-     @include("layouts.navbar")
+     @include("layouts.partials.navbar")
    </header>
 
    <section>

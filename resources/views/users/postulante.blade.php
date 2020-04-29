@@ -17,24 +17,24 @@ background-image: url('imagenes/ligthblue.jpg');
 </style>
 
 @section("cabecera")
-<nav class="navbar navbar-expand-lg navbar-light bg-info sticky-top">
-  <a class="navbar-brand  text-white" href="{{url('noregister')}}" tabindex="-1" >Inicio</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-</nav>
+	<nav class="navbar navbar-expand-lg navbar-light bg-info sticky-top">
+		<a class="navbar-brand  text-white" href="{{url('index')}}" tabindex="-1" >Inicio</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+	</nav>
 @endsection
 @section("infoGeneral")
 <body>
 	@if (count($errors) > 0)
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 <div class="formulario">
 	<div class="d-flex justify-content-center h-100">
 		<div class="card">
@@ -99,7 +99,7 @@ background-image: url('imagenes/ligthblue.jpg');
 						<input type="password" class="form-control" placeholder="confirmPassword" name="confirmpassword">
 					</div>
 						
-					<button type="submit" class="btn btn-primary"> Registrar </button>
+					<button type="submit" class="btn btn-primary" > Registrarr </button>
 
 				</form>
 		
