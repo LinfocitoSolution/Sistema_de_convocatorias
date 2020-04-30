@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Validator,Redirect,Response;
+use Redirect,Response;
 use App\Usuario;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Session;
+use Validator;
 
 
 class LoginController extends Controller
@@ -26,6 +27,7 @@ class LoginController extends Controller
  }
     public function LoginUsuario(Request $request)
     {
+       
         $username_or_email=$request->get('NombreUsuarioP');
         $password=$request->get('passwordP');
 
@@ -37,11 +39,10 @@ class LoginController extends Controller
         { 
             return redirect()->intended('registrado');
         }
-            
-            //return Redirect::to("login")->withSuccess('nel mijo tienes que registrarte');
-            return Redirect::to("login")->withErrors([
-                'error' => 'Se ha producido un error. Verifique sus credenciales o regístrese',
-            ]);
+            return redirect('login')
+            ->withErrors([
+                'error' => 'Se ha producido un error. Verifique sus credenciales o regístrese'])
+            ->withInput();
             //return 'tmr sigue sin funcionar ;v' . "n" . $NombreUsuario . "p" . $password;
     }
     

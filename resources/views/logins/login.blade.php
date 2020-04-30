@@ -73,14 +73,14 @@
 							</div>
 						</div>				
 						<div class="card-body">
-							<form class= "login-form validate-form" method="POST" action="{{url('/verificar')}}">
+							<form class= "form group" method="POST" action="{{url('/verificar')}}">
 								<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 								<div class="input-group form-group">
 									<div class="input-group-prepend">
 										<span class="input-group-text"><i class="fas fa-user"></i></span>
 									</div>
-									<input type="text" class="form-control" placeholder="Nombre Usuario o Email" name="NombreUsuarioP" id="NombreUsuario">
+								<input type="text" class="form-control" placeholder="Nombre Usuario o Email" name="NombreUsuarioP" id="NombreUsuarioP" value="{{ old('NombreUsuarioP') }}">
 								</div>
 								
 								<div class="input-group form-group">
