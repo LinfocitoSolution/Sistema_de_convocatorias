@@ -31,10 +31,13 @@ class LoginController extends Controller
         $username_or_email=$request->get('NombreUsuarioP');
         $password=$request->get('passwordP');
 
+
+        /* Se puede agregar el atributo 'active' para verificar si es usuario ya se ha registrado: 'active' => 1*/
         if(Auth::attempt(array('NombreUsuario'=>$username_or_email, 'password'=>$password)))
         {
             return redirect()->intended('registrado');
         }
+        //Auth::once
         elseif(Auth::attempt(array('email'=>$username_or_email, 'password'=>$password)))
         { 
             return redirect()->intended('registrado');
@@ -43,15 +46,11 @@ class LoginController extends Controller
             ->withErrors([
                 'error' => 'Se ha producido un error. Verifique sus credenciales o regístrese'])
             ->withInput();
-            //return 'tmr sigue sin funcionar ;v' . "n" . $NombreUsuario . "p" . $password;
     }
     
     public function noregister()
     {
-       
-        // return view("calls.noregister");
-        return view("layouts.index");
-        
+        return view("layouts.index"); 
     }
     public function login()
     {
@@ -135,37 +134,6 @@ class LoginController extends Controller
         }
        
     }
-
-
-
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     /*public function LoginUsuario(request $request)
     {

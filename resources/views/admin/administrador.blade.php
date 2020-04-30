@@ -37,7 +37,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <a class="nav-link text-white" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="{{url('noregister')}}" class="nav-link text-white">Inicio</a>
+        <a href="{{url('/')}}" class="nav-link text-white">Inicio</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link text-white">Convocatorias</a>
@@ -105,7 +105,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="users" class="nav-link">
                   <i class="fas fa-user-circle nav-icon"></i>
                   <p>Usuarios</p>
                 </a>
@@ -130,7 +130,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="call/create" class="nav-link">
                   <i class="fas fa-plus-square nav-icon"></i>
                   <p>Nueva</p>
                 </a>
