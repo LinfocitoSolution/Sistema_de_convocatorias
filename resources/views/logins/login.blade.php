@@ -52,6 +52,15 @@
 		@endsection
 
 		@section("infoGeneral")
+		@if (count($errors) > 0)
+			<div class="alert alert-danger">
+				<ul>
+					@foreach ($errors->all() as $error)
+						<li>{{ $error }}</li>
+					@endforeach
+				</ul>
+			</div>
+		@endif
 			<div class="container">
 				<div class="d-flex justify-content-center h-100">
 					<div class="card">
@@ -64,13 +73,14 @@
 							</div>
 						</div>				
 						<div class="card-body">
-							<form method="POST" action="{{url('/verificar')}}">
-								{{ csrf_field() }}									
+							<form class= "login-form validate-form" method="POST" action="{{url('/verificar')}}">
+								<input type="hidden" name="_token" value="{{ csrf_token() }}">
+
 								<div class="input-group form-group">
 									<div class="input-group-prepend">
 										<span class="input-group-text"><i class="fas fa-user"></i></span>
 									</div>
-									<input type="text" class="form-control" placeholder="Nombre Usuario" name="NombreUsuarioP" id="NombreUsuario">
+									<input type="text" class="form-control" placeholder="Nombre Usuario o Email" name="NombreUsuarioP" id="NombreUsuario">
 								</div>
 								
 								<div class="input-group form-group">
@@ -94,7 +104,7 @@
 
 						<div class="card-footer">
 							<div class="d-flex justify-content-center links">
-								No tienes cuenta?<a href="{{url('postulante')}} ">REGISTRATE</a>
+								No tienes cuenta?<a href="{{url('registro_postulante')}} ">REGISTRATE</a>
 							</div>
 							<div class="d-flex justify-content-center">
 								<a href="#">Olviste tu contraseña?</a>
