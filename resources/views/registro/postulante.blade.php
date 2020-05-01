@@ -47,39 +47,40 @@
 						
 						<div class="card-body">
 					
-							<form class="form-group" method="POST" action="/users">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          	 
-								{{ csrf_field() }}
+							<form class="form-group" method="POST" action={{url("/users")}}>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          	 
+								<input type="hidden" name="_token" value="{{ csrf_token() }}">
 								
 								<div class="input-group form-group">
 									<div class="input-group-prepend">
 										<span class="input-group-text"><i class="fas fa-user"></i></span>
 									</div>
-									<input type="text" class="form-control" placeholder="Nombre" name="Nombre"> 
+									<input type="text" class="form-control" placeholder="Nombre" name="Nombre"  value="{{ old('Nombre') }}"> 
 								</div>
 								<div class="input-group form-group">
 									<div class="input-group-prepend">
 										<span class="input-group-text"><i class="fas fa-user"></i></span>
 									</div>
-									<input type="text" class="form-control" placeholder="Apellidos" name="Apellido">
+									<input type="text" class="form-control" placeholder="Apellidos" name="Apellido" value="{{ old('Apellido') }}">
 								</div>
 								
 								<div class="input-group form-group">
 									<div class="input-group-prepend">
 										<span class="input-group-text"><i class="fas fa-user"></i></span>
 									</div>
-									<input type="text" class="form-control" placeholder="Nombre de usuario" name="Username">
+									<input type="text" class="form-control" placeholder="Nombre de usuario" name="Username" value="{{ old('Username') }}" >
 								</div>
 								<div class="input-group form-group">
 									<div class="input-group-prepend">
 										<span class="input-group-text"><i class="fas fa-user"></i></span>
 									</div>
-									<input type="text" class="form-control" placeholder="Carrera" name="Carrera">
+									<input type="text" class="form-control" placeholder="Carrera" name="Carrera" value="{{ old('Carrera') }}">
 								</div>
 								<div class="input-group form-group">
 									<div class="input-group-prepend">
 										<span class="input-group-text"><i class="fas fa-user"></i></span>
 									</div>
-									<input type="text" class="form-control" placeholder="Email" name="Email">
+									<input type="email" class="form-control" placeholder="Email" name="Email" value="{{ old('Email') }}" >
+									{{-- <br><small id="emailHelp" class="form-text text-muted">usuario@example.com</small>comment --}}
 								</div>
 								<div class="input-group form-group">
 									<div class="input-group-prepend">
