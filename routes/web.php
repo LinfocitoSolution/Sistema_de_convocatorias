@@ -13,6 +13,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', function () {
+    return view('calls.noregister');
+});
 
 Route::get('logout','LoginController@logout');
 

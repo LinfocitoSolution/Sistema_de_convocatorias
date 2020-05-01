@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Validator,Redirect,Response;
+use Redirect,Response;
 use App\Usuario;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Session;
+use Validator;
 
 
 class LoginController extends Controller
@@ -26,31 +27,30 @@ class LoginController extends Controller
  }
     public function LoginUsuario(Request $request)
     {
+       
         $username_or_email=$request->get('NombreUsuarioP');
         $password=$request->get('passwordP');
 
+
+        /* Se puede agregar el atributo 'active' para verificar si es usuario ya se ha registrado: 'active' => 1*/
         if(Auth::attempt(array('NombreUsuario'=>$username_or_email, 'password'=>$password)))
         {
             return redirect()->intended('registrado');
         }
+        //Auth::once
         elseif(Auth::attempt(array('email'=>$username_or_email, 'password'=>$password)))
         { 
             return redirect()->intended('registrado');
         }
-            
-            //return Redirect::to("login")->withSuccess('nel mijo tienes que registrarte');
-            return Redirect::to("login")->withErrors([
-                'error' => 'Se ha producido un error. Verifique sus credenciales o regístrese',
-            ]);
-            //return 'tmr sigue sin funcionar ;v' . "n" . $NombreUsuario . "p" . $password;
+            return redirect('login')
+            ->withErrors([
+                'error' => 'Se ha producido un error. Verifique sus credenciales o regístrese'])
+            ->withInput();
     }
     
     public function noregister()
     {
-       
-        // return view("calls.noregister");
-        return view("layouts.index");
-        
+        return view("layouts.index"); 
     }
     public function login()
     {
@@ -58,7 +58,7 @@ class LoginController extends Controller
     }
     public function logout()
     {
-        Session::flush();
+       // Session::flush();
         Auth::logout();
         //$user=Auth::user();
         //echo 'adios : ' . $user->nombre . 'hasta nunca' . $user->role->nombre_rol;
@@ -134,37 +134,6 @@ class LoginController extends Controller
         }
        
     }
-
-
-
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     /*public function LoginUsuario(request $request)
     {

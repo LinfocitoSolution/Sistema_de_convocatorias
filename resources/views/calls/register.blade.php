@@ -74,7 +74,7 @@
                 doc.save('html.pdf');
             }
       </script>
-        <form class="form-group" method="post" action="/call" enctype="multipart/form-data">
+        <form class="form-group" method="post" action={{url("/call")}} enctype="multipart/form-data">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
             <!-- 
@@ -93,7 +93,7 @@
                         <label for="">Título de la convocatoria</label>
                         <div class="row">
                            <div class="col">
-                             <input type="text" name="titulo" class="form-control">
+                             <input type="text" name="titulo" class="form-control" value="{{old('titulo')}}">
                            </div>
                            <div class="col">
                             <button type="submit" class="btn btn-primary" margin-left="50">Guardar</button>
