@@ -58,7 +58,7 @@ class LoginController extends Controller
     }
     public function logout()
     {
-        Session::flush();
+       // Session::flush();
         Auth::logout();
         //$user=Auth::user();
         //echo 'adios : ' . $user->nombre . 'hasta nunca' . $user->role->nombre_rol;
