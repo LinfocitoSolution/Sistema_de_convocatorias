@@ -11,6 +11,7 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
+        //richi no te olvides actualizar el nombre de las columnas con user
         $user = new App\Usuario();
         $user->nombre = "User";
         $user->apellido = "Rolo";

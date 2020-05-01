@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Redirect,Response;
-use App\Usuario;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -23,7 +23,7 @@ class LoginController extends Controller
     //protected $guard='login';
     public function loginUsername()
  {
-     return 'NombreUsuario';
+     return 'username';
  }
     public function LoginUsuario(Request $request)
     {
@@ -33,7 +33,7 @@ class LoginController extends Controller
 
 
         /* Se puede agregar el atributo 'active' para verificar si es usuario ya se ha registrado: 'active' => 1*/
-        if(Auth::attempt(array('NombreUsuario'=>$username_or_email, 'password'=>$password)))
+        if(Auth::attempt(array('username'=>$username_or_email, 'password'=>$password)))
         {
             return redirect()->intended('registrado');
         }
@@ -76,49 +76,49 @@ class LoginController extends Controller
             if($user->esRol()=='administrador')
             {
                 //return redirect()->intended('noregister');
-               echo 'que hay : ' . $user->nombre . 'hola' . $user->role->nombre_rol;
+               echo 'que hay : ' . $user->name . 'hola' . $user->role->nombre_rol;
                
                return view("admin.administrador");
             }
             if($user->esRol()=='postulante')
             {
                 //return redirect()->intended('noregister');
-               echo 'que hay : ' . $user->nombre . 'hola' . $user->role->nombre_rol;
+               echo 'que hay : ' . $user->name . 'hola' . $user->role->nombre_rol;
                
                return view("users.postulante");
             }
             if($user->esRol()=='secretaria')
             {
                 //return redirect()->intended('noregister');
-               echo 'que hay : ' . $user->nombre . 'hola' . $user->role->nombre_rol;
+               echo 'que hay : ' . $user->name . 'hola' . $user->role->nombre_rol;
                
                return view("users.secretaria");
             }
             if($user->esRol()=='jefe de departamento')
             {
                 //return redirect()->intended('noregister');
-               echo 'que hay : ' . $user->nombre . 'hola' . $user->role->nombre_rol;
+               echo 'que hay : ' . $user->name . 'hola' . $user->role->nombre_rol;
                
                return view("users.jefeDep");
             }
             if($user->esRol()=='comision merito')
             {
                 //return redirect()->intended('noregister');
-               echo 'que hay : ' . $user->nombre . 'hola' . $user->role->nombre_rol;
+               echo 'que hay : ' . $user->name . 'hola' . $user->role->nombre_rol;
                
                return view("users.comision_merito");
             }
             if($user->esRol()=='comision conocimiento')
             {
                 //return redirect()->intended('noregister');
-               echo 'que hay : ' . $user->nombre . 'hola' . $user->role->nombre_rol;
+               echo 'que hay : ' . $user->name . 'hola' . $user->role->nombre_rol;
                
                return view("users.comision_conocimiento");
             }
             if($user->esRol()=='director de carrera')
             {
                 //return redirect()->intended('noregister');
-               echo 'que hay : ' . $user->nombre . 'hola' . $user->role->nombre_rol;
+               echo 'que hay : ' . $user->name . 'hola' . $user->role->nombre_rol;
                
                return view("users.director");
             }

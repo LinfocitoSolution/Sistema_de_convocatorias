@@ -66,7 +66,7 @@
     </head>
     <body>
         <div class="card-body">
-            Welcome {{ ucfirst(Auth()->user()->nombre) }}
+            Welcome {{ ucfirst(Auth()->user()->name) }}
           </div>
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))

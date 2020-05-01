@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 
 use Illuminate\Http\Request;
-use App\Usuario;
+use App\User;
 use App\Http\Controllers\Controller;
 use Validator;
 
@@ -18,7 +18,7 @@ class usuarioController extends Controller
     public function index()
     {
         //la vista index mostrará el listado de postulantes registrados
-        $postulantes = Usuario::all();
+        $postulantes = User::all();
         return view('users.listaPostulantes', compact('postulantes')); //compact genera un array de postulantes
     }
 
@@ -57,11 +57,11 @@ class usuarioController extends Controller
                         ->withInput();
         }
 
-        $usuario = new Usuario();
-        $usuario->nombre = $request->input('Nombre');
-        $usuario->apellido = $request->input('Apellido');
-        $usuario->NombreUsuario = $request->input('Username');  
-        $usuario->carrera = $request->input('Carrera');
+        $usuario = new User();
+        $usuario->name = $request->input('Nombre');
+        $usuario->lastname = $request->input('Apellido');
+        $usuario->username = $request->input('Username');  
+        $usuario->career = $request->input('Carrera');
         $usuario->email = $request->input('Email');
         $usuario->password = $request->input('Password');
         //$usuario->password = (bcrypt($usuario->password));
