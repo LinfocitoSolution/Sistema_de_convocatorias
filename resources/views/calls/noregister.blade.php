@@ -3,7 +3,7 @@
 <html>
 <head>
   <meta charset="utf-8" />
-  <title>NoRegistro</title>
+  <title>Home</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">    
   
