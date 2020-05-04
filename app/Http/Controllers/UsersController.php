@@ -3,6 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Redirect,Response;
+use App\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Session;
+use Validator;
 
 class UsersController extends Controller
 {
@@ -16,6 +23,20 @@ class UsersController extends Controller
         //aqui vienen las consultas hacie el request
         $postulantes = Usuario::all();
         return view('users.index', compact('postulantes'));
+    }
+
+    public function getUsuario(Request $request)
+    {
+        $postulantes = User::all();
+        if(Auth::check())
+        {
+            $user=Auth::user();
+            return view('admin.generar_rotulo', ['user' => $user]);
+        }
+        else
+        {
+            return 'Usted no está logeado';
+        }
     }
 
     /**

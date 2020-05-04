@@ -31,7 +31,6 @@ class LoginController extends Controller
         $username_or_email=$request->get('NombreUsuarioP');
         $password=$request->get('passwordP');
 
-
         /* Se puede agregar el atributo 'active' para verificar si es usuario ya se ha registrado: 'active' => 1*/
         if(Auth::attempt(array('username'=>$username_or_email, 'password'=>$password)))
         {
@@ -85,7 +84,7 @@ class LoginController extends Controller
                 //return redirect()->intended('noregister');
                echo 'que hay : ' . $user->name . 'hola' . $user->role->nombre_rol;
                
-               return view("users.postulante");
+               return view("admin.rolpostulante");
             }
             if($user->esRol()=='secretaria')
             {

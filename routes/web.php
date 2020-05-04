@@ -77,7 +77,14 @@ Route::get('vistaadmi', function () {
     //  return view('logins.login');
     //   return view('layouts.index');
     return view('calls.registrado');
-
 });
 
-// Route::resource('user', 'UsersController');
+Route::get('/rotulo', function() {
+    return view('admin.rolpostulante');
+});
+/*
+Route::get('rotulo/generar', function() {
+    return view('admin.generar_rotulo');
+});*/
+
+Route::resource('/rotulo/generar', 'UsersController@getUsuario');

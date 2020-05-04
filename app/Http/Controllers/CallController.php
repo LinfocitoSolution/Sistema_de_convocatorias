@@ -56,7 +56,8 @@ class CallController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'titulo' => 'required | max: 50',
-            'archivo' => 'required | max:5000 | file | mimes:pdf'  
+            'archivo' => 'required | max:5000 | file | mimes:pdf',  
+            'descripcion' => 'required | max:200'
         ]);
 
        if ($validator->fails()) {
@@ -67,6 +68,7 @@ class CallController extends Controller
 
         $convocatoria = new Convocatoria();
         $convocatoria->titulo_convocatoria=$request->input('titulo');
+        $convocatoria->descripcion=$request->input('descripcion');
 
         if ($request->hasFile('archivo')) {
             $file = $request->file('archivo');
