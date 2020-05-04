@@ -1,28 +1,3 @@
-<style>
-footer {
-	background-color:#0052cc;
-	height: 40%;
-  color: white;
-  padding: 15px;
-  
-}
-
-.main1 { 
-  display:flex;
-  margin:0 auto;
-}
-
-a img:hover {
-    color: lightblue;
-}
-/*.row{
-    margin-top:2px;
-}*/
-
-</style>
-
-
-<link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
 <footer>
   <div class="container">
       <div class="row">
