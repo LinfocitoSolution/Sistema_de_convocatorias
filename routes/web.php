@@ -14,7 +14,8 @@
 |
 */
 Route::get('/', function () {
-    return view('calls.noregister');
+    // return view('calls.noregister');
+    return redirect()->to('index');
 });
 
 Route::get('logout','LoginController@logout');

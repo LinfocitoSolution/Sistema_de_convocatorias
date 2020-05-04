@@ -1,5 +1,5 @@
 <?php
-
+/* 
 namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Support\Facades\Auth;
@@ -54,3 +54,4 @@ class rolesController extends Controller
         return view('users.director');
     }
 }
+*/
