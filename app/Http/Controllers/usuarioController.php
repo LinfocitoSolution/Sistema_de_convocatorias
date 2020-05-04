@@ -63,7 +63,7 @@ class usuarioController extends Controller
         $usuario->username = $request->input('Username');  
         $usuario->career = $request->input('Carrera');
         $usuario->email = $request->input('Email');
-        $usuario->password = $request->input('Password');
+        $usuario->password = bcrypt($request->input('Password'));
         //$usuario->password = (bcrypt($usuario->password));
         $usuario->save();
         // return view("calls.noregister");Richard

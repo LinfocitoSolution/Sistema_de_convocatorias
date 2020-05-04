@@ -28,24 +28,26 @@ class LoginController extends Controller
     public function LoginUsuario(Request $request)
     {
        
-        $username_or_email=$request->get('NombreUsuarioP');
+        $username_or_email=$request->get('NombreUsuarioP');        
         $password=$request->get('passwordP');
-
+        // $valor=Auth::attempt(array('username'=>$username_or_email, 'password'=>$password));
+        // dd($valor);
 
         /* Se puede agregar el atributo 'active' para verificar si es usuario ya se ha registrado: 'active' => 1*/
-        if(Auth::attempt(array('username'=>$username_or_email, 'password'=>$password)))
+        if(Auth::attempt(array('username'=>$username_or_email, 'password'=>$password))
+        || Auth::attempt(array('email'=>$username_or_email, 'password'=>$password))
+        )
         {
-            return redirect()->intended('registrado');
+            // return redirect()->intended('registrado');
+            $verificable= $this->registrado();
         }
-        //Auth::once
-        elseif(Auth::attempt(array('email'=>$username_or_email, 'password'=>$password)))
-        { 
-            return redirect()->intended('registrado');
-        }
-            return redirect('login')
+        else{
+            $verificable= redirect('login')
             ->withErrors([
                 'error' => 'Se ha producido un error. Verifique sus credenciales o regístrese'])
             ->withInput();
+        }
+        return $verificable;
     }
     
     public function noregister()
@@ -60,8 +62,7 @@ class LoginController extends Controller
     {
        // Session::flush();
         Auth::logout();
-        //$user=Auth::user();
-        //echo 'adios : ' . $user->nombre . 'hasta nunca' . $user->role->nombre_rol;
+        //$user=Auth::user();    
         return Redirect('login');
     }
     public function welcome()
@@ -71,105 +72,11 @@ class LoginController extends Controller
     public function registrado()
     {
         if(Auth::check())
-        {
-            $user=Auth::user();
-            if($user->esRol()=='administrador')
-            {
-                //return redirect()->intended('noregister');
-               echo 'que hay : ' . $user->name . 'hola' . $user->role->nombre_rol;
-               
+        {               
                return view("admin.administrador");
-            }
-            if($user->esRol()=='postulante')
-            {
-                //return redirect()->intended('noregister');
-               echo 'que hay : ' . $user->name . 'hola' . $user->role->nombre_rol;
-               
-               return view("users.postulante");
-            }
-            if($user->esRol()=='secretaria')
-            {
-                //return redirect()->intended('noregister');
-               echo 'que hay : ' . $user->name . 'hola' . $user->role->nombre_rol;
-               
-               return view("users.secretaria");
-            }
-            if($user->esRol()=='jefe de departamento')
-            {
-                //return redirect()->intended('noregister');
-               echo 'que hay : ' . $user->name . 'hola' . $user->role->nombre_rol;
-               
-               return view("users.jefeDep");
-            }
-            if($user->esRol()=='comision merito')
-            {
-                //return redirect()->intended('noregister');
-               echo 'que hay : ' . $user->name . 'hola' . $user->role->nombre_rol;
-               
-               return view("users.comision_merito");
-            }
-            if($user->esRol()=='comision conocimiento')
-            {
-                //return redirect()->intended('noregister');
-               echo 'que hay : ' . $user->name . 'hola' . $user->role->nombre_rol;
-               
-               return view("users.comision_conocimiento");
-            }
-            if($user->esRol()=='director de carrera')
-            {
-                //return redirect()->intended('noregister');
-               echo 'que hay : ' . $user->name . 'hola' . $user->role->nombre_rol;
-               
-               return view("users.director");
-            }
-            else {
-                echo 'hola no administrador';
-            }
-            
-            //return view("calls.registrado");
-        }
-        else 
-        {
-            Redirect::to("login")->withSuccess('nel mijo no pasaste el check');
         }
        
     }
 
-    /*public function LoginUsuario(request $request)
-    {
-       
-       
-        
-        if(Auth::attempt(array('NombreUsuario'=>$request->NombreUsuario,'password'=>$request->password,)))
-        {
-            $respuesta='nombre de usuario: ' . $request->NombreUsuario;
-            $respuesta+='password ' . $request->password;
-            return $respuesta;
-        }
-        else 
-        {
-            return 'error';   
-        }
-
-        
-       
-       
-        $credenciales=$this->Validate(request(),
-        [
-            'NombreUsuario'=>'max:20',
-            'password'=>'max:20'
-        ]);
-        if(Auth::attempt($credenciales))
-        {
-            return 'Login ok';
-        }
-        else 
-        {
-            return back()
-                
-                ->withErrors( ['NombreUsuario'=>trans(auth.failed)])
-                ->withInput(request(['NombreUsuario']));
-        }
-    }*/
 
 }
