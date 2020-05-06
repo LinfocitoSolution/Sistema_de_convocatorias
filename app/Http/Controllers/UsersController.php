@@ -22,7 +22,7 @@ class UsersController extends Controller
     {
         //aqui vienen las consultas hacie el request
         $postulantes = Usuario::all();
-        return view('users.index', compact('postulantes'));
+        return view('index', compact('postulantes'));
     }
 
     public function getUsuario(Request $request)

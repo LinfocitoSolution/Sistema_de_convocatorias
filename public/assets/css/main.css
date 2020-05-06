@@ -1,0 +1,28 @@
+
+#contenedor{
+  width:100%;
+  margin:0 auto;
+  border:1px;
+}
+header{
+  border:1px solid;
+  margin:7px 2px;
+  margin-bottom:0px;
+  border-color:white;
+}
+section{
+  background-image: url('../images/celeste.jpg');
+  border: 1px solid;
+  border-color:lightblue;
+  width:99,8%;
+  height:600px;
+  margin-top:1px;
+  margin:2px
+  /*position:relative;*/
+}
+.container{
+  margin-top:20px;
+}
+
+
+
