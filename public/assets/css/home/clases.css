@@ -1,0 +1,47 @@
+.contenedor{
+  width:100%;
+  margin:0 auto;
+  border:0px;
+}
+.convocatoria{
+  background-image: url('/imagenes/celeste.jpg');
+  border: 1px solid;
+  border-color:lightblue;
+  /*width:99,8%;*/
+  /*height:1000px;*/
+
+  /*position:relative;*/
+}
+.footer{
+  background-color:#0052cc; 
+  color: white;
+  padding: 15px;
+	height: 40%;
+  border:0px solid;
+  width:99,8%;
+}
+.main1{
+  display:flex;
+  margin:0 auto;
+}
+a img:hover {
+  color: lightblue;
+}
+
+.col{
+  margin-right:50px;
+}
+.form-row{
+  margin-top:40px;
+  margin-bottom:40px;
+  margin-left:30px;
+}
+.btn-primary{
+  margin-left:10px;
+}
+
+/*.carousel-caption{
+  position: absolute; 
+  top:5px; 
+}*/
+
