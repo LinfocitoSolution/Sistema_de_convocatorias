@@ -58,6 +58,7 @@ class usuarioController extends Controller
         }
 
         $usuario = new User();
+        
         $usuario->name = $request->input('Nombre');
         $usuario->lastname = $request->input('Apellido');
         $usuario->username = $request->input('Username');  
