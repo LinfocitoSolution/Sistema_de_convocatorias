@@ -52,7 +52,7 @@ class LoginController extends Controller
     
     public function noregister()
     {
-        return view("layouts.index"); 
+        return view("index"); 
     }
     public function login()
     {

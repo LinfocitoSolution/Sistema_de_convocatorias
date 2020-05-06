@@ -1,30 +1,5 @@
-<!doctype html>
-{{--  @extends("logins.plantillaLogin")  --}}
-<html>
-	{{-- <!--<input type="hidden" name="_token" value="{{ csrf_token() }}">--> --}}
-	
-	<head>
-		<meta charset="utf-8">
-		<meta name="csrf-token" content="{{ csrf_token() }}">
-		<title>login</title>
-		<link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
-		
-		<script>
-			window.Laravel = <?php echo json_encode([
-				'csrfToken' => csrf_token(),
-			]); ?>
-		</script>
-		
-	</head>
+@extends("logins.plantillaLogin")
 
-
-	<style>
-		.container{
-			margin-top:20px;
-		}
-
-	</style>
-	<body>
 		{{-- noregister ser cambio por --}}
 		@section("cabecera")
 			<nav class="navbar navbar-expand-lg navbar-light bg-info sticky-top">
@@ -74,11 +49,6 @@
 					<div class="card">
 						<div class="card-header">
 							<h3>Login Usuario</h3>
-							<div class="d-flex justify-content-end social_icon">
-								<span><i class="fab fa-facebook-square"></i></span>
-								<span><i class="fab fa-google-plus-square"></i></span>
-								<span><i class="fab fa-twitter-square"></i></span>
-							</div>
 						</div>				
 						<div class="card-body">
 							<form class= "form group" method="POST" action="{{url('/verificar')}}">
@@ -122,5 +92,4 @@
 				</div>
 			</div>			
 		@endsection		
-	</body>	 
-</html>
+	
