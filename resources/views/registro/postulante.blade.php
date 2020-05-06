@@ -1,30 +1,18 @@
-<!doctype html>
+
 @extends('layouts.plantillapost')
-<html>
-	<head>
-		<title>Registro - Postulante</title>
-    <style>	
-		.formulario{
-		 margin-top:30px;
-	 }
-	</style>	
-    </head>
-	
-	 
 
 	@section("cabecera")
 		<nav class="navbar navbar-expand-lg navbar-light bg-info sticky-top">
-				<a class="navbar-brand  text-white" href="{{url('noregister')}}" tabindex="-1" >Inicio</a>
+				<a class="navbar-brand  text-white" href="{{url('index')}}" tabindex="-1" >Inicio</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 		</nav>
 	@endsection
+
 @section("infoGeneral")
-
-	<body>
-
-		@if (count($errors) > 0)
+     
+	   @if (count($errors) > 0)
 			<div class="alert alert-danger">
 				<ul>
 					@foreach ($errors->all() as $error)
@@ -34,18 +22,14 @@
 			</div>
 		@endif
 
-			<div class="formulario">
+		<div class="contenido-medio">
+			<div class="container">	
 				<div class="d-flex justify-content-center h-100">
 					<div class="card">
 						<div class="card-header">
 							<h3>Registro Postulante</h3>
-							<div class="d-flex justify-content-end social_icon">
-								<span><i class="fab fa-facebook-square"></i></span>
-								<span><i class="fab fa-google-plus-square"></i></span>
-								<span><i class="fab fa-twitter-square"></i></span>
-							</div>
-						
-						<div class="card-body">
+                        </div>    
+						  <div class="card-body">
 					
 							<form class="form-group" method="POST" action={{url("/users")}}>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          	 
 								<input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -98,13 +82,17 @@
 								
 								<button type="submit" class="btn btn-primary" > Registrar </button>
 
-							</form>
-						<div class="card-footer">
+						  </form>
+						       <div class="card-footer">
 
-							<div class="d-flex justify-content-center links">
-								Si ya tienes cuenta iniciar sesion?<a href="{{url('login')}}">Login</a>
-							</div>
-	</body>
-	@endsection
-	@section("pie")
+							     <div class="d-flex justify-content-center links">
+								   Si ya tienes cuenta iniciar sesion?<a href="{{url('login')}}">Login</a>
+							     </div>
+                               </div>
+						</div>
+					  </div>		
+				   </div>	
+			   </div>	
+		  </div>
+		</div>
 	@endsection

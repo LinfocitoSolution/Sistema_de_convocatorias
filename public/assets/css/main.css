@@ -1,0 +1,21 @@
+
+#contenedor{
+  width:100%;
+  margin:0 auto;
+  border:1px;
+}
+.login{
+  background-image: url('../images/celeste.jpg');
+  border: 1px solid;
+  border-color:lightblue;
+  width:99,8%;
+  height:700px;
+}
+.contenido-medio{
+  margin-top:30px;
+}
+/* de registro formulario*/
+.formulario{
+  margin-top:30px;
+
+
