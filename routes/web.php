@@ -1,8 +1,5 @@
 
 <?php
-
-
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -80,12 +77,13 @@ Route::get('vistaadmi', function () {
     return view('calls.registrado');
 });
 
-Route::get('/rotulo', function() {
-    return view('admin.rolpostulante');
-});
-/*
-Route::get('rotulo/generar', function() {
-    return view('admin.generar_rotulo');
-});*/
+// Route::get('/rotulo', function() {
+//     return view('admin.rolpostulante');
+// });
 
-Route::resource('/rotulo/generar', 'UsersController@getUsuario');
+
+//GENERAR RÓTULO CON LA CONDICIÓN DE QUE EL USUARIO ESTÉ LOGEADO
+Route::get('/rotulo/generar', function() {
+    return view('admin.generar_rotulo');
+});
+Route::get('/rotulo', 'UsersController@getUser');

@@ -25,7 +25,7 @@ class UsersController extends Controller
         return view('index', compact('postulantes'));
     }
 
-    public function getUsuario(Request $request)
+    public function getUser(Request $request)
     {
         $postulantes = User::all();
         if(Auth::check())
@@ -46,7 +46,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.generar_rotulo');
     }
 
     /**
