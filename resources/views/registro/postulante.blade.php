@@ -1,16 +1,5 @@
-<!doctype html>
+
 @extends('layouts.plantillapost')
-<html>
-	<head>
-		<title>Registro - Postulante</title>
-    <style>	
-		.formulario{
-		 margin-top:30px;
-	 }
-	</style>	
-    </head>
-	
-	 
 
 	@section("cabecera")
 		<nav class="navbar navbar-expand-lg navbar-light bg-info sticky-top">
@@ -20,11 +9,10 @@
 			</button>
 		</nav>
 	@endsection
+
 @section("infoGeneral")
-
-	<body>
-
-		@if (count($errors) > 0)
+     
+	   @if (count($errors) > 0)
 			<div class="alert alert-danger">
 				<ul>
 					@foreach ($errors->all() as $error)
@@ -34,13 +22,14 @@
 			</div>
 		@endif
 
-			<div class="formulario">
+		<div class="contenido-medio">
+			<div class="container">	
 				<div class="d-flex justify-content-center h-100">
 					<div class="card">
 						<div class="card-header">
 							<h3>Registro Postulante</h3>
-						
-						<div class="card-body">
+                        </div>    
+						  <div class="card-body">
 					
 							<form class="form-group" method="POST" action={{url("/users")}}>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          	 
 								<input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -93,12 +82,17 @@
 								
 								<button type="submit" class="btn btn-primary" > Registrar </button>
 
-							</form>
-						<div class="card-footer">
+						  </form>
+						       <div class="card-footer">
 
-							<div class="d-flex justify-content-center links">
-								Si ya tienes cuenta iniciar sesion?<a href="{{url('login')}}">Login</a>
-							</div>
-	</body>
-	
+							     <div class="d-flex justify-content-center links">
+								   Si ya tienes cuenta iniciar sesion?<a href="{{url('login')}}">Login</a>
+							     </div>
+                               </div>
+						</div>
+					  </div>		
+				   </div>	
+			   </div>	
+		  </div>
+		</div>
 	@endsection

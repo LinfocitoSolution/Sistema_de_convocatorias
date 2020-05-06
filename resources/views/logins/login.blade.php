@@ -7,34 +7,11 @@
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
-
-				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul class="navbar-nav mr-auto">
-						<li class="nav-item">
-							<a class="nav-link text-white" href="{{ url('convocatorias') }}">Convocatorias</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link text-white" href="{{ url('calendario') }}">Calendario</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link text-white " href="#">Informacion</a>
-						</li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle text-white" href="#"  id="nabarDropdown" tabindex="-2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								Malla Curricular
-							</a>
-							<div class="dropdown-menu" >
-								<a class="dropdown-item" href="#">Sistemas</a>
-								<a class="dropdown-item" href="#">Informatica</a>
-								<a class="dropdown-item" href="#">Industrial</a>
-							</div>  
-						</li>
-					</ul>
-				</div>
 			</nav>
 		@endsection
 
 		@section("infoGeneral")
+
 		@if (count($errors) > 0)
 			<div class="alert alert-danger">
 				<ul>
@@ -44,6 +21,7 @@
 				</ul>
 			</div>
 		@endif
+		<div classs=contenido-medio>
 			<div class="container">
 				<div class="d-flex justify-content-center h-100">
 					<div class="card">
@@ -79,17 +57,19 @@
 								</div>
 							</form>
 						</div>
-
-						<div class="card-footer">
-							<div class="d-flex justify-content-center links">
+                           <!--footer de login--> 
+						   <div class="card-footer">
+							  <div class="d-flex justify-content-center links">
 								No tienes cuenta?<a href="{{url('registro_postulante')}} ">REGISTRATE</a>
-							</div>
-							<div class="d-flex justify-content-center">
+							   </div>
+							   <div class="d-flex justify-content-center">
 								<a href="#">Olviste tu contraseña?</a>
-							</div>
+							  </div>
+							<!--fin de footer-->
 						</div>
 					</div>
 				</div>
-			</div>			
+			</div>
+		</div>			
 		@endsection		
 	
