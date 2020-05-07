@@ -73,7 +73,8 @@ class LoginController extends Controller
     {
         if(Auth::check())
         {               
-               return view("admin.administrador");
+               //return view("admin.administrador");
+               return view("admin.rolpostulante");
         }
        
     }

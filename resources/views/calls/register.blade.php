@@ -90,20 +90,19 @@
                 <div class="form group">
                     <h1>Subir convocatoria</h1>
                     <br>
-                        <label for="">Título de la convocatoria</label>
                         <div class="row">
-                           <div class="col">
-                             <input type="text" name="titulo" class="form-control" value="{{old('titulo')}}">
-                           </div>
-                           <div class="col">
-                            <button type="submit" class="btn btn-primary" margin-left="50">Guardar</button>
+                              <div class="form-group">
+                                      <label for="">Título de la convocatoria</label>
+                                      <input type="text" name="titulo" class="form-control" value="{{old('titulo')}}">
+                                      <label for="">Descripción: </label>
+                                      <textarea class="form-control" name="descripcion" rows="3"></textarea>
+                                      <input type="file" name="archivo">                      
+                              </div>
+                
                          </div>
-                         </div>
-                      <br>
-                      <input type="file" name="archivo">                      
                 </div>
-                   <br>
-                      
+                
+                <button type="submit" class="btn btn-primary" margin-left="50">Guardar</button>
                    
             </form>
                     
