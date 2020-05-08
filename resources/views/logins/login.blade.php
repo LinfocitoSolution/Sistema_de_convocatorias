@@ -1,40 +1,10 @@
-@extends("logins.plantillaLogin")
+@extends("logins.plantillaLogForm")
 
-		{{-- noregister ser cambio por --}}
-		@section("cabecera")
-			<nav class="navbar navbar-expand-lg navbar-light bg-info sticky-top">
-				<a class="navbar-brand  text-white" href="{{url('index')}}" tabindex="-1" >Inicio</a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
+@section("htmlheader_title")
+  LOGIN
+@endsection
+@section("infoGeneral")
 
-				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul class="navbar-nav mr-auto">
-						<li class="nav-item">
-							<a class="nav-link text-white" href="{{ url('convocatorias') }}">Convocatorias</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link text-white" href="{{ url('calendario') }}">Calendario</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link text-white " href="#">Informacion</a>
-						</li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle text-white" href="#"  id="nabarDropdown" tabindex="-2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								Malla Curricular
-							</a>
-							<div class="dropdown-menu" >
-								<a class="dropdown-item" href="#">Sistemas</a>
-								<a class="dropdown-item" href="#">Informatica</a>
-								<a class="dropdown-item" href="#">Industrial</a>
-							</div>  
-						</li>
-					</ul>
-				</div>
-			</nav>
-		@endsection
-
-		@section("infoGeneral")
 		@if (count($errors) > 0)
 			<div class="alert alert-danger">
 				<ul>
@@ -44,12 +14,15 @@
 				</ul>
 			</div>
 		@endif
+	
+		<div classs=contenido-login>
 			<div class="container">
 				<div class="d-flex justify-content-center h-100">
 					<div class="card">
 						<div class="card-header">
 							<h3>Login Usuario</h3>
-						</div>				
+						</div>
+						<!--cuerpo del login-->				
 						<div class="card-body">
 							<form class= "form group" method="POST" action="{{ route('login') }}">
 								<input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -58,7 +31,7 @@
 									<div class="input-group-prepend">
 										<span class="input-group-text"><i class="fas fa-user"></i></span>
 									</div>
-								<input type="text" class="form-control" placeholder="Nombre Usuario o Email" name="NombreUsuarioP" id="NombreUsuarioP" value="{{ old('NombreUsuarioP') }}">
+								       <input type="text" class="form-control" placeholder="Nombre Usuario o Email" name="NombreUsuarioP" id="NombreUsuarioP" value="{{ old('NombreUsuarioP') }}">
 								</div>
 								
 								<div class="input-group form-group">
@@ -71,25 +44,27 @@
 								{{-- <!--<div class="row align-items-center remember">
 									<input type="checkbox">RECUERDAME
 								</div>--> --}}
-
-								<br>
-
 								<div class="form-group" >
 									<button class="btn btn-outline-primary mr-sm-2" type="submit">INGRESAR</button>
 								</div>
 							</form>
-						</div>
-
-						<div class="card-footer">
-							<div class="d-flex justify-content-center links">
-								No tienes cuenta?<a href="{{url('registro_postulante')}} ">REGISTRATE</a>
-							</div>
-							<div class="d-flex justify-content-center">
+						
+                           <!--footer de login--> 
+						   <div class="card-footer">
+							   <div class="d-flex justify-content-center links">
+								   No tienes cuenta?<a href="{{url('registro_postulante')}} ">REGISTRATE</a>
+							   </div>
+							   <div class="d-flex justify-content-center">
 								<a href="#">Olviste tu contraseña?</a>
-							</div>
+							   </div>
+						   </div>
+							<!--fin de footer-->
 						</div>
+						<!--fin cuerpo login-->
 					</div>
 				</div>
-			</div>			
-		@endsection		
+			</div>
+		</div>
+		
+@endsection		
 	
