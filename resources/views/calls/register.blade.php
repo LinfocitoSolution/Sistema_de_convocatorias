@@ -1,9 +1,6 @@
-<!doctype html>
 @extends("layouts.callForm")
 <html>
 <head>
-  <meta charset="utf-8">
-    <title>Documento sin titulo</title>
       <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
 
    <style>
@@ -15,15 +12,15 @@
         padding-bottom:30px;
         padding-top:30px;
         background:#ccf2ff;
-
      }
-
    </style>
 </head>
 <body>
+@section('title','Registro')
+
 @section("cabecera")
 <nav class="navbar navbar-expand-lg navbar-light bg-info">
-  <a class="navbar-brand  text-white" href="{{url('noregister')}}" tabindex="-1" >Registro</a>
+  <a class="navbar-brand  text-white" href="#" tabindex="-1" >Registro</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -31,7 +28,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link text-white" href="{{ url('noregister') }}">Inicio</a>
+        <a class="nav-link text-white" href="/">Inicio</a>
       </li>
       <li class="nav-item">
         <a class="nav-link text-white" href="#">Historial</a>
@@ -43,8 +40,6 @@
   </div>
 </nav>
 @endsection
-
-<!--@section('title','Registro')-->
 
 @section("informacion")
 @if (count($errors) > 0)
@@ -74,7 +69,7 @@
                 doc.save('html.pdf');
             }
       </script>
-        <form class="form-group" method="post" action={{url("/call")}} enctype="multipart/form-data">
+       <form class="form-group" method="post" action={{url("/call")}} enctype="multipart/form-data">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
             <!-- 
@@ -98,22 +93,18 @@
                                       <textarea class="form-control" name="descripcion" rows="3"></textarea>
                                       <input type="file" name="archivo">                      
                               </div>
-                
                          </div>
                 </div>
                 
                 <button type="submit" class="btn btn-primary" margin-left="50">Guardar</button>
                    
-            </form>
+       </form>
                     
                {{-- 
                 <button class="btn btn-primary" onclick="saveToPDF();">DscargarPDF</button>
                 <button class="btn btn-success" onclick="getHTML();">DscargarHTML</button>  
                 comment --}}
-       
    </div>      
 @endsection
 </body>
-@section("pie")
-@endsection
 </html>

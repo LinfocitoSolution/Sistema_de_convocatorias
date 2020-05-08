@@ -1,5 +1,5 @@
-
 <?php
+use App\Convocatoria;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,8 +11,9 @@
 |
 */
 Route::get('/', function () {
-    // return view('calls.noregister');
-    return redirect()->to('index');
+    $convocatorias = Convocatoria::all();
+    return view('index', compact('convocatorias'));
+    //   return redirect()->to('index');
 });
 
 Route::get('logout','LoginController@logout');
