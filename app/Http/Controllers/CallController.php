@@ -127,6 +127,7 @@ class CallController extends Controller
     {
         //
     }
+<<<<<<< Updated upstream
     
     public function plantilla()
     {
@@ -134,4 +135,6 @@ class CallController extends Controller
     }
 
     
+=======
+>>>>>>> Stashed changes
 }
