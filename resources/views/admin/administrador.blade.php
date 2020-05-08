@@ -1,20 +1,27 @@
-<!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="csrf-token" content="{{ csrf_token() }}">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
+@extends("admin.layouts.plantilladmin")
 
-  
+@section('title')
+    Home
+@endsection
 
-  
+@section("content")
+ <!-- Content Wrapper. Contains contiene paginas -->
+ <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">¡¡Bienvenido Administrador!!</h1>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
 
- @extends("admin.navbar")
+    
+    
+  </div>
+  <!-- /.content-wrapper -->
 
-
- @extends("admin.sidebar")
+@endsection
