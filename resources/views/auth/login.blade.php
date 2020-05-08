@@ -1,4 +1,4 @@
-@extends("logins.plantillaLogForm")
+@extends("auth.plantillaLogForm")
 
 @section("htmlheader_title")
   LOGIN
@@ -24,21 +24,21 @@
 						</div>
 						<!--cuerpo del login-->				
 						<div class="card-body">
-							<form class= "form group" method="POST" action="{{url('/verificar')}}">
+							<form class= "form group" method="POST" action="{{ route('login') }}">
 								<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 								<div class="input-group form-group">
 									<div class="input-group-prepend">
 										<span class="input-group-text"><i class="fas fa-user"></i></span>
 									</div>
-								       <input type="text" class="form-control" placeholder="Nombre Usuario o Email" name="NombreUsuarioP" id="NombreUsuarioP" value="{{ old('NombreUsuarioP') }}">
+								       <input type="text" class="form-control" placeholder="Nombre de Usuario o email" name="login" id="login" value="{{ old('username') ?: old('email') }}">
 								</div>
 								
 								<div class="input-group form-group">
 									<div class="input-group-prepend">
 										<span class="input-group-text"><i class="fas fa-key"></i></span>
 									</div>
-									<input type="password" class="form-control" placeholder="Contraseña" name="passwordP" id="password">
+									<input type="password" class="form-control" placeholder="Contraseña" name="password" id="password">
 								</div>
 								<small id="passwordHelpBlock" class="form-text text-muted"> Tu contraseña debe tener 8-20 caracteres, contener letras y numeros , <br>no debe contener espacios, caracteres especiales, o emoji. </small>
 								{{-- <!--<div class="row align-items-center remember">
