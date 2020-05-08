@@ -9,7 +9,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>Rol Postulante</title>
+  <title>Postulante</title>
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
@@ -37,13 +37,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <a class="nav-link text-white" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="{{url('noregister')}}" class="nav-link text-white">Inicio</a>
+        <a href="{{url('/')}}" class="nav-link text-white">Inicio</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link text-white">Convocatorias</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link text-white">Rotulo</a>
+        <a href="{{url('/rotulo')}}" class="nav-link text-white">Rotulo</a>
       </li>
     </ul>
 
@@ -88,7 +88,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">postperengano</a>
+          <a href="#" class="d-block">{{ ucfirst(Auth()->user()->name)  }} {{ ucfirst(Auth()->user()->lastname)  }}</a>
         </div>
       </div>
 
