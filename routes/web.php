@@ -18,6 +18,7 @@ Auth::routes();
 Route::get('/', function () {
     return view('index');
 });
+Route::get('administrador','LoginController@registrado');
 Route::get('/home','LoginController@registrado');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
