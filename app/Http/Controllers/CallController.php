@@ -113,9 +113,4 @@ class CallController extends Controller
     {
         //
     }
-    
-    public function plantilla()
-    {
-        return view('layouts.plantillapost');
-    }
 }

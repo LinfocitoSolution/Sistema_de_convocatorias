@@ -10,7 +10,6 @@ use App\Convocatoria;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Auth::routes();
 
 Route::get('/', function () {
@@ -18,22 +17,10 @@ Route::get('/', function () {
     return view('index', compact('convocatorias'));
     //   return redirect()->to('index');
 });
-
 Route::get('/home','LoginController@registrado');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
-
-
-
-
-
-
-
-Route::get('admin','rolesController@adminV');
-
-
-Route::resource('postulante', 'UsuarioController@create');
-
+Route::resource('postulante', 'UsuarioController');
 //call/create
 Route::resource('call', 'CallController');
 //Para descargar las convocatorias
@@ -44,41 +31,6 @@ Route::get('calls/{file_name}', function ($file_name) {
     
      //abort(404);
 });
-//users/create##########Richard users no se implentara, registrar postulante esta
-Route::resource('users', 'usuarioController');
-//Permite el registro de un postulante
-Route::resource('registro_postulante', 'usuarioController@create');
-
-Route::get('jefeDep', 'usuarioController@regJefDep');
-Route::get('director', 'usuarioController@regdirector');
-Route::get('comision_merito', 'usuarioController@comMerito');
-
-Route::get('comision_conocimiento', 'usuarioController@conocimiento');
-
-Route::get('/register', [
-    'as' => 'auth.register',
-    'uses' => 'Auth\RegisterController@showRegistrationForm'
-]);
-
-Route::post('/register_store', [
-    'as' => 'auth.register_store',
-    'uses' => 'Auth\RegisterController@storeRegistration'
-]);
 Route::post('/verificar','LoginController@LoginUsuario');
-Route::get('secretaria', 'usuarioController@secretaria');
-Route::get('plantilla', 'CallController@plantilla');
-Route::resource('log', 'CallController@log');
-
-
 Route::get('registrado', 'LoginController@registrado');
-
-
-
-Route::get('vistaadmi', function () {
-    // return view('admin.administrador');
-    //  return view('logins.login');
-    //   return view('layouts.index');
-    return view('calls.registrado');
-
-});
 Route::get('/rotulo', 'UsersController@getUser');
