@@ -10,22 +10,25 @@ use App\Convocatoria;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Auth::routes();
+
 Route::get('/', function () {
     $convocatorias = Convocatoria::all();
     return view('index', compact('convocatorias'));
     //   return redirect()->to('index');
 });
 
-Route::get('logout','LoginController@logout');
+Route::get('/home','LoginController@registrado');
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
-Route::get('welcome', 'LoginController@welcome' );
 
 
-// noregister ser cambio por index
-Route::get('index', 'LoginController@noregister');
-Route::get('login', 'LoginController@login');
-//Route::resource('/verificar','LoginController@LoginUsuario');
-Route::post('logout', 'LoginController@logout');
+
+
+
+
+
 Route::get('admin','rolesController@adminV');
 
 
@@ -65,7 +68,7 @@ Route::post('/verificar','LoginController@LoginUsuario');
 Route::get('secretaria', 'usuarioController@secretaria');
 Route::get('plantilla', 'CallController@plantilla');
 Route::resource('log', 'CallController@log');
-// Route::resource('postulante', 'UsuarioController');
+
 
 Route::get('registrado', 'LoginController@registrado');
 
@@ -76,15 +79,6 @@ Route::get('vistaadmi', function () {
     //  return view('logins.login');
     //   return view('layouts.index');
     return view('calls.registrado');
-});
 
-// Route::get('/rotulo', function() {
-//     return view('admin.rolpostulante');
-// });
-
-
-//GENERAR RÓTULO CON LA CONDICIÓN DE QUE EL USUARIO ESTÉ LOGEADO
-Route::get('/rotulo/generar', function() {
-    return view('admin.generar_rotulo');
 });
 Route::get('/rotulo', 'UsersController@getUser');

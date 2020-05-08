@@ -1,9 +1,14 @@
+@extends("admin.layouts.plantilladmin")
 
-@extends("layouts.callForm")
+@section('title')
+    nueva-convocatoria
+@endsection
 
-<!--@section('title','Registro')-->
-@section("informacion")
-@if (count($errors) > 0)
+@section("content")
+ <!-- Content Wrapper. Contains contiene paginas -->
+<div class="content-wrapper">
+    
+       @if (count($errors) > 0)
 			<div class="alert alert-danger">
 				<ul>
 					@foreach ($errors->all() as $error)
@@ -30,7 +35,7 @@
                 doc.save('html.pdf');
             }
       </script>
-       <form class="form-group" method="post" action={{url("/call")}} enctype="multipart/form-data">
+        <form class="form-group" method="post" action={{url("/call")}} enctype="multipart/form-data">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
             <!-- 
@@ -46,24 +51,30 @@
                 <div class="form group">
                     <h1>Subir convocatoria</h1>
                     <br>
+                        <label for="">Título de la convocatoria</label>
                         <div class="row">
-                              <div class="form-group">
-                                      <label for="">Título de la convocatoria</label>
-                                      <input type="text" name="titulo" class="form-control" value="{{old('titulo')}}">
-                                      <label for="">Descripción: </label>
-                                      <textarea class="form-control" name="descripcion" rows="3"></textarea>
-                                      <input type="file" name="archivo">                      
-                              </div>
+                           <div class="col">
+                             <input type="text" name="titulo" class="form-control" value="{{old('titulo')}}">
+                           </div>
+                           <div class="col">
+                            <button type="submit" class="btn btn-primary" margin-left="50">Guardar</button>
                          </div>
+                         </div>
+                      <br>
+                      <input type="file" name="archivo">                      
                 </div>
-                
-                <button type="submit" class="btn btn-primary" margin-left="50">Guardar</button>
+                   <br>
+                      
                    
-       </form>
+            </form>
                     
                {{-- 
                 <button class="btn btn-primary" onclick="saveToPDF();">DscargarPDF</button>
                 <button class="btn btn-success" onclick="getHTML();">DscargarHTML</button>  
                 comment --}}
+       
    </div>      
+</div>
+  <!-- /.content-wrapper -->
+
 @endsection
