@@ -13,21 +13,42 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Auth::routes();
+
 Route::get('/', function () {
-    // return view('calls.noregister');
-    return redirect()->to('index');
+    return view('index');
 });
 
-Route::get('logout','LoginController@logout');
+Route::get('/home','LoginController@registrado');
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
-Route::get('welcome', 'LoginController@welcome' );
+
+
+
+
+
+
+
+//Route::get('/admin/administrador', 'LoginController@registrado');
+/*Route::get('/', function () {
+    // return view('calls.noregister');
+    return redirect()->to('index');
+});*/
+
+/*Route::get('logout','LoginController@logout');*/
+
+
 
 
 // noregister ser cambio por index
-Route::get('index', 'LoginController@noregister');
-Route::get('login', 'LoginController@login');
+
+
+/*Route::get('login', 'LoginController@login');*/
+
+
 //Route::resource('/verificar','LoginController@LoginUsuario');
-Route::post('logout', 'LoginController@logout');
+/*Route::post('logout', 'LoginController@logout');*/
 Route::get('admin','rolesController@adminV');
 
 
