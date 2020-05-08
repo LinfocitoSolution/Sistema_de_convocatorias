@@ -81,4 +81,8 @@ Route::get('vistaadmi', function () {
 
 });
 
-// Route::resource('user', 'UsersController');
+
+/*Route::get('areas', [
+    'as' => 'areas.index',
+    'uses' => 'AreaController@index',
+])->middleware('permission:list areas');*/

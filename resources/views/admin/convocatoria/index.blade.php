@@ -1,9 +1,14 @@
+@extends("admin.layouts.plantilladmin")
 
-@extends("layouts.callForm")
+@section('title')
+    nueva-convocatoria
+@endsection
 
-<!--@section('title','Registro')-->
-@section("informacion")
-@if (count($errors) > 0)
+@section("content")
+ <!-- Content Wrapper. Contains contiene paginas -->
+<div class="content-wrapper">
+    
+       @if (count($errors) > 0)
 			<div class="alert alert-danger">
 				<ul>
 					@foreach ($errors->all() as $error)
@@ -69,4 +74,7 @@
                 comment --}}
        
    </div>      
+</div>
+  <!-- /.content-wrapper -->
+
 @endsection

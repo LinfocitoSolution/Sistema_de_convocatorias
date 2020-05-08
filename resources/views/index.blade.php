@@ -53,9 +53,9 @@
         </div>  
       </li>
     </ul>
-      <form class="form-inline">
+      <form class="form-inline my-2 my-lg-0">
          <a class="btn btn-outline-success  text-white my-2 my-sm-2" type="submit" href="{{url('login')}}">Iniciar Sesion</a>
-         <a class="btn btn-outline-warning  text-white my-2 my-sm-0" type="submit" href="{{url('postulante')}}">Registrate</a>
+         <a class="btn btn-outline-warning  text-white my-2 my-sm-2" type="submit" href="{{url('postulante')}}">Registrate</a>
         </form>
   </div>
 </nav>
