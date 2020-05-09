@@ -23,6 +23,7 @@ Route::get('administrador','HomeController@registrado');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::resource('postulante', 'UsuarioController');
+
 //call/create
 Route::resource('call', 'CallController');
 //Para descargar las convocatorias
@@ -36,3 +37,8 @@ Route::get('calls/{file_name}', function ($file_name) {
 Route::post('/verificar','LoginController@LoginUsuario');
 Route::get('registrado', 'LoginController@registrado');
 Route::get('/rotulo', 'UsersController@getUser');
+
+Route::get('areas','HomeController@areas');
+Route::get('convocatoria','HomeController@convocatorias');
+Route::get('roles','HomeController@roles');
+Route::get('usuarios','HomeController@usuarios');

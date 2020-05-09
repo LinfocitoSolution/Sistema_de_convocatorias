@@ -31,6 +31,20 @@ class HomeController extends Controller
         }
        
     }
+    public function areas(){
+
+        return view('admin.areas.index');
+    }
+    public function convocatorias(){
+        return view('admin.convocatoria.index');
+    }
+    public function roles(){
+        return view('admin.roles.index');
+
+    }
+    public function usuarios(){
+        return view ('admin.usuarios.index');
+    }
 
 
 }
