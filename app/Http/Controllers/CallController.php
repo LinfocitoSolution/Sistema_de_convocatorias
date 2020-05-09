@@ -127,14 +127,4 @@ class CallController extends Controller
     {
         //
     }
-<<<<<<< Updated upstream
-    
-    public function plantilla()
-    {
-        return view('layouts.plantilla');
-    }
-
-    
-=======
->>>>>>> Stashed changes
 }
