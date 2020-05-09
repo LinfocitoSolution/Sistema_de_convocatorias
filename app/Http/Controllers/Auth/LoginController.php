@@ -71,5 +71,15 @@ class LoginController extends Controller
     {
         return 'username';
     }
+    public function registrado()
+    {
+        if(Auth::check())
+        {               
+               return view("admin.administrador");
+               //return view("admin.rolpostulante");
+        }
+       
+    }
+
     
 }

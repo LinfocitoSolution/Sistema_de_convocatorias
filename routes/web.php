@@ -17,8 +17,8 @@ Route::get('/', function () {
     return view('index', compact('convocatorias'));
     //   return redirect()->to('index');
 });
-Route::get('administrador','LoginController@registrado');
-Route::get('/home','LoginController@registrado');
+Route::get('administrador','HomeController@registrado');
+//Route::get('/home','HomeController@registrado');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::resource('postulante', 'UsuarioController');
