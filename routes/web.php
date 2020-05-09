@@ -39,3 +39,8 @@ Route::post('/verificar','LoginController@LoginUsuario');
 Route::get('registrado', 'LoginController@registrado');
 Route::get('/rotulo', 'UsersController@getUser');
 Route::resource('/users', 'UsersController');
+
+Route::get('areas','HomeController@areas');
+Route::get('convocatoria','HomeController@convocatorias');
+Route::get('roles','HomeController@roles');
+Route::get('usuarios','HomeController@usuarios');
