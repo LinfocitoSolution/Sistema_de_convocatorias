@@ -11,7 +11,10 @@ use App\Convocatoria;
 |
 */
 Auth::routes();
-
+Route::get('index', function()
+{
+    return view('index');
+});
 Route::get('/', function () {
     $convocatorias = Convocatoria::all();
     return view('index', compact('convocatorias'));

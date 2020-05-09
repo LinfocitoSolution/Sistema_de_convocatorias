@@ -24,7 +24,7 @@
 						</div>
 						<!--cuerpo del login-->				
 						<div class="card-body">
-							<form class= "form group" method="POST" action="{{ route('login') }}">
+							<form class= "form group" method="POST" action="{{ url('login') }}">
 								<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 								<div class="input-group form-group">
