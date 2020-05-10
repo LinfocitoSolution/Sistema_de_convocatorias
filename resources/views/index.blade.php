@@ -54,8 +54,8 @@
       </li>
     </ul>
     @if (Auth::guest())
-      <form class="form-inline my-2 my-lg-0">
-         <a class="btn btn-outline-success  text-white my-2 my-sm-2" type="submit" href="{{url('login')}}">Iniciar Sesion</a>
+      <form action="" class="form-inline float-xs-right">
+         <a class="btn btn-outline-success  text-white my-2 my-sm-2" type="submit" href="{{url('login')}}">Iniciar Sesion</a><br>
          <a class="btn btn-outline-warning  text-white my-2 my-sm-2" type="submit" href="{{url('postulante/create')}}">Registrate</a>
         </form>
     @else
@@ -122,8 +122,8 @@
    <!--fin carrusel--> 
    <!--convocatorias ofertadas-->
    
-   <div class=convocatoria> 
-     <div class=container> 
+   <div class="convocatoria"> 
+     <div class="container"> 
          <form>
             <div class="form-row">
                 <div class="col-sm-1 col-md-6">
@@ -168,8 +168,9 @@
                             </div>
                     </div>                    
                  </div>
-             
-          </form> 
+             </div>
+            
+        </form> 
       </div>   
     </div>    
      <!--fin de convocatorias ofertadas-->     
