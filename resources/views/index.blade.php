@@ -54,12 +54,12 @@
       </li>
     </ul>
     @if (Auth::guest())
-      <form action="" class="form-inline float-xs-right">
-         <a class="btn btn-outline-success  text-white my-2 my-sm-2" type="submit" href="{{url('login')}}">Iniciar Sesion</a><br>
-         <a class="btn btn-outline-warning  text-white my-2 my-sm-2" type="submit" href="{{url('postulante/create')}}">Registrate</a>
+      <form class="form-inline float-xs-right">
+         <a class="btn btn-outline-success  text-white my-2 my-sm-2" type="submit" href="{{url('login')}}">Iniciar Sesion</a>
+         <a class="btn btn-outline-warning  text-white my-2 my-sm-2" type="submit" href="{{url('register')}}">Registrate</a>
         </form>
     @else
-         <a class="btn btn-outline-warning  text-white my-2 my-sm-2" type="submit" href="{{url('logout')}}">Cerrar Sesion</a>
+         <a class="btn btn-outline-warning text-white my-2 my-sm-2" type="submit" href="{{url('logout')}}">Cerrar Sesion</a>
     @endif
 
   </div>
