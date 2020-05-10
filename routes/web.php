@@ -1,8 +1,5 @@
-
 <?php
-
-
-
+use App\Convocatoria;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,16 +11,21 @@
 |
 */
 Auth::routes();
-
-Route::get('/', function () {
+Route::get('index', function()
+{
     return view('index');
 });
-Route::get('administrador','LoginController@registrado');
-Route::get('/home','LoginController@registrado');
+Route::get('/', function () {
+    $convocatorias = Convocatoria::all();
+    return view('index', compact('convocatorias'));
+    //   return redirect()->to('index');
+});
+Route::get('administrador','HomeController@registrado');
+//Route::get('/home','HomeController@registrado');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
-Route::resource('postulante', 'UsuarioController');
-//call/create
+Route::resource('postulante', 'usuarioController');
+//call/create   
 Route::resource('call', 'CallController');
 //Para descargar las convocatorias
 Route::get('calls/{file_name}', function ($file_name) {
@@ -36,3 +38,9 @@ Route::get('calls/{file_name}', function ($file_name) {
 Route::post('/verificar','LoginController@LoginUsuario');
 Route::get('registrado', 'LoginController@registrado');
 Route::get('/rotulo', 'UsersController@getUser');
+Route::resource('/users', 'UsersController');
+
+Route::get('areas','HomeController@areas');
+Route::get('convocatoria','HomeController@convocatorias');
+Route::get('roles','HomeController@roles');
+Route::get('usuarios','HomeController@usuarios');

@@ -15,16 +15,15 @@
    <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
    <link href="{{asset('assets/css/home/clases.css')}}" rel="stylesheet">
    
-   <!-- Scripts -->
+   <!-- Scripts 
      <script>
        window.Laravel = <?php echo json_encode([
-       'csrfToken' => csrf_token(),
-       ]); ?>
-     </script>
-    
-</head>
+       'csrfToken' => csrf_token()
+       ]);?>
+     </script>-->
+</head> 
 <body>
-<!--navbar-->
+<!-- navbar -->
  <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-info">
   <a class="navbar-brand  text-white" href="{{url('index')}}" tabindex="-1" >Inicio</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -120,60 +119,35 @@
         </a>
     </div>
    <!--fin carrusel--> 
+
    <!--convocatorias ofertadas-->
+{{--    
+   @php
+       //use App\Http\Controllers\CallController;
+       use App\Http\Controllers\CallController;
+       CallController::mostrar()
+   @endphp --}}
+  
    
-   <div class="convocatoria"> 
-     <div class="container"> 
-         <form>
-            <div class="form-row">
-                <div class="col-sm-1 col-md-6">
-                   <div class="card text-white bg-dark" style="width: 30rem;">
-                      <img src="{{ asset('imagenes/web.JPG') }}" class="card-img-top" alt="laboratorios" width="200" height="200">
-                        <div class="card-body">
-                          <h5 class="card-title">Convocatoria auxiliaturas de Laboratorios</h5>
-                          <p class="card-text">Convocatoria para aquellos estudiantes que desean ser auxiliares en las diferentes areas, como ser el laboratorio de computo, laboratorio de desarrollo y laboratorio de mantenimiento.</p>
-                          <a href="#" class="btn btn-success rounded-pill active btn-block">Ver Convocatria</a>
-                        </div>
+   <div class="row">
+    @foreach ($convocatorias as $convocatoria)
+      <div class="col-sm">
+          <div class="card" style="width: 18rem;">     
+              <div class="col-sm-1 col-md-6">
+                <div class="card text-white bg-dark" style="width: 30rem;">
+                  <img src="{{ asset('imagenes/web.JPG') }}" class="card-img-top" alt="laboratorios" width="200" height="200">
+                    <div class="card-body">
+                      <h5 class="card-title">{{$convocatoria->titulo_convocatoria}}</h5>
+                      <p class="card-text">{{$convocatoria->descripcion}}</p>
+                      <a href="#" class="btn btn-success rounded-pill active btn-block">Ver Convocatria</a>
                     </div>
                 </div>
-                <div class="col-sm-1 col-md-6">    
-                    <div class="card text-white bg-dark" style="width: 30rem;">
-                        <img src="{{ asset('imagenes/elem.JPG') }}" class="card-img-top" alt="laboratorios" width="200" height="200">
-                            <div class="card-body">
-                              <h5 class="card-title">Convocatoria auxiliaturas de docencia</h5>
-                              <p class="card-text">Convocatoria para aquellos estudiantes que desean ser auxiliares de las materias de introduccion a la programacion, elementos  de programacion y estructuras de datos, teoria de grafos y computacion I.</p>
-                              <a href="#" class="btn btn-success rounded-pill active btn-block">Ver Convocatria</a>
-                            </div>
-                    </div>                    
-                 </div>
-            </div> 
-            <div class="form-row">
-                <div class="col-sm-1 col-md-6">
-                   <div class="card text-white bg-dark" style="width: 30rem;">
-                      <img src="{{ asset('imagenes/archivos.JPG') }}" class="card-img-top" alt="archivo" width="200" height="200">
-                        <div class="card-body">
-                          <h5 class="card-title">Convocatoria archivos</h5>
-                          <p class="card-text">Convocatoria para aquellos estudiantes que desean trabajar en la secion de archivos.</p>
-                          <a href="#" class="btn btn-success rounded-pill active btn-block">Ver Convocatria</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-1 col-md-6">    
-                    <div class="card text-white bg-dark" style="width: 30rem;">
-                        <img src="{{ asset('imagenes/lenguajes.JPG') }}" class="card-img-top" alt="lengua" width="200" height="200">
-                            <div class="card-body">
-                              <h5 class="card-title">Convocatoria </h5>
-                              <p class="card-text">Convocatoria para aquellos estudiantes que desean ser auxiliares en lago .</p>
-                              <a href="#" class="btn btn-success rounded-pill active btn-block">Ver Convocatria</a>
-                            </div>
-                    </div>                    
-                 </div>
              </div>
-            
-        </form> 
-      </div>   
-    </div>    
-     <!--fin de convocatorias ofertadas-->     
+          </div>
+      </div>
+    @endforeach
+  </div>
+   <!--fin de convocatorias ofertadas-->     
      
     
   <!--inicio de pie pagina--> 

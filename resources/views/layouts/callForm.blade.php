@@ -13,7 +13,6 @@
    
    
  </head>  
-
    <body>
         <div class=info>
          @yield("informacion")
