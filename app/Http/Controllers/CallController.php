@@ -13,29 +13,9 @@ class CallController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function docencia()
-    {
-        return view("calls.docencia");
-    }
-    public function noregister()
-    {
-        return view("calls.noregister");
-    }
     public function index()
     {
         return 'Hello there';
-    }
-    public function formulariopost()
-    {
-        return view("calls.formulariopost");
-    }
-    public function convocatorias()
-    {
-        return view("calls.convocatorias");
-    }
-    public function administrador()
-    {
-        return view("admin.administrador");
     }
     /**
      * Show the form for creating a new resource.
@@ -91,7 +71,13 @@ class CallController extends Controller
      */
     public function show($id)
     {
-        //
+  
+    }
+
+    public function mostrar()
+    {
+        $convocatorias = Convocatoria::all();
+        return view('index', compact('convocatorias'));
     }
 
     /**
@@ -127,14 +113,4 @@ class CallController extends Controller
     {
         //
     }
-<<<<<<< Updated upstream
-    
-    public function plantilla()
-    {
-        return view('layouts.plantilla');
-    }
-
-    
-=======
->>>>>>> Stashed changes
 }

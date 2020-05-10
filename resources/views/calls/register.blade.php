@@ -30,7 +30,7 @@
                 doc.save('html.pdf');
             }
       </script>
-        <form class="form-group" method="post" action={{url("/call")}} enctype="multipart/form-data">
+       <form class="form-group" method="post" action={{url("/call")}} enctype="multipart/form-data">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
             <!-- 
@@ -54,18 +54,16 @@
                                       <textarea class="form-control" name="descripcion" rows="3"></textarea>
                                       <input type="file" name="archivo">                      
                               </div>
-                
                          </div>
                 </div>
                 
                 <button type="submit" class="btn btn-primary" margin-left="50">Guardar</button>
                    
-            </form>
+       </form>
                     
                {{-- 
                 <button class="btn btn-primary" onclick="saveToPDF();">DscargarPDF</button>
                 <button class="btn btn-success" onclick="getHTML();">DscargarHTML</button>  
                 comment --}}
-       
    </div>      
 @endsection

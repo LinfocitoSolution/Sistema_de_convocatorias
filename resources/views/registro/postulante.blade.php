@@ -1,5 +1,5 @@
 
-@extends("logins.plantillaLogForm")
+@extends("auth.plantillaLogForm")
 
 @section("htmlheader_title")
   Registro-Postulante
