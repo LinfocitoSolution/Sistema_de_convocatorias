@@ -13,29 +13,9 @@ class CallController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function docencia()
-    {
-        return view("calls.docencia");
-    }
-    public function noregister()
-    {
-        return view("calls.noregister");
-    }
     public function index()
     {
         return 'Hello there';
-    }
-    public function formulariopost()
-    {
-        return view("calls.formulariopost");
-    }
-    public function convocatorias()
-    {
-        return view("calls.convocatorias");
-    }
-    public function administrador()
-    {
-        return view("admin.administrador");
     }
     /**
      * Show the form for creating a new resource.
@@ -56,7 +36,8 @@ class CallController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'titulo' => 'required | max: 50',
-            'archivo' => 'required | max:5000 | file | mimes:pdf'  
+            'archivo' => 'required | max:5000 | file | mimes:pdf',  
+            'descripcion' => 'required | max:200'
         ]);
 
        if ($validator->fails()) {
@@ -67,6 +48,7 @@ class CallController extends Controller
 
         $convocatoria = new Convocatoria();
         $convocatoria->titulo_convocatoria=$request->input('titulo');
+        $convocatoria->descripcion=$request->input('descripcion');
 
         if ($request->hasFile('archivo')) {
             $file = $request->file('archivo');
@@ -89,7 +71,13 @@ class CallController extends Controller
      */
     public function show($id)
     {
-        //
+  
+    }
+
+    public function mostrar()
+    {
+        $convocatorias = Convocatoria::all();
+        return view('index', compact('convocatorias'));
     }
 
     /**
@@ -125,11 +113,4 @@ class CallController extends Controller
     {
         //
     }
-    
-    public function plantilla()
-    {
-        return view('layouts.plantilla');
-    }
-
-    
 }

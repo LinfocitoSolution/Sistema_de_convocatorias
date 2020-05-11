@@ -1,8 +1,5 @@
-
 <?php
-
-
-
+use App\Convocatoria;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,27 +10,22 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
-    // return view('calls.noregister');
-    return redirect()->to('index');
+Auth::routes();
+Route::get('index', function()
+{
+    return view('index');
 });
+Route::get('/', function () {
+    $convocatorias = Convocatoria::all();
+    return view('index', compact('convocatorias'));
+    //   return redirect()->to('index');
+});
+Route::get('administrador','HomeController@registrado');
+//Route::get('/home','HomeController@registrado');
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
-Route::get('logout','LoginController@logout');
-
-Route::get('welcome', 'LoginController@welcome' );
-
-
-// noregister ser cambio por index
-Route::get('index', 'LoginController@noregister');
-Route::get('login', 'LoginController@login');
-//Route::resource('/verificar','LoginController@LoginUsuario');
-Route::post('logout', 'LoginController@logout');
-Route::get('admin','rolesController@adminV');
-
-
-Route::resource('postulante', 'UsuarioController@create');
-
-//call/create
+Route::resource('postulante', 'usuarioController');
+//call/create   
 Route::resource('call', 'CallController');
 //Para descargar las convocatorias
 Route::get('calls/{file_name}', function ($file_name) {
@@ -43,42 +35,12 @@ Route::get('calls/{file_name}', function ($file_name) {
     
      //abort(404);
 });
-//users/create##########Richard users no se implentara, registrar postulante esta
-Route::resource('users', 'usuarioController');
-//Permite el registro de un postulante
-Route::resource('registro_postulante', 'usuarioController@create');
-
-Route::get('jefeDep', 'usuarioController@regJefDep');
-Route::get('director', 'usuarioController@regdirector');
-Route::get('comision_merito', 'usuarioController@comMerito');
-
-Route::get('comision_conocimiento', 'usuarioController@conocimiento');
-
-Route::get('/register', [
-    'as' => 'auth.register',
-    'uses' => 'Auth\RegisterController@showRegistrationForm'
-]);
-
-Route::post('/register_store', [
-    'as' => 'auth.register_store',
-    'uses' => 'Auth\RegisterController@storeRegistration'
-]);
 Route::post('/verificar','LoginController@LoginUsuario');
-Route::get('secretaria', 'usuarioController@secretaria');
-Route::get('plantilla', 'CallController@plantilla');
-Route::resource('log', 'CallController@log');
-// Route::resource('postulante', 'UsuarioController');
-
 Route::get('registrado', 'LoginController@registrado');
+Route::get('/rotulo', 'UsersController@getUser');
+Route::resource('/users', 'UsersController');
 
-
-
-Route::get('vistaadmi', function () {
-    // return view('admin.administrador');
-    //  return view('logins.login');
-    //   return view('layouts.index');
-    return view('calls.registrado');
-
-});
-
-// Route::resource('user', 'UsersController');
+Route::get('areas','HomeController@areas');
+Route::get('convocatoria','HomeController@convocatorias');
+Route::get('roles','HomeController@roles');
+Route::get('usuarios','HomeController@usuarios');
