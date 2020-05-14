@@ -29,7 +29,7 @@
 
 								<div class="input-group form-group">
 									<div class="input-group-prepend">
-										<span class="input-group-text bg-success"><i class="fas fa-user"></i></span>
+										<span class="input-group-text bg-success"><i class="fa fa-user"></i></span>
 									</div>
 								       <input type="text" class="form-control" placeholder="Nombre de Usuario o email" name="login" id="login" value="{{ old('username') ?: old('email') }}">
 								</div> 
