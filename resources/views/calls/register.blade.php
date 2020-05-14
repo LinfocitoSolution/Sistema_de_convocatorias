@@ -1,7 +1,7 @@
 
 @extends("layouts.callForm")
 
-<!--@section('title','Registro')-->
+@section('title','Registro')
 @section("informacion")
 @if (count($errors) > 0)
 			<div class="alert alert-danger">

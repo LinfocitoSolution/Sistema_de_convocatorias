@@ -74,12 +74,6 @@ class CallController extends Controller
   
     }
 
-    public function mostrar()
-    {
-        $convocatorias = Convocatoria::all();
-        return view('index', compact('convocatorias'));
-    }
-
     /**
      * Show the form for editing the specified resource.
      *

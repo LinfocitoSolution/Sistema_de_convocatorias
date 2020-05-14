@@ -1,5 +1,5 @@
 <?php
-use App\Convocatoria;
+//use App\Convocatoria;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,18 +11,26 @@ use App\Convocatoria;
 |
 */
 Auth::routes();
-Route::get('index', function()
-{
-    return view('index');
-});
-Route::get('/', function () {
-    $convocatorias = Convocatoria::all();
-    return view('index', compact('convocatorias'));
-    //   return redirect()->to('index');
-});
+
+Route::get('/', [
+    'as' => 'home',
+    'uses' => 'HomeController@index'
+]);
+
+// Route::get('index', function()
+// {
+//     return view('index');
+// });
+
+// Route::get('/', function () {
+//        return redirect()->to('index');
+// });
+
 Route::get('administrador','HomeController@registrado');
-//Route::get('/home','HomeController@registrado');
+Route::get('/home','HomeController@registrado');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
+Route::get('holi', 'CallController@getCalls');
 
 Route::resource('postulante', 'usuarioController');
 //call/create   
