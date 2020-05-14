@@ -15,12 +15,6 @@
    <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
    <link href="{{asset('assets/css/home/clases.css')}}" rel="stylesheet">
    
-   <!-- Scripts 
-     <script>
-       window.Laravel = <?php echo json_encode([
-       'csrfToken' => csrf_token()
-       ]);?>
-     </script>-->
 </head> 
 <body>
 <!-- navbar -->
@@ -121,34 +115,30 @@
    <!--fin carrusel--> 
 
    <!--convocatorias ofertadas-->
-{{--    
-   @php
-       //use App\Http\Controllers\CallController;
-       use App\Http\Controllers\CallController;
-       CallController::mostrar()
-   @endphp --}}
-  
    
-   <div class="row">
-    @foreach ($convocatorias as $convocatoria)
-      <div class="col-sm">
-          <div class="card" style="width: 18rem;">     
-              <div class="col-sm-1 col-md-6">
-                <div class="card text-white bg-dark" style="width: 30rem;">
-                  <img src="{{ asset('imagenes/web.JPG') }}" class="card-img-top" alt="laboratorios" width="200" height="200">
-                    <div class="card-body">
-                      <h5 class="card-title">{{$convocatoria->titulo_convocatoria}}</h5>
-                      <p class="card-text">{{$convocatoria->descripcion}}</p>
-                      <a href="#" class="btn btn-success rounded-pill active btn-block">Ver Convocatria</a>
+      <div class="row"> 
+        @foreach ($convocatorias as $convocatoria)
+          <div class="col-sm">
+              <div class="card" style="width: 18rem;">     
+                  <div class="col-sm-1 col-md-6">
+                    <div class="card text-white bg-dark" style="width: 30rem;">
+                      <img src="{{ asset('imagenes/web.JPG') }}" class="card-img-top" alt="laboratorios" width="200" height="200">
+                        <div class="card-body">
+                          <h5 class="card-title">{{$convocatoria->titulo_convocatoria}}</h5>
+                            <p class="card-text">{{$convocatoria->descripcion}}</p>
+                          <a href="#" class="btn btn-success rounded-pill active btn-block">Ver Convocatria</a>
+                        </div>
                     </div>
                 </div>
-             </div>
-          </div>
-      </div>
-    @endforeach
-  </div>
+                </div>
+            </div>
+          @endforeach
+        </div>
+   
+
    <!--fin de convocatorias ofertadas-->     
-     
+   
+   
     
   <!--inicio de pie pagina--> 
    

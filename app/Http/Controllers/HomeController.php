@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Redirect,Response;
 use App\User;
+use App\Convocatoria;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -21,7 +22,12 @@ class HomeController extends Controller
         return 'funciona';
     }*/
     //protected $guard='login';
-    
+    public function index()
+    {
+        $convocatorias = Convocatoria::orderBy('created_at', 'asc')->take(8)->get();
+        return view('index', [ 'convocatorias' => $convocatorias]);
+    }
+
     public function registrado()
     {
         if(Auth::check())
