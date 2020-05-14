@@ -42,7 +42,7 @@ class HomeController extends Controller
         return view('admin.areas.index');
     }
     public function convocatorias(){
-        return view('admin.convocatoria.index');
+        return view('admin.convocatoria.create');
     }
     public function roles(){
         return view('admin.roles.index');

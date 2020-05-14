@@ -116,27 +116,27 @@
    <!--fin carrusel--> 
 
    <!--convocatorias ofertadas-->
-   
-      <div class="row"> 
-        @foreach ($convocatorias as $convocatoria)
-          <div class="col-sm">
-              <div class="card" style="width: 18rem;">     
-                  <div class="col-sm-1 col-md-6">
-                    <div class="card text-white bg-dark" style="width: 30rem;">
-                      <img src="{{ asset('imagenes/web.JPG') }}" class="card-img-top" alt="laboratorios" width="200" height="200">
+<div class="convocatoria">
+  <div class="container">
+    <form >
+      <div class="form-row">
+      
+         @foreach ($convocatorias as $convocatoria)
+           <div class="col-sm-1 col-md-6 col-lg-6 col-xl-6">
+                <div class="card text-white bg-dark mt-5" style="width: 30rem;">
+                    <img src="{{ asset('imagenes/web.JPG') }}" class="card-img-top" alt="laboratorios" width="200" height="200">
                         <div class="card-body">
                           <h5 class="card-title">{{$convocatoria->titulo_convocatoria}}</h5>
                             <p class="card-text">{{$convocatoria->descripcion}}</p>
                           <a href="#" class="btn btn-success rounded-pill active btn-block">Ver Convocatria</a>
                         </div>
-                    </div>
-                </div>
                 </div>
             </div>
           @endforeach
-        </div>
-   
-
+      </div>
+    </form>   
+  </div>
+</div>
    <!--fin de convocatorias ofertadas-->     
    
    
