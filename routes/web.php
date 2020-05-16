@@ -12,15 +12,16 @@
 */
 Auth::routes();
 
+Route::get('index', [
+    'as' => 'home',
+    'uses' => 'HomeController@index'
+]);//esto es por que al hacer click en el boton inicio nos lleva a /index
 Route::get('/', [
     'as' => 'home',
     'uses' => 'HomeController@index'
 ]);
 
-// Route::get('index', function()
-// {
-//     return view('index');
-// });
+
 
 // Route::get('/', function () {
 //        return redirect()->to('index');
