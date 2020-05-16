@@ -22,57 +22,57 @@
 				<div class="d-flex justify-content-center h-100">
 					<div class="card">
 						<!--cabeza del formulario-->
-						<div class="card-header bg-warning text-white">
+						<div class="card-header bg-success text-white">
 							<h3>Registro Postulante</h3>
 						</div>  
 						<!--fin de cabeza-->
 					  <!--Inicio cuerpo de formulario-->  
-						  <div class="card-body bg-primary">
+						  <div class="card-body bg-dark">
 					
 							<form class="form-group" method="POST" action={{url("/register")}}>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          	 
 								<input type="hidden" name="_token" value="{{ csrf_token() }}">
 								
 								<div class="input-group form-group">
 									<div class="input-group-prepend">
-										<span class="input-group-text bg-success"><i class="fas fa-user"></i></span>
+										<span class="input-group-text bg-success px-3"><i class="fas fa-user"></i></span>
 									</div>
 									<input type="text" class="form-control" placeholder="Nombre" name="name"  value="{{ old('name') }}"> 
 								</div>
 								<div class="input-group form-group">
 									<div class="input-group-prepend">
-										<span class="input-group-text bg-success"><i class="fas fa-user"></i></span>
+										<span class="input-group-text bg-success px-3"><i class="fas fa-user-tie"></i></span>
 									</div>
 									<input type="text" class="form-control" placeholder="Apellidos" name="lastname" value="{{ old('lastname') }}">
 								</div>
 								
 								<div class="input-group form-group">
 									<div class="input-group-prepend">
-										<span class="input-group-text bg-success"><i class="fas fa-user"></i></span>
+										<span class="input-group-text bg-success"><i class="fa fa-user-shield"></i></span>
 									</div>
 									<input type="text" class="form-control" placeholder="Nombre de usuario" name="username" value="{{ old('username') }}" >
 								</div>
 								<div class="input-group form-group">
 									<div class="input-group-prepend">
-										<span class="input-group-text bg-success"><i class="fas fa-user"></i></span>
+										<span class="input-group-text bg-success"><i class="fa fa-graduation-cap"></i></span>
 									</div>
 									<input type="text" class="form-control" placeholder="Carrera" name="career" value="{{ old('career') }}">
 								</div>
 								<div class="input-group form-group">
 									<div class="input-group-prepend">
-										<span class="input-group-text bg-success"><i class="fas fa-user"></i></span>
+										<span class="input-group-text bg-success px-3"><i class="fa fa-at"></i></span>
 									</div>
 									<input type="email" class="form-control" placeholder="Email" name="email" value="{{ old('email') }}" >
 									{{-- <br><small id="emailHelp" class="form-text text-muted">usuario@example.com</small>comment --}}
 								</div>
 								<div class="input-group form-group">
 									<div class="input-group-prepend">
-										<span class="input-group-text bg-success"><i class="fas fa-key"></i></span>
+										<span class="input-group-text bg-success px-3"><i class="fas fa-key"></i></span>
 									</div>
 									<input type="password" class="form-control" placeholder="Contraseña" name="password">
 								</div>
 								<div class="input-group form-group">
 									<div class="input-group-prepend">
-										<span class="input-group-text bg-success"><i class="fas fa-key"></i></span>
+										<span class="input-group-text bg-success px-3"><i class="fas fa-key"></i></span>
 									</div>
 									<input type="password" class="form-control" placeholder="Confirmar contraseña" name="confirmpassword">
 								</div>

@@ -1,7 +1,7 @@
 
 
 .login{
-  background-image: url('../images/celeste.jpg');
+  background-image: url('../images/compu.jpg');
   border: 1px solid;
   border-color:lightblue;
   width:99,8%;
@@ -11,6 +11,9 @@
 .contenido-medio{
   margin-top:30px;
 }
+/*.card-body {
+  background: linear-gradient(to top left, #003399 0%, #00ccff 100%);
+}*/
 
 .d-flex{
    margin-top:30px;
