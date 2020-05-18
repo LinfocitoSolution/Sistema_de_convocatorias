@@ -15,6 +15,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- Font Awesome Icons -->
 <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
 <!-- Theme style -->
+
 <link rel="stylesheet" href="dist/css/adminlte.min.css">
 <link href="{{asset('assets/css/admin/style.css')}}" rel="stylesheet">
  
@@ -32,10 +33,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
       @include("admin.layouts.sidebar")
    </div> 
   <!-- jQuery -->
-<script src="plugins/jquery/jquery.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
+
 <script src="dist/js/adminlte.min.js"></script>
 </body>
 </html>
