@@ -19,11 +19,11 @@
 			<div class="container">
 				<div class="d-flex justify-content-center h-100">
 					<div class="card">
-						<div class="card-header bg-warning text-white">
+						<div class="card-header bg-success text-white">
 							<h3>Login Usuario</h3>
 						</div>
 						<!--cuerpo del login-->				
-						<div class="card-body bg-primary">
+						<div class="card-body bg-dark">
 							<form class= "form group mt-2" method="POST" action="{{ url('login') }}">
 								<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
