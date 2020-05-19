@@ -1,5 +1,5 @@
 <div class="form-row">
-    <div class="col-md-10 mb-3">
+    <div class="col-md-12 mb-3">
        <label class="col-form-label" for="name">Nombre</label>
        <div class="input-group">
            <span class="input-group-append">

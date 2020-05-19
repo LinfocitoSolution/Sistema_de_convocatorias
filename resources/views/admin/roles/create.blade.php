@@ -9,7 +9,7 @@
  <div class="content-wrapper">
     <div class="container">
         <div class="row aling-items-center justify-content-center">
-            <div class="col-lg-12">
+            <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
                         <h1>Crear Rol</h1></div>
@@ -20,7 +20,7 @@
 
                             <div class="form-actions text-center">
                                 <button class="btn btn-outline-primary" type="submit">Guardar</button>
-                                <a class="btn btn-outline-danger" href="{{ url('index') }}">Cancelar</a>
+                                <a class="btn btn-outline-danger" href="{{ url('roles') }}">Cancelar</a>
                             </div>
                         </form>
                     </div>
