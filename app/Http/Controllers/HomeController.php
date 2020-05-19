@@ -44,10 +44,10 @@ class HomeController extends Controller
     public function convocatorias(){
         return view('admin.convocatoria.create');
     }
-    public function roles(){
+    /*public function roles(){
         return view('admin.roles.index');
 
-    }
+    }*/
     public function usuarios(){
         return view ('admin.usuarios.index');
     }
