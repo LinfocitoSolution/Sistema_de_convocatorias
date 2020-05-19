@@ -47,7 +47,7 @@
 
                             <button type="button" class="btn btn-danger btn-sm">
                                     <!--delete_action(event); es la accion del onclick-->
-                                <i class="fa fa-tachometer-alt"></i>
+                                <i class="fa fa-trash-alt"></i>
                             </button>
                     </td>
                   </tr> 
