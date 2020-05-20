@@ -27,10 +27,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
    <div class="wrapper"> 
      @include("admin.layouts.navbar")
      <div class="container-fluid">
-          @yield('content')
+          @yield("content")
       </div>
-       
+     
       @include("admin.layouts.sidebar")
+    
    </div> 
   <!-- jQuery -->
 

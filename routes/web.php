@@ -51,5 +51,6 @@ Route::resource('/users', 'UsersController');
 
 Route::get('areas','HomeController@areas');
 Route::get('convocatoria','HomeController@convocatorias');
-Route::get('roles','HomeController@roles');
+Route::get('roles','RoleController@index');
+Route::get('create','RoleController@create');
 Route::get('usuarios','HomeController@usuarios');
