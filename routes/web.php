@@ -10,8 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Auth::routes();
 
+//----------------------------------rutas pagina principal-----------------------------------------
 Route::get('index', [
     'as' => 'home',
     'uses' => 'HomeController@index'
@@ -20,16 +20,19 @@ Route::get('/', [
     'as' => 'home',
     'uses' => 'HomeController@index'
 ]);
+Route::get('/home', [
+    'as' => 'home',
+    'uses' => 'HomeController@index'
+]);
 
-
-
-// Route::get('/', function () {
-//        return redirect()->to('index');
-// });
-
+//---------------------------------rutas registro y autenticacion------------------------------------
+Auth::routes();
 Route::get('administrador','HomeController@registrado');
-Route::get('/home','HomeController@registrado');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
+
+
+
 
 Route::get('holi', 'CallController@getCalls');
 
@@ -44,8 +47,11 @@ Route::get('calls/{file_name}', function ($file_name) {
     
      //abort(404);
 });
-Route::post('/verificar','LoginController@LoginUsuario');
-Route::get('registrado', 'LoginController@registrado');
+//Route::post('/verificar','LoginController@LoginUsuario');
+//Route::get('registrado', 'LoginController@registrado');
+
+
+
 Route::get('/rotulo', 'UsersController@getUser');
 Route::resource('/users', 'UsersController');
 
