@@ -51,6 +51,8 @@ Route::resource('/users', 'UsersController');
 
 Route::get('areas','HomeController@areas');
 Route::get('convocatoria','HomeController@convocatorias');
-Route::get('roles','RoleController@index');
-Route::get('create','RoleController@create');
-Route::get('usuarios','HomeController@usuarios');
+Route::get('roles','HomeController@roles');
+Route::get('usuarios','HomeController@usuarios')->name('usuarios');
+Route::get('usuarios_create','UsersController@create1')->name('create');
+Route::post('usuarios_guardar','UsersController@store')->name('guardar');
+Route::post('usuarios_delete/{id}',' UsersController@destroy');
