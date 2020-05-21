@@ -57,7 +57,7 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return view('admin.usuarios.create');
     }
 
     /**
@@ -68,7 +68,7 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('admin.users.index');
     }
 
     /**
@@ -80,6 +80,13 @@ class UsersController extends Controller
     public function edit($id)
     {
         //
+    }
+    public function create1()
+    {
+        //$roles = DB::table('roles')->get();
+
+        return view('admin.usuarios.create');
+        
     }
 
     /**
@@ -102,6 +109,6 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return "eliminar";
     }
 }
