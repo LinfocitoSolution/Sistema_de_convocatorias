@@ -33,25 +33,42 @@
             {{ $errors->has('lastname')? $errors->first('lastname') : 'El campo de Apellido es requerido'  }}
         </div>
     </div>
-
-    
-    <div class="col-md-12 mb-3">
-        <label class="col-form-label" for="email">E-mail</label>
+  
+    <div class="col-md-6 mb-3">
+        <label class="col-form-label" for="name">Email</label>
         <div class="input-group">
             <span class="input-group-append">
                 <button class="btn btn-primary" type="button">@</button>
             </span>
-
             <input
-                    class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}"
-                    name="email"
-                    placeholder="Ingrese email" type="text" value="">
+                    class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}"
+                    name="name"
+                    placeholder="Ingrese Email" type="text"  value="">
         </div>
 
-        <div class="invalid-feedback {{ $errors->has('email')? 'd-block' : '' }}">
-            {{ $errors->has('email')? $errors->first('email') : 'El campo de E-mail es requerido'  }}
+        <div class="invalid-feedback {{ $errors->has('name')? 'd-block' : '' }}">
+            {{ $errors->has('name')? $errors->first('name') : 'El campo Email es requerido'  }}
         </div>
     </div>
+
+    <div class="col-md-6 mb-3">
+        <label class="col-form-label" for="lastname">Nombre de Usuario</label>
+        <div class="input-group">
+            <span class="input-group-append">
+                <button class="btn btn-primary" type="button">NU</button>
+            </span>
+            <input
+                    class="form-control {{ $errors->has('lastname') ? 'is-invalid' : '' }}"
+                    name="lastname"
+                    placeholder="Ingrese Nombre de usuario " type="text" value="">
+        </div>
+
+        <div class="invalid-feedback {{ $errors->has('lastname')? 'd-block' : '' }}">
+            {{ $errors->has('lastname')? $errors->first('lastname') : 'El campo de Nombre de usuario es requerido'  }}
+        </div>
+    </div>
+    
+   
 
     {{-- @if(!isset($user)) --}}
     <div class="col-md-6 mb-3">
