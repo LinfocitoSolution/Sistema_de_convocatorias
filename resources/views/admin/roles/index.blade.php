@@ -25,13 +25,18 @@
             </thead>
             <tbody>
            <!--1para cada roles a rol  aqui--> 
+            @foreach ($roles as $rol)
                 <tr>
                     <!--nombre del rol  entre los td-->
-                    <td>Jefe Departamento</td>
+                    <td> {{$rol->name}}</td>
                     <td>
                        <!--2para cada rol permiso as item-->
-                                    <!--nombre del item antes del final del span-->
-                           <span class="badge badge-info">edit user</span>
+                                    <!--nombre del item antes del final del span-->   
+                                    @foreach ($permissions as $permission)
+                                          @if (app('App\Http\Controllers\RoleController')->hasPermission($rol,$permission) == 1)
+                                            <span class="badge badge-info">{{$permission->name}}</span>
+                                          @endif
+                                    @endforeach                          
                        <!--fin del  2para-->
                     </td>
                     <td>
@@ -51,19 +56,7 @@
                             </button>
                     </td>
                   </tr> 
-                  <tr>
-                      <td>
-                        aqui va nombre
-                      </td>
-                       
-                      <td>
-                        aqui va permisos
-                      </td>
-                       
-                      <td>
-                        aqui botones
-                      </td>      
-                  </tr>    
+             @endforeach
             <!--fin del 1para-->
             </tbody>
         </table>

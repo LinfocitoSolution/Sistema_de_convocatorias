@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Database\Seeder;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 class RoleController extends Controller
 {
@@ -13,7 +16,16 @@ class RoleController extends Controller
      */
     public function index()
     {
-        return view('admin.roles.index');
+        $roles = Role::all();
+        $permissions = Permission::all();
+        return view('admin.roles.index', compact('roles', 'permissions'));
+    }
+    public function hasPermission($rol, $permission)
+    {
+        if ($rol->hasPermissionTo($permission->name)){
+               return 1;
+          }
+               return 0;
     }
 
     /**
@@ -44,8 +56,8 @@ class RoleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        //
+    { 
+
     }
 
     /**

@@ -20,9 +20,8 @@ class UsersController extends Controller
      */
     public function index(Request $request)
     {
-        //aqui vienen las consultas hacie el request
-        $postulantes = Usuario::all();
-        return view('index', compact('postulantes'));
+        $postulantes = User::all();
+        return view('users.listaPostulantes', compact('postulantes')); //compact genera un array de postulantes
     }
 
     public function getUser(Request $request)
