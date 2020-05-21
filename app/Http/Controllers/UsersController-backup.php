@@ -45,6 +45,7 @@ class UsersController extends Controller
      */
     public function create()
     {
+        
         return view('admin.generar_rotulo');
     }
 

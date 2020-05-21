@@ -35,36 +35,36 @@
     </div>
   
     <div class="col-md-6 mb-3">
-        <label class="col-form-label" for="name">Email</label>
+        <label class="col-form-label" for="email">Email</label>
         <div class="input-group">
             <span class="input-group-append">
                 <button class="btn btn-primary" type="button">@</button>
             </span>
             <input
-                    class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}"
-                    name="name"
+                    class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}"
+                    name="email"
                     placeholder="Ingrese Email" type="text"  value="">
         </div>
 
-        <div class="invalid-feedback {{ $errors->has('name')? 'd-block' : '' }}">
-            {{ $errors->has('name')? $errors->first('name') : 'El campo Email es requerido'  }}
+        <div class="invalid-feedback {{ $errors->has('email')? 'd-block' : '' }}">
+            {{ $errors->has('email')? $errors->first('email') : 'El campo Email es requerido'  }}
         </div>
     </div>
 
     <div class="col-md-6 mb-3">
-        <label class="col-form-label" for="lastname">Nombre de Usuario</label>
+        <label class="col-form-label" for="username">Nombre de Usuario</label>
         <div class="input-group">
             <span class="input-group-append">
                 <button class="btn btn-primary" type="button">NU</button>
             </span>
             <input
-                    class="form-control {{ $errors->has('lastname') ? 'is-invalid' : '' }}"
-                    name="lastname"
+                    class="form-control {{ $errors->has('username') ? 'is-invalid' : '' }}"
+                    name="username"
                     placeholder="Ingrese Nombre de usuario " type="text" value="">
         </div>
 
-        <div class="invalid-feedback {{ $errors->has('lastname')? 'd-block' : '' }}">
-            {{ $errors->has('lastname')? $errors->first('lastname') : 'El campo de Nombre de usuario es requerido'  }}
+        <div class="invalid-feedback {{ $errors->has('username')? 'd-block' : '' }}">
+            {{ $errors->has('username')? $errors->first('username') : 'El campo de Nombre de usuario es requerido'  }}
         </div>
     </div>
     

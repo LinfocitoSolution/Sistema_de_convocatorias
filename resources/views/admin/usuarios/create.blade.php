@@ -13,7 +13,7 @@
                     <div class="card-header">
                         <i class="fa fa-edit"></i>Crear usuario</div>
                     <div class="card-body">
-                        <form class="form-horizontal" action="{{route('guardar')}}" method="POST">
+                        <form class="form-horizontal" action="{{route('usuarios.guardar')}}" method="POST">
                             {{ csrf_field() }}
 
                             @include('admin.usuarios.form')

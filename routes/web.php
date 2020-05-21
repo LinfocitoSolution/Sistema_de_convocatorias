@@ -29,8 +29,13 @@ Route::get('/home', [
 Auth::routes();
 Route::get('administrador','HomeController@registrado');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
-
-
+//Route::post('/verificar','LoginController@LoginUsuario');
+//Route::get('registrado', 'LoginController@registrado');
+//----------------------------------rutas de usuario--------------------------------------------------
+Route::get('usuarios','UserController@index')->name('usuarios');
+Route::get('usuarios_create','UserController@create')->name('usuarios.create');
+Route::post('usuarios_guardar','UserController@store')->name('usuarios.guardar');
+Route::post('usuarios_delete/{id}',' UserController@destroy');
 
 
 
@@ -47,8 +52,7 @@ Route::get('calls/{file_name}', function ($file_name) {
     
      //abort(404);
 });
-//Route::post('/verificar','LoginController@LoginUsuario');
-//Route::get('registrado', 'LoginController@registrado');
+
 
 
 
@@ -58,7 +62,4 @@ Route::resource('/users', 'UsersController');
 Route::get('areas','HomeController@areas');
 Route::get('convocatoria','HomeController@convocatorias');
 Route::get('roles','HomeController@roles');
-Route::get('usuarios','HomeController@usuarios')->name('usuarios');
-Route::get('usuarios_create','UsersController@create1')->name('create');
-Route::post('usuarios_guardar','UsersController@store')->name('guardar');
-Route::post('usuarios_delete/{id}',' UsersController@destroy');
+
