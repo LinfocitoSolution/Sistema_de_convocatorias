@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+@extends('admin.layouts.plantilladmin')
 
 @section('htmlheader_title')
     Usuario
@@ -22,12 +22,12 @@
                         <i class="fa fa-edit"></i>Editar usuario</div>
                     <div class="card-body">
 
-                            <form class="form-horizontal" action="" method="POST" autocomplete="off">
+                            <form class="form-horizontal" action="{{ route('usuarios.update', $user->id) }}" method="POST" autocomplete="off">
                                 {{ method_field('PUT')}}
                                 {{ csrf_field() }}
 
                                 <div class="box-solid">
-                                    @include('admin.users.form')
+                                    @include('admin.usuarios.form')
                                 </div>
 
                                 <div class="form-actions text-center">

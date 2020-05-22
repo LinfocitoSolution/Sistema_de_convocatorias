@@ -66,9 +66,11 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
+        $roles = DB::table('roles')->get();
+
+        return view('admin.usuarios.edit', [ 'user' => $user, 'roles' => $roles ]);
     }
 
     /**
@@ -78,9 +80,15 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(User $user,Request $request)
     {
-        //
+        $user->update($request->all());
+        $user->password = (bcrypt($user->password));
+        $user->save();
+
+        //$user->syncRoles($request->roles);
+
+        return redirect(route('usuarios'))->with([ 'message' => 'Usuario actualizado exitosamente!', 'alert-type' => 'success' ]);
     }
 
     /**
@@ -91,6 +99,10 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::destroy($id);
+
+        Session::flash('flash_message3', 'Usuario  '.$id.' Eliminado!');
+
+        return redirect(route('usuarios'))->with([ 'message' => 'Usuario eliminado exitosamente!', 'alert-type' => 'info' ]);
     }
 }

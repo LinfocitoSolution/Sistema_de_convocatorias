@@ -35,7 +35,9 @@ Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::get('usuarios','UserController@index')->name('usuarios');
 Route::get('usuarios_create','UserController@create')->name('usuarios.create');
 Route::post('usuarios_guardar','UserController@store')->name('usuarios.guardar');
-Route::post('usuarios_delete/{id}',' UserController@destroy');
+Route::get('{user}/usuarios_editar','UserController@edit')->name('usuarios.edit');
+Route::put('{user}/update','UserController@update')->name('usuarios.update');
+Route::delete('{user}/usuarios_delete',' UserController@destroy')->name('usuarios.destroy');
 
 
 

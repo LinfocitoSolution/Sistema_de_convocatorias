@@ -37,10 +37,10 @@
                     <td>roles</td>
                     <td>
 
-                        <a class="btn btn-info btn-sm" href="#">
+                        <a class="btn btn-info btn-sm" href="{{ route('usuarios.edit', $user->id) }}">
                             <i class="fa fa-edit"></i>
                         </a> &nbsp;
-                        <form action="#"
+                        <form action="{{ route('usuarios.destroy', $user->id) }}"
                               style="display:inline-block;"
                               method="POST">
 
