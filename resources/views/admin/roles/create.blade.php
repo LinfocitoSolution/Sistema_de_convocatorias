@@ -10,7 +10,7 @@
     <div class="container">
         <div class="row aling-items-center justify-content-center">
             <div class="col-md-12">
-                <div class="card mt-5">
+                <div class="card">
                     <div class="card-header">
                         <h1>Crear Rol</h1></div>
                     <div class="card-body">

@@ -39,7 +39,7 @@
         <a class="nav-link dropdown-toggle text-white" href="#"  id="nabarDropdown" tabindex="-2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
          Malla Curricular
         </a>
-        <div class="dropdown-menu hover" >
+        <div class="dropdown-menu" >
           <a class="dropdown-item" href="#">Sistemas</a>
           <a class="dropdown-item" href="#">Informatica</a>
           <a class="dropdown-item" href="#">Industrial</a>
@@ -72,10 +72,10 @@
           </ol>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="{{ asset('/imagenes/tecno.JPG') }}"  class="d-block w-100" alt="web" width="1000" height="600">
+            <img src="{{ asset('imagenes/tecno.JPG') }}"  class="d-block w-100" alt="web" width="1000" height="600">
                 <div class="carousel-caption" >
-                  <div class="text-white">
-                    <h2>Facultad de ciencias y tecnologia</h2>
+                  <div class="text-white d-none d-md-block">
+                    <h1>Facultad de ciencias y tecnologia</h1>
                   </div>
                 </div>
           </div>
@@ -83,7 +83,7 @@
             <img src="{{ asset('imagenes/sistemas.JPG') }}" class="d-block w-100" alt="elem" width="1000" height="600">
             <div class="carousel-caption">
               <div class="text-white">
-                  <h2>Departamento de sistemas e informatica</h2>
+                  <h1>Departamento de sistemas e informatica</h1>
                 </div>
               </div>
           </div>
@@ -98,8 +98,8 @@
           <div class="carousel-item">
             <img src="{{ asset('imagenes/edificio.JPG') }}" class="d-block w-100" alt="prog" width="1000" height="600">
               <div class="carousel-caption" >
-                  <div class="text-white">
-                    <h2>Edificio Multiacademico</h2>
+                  <div class="text-white d-none d-md-block">
+                    <h1>Edificio Multiacademico-Archivos</h1>
                   </div>
               </div>   
           </div>
@@ -117,11 +117,13 @@
 
    <!--convocatorias ofertadas-->
 <div class="convocatoria">
-  <div class="container mt-5 mb-5">
-    <div class="row justify-content-around">
-        @foreach ($convocatorias as $convocatoria)
-           <div class="col-lg-6">
-                <div class="card text-white bg-dark my-3 ml-2 mr-3" style="width: 28rem;">
+  <div class="container">
+    <form >
+      <div class="form-row justify-content-around">
+      
+         @foreach ($convocatorias as $convocatoria)
+           <div class="col-12 col-sm-4 col-md-6 col-lg-6 col-xl-6">
+                <div class="card text-white bg-dark mt-5" style="width: 30rem;">
                     <img src="{{ asset('imagenes/web.JPG') }}" class="card-img-top" alt="laboratorios" width="200" height="200">
                         <div class="card-body">
                           <h5 class="card-title">{{$convocatoria->titulo_convocatoria}}</h5>
@@ -129,10 +131,11 @@
                           <a href="#" class="btn btn-success rounded-pill active btn-block">Ver Convocatria</a>
                         </div>
                 </div>
-              </div>  
-        @endforeach
+            </div>
+          @endforeach
       </div>
-   </div>
+    </form>   
+  </div>
 </div>
    <!--fin de convocatorias ofertadas-->     
    
@@ -160,12 +163,13 @@
                 <a href="http://www.cs.umss.edu.bo/"><img src="{{asset('imagenes/cs.JPG')}}" width="60" height="60"></a>
                 <a href="http://www.umss.edu.bo/"><img src="{{asset('imagenes/umss.png')}}" width="60" height="60"></a>
               </div>
-              <hr>
-              <div class="col-md-12 text-right">
-              <p class="text-white medium">LinfocitoSolution @2020.<br> Todos los derechos reservados.</p>
-              </div> 
           </div>
        </div>
+       <div class="row">
+           <div class="col-md-12 text-right">
+              <p class="text-white medium">LinfocitoSolution @2020.<br> Todos los derechos reservados.</p>
+           </div>  
+      </div>
     </div>
 
   </div>

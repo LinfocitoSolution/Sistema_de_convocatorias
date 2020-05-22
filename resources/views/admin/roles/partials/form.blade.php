@@ -1,6 +1,6 @@
 <div class="form-row">
     <div class="col-md-12 mb-3">
-       <label class="col-form-label" for="name">Nombre Rol</label>
+       <label class="col-form-label" for="name">Nombre</label>
        <div class="input-group">
            <span class="input-group-append">
                <button class="btn btn-primary" type="button">N</button>
@@ -13,18 +13,18 @@
    </div>
 
    <div class="col-md-12 mb-3">
-       <label class="col-form-label" for="roles">Permisos</label>
+       <label class="col-form-label" for="roles">Roles</label>
        <div class="input-group">
            <span class="input-group-append">
-               <button class="btn btn-primary" type="button">P</button>
+               <button class="btn btn-primary" type="button">R</button>
            </span>
 
-           <select class="form-control" name="permisos" multiple="multiple" >
+           <select class="form-control" name="permisos" >
               
-                   <option>list user</option>
-                   <option>create user</option>
-                   <option>edit user</option>
-                   <option>delete user</option>
+                   <option>Jefe de departamento</option>
+                   <option>Secretaria</option>
+                   <option>Merito</option>
+                   <option>Conocimiento</option>
            </select>
        </div>
    </div>
