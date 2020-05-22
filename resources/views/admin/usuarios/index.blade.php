@@ -47,7 +47,10 @@
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
 
-                            <button class="btn btn-outline-success" type="submit">borrar</button>
+                            <button type="button" class="btn btn-danger btn-sm"
+                                    onclick="delete_action(event);">
+                                <i class="fa fa-trash"></i>
+                            </button>
                         </form>
                    </td>
                 </tr>
