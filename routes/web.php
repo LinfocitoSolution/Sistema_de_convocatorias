@@ -36,7 +36,7 @@ Route::get('usuarios','UserController@index')->name('usuarios');
 Route::get('usuarios_create','UserController@create')->name('usuarios.create');
 Route::post('usuarios_guardar','UserController@store')->name('usuarios.guardar');
 Route::get('usuarios_editar/{user}','UserController@edit')->name('usuarios.edit');
-Route::put('update/{user}','UserController@update')->name('usuarios.update');
+Route::put('usuarios_update/{user}','UserController@update')->name('usuarios.update');
 Route::delete('usuarios_delete/{user}','UserController@destroy')->name('usuarios.destroy');
 
 
@@ -68,4 +68,4 @@ Route::get('convocatoria','HomeController@convocatorias');
 Route::get('roles','RoleController@index');
 Route::get('create','RoleController@create');
 Route::get('edit','RoleController@edit');
-Route::get('usuarios','HomeController@usuarios');
+//Route::get('usuarios','HomeController@usuarios'); DIO ERROR POR QUE USA EL NAME DE MI RUTA USUARIOS
