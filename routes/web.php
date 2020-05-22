@@ -35,15 +35,15 @@ Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::get('usuarios','UserController@index')->name('usuarios');
 Route::get('usuarios_create','UserController@create')->name('usuarios.create');
 Route::post('usuarios_guardar','UserController@store')->name('usuarios.guardar');
-Route::get('{user}/usuarios_editar','UserController@edit')->name('usuarios.edit');
-Route::put('{user}/update','UserController@update')->name('usuarios.update');
-Route::delete('{user}/usuarios_delete',' UserController@destroy')->name('usuarios.destroy');
+Route::get('usuarios_editar/{user}','UserController@edit')->name('usuarios.edit');
+Route::put('update/{user}','UserController@update')->name('usuarios.update');
+Route::delete('usuarios_delete/{user}','UserController@destroy')->name('usuarios.destroy');
 
 
 
 Route::get('holi', 'CallController@getCalls');
 
-Route::resource('postulante', 'usuarioController');
+
 //call/create   
 Route::resource('call', 'CallController');
 //Para descargar las convocatorias
@@ -59,7 +59,7 @@ Route::get('calls/{file_name}', function ($file_name) {
 
 
 Route::get('/rotulo', 'UsersController@getUser');
-Route::resource('/users', 'UsersController');
+
 
 Route::get('areas','HomeController@areas');
 Route::get('convocatoria','HomeController@convocatorias');
