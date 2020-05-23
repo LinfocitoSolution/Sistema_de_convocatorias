@@ -64,7 +64,6 @@ Route::get('/rotulo', 'UsersController@getUser');
 Route::get('areas','HomeController@areas');
 Route::get('convocatoria','HomeController@convocatorias');
 Route::get('create','RoleController@create');
-Route::get('usuarios','HomeController@usuarios');
 
 Route::get('roles', [
     'as' => 'roles.index',
@@ -82,3 +81,4 @@ Route::post('roles/store', [
     'as' => 'roles.store',
     'uses' => 'RoleController@store',
 ]);
+

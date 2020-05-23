@@ -47,18 +47,16 @@
                         <!--la ruta se llamara admin.roles.edit, rol dependienfo del id-->
                         <a class="btn btn-info btn-sm" href="{{ route('roles.edit', $rol->id) }}">
                              <i class="fa fa-pencil-alt"></i>
-                        </a> 
-                        <!--la ruta debe ser admin.roles.destroy, rol dependiendo del id-->
-                        <form action="{{ route('roles.destroy', $rol->id) }}" method="POST">
-                          <input type="hidden" name="_method" value="DELETE">
-                         
-                          {{ csrf_field() }}
-                          <button type="submit" class="btn btn-primary" margin-left="50" onclick="return confirm('Está seguro de eliminar este rol?')">Eliminar</button>
-                          {{-- <a class="btn btn-danger btn-sm" href="{{ route('roles.destroy', $rol->id) }}">
-                                 <i class="fa fa-trash-alt"></i>
-                          </a> --}}
+                        </a>                         
+                       
+                      <form action="{{route('roles.destroy',$rol->id)}}" method="POST" style="display:inline-block;">
+                        {{ csrf_field() }}                                                              
+                        {{ method_field('DELETE') }}                            
+                        <button class="btn btn-danger btn-sm" type="submit" margin-left="50" onclick="return confirm('Está seguro de eliminar este rol?')">
+                            <i class="fa fa-trash-alt"></i>                                
+                        </button>                            
                       </form>
-                      
+                                           
                     </td>
                   </tr> 
              @endforeach
