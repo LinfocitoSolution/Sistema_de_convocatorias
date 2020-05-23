@@ -63,9 +63,22 @@ Route::get('/rotulo', 'UsersController@getUser');
 
 Route::get('areas','HomeController@areas');
 Route::get('convocatoria','HomeController@convocatorias');
-
-//Rutas de Roles//
-Route::get('roles','RoleController@index');
 Route::get('create','RoleController@create');
-Route::get('edit','RoleController@edit');
-//Route::get('usuarios','HomeController@usuarios'); DIO ERROR POR QUE USA EL NAME DE MI RUTA USUARIOS
+Route::get('usuarios','HomeController@usuarios');
+
+Route::get('roles', [
+    'as' => 'roles.index',
+    'uses' => 'RoleController@index',
+]);
+Route::get('roles/{rol}/edit', [
+    'as' => 'roles.edit',
+    'uses' => 'RoleController@edit',
+]);
+Route::delete('roles/{rol}', [
+    'as' => 'roles.destroy',
+    'uses' => 'RoleController@destroy',
+]);
+Route::post('roles/store', [
+    'as' => 'roles.store',
+    'uses' => 'RoleController@store',
+]);

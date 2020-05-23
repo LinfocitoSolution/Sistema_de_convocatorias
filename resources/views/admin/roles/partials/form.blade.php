@@ -18,14 +18,14 @@
            <span class="input-group-append">
                <button class="btn btn-primary" type="button">P</button>
            </span>
-
-           <select class="form-control" name="permisos" multiple="multiple" >
-              
-                   <option>list user</option>
-                   <option>create user</option>
-                   <option>edit user</option>
-                   <option>delete user</option>
+           <select class="form-control js-example-basic-multiple {{ $errors->has('roles') ? 'is-invalid' : '' }}" name="permissions[]" multiple="multiple">
+                     @foreach($permissions as $item)
+                             <option value="{{ $item->name }}" {{ (isset($role) && $role->permissions->contains('name', $item->name)) ? 'selected' : '' }}>{{ $item->name }}</option>
+                     @endforeach
            </select>
        </div>
+         <div class="invalid-feedback {{ $errors->has('permissions')? 'd-block' : '' }}">
+        {{ $errors->has('permissions')? $errors->first('permissions') : 'Este campo es requerido'  }}
+    </div>
    </div>
 </div>
