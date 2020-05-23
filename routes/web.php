@@ -10,8 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Auth::routes();
 
+//----------------------------------rutas pagina principal-----------------------------------------
 Route::get('index', [
     'as' => 'home',
     'uses' => 'HomeController@index'
@@ -20,20 +20,30 @@ Route::get('/', [
     'as' => 'home',
     'uses' => 'HomeController@index'
 ]);
+Route::get('/home', [
+    'as' => 'home',
+    'uses' => 'HomeController@index'
+]);
 
-
-
-// Route::get('/', function () {
-//        return redirect()->to('index');
-// });
-
+//---------------------------------rutas registro y autenticacion------------------------------------
+Auth::routes();
 Route::get('administrador','HomeController@registrado');
-Route::get('/home','HomeController@registrado');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
+//Route::post('/verificar','LoginController@LoginUsuario');
+//Route::get('registrado', 'LoginController@registrado');
+//----------------------------------rutas de usuario--------------------------------------------------
+Route::get('usuarios','UserController@index')->name('usuarios');
+Route::get('usuarios_create','UserController@create')->name('usuarios.create');
+Route::post('usuarios_guardar','UserController@store')->name('usuarios.guardar');
+Route::get('usuarios_editar/{user}','UserController@edit')->name('usuarios.edit');
+Route::put('usuarios_update/{user}','UserController@update')->name('usuarios.update');
+Route::delete('usuarios_delete/{user}','UserController@destroy')->name('usuarios.destroy');
+
+
 
 Route::get('holi', 'CallController@getCalls');
 
-Route::resource('postulante', 'usuarioController');
+
 //call/create   
 Route::resource('call', 'CallController');
 //Para descargar las convocatorias
@@ -44,10 +54,12 @@ Route::get('calls/{file_name}', function ($file_name) {
     
      //abort(404);
 });
-Route::post('/verificar','LoginController@LoginUsuario');
-Route::get('registrado', 'LoginController@registrado');
+
+
+
+
 Route::get('/rotulo', 'UsersController@getUser');
-Route::resource('/users', 'UsersController');
+
 
 Route::get('areas','HomeController@areas');
 Route::get('convocatoria','HomeController@convocatorias');

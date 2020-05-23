@@ -14,14 +14,14 @@ class User extends Model implements  AuthenticatableContract
     use Authenticatable;
 
     public $table='users';
-    protected $fillable=[
-        "id",
-        "name",
-        "lastname",
-        "email",              //moidificar el archivo del modelo para borrar
-        "career",
-        "username",
-        "password",
+    protected $fillable = [
+        'id',
+        'name',
+        'lastname',
+        'email',              //moidificar el archivo del modelo para borrar
+        'career',
+        'username',
+        'password',
     ];
     protected $hidden = [
         'password', 'remember_token',

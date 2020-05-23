@@ -1,41 +1,27 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Redirect,Response;
-use App\User;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Session;
-use Validator;
 
-class UsersController extends Controller
+use App\Permission; 
+
+//en duda
+use Carbon\Carbon;
+use Session;
+
+class PermissionsController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        $postulantes = User::all();
-        return view('users.listaPostulantes', compact('postulantes')); //compact genera un array de postulantes
-    }
+        $permissions = Permission::paginate(15);
 
-    public function getUser(Request $request)
-    {
-        $postulantes = User::all();
-        if(Auth::check())
-        {
-            $user=Auth::user();
-            return view('admin.generar_rotulo', ['user' => $user]);
-        }
-        else
-        {
-            return 'Usted no está logeado';
-        }
+        return view('admin.permisos.index', compact('permisos'));
     }
 
     /**
@@ -45,7 +31,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        return view('admin.generar_rotulo');
+        return view('admin.permisos.create');
     }
 
     /**
@@ -56,7 +42,15 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, ['name' => 'required', 'display_name' => 'required', ]);
+
+        $permissions=Permission::create($request->all());
+
+        
+
+        Session::flash('flash_message1', 'Permisos  '.$permissions->id.' Añadido!');
+
+        return redirect('admin/permissions');
     }
 
     /**
@@ -67,7 +61,9 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        //
+        $permission=Permission::findOrFail($id);
+        return view('admin.permission.show', compact('permisos'));
+
     }
 
     /**
@@ -78,7 +74,8 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $permission= Permission::findOrFail($id);
+        return view('admin.permissions.edit',compact('permisos'));
     }
 
     /**
@@ -90,7 +87,14 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, ['name' => 'required', 'display_name' => 'required', ]);
+
+        $permission = Permission::findOrFail($id);
+        $permission->update($request->all());
+
+        Session::flash('flash_message2', 'Permisos  '.$permission->id.' Actualizado!');
+
+        return redirect('admin/permissions');
     }
 
     /**
@@ -101,6 +105,10 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $permission= Permission::destroy($id);
+
+        Session::flash('flash_message3', 'Permisos  '.$id.' Eliminado!');
+
+        return redirect('admin/permissions');
     }
 }
