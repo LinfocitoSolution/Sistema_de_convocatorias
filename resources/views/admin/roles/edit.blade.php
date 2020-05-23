@@ -1,7 +1,7 @@
 @extends("admin.layouts.plantilladmin")
 
 @section("title")
-    Create
+    Edit
 @endsection
 
 @section("content")

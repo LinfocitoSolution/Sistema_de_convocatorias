@@ -59,13 +59,14 @@ Route::get('calls/{file_name}', function ($file_name) {
 
 
 Route::get('/rotulo', 'UsersController@getUser');
-
-
-Route::get('areas','HomeController@areas');
 Route::get('convocatoria','HomeController@convocatorias');
 
-//Rutas de Roles//
+//-------------Rutas de Roles--------------//
 Route::get('roles','RoleController@index');
 Route::get('create','RoleController@create');
 Route::get('edit','RoleController@edit');
-Route::get('usuarios','HomeController@usuarios');
+
+//-------------Rutas de Areas--------------//
+Route::get('areas','AreaController@index');
+Route::get('create','AreaController@create');
+Route::get('edit','AreaController@edit');
