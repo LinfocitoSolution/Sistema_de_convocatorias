@@ -59,11 +59,11 @@ Route::get('calls/{file_name}', function ($file_name) {
 
 
 Route::get('/rotulo', 'UsersController@getUser');
-
-
-Route::get('areas','HomeController@areas');
 Route::get('convocatoria','HomeController@convocatorias');
+
+//----------- roles---------------------------//
 Route::get('create','RoleController@create');
+
 
 Route::get('roles', [
     'as' => 'roles.index',
@@ -82,5 +82,8 @@ Route::post('roles/store', [
     'uses' => 'RoleController@store',
 ]);
 
+//---------------area--------------------//
 
-
+Route::get('areas','AreaController@index');
+Route::get('create','AreaController@create');
+Route::get('edit','AreaController@edit');
