@@ -8,7 +8,7 @@
  <!-- Content Wrapper. Contains contiene paginas -->
  <div class="content-wrapper">
   <div class="container">   
-    <div class="card" >
+    <div class="card mt-5" >
       <div class="card-header">
            <i class="fa fa-align-justify"></i> Usuarios
             <a class="btn btn-success" href="{{route('usuarios.create')}}">
@@ -45,7 +45,9 @@
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
 
-                            <button class="btn btn-outline-success" type="submit">borrar</button>
+                            <button class="btn btn-danger" type="submit">
+                              <i class="fa fa-trash-alt"></i>
+                            </button>
                         </form>
                     </td>
                 </tr>
