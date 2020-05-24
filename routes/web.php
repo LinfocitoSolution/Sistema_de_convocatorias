@@ -62,17 +62,19 @@ Route::get('/rotulo', 'UsersController@getUser');
 Route::get('convocatoria','HomeController@convocatorias');
 
 //----------- roles---------------------------//
-Route::get('create','RoleController@create');
-
-
+Route::get('roles/create', [
+    'as' => 'roles.create',
+    'uses' => 'RoleController@index',
+]);
 Route::get('roles', [
     'as' => 'roles.index',
     'uses' => 'RoleController@index',
 ]);
 Route::get('roles/{rol}/edit', [
-    'as' => 'roles.edit',
+    'as' => 'admin.roles.edit',
     'uses' => 'RoleController@edit',
 ]);
+
 Route::delete('roles/{rol}', [
     'as' => 'roles.destroy',
     'uses' => 'RoleController@destroy',

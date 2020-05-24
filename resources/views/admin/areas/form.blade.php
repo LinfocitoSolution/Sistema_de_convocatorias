@@ -1,6 +1,6 @@
 <div class="form-row">
 
-    <div class="col-md-6 mb-3">
+    <div class="col-md-12 mb-3">
         <label class="col-form-label" for="name">Nombre de Area</label>
         <div class="input-group">
             <span class="input-group-append">

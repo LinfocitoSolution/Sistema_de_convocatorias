@@ -44,8 +44,8 @@
                        <!--fin del  2para-->
                     </td>
                     <td>
-                        <!--la ruta se llamara admin.roles.edit, rol dependienfo del id-->
-                        <a class="btn btn-info btn-sm" href="{{ route('roles.edit', $rol->id) }}">
+                        <!--la ruta se llamara admin.roles.edit, rol dependienfo del id  { route('roles.edit', $rol->id) }}">-->
+                        <a class="btn btn-info btn-sm" href="{{ route('admin.roles.edit', $rol->id) }}">
                              <i class="fa fa-pencil-alt"></i>
                         </a>                         
                        

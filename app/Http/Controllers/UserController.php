@@ -70,7 +70,7 @@ class UserController extends Controller
     {
         $roles = DB::table('roles')->get();
 
-        return view('admin.usuarios.edit', [ 'user' => $user, 'roles' => $roles ]);
+        return view('admin.usuarios.edit',compact('roles','user'));
     }
 
     /**
