@@ -64,7 +64,7 @@ Route::get('convocatoria','HomeController@convocatorias');
 //----------- roles---------------------------//
 Route::get('roles/create', [
     'as' => 'roles.create',
-    'uses' => 'RoleController@index',
+    'uses' => 'RoleController@create',
 ]);
 Route::get('roles', [
     'as' => 'roles.index',
