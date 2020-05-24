@@ -29,7 +29,6 @@
             </div>
         </div>
     </div>
-</div>
-  <!-- /.content-wrapper -->
+</div>  
 
 @endsection
