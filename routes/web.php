@@ -36,7 +36,7 @@ Route::get('usuarios','UserController@index')->name('usuarios');
 Route::get('usuarios_create','UserController@create')->name('usuarios.create');
 Route::post('usuarios_guardar','UserController@store')->name('usuarios.guardar');
 Route::get('usuarios_editar/{user}','UserController@edit')->name('usuarios.edit');
-Route::put('update/{user}','UserController@update')->name('usuarios.update');
+Route::put('usuarios_update/{user}','UserController@update')->name('usuarios.update');
 Route::delete('usuarios_delete/{user}','UserController@destroy')->name('usuarios.destroy');
 
 
@@ -60,13 +60,22 @@ Route::get('calls/{file_name}', function ($file_name) {
 
 Route::get('/rotulo', 'UsersController@getUser');
 Route::get('convocatoria','HomeController@convocatorias');
-
-//-------------Rutas de Roles--------------//
-Route::get('roles','RoleController@index');
 Route::get('create','RoleController@create');
-Route::get('edit','RoleController@edit');
 
-//-------------Rutas de Areas--------------//
-Route::get('areas','AreaController@index');
-Route::get('create','AreaController@create');
-Route::get('edit','AreaController@edit');
+Route::get('roles', [
+    'as' => 'roles.index',
+    'uses' => 'RoleController@index',
+]);
+Route::get('roles/{rol}/edit', [
+    'as' => 'roles.edit',
+    'uses' => 'RoleController@edit',
+]);
+Route::delete('roles/{rol}', [
+    'as' => 'roles.destroy',
+    'uses' => 'RoleController@destroy',
+]);
+Route::post('roles/store', [
+    'as' => 'roles.store',
+    'uses' => 'RoleController@store',
+]);
+
