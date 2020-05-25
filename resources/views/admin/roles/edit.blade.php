@@ -1,7 +1,7 @@
 @extends("admin.layouts.plantilladmin")
 
 @section("title")
-    Edit
+    Roles
 @endsection
 
 @section("content")
