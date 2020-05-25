@@ -78,7 +78,8 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit()
+    // public function edit()
+    public function edit(Role $rol)
     {        
        $permissions = Permission::all();
         return view('admin.roles.edit',compact('permissions'));

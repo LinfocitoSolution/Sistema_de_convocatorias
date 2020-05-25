@@ -35,13 +35,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ url('usuarios')}}" class="nav-link">
+                <a href="{{route('usuarios.index')}}" class="nav-link">
                   <i class="fas fa-user-circle nav-icon"></i>
                   <p>Usuarios</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ url('roles')}}" class="nav-link">
+                <a href="{{ route('roles.index')}}" class="nav-link">
                   <i class="fas fa-users nav-icon"></i>
                   <p>Roles</p>
                 </a>
@@ -60,13 +60,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="call/create" class="nav-link">                
+                <a href="#" class="nav-link">                
                   <i class="fas fa-plus-square nav-icon"></i>
-                  <p>Nueva</p>
+                  <p>NuevaConvocatoria</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ url('convocatoria')}}" class="nav-link">
+                <a href="{{ route('convocatoria')}}" class="nav-link">
                   <i class="fas fa-th-list nav-icon"></i>
                   <p>Lista</p>
                 </a>
@@ -85,13 +85,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                 <a href="#" class="nav-link">
+                 <a href="{{route('areas.create')}}" class="nav-link">
                   <i class="fas fa-plus-square nav-icon"></i>
                   <p>Nueva</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ url('areas')}}" class="nav-link">
+                <a href="{{ route('areas.index')}}" class="nav-link">
                   <i class="fas fa-th-list nav-icon"></i>
                   <p>Lista</p>
                 </a>
