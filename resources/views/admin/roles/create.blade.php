@@ -21,7 +21,7 @@
 
                             <div class="form-actions text-center">
                                 <button class="btn btn-outline-primary" type="submit">Guardar</button>
-                                <a class="btn btn-outline-danger" href="{{ url('roles') }}">Cancelar</a>
+                                <a class="btn btn-outline-danger" href="{{ route('roles.index') }}">Cancelar</a>
                             </div>
                         </form>
                     </div>
@@ -29,7 +29,6 @@
             </div>
         </div>
     </div>
-</div>
-  <!-- /.content-wrapper -->
+</div>  
 
 @endsection

@@ -20,7 +20,7 @@
 
                             <div class="form-actions text-center">
                                 <button class="btn btn-outline-success" type="submit">Guardar</button>
-                            <a class="btn btn-outline-danger" href="{{route('usuarios')}}">Cancelar</a>
+                            <a class="btn btn-outline-danger" href="{{route('usuarios.index')}}">Cancelar</a>
                             </div>
                         </form>
                     </div>
