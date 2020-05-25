@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Area;
 
 class AreaController extends Controller
 {
@@ -11,9 +12,10 @@ class AreaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index()    
     {
-        return view('admin.areas.index');
+        $areas = Area::all();        
+        return view('admin.areas.index',compact('areas'));
     }
 
     /**
@@ -22,7 +24,7 @@ class AreaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
+    {        
         return view('admin.areas.create');
     }
 
@@ -34,7 +36,9 @@ class AreaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $area = Area::create($request->all());        
+        $area->save();
+        return redirect()->route('areas.index');
     }
 
     /**
@@ -54,9 +58,11 @@ class AreaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit()
-    {
-        return view('admin.areas.edit');
+    public function edit($id)
+    {                                             
+        $area= Area::where('id',$id)
+            ->first();
+        return view('admin.areas.edit',compact('area'));
     }
 
     /**
@@ -68,7 +74,12 @@ class AreaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $area  = Area::where('id',$id)
+        ->first();
+        $area->name=$request->get('name');
+        $area->description=$request->get('description');
+        $area->save();
+        return redirect()->route('areas.index');
     }
 
     /**
@@ -79,6 +90,7 @@ class AreaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Area::destroy($id);    
+        return redirect(route('areas.index')); 
     }
 }

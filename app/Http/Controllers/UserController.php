@@ -29,7 +29,7 @@ class UserController extends Controller
     {
         
         $roles = DB::table('roles')->get();
-        return view('admin.usuarios.create',compact('roles'));
+        return view('admin.usuarios.create',compact('roles'));        
     }
 
     /**
@@ -46,7 +46,7 @@ class UserController extends Controller
 
        // $user->syncRoles($request->roles);
 
-        return redirect(route('usuarios'))->with([ 'message' => 'Usuario creado exitosamente!', 'alert-type' => 'success' ]);
+        return redirect(route('usuarios.index'))->with([ 'message' => 'Usuario creado exitosamente!', 'alert-type' => 'success' ]);
     }
 
     /**
@@ -103,6 +103,6 @@ class UserController extends Controller
 
         Session::flash('flash_message3', 'Usuario  '.$id.' Eliminado!');
 
-        return redirect(route('usuarios'))->with([ 'message' => 'Usuario eliminado exitosamente!', 'alert-type' => 'info' ]);
+        return redirect(route('usuarios.index'))->with([ 'message' => 'Usuario eliminado exitosamente!', 'alert-type' => 'info' ]);
     }
 }

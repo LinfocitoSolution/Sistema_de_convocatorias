@@ -10,9 +10,10 @@
   <div class="container">   
     <div class="card mt-5" >
       <div class="card-header">
-           <i class="fa fa-align-justify"></i> Usuarios
+        <h1> Usuarios</h1> 
             <a class="btn btn-success" href="{{route('usuarios.create')}}">
-              <i class="fa fa-plus"></i>&nbsp;Nuevo 
+              Nuevo 
+              <i class="fa fa-plus"></i>&nbsp;
             </a>
       </div>
       <div class="card-body">
