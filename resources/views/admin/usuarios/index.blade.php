@@ -33,12 +33,15 @@
                    <td>{{$user->name}}</td>
                     <td>{{$user->lastname}}</td>
                     <td>{{$user->email}}</td>
-                    <td>roles</td>
+                    <td>@foreach($user->roles as $item)
+                        <span class="badge badge-info">{{$item->name}}</span>
+                        @endforeach
+                    </td>
                     <td>
 
-                        <a class="btn btn-info btn-sm mx-1 my-1" href="{{ route('usuarios.edit', $user->id) }}">
-                            <i class="fa fa-pencil-alt"></i>
-                        </a> 
+                        <a class="btn btn-info btn-sm" href="{{ route('usuarios.edit', $user->id) }}">
+                            <i class="fa fa-edit"></i>
+                        </a> &nbsp;
                         <form action="{{ route('usuarios.destroy', $user->id) }}"
                               style="display:inline-block;"
                               method="POST">
@@ -49,6 +52,7 @@
                             <button class="btn btn-danger" type="submit" margin-left="50" onclick="return confirm('Está seguro de eliminar el usuario?')">
                               <i class="fa fa-trash-alt"></i>
                             </button>
+                           
                         </form>
                     </td>
                 </tr>
