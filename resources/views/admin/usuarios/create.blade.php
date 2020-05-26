@@ -6,7 +6,7 @@
 
 @section('content')
 <div class="content-wrapper">
-    <div class="animated fadeIn">
+    <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">

@@ -18,9 +18,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 <link rel="stylesheet" href="dist/css/adminlte.min.css">
 <link href="{{asset('assets/css/admin/style.css')}}" rel="stylesheet">
+
  
 <!-- Google Font: Source Sans Pro -->
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+<!---Select2 multiple-->
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 </head>
  
 <body class="hold-transition sidebar-mini">
@@ -39,7 +43,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- Bootstrap 4 -->
 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
-
 <script src="dist/js/adminlte.min.js"></script>
+
+ @yield('scripts')
 </body>
 </html>

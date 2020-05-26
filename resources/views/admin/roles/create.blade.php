@@ -1,7 +1,7 @@
 @extends("admin.layouts.plantilladmin")
 
 @section("title")
-    Create
+   Roles
 @endsection
 
 @section("content")
@@ -16,7 +16,6 @@
                     <div class="card-body">
                         <form class="form-horizontal" action="{{ route('roles.store') }}" method="POST">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
                             @include('admin.roles.partials.form')
 
                             <div class="form-actions text-center">
@@ -32,3 +31,13 @@
 </div>  
 
 @endsection
+@section('scripts')
+     <script>
+        $(document).ready(function(){
+            $('.js-example-basic-multiple').select2({
+                placeholder: "Seleccione un valor"
+                allowClear: true
+            });
+        });
+    </script>
+  @endsection
