@@ -44,7 +44,7 @@ class UserController extends Controller
         $user->password=(bcrypt($user->password));
         $user->save();
 
-       // $user->syncRoles($request->roles);
+        $user->syncRoles($request->roles);
 
         return redirect(route('usuarios.index'))->with([ 'message' => 'Usuario creado exitosamente!', 'alert-type' => 'success' ]);
     }
@@ -86,7 +86,7 @@ class UserController extends Controller
         $user->password = (bcrypt($user->password));
         $user->save();
 
-        //$user->syncRoles($request->roles);
+        $user->syncRoles($request->roles);//con esto asigna el rol seleccionado para los usuarios
 
         return redirect(route('usuarios.index'))->with([ 'message' => 'Usuario actualizado exitosamente!', 'alert-type' => 'success' ]);
     }
