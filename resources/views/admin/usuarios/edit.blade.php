@@ -5,10 +5,9 @@
 @endsection
 
 
-
 @section('content')
 <div class="content-wrapper">
-    <div class="container">
+    <div class="animated fadeIn">
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">
