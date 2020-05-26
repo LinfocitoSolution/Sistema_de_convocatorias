@@ -36,17 +36,15 @@
                     <td>roles</td>
                     <td>
 
-                        <a class="btn btn-info btn-sm" href="{{ route('usuarios.edit', $user->id) }}">
-                            <i class="fa fa-edit"></i>
-                        </a> &nbsp;
+                        <a class="btn btn-info btn-sm mx-1 my-1" href="{{ route('usuarios.edit', $user->id) }}">
+                            <i class="fa fa-pencil-alt"></i>
+                        </a> 
                         <form action="{{ route('usuarios.destroy', $user->id) }}"
                               style="display:inline-block;"
                               method="POST">
-
-                            {{ csrf_field() }}
-                            {{ method_field('DELETE') }}
-
-                            <button class="btn btn-danger" type="submit">
+                              {{ csrf_field() }}
+                              {{ method_field('DELETE') }}
+                              <button class="btn btn-danger mx-1 my-1" type="submit" margin-left="50" onclick="return confirm('Está seguro de eliminar el area?')">
                               <i class="fa fa-trash-alt"></i>
                             </button>
                         </form>

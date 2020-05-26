@@ -46,14 +46,14 @@
                     </td>
                     <td>
                         {{-- <!--la ruta se llamara admin.roles.edit, rol dependienfo del id  { route('roles.edit', $rol->id) }}">--> --}}
-                        <a class="btn btn-info btn-sm" href="{{ route('admin.roles.edit', $rol->id) }}">
+                        <a class="btn btn-info btn-sm mx-1 my-1" href="{{ route('admin.roles.edit', $rol->id) }}">
                              <i class="fa fa-pencil-alt"></i>
                         </a>                         
                        
                       <form action="{{route('roles.destroy',$rol->id)}}" method="POST" style="display:inline-block;">
                         {{ csrf_field() }}                                                              
                         {{ method_field('DELETE') }}                            
-                        <button class="btn btn-danger btn-sm" type="submit" margin-left="50" onclick="return confirm('Está seguro de eliminar este rol?')">
+                        <button class="btn btn-danger btn-sm mx-1 my-1" type="submit" margin-left="50" onclick="return confirm('Está seguro de eliminar este rol?')">
                             <i class="fa fa-trash-alt"></i>                                
                         </button>                            
                       </form>
