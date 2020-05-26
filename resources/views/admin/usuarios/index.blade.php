@@ -46,7 +46,7 @@
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
 
-                            <button class="btn btn-danger" type="submit">
+                            <button class="btn btn-danger" type="submit" margin-left="50" onclick="return confirm('Está seguro de eliminar el area?')">
                               <i class="fa fa-trash-alt"></i>
                             </button>
                         </form>
