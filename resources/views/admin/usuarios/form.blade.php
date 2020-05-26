@@ -116,10 +116,9 @@
                                                 </span>
             <select class="form-control js-example-basic-multiple {{ $errors->has('roles') ? 'is-invalid' : '' }}" name="roles[]" multiple="multiple">
             
-                    <option value="" >administrador </option>
-                    <option value="" >jefe de Departamento </option>
-                    <option value="" >Secretaria </option>
-                    <option value="" >Comision de merito </option>
+                   @foreach ($roles as $item)
+                        <option values="{{$item->name }}"{{(isset($user)&& $user->roles->contains('name',$item->name)) ? 'selected' : ''}}>{{$item->name}}</option>
+                   @endforeach
                
             </select>
         </div>
