@@ -29,7 +29,7 @@ class UserController extends Controller
     {
         
         $roles = DB::table('roles')->get();
-        return view('admin.usuarios.create',compact('roles'));
+        return view('admin.usuarios.create',compact('roles'));        
     }
 
     /**
@@ -44,9 +44,9 @@ class UserController extends Controller
         $user->password=(bcrypt($user->password));
         $user->save();
 
-       // $user->syncRoles($request->roles);
+        $user->syncRoles($request->roles);
 
-        return redirect(route('usuarios'))->with([ 'message' => 'Usuario creado exitosamente!', 'alert-type' => 'success' ]);
+        return redirect(route('usuarios.index'))->with([ 'message' => 'Usuario creado exitosamente!', 'alert-type' => 'success' ]);
     }
 
     /**
@@ -70,7 +70,7 @@ class UserController extends Controller
     {
         $roles = DB::table('roles')->get();
 
-        return view('admin.usuarios.edit', [ 'user' => $user, 'roles' => $roles ]);
+        return view('admin.usuarios.edit',compact('roles','user'));
     }
 
     /**
@@ -86,9 +86,9 @@ class UserController extends Controller
         $user->password = (bcrypt($user->password));
         $user->save();
 
-        //$user->syncRoles($request->roles);
+        $user->syncRoles($request->roles);//con esto asigna el rol seleccionado para los usuarios
 
-        return redirect(route('usuarios'))->with([ 'message' => 'Usuario actualizado exitosamente!', 'alert-type' => 'success' ]);
+        return redirect(route('usuarios.index'))->with([ 'message' => 'Usuario actualizado exitosamente!', 'alert-type' => 'success' ]);
     }
 
     /**
@@ -103,6 +103,6 @@ class UserController extends Controller
 
         Session::flash('flash_message3', 'Usuario  '.$id.' Eliminado!');
 
-        return redirect(route('usuarios'))->with([ 'message' => 'Usuario eliminado exitosamente!', 'alert-type' => 'info' ]);
+        return redirect(route('usuarios.index'))->with([ 'message' => 'Usuario eliminado exitosamente!', 'alert-type' => 'info' ]);
     }
 }

@@ -7,34 +7,36 @@
 @section("content")
  <!-- Content Wrapper. Contains contiene paginas -->
  <div class="content-wrapper">
- <div class="card" >
-    <div class="card-header">
-           <i class="fa fa-align-justify"></i> Usuarios
-    <a class="btn btn-success" href="{{route('usuarios.create')}}">
-            <i class="fa fa-plus"></i>&nbsp;Nuevo 
-        </a>
-    </div>
-    <div class="card-body">
-        
-        <table class="table table-bordered table-striped table-sm">
+  <div class="container">   
+    <div class="card mt-5" >
+      <div class="card-header">
+        <h1> Usuarios</h1> 
+            <a class="btn btn-success" href="{{route('usuarios.create')}}">
+              Nuevo 
+              <i class="fa fa-plus"></i>&nbsp;
+            </a>
+      </div>
+      <div class="card-body">
+         <table class="table table-bordered table-striped table-sm">
             <thead>
-            <tr>
+             <tr>
                 <th>Nombre</th>
                 <th>Apellido</th>
                 <th>Email</th>
                 <th>Roles</th>
                 <th>Opciones</th>
-                
-                
-            </tr>
+             </tr>
             </thead>
             <tbody>
             @foreach($users as $user)
                 <tr>
-                <td>{{$user->name}}</td>
+                   <td>{{$user->name}}</td>
                     <td>{{$user->lastname}}</td>
                     <td>{{$user->email}}</td>
-                    <td>roles</td>
+                    <td>@foreach($user->roles as $item)
+                        <span class="badge badge-info">{{$item->name}}</span>
+                        @endforeach
+                    </td>
                     <td>
 
                         <a class="btn btn-info btn-sm" href="{{ route('usuarios.edit', $user->id) }}">
@@ -47,15 +49,18 @@
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
 
-                            <button class="btn btn-outline-success" type="submit">borrar</button>
+                            <button class="btn btn-danger" type="submit" margin-left="50" onclick="return confirm('Está seguro de eliminar el usuario?')">
+                              <i class="fa fa-trash-alt"></i>
+                            </button>
+                           
                         </form>
-                   </td>
+                    </td>
                 </tr>
-                @endforeach
-                
+            @endforeach
             </tbody>
-        </table>
-    </div>
-</div>
+           </table>
+         </div>
+      </div>   
+   </div>
 </div>
 @endsection

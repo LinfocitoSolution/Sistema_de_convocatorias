@@ -78,6 +78,7 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    // public function edit()
     public function edit(Role $rol)
     {
         $roles = Role::all();
@@ -102,10 +103,11 @@ class RoleController extends Controller
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
-     */
-    public function destroy(Role $rol)
+     */    
+    public function destroy($id)
     {
-        $rol->delete();
-        return redirect(route('roles.index'));
+        Role::destroy($id);    
+        return redirect(route('roles.index'));        
     }
+
 }

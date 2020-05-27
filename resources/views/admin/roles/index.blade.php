@@ -13,8 +13,9 @@
     <div class="card mt-5"> 
       <div class="card-header">  
         <h1>Roles</h1>
-        <!--la ruta debe llamarse  admin.roles.create-->
-        <a class="btn btn-success px-2" href="{{url('create')}}">Nuevo
+        {{-- <!--la ruta debe llamarse  admin.roles.create--> --}}
+        {{-- <a class="btn btn-success px-2" href="{{ url('create') }}">Nuevo --}}
+          <a class="btn btn-success px-2" href="{{ route('roles.create') }}">Nuevo
         <i class="fa fa-user-plus"></i>
         </a>
       </div>
@@ -44,21 +45,19 @@
                        <!--fin del  2para-->
                     </td>
                     <td>
-                        <!--la ruta se llamara admin.roles.edit, rol dependienfo del id-->
-                        <a class="btn btn-info btn-sm" href="{{ route('roles.edit', $rol->id) }}">
+                        {{-- <!--la ruta se llamara admin.roles.edit, rol dependienfo del id  { route('roles.edit', $rol->id) }}">--> --}}
+                        <a class="btn btn-info btn-sm mx-1 my-1" href="{{ route('admin.roles.edit', $rol->id) }}">
                              <i class="fa fa-pencil-alt"></i>
-                        </a> 
-                        <!--la ruta debe ser admin.roles.destroy, rol dependiendo del id-->
-                        <form action="{{ route('roles.destroy', $rol->id) }}" method="POST">
-                          <input type="hidden" name="_method" value="DELETE">
-                         
-                          {{ csrf_field() }}
-                          <button type="submit" class="btn btn-primary" margin-left="50" onclick="return confirm('Está seguro de eliminar este rol?')">Eliminar</button>
-                          {{-- <a class="btn btn-danger btn-sm" href="{{ route('roles.destroy', $rol->id) }}">
-                                 <i class="fa fa-trash-alt"></i>
-                          </a> --}}
+                        </a>                         
+                       
+                      <form action="{{route('roles.destroy',$rol->id)}}" method="POST" style="display:inline-block;">
+                        {{ csrf_field() }}                                                              
+                        {{ method_field('DELETE') }}                            
+                        <button class="btn btn-danger btn-sm mx-1 my-1" type="submit" margin-left="50" onclick="return confirm('Está seguro de eliminar este rol?')">
+                            <i class="fa fa-trash-alt"></i>                                
+                        </button>                            
                       </form>
-                      
+                                           
                     </td>
                   </tr> 
              @endforeach

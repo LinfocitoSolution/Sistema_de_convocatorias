@@ -9,8 +9,12 @@
             <input
                     class="form-control"
                     name="name"
-                    placeholder="Ingrese Nombre" type="text" value="{{ old('name', isset($area) ? $area->name : '') }}">
+                    value="{{ 'aqui' }}"
+            >
         </div>
+        <!--<div class=invalid-feedback{$errors->has('name')? 'd-block' : '' }>
+        { $errors->has('name')? $errors->first('name') : 'El campo de Nombre es requerido'  }
+        </div>-->
     </div>
 
     <div class="col-md-12 mb-3">
@@ -20,9 +24,13 @@
                 <button class="btn btn-primary" type="button">D</button>
             </span>
             <textarea
-                class="form-control {{ $errors->has('description') ? 'is-invalid' : '' }}"
-                name="description"
-                placeholder="Ingrese una descripcion" type="text">{{ old('description', isset($area) ? $area->description : '') }}</textarea>
+                    class="form-control"
+                    name="description"
+                    type="text">{{ $area->description }}</textarea>
         </div>
+
+        <!--<div class="invalid-feedback { $errors->has('description')? 'd-block' : '' }}">
+            { $errors->has('description')? $errors->first('description') : 'El campo de Nombre es requerido'  }}
+        </div>-->
     </div>
 </div>

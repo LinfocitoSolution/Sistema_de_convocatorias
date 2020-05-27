@@ -6,7 +6,7 @@
 
 @section('content')
 <div class="content-wrapper">
-    <div class="animated fadeIn">
+    <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">
@@ -20,7 +20,7 @@
 
                             <div class="form-actions text-center">
                                 <button class="btn btn-outline-success" type="submit">Guardar</button>
-                            <a class="btn btn-outline-danger" href="{{route('usuarios')}}">Cancelar</a>
+                            <a class="btn btn-outline-danger" href="{{route('usuarios.index')}}">Cancelar</a>
                             </div>
                         </form>
                     </div>

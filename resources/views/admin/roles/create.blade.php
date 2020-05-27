@@ -1,7 +1,7 @@
 @extends("admin.layouts.plantilladmin")
 
 @section("title")
-    Create
+   Roles
 @endsection
 
 @section("content")
@@ -16,12 +16,11 @@
                     <div class="card-body">
                         <form class="form-horizontal" action="{{ route('roles.store') }}" method="POST">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
                             @include('admin.roles.partials.form')
 
                             <div class="form-actions text-center">
                                 <button class="btn btn-outline-primary" type="submit">Guardar</button>
-                                <a class="btn btn-outline-danger" href="{{ url('roles') }}">Cancelar</a>
+                                <a class="btn btn-outline-danger" href="{{ route('roles.index') }}">Cancelar</a>
                             </div>
                         </form>
                     </div>
@@ -29,7 +28,16 @@
             </div>
         </div>
     </div>
-</div>
-  <!-- /.content-wrapper -->
+</div>  
 
 @endsection
+@section('scripts')
+     <script>
+        $(document).ready(function(){
+            $('.js-example-basic-multiple').select2({
+                placeholder: "Seleccione un valor"
+                allowClear: true
+            });
+        });
+    </script>
+  @endsection

@@ -12,18 +12,18 @@
 */
 
 //----------------------------------rutas pagina principal-----------------------------------------
-Route::get('index', [
-    'as' => 'home',
-    'uses' => 'HomeController@index'
-]);//esto es por que al hacer click en el boton inicio nos lleva a /index
+// Route::get('index', [
+//     'as' => 'home',
+//     'uses' => 'HomeController@index'
+// ]);//esto es por que al hacer click en el boton inicio nos lleva a /index
 Route::get('/', [
     'as' => 'home',
     'uses' => 'HomeController@index'
 ]);
-Route::get('/home', [
-    'as' => 'home',
-    'uses' => 'HomeController@index'
-]);
+// Route::get('/home', [
+//     'as' => 'home',
+//     'uses' => 'HomeController@index'
+// ]);
 
 //---------------------------------rutas registro y autenticacion------------------------------------
 Auth::routes();
@@ -32,16 +32,13 @@ Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 //Route::post('/verificar','LoginController@LoginUsuario');
 //Route::get('registrado', 'LoginController@registrado');
 //----------------------------------rutas de usuario--------------------------------------------------
-Route::get('usuarios','UserController@index')->name('usuarios');
+Route::get('usuarios','UserController@index')->name('usuarios.index');
 Route::get('usuarios_create','UserController@create')->name('usuarios.create');
 Route::post('usuarios_guardar','UserController@store')->name('usuarios.guardar');
-Route::get('usuarios_editar/{user}','UserController@edit')->name('usuarios.edit');
-Route::put('usuarios_update/{user}','UserController@update')->name('usuarios.update');
-Route::delete('usuarios_delete/{user}','UserController@destroy')->name('usuarios.destroy');
+Route::get('usuarios_editar_{user}','UserController@edit')->name('usuarios.edit');
+Route::put('usuarios_update_{user}','UserController@update')->name('usuarios.update');
+Route::delete('usuarios_delete_{user}','UserController@destroy')->name('usuarios.destroy');
 
-
-
-Route::get('holi', 'CallController@getCalls');
 
 
 //call/create   
@@ -55,31 +52,47 @@ Route::get('calls/{file_name}', function ($file_name) {
      //abort(404);
 });
 
+//##################### CONVOCATORIA ##########################
+Route::get('convocatoria','HomeController@convocatorias')->name('convocatoria');
+//##############################################################
 
 
-
-Route::get('/rotulo', 'UsersController@getUser');
-
-
-Route::get('areas','HomeController@areas');
-Route::get('convocatoria','HomeController@convocatorias');
-Route::get('create','RoleController@create');
-Route::get('usuarios','HomeController@usuarios');
-
+//##################### ROL ####################################
+Route::get('roles_create', [
+    'as' => 'roles.create',
+    'uses' => 'RoleController@create',
+]);
 Route::get('roles', [
     'as' => 'roles.index',
     'uses' => 'RoleController@index',
 ]);
-Route::get('roles/{rol}/edit', [
-    'as' => 'roles.edit',
+Route::get('roles_{rol}_edit', [
+    'as' => 'admin.roles.edit',
     'uses' => 'RoleController@edit',
 ]);
-Route::delete('roles/{rol}', [
+
+Route::delete('roles_{rol}', [
     'as' => 'roles.destroy',
     'uses' => 'RoleController@destroy',
 ]);
-Route::post('roles/store', [
+Route::post('roles_store', [
     'as' => 'roles.store',
     'uses' => 'RoleController@store',
 ]);
 Route::get('edit', 'RoleController@edit');
+//##############################################################
+
+
+//#################### AREA ####################################
+Route::get('areas','AreaController@index')->name('areas.index');
+Route::get('areas_create','AreaController@create')->name('areas.create');
+Route::get('areas_{area}_edit','AreaController@edit')->name('areas.edit');
+Route::post('areas_store','AreaController@store')->name('areas.store');
+Route::delete('areas_delete_{area}','AreaController@destroy')->name('areas.destroy');
+Route::put('areas_update_{area}','AreaController@update')->name('areas.update');
+// Route::resource('areas', 'AreaController');
+//##############################################################
+
+
+
+
