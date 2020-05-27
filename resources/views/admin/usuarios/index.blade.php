@@ -13,7 +13,7 @@
         <h1> Usuarios</h1> 
             <a class="btn btn-success" href="{{route('usuarios.create')}}">
               Nuevo 
-              <i class="fa fa-plus"></i>&nbsp;
+              <i class="fa fa-user-plus"></i>&nbsp;
             </a>
       </div>
       <div class="card-body">

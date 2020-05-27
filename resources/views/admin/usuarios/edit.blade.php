@@ -12,7 +12,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <i class="fa fa-edit"></i>Editar usuario</div>
+                        <i class="fa fa-user-edit"></i>Editar usuario</div>
                     <div class="card-body">
 
                             <form class="form-horizontal" action="{{ route('usuarios.update', $user->id) }}" method="POST" autocomplete="off">
