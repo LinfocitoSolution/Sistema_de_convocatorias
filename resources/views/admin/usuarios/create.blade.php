@@ -11,7 +11,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <i class="fa fa-edit"></i>Crear usuario</div>
+                        <i class="fa fa-user-edit"></i>Crear usuario</div>
                     <div class="card-body">
                         <form class="form-horizontal" action="{{route('usuarios.guardar')}}" method="POST">
                             {{ csrf_field() }}
