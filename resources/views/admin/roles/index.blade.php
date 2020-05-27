@@ -46,7 +46,8 @@
                     </td>
                     <td>
                         {{-- <!--la ruta se llamara admin.roles.edit, rol dependienfo del id  { route('roles.edit', $rol->id) }}">--> --}}
-                        <a class="btn btn-info btn-sm mx-1 my-1" href="{{ route('admin.roles.edit', $rol->id) }}">
+                        {{-- <a class="btn btn-info btn-sm mx-1 my-1" href="{{ route('roles.edit', $rol->id) }}"> --}}
+                        <a class="btn btn-info btn-sm mx-1 my-1" href="rol/{{$rol->id}}/edit">
                              <i class="fa fa-pencil-alt"></i>
                         </a>                         
                        

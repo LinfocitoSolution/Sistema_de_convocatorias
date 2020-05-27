@@ -5,10 +5,8 @@
            <span class="input-group-append">
                <button class="btn btn-primary" type="button">N</button>
            </span>
-           <input
-                   class="form-control"
-                   name="name"
-                   placeholder="Ingrese Nombre de Rol" type="text">
+           <input class="form-control" name="name"  placeholder="Ingrese Nombre" type="text"  value="{{ old('name', isset($rol) ? $rol->name : '') }}">
+           
        </div>
    </div>
 
@@ -21,12 +19,9 @@
            <select class="form-control js-example-basic-multiple {{ $errors->has('roles') ? 'is-invalid' : '' }}" name="permissions[]" multiple="multiple">
             
                      @foreach($permissions as $item)
-                             <option value="{{ $item->name }}" {{ (isset($role) && $role->permissions->contains('name', $item->name)) ? 'selected' : '' }}>{{ $item->name }}</option>
+                             <option value="{{ $item->name }}" >{{ $item->name }}</option>
                      @endforeach
            </select>
        </div>
-         <div class="invalid-feedback {{ $errors->has('permissions')? 'd-block' : '' }}">
-        {{ $errors->has('permissions')? $errors->first('permissions') : 'Este campo es requerido'  }}
-    </div>
    </div>
 </div>

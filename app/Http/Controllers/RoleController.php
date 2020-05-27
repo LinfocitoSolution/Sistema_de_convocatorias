@@ -80,10 +80,9 @@ class RoleController extends Controller
      */
     // public function edit()
     public function edit(Role $rol)
-    {
-        $roles = Role::all();
+    {   
         $permissions = Permission::all();
-        return view('admin.roles.edit', compact('roles', 'permissions'));
+        return view('admin.roles.edit', compact('rol','permissions'));
     }
 
     /**
@@ -93,9 +92,14 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Role $rol)
     {
-        //
+        $rol->update([ 'name' => $request->name ]);
+        $rol->save();
+        if ($request->permissions) {
+            $rol->syncPermissions($request->permissions);
+        }
+        return redirect(route('rol.index'))->with([ 'message' => 'Role actualizado exitosamente!', 'alert-type' => 'info' ]);
     }
 
     /**
