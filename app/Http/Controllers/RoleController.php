@@ -80,7 +80,9 @@ class RoleController extends Controller
      */
     public function edit(Role $rol)
     {
-         return view('admin.roles.edit');
+        $roles = Role::all();
+        $permissions = Permission::all();
+        return view('admin.roles.edit', compact('roles', 'permissions'));
     }
 
     /**

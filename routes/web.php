@@ -82,3 +82,4 @@ Route::post('roles/store', [
     'as' => 'roles.store',
     'uses' => 'RoleController@store',
 ]);
+Route::get('edit', 'RoleController@edit');
