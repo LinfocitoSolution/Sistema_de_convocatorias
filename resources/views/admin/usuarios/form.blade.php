@@ -9,7 +9,7 @@
             <input
                     class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}"
                     name="name"
-                    placeholder="Ingrese Nombre" type="text"  value="">
+                    placeholder="Ingrese Nombre" type="text"  value="{{ old('name', isset($user) ? $user->name : '') }}">
         </div>
 
         <div class="invalid-feedback {{ $errors->has('name')? 'd-block' : '' }}">
@@ -26,7 +26,7 @@
             <input
                     class="form-control {{ $errors->has('lastname') ? 'is-invalid' : '' }}"
                     name="lastname"
-                    placeholder="Ingrese apellido " type="text" value="">
+                    placeholder="Ingrese apellido " type="text" value="{{ old('lastname', isset($user) ? $user->lastname : '') }}">
         </div>
 
         <div class="invalid-feedback {{ $errors->has('lastname')? 'd-block' : '' }}">
@@ -43,7 +43,7 @@
             <input
                     class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}"
                     name="email"
-                    placeholder="Ingrese Email" type="text"  value="">
+                    placeholder="Ingrese Email" type="text"  value="{{ old('email', isset($user) ? $user->email : '') }}">
         </div>
 
         <div class="invalid-feedback {{ $errors->has('email')? 'd-block' : '' }}">
@@ -60,7 +60,7 @@
             <input
                     class="form-control {{ $errors->has('username') ? 'is-invalid' : '' }}"
                     name="username"
-                    placeholder="Ingrese Nombre de usuario " type="text" value="">
+                    placeholder="Ingrese Nombre de usuario " type="text" value="{{ old('username', isset($user) ? $user->username : '') }}">
         </div>
 
         <div class="invalid-feedback {{ $errors->has('username')? 'd-block' : '' }}">
