@@ -14,13 +14,13 @@
                     <div class="card-header">
                         <h1>Editar Rol</h1></div>
                     <div class="card-body">
-                        <form class="form-horizontal">
-                            
+                    <form class="form-horizontal" action="/rol/{{$rol->id}}" method="POST">
+                        {{ method_field('PUT')}}
+                        {{ csrf_field() }}
                             @include('admin.roles.partials.form')
-
                             <div class="form-actions text-center">
                                 <button class="btn btn-outline-primary" type="submit">Actualizar</button>
-                                <a class="btn btn-outline-danger" href="{{ url('roles') }}">Cancelar</a>
+                                <a class="btn btn-outline-danger" href="{{ url('rol') }}">Cancelar</a>
                             </div>
                         </form>
                     </div>
@@ -36,7 +36,7 @@
      <script>
         $(document).ready(function(){
             $('.js-example-basic-multiple').select2({
-                placeholder: "Seleccione un valor"
+                placeholder: "Seleccione un valor",
                 allowClear: true
             });
         });

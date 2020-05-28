@@ -66,11 +66,11 @@ Route::get('roles', [
     'as' => 'roles.index',
     'uses' => 'RoleController@index',
 ]);
-Route::get('roles_{rol}_edit', [
-    'as' => 'admin.roles.edit',
-    'uses' => 'RoleController@edit',
-]);
-
+// Route::get('rol/{rol}/edit', [
+//     'as' => 'roles.edit',
+//     'uses' => 'RoleController@edit',
+// ]);
+Route::resource('rol','RoleController');
 Route::delete('roles_{rol}', [
     'as' => 'roles.destroy',
     'uses' => 'RoleController@destroy',
@@ -79,6 +79,7 @@ Route::post('roles_store', [
     'as' => 'roles.store',
     'uses' => 'RoleController@store',
 ]);
+Route::get('edit', 'RoleController@edit');
 //##############################################################
 
 

@@ -11,22 +11,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <title>@yield("title")</title>
-
+  
 <!-- Font Awesome Icons -->
-<link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+<link rel="stylesheet" href="{{URL::asset('plugins/fontawesome-free/css/all.min.css')}}">
 <!-- Theme style -->
 
-<link rel="stylesheet" href="dist/css/adminlte.min.css">
-<link href="{{asset('assets/css/admin/style.css')}}" rel="stylesheet">
+<link rel="stylesheet" href="{{URL::asset('dist/css/adminlte.min.css')}}">
+<link rel="stylesheet" href="{{URL::asset('assets/css/admin/style.css')}}" >
 
  
 <!-- Google Font: Source Sans Pro -->
-<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+<link rel="stylesheet" href="{{URL::asset('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700')}}" >
 <!---Select2 multiple-->
-<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+<link href="{{URL::asset('https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet')}}" />
+<script src="{{ URL::asset('https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js')}}"></script>
 </head>
- 
 <body class="hold-transition sidebar-mini">
    <div class="wrapper"> 
      @include("admin.layouts.navbar")
@@ -35,15 +34,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
       </div>
      
       @include("admin.layouts.sidebar")
-    
    </div> 
   <!-- jQuery -->
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="{{ URL::asset('https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js')}}"></script>
 <!-- Bootstrap 4 -->
-<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="{{ URL::asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- AdminLTE App -->
-<script src="dist/js/adminlte.min.js"></script>
+<script src="{{ URL::asset('dist/js/adminlte.min.js')}}"></script>
+<!-- Select2 -->
+<link href="{{URL::asset('https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css')}}" rel="stylesheet" />
+<script src="{{URL::asset('https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js')}}"></script>
 
  @yield('scripts')
 </body>
