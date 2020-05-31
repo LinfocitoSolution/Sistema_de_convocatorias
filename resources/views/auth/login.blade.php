@@ -40,7 +40,7 @@
 									</div>
 									<input type="password" class="form-control" placeholder="Contraseña" name="password" id="password">
 								</div>
-								<small id="passwordHelpBlock" class="form-text text-white"> Tu contraseña debe tener 8-20 caracteres, contener letras y numeros , <br>no debe contener espacios, caracteres especiales, o emoji. </small>
+								<small id="passwordHelpBlock" class="form-text text-white"> Nota:para el primer campo es valido tanto el nombre de usuario como el email  </small>
 								{{-- <!--<div class="row align-items-center remember">
 									<input type="checkbox">RECUERDAME
 								</div>--> --}}
@@ -54,7 +54,7 @@
 						   <div class="card-footer">
 							   <div class="d-flex justify-content-center links text-white mt-3">
 								   <h6>No tienes cuenta?</h6>
-								   <a href="{{url('postulante/create')}}" class="text-warning"><h6>REGISTRATE</h6></a>
+								   <a href="{{url('register')}}" class="text-warning"><h6>REGISTRATE</h6></a>
 								</div>
 							   <div class="d-flex justify-content-center mt-2 ">
 								<a href="#" class="text-warning"><h6>Olviste tu contraseña?</h6></a>
