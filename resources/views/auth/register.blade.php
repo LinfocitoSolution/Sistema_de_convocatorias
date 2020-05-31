@@ -36,13 +36,13 @@
 									<div class="input-group-prepend">
 										<span class="input-group-text bg-success px-3"><i class="fas fa-user"></i></span>
 									</div>
-									<input type="text" class="form-control" placeholder="Nombre" name="name"  value="{{ old('name') }}"> 
+									<input type="text" class="form-control text-capitalize" placeholder="Nombre" name="name"  value="{{ old('name') }}"> 
 								</div>
 								<div class="input-group form-group">
 									<div class="input-group-prepend">
 										<span class="input-group-text bg-success px-3"><i class="fas fa-user-tie"></i></span>
 									</div>
-									<input type="text" class="form-control" placeholder="Apellidos" name="lastname" value="{{ old('lastname') }}">
+									<input type="text" class="form-control text-capitalize" placeholder="Apellidos" name="lastname" value="{{ old('lastname') }}">
 								</div>
 								
 								<div class="input-group form-group">
@@ -51,12 +51,18 @@
 									</div>
 									<input type="text" class="form-control" placeholder="Nombre de usuario" name="username" value="{{ old('username') }}" >
 								</div>
+								<!--carrera--->
 								<div class="input-group form-group">
 									<div class="input-group-prepend">
 										<span class="input-group-text bg-success"><i class="fa fa-graduation-cap"></i></span>
 									</div>
-									<input type="text" class="form-control" placeholder="Carrera" name="career" value="{{ old('career') }}">
+									<!--<input type="text" class="form-control text-capitalize" placeholder="Carrera" name="career" value="{ old('career') }}">-->
+									<select name="career" class="custom-select form-control">
+										<option selected class="text-muted"value="sistemas">Ing Sistemas</option>
+										<option value="informatica">Ing Informatica</option> 
+									  </select>
 								</div>
+								<!-----fin de carrera--->
 								<div class="input-group form-group">
 									<div class="input-group-prepend">
 										<span class="input-group-text bg-success px-3"><i class="fa fa-at"></i></span>
