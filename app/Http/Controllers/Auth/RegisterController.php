@@ -48,11 +48,12 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:50|regex:/^[\pL\s\-]+$/u',
+            'name' => 'required|max:50|min:3|regex:/^[\pL\s\-]+$/u',
             'lastname' => 'required|max:50|regex:/^[\pL\s\-]+$/u',
-            'username' => 'required|max:25|alpha_num',
+            'username' => 'required|max:20|alpha_num',
             'email' => 'required|email|unique:users',
-            'password' => 'required|max:6',
+            'password' => 'required|max:25|min:8',
+            'confirmpassword' => 'required|same:password'
         ]);
     }
 
@@ -73,5 +74,17 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+
+    // public function register(Request $request)
+    // {
+    //     $this->validator($request->all())->validate();
+
+    //     event(new Registered($user = $this->create($request->all())));
+
+    //     $this->guard()->login($user);
+
+    //     return $this->registered($request, $user)
+    //         ?: redirect($this->redirectPath());
+    // }
     
 }
