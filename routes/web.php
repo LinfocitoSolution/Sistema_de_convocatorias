@@ -31,6 +31,7 @@ Route::get('administrador','HomeController@registrado');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 //Route::post('/verificar','LoginController@LoginUsuario');
 //Route::get('registrado', 'LoginController@registrado');
+
 //----------------------------------rutas de usuario--------------------------------------------------
 Route::get('usuarios','UserController@index')->name('usuarios.index');
 Route::get('usuarios_create','UserController@create')->name('usuarios.create');
@@ -92,7 +93,4 @@ Route::delete('areas_delete_{area}','AreaController@destroy')->name('areas.destr
 Route::put('areas_update_{area}','AreaController@update')->name('areas.update');
 // Route::resource('areas', 'AreaController');
 //##############################################################
-
-
-
 
