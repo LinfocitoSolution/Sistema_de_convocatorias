@@ -45,7 +45,13 @@ class LoginController extends Controller
     $this->validate($request, [
         'login'    => 'required',
         'password' => 'required',
+    ],[
+        'login.required'=>'el campo username o email es requerido',
+        'password.required'=>'el campo contraseña es requerido',  
     ]);
+    
+   
+   
 
     $login_type = filter_var($request->input('login'), FILTER_VALIDATE_EMAIL ) 
         ? 'email' 
@@ -62,7 +68,7 @@ class LoginController extends Controller
     return redirect()->back()
         ->withInput()
         ->withErrors([
-            'login' => 'These credentials do not match our records.',
+            'login' => 'este usuario no se encuentra en nuestros registros',
         ]);
     } 
 
