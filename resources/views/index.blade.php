@@ -19,7 +19,7 @@
 <body>
 <!-- navbar -->
  <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-info">
-  <a class="navbar-brand  text-white" href="{{url('index')}}" tabindex="-1" >Inicio</a>
+  <a class="navbar-brand  text-white" href="{{url('/')}}" tabindex="-1" >Inicio</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -27,16 +27,18 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link text-white" href="{{ url('convocatorias') }}">Convocatorias</a>
+        <!--{ url('convocatorias') }}-->
+        <a class="nav-link text-white disabled" href="#">Convocatorias</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white" href="{{ url('calendario') }}">Calendario</a>
+        <!--{ url('calendario') }}-->
+        <a class="nav-link text-white disabled" href="#">Calendario</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white " href="#">Informacion</a>
+        <a class="nav-link text-white disabled" href="#">Informacion</a>
       </li>
      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle text-white" href="#"  id="nabarDropdown" tabindex="-2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle text-white disabled" href="#"  id="nabarDropdown" tabindex="-2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
          Malla Curricular
         </a>
         <div class="dropdown-menu hover" >
@@ -143,8 +145,8 @@
   <div class="footer">
     <div class="container">
       <div class="row">
-          <div class="col-xs-5 col-md-6 text-left text-warning">
-              <h4 class="text-warning">CONTACTO:</h4>
+          <div class="col-xs-5 col-md-6 text-left text-primary">
+              <h4 class="text-primary">CONTACTO:</h4>
               <h6 class="text-white">
               Direccion: Avenida 6 de agosto. Esquina moxos numero 542.<br>
               Teléfono: 4795260.<br>
@@ -154,7 +156,7 @@
           </div>
 
           <div class="col-xs-11 col-md-6 text-right">
-              <h5 class="text-success">ENCUENTRANOS EN LAS REDES</h5>
+              <h5 class="text-primary">ENCUENTRANOS EN LAS REDES</h5>
               <div class="redes-footer">
                 <a href="http://websis.umss.edu.bo/"><img src="{{asset('imagenes/websis.JPG')}}" width="60" height="60"></a>
                 <a href="http://www.cs.umss.edu.bo/"><img src="{{asset('imagenes/cs.JPG')}}" width="60" height="60"></a>

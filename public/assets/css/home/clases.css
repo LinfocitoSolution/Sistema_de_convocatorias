@@ -3,8 +3,11 @@
     background-image:url('/imagenes/celeste.jpg') ;
   }
 }*/
+ .nav{
+   background-color: #000099;
+ }
   .footer{
-    background-color:#0052cc; 
+    background-color:#324654; 
     color: white;
     padding: 15px;
     height: 40%;
