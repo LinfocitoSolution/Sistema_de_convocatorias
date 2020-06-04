@@ -1,10 +1,7 @@
 <?php
-
 namespace App\Http\Controllers\Auth;
-
 use Illuminate\Http\Request;
 use Auth;
-
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -20,7 +17,6 @@ class LoginController extends Controller
     | to conveniently provide its functionality to your applications.
     |
     */
-
     use AuthenticatesUsers {
         logout as performLogout;
     }
@@ -30,7 +26,6 @@ class LoginController extends Controller
      * @var string
      */
     protected $redirectTo = 'administrador';
-
     /**
      * Create a new controller instance.
      *
@@ -46,27 +41,22 @@ class LoginController extends Controller
             'login'    => 'required',
             'password' => 'required',
         ],[
-            'login.required'=>'El campo Usuario o Email es requerido',
-            'password.required'=>'El campo Contraseña es requerido',  
+            'login.required'=>'el campo username o email es requerido',
+            'password.required'=>'el campo contraseña es requerido',  
         ]);
         $login_type = filter_var($request->input('login'), FILTER_VALIDATE_EMAIL ) 
             ? 'email' 
             : 'username';
-
-    return redirect()->back()
-        ->withInput()
-        ->withErrors([
-            'password' => 'usuario o email /password incorrecto',
+        $request->merge([
+            $login_type => $request->input('login')
         ]);
-
         if (Auth::attempt($request->only($login_type, 'password'))) {
             return redirect()->intended($this->redirectPath());
         }
-
         return redirect()->back()
             ->withInput()
             ->withErrors([
-                'login' => 'Este usuario no se encuentra en nuestros registros',
+                'password' => 'usuario o email /password incorrecto',
             ]);
     } 
     public function username()
@@ -80,8 +70,5 @@ class LoginController extends Controller
                return view("admin.administrador");
                //return view("admin.rolpostulante");
         }
-       
-    }
-
-    
+    }    
 }

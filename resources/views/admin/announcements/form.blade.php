@@ -14,7 +14,7 @@
             </div>
          </div>
       <br>
-      @if (isset($call) ? $call->pdf_file : '')
+      @if (isset($call))
         <input type="file" name="archivo" disabled>   
         <br>
       @else
