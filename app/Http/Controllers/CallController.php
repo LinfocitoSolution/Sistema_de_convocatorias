@@ -15,7 +15,8 @@ class CallController extends Controller
      */
     public function index()
     {
-        return 'Hello there';
+        $convocatorias = Convocatoria::all();
+        return view('admin.announcements.index', compact('convocatorias'));
     }
     /**
      * Show the form for creating a new resource.
@@ -24,7 +25,7 @@ class CallController extends Controller
      */
     public function create()
     {
-        return view('calls.register');
+        return view('admin.announcements.create');
     }
     /**
      * Store a newly created resource in storage.
@@ -57,9 +58,11 @@ class CallController extends Controller
             $file->move(public_path().'/convocatorias/', $nombre);
             $convocatoria->pdf_file=$nombre;
             $convocatoria->save();
-            return 'Saved';
+            return redirect('administrador');
         } else {
-            return 'Error';
+            return redirect('administrador')
+                        ->withErrors($validator)
+                        ->withInput();
         }
     }
 
@@ -69,9 +72,10 @@ class CallController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($file_name)
     {
-  
+        $file_path = public_path('convocatorias/'.$file_name);
+        return response()->file($file_path);
     }
 
     /**
@@ -80,9 +84,9 @@ class CallController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Convocatoria $call)
     {
-        //
+        return view('admin.announcements.edit',compact('call'));
     }
 
     /**
@@ -105,6 +109,8 @@ class CallController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Convocatoria::destroy($id);
+        Session::flash('flash_message3', 'Convocatoria  '.$id.' eliminada!');
+        return redirect(route('call.index'))->with([ 'message' => 'Usuario eliminado exitosamente!', 'alert-type' => 'info' ]);
     }
 }

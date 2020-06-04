@@ -36,7 +36,7 @@
 									<div class="input-group-prepend">
 										<span class="input-group-text bg-success px-3"><i class="fas fa-user"></i></span>
 									</div>
-									<input type="text" class="form-control text-capitalize" placeholder="Nombre" name="name"  value="{{ old('name') }}"> 
+									<input type="text" class="form-control text-capitalize" placeholder="Nombre" name="name" id="Nombre" value="{{ old('name') }}"> 
 								</div>
 								<div class="input-group form-group">
 									<div class="input-group-prepend">

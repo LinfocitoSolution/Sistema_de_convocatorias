@@ -8,10 +8,10 @@
 <title> @yield("title")</title>
 
 <!-- Font Awesome Icons -->
-<link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+<link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
 <!--Styles-->
-<link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
-<link href="{{ asset('assets/css/main.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{asset('/css/bootstrap.min.css')}}" rel="stylesheet">
+<link href="{{ asset('/assets/css/main.css') }}" rel="stylesheet" type="text/css" />
 
 </head>
 

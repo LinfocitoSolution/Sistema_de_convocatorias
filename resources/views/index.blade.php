@@ -27,9 +27,6 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link text-white" href="{{ url('convocatorias') }}">Convocatorias</a>
-      </li>
-      <li class="nav-item">
         <a class="nav-link text-white" href="{{ url('calendario') }}">Calendario</a>
       </li>
       <li class="nav-item">
@@ -60,6 +57,17 @@
 </nav>
  <!--fin navbar-->   
  <!--contenido medio-->
+
+ <!--ERRORES-->
+      @if (count($errors) > 0)
+      <div class="alert alert-danger">
+        <ul>
+          @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+          @endforeach
+        </ul>
+      </div>
+      @endif
     
     
   <!--carrusel-->      
@@ -80,7 +88,7 @@
                 </div>
           </div>
           <div class="carousel-item">
-            <img src="{{ asset('imagenes/sistemas.JPG') }}" class="d-block w-100" alt="elem" width="1000" height="600">
+            <img src="{{ asset('/imagenes/sistemas.JPG') }}" class="d-block w-100" alt="elem" width="1000" height="600">
             <div class="carousel-caption">
               <div class="text-white">
                   <h2>Departamento de sistemas e informatica</h2>
@@ -88,7 +96,7 @@
               </div>
           </div>
           <div class="carousel-item">
-            <img src="{{ asset('imagenes/aula.JPG') }}" class="d-block w-100" alt="aulalaboratorios" width="1000" height="600">
+            <img src="{{ asset('/imagenes/aula.JPG') }}" class="d-block w-100" alt="aulalaboratorios" width="1000" height="600">
               <div class="carousel-caption">
                 <div class="text-white">
                   <h1>Laboratorios</h1>
@@ -96,7 +104,7 @@
               </div>
           </div>
           <div class="carousel-item">
-            <img src="{{ asset('imagenes/edificio.JPG') }}" class="d-block w-100" alt="prog" width="1000" height="600">
+            <img src="{{ asset('/imagenes/edificio.JPG') }}" class="d-block w-100" alt="prog" width="1000" height="600">
               <div class="carousel-caption" >
                   <div class="text-white">
                     <h2>Edificio Multiacademico</h2>
@@ -122,11 +130,12 @@
         @foreach ($convocatorias as $convocatoria)
            <div class="col-lg-6">
                 <div class="card text-white bg-dark my-3 ml-2 mr-3" style="width: 28rem;">
-                    <img src="{{ asset('imagenes/web.JPG') }}" class="card-img-top" alt="laboratorios" width="200" height="200">
+                    <img src="{{ asset('/imagenes/web.JPG') }}" class="card-img-top" alt="laboratorios" width="200" height="200">
                         <div class="card-body">
                           <h5 class="card-title">{{$convocatoria->titulo_convocatoria}}</h5>
                             <p class="card-text">{{$convocatoria->descripcion}}</p>
-                          <a href="#" class="btn btn-success rounded-pill active btn-block">Ver Convocatria</a>
+                            {{-- <form class="form-horizontal" action="/call/{{$convocatoria->pdf_file}" method="GET"> --}}
+                          <a href="call/{{$convocatoria->pdf_file}}" target="_blank" class="btn btn-success rounded-pill active btn-block" >Ver Convocatoria</a>
                         </div>
                 </div>
               </div>  

@@ -54,6 +54,14 @@ class RegisterController extends Controller
             'email' => 'required|email|unique:users',
             'password' => 'required|max:25|min:8',
             'confirmpassword' => 'required|same:password'
+        ],[
+            'name.required'=>'El campo Nombre es requerido',
+            'lastname.required'=>'El campo Apellido es requerido',
+            'username.required'=>'El campo Contraseña es requerido',  
+            'email.required'=>'El campo Email es requerido',
+            'password.required'=>'El campo Contraseña es requerido',
+            'confirmpassword.required'=>'Debe confirmar su contraseña',
+            'confirmpassword.same'=>'Las contraseñas no coinciden'
         ]);
     }
 
