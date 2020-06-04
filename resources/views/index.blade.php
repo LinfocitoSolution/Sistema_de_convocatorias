@@ -17,6 +17,20 @@
    
 </head> 
 <body>
+  <div class="jumbotron jumbotron-fluid mb-0" >
+    <div class="container">
+      <div class="media">
+        <img  class="logoUmss align-self-center mt-8" width="130" height="130" src="{{asset('../imagenes/umss.png')}} " 
+           alt="umss2">
+          <div class="media-body" > 
+             <div class="h2 text-white text-center">CONVOCATORIAS AUXILIARES</div>
+             <div class="h2 text-white text-center">UNIVERSIDAD MAYOR DE SAN SIMON</div>
+          </div>
+          <img  class="logoCarrera float-right align-center mt-8" width="130" height="130" src="{{asset('../imagenes/cs.jpg')}}" 
+           alt="carrera"> 
+        </div>     
+    </div>       
+</div> 
 <!-- navbar -->
  <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-info">
   <a class="navbar-brand  text-white" href="{{url('/')}}" tabindex="-1" >Inicio</a>
@@ -80,7 +94,7 @@
           </ol>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="{{ asset('/imagenes/tecno.JPG') }}"  class="d-block w-100" alt="web" width="1000" height="600">
+            <img src="{{ asset('/imagenes/tecno.jpg') }}"  class="d-block w-100" alt="web" width="1000" height="600">
                 <div class="carousel-caption" >
                   <div class="text-white">
                     <h2>Facultad de ciencias y tecnologia</h2>
@@ -88,7 +102,7 @@
                 </div>
           </div>
           <div class="carousel-item">
-            <img src="{{ asset('/imagenes/sistemas.JPG') }}" class="d-block w-100" alt="elem" width="1000" height="600">
+            <img src="{{ asset('/imagenes/sistemas.jpg') }}" class="d-block w-100" alt="elem" width="1000" height="600">
             <div class="carousel-caption">
               <div class="text-white">
                   <h2>Departamento de sistemas e informatica</h2>
@@ -96,7 +110,7 @@
               </div>
           </div>
           <div class="carousel-item">
-            <img src="{{ asset('/imagenes/aula.JPG') }}" class="d-block w-100" alt="aulalaboratorios" width="1000" height="600">
+            <img src="{{ asset('/imagenes/aula.jpg') }}" class="d-block w-100" alt="aulalaboratorios" width="1000" height="600">
               <div class="carousel-caption">
                 <div class="text-white">
                   <h1>Laboratorios</h1>
@@ -104,7 +118,7 @@
               </div>
           </div>
           <div class="carousel-item">
-            <img src="{{ asset('/imagenes/edificio.JPG') }}" class="d-block w-100" alt="prog" width="1000" height="600">
+            <img src="{{ asset('/imagenes/edificio.jpg') }}" class="d-block w-100" alt="prog" width="1000" height="600">
               <div class="carousel-caption" >
                   <div class="text-white">
                     <h2>Edificio Multiacademico</h2>
@@ -130,7 +144,7 @@
         @foreach ($convocatorias as $convocatoria)
            <div class="col-lg-6">
                 <div class="card text-white bg-dark my-3 ml-2 mr-3" style="width: 28rem;">
-                    <img src="{{ asset('/imagenes/web.JPG') }}" class="card-img-top" alt="laboratorios" width="200" height="200">
+                    <img src="{{ asset('/imagenes/web.jpg') }}" class="card-img-top" alt="laboratorios" width="200" height="200">
                         <div class="card-body">
                           <h5 class="card-title">{{$convocatoria->titulo_convocatoria}}</h5>
                             <p class="card-text">{{$convocatoria->descripcion}}</p>
@@ -152,8 +166,8 @@
   <div class="footer">
     <div class="container">
       <div class="row">
-          <div class="col-xs-5 col-md-6 text-left text-primary">
-              <h4 class="text-primary">CONTACTO:</h4>
+          <div class="col-xs-5 col-md-6 text-left">
+              <h4 class="text-white">CONTACTO:</h4>
               <h6 class="text-white">
               Direccion: Avenida 6 de agosto. Esquina moxos numero 542.<br>
               Teléfono: 4795260.<br>
@@ -163,7 +177,7 @@
           </div>
 
           <div class="col-xs-11 col-md-6 text-right">
-              <h5 class="text-primary">ENCUENTRANOS EN LAS REDES</h5>
+              <h5 class="text-white">ENCUENTRANOS EN LAS REDES</h5>
               <div class="redes-footer">
                 <a href="http://websis.umss.edu.bo/"><img src="{{asset('imagenes/websis.JPG')}}" width="60" height="60"></a>
                 <a href="http://www.cs.umss.edu.bo/"><img src="{{asset('imagenes/cs.JPG')}}" width="60" height="60"></a>
