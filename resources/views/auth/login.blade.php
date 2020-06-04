@@ -75,7 +75,7 @@
 								</div>--> --}}
 								<br>
 								<div class="form-group" >
-									<button class="btn btn-success mr-sm-2  rounded-pill btn-block" type="submit">INGRESAR</button>
+									<button class="btn btn-success mr-sm-2 text-black rounded-pill btn-block" type="submit">INGRESAR</button>
 								</div>
 							</form>
 						

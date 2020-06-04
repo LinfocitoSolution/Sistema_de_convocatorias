@@ -7,13 +7,12 @@
   width:99,8%;
   height:800px;
 }
-
+.navbar{
+  background: #0000b3;;
+}
 .contenido-medio{
   margin-top:30px;
 }
-/*.card-body {
-  background: linear-gradient(to top left, #003399 0%, #00ccff 100%);
-}*/
 
 .d-flex{
    margin-top:30px;

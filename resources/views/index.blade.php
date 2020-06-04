@@ -20,7 +20,7 @@
   <div class="jumbotron jumbotron-fluid mb-0" >
     <div class="container">
       <div class="media">
-        <img  class="logoUmss float-left align-center " width="140" height="160" src="{{asset('../imagenes/LogoUMSS.png')}} " 
+        <img  class="logoUmss float-left align-center" width="140" height="160" src="{{asset('../imagenes/LogoUMSS.png')}} " 
            alt="umss2">
           <div class="media-body" > 
              <div class="h2 text-white text-center">CONVOCATORIAS AUXILIARES</div>
@@ -32,7 +32,7 @@
     </div>       
 </div> 
 <!-- navbar -->
- <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-info">
+ <nav class="navbar sticky-top navbar-expand-lg">
   <a class="navbar-brand  text-white" href="{{url('/')}}" tabindex="-1" >Inicio</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -59,12 +59,12 @@
     </ul>
     @if (Auth::guest())
       <form class="form-inline float-xs-right">
-         <a class="btn btn-outline-success  text-white my-2 my-sm-2" type="submit" href="{{url('login')}}">Iniciar Sesion</a>
-         <a class="btn btn-outline-warning  text-white my-2 my-sm-2" type="submit" href="{{url('register')}}">Registrate</a>
+         <a class="btn btn-outline-primary  text-white m-2 my-sm-2" type="submit" href="{{url('login')}}">Iniciar Sesion</a>
+         <a class="btn btn-outline-primary  text-white m-2 my-sm-2" type="submit" href="{{url('register')}}">Registrate</a>
         </form>
     @else
-    <a class="btn btn-outline-success  text-white my-2 my-sm-2" type="submit" href="{{url('administrador')}}">Administrar</a>
-    <a class="btn btn-outline-warning text-white my-2 my-sm-2" type="submit" href="{{url('logout')}}">Cerrar Sesion</a>
+    <a class="btn btn-outline-primary  text-white m-2 my-sm-2" type="submit" href="{{url('administrador')}}">Administrar</a>
+    <a class="btn btn-outline-primary text-white m-2 my-sm-2" type="submit" href="{{url('logout')}}">Cerrar Sesion</a>
     @endif
 
   </div>
@@ -94,7 +94,7 @@
           </ol>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="{{ asset('/imagenes/tecno.jpg') }}"  class="d-block w-100" alt="web" width="1000" height="600">
+            <img src="{{ asset('/imagenes/tecno.jpg') }}"  class="d-block w-100" alt="web" width="1000" height="500">
                 <div class="carousel-caption" >
                   <div class="text-white">
                     <h2>Facultad de ciencias y tecnologia</h2>
@@ -102,7 +102,7 @@
                 </div>
           </div>
           <div class="carousel-item">
-            <img src="{{ asset('/imagenes/sistemas.jpg') }}" class="d-block w-100" alt="elem" width="1000" height="600">
+            <img src="{{ asset('/imagenes/sistemas.jpg') }}" class="d-block w-100" alt="elem" width="1000" height="500">
             <div class="carousel-caption">
               <div class="text-white">
                   <h2>Departamento de sistemas e informatica</h2>
@@ -110,7 +110,7 @@
               </div>
           </div>
           <div class="carousel-item">
-            <img src="{{ asset('/imagenes/aula.jpg') }}" class="d-block w-100" alt="aulalaboratorios" width="1000" height="600">
+            <img src="{{ asset('/imagenes/aula.jpg') }}" class="d-block w-100" alt="aulalaboratorios" width="1000" height="500">
               <div class="carousel-caption">
                 <div class="text-white">
                   <h1>Laboratorios</h1>
@@ -118,7 +118,7 @@
               </div>
           </div>
           <div class="carousel-item">
-            <img src="{{ asset('/imagenes/edificio.jpg') }}" class="d-block w-100" alt="prog" width="1000" height="600">
+            <img src="{{ asset('/imagenes/edificio.jpg') }}" class="d-block w-100" alt="prog" width="1000" height="500">
               <div class="carousel-caption" >
                   <div class="text-white">
                     <h2>Edificio Multiacademico</h2>
@@ -143,13 +143,13 @@
     <div class="row justify-content-around">
         @foreach ($convocatorias as $convocatoria)
            <div class="col-lg-6">
-                <div class="card text-white bg-dark my-3 ml-2 mr-3" style="width: 28rem;">
+                <div class="card text-white bg-dark my-3 ml-2 mr-3" style="width: 25rem;">
                     <img src="{{ asset('/imagenes/web.jpg') }}" class="card-img-top" alt="laboratorios" width="200" height="200">
                         <div class="card-body">
                           <h5 class="card-title">{{$convocatoria->titulo_convocatoria}}</h5>
                             <p class="card-text">{{$convocatoria->descripcion}}</p>
                             {{-- <form class="form-horizontal" action="/call/{{$convocatoria->pdf_file}" method="GET"> --}}
-                          <a href="call/{{$convocatoria->pdf_file}}" target="_blank" class="btn btn-success rounded-pill active btn-block" >Ver Convocatoria</a>
+                          <a href="call/{{$convocatoria->pdf_file}}" target="_blank" class="btn btn-outline-primary rounded-pill  btn-block" >Ver Convocatoria</a>
                         </div>
                 </div>
               </div>  
