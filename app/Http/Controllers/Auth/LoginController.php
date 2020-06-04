@@ -53,8 +53,10 @@ class LoginController extends Controller
             ? 'email' 
             : 'username';
 
-        $request->merge([
-            $login_type => $request->input('login')
+    return redirect()->back()
+        ->withInput()
+        ->withErrors([
+            'password' => 'usuario o email /password incorrecto',
         ]);
 
         if (Auth::attempt($request->only($login_type, 'password'))) {
