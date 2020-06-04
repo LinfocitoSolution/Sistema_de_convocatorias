@@ -15,7 +15,8 @@ class CallController extends Controller
      */
     public function index()
     {
-        return 'Hello there';
+        $calls = Convocatoria::all();
+        return view('admin.announcements.index', compact('calls'));
     }
     /**
      * Show the form for creating a new resource.
@@ -24,7 +25,8 @@ class CallController extends Controller
      */
     public function create()
     {
-        return view('calls.register');
+        $calls = Convocatoria::all();
+        return view('admin.announcements.create', compact('calls'));
     }
     /**
      * Store a newly created resource in storage.
@@ -57,9 +59,11 @@ class CallController extends Controller
             $file->move(public_path().'/convocatorias/', $nombre);
             $convocatoria->pdf_file=$nombre;
             $convocatoria->save();
-            return 'Saved';
+            return redirect('administrador');
         } else {
-            return 'Error';
+            return redirect('administrador')
+                        ->withErrors($validator)
+                        ->withInput();
         }
     }
 
@@ -69,9 +73,10 @@ class CallController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($file_name)
     {
-  
+        $file_path = public_path('convocatorias/'.$file_name);
+        return response()->file($file_path);
     }
 
     /**
@@ -80,9 +85,9 @@ class CallController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Convocatoria $call)
     {
-        //
+        return view('admin.announcements.edit',compact('call'));
     }
 
     /**
@@ -92,9 +97,25 @@ class CallController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Convocatoria $call)
     {
-        //
+         $call->fill($request->all());
+        // if ($request->hasFile('archivo')) {
+        //     $file = $request->file('archivo');
+        //     $nombre = time().$file->getClientOriginalName();
+        //     $call->pdf_file=$nombre;
+        //     $file->move(public_path().'/convocatorias/', $nombre);
+        //     $convocatoria->pdf_file=$nombre;
+        //     $convocatoria->save();
+        //     return redirect('administrador');
+        // } 
+        // else {
+        //     return redirect('administrador')
+        //                 ->withErrors($validator)
+        //                 ->withInput();
+        // }
+        $call->save();
+        return redirect(route('call.index'))->with([ 'message' => 'Convocatoria actualizada exitosamente!', 'alert-type' => 'success' ]);
     }
 
     /**
@@ -103,8 +124,12 @@ class CallController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Convocatoria $call)
     {
-        //
+        $file_path = public_path().'/convocatorias/'.$call->pdf_file;
+        \File::delete($file_path);
+        $call->delete();
+        // Session::flash('flash_message3', 'Convocatoria  '.$call->id.' eliminada!');
+        return redirect(route('call.index'));
     }
 }

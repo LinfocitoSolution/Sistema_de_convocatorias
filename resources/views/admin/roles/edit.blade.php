@@ -20,9 +20,9 @@
                             @include('admin.roles.partials.form')
                             <div class="form-actions text-center">
                                 <button class="btn btn-outline-primary" type="submit">Actualizar</button>
-                                <a class="btn btn-outline-danger" href="{{ url('rol') }}">Cancelar</a>
+                                <a class="btn btn-outline-danger" href="{{ url('/rol') }}">Cancelar</a>
                             </div>
-                        </form>
+                    </form>
                     </div>
                 </div>
             </div>

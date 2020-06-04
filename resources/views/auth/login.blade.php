@@ -5,7 +5,7 @@
 @endsection
 @section("infoGeneral")
 
-		@if (count($errors) > 0)
+		<!--@if (count($errors) > 0)
 			<div class="alert alert-danger">
 				<ul>
 					@foreach ($errors->all() as $error)
@@ -13,7 +13,7 @@
 					@endforeach
 				</ul>
 			</div>
-		@endif
+		@endif-->
 	
 		<div classs=contenido-login>
 			<div class="container">
@@ -31,16 +31,45 @@
 									<div class="input-group-prepend">
 										<span class="input-group-text bg-success"><i class="fa fa-user"></i></span>
 									</div>
-								       <input type="text" class="form-control" placeholder="Nombre de Usuario o email" name="login" id="login" value="{{ old('username') ?: old('email') }}">
+								       <input type="text" class="form-control" placeholder="Nombre de Usuario o email" name="login"  id="login" value="{{ old('username') ?: old('email') }}">
 								</div> 
+								@if (count($errors->get('login')) > 0)
+									<div class="alert alert-danger">
+												<ul>
+															 
+													    @foreach ($errors->get('login') as $error)
+														   	@php( $prev = null)
+																@if ($prev != $error)
+																	<li>{{ $error }}</li>
+																@endif 
+															@php( $prev = $error)
+														@endforeach
+												</ul>
+									</div>
+								@endif
+								
 								
 								<div class="input-group form-group">
 									<div class="input-group-prepend">
 										<span class="input-group-text bg-success"><i class="fa fa-key"></i></span>
 									</div>
-									<input type="password" class="form-control" placeholder="Contraseña" name="password" id="password">
+									<input type="password" class="form-control" placeholder="Contraseña" name="password" id="password" >
 								</div>
-								<small id="passwordHelpBlock" class="form-text text-white"> Tu contraseña debe tener 8-20 caracteres, contener letras y numeros , <br>no debe contener espacios, caracteres especiales, o emoji. </small>
+								@if (count($errors->get('password')) > 0)
+									<div class="alert alert-danger">
+												<ul>
+															 
+													    @foreach ($errors->get('password') as $error)
+														   	@php( $prev = null)
+																@if ($prev != $error)
+																	<li>{{ $error }}</li>
+																@endif 
+															@php( $prev = $error)
+														@endforeach
+												</ul>
+									</div>
+								@endif
+								<small id="passwordHelpBlock" class="form-text text-white"> Nota:para el primer campo es valido tanto el nombre de usuario como el email  </small>
 								{{-- <!--<div class="row align-items-center remember">
 									<input type="checkbox">RECUERDAME
 								</div>--> --}}
@@ -54,10 +83,10 @@
 						   <div class="card-footer">
 							   <div class="d-flex justify-content-center links text-white mt-3">
 								   <h6>No tienes cuenta?</h6>
-								   <a href="{{url('postulante/create')}}" class="text-warning"><h6>REGISTRATE</h6></a>
+								   <a href="{{url('register')}}" class="text-warning"><h6>REGISTRATE</h6></a>
 								</div>
 							   <div class="d-flex justify-content-center mt-2 ">
-								<a href="#" class="text-warning"><h6>Olviste tu contraseña?</h6></a>
+								<!--<a href="#" class="text-warning"><h6>Olviste tu contraseña?</h6></a>-->
 							   </div>
 						   </div>
 							<!--fin de footer-->

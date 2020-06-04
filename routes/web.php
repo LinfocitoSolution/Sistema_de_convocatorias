@@ -31,6 +31,7 @@ Route::get('administrador','HomeController@registrado');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 //Route::post('/verificar','LoginController@LoginUsuario');
 //Route::get('registrado', 'LoginController@registrado');
+
 //----------------------------------rutas de usuario--------------------------------------------------
 Route::get('usuarios','UserController@index')->name('usuarios.index');
 Route::get('usuarios_create','UserController@create')->name('usuarios.create');
@@ -40,19 +41,8 @@ Route::put('usuarios_update_{user}','UserController@update')->name('usuarios.upd
 Route::delete('usuarios_delete_{user}','UserController@destroy')->name('usuarios.destroy');
 
 
-
-//call/create   
-Route::resource('call', 'CallController');
-//Para descargar las convocatorias
-Route::get('calls/{file_name}', function ($file_name) {
-        $file_path = public_path('convocatorias/'.$file_name);
-        //echo (substr($file_name,10,strlen($file_name)-10));
-        return response()->download($file_path);//cambiando 'download' por 'file' hacemos que solo se abra el archivo y no se descargue
-    
-     //abort(404);
-});
-
 //##################### CONVOCATORIA ##########################
+Route::resource('call', 'CallController');
 Route::get('convocatoria','HomeController@convocatorias')->name('convocatoria');
 //##############################################################
 
@@ -92,7 +82,4 @@ Route::delete('areas_delete_{area}','AreaController@destroy')->name('areas.destr
 Route::put('areas_update_{area}','AreaController@update')->name('areas.update');
 // Route::resource('areas', 'AreaController');
 //##############################################################
-
-
-
 
