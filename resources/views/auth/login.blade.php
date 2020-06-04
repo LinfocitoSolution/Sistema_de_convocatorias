@@ -19,7 +19,7 @@
 			<div class="container">
 				<div class="d-flex justify-content-center h-100">
 					<div class="card">
-						<div class="card-header bg-success text-white">
+						<div class="card-header bg-info text-white">
 							<h3>Login Usuario</h3>
 						</div>
 						<!--cuerpo del login-->				
@@ -29,7 +29,7 @@
 
 								<div class="input-group form-group">
 									<div class="input-group-prepend">
-										<span class="input-group-text bg-success"><i class="fa fa-user"></i></span>
+										<span class="input-group-text bg-info"><i class="fa fa-user"></i></span>
 									</div>
 								       <input type="text" class="form-control" placeholder="Nombre de Usuario o email" name="login"  id="login" value="{{ old('username') ?: old('email') }}">
 								</div> 
@@ -51,7 +51,7 @@
 								
 								<div class="input-group form-group">
 									<div class="input-group-prepend">
-										<span class="input-group-text bg-success"><i class="fa fa-key"></i></span>
+										<span class="input-group-text bg-info"><i class="fa fa-key"></i></span>
 									</div>
 									<input type="password" class="form-control" placeholder="Contraseña" name="password" id="password" >
 								</div>
@@ -75,7 +75,7 @@
 								</div>--> --}}
 								<br>
 								<div class="form-group" >
-									<button class="btn btn-success mr-sm-2 text-black rounded-pill btn-block" type="submit">INGRESAR</button>
+									<button class="btn btn-info mr-sm-2 rounded-pill btn-block" type="submit">INGRESAR</button>
 								</div>
 							</form>
 						

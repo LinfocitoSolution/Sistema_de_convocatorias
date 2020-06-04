@@ -1,14 +1,14 @@
 
 
 .login{
-  background-image: url('../images/compu2.jpg');
+  background: white;
   border: 1px solid;
   border-color:lightblue;
   width:99,8%;
   height:800px;
 }
 .navbar{
-  background: #0000b3;;
+  background: #0000b3;
 }
 .contenido-medio{
   margin-top:30px;
