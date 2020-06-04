@@ -20,13 +20,13 @@
   <div class="jumbotron jumbotron-fluid mb-0" >
     <div class="container">
       <div class="media">
-        <img  class="logoUmss align-self-center mt-8" width="130" height="130" src="{{asset('../imagenes/umss.png')}} " 
+        <img  class="logoUmss float-left align-center " width="140" height="160" src="{{asset('../imagenes/LogoUMSS.png')}} " 
            alt="umss2">
           <div class="media-body" > 
              <div class="h2 text-white text-center">CONVOCATORIAS AUXILIARES</div>
              <div class="h2 text-white text-center">UNIVERSIDAD MAYOR DE SAN SIMON</div>
           </div>
-          <img  class="logoCarrera float-right align-center mt-8" width="130" height="130" src="{{asset('../imagenes/cs.jpg')}}" 
+          <img  class="logoCarrera float-right align-center" width="130" height="130" src="{{asset('../imagenes/logoInformaticaSistemas.png')}}" 
            alt="carrera"> 
         </div>     
     </div>       
