@@ -1,7 +1,10 @@
 <?php
+
 namespace App\Http\Controllers\Auth;
+
 use Illuminate\Http\Request;
 use Auth;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -17,7 +20,7 @@ class LoginController extends Controller
     | to conveniently provide its functionality to your applications.
     |
     */
-    use AuthenticatesUsers {
+     use AuthenticatesUsers {
         logout as performLogout;
     }
     /**
@@ -36,28 +39,30 @@ class LoginController extends Controller
         $this->middleware('guest', ['except' => 'logout']);
     }
     public function login(Request $request)
-    {
-        $this->validate($request, [
-            'login'    => 'required',
-            'password' => 'required',
-        ],[
-            'login.required'=>'el campo username o email es requerido',
-            'password.required'=>'el campo contraseña es requerido',  
+{
+    $this->validate($request, [
+        'login'    => 'required',
+        'password' => 'required',
+    ],[
+        'login.required'=>'el campo username o email es requerido',
+        'password.required'=>'el campo contraseña es requerido',  
+    ]);
+     $login_type = filter_var($request->input('login'), FILTER_VALIDATE_EMAIL ) 
+        ? 'email' 
+        : 'username';
+
+    $request->merge([
+        $login_type => $request->input('login')
+    ]);
+
+    if (Auth::attempt($request->only($login_type, 'password'))) {
+        return redirect()->intended($this->redirectPath());
+    }
+    return redirect()->back()
+        ->withInput()
+        ->withErrors([
+            'password' => 'usuario o email /password incorrecto',
         ]);
-        $login_type = filter_var($request->input('login'), FILTER_VALIDATE_EMAIL ) 
-            ? 'email' 
-            : 'username';
-        $request->merge([
-            $login_type => $request->input('login')
-        ]);
-        if (Auth::attempt($request->only($login_type, 'password'))) {
-            return redirect()->intended($this->redirectPath());
-        }
-        return redirect()->back()
-            ->withInput()
-            ->withErrors([
-                'password' => 'usuario o email /password incorrecto',
-            ]);
     } 
     public function username()
     {
@@ -69,6 +74,6 @@ class LoginController extends Controller
         {               
                return view("admin.administrador");
                //return view("admin.rolpostulante");
-        }
-    }    
+        } 
+    }   
 }
