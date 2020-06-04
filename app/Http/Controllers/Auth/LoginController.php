@@ -68,7 +68,7 @@ class LoginController extends Controller
     return redirect()->back()
         ->withInput()
         ->withErrors([
-            'login' => 'este usuario no se encuentra en nuestros registros',
+            'password' => 'usuario o email /password incorrecto',
         ]);
     } 
 

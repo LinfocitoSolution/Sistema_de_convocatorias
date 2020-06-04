@@ -12,7 +12,8 @@
 <!--Styles-->
 <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
 <link href="{{ asset('assets/css/main.css') }}" rel="stylesheet" type="text/css" />
-
+<!--<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="js/jquery.validate.js"></script>-->
 </head>
 
 <body>

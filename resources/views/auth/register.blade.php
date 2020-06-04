@@ -7,7 +7,7 @@
 
 @section("infoGeneral")
      
-	   @if (count($errors) > 0)
+	   <!--@if (count($errors) > 0)
 			<div class="alert alert-danger">
 				<ul>
 					@foreach ($errors->all() as $error)
@@ -15,7 +15,7 @@
 					@endforeach
 				</ul>
 			</div>
-		@endif
+		@endif-->
 
 		<div class="contenido-medio">
 			<div class="container">	
@@ -31,27 +31,73 @@
 					
 							<form class="form-group" method="POST" action={{url("/register")}}>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          	 
 								<input type="hidden" name="_token" value="{{ csrf_token() }}">
-								
+								<!--campo nombre-->
 								<div class="input-group form-group">
 									<div class="input-group-prepend">
 										<span class="input-group-text bg-success px-3"><i class="fas fa-user"></i></span>
 									</div>
 									<input type="text" class="form-control text-capitalize" placeholder="Nombre" name="name"  value="{{ old('name') }}"> 
 								</div>
+								
+								
+								@if (count($errors->get('name')) > 0)
+									<div class="alert alert-danger">
+												<ul>
+															 
+													    @foreach ($errors->get('name') as $error)
+														   	@php( $prev = null)
+																@if ($prev != $error)
+																	<li>{{ $error }}</li>
+																@endif 
+															@php( $prev = $error)
+														@endforeach
+												</ul>
+									</div>
+								@endif
+								<!--campo apellido-->
+
 								<div class="input-group form-group">
 									<div class="input-group-prepend">
 										<span class="input-group-text bg-success px-3"><i class="fas fa-user-tie"></i></span>
 									</div>
 									<input type="text" class="form-control text-capitalize" placeholder="Apellidos" name="lastname" value="{{ old('lastname') }}">
 								</div>
-								
+								@if (count($errors->get('lastname')) > 0)
+									<div class="alert alert-danger">
+												<ul>
+															 
+													    @foreach ($errors->get('lastname') as $error)
+														   	@php( $prev = null)
+																@if ($prev != $error)
+																	<li>{{ $error }}</li>
+																@endif 
+															@php( $prev = $error)
+														@endforeach
+												</ul>
+									</div>
+								@endif
+								<!--campo nombre de usuario -->
 								<div class="input-group form-group">
 									<div class="input-group-prepend">
 										<span class="input-group-text bg-success"><i class="fa fa-user-shield"></i></span>
 									</div>
 									<input type="text" class="form-control" placeholder="Nombre de usuario" name="username" value="{{ old('username') }}" >
 								</div>
-								<!--carrera--->
+								@if (count($errors->get('username')) > 0)
+									<div class="alert alert-danger">
+												<ul>
+															 
+													    @foreach ($errors->get('username') as $error)
+														   	@php( $prev = null)
+																@if ($prev != $error)
+																	<li>{{ $error }}</li>
+																@endif 
+															@php( $prev = $error)
+														@endforeach
+												</ul>
+									</div>
+								@endif
+								<!--campo carrera--->
 								<div class="input-group form-group">
 									<div class="input-group-prepend">
 										<span class="input-group-text bg-success"><i class="fa fa-graduation-cap"></i></span>
@@ -62,7 +108,7 @@
 										<option value="informatica">Ing Informatica</option> 
 									  </select>
 								</div>
-								<!-----fin de carrera--->
+								<!--campo email-->
 								<div class="input-group form-group">
 									<div class="input-group-prepend">
 										<span class="input-group-text bg-success px-3"><i class="fa fa-at"></i></span>
@@ -70,19 +116,65 @@
 									<input type="email" class="form-control" placeholder="Email" name="email" value="{{ old('email') }}" >
 									{{-- <br><small id="emailHelp" class="form-text text-muted">usuario@example.com</small>comment --}}
 								</div>
+
+								@if (count($errors->get('email')) > 0)
+									<div class="alert alert-danger">
+												<ul>
+															 
+													    @foreach ($errors->get('email') as $error)
+														   	@php( $prev = null)
+																@if ($prev != $error)
+																	<li>{{ $error }}</li>
+																@endif 
+															@php( $prev = $error)
+														@endforeach
+												</ul>
+									</div>
+								@endif
+								<!--campo contraseña-->
 								<div class="input-group form-group">
 									<div class="input-group-prepend">
 										<span class="input-group-text bg-success px-3"><i class="fas fa-key"></i></span>
 									</div>
 									<input type="password" class="form-control" placeholder="Contraseña" name="password">
 								</div>
+								
+								@if (count($errors->get('password')) > 0)
+									<div class="alert alert-danger">
+												<ul>
+															 
+													    @foreach ($errors->get('password') as $error)
+														   	@php( $prev = null)
+																@if ($prev != $error)
+																	<li>{{ $error }}</li>
+																@endif 
+															@php( $prev = $error)
+														@endforeach
+												</ul>
+									</div>
+								@endif
+								<!--campo confirmar contraseña-->
 								<div class="input-group form-group">
 									<div class="input-group-prepend">
 										<span class="input-group-text bg-success px-3"><i class="fas fa-key"></i></span>
 									</div>
-									<input type="password" class="form-control" placeholder="Confirmar contraseña" name="confirmpassword">
+									<input type="password" class="form-control"  placeholder="Confirmar contraseña" name="confirmpassword">
 								</div>
-								<small id="passwordHelpBlock" class="form-text text-white mt-3"> Tu contraseña debe tener 8-20 caracteres, contener letras y numeros , <br>no debe contener espacios, caracteres especiales, o emoji. </small>
+								@if (count($errors->get('confirmpassword')) > 0)
+									<div class="alert alert-danger">
+												<ul>
+															 
+													    @foreach ($errors->get('confirmpassword') as $error)
+														   	@php( $prev = null)
+																@if ($prev != $error)
+																	<li>{{ $error }}</li>
+																@endif 
+															@php( $prev = $error)
+														@endforeach
+												</ul>
+									</div>
+								@endif
+								<small id="passwordHelpBlock" class="form-text text-white mt-3"> La contraseña debe tener 8-25 caracteres, contener al menos una letra y  un numero, puede ser mayusculas , <br>no debe contener espacios, caracteres especiales, o emoji. </small>
 								
 								<button type="submit" class="btn btn-success rounded-pill active btn-block mt-3" > Registrar </button>
 
