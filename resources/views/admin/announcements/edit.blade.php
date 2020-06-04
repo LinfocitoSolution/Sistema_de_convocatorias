@@ -18,29 +18,10 @@
 		@endif
   <div class="medio">
         <form class="form-group" method="POST" action="/call/{{$call->id}}" enctype="multipart/form-data">
-            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                <div class="form group">
-                    <h1>Subir convocatoria</h1>
-                    <br>
-                        <label for="">Título de la convocatoria</label>
-                        <div class="row">
-                           <div class="col">
-                            <input class="form-control" name="titulo" type="text" value="{{ $call->titulo_convocatoria }}">
-                           </div>
-                         </div>
-                         <label for="">Descripción: </label>
-                         <div class="row">
-                            <div class="col">
-                              <textarea class="form-control" name="descripcion" rows="3">{{ $call->descripcion }}</textarea>
-                            </div>
-                         </div>
-                      <br>
-                      <input type="file" name="archivo" disabled>                      
-                      <div class="col">
-                        <br>
-                        <button type="submit" class="btn btn-primary" margin-left="50">Guardar</button>
-                      </div>
-                </div>
+          <input type="hidden" name="_token" value="{{ csrf_token() }}">
+          {{ method_field('PUT') }}
+          <h1>Editar convocatoria</h1>
+            @include('admin.announcements.form')
                    <br>
         </form>       
    </div>      

@@ -16,34 +16,29 @@
          <table class="table table-bordered table-striped table-sm">
             <thead>
              <tr>
-                <th>Titulo</th>
+                <th>Título</th>
                 <th>Descripción</th>
                 <th>Archivo</th>
                 <th>Fecha de creación</th>
              </tr>
             </thead>
             <tbody>
-            @foreach($convocatorias as $convocatoria)
+            @foreach($calls as $call)
                 <tr>
-                    <td>{{$convocatoria->titulo_convocatoria}}</td>
-                    <td>{{$convocatoria->descripcion}}</td>
-                    <td><a href="call/{{$convocatoria->pdf_file}}" target="_blank" >{{$convocatoria->pdf_file}}</a></td>
-                    <td>{{$convocatoria->created_at}}</td>
+                    <td>{{$call->titulo_convocatoria}}</td>
+                    <td>{{$call->descripcion}}</td>
+                    <td><a href="call/{{$call->pdf_file}}" target="_blank" >{{$call->pdf_file}}</a></td>
+                    <td>{{$call->created_at}}</td>
                     <td>
-                        <a class="btn btn-info btn-sm" href="{{ route('call.edit', $convocatoria) }}">
+                        <a class="btn btn-info btn-sm" href="{{ route('call.edit', $call) }}">
                             <i class="fa fa-edit"></i>
-                        </a> &nbsp;
-                        <form action="{{ route('call.destroy', $convocatoria->id) }}"
-                              style="display:inline-block;"
-                              method="POST">
-
+                        </a>
+                        <form action="{{ route('call.destroy', $call->id) }}" style="display:inline-block;" method="POST">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
-
                             <button class="btn btn-danger" type="submit" margin-left="50" onclick="return confirm('Está seguro de eliminar la convocatoria?')">
                               <i class="fa fa-trash-alt"></i>
                             </button>
-                           
                         </form>
                     </td>
                 </tr>

@@ -41,12 +41,8 @@ Route::put('usuarios_update_{user}','UserController@update')->name('usuarios.upd
 Route::delete('usuarios_delete_{user}','UserController@destroy')->name('usuarios.destroy');
 
 
-
-//call/create   
-Route::resource('call', 'CallController');
-
-
 //##################### CONVOCATORIA ##########################
+Route::resource('call', 'CallController');
 Route::get('convocatoria','HomeController@convocatorias')->name('convocatoria');
 //##############################################################
 

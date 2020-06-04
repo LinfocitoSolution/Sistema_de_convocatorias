@@ -15,8 +15,8 @@ class CallController extends Controller
      */
     public function index()
     {
-        $convocatorias = Convocatoria::all();
-        return view('admin.announcements.index', compact('convocatorias'));
+        $calls = Convocatoria::all();
+        return view('admin.announcements.index', compact('calls'));
     }
     /**
      * Show the form for creating a new resource.
@@ -25,7 +25,8 @@ class CallController extends Controller
      */
     public function create()
     {
-        return view('admin.announcements.create');
+        $calls = Convocatoria::all();
+        return view('admin.announcements.create', compact('calls'));
     }
     /**
      * Store a newly created resource in storage.
@@ -96,9 +97,25 @@ class CallController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Convocatoria $call)
     {
-        //
+         $call->fill($request->all());
+        // if ($request->hasFile('archivo')) {
+        //     $file = $request->file('archivo');
+        //     $nombre = time().$file->getClientOriginalName();
+        //     $call->pdf_file=$nombre;
+        //     $file->move(public_path().'/convocatorias/', $nombre);
+        //     $convocatoria->pdf_file=$nombre;
+        //     $convocatoria->save();
+        //     return redirect('administrador');
+        // } 
+        // else {
+        //     return redirect('administrador')
+        //                 ->withErrors($validator)
+        //                 ->withInput();
+        // }
+        $call->save();
+        return redirect(route('call.index'))->with([ 'message' => 'Convocatoria actualizada exitosamente!', 'alert-type' => 'success' ]);
     }
 
     /**
@@ -107,10 +124,12 @@ class CallController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Convocatoria $call)
     {
-        Convocatoria::destroy($id);
-        Session::flash('flash_message3', 'Convocatoria  '.$id.' eliminada!');
-        return redirect(route('call.index'))->with([ 'message' => 'Usuario eliminado exitosamente!', 'alert-type' => 'info' ]);
+        $file_path = public_path().'/convocatorias/'.$call->pdf_file;
+        \File::delete($file_path);
+        $call->delete();
+        // Session::flash('flash_message3', 'Convocatoria  '.$call->id.' eliminada!');
+        return redirect(route('call.index'));
     }
 }
