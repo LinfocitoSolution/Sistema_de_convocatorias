@@ -157,9 +157,9 @@
 								</div>
 
 									
-								<small id="passwordHelpBlock" class="form-text text-white mt-3"> La contraseña debe tener 8-25 caracteres, contener al menos una letra y  un numero, puede ser mayusculas , <br>no debe contener espacios, caracteres especiales, o emoji. </small>
+								<small id="passwordHelpBlock" class="form-text text-black mt-3"> La contraseña debe tener 8-25 caracteres, contener al menos una letra y  un numero, puede ser mayusculas , <br>no debe contener espacios, caracteres especiales, o emoji. </small>
 								
-								<button type="submit" class="btn btn-success rounded-pill active btn-block mt-3" > Registrar </button>
+								<button type="submit" class="btn rounded-pill active btn-block mt-3 text-white" > Registrar </button>
 
 						  </form>
 						    <!--Inicio de pie formulario-->
