@@ -27,14 +27,15 @@
 						</div>  
 						<!--fin de cabeza-->
 					  <!--Inicio cuerpo de formulario-->  
-						  <div class="card-body bg-dark">
+						  <div class="card-body bg-light">
 					
 							<form class="form-group" method="POST" action={{url("/register")}}>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          	 
 								<input type="hidden" name="_token" value="{{ csrf_token() }}">
 								<!--campo nombre-->
+								<label for="validationTooltip01"class="text-black">Nombre completo</label>
 								<div class="input-group form-group">
 									<div class="input-group-prepend">
-										<span class="input-group-text bg-success px-3"><i class="fas fa-user"></i></span>
+										<span class="input-group-text px-3"><i class="fas fa-user-alt"></i></span>
 									<!--</div>
 									<input type="text" class="form-control text-capitalize" placeholder="Nombre" name="name" id="Nombre" value="{{ old('name') }}"> 
 								</div>
@@ -63,7 +64,7 @@
 									{{ $errors->has('name')? $errors->first('name') : ''  }}
 								</div>
 								<!--campo apellido-->
-
+                                <label for="validationTooltip02"class="text-black">Apellido completo</label>
 								<div class="input-group form-group">
 									<div class="input-group-prepend">
 										<span class="input-group-text px-3"><i class="fas fa-user-tie"></i></span>
@@ -85,9 +86,10 @@
 									</div>
 								@endif
 								<!--campo nombre de usuario -->
+								<label for="validationTooltip03"class="text-black">Nombre usuario</label>
 								<div class="input-group form-group">
 									<div class="input-group-prepend">
-										<span class="input-group-text bg-success"><i class="fa fa-user-shield"></i></span>
+										<span class="input-group-text"><i class="fa fa-user-shield"></i></span>
 									</div>
 									<input type="text" class="form-control" placeholder="Nombre de usuario" name="username" value="{{ old('username') }}" >
 								</div>
@@ -106,9 +108,10 @@
 									</div>
 								@endif
 								<!--campo carrera--->
+								<label for="validationTooltip04"class="text-black">Carrera</label>
 								<div class="input-group form-group">
 									<div class="input-group-prepend">
-										<span class="input-group-text bg-success"><i class="fa fa-graduation-cap"></i></span>
+										<span class="input-group-text"><i class="fa fa-graduation-cap"></i></span>
 									</div>
 									<!--<input type="text" class="form-control text-capitalize" placeholder="Carrera" name="career" value="{ old('career') }}">-->
 									<select name="career" class="custom-select form-control">
@@ -117,9 +120,10 @@
 									  </select>
 								</div>
 								<!--campo email-->
+								<label for="validationTooltip05"class="text-black">E-mail</label>
 								<div class="input-group form-group">
 									<div class="input-group-prepend">
-										<span class="input-group-text bg-success px-3"><i class="fa fa-at"></i></span>
+										<span class="input-group-text px-3"><i class="fa fa-at"></i></span>
 									</div>
 									<input type="email" class="form-control" placeholder="Email" name="email" value="{{ old('email') }}" >
 									{{-- <br><small id="emailHelp" class="form-text text-muted">usuario@example.com</small>comment --}}
@@ -140,9 +144,10 @@
 									</div>
 								@endif
 								<!--campo contraseña-->
+								<label for="validationTooltip06"class="text-black">Contraseña</label>
 								<div class="input-group form-group">
 									<div class="input-group-prepend">
-										<span class="input-group-text bg-success px-3"><i class="fas fa-key"></i></span>
+										<span class="input-group-text px-3"><i class="fas fa-key"></i></span>
 									</div>
 									<input type="password" class="form-control" placeholder="Contraseña" name="password">
 								</div>
@@ -162,9 +167,10 @@
 									</div>
 								@endif
 								<!--campo confirmar contraseña-->
+								<label for="validationTooltip07"class="text-black">Confirma contraseña</label>
 								<div class="input-group form-group">
 									<div class="input-group-prepend">
-										<span class="input-group-text bg-success px-3"><i class="fas fa-key"></i></span>
+										<span class="input-group-text px-3"><i class="fas fa-key"></i></span>
 									</div>
 									<input type="password" class="form-control"  placeholder="Confirmar contraseña" name="confirmpassword">
 								</div>

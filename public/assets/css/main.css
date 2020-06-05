@@ -1,9 +1,9 @@
 
 
 .login{
-  background: white;
+  background:#DDDDDD;
   border: 1px solid;
-  border-color:lightblue;
+  border-color:#DDDDDD;
   width:99,8%;
   height:800px;
 }
@@ -12,6 +12,15 @@
 }
 .contenido-medio{
   margin-top:30px;
+}
+.card-header{
+  background: #324654;
+}
+.card-footer{
+  background: #324654;
+}
+.input-group-text{
+  background: #324654;
 }
 
 .d-flex{
