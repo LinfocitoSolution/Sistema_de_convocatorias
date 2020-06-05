@@ -1,11 +1,11 @@
 
 
 .login{
-  background: white;
+  background:#DDDDDD;
   border: 1px solid;
-  border-color:rgb(32, 158, 207);
+  border-color:#DDDDDD;
   width:99,8%;
-  height:800px;
+  
 }
 .navbar{
   background: #0000b3;
@@ -13,9 +13,15 @@
 .contenido-medio{
   margin-top:30px;
 }
-/*.card-body {
-  background: linear-gradient(to top left, #003399 0%, #00ccff 100%);
-}*/
+.card-header{
+  background: #324654;
+}
+.card-footer{
+  background: #324654;
+}
+.input-group-text{
+  background: #324654;
+}
 
 .d-flex{
    margin-top:30px;
