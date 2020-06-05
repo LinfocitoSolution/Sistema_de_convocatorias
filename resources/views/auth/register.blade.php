@@ -22,7 +22,7 @@
 				<div class="d-flex justify-content-center h-100">
 					<div class="card">
 						<!--cabeza del formulario-->
-						<div class="card-header text-white">
+						<div class="card-header  text-white">
 							<h3>Registro Postulante</h3>
 						</div>  
 						<!--fin de cabeza-->
@@ -35,14 +35,14 @@
 								<label for="validationTooltip01"class="text-black">Nombre completo</label>
 								<div class="input-group form-group">
 									<div class="input-group-prepend">
-										<span class="input-group-text px-3"><i class="fas fa-user-alt"></i></span>
+										<span class="input-group-text px-3"><i class="fas fa-user-alt icon-cog "></i></span>
 									<!--</div>
 									<input type="text" class="form-control text-capitalize" placeholder="Nombre" name="name" id="Nombre" value="{{ old('name') }}"> 
 								</div>
 								
 								
 								@if (count($errors->get('name')) > 0)
-									<div class="alert alert-light p-0 mb-2">
+									<div class="alert alert-danger">
 												<ul>
 															 
 													    @foreach ($errors->get('name') as $error)
@@ -68,7 +68,7 @@
                                 <label for="validationTooltip02"class="text-black">Apellido completo</label>
 								<div class="input-group form-group">
 									<div class="input-group-prepend">
-										<span class="input-group-text px-3"><i class="fas fa-user-tie"></i></span>
+										<span class="input-group-text  px-3"><i class="fas fa-user-tie icon-cog"></i></span>
 									</div>
 
 									<input class="form-control {{ $errors->has('lastname') ? 'is-invalid' : '' }}"
@@ -85,7 +85,7 @@
 								<label for="validationTooltip03"class="text-black">Nombre usuario</label>
 								<div class="input-group form-group">
 									<div class="input-group-prepend">
-										<span class="input-group-text"><i class="fa fa-user-shield"></i></span>
+										<span class="input-group-text"><i class="fa fa-user-shield icon-cog"></i></span>
 									</div>
 
 									<input class="form-control {{ $errors->has('username') ? 'is-invalid' : '' }}"
@@ -102,7 +102,7 @@
 								<label for="validationTooltip04"class="text-black">Carrera</label>
 								<div class="input-group form-group">
 									<div class="input-group-prepend">
-										<span class="input-group-text"><i class="fa fa-graduation-cap"></i></span>
+										<span class="input-group-text"><i class="fa fa-graduation-cap icon-cog"></i></span>
 									</div>
 
 									<!--<input type="text" class="form-control text-capitalize" placeholder="Carrera" name="career" value="{ old('career') }}">-->
@@ -115,7 +115,7 @@
 								<label for="validationTooltip05"class="text-black">E-mail</label>
 								<div class="input-group form-group">
 									<div class="input-group-prepend">
-										<span class="input-group-text px-3"><i class="fa fa-at"></i></span>
+										<span class="input-group-text px-3"><i class="fa fa-at icon-cog"></i></span>
 									</div>
 									<input class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}"
 									name="email"
@@ -130,7 +130,7 @@
 								<label for="validationTooltip06"class="text-black">Contraseña</label>
 								<div class="input-group form-group">
 									<div class="input-group-prepend">
-										<span class="input-group-text px-3"><i class="fas fa-key"></i></span>
+										<span class="input-group-text px-3"><i class="fas fa-key icon-cog"></i></span>
 									</div>
 									<input type="password" class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}"
 									name="password"
@@ -144,7 +144,7 @@
 								<label for="validationTooltip07"class="text-black">Confirma contraseña</label>
 								<div class="input-group form-group">
 									<div class="input-group-prepend">
-										<span class="input-group-text px-3"><i class="fas fa-key"></i></span>
+										<span class="input-group-text px-3"><i class="fas fa-key icon-cog"></i></span>
 									</div>
 
 									<input type="password" class="form-control {{ $errors->has('confirmpassword') ? 'is-invalid' : '' }}"
@@ -159,7 +159,7 @@
 									
 								<small id="passwordHelpBlock" class="form-text text-black mt-3"> La contraseña debe tener 8-25 caracteres, contener al menos una letra y  un numero, puede ser mayusculas , <br>no debe contener espacios, caracteres especiales, o emoji. </small>
 								
-								<button type="submit" class="btn rounded-pill active btn-block mt-3 text-white" > Registrar </button>
+								<button type="submit" class="btn  rounded-pill active btn-block mt-3" > Registrar </button>
 
 						  </form>
 						    <!--Inicio de pie formulario-->

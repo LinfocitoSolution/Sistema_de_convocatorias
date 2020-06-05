@@ -29,8 +29,13 @@
 .formulario{
   margin-top:30px;
 }
-.btn{
-  background: #324654;
-  color: white;
-}
+  
+  .btn {
+    background: #324654;
+   color:white;
+  }
 
+  .icon-cog{
+    color: white;
+  }
+  

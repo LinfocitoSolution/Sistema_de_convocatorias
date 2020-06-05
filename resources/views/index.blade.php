@@ -20,7 +20,7 @@
   <div class="jumbotron jumbotron-fluid mb-0" >
     <div class="container">
       <div class="media">
-        <img  class="logoUmss float-left align-center" width="140" height="160" src="{{asset('../imagenes/LogoUMSS.png')}} " 
+        <img  class="logoUmss float-left align-center " width="140" height="160" src="{{asset('../imagenes/LogoUMSS.png')}} " 
            alt="umss2">
           <div class="media-body" > 
              <div class="h2 text-white text-center">CONVOCATORIAS AUXILIARES</div>
@@ -94,7 +94,7 @@
           </ol>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="{{ asset('/imagenes/tecno.jpg') }}"  class="d-block w-100" alt="web" width="1000" height="500">
+            <img src="{{ asset('/imagenes/tecno.jpg') }}"  class="d-block w-100" alt="web" width="1000" height="600">
                 <div class="carousel-caption" >
                   <div class="text-white">
                     <h2>Facultad de ciencias y tecnología</h2>
@@ -102,7 +102,7 @@
                 </div>
           </div>
           <div class="carousel-item">
-            <img src="{{ asset('/imagenes/sistemas.jpg') }}" class="d-block w-100" alt="elem" width="1000" height="500">
+            <img src="{{ asset('/imagenes/sistemas.jpg') }}" class="d-block w-100" alt="elem" width="1000" height="600">
             <div class="carousel-caption">
               <div class="text-white">
                   <h2>Departamento de Sistemas e Informática</h2>
@@ -110,7 +110,7 @@
               </div>
           </div>
           <div class="carousel-item">
-            <img src="{{ asset('/imagenes/aula.jpg') }}" class="d-block w-100" alt="aulalaboratorios" width="1000" height="500">
+            <img src="{{ asset('/imagenes/aula.jpg') }}" class="d-block w-100" alt="aulalaboratorios" width="1000" height="600">
               <div class="carousel-caption">
                 <div class="text-white">
                   <h1>Laboratorios</h1>
@@ -118,7 +118,7 @@
               </div>
           </div>
           <div class="carousel-item">
-            <img src="{{ asset('/imagenes/edificio.jpg') }}" class="d-block w-100" alt="prog" width="1000" height="500">
+            <img src="{{ asset('/imagenes/edificio.jpg') }}" class="d-block w-100" alt="prog" width="1000" height="600">
               <div class="carousel-caption" >
                   <div class="text-white">
                     <h2>Edificio Multiacadémico</h2>
@@ -143,13 +143,13 @@
     <div class="row justify-content-around">
         @foreach ($convocatorias as $convocatoria)
            <div class="col-lg-6">
-                <div class="card text-white bg-dark my-3 ml-2 mr-3" style="width: 25rem;">
+                <div class="card text-white bg-dark my-3 ml-2 mr-3" style="width: 28rem;">
                     <img src="{{ asset('/imagenes/web.jpg') }}" class="card-img-top" alt="laboratorios" width="200" height="200">
                         <div class="card-body">
                           <h5 class="card-title">{{$convocatoria->titulo_convocatoria}}</h5>
                             <p class="card-text">{{$convocatoria->descripcion}}</p>
                             {{-- <form class="form-horizontal" action="/call/{{$convocatoria->pdf_file}" method="GET"> --}}
-                          <a href="call/{{$convocatoria->pdf_file}}" target="_blank" class="btn btn-outline-primary rounded-pill  btn-block" >Ver Convocatoria</a>
+                          <a href="call/{{$convocatoria->pdf_file}}" target="_blank" class="btn btn-success rounded-pill active btn-block" >Ver Convocatoria</a>
                         </div>
                 </div>
               </div>  

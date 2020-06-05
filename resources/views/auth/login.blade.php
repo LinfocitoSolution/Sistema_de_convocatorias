@@ -29,7 +29,7 @@
 
 								<div class="input-group form-group">
 									<div class="input-group-prepend">
-										<span class="input-group-text"><i class="fa fa-user"></i></span>
+										<span class="input-group-text "><i class="fa fa-user icon-cog"></i></span>
 									</div>
 
 									<input class="form-control {{ $errors->has('login') ? 'is-invalid' : '' }}"
@@ -47,7 +47,7 @@
 								
 								<div class="input-group form-group">
 									<div class="input-group-prepend">
-										<span class="input-group-text"><i class="fa fa-key"></i></span>
+										<span class="input-group-text "><i class="fa fa-key icon-cog"></i></span>
 									</div>
 
 									<input type="password" class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}"
