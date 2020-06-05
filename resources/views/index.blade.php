@@ -41,7 +41,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link text-white" href="{{ url('calendario') }}">Calendario</a>
+        <a class="nav-link text-white" href="#">Calendario</a>
       </li>
       <li class="nav-item">
         <a class="nav-link text-white disabled" href="#">Informacion</a>
