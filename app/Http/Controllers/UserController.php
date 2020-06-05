@@ -7,6 +7,8 @@ use App\User;
 use Session;
 use App\Role;
 use DB;
+use App\Http\Requests\UsuarioRequest;
+
 class UserController extends Controller
 {
     /**
@@ -38,7 +40,7 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UsuarioRequest $request)
     {
         $user = User::create($request->all());
         $user->password=(bcrypt($user->password));
@@ -80,7 +82,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(User $user,Request $request)
+    public function update(User $user,UsuarioRequest $request)
     {
         $user->update($request->all());
         $user->password = (bcrypt($user->password));
