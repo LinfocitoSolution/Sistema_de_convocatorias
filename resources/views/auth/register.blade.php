@@ -54,6 +54,14 @@
 												</ul>
 									</div>
 								@endif
+								<!--experimentomensaje de error</div>
+									<input class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}"
+									name="name"
+									placeholder="Ingrese Nombre" type="text"  value="{{ old('name', isset($user) ? $user->name : '') }}"> 
+								</div>
+								<div class="invalid-feedback {{ $errors->has('name')? 'd-block' : '' }}">
+									{{ $errors->has('name')? $errors->first('name') : ''  }}
+								</div>-->
 								<!--campo apellido-->
 
 								<div class="input-group form-group">
