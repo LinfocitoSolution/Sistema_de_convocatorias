@@ -12,6 +12,17 @@
                 <div class="card">
                     <div class="card-header">
                         <i class="fa fa-user-edit"></i>Crear usuario</div>
+
+                         <!--@if (count($errors) > 0)
+			            <div class="alert alert-danger">
+				           <ul>
+				            	@foreach ($errors->all() as $error)
+					            	<li>{{ $error }}</li>
+				            	@endforeach
+				          </ul>
+		            	</div>
+                           @endif-->
+                           
                     <div class="card-body">
                         <form class="form-horizontal" action="{{route('usuarios.guardar')}}" method="POST">
                             {{ csrf_field() }}
