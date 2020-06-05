@@ -22,7 +22,7 @@
 				<div class="d-flex justify-content-center h-100">
 					<div class="card">
 						<!--cabeza del formulario-->
-						<div class="card-header bg-primary text-dark">
+						<div class="card-header bg-info text-dark">
 							<h3>Registro Postulante</h3>
 						</div>  
 						<!--fin de cabeza-->
@@ -177,7 +177,7 @@
 								@endif
 								<small id="passwordHelpBlock" class="form-text text-white mt-3"> La contraseña debe tener 8-25 caracteres, contener al menos una letra y  un numero, puede ser mayusculas , <br>no debe contener espacios, caracteres especiales, o emoji. </small>
 								
-								<button type="submit" class="btn btn-primary rounded-pill active btn-block mt-3" > Registrar </button>
+								<button type="submit" class="btn btn-info rounded-pill active btn-block mt-3" > Registrar </button>
 
 						  </form>
 						    <!--Inicio de pie formulario-->
