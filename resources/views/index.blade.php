@@ -24,7 +24,7 @@
            alt="umss2">
           <div class="media-body" > 
              <div class="h2 text-white text-center">CONVOCATORIAS AUXILIARES</div>
-             <div class="h2 text-white text-center">UNIVERSIDAD MAYOR DE SAN SIMON</div>
+             <div class="h2 text-white text-center">UNIVERSIDAD MAYOR DE SAN SIMÓN</div>
           </div>
           <img  class="logoCarrera float-right align-center" width="130" height="130" src="{{asset('../imagenes/logoInformaticaSistemas.png')}}" 
            alt="carrera"> 
@@ -44,7 +44,7 @@
         <a class="nav-link text-white" href="{{ url('calendario') }}">Calendario</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white disabled" href="#">Informacion</a>
+        <a class="nav-link text-white disabled" href="#">Información</a>
       </li>
      <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle text-white disabled" href="#"  id="nabarDropdown" tabindex="-2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -52,19 +52,19 @@
         </a>
         <div class="dropdown-menu hover" >
           <a class="dropdown-item" href="#">Sistemas</a>
-          <a class="dropdown-item" href="#">Informatica</a>
+          <a class="dropdown-item" href="#">Informática</a>
           <a class="dropdown-item" href="#">Industrial</a>
         </div>  
       </li>
     </ul>
     @if (Auth::guest())
       <form class="form-inline float-xs-right">
-         <a class="btn btn-outline-success  text-white my-2 my-sm-2" type="submit" href="{{url('login')}}">Iniciar Sesion</a>
-         <a class="btn btn-outline-warning  text-white my-2 my-sm-2" type="submit" href="{{url('register')}}">Registrate</a>
+         <a class="btn btn-outline-primary  text-white m-2 my-sm-2" type="submit" href="{{url('login')}}">Iniciar Sesión</a>
+         <a class="btn btn-outline-primary  text-white m-2 my-sm-2" type="submit" href="{{url('register')}}">Regístrate</a>
         </form>
     @else
-    <a class="btn btn-outline-success  text-white my-2 my-sm-2" type="submit" href="{{url('administrador')}}">Administrar</a>
-    <a class="btn btn-outline-warning text-white my-2 my-sm-2" type="submit" href="{{url('logout')}}">Cerrar Sesion</a>
+    <a class="btn btn-outline-primary  text-white m-2 my-sm-2" type="submit" href="{{url('administrador')}}">Administrar</a>
+    <a class="btn btn-outline-primary text-white m-2 my-sm-2" type="submit" href="{{url('logout')}}">Cerrar Sesión</a>
     @endif
 
   </div>
@@ -97,7 +97,7 @@
             <img src="{{ asset('/imagenes/tecno.jpg') }}"  class="d-block w-100" alt="web" width="1000" height="600">
                 <div class="carousel-caption" >
                   <div class="text-white">
-                    <h2>Facultad de ciencias y tecnologia</h2>
+                    <h2>Facultad de ciencias y tecnología</h2>
                   </div>
                 </div>
           </div>
@@ -105,7 +105,7 @@
             <img src="{{ asset('/imagenes/sistemas.jpg') }}" class="d-block w-100" alt="elem" width="1000" height="600">
             <div class="carousel-caption">
               <div class="text-white">
-                  <h2>Departamento de sistemas e informatica</h2>
+                  <h2>Departamento de Sistemas e Informática</h2>
                 </div>
               </div>
           </div>
@@ -121,7 +121,7 @@
             <img src="{{ asset('/imagenes/edificio.jpg') }}" class="d-block w-100" alt="prog" width="1000" height="600">
               <div class="carousel-caption" >
                   <div class="text-white">
-                    <h2>Edificio Multiacademico</h2>
+                    <h2>Edificio Multiacadémico</h2>
                   </div>
               </div>   
           </div>
@@ -169,7 +169,7 @@
           <div class="col-xs-5 col-md-6 text-left">
               <h4 class="text-white">CONTACTO:</h4>
               <h6 class="text-white">
-              Direccion: Avenida 6 de agosto. Esquina moxos numero 542.<br>
+              Dirección: Avenida 6 de agosto. Esquina moxos numero 542.<br>
               Teléfono: 4795260.<br>
               Celular: 75978930.<br>
               Correo: linficitossolution@gmail.com
