@@ -14,16 +14,12 @@
             </div>
          </div>
       <br>
-      @if (isset($call))
-        <input type="file" name="archivo" disabled>   
-        <br>
-      @else
+      @if (!isset($call))
         <input type="file" name="archivo">   
         <br>
-      @endif
-      <small class="form-text text-muted">Solo se admiten archivos tipo PDF</small>         
+        <small class="form-text text-muted">Solo se admiten archivos tipo PDF</small>  
+      @endif     
       <div class="col">
-        <br>
         <button type="submit" class="btn btn-primary" margin-left="50">Guardar</button>
       </div>
 </div>

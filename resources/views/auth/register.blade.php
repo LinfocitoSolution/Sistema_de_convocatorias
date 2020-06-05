@@ -105,7 +105,7 @@
 									<!--<input type="text" class="form-control text-capitalize" placeholder="Carrera" name="career" value="{ old('career') }}">-->
 									<select name="career" class="custom-select form-control">
 										<option selected class="text-muted"value="sistemas">Ing Sistemas</option>
-										<option value="informatica">Ing Informatica</option> 
+										<option value="informatica">Ing Informática</option> 
 									  </select>
 								</div>
 								<!--campo email-->
@@ -174,7 +174,7 @@
 												</ul>
 									</div>
 								@endif
-								<small id="passwordHelpBlock" class="form-text text-white mt-3"> La contraseña debe tener 8-25 caracteres, contener al menos una letra y  un numero, puede ser mayusculas , <br>no debe contener espacios, caracteres especiales, o emoji. </small>
+								<small id="passwordHelpBlock" class="form-text text-white mt-3"> La contraseña debe tener 8-25 caracteres, contener al menos una letra y un número, pueden ser mayúsculas, <br>no debe contener espacios, caracteres especiales, o emoji.</small>
 								
 								<button type="submit" class="btn btn-success rounded-pill active btn-block mt-3" > Registrar </button>
 
@@ -182,7 +182,7 @@
 						    <!--Inicio de pie formulario-->
 						       <div class="card-footer">
 								   <div class="d-flex justify-content-center links text-white mt-2">
-								    Si ya tienes cuenta iniciar sesion?<a href="{{url('login')}}" class="text-warning">Login</a>
+								    Si ya tienes cuenta, inicia sesión.<a href="{{url('login')}}" class="text-warning">Login</a>
 							       </div>
 							   </div>
 							 <!--fin de pie formulario-->
