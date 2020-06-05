@@ -35,7 +35,7 @@
 								<div class="input-group form-group">
 									<div class="input-group-prepend">
 										<span class="input-group-text bg-success px-3"><i class="fas fa-user"></i></span>
-									</div>
+									<!--</div>
 									<input type="text" class="form-control text-capitalize" placeholder="Nombre" name="name" id="Nombre" value="{{ old('name') }}"> 
 								</div>
 								
@@ -53,15 +53,15 @@
 														@endforeach
 												</ul>
 									</div>
-								@endif
-								<!--experimentomensaje de error</div>
+								@endif-->
+								</div>
 									<input class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}"
 									name="name"
 									placeholder="Ingrese Nombre" type="text"  value="{{ old('name', isset($user) ? $user->name : '') }}"> 
 								</div>
 								<div class="invalid-feedback {{ $errors->has('name')? 'd-block' : '' }}">
 									{{ $errors->has('name')? $errors->first('name') : ''  }}
-								</div>-->
+								</div>
 								<!--campo apellido-->
 
 								<div class="input-group form-group">
