@@ -106,7 +106,7 @@
 									<select name="career" class="custom-select form-control">
 										<option selected class="text-muted"value="sistemas">Ing. Sistemas</option>
 										<option value="informatica">Ing. Informatica</option> 
-										<option value="informatica">Ing. Electrónica</option>
+										<option value="electrónica">Ing. Electrónica</option>
 									  </select>
 								</div>
 								<!--campo email-->
