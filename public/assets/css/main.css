@@ -29,14 +29,13 @@
 .formulario{
   margin-top:30px;
 }
-  .card-header{
-    background: #0000b3;
-  }
-  .input-group-text{
-    background:#0000b3;
-  }
+  
   .btn {
-    background: #0000b3;
+    background: #324654;
+   color:white;
+  }
 
+  .icon-cog{
+    color: white;
   }
   
