@@ -27,7 +27,7 @@
 							<form class= "form group mt-2" method="POST" action="{{ url('login') }}">
 								<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-								<div class="input-group form-group">
+								<div class="input-group form-group" data-toggle="popover" title="Restricciones" data-content="Se puede ingresar con el nombre de usuario o e-mail">
 									<div class="input-group-prepend">
 										<span class="input-group-text "><i class="fa fa-user icon-cog"></i></span>
 									</div>
@@ -45,7 +45,7 @@
 								      
 								
 								
-								<div class="input-group form-group">
+								<div class="input-group form-group" data-toggle="popover" title="Introducir" data-content="Introduzca su contraseña">
 									<div class="input-group-prepend">
 										<span class="input-group-text "><i class="fa fa-key icon-cog"></i></span>
 									</div>
@@ -60,7 +60,7 @@
 								</div>
 
 								
-								<small id="passwordHelpBlock" class="form-text text-white"> Nota:para el primer campo es valido tanto el nombre de usuario como el email  </small>
+								<small id="passwordHelpBlock" class="form-text text-black"> Nota:para el primer campo es valido tanto el nombre de usuario como el email  </small>
 								{{-- <!--<div class="row align-items-center remember">
 									<input type="checkbox">RECUERDAME
 								</div>--> --}}

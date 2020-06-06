@@ -40,14 +40,14 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link text-white" href="#">Calendario</a>
+      <li class="nav-item" tabindex="0" data-toggle="tooltip" data-trigger="hover" title="Este boton no esta disponible">
+        <a class="nav-link text-white"disabled href="#">Calendario</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link text-white disabled" href="#">Información</a>
+      <li class="nav-item" tabindex="0" data-toggle="tooltip" title="Este boton no esta disponible">
+        <a class="nav-link text-white" disabled href="#">Información</a>
       </li>
-     <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle text-white disabled" href="#"  id="nabarDropdown" tabindex="-2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+     <li class="nav-item dropdown" tabindex="0" data-toggle="tooltip" data-trigger="hover" title="Este boton no esta disponible">
+        <a class="nav-link dropdown-toggle text-white" disabled href="#"  id="nabarDropdown" tabindex="-2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
          Malla Curricular
         </a>
         <div class="dropdown-menu hover" >
@@ -59,8 +59,8 @@
     </ul>
     @if (Auth::guest())
       <form class="form-inline float-xs-right">
-         <a class="btn btn-outline-primary  text-white m-2 my-sm-2" type="submit" href="{{url('login')}}">Iniciar Sesión</a>
-         <a class="btn btn-outline-primary  text-white m-2 my-sm-2" type="submit" href="{{url('register')}}">Regístrate</a>
+         <a class="btn btn-outline-primary  text-white m-2 my-sm-2" data-toggle="tooltip" data-placement="top" title="Si ya te registraste pudes iniciar sesi&oacute;n"type="submit" href="{{url('login')}}">Iniciar Sesión</a>
+         <a class="btn btn-outline-primary  text-white m-2 my-sm-2" data-toggle="tooltip" data-placement="top" title="Reg&iacute;strate si no estas logueado" type="submit" href="{{url('register')}}">Regístrate</a>
         </form>
     @else
     <a class="btn btn-outline-primary  text-white m-2 my-sm-2" type="submit" href="{{url('administrador')}}">Administrar</a>
@@ -196,6 +196,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script src="{{asset('jquery/jquery-3.4.1.slim.min.js')}}" type="text/javascript"></script>
-
+    <script src="{{asset('js/bootstrap.bundle.min.js')}}" type="text/javascript"></script>
+    <script>
+      $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+       })
+    </script>  
 </body>
 </html>
