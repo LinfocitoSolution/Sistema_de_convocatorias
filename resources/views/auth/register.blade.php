@@ -38,7 +38,7 @@
 										<span class="input-group-text px-3"><i class="fas fa-user-alt icon-cog "></i></span>
 									
 								    </div>
-									<input class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}"
+									<input class="form-control text-capitalize {{ $errors->has('name') ? 'is-invalid' : '' }}"
 									name="name" 
 									placeholder="Ingrese Nombre" type="text"  value="{{ old('name', isset($user) ? $user->name : '') }}"> 
 								
@@ -53,7 +53,7 @@
 										<span class="input-group-text  px-3"><i class="fas fa-user-tie icon-cog"></i></span>
 									</div>
 
-									<input class="form-control {{ $errors->has('lastname') ? 'is-invalid' : '' }}"
+									<input class="form-control text-capitalize {{ $errors->has('lastname') ? 'is-invalid' : '' }}"
 									name="lastname"
 									placeholder="Ingrese Apellido" type="text"  value="{{ old('lastname', isset($user) ? $user->lastname : '') }}"> 
 								
