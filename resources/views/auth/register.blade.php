@@ -7,15 +7,22 @@
 
 @section("infoGeneral")
      
-	   <!--@if (count($errors) > 0)
-			<div class="alert alert-danger">
-				<ul>
+	  @if (count($errors) > 0)
+			<!--<div class="alert alert-danger">-->
+				<!--<ul>-->
 					@foreach ($errors->all() as $error)
-						<li>{{ $error }}</li>
+						<!--<li>{{ $error }}</li>-->
+						<input type="hidden" id="alerta" name="alerta" value={{$error}}>
+					
 					@endforeach
-				</ul>
-			</div>
-		@endif-->
+				<!--</ul>-->
+			<!--</div>-->
+			 
+		@endif
+
+		
+		
+ 
 
 		<div class="contenido-medio">
 			<div class="container">	
@@ -90,7 +97,8 @@
 									<!--<input type="text" class="form-control text-capitalize" placeholder="Carrera" name="career" value="{ old('career') }}">-->
 									<select name="career" class="custom-select form-control">
 										<option selected class="text-muted"value="sistemas">Ing Sistemas</option>
-										<option value="informatica">Ing Informática</option> 
+										<option value="informatica">Ing. Informática</option> 
+										<option value="electrónica">Ing. Electrónica</option> 
 									  </select>
 								</div>
 								<!--campo email-->
@@ -141,15 +149,45 @@
 									
 								<small id="passwordHelpBlock" class="form-text text-black mt-3"> La contraseña debe tener 8-25 caracteres, contener al menos una letra y  un numero, puede ser mayusculas , <br>no debe contener espacios, caracteres especiales, o emoji. </small>
 								
-								<button type="submit" class="btn  rounded-pill active btn-block mt-3" data-toggle="popover" data-placement="left" data-trigger="hover" title="presiona" data-content="presiona este bot&oacute;n para registrarte"> Registrar </button>
-
-						  </form>
-						    <!--Inicio de pie formulario-->
-						       <div class="card-footer">
-								   <div class="d-flex justify-content-center links text-white mt-2">
-								    Si ya tienes cuenta, inicia sesión.<a href="{{url('login')}}" class="text-warning">Login</a>
-							       </div>
-							   </div>
+								
+								<div>
+									<a href="#ventana1" button type="submit" class="btn  rounded-pill active btn-block mt-3 btn-lg" data-toggle="modal" >Confirmar </button></a>
+								</div>	
+								 <br>
+								<div class="card-footer">
+									<div class="d-flex justify-content-center links text-white mt-2">
+									 Si ya tienes cuenta, inicia sesión.<a href="{{url('login')}}" class="text-warning">Login</a>
+									</div>
+								</div>
+								
+								
+							<!-- ventana de confirmación-->
+						
+							<br>
+									
+								 <!-- <a href="#ventana1" class="btn rounded-pill active btn-block mt-3 btn-lg " data-toggle="modal">Registrar</a>-->
+									 <div class="modal fade" id="ventana1">
+									<div class="modal-dialog">
+									 <div class="modal-content">
+									<!--header de la ventana-->
+									<div class="modal-header">
+									 <button tyle="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+									<h4 class="modal-title">Ventana de confirmación de Registro</h4>
+									   </div>
+									<!--contenido de la ventana-->
+									<div class="modal-body">
+									<p>¿Esta seguro de querer registrarse?</p>
+									</div>
+									<!--footer de la ventana-->
+									<div class="modal-footer">
+										<button type="submit" class="btn  rounded-pill active"> Registrar </button>
+								        <button type="button" class="btn rounded-pill active" data-dismiss="modal">Cancelar</button>
+									</div>
+							     </div>
+						     </div>
+									</form>
+									  <!--Inicio de pie formulario-->
+						       
 							 <!--fin de pie formulario-->
 						</div>
 						<!--fin de cuerpo de formulario-->
@@ -159,3 +197,4 @@
 		  </div>
 		</div>
 	@endsection
+	
