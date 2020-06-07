@@ -51,7 +51,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => 'required|max:50|min:3|regex:/^[\pL\s\-]+$/u',
             'lastname' => 'required|max:50|regex:/^[\pL\s\-]+$/u',
-            'username' => 'required|max:20|alpha_num|regex:/^[a-zA-Z0-9]+$/S',
+            'username' => 'required|unique:users|max:20|alpha_num|regex:/^[a-zA-Z0-9]+$/S',
             'email' => 'required|email|unique:users',
             'password' => 'required|max:25|min:8|regex:/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,25}$/S',
             'confirmpassword' => 'required|same:password'
@@ -67,6 +67,7 @@ class RegisterController extends Controller
             'username.required'=>'se requiere el campo nombre de usuario para continuar',
             'username.alpha_num'=>'el campo nombre de usuario no acepta caracteres especiales *,-,!',
             'username.regex'=>'el campo nombre de usuario no acepta espacios',
+            'username.unique'=>'ya existe este nombre de usuario en nuestros registros',
             'email.required'=>'se requiere el campo email para continuar',
             'email.email'=>'formato de email invalido Ej:juanperez@****.com',
             'email.unique'=>'ya existe este email en nuestros registros',
