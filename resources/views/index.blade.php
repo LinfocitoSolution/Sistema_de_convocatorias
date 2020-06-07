@@ -15,13 +15,13 @@
    <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
    <link href="{{asset('assets/css/home/clases.css')}}" rel="stylesheet">
    @if(session()->has('message'))
-    <div class="alert alert-success">
+    <div class="alert alert-success mb-0">
         {{ session()->get('message') }}
     </div>
 @endif
 </head> 
 <body>
-  <div class="jumbotron jumbotron-fluid mb-0" >
+  <div class="jumbotron jumbotron-fluid mb-0 " >
     <div class="container">
       <div class="media">
         <img  class="logoUmss float-left align-center " width="140" height="160" src="{{asset('../imagenes/LogoUMSS.png')}} " 
