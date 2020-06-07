@@ -12,18 +12,18 @@
 */
 
 //----------------------------------rutas pagina principal-----------------------------------------
-// Route::get('index', [
-//     'as' => 'home',
-//     'uses' => 'HomeController@index'
-// ]);//esto es por que al hacer click en el boton inicio nos lleva a /index
+ Route::get('index', [
+     'as' => 'home',
+     'uses' => 'HomeController@index'
+ ]);//esto es por que al hacer click en el boton inicio nos lleva a /index
 Route::get('/', [
     'as' => 'home',
     'uses' => 'HomeController@index'
 ]);
-// Route::get('/home', [
-//     'as' => 'home',
-//     'uses' => 'HomeController@index'
-// ]);
+ Route::get('/home', [
+     'as' => 'home',
+     'uses' => 'HomeController@index'
+ ]);
 
 //---------------------------------rutas registro y autenticacion------------------------------------
 Auth::routes();
