@@ -14,7 +14,11 @@
    <!-- Styles -->
    <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
    <link href="{{asset('assets/css/home/clases.css')}}" rel="stylesheet">
-   
+   @if(session()->has('message'))
+    <div class="alert alert-success">
+        {{ session()->get('message') }}
+    </div>
+@endif
 </head> 
 <body>
   <div class="jumbotron jumbotron-fluid mb-0" >
