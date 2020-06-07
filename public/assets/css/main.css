@@ -1,5 +1,7 @@
 
-
+.body{
+  font-family: verdana;
+}
 .login{
   background:#DDDDDD;
   border: 1px solid;
@@ -24,7 +26,7 @@
 }
 
 .d-flex{
-   margin-top:30px;
+  margin-top:30px;
 }
 .formulario{
   margin-top:30px;
@@ -38,4 +40,8 @@
   .icon-cog{
     color: white;
   }
+ 
+
+
   
+

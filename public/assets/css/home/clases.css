@@ -3,6 +3,9 @@
     background-image:url('/imagenes/celeste.jpg') ;
   }
 }*/
+.body{
+  font-family: verdana;
+}
  .jumbotron{
    background-color: #324654;
  }

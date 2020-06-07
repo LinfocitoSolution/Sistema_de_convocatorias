@@ -40,40 +40,22 @@
 								<input type="hidden" name="_token" value="{{ csrf_token() }}">
 								<!--campo nombre-->
 								<label for="validationTooltip01"class="text-black">Nombre completo</label>
-								<div class="input-group form-group">
+								<div class="input-group form-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="-M&aacute;ximo 50 caracteres <br> -M&iacute;nimo 3 caracteres <br> -No acepta caracteres especiales" >
 									<div class="input-group-prepend">
 										<span class="input-group-text px-3"><i class="fas fa-user-alt icon-cog "></i></span>
-									<!--</div>
-									<input type="text" class="form-control text-capitalize" placeholder="Nombre" name="name" id="Nombre" value="{{ old('name') }}"> 
-								</div>
-								
-								
-								@if (count($errors->get('name')) > 0)
-									<div class="alert alert-danger">
-												<ul>
-															 
-													    @foreach ($errors->get('name') as $error)
-														   	@php( $prev = null)
-																@if ($prev != $error)
-																	<li>{{ $error }}</li>
-																@endif 
-															@php( $prev = $error)
-														@endforeach
-												</ul>
-									</div>
-								@endif-->
-								</div>
+									
+								    </div>
 									<input class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}"
-									name="name"
+									name="name" 
 									placeholder="Ingrese Nombre" type="text"  value="{{ old('name', isset($user) ? $user->name : '') }}"> 
 								
-								<div class="invalid-feedback {{ $errors->has('name')? 'd-block' : '' }}">
+								   <div class="invalid-feedback {{ $errors->has('name')? 'd-block' : '' }}">
 									{{ $errors->has('name')? $errors->first('name') : ''  }}
-								</div>
+								   </div>
 								</div>
 								<!--campo apellido-->
                                 <label for="validationTooltip02"class="text-black">Apellido completo</label>
-								<div class="input-group form-group">
+								<div class="input-group form-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="-M&aacuteximo 50 caracteres <br> -No acepta caracteres especiales <br>-No acepta n&uacute;meros">
 									<div class="input-group-prepend">
 										<span class="input-group-text  px-3"><i class="fas fa-user-tie icon-cog"></i></span>
 									</div>
@@ -89,8 +71,8 @@
 
 								
 								<!--campo nombre de usuario -->
-								<label for="validationTooltip03"class="text-black">Nombre usuario</label>
-								<div class="input-group form-group">
+								<label for="validationTooltip03" class="text-black">Nombre usuario</label>
+								<div class="input-group form-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="-M&aacute;ximo 20 caracteres <br>-Solo se permite alfanum&eacute;rico <br>-No acepta espacios <br>-Se permite may&uacute;sculas">
 									<div class="input-group-prepend">
 										<span class="input-group-text"><i class="fa fa-user-shield icon-cog"></i></span>
 									</div>
@@ -107,7 +89,7 @@
 									
 								<!--campo carrera--->
 								<label for="validationTooltip04"class="text-black">Carrera</label>
-								<div class="input-group form-group">
+								<div class="input-group form-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="selecciona la carrera que est&aacute; cursando">
 									<div class="input-group-prepend">
 										<span class="input-group-text"><i class="fa fa-graduation-cap icon-cog"></i></span>
 									</div>
@@ -121,7 +103,7 @@
 								</div>
 								<!--campo email-->
 								<label for="validationTooltip05"class="text-black">E-mail</label>
-								<div class="input-group form-group">
+								<div class="input-group form-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="Sigue el ejemplo">
 									<div class="input-group-prepend">
 										<span class="input-group-text px-3"><i class="fa fa-at icon-cog"></i></span>
 									</div>
@@ -136,7 +118,7 @@
 									
 								<!--campo contraseña-->
 								<label for="validationTooltip06"class="text-black">Contraseña</label>
-								<div class="input-group form-group">
+								<div class="input-group form-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="-M&aacute;ximo 25 caracteres <br>-M&iacute;nimo 8 caracteres <br>-No permite caracteres especiales <br>-Debe ingresar al menos una letra y un n&uacute;mero<br>-No permite espacios">
 									<div class="input-group-prepend">
 										<span class="input-group-text px-3"><i class="fas fa-key icon-cog"></i></span>
 									</div>
@@ -150,7 +132,7 @@
 								</div>
 								<!--campo confirmar contraseña-->
 								<label for="validationTooltip07"class="text-black">Confirma contraseña</label>
-								<div class="input-group form-group">
+								<div class="input-group form-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="confirme la contraseña creada anteriormente">
 									<div class="input-group-prepend">
 										<span class="input-group-text px-3"><i class="fas fa-key icon-cog"></i></span>
 									</div>
