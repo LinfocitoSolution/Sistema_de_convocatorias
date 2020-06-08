@@ -21,22 +21,22 @@
 @endif
 </head> 
 <body>
-  <div class="jumbotron jumbotron-fluid mb-0 " >
+  <div class="jumbotron jumbotron-fluid mb-0 pt-4" style="height: 140px;">
     <div class="container">
       <div class="media">
-        <img  class="logoUmss float-left align-center " width="140" height="160" src="{{asset('../imagenes/LogoUMSS.png')}} " 
+        <img  class="logoUmss float-left align-center mt-0" width="110" height="100" src="{{asset('../imagenes/umss.png')}} " 
            alt="umss2">
           <div class="media-body" > 
-             <div class="h2 text-white text-center">CONVOCATORIAS AUXILIARES</div>
-             <div class="h2 text-white text-center">UNIVERSIDAD MAYOR DE SAN SIMÓN</div>
+             <div class="h5 text-white text-center mt-0">CONVOCATORIAS AUXILIARES</div>
+             <div class="h5 text-white text-center">UNIVERSIDAD MAYOR DE SAN SIMÓN</div>
           </div>
-          <img  class="logoCarrera float-right align-center" width="130" height="130" src="{{asset('../imagenes/logoInformaticaSistemas.png')}}" 
+          <img  class="logoCarrera float-right align-center p-0" width="100" height="100" src="{{asset('../imagenes/logoInformaticaSistemas.png')}}" 
            alt="carrera"> 
         </div>     
     </div>       
 </div> 
 <!-- navbar -->
- <nav class="navbar sticky-top navbar-expand-lg">
+ <nav class="navbar sticky-top navbar-expand-lg py-0">
   <a class="navbar-brand  text-white" href="{{url('/')}}" tabindex="-1" >Inicio</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -63,8 +63,8 @@
     </ul>
     @if (Auth::guest())
       <form class="form-inline float-xs-right">
-         <a class="btn btn-outline-primary  text-white m-2 my-sm-2" data-toggle="tooltip" data-placement="top" title="Si ya te registraste pudes iniciar sesi&oacute;n"type="submit" href="{{url('login')}}">Iniciar Sesión</a>
-         <a class="btn btn-outline-primary  text-white m-2 my-sm-2" data-toggle="tooltip" data-placement="top" title="Reg&iacute;strate si no estas logueado" type="submit" href="{{url('register')}}">Regístrate</a>
+         <a class="btn btn-outline-dark  text-white m-2 my-sm-2" data-toggle="tooltip" data-placement="top" title="Si ya te registraste pudes iniciar sesi&oacute;n"type="submit" href="{{url('login')}}">Iniciar Sesión</a>
+         <a class="btn btn-outline-dark  text-white m-2 my-sm-2" data-toggle="tooltip" data-placement="top" title="Reg&iacute;strate si no estas logueado" type="submit" href="{{url('register')}}">Regístrate</a>
         </form>
     @else
     <a class="btn btn-outline-primary  text-white m-2 my-sm-2" type="submit" href="{{url('administrador')}}">Administrar</a>
@@ -98,33 +98,33 @@
           </ol>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="{{ asset('/imagenes/tecno.jpg') }}"  class="d-block w-100" alt="web" width="1000" height="600">
+            <img src="{{ asset('/imagenes/tecno.jpg') }}"  class="d-block w-100" alt="web" width="1000" height="300">
                 <div class="carousel-caption" >
-                  <div class="text-white">
+                  <div class="text-white pb-4">
                     <h2>Facultad de ciencias y tecnología</h2>
                   </div>
                 </div>
           </div>
           <div class="carousel-item">
-            <img src="{{ asset('/imagenes/sistemas.jpg') }}" class="d-block w-100" alt="elem" width="1000" height="600">
+            <img src="{{ asset('/imagenes/sistemas.jpg') }}" class="d-block w-100" alt="elem" width="1000" height="300">
             <div class="carousel-caption">
-              <div class="text-white">
+              <div class="text-white pb-4">
                   <h2>Departamento de Sistemas e Informática</h2>
                 </div>
               </div>
           </div>
           <div class="carousel-item">
-            <img src="{{ asset('/imagenes/aula.jpg') }}" class="d-block w-100" alt="aulalaboratorios" width="1000" height="600">
+            <img src="{{ asset('/imagenes/aula.jpg') }}" class="d-block w-100" alt="aulalaboratorios" width="1000" height="300">
               <div class="carousel-caption">
-                <div class="text-white">
+                <div class="text-white pb-4">
                   <h1>Laboratorios</h1>
                 </div>
               </div>
           </div>
           <div class="carousel-item">
-            <img src="{{ asset('/imagenes/edificio.jpg') }}" class="d-block w-100" alt="prog" width="1000" height="600">
+            <img src="{{ asset('/imagenes/edificio.jpg') }}" class="d-block w-100" alt="prog" width="1000" height="300">
               <div class="carousel-caption" >
-                  <div class="text-white">
+                  <div class="text-white pb-4">
                     <h2>Edificio Multiacadémico</h2>
                   </div>
               </div>   

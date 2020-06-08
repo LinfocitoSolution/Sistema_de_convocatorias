@@ -3,14 +3,15 @@
   font-family: verdana;
 }
  .jumbotron{
-   background-color: #324654;
+   background-color: #34515E;
+   
  }
  .navbar{
-   background-color:#0000b3 ;
+   background-color:#607D8B ;
  }
   .footer{
-    background-color:  #324654; 
-    color: white;
+    background-color: #34515E; 
+    color: #E1E2E1;
     padding: 15px;
     height: 40%;
     border:0px solid;
@@ -21,7 +22,7 @@
     margin:0 auto;
   }
   a img:hover {
-    color: white;
+    color: #E1E2E1;
   }
   
   /*.col{
@@ -38,16 +39,10 @@
     margin-right:15px;
   }
   
-
-/*.contenedor{
-  width:100%;
-  margin:0 auto;
-  border:0px;
-}*/
 .convocatoria{
   border: 1px solid;
-  border-color:white;
-
-  /*position:relative;*/
+  background-color: #E1E2E1;
 }
-
+.tooltip{
+  background: #E1E2E1;
+}
