@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use DB;
+use App\Http\Requests\RolesRequest;
 
 class RoleController extends Controller
 {
@@ -51,7 +52,7 @@ class RoleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RolesRequest $request)
     {
         $role = Role::create(['name' => $request->name]);
         $role->save();
@@ -92,7 +93,7 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Role $rol)
+    public function update(RolesRequest $request, Role $rol)
     {
         $rol->update([ 'name' => $request->name ]);
         $rol->save();

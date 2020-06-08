@@ -25,6 +25,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!---Select2 multiple-->
 <link href="{{URL::asset('https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet')}}" />
 <script src="{{ URL::asset('https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js')}}"></script>
+@if(session()->has('message'))
+    <div class="alert alert-success mb-0">
+        {{ session()->get('message') }}
+    </div>
+@endif
 </head>
 <body class="hold-transition sidebar-mini">
    <div class="wrapper"> 
