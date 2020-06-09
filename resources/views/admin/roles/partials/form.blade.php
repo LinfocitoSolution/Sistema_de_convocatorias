@@ -23,14 +23,14 @@
            <span class="input-group-append">
                <button class="btn btn-primary" type="button">P</button>
            </span>
-           <select class="form-control js-example-basic-multiple {{ $errors->has('roles') ? 'is-invalid' : '' }}" name="permissions[]" multiple="multiple">
+           <select  class="form-control js-example-basic-multiple  {{ $errors->has('permissions') ? 'is-invalid' : '' }}" name="permissions[]" multiple="multiple" >
             
                      @foreach($permissions as $item)
                              <option value="{{ $item->name }}">{{ $item->name }}</option>
                      @endforeach
            </select>
-           <div class="invalid-feedback {{ $errors->has('roles')? 'd-block' : '' }}">
-            {{ $errors->has('roles')? $errors->first('roles') : 'El campo de Nombre es requerido'  }}
+           <div class="invalid-feedback {{ $errors->has('permissions')? 'd-block' : '' }}">
+            {{ $errors->has('permissions')? $errors->first('permissions') : 'El campo de Nombre es requerido'  }}
          </div> 
        </div>
    </div>
