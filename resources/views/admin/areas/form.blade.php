@@ -12,6 +12,9 @@
                     placeholder="Ingrese Nombre" type="text" value="{{ old('name', isset($area) ? $area->name : '') }}">
         </div>
     </div>
+    <div class="invalid-feedback {{ $errors->has('name')? 'd-block' : '' }}">
+        {{ $errors->has('name')? $errors->first('name') : 'El campo de Nombre es requerido'  }}
+     </div>
 
     <div class="col-md-12 mb-3">
         <label class="col-form-label" for="description">Descripcion</label>
@@ -25,4 +28,7 @@
                 placeholder="Ingrese una descripcion" type="text">{{ old('description', isset($area) ? $area->description : '') }}</textarea>
         </div>
     </div>
+    <div class="invalid-feedback {{ $errors->has('description')? 'd-block' : '' }}">
+        {{ $errors->has('description')? $errors->first('description') : 'El campo de Nombre es requerido'  }}
+     </div>
 </div>

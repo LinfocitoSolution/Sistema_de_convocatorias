@@ -114,7 +114,7 @@
                                                 <span class="input-group-append">
                                                     <button class="btn btn-primary" type="button">R</button>
                                                 </span>
-            <select class="form-control js-example-basic-single {{ $errors->has('roles') ? 'is-invalid' : '' }}" name="roles[]" single="single">
+            <select class="form-control js-example-basic-single {{ $errors->has('roles') ? 'is-invalid' : '' }}" name="roles" single="single">
                 @foreach($roles as $item)
                     <option value="{{ $item->name }}" {{ (isset($user) && $user->roles->contains('name', $item->name)) ? 'selected' : '' }}>{{ $item->name }}</option>
                 @endforeach

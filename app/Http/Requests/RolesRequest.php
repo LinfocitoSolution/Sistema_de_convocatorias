@@ -25,7 +25,7 @@ class RolesRequest extends FormRequest
     {
         return [
             'name'=>'required|max:50|min:3|regex:/^[\pL\s\-]+$/u',
-            //'roles'=>'required',
+            'roles'=>'',
         ];
     }
     public function messages()
@@ -35,7 +35,8 @@ class RolesRequest extends FormRequest
             'name.max'=>'el campo nombre no debe tener mas de 50 caracteres',
             'name.min'=>'el campo nombre tiene un minimo de 3 caracteres',
             'name.regex'=>'el campo nombre no acepta caracteres especiales,numeros',
-            'roles.required'=>'selecciona al menos un permiso para continuar',
+            'roles.required'=>'selecciona  al menos un permiso para continuar',
+            
         ];
     }
 }

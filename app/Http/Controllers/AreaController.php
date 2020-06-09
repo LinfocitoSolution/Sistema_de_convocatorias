@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Area;
-
+use App\Http\Requests\AreaRequest;
 class AreaController extends Controller
 {
     /**
@@ -34,7 +34,7 @@ class AreaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AreaRequest $request)
     {
         $area = Area::create($request->all());        
         $area->save();
@@ -72,7 +72,7 @@ class AreaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(AreaRequest $request, $id)
     {
         $area  = Area::where('id',$id)
         ->first();
