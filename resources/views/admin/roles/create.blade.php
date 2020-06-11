@@ -19,8 +19,8 @@
                             @include('admin.roles.partials.form')
 
                             <div class="form-actions text-center">
-                                <button class="btn btn-outline-primary" type="submit">Guardar</button>
-                                <a class="btn btn-outline-danger" href="{{ route('roles.index') }}">Cancelar</a>
+                                <button class="btn btn-outline-dark" type="submit">Guardar</button>
+                                <a class="btn btn-outline-dark" href="{{ route('roles.index') }}">Cancelar</a>
                             </div>
                         </form>
                     </div>
@@ -31,13 +31,3 @@
 </div>  
 
 @endsection
-@section('scripts')
-     <script>
-        $(document).ready(function(){
-            $('.js-example-basic-multiple').select2({
-                placeholder: "Seleccione un valor",
-                allowClear: true
-            });
-        });
-    </script>
-  @endsection

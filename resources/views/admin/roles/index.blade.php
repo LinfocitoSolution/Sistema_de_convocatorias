@@ -15,7 +15,7 @@
         <h1>Roles</h1>
         {{-- <!--la ruta debe llamarse  admin.roles.create--> --}}
         {{-- <a class="btn btn-success px-2" href="{{ url('create') }}">Nuevo --}}
-          <a class="btn btn-success px-2" href="{{ route('roles.create') }}">Nuevo
+          <a class="btn btn-dark px-2" data-toggle="tooltip" data-trigger="hover" title="presiona para crear un rol" href="{{ route('roles.create') }}">Nuevo
         <i class="fa fa-user-plus"></i>
         </a>
       </div>
@@ -39,7 +39,7 @@
                                     <!--nombre del item antes del final del span-->   
                                     @foreach ($permissions as $permission)
                                           @if (app('App\Http\Controllers\RoleController')->hasPermission($rol,$permission) == 1)
-                                            <span class="badge badge-info">{{$permission->name}}</span>
+                                            <span class="badge badge-dark">{{$permission->name}}</span>
                                           @endif
                                     @endforeach                          
                        <!--fin del  2para-->
@@ -47,17 +47,17 @@
                     <td>
                         {{-- <!--la ruta se llamara admin.roles.edit, rol dependienfo del id  { route('roles.edit', $rol->id) }}">--> --}}
                         {{-- <a class="btn btn-info btn-sm mx-1 my-1" href="{{ route('roles.edit', $rol->id) }}"> --}}
-                        <a class="btn btn-info btn-sm mx-1 my-1" href="rol/{{$rol->id}}/edit">
+                        <a class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title="presiona para editar un rol" href="rol/{{$rol->id}}/edit">
                              <i class="fa fa-pencil-alt"></i>
                         </a>                         
                        
                       <form action="{{route('roles.destroy',$rol->id)}}" method="POST" style="display:inline-block;">
                         {{ csrf_field() }}                                                              
                         {{ method_field('DELETE') }}                            
-                        <button class="btn btn-danger btn-sm mx-1 my-1" type="submit" margin-left="50" onclick="return confirm('Está seguro de eliminar este rol?')">
+                        <button class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title="presiona para eliminar un rol" type="submit" margin-left="50" onclick="return confirm('Está seguro de eliminar este rol?')">
                             <i class="fa fa-trash-alt"></i>                                
                         </button>                            
-                      </form>
+                      </form> 
                                            
                     </td>
                   </tr> 

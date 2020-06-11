@@ -24,8 +24,8 @@
                                 </div>
 
                                 <div class="form-actions text-center">
-                                    <button class="btn btn-outline-primary" type="submit">Actualizar</button>
-                                    <a class="btn btn-outline-danger" href="{{route('usuarios.index')}}">Cancelar</a>
+                                    <button class="btn btn-outline-dark" type="submit">Actualizar</button>
+                                    <a class="btn btn-outline-dark" href="{{route('usuarios.index')}}">Cancelar</a>
                                 </div>
                             </form>
                     </div>
@@ -38,11 +38,3 @@
 </div>
 @endsection
 
-@section('scripts')
-    <script>
-        $('.js-example-basic-multiple').select2({
-                placeholder: "Seleccione un valor",
-                allowClear: true
-            });
-    </script>
-@endsection
