@@ -83,3 +83,6 @@ Route::put('areas_update_{area}','AreaController@update')->name('areas.update');
 // Route::resource('areas', 'AreaController');
 //##############################################################
 
+//######################ROTULO###################################
+Route::get('formulario_postulacion','PostulantController@index')->name('postulacion.form');
+//################################################################

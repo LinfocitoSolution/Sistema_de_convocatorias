@@ -68,7 +68,7 @@
         </form>
     @elseif(Auth::user()->roles->first()->name=='Postulante')
     <form class="form-inline float-xs-right">
-      <a class="btn btn-outline-primary  text-white m-2 my-sm-2" type="submit" href="{{url('administrador')}}">postularse</a>
+      <a class="btn btn-outline-primary  text-white m-2 my-sm-2" type="submit" href="{{route('postulacion.form')}}">postularse</a>
       <a class="btn btn-outline-primary text-white m-2 my-sm-2" type="submit" href="{{url('logout')}}">Cerrar Sesión</a>
       </form>
     @else 
