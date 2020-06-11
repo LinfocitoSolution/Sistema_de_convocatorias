@@ -83,3 +83,6 @@ Route::put('areas_update_{area}','AreaController@update')->name('areas.update');
 // Route::resource('areas', 'AreaController');
 //##############################################################
 
+Route::post('reset_password','\App\Http\Controllers\Auth\ResetPasswordController@resetPassword');
+Route::get('enviar_resetPassword','\App\Http\Controllers\Auth\ResetPasswordController@enviarReset_Password');
+Route::post('recuperar','\App\Http\Controllers\Auth\ResetPasswordController@recuperar');

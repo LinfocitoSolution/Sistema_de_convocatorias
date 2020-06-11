@@ -40,11 +40,6 @@
 									{{ $errors->has('login')? $errors->first('login') : ''  }}
 								</div>
 								</div>
-								
-
-								      
-								
-								
 								<div class="input-group form-group" data-toggle="popover" title="Introducir" data-content="Introduzca su contraseña">
 									<div class="input-group-prepend">
 										<span class="input-group-text "><i class="fa fa-key icon-cog"></i></span>
@@ -74,7 +69,11 @@
 						   <div class="card-footer">
 							   <div class="d-flex justify-content-center links text-white mt-3">
 								   <h6>No tienes cuenta?</h6>
-								   <a href="{{url('register')}}" class="text-warning"><h6>REGISTRATE</h6></a>
+								   <a href="{{url('register')}}" class="text-warning"><h6>REGISTRATE</h6></a>   
+								</div>
+								<div class="text-center">
+
+								<a href="{{url('enviar_resetPassword')}}" class="text-warning"><h6>  Recuperar Contraseña</h6></a>
 								</div>
 							   <div class="d-flex justify-content-center mt-2 ">
 								<!--<a href="#" class="text-warning"><h6>Olviste tu contraseña?</h6></a>-->
