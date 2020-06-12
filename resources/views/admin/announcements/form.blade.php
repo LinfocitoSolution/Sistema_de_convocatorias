@@ -1,25 +1,30 @@
-<div class="form group">
-    <br>
-        <label for="">Título de la convocatoria</label>
-        <div class="row">
-           <div class="col">
-              <input type="text" name="titulo" class="form-control" value="{{ old('titulo', isset($call) ? $call->titulo_convocatoria : '') }}">
+<div class="form-row">
+  <div class="col-md-12 mb-3">
+    
+        <label class="col-form-label" for="name">Título de la convocatoria</label>
+         <div class="input-group">
+            <span class="input-group-append">
+              <button class="btn btn-dark" type="button">T</button>
+            </span>
+              <input class="form-control" type="text" name="titulo" placeholder="Ingrese el titulo " value="{{ old('titulo', isset($call) ? $call->titulo_convocatoria : '') }}">
            </div>
          </div>
-         <label for="">Descripción: </label>
-         <div class="row">
-            <div class="col">
+         
+       <div class="col-md-12 mb-3">  
+         <label class="col-form-label" for="">Descripción: </label>
+         <div class="input-group">
               <textarea class="form-control" name="descripcion" rows="3" maxlength="150" >{{ old('descripcion', isset($call) ? $call->descripcion : '') }}</textarea>
-              <small class="form-text text-muted">Descripción corta de la convocatoria</small>
-            </div>
-         </div>
-      <br>
+          </div>
+          <small class="form-text text-muted">Descripción corta de la convocatoria</small>
+        </div>
+              
+            
+        
       @if (!isset($call))
-        <input type="file" name="archivo">   
-        <br>
+       <input type="file" name="archivo">   
+       <div class="text-left">
         <small class="form-text text-muted">Solo se admiten archivos tipo PDF</small>  
+        </div> 
       @endif     
-      <div class="col">
-        <button type="submit" class="btn btn-primary" margin-left="50">Guardar</button>
-      </div>
+      
 </div>

@@ -11,7 +11,7 @@
         <div class="card mt-5">
             <div class="card-header">
                 <h1> Areas</h1>
-                <a class="btn btn-success px2" href="{{route('areas.create')}}">
+                <a class="btn btn-dark px2" data-toggle="tooltip" data-trigger="hover" title="presiona para crear un area" href="{{route('areas.create')}}">
                     Nuevo
                     <i class="fa fa-user-plus"></i>
                 </a>
@@ -31,13 +31,13 @@
                                 <td>{{$area->name}}</td>
                                 <td>{{$area->description}}</td>                    
                                 <td>
-                                    <a class="btn btn-info btn-sm mx-1 my-1" href="{{ route('areas.edit', $area->id) }}">
+                                    <a class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title="presiona para editar un area"href="{{ route('areas.edit', $area->id) }}">
                                         <i class="fa fa-pencil-alt"></i>
                                     </a> 
                                     <form action="{{route('areas.destroy',$area->id)}}" method="POST" style="display:inline-block;">
                                         {{ csrf_field() }}                                                              
                                         {{ method_field('DELETE') }}                            
-                                        <button class="btn btn-danger btn-sm mx-1 my-1" type="submit" margin-left="50" onclick="return confirm('Está seguro de eliminar el area?')">
+                                        <button class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title="presiona para eliminar un area" type="submit" margin-left="50" onclick="return confirm('Está seguro de eliminar el area?')">
                                             <i class="fa fa-trash-alt"></i>                                
                                         </button>                            
                                     </form>

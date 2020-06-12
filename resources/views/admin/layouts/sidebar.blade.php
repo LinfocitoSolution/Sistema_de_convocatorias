@@ -28,7 +28,7 @@
                con font-awesome o culaquier otro icon font library -->
            <!--Acceso-->
           <li class="nav-item has-treeview menu-open">
-            <a href="#" class="nav-link active">
+            <a href="#" class="nav-link active bg-dark">
               <i class="nav-icon fas fa-asterisk"></i>
               <p>
                 Acceso
@@ -53,7 +53,7 @@
           <!--fin de acceso-->
           <!--convocatorias-->
           <li class="nav-item has-treeview menu-open">
-            <a href="#" class="nav-link active">
+            <a href="#" class="nav-link active bg-dark">
               <i class="nav-icon fas fa-file"></i>
               <p>
                 Convocatorias
@@ -78,7 +78,7 @@
           <!--fin convocatorias-->
           <!--areas-->
           <li class="nav-item has-treeview menu-open">
-            <a href="#" class="nav-link active">
+            <a href="#" class="nav-link active bg-dark">
               <i class="nav-icon fa fa-th-large"></i>
               <p>
                 Areas

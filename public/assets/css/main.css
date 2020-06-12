@@ -10,19 +10,19 @@
   height:1100px;
 }
 .navbar{
-  background: #0000b3;
+  background: #607D8B ;
 }
 .contenido-medio{
   margin-top:30px;
 }
 .card-header{
-  background: #324654;
+  background: #34515E;
 }
 .card-footer{
-  background: #324654;
+  background: #34515E;
 }
 .input-group-text{
-  background: #324654;
+  background: #34515E;
 }
 
 .d-flex{
@@ -33,7 +33,7 @@
 }
   
   .btn {
-    background: #324654;
+    background: #34515E;
    color:white;
   }
 

@@ -19,8 +19,8 @@
                         {{ csrf_field() }}
                             @include('admin.roles.partials.form')
                             <div class="form-actions text-center">
-                                <button class="btn btn-outline-primary" type="submit">Actualizar</button>
-                                <a class="btn btn-outline-danger" href="{{ url('/rol') }}">Cancelar</a>
+                                <button class="btn btn-outline-dark" type="submit">Actualizar</button>
+                                <a class="btn btn-outline-dark" href="{{ url('/rol') }}">Cancelar</a>
                             </div>
                     </form>
                     </div>
@@ -32,13 +32,3 @@
   <!-- /.content-wrapper -->
 
 @endsection
-@section('scripts')
-     <script>
-        $(document).ready(function(){
-            $('.js-example-basic-multiple').select2({
-                placeholder: "Seleccione un valor",
-                allowClear: true
-            });
-        });
-    </script>
-  @endsection

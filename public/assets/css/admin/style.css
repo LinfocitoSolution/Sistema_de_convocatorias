@@ -4,3 +4,22 @@
   .btn-group{
    margin-right:5px;
   }
+  .navbar{
+    background: #607D8B;
+  }
+  .navbar-nav{
+    background: #607D8B;
+  }
+  .main-sidebar{
+  background:  #34515E;
+  }
+  .hold-transition{
+    background-color: #DDDDDD;
+  }
+  .card-header{
+    background:  #34515E;
+    color:white;
+  }
+  .card-body{
+    background-color: #DDDDDD;
+  }
