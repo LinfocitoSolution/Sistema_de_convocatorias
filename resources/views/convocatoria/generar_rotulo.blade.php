@@ -47,9 +47,8 @@
             <div class="input-group-prepend">
               <label class="input-group-text" for="">Convocatoria a postular:</label>
             </div>
-            <select class="custom-select" id="toApply">
-              <option selected>Seleecione...</option> 
-              <!--foreach de areas-->  
+            <select class="custom-select" id="toApply" required>
+              <option selected>Seleecione...</option>   
               <option value="1">Laboratorio de cómputo</option>
               <option value="2">Auxiliatura</option>
               <option value="3">Laboratorio de redes</option>

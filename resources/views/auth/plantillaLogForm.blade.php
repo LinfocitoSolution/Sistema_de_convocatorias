@@ -5,6 +5,7 @@
 
 <meta charset="utf-8">
 <meta name="csrf-token" content="{{ csrf_token() }}">
+
 <title> @yield("title")</title>
 
 <!-- Font Awesome Icons -->
@@ -12,7 +13,6 @@
 <!--Styles-->
 <link href="{{asset('/css/bootstrap.min.css')}}" rel="stylesheet">
 <link href="{{ asset('/assets/css/main.css') }}" rel="stylesheet" type="text/css" />
-
 </head>
 
 <body>

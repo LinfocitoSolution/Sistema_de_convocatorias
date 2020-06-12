@@ -16,15 +16,11 @@
               <textarea class="form-control" name="descripcion" rows="3" maxlength="150" >{{ old('descripcion', isset($call) ? $call->descripcion : '') }}</textarea>
           </div>
           <small class="form-text text-muted">Descripción corta de la convocatoria</small>
-        </div>
-              
-            
-        
-      @if (!isset($call))
-       <input type="file" name="archivo">   
-       <div class="text-left">
-        <small class="form-text text-muted">Solo se admiten archivos tipo PDF</small>  
-        </div> 
-      @endif     
-      
+        </div>   
 </div>
+@if (!isset($call))
+<input type="file" name="archivo">   
+<div class="text-left">
+ <small class="form-text text-muted">Solo se admiten archivos tipo PDF</small>  
+ </div> 
+@endif  

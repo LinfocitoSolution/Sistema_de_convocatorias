@@ -62,7 +62,20 @@ class UserController extends Controller
     {
         //
     }
-
+    public function verificarEmail($email)
+    {
+        $access_key = '7b5fa3d815e2bf9c458dfa744298a253';   
+        $email_address = $email;
+        // Initialize CURL:
+        $ch = curl_init('http://apilayer.net/api/check?access_key='.$access_key.'&email='.$email_address.'');  
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        // Store the data:
+        $json = curl_exec($ch);
+        curl_close($ch);
+        // Decode JSON response:
+        $validationResult = json_decode($json, true);
+        return $validationResult['smtp_check'];
+    }
     /**
      * Show the form for editing the specified resource.
      *

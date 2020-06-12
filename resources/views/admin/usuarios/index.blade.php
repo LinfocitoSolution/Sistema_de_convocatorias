@@ -39,9 +39,9 @@
                     </td>
                     <td>
 
-                        <a class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="presiona para editar usuario" href="{{ route('usuarios.edit', $user->id) }}">
+                        <a class="btn btn-dark btn-sm mr-2" data-toggle="tooltip" data-trigger="hover" title="presiona para editar usuario" href="{{ route('usuarios.edit', $user->id) }}">
                             <i class="fa fa-edit"></i>
-                        </a> &nbsp;
+                        </a>
                         <form action="{{ route('usuarios.destroy', $user->id) }}"
                               style="display:inline-block;"
                               method="POST">
@@ -52,7 +52,9 @@
                             <button class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="presiona para eliminar usuario" type="submit" margin-left="50" onclick="return confirm('Está seguro de eliminar el usuario?')">
                               <i class="fa fa-trash-alt"></i>
                             </button>
-                           
+                            <a class="btn btn-dark btn-sm ml-2" data-toggle="tooltip" data-trigger="hover" title="No disponible por el momento" href="#">
+                              <i class="fa fa-eye"></i>
+                            </a>
                         </form>
                     </td>
                 </tr>

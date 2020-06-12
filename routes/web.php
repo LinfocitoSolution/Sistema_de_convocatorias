@@ -45,6 +45,12 @@ Route::delete('usuarios_delete_{user}','UserController@destroy')->name('usuarios
 Route::resource('call', 'CallController');
 Route::get('convocatoria','HomeController@convocatorias')->name('convocatoria');
 //##############################################################
+Route::get('test', function () {
+    return view('pruebaVerify');
+});
+Route::get('reset', function () {
+    return view('auth.index_ResetPassword');
+});
 
 
 //##################### ROL ####################################

@@ -79,7 +79,7 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    // public function edit()
+    
     public function edit(Role $rol)
     {   
         $permissions = Permission::all();
@@ -100,7 +100,7 @@ class RoleController extends Controller
         if ($request->permissions) {
             $rol->syncPermissions($request->permissions);
         }
-        return redirect(route('rol.index'))->with([ 'message' => 'Role actualizado exitosamente!', 'alert-type' => 'info' ]);
+        return redirect(route('rol.index'))->with([ 'message' => 'Rol actualizado exitosamente!', 'alert-type' => 'info' ]);
     }
 
     /**
