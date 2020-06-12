@@ -8,7 +8,7 @@
            <input
            class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}"
            name="name"
-           placeholder="Ingrese Nombre" type="text"  value="{{ old('name', isset($role) ? $role->name : '') }}">
+           placeholder="Ingrese Nombre" type="text"  value="{{ old('name', isset($rol) ? $rol->name : '') }}">
 </div>
 
 <div class="invalid-feedback {{ $errors->has('name')? 'd-block' : '' }}">
