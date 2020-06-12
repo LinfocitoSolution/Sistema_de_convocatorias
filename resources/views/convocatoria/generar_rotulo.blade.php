@@ -31,17 +31,17 @@
         <div class="form-group col-md-3">
             <label for="">Nombre:</label>
             {{-- <input type="text" class="text" id="name" placeholder="Ingrese su nombre"> --}}
-             <input type="text" class="text" id="name" value="{{ $user->name }}">
+             <input type="text" class="text" id="name" value="{{ ucfirst(Auth::user()->name)}}">
         </div>
         <div class="form-group col-md-3">
             <label for="inputPassword4">Apellido:</label>
             {{-- <input type="text" class="text" id="lastname" placeholder="Ingrese su apellido"> --}}
-            <input type="text" class="text" id="lastname" value="{{ $user->lastname }}">
+            <input type="text" class="text" id="lastname" value="{{ ucfirst(Auth::user()->lastname)}}">
         </div>
-        <div class="form-group col-md-2">
+        <div class="form-group col-md-3">
             <label for="inputAddress">Carrera:</label>
             {{-- <input type="text" class="text" id="career" placeholder="Ingrese su carrera"> --}}
-            <input type="text" class="text" id="career" value="{{ $user->career }}">
+            <input type="text" class="text" id="career" value="{{ ucfirst(Auth::user()->career)}}">
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">

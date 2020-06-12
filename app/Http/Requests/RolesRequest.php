@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Spatie\Permission\Models\Role;
 use Illuminate\Foundation\Http\FormRequest;
 
 class RolesRequest extends FormRequest
@@ -24,7 +25,8 @@ class RolesRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'=>'required|max:50|min:3|regex:/^[\pL\s\-]+$/u',
+            'name'=>'required|max:50|min:3|regex:/^[\pL\s\-]+$/u|unique:roles,name,' . $this->rol->id . ',id',
+            'permissions'=>'required',
         ];
     }
     public function messages()
@@ -34,6 +36,7 @@ class RolesRequest extends FormRequest
             'name.max'=>'el campo nombre no debe tener mas de 50 caracteres',
             'name.min'=>'el campo nombre tiene un minimo de 3 caracteres',
             'name.regex'=>'el campo nombre no acepta caracteres especiales,numeros',
+            'name.unique'=>'el nombre ingresado ya esta en nuestros registros',
             'permissions.required'=>'selecciona  al menos un permiso para continuar',
             
         ];

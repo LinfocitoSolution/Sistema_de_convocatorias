@@ -105,7 +105,7 @@ class RegisterController extends Controller
 
         event(new Registered($user = $this->create($request->all())));
 
-         
+        $user->assignRole(['Postulante']);
 
          return $this->registered($request, $user)
              ?: redirect($this->redirectPath())->with('message', 'usuario registrado con exito!!!!!!');;
