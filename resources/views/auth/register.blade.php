@@ -4,9 +4,35 @@
 @section("htmlheader_title")
   Registro-Postulante
 @endsection
-
 @section("infoGeneral")
-     
+		<script>function validar(){
+				var url = "http://apilayer.net/api/check?access_key=7b5fa3d815e2bf9c458dfa744298a253&email=" + document.getElementById("email").value + "&smtp=1&format=1";
+				const api = new XMLHttpRequest();
+				api.open('GET',url,true);
+				api.send();
+				api.onreadystatechange = function valid(){
+					var resp = true;
+					if(this.status == 200 && this.readyState == 4)
+					{
+						let datos = JSON.parse(this.responseText);
+						console.log(datos.smtp_check);
+						let resultado = document.querySelector('#resultado');
+						resultado.innerHTML = '';
+						if(datos.smtp_check)
+						{
+							console.log('ok');
+  						 	document.fregistro.submit();
+						}
+						else
+						{
+	 						document.fregistro.email.focus();
+							resultado.innerHTML += 'Ingrese un correo válido!';
+						}
+					}	
+				}
+				return false;
+			}
+	</script>
 	  @if (count($errors) > 0)
 			<!--<div class="alert alert-danger">-->
 				<!--<ul>-->
@@ -19,11 +45,6 @@
 			<!--</div>-->
 			 
 		@endif
-
-		
-		
- 
-
 		<div class="contenido-medio">
 			<div class="container">	
 				<div class="d-flex justify-content-center h-100">
@@ -36,7 +57,7 @@
 					  <!--Inicio cuerpo de formulario-->  
 						  <div class="card-body bg-light">
 					
-							<form class="form-group" method="POST" action={{url("/register")}}>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          	 
+							<form name="fregistro" class="form-group" method="POST" action={{url("/register")}} onsubmit='return validar()' id="formReg"  >                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          	 
 								<input type="hidden" name="_token" value="{{ csrf_token() }}">
 								<!--campo nombre-->
 								<label for="validationTooltip01"class="text-black">Nombre completo</label>
@@ -67,16 +88,13 @@
 								<div class="invalid-feedback {{ $errors->has('lastname')? 'd-block' : '' }}">
 									{{ $errors->has('lastname')? $errors->first('lastname') : ''  }}
 								</div>
-								</div>
-
-								
+								</div>								
 								<!--campo nombre de usuario -->
 								<label for="validationTooltip03" class="text-black">Nombre usuario</label>
 								<div class="input-group form-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="-M&aacute;ximo 20 caracteres <br>-Solo se permite alfanum&eacute;rico <br>-No acepta espacios <br>-Se permite may&uacute;sculas">
 									<div class="input-group-prepend">
 										<span class="input-group-text"><i class="fa fa-user-shield icon-cog"></i></span>
 									</div>
-
 									<input class="form-control {{ $errors->has('username') ? 'is-invalid' : '' }}"
 									name="username"
 									placeholder="Ingrese Nombre de Usuario" type="text"  value="{{ old('username', isset($user) ? $user->username : '') }}"> 
@@ -85,15 +103,12 @@
 									{{ $errors->has('username')? $errors->first('username') : ''  }}
 								</div>
 								</div>
-
-									
 								<!--campo carrera--->
 								<label for="validationTooltip04"class="text-black">Carrera</label>
 								<div class="input-group form-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="selecciona la carrera que est&aacute; cursando">
 									<div class="input-group-prepend">
 										<span class="input-group-text"><i class="fa fa-graduation-cap icon-cog"></i></span>
 									</div>
-
 									<!--<input type="text" class="form-control text-capitalize" placeholder="Carrera" name="career" value="{ old('career') }}">-->
 									<select name="career" class="custom-select form-control">
 										<option selected class="text-muted"value="sistemas">Ing Sistemas</option>
@@ -108,13 +123,14 @@
 										<span class="input-group-text px-3"><i class="fa fa-at icon-cog"></i></span>
 									</div>
 									<input class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}"
-									name="email"
+									name="email" id= "email"
 									placeholder="Ingrese Email: Ej example@gmail.com" type="text"  value="{{ old('email', isset($user) ? $user->email : '') }}"> 
 								
-								<div class="invalid-feedback {{ $errors->has('email')? 'd-block' : '' }}">
-									{{ $errors->has('email')? $errors->first('email') : ''  }}
+									<div class="invalid-feedback {{ $errors->has('email')? 'd-block' : '' }}">
+										{{ $errors->has('email')? $errors->first('email') : ''  }}
+									</div>
 								</div>
-								</div>
+									<small class="form-text text-muted" id="resultado"></small>
 									
 								<!--campo contraseña-->
 								<label for="validationTooltip06"class="text-black">Contraseña</label>
@@ -151,7 +167,7 @@
 								
 								
 								<div>
-									<a href="#ventana1" button type="submit" class="btn  rounded-pill active btn-block mt-3 btn-lg" data-toggle="modal" >Confirmar </button></a>
+									<button type="submit" class="btn  rounded-pill active btn-block mt-3 btn-lg" >Confirmar </button> 
 								</div>	
 								 <br>
 								<div class="card-footer">
@@ -166,8 +182,8 @@
 							<br>
 									
 								 <!-- <a href="#ventana1" class="btn rounded-pill active btn-block mt-3 btn-lg " data-toggle="modal">Registrar</a>-->
-									 <div class="modal fade" id="ventana1">
-									<div class="modal-dialog">
+								<div class="modal fade" id="ventana1">
+								  <div class="modal-dialog">
 									 <div class="modal-content">
 									<!--header de la ventana-->
 									<div class="modal-header">
@@ -180,16 +196,16 @@
 									</div>
 									<!--footer de la ventana-->
 									<div class="modal-footer">
-										<button type="submit" class="btn  rounded-pill active"> Registrar </button>
+										<button type="submit" class="btn  rounded-pill active" > Registrar </button>
 								        <button type="button" class="btn rounded-pill active" data-dismiss="modal">Cancelar</button>
 									</div>
 							     </div>
-						     </div>
+						    		 </div>
 									</form>
 									  <!--Inicio de pie formulario-->
 						       
 							 <!--fin de pie formulario-->
-						</div>
+						</div> 
 						<!--fin de cuerpo de formulario-->
 					  </div>		
 				   </div>	

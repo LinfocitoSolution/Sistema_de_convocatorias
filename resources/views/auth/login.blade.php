@@ -22,6 +22,7 @@
 						<div class="card-header text-white">
 							<h3>Login Usuario</h3>
 						</div>
+				
 						<!--cuerpo del login-->				
 						<div class="card-body bg-light">
 							<form class= "form group mt-2" method="POST" action="{{ url('login') }}">

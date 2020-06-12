@@ -25,7 +25,6 @@ class RolesRequest extends FormRequest
     {
         return [
             'name'=>'required|max:50|min:3|regex:/^[\pL\s\-]+$/u',
-            'permissions'=>'required',
         ];
     }
     public function messages()
