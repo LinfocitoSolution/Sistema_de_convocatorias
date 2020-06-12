@@ -57,7 +57,8 @@
 					  <!--Inicio cuerpo de formulario-->  
 						  <div class="card-body bg-light">
 					
-							<form name="fregistro" class="form-group" method="POST" action={{url("/register")}} onsubmit='return validar()' id="formReg"  >                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          	 
+							{{-- <form name="fregistro" class="form-group" method="POST" action={{url("/register")}} onsubmit='return validar()' id="formReg"  >       --}}
+								<form name="fregistro" class="form-group" method="POST" action={{url("/register")}}  id="formReg"  >                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       	 
 								<input type="hidden" name="_token" value="{{ csrf_token() }}">
 								<!--campo nombre-->
 								<label for="validationTooltip01"class="text-black">Nombre completo</label>
