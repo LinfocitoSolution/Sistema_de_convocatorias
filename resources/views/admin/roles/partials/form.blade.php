@@ -25,7 +25,7 @@
            </span>
            <select class="form-control js-example-basic-multiple {{ $errors->has('roles') ? 'is-invalid' : '' }}" name="permissions[]" multiple="multiple">
                      @foreach($permissions as $item)
-                             <option value="{{ $item->name }}">{{ $item->name }}</option>
+                             <option class="text-dark" value="{{ $item->name }}">{{ $item->name }}</option>
                      @endforeach
            </select>
            <div class="invalid-feedback {{ $errors->has('permissions')? 'd-block' : '' }}">
