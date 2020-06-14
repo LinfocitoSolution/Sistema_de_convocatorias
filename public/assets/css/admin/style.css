@@ -18,8 +18,12 @@
   }
   .card-header{
     background:  #34515E;
-    color:white;
+    color: white;
   }
   .card-body{
     background-color: #DDDDDD;
+  }
+  .select2-search input { background-color:  #DDDDDD; }
+  .card-footer{
+    background:  #34515E;
   }
