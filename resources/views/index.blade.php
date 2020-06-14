@@ -61,11 +61,13 @@
         </div>  
       </li>
     </ul>
+    <!----si es invitado--->
     @if (Auth::guest())
       <form class="form-inline float-xs-right">
          <a class="btn btn-outline-dark  text-white m-2 my-sm-2" data-toggle="tooltip" data-placement="top" title="Si ya te registraste pudes iniciar sesi&oacute;n"type="submit" href="{{url('login')}}">Iniciar Sesión</a>
          <a class="btn btn-outline-dark  text-white m-2 my-sm-2" data-toggle="tooltip" data-placement="top" title="Reg&iacute;strate si no estas logueado" type="submit" href="{{url('register')}}">Regístrate</a>
         </form>
+     <!---sino si es postulante-->   
     @elseif(Auth::user()->roles->first()->name=='Postulante')
     <form class="form-inline float-xs-right">
       <a class="btn btn-outline-primary  text-white m-2 my-sm-2" type="submit" href="{{route('postulacion.form')}}">postularse</a>

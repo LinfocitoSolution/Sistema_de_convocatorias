@@ -7,7 +7,7 @@
                 <button class="btn btn-dark" type="button">N</button>
             </span>
             <input
-                    class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}"
+                    class="form-control text-capitalize {{ $errors->has('name') ? 'is-invalid' : '' }}"
                     name="name"
                     placeholder="Ingrese Nombre" type="text"  value="{{ old('name', isset($user) ? $user->name : '') }}">
         </div>
@@ -25,7 +25,7 @@
                 <button class="btn btn-dark" type="button">A</button>
             </span>
             <input
-                    class="form-control {{ $errors->has('lastname') ? 'is-invalid' : '' }}"
+                    class="form-control text-capitalize {{ $errors->has('lastname') ? 'is-invalid' : '' }}"
                     name="lastname"
                     placeholder="Ingrese apellido " type="text" value="{{ old('lastname', isset($user) ? $user->lastname : '') }}">
         </div>
