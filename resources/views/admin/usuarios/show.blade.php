@@ -24,17 +24,18 @@
                     <th>Nombre</th><td>{{$user->name}}</h1></td>
                 </tr>
                 <!-------{ trans('users.name') }}-->
-                <th>Apellido</th><tr><th> {{ $user->lastname}}</th>
+               <th>Apellido</th><td> {{ $user->lastname}}
+                <tr>
                     <!----{ $user->name }}--->
-                    <td>{{ old('username', isset($user) ? $user->username : '') }}</td></tr>
+                   <th>Nombre de usuario</th><td>{{$user->username}}</td>
+                </tr>
                  <!-----{ trans('users.email') }}---->   
-                <tr><th>{{ old('email', isset($user) ? $user->email : '') }}  </th>
-                    <!---{ $user->email }} --->
-                    <td>carlos@gmail.com</td></tr>
-                     <!-----{ trans('users.password') }} --->
-                <tr><th> </th>
+                <th>Email</th><th>{{$user->email}}</th>
+                <tr>
+                    <th>Contraseña</th><th></th>
+                
                     <!---{ $user->password }} -->
-                    <td> carlitos123</td></tr>
+                    
                </tbody>
             </table>
             </div>
