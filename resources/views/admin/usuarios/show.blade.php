@@ -24,7 +24,7 @@
                     <th>Nombre</th><td>{{$user->name}}</h1></td>
                 </tr>
                 <!-------{ trans('users.name') }}-->
-                <th>Apellido</th><tr><th> {{ old('lastname', isset($user) ? $user->lastname : '') }}</th>
+                <th>Apellido</th><tr><th> {{ $user->lastname}}</th>
                     <!----{ $user->name }}--->
                     <td>{{ old('username', isset($user) ? $user->username : '') }}</td></tr>
                  <!-----{ trans('users.email') }}---->   
