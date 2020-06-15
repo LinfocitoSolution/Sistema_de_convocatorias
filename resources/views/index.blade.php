@@ -82,7 +82,7 @@
               <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown">{{Auth::user()->roles->first()->name}}</button>
                 <div class="dropdown-menu">
                   <div class="dropdown-divider"></div>
-                    <a class="dropdown-item bg-dark" tabindex="0" data-toggle="tooltip" data-placement="left" data-trigger="hover" title="Este boton no esta disponible" href="#">
+                    <a class="dropdown-item bg-dark" tabindex="0" data-toggle="tooltip" data-placement="left" data-trigger="hover" title="informacion personal de postulante" href="{{ route('usuarios.show',ucfirst(Auth::user()->id))}}">
                       <i class="fas fa-user mr-2"></i>Perfil
                     </a>
                      <div class="dropdown-divider"></div>
