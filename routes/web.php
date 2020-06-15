@@ -39,7 +39,7 @@ Route::post('usuarios_guardar','UserController@store')->name('usuarios.guardar')
 Route::get('usuarios_editar_{user}','UserController@edit')->name('usuarios.edit');
 Route::put('usuarios_update_{user}','UserController@update')->name('usuarios.update');
 Route::delete('usuarios_delete_{user}','UserController@destroy')->name('usuarios.destroy');
-Route::get('usuarios_show','UserController@show')->name('usuarios.show');
+Route::get('usuarios_show_{user}','UserController@show')->name('usuarios.show');
 
 //##################### CONVOCATORIA ##########################
 Route::resource('call', 'CallController');

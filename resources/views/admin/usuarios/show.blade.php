@@ -21,7 +21,7 @@
                 <table class="table table-bordered table-striped table-hover">
                 <tbody>
                 <tr><!---------------{ $user->id }}--->
-                    <th>Nombre</th><td>{{ old('name', isset($user) ? $user->name : '') }}</h1></td>
+                    <th>Nombre</th><td>{{$user->name}}</h1></td>
                 </tr>
                 <!-------{ trans('users.name') }}-->
                 <th>Apellido</th><tr><th> {{ old('lastname', isset($user) ? $user->lastname : '') }}</th>
