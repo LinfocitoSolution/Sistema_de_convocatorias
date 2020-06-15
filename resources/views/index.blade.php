@@ -14,6 +14,7 @@
    <!-- Styles -->
    <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
    <link href="{{asset('assets/css/home/clases.css')}}" rel="stylesheet">
+   
    @if(session()->has('message'))
     <div class="alert alert-success mb-0">
         {{ session()->get('message') }}
@@ -67,18 +68,31 @@
          <a class="btn btn-outline-dark  text-white m-2 my-sm-2" data-toggle="tooltip" data-placement="top" title="Si ya te registraste pudes iniciar sesi&oacute;n"type="submit" href="{{url('login')}}">Iniciar Sesión</a>
          <a class="btn btn-outline-dark  text-white m-2 my-sm-2" data-toggle="tooltip" data-placement="top" title="Reg&iacute;strate si no estas logueado" type="submit" href="{{url('register')}}">Regístrate</a>
         </form>
-     <!---sino si es postulante-->   
-    @elseif(Auth::user()->roles->first()->name=='Postulante')
-    <form class="form-inline float-xs-right">
-      <a class="btn btn-outline-primary  text-white m-2 my-sm-2" type="submit" href="{{route('postulacion.form')}}">postularse</a>
-      <a class="btn btn-outline-primary text-white m-2 my-sm-2" type="submit" href="{{url('logout')}}">Cerrar Sesión</a>
-      </form>
-    @else 
-    <form class="form-inline float-xs-right">
-    <a class="btn btn-outline-primary  text-white m-2 my-sm-2" type="submit" href="{{url('administrador')}}">Administrar</a>
-    <a class="btn btn-outline-primary text-white m-2 my-sm-2" type="submit" href="{{url('logout')}}">Cerrar Sesión</a>
-    </form>
-    @endif
+        @else 
+      <a class="btn btn-outline-primary  text-white m-2 my-sm-2" type="submit" href="#">{{Auth::user()->name  }} {{Auth::user()->lastname}}</a>
+        
+          
+          @if(Auth::user()->roles->first()->name=='Postulante')
+          <a class="btn btn-outline-primary  text-white m-2 my-sm-2" type="submit" href="{{route('postulacion.form')}}">Formulario de Postulacion</a>
+          @else
+          <a class="btn btn-outline-primary  text-white m-2 my-sm-2" type="submit" href="{{url('administrador')}}">Panel de Trabajo</a>
+          @endif
+          <form class="form-inline float-xs-right">
+            <div class="btn-group" data-toggle="tooltip" data-placement="left" data-trigger="hover" title="Presiona y selecciona si deseas cerrar sesion">
+              <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown">{{Auth::user()->roles->first()->name}}</button>
+                <div class="dropdown-menu">
+                  <div class="dropdown-divider"></div>
+                    <a class="dropdown-item bg-dark" tabindex="0" data-toggle="tooltip" data-placement="left" data-trigger="hover" title="Este boton no esta disponible" href="#">
+                      <i class="fas fa-user mr-2"></i>Perfil
+                    </a>
+                     <div class="dropdown-divider"></div>
+                     <a class="dropdown-item bg-dark" href="{{url('logout')}}">
+                      <i class="fas fa-times-circle mr-2"></i>Cerrar Sesion
+                    </a>
+                 
+        </form>
+        @endif
+     
 
   </div>
 </nav>
@@ -214,6 +228,14 @@
       $(function () {
       $('[data-toggle="tooltip"]').tooltip()
        })
-    </script>  
+    </script>  {{--scripts copiados de admin/layouts/scripts--}}
+    <script src="{{ URL::asset('https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js')}}"></script>
+    <!-- Bootstrap 4 -->
+    <script src="{{ URL::asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <!-- AdminLTE App -->
+    <script src="{{ URL::asset('dist/js/adminlte.min.js')}}"></script>
+    <!-- Select2 -->
+    <link href="{{URL::asset('https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css')}}" rel="stylesheet" />
+    <script src="{{URL::asset('https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js')}}"></script>
 </body>
 </html>
