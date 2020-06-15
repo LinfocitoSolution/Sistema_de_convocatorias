@@ -121,4 +121,5 @@ class UserController extends Controller
 
         return redirect(route('usuarios.index'))->with([ 'message' => 'Usuario eliminado exitosamente!', 'alert-type' => 'info' ]);
     }
+    
 }
