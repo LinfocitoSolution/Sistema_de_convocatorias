@@ -11,6 +11,7 @@ use App\Convocatoria;
 use Illuminate\Support\Facades\Hash;
 use Session;
 use Validator;
+use App\Http\Requests\UsuarioRequest;
 
 class PostulantController extends Controller
 {
@@ -31,5 +32,15 @@ class PostulantController extends Controller
         
 
         return view('postulante.edit',compact('user'));
+    }
+    public function update(Request $request,User $user)
+    {
+        $user->update($request->all());
+        $user->password = (bcrypt($user->password));
+        $user->save();
+
+        
+
+        return redirect(route('home'))->with([ 'message' => 'Usuario actualizado exitosamente!', 'alert-type' => 'success' ]);
     }
 }

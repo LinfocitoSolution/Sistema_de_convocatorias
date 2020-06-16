@@ -18,7 +18,7 @@
                   <!--cuerpo del perfil-->				
                    <div class="card-body">
                     
-                     <form class="form-vertical" action="{ route('usuarios.update', $user->id) }}" method="POST" autocomplete="off">
+                    <form class="form-vertical" action="{{ route('postulante.update', $user->id) }}" method="POST" autocomplete="off">
                         {{ method_field('PUT')}}
                         {{ csrf_field() }}
                         <div class="form-row">
@@ -134,16 +134,19 @@
                           <!----botones--->
                                
                        
-                    </form> 
+                
+                        
+                    
                  </div>
                   <!----fin del cuerpo perfil--->
                    <!----INICIO DE PIE-->   
                     <div class="card-footer">
                         <div class="form-actions text-center">
                             <button class="btn btn-outline-dark" type="submit">Actualizar</button>
-                            <a class="btn btn-outline-dark" href="{{route('usuarios.index')}}">Cancelar</a>
+                            <a class="btn btn-outline-dark" href="{{ route('postulante.show',ucfirst(Auth::user()->id))}}">Cancelar</a>
                            </div>
                     </div>
+                </form> 
                   <!---FIN DE PIE-->
             </div>  
           </div>
