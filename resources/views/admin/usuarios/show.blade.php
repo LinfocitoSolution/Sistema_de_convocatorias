@@ -12,7 +12,7 @@
         <!--CABEZA-->
            <div class="card-header">
      <!-----User { $user->id }}----->
-                <h1>carlos</h1>
+                <h1>User</h1> 
           </div> 
 
         <!---FIN CABEZA-->
@@ -21,20 +21,21 @@
                 <table class="table table-bordered table-striped table-hover">
                 <tbody>
                 <tr><!---------------{ $user->id }}--->
-                    <th>ID.</th><td>carlos</td>
+                    <th>Nombre</th><td>{{$user->name}}</h1></td>
                 </tr>
                 <!-------{ trans('users.name') }}-->
-                <tr><th> nombre</th>
+               <th>Apellido</th><td> {{ $user->lastname}}
+                <tr>
                     <!----{ $user->name }}--->
-                    <td> carlos </td></tr>
+                   <th>Nombre de usuario</th><td>{{$user->username}}</td>
+                </tr>
                  <!-----{ trans('users.email') }}---->   
-                <tr><th>E-mail  </th>
-                    <!---{ $user->email }} --->
-                    <td>carlos@gmail.com</td></tr>
-                     <!-----{ trans('users.password') }} --->
-                <tr><th>contraseña </th>
+                <th>Email</th><th>{{$user->email}}</th>
+                <tr>
+                    <th>Contraseña</th><th></th>
+                
                     <!---{ $user->password }} -->
-                    <td> carlitos123</td></tr>
+                    
                </tbody>
             </table>
             </div>

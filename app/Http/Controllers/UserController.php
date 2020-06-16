@@ -58,9 +58,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show(User $user)
     {
-        return view('admin.usuarios.show');
+        return view('admin.usuarios.show',compact('user'));
     }
     public function verificarEmail($email)
     {
@@ -121,4 +121,5 @@ class UserController extends Controller
 
         return redirect(route('usuarios.index'))->with([ 'message' => 'Usuario eliminado exitosamente!', 'alert-type' => 'info' ]);
     }
+    
 }

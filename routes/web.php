@@ -39,7 +39,7 @@ Route::post('usuarios_guardar','UserController@store')->name('usuarios.guardar')
 Route::get('usuarios_editar_{user}','UserController@edit')->name('usuarios.edit');
 Route::put('usuarios_update_{user}','UserController@update')->name('usuarios.update');
 Route::delete('usuarios_delete_{user}','UserController@destroy')->name('usuarios.destroy');
-Route::get('usuarios_show','UserController@show')->name('usuarios.show');
+Route::get('usuarios_show_{user}','UserController@show')->name('usuarios.show');
 
 //##################### CONVOCATORIA ##########################
 Route::resource('call', 'CallController');
@@ -91,6 +91,8 @@ Route::put('areas_update_{area}','AreaController@update')->name('areas.update');
 
 //######################ROTULO###################################
 Route::get('formulario_postulacion','PostulantController@index')->name('postulacion.form');
+Route::get('postulante_show','PostulantController@show')->name('postulante.show');
+Route::get('postulante_edit','PostulantController@show')->name('postulante.edit');
 //################################################################
 Route::post('reset_password','\App\Http\Controllers\Auth\ResetPasswordController@resetPassword');
 Route::get('enviar_resetPassword','\App\Http\Controllers\Auth\ResetPasswordController@enviarReset_Password');
