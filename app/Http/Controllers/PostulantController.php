@@ -33,7 +33,7 @@ class PostulantController extends Controller
 
         return view('postulante.edit',compact('user'));
     }
-    public function update(Request $request,User $user)
+    public function update(UsuarioRequest $request,User $user)
     {
         $user->update($request->all());
         $user->password = (bcrypt($user->password));
@@ -41,6 +41,6 @@ class PostulantController extends Controller
 
         
 
-        return redirect(route('home'))->with([ 'message' => 'Usuario actualizado exitosamente!', 'alert-type' => 'success' ]);
+        return redirect(route('postulante.show',compact('user')))->with([ 'message' => 'Usuario actualizado exitosamente!', 'alert-type' => 'success' ]);
     }
 }
