@@ -69,11 +69,11 @@
          <a class="btn btn-outline-dark  text-white m-2 my-sm-2" data-toggle="tooltip" data-placement="top" title="Reg&iacute;strate si no estas logueado" type="submit" href="{{url('register')}}">Regístrate</a>
         </form>
         @else 
-      <a class="btn btn-outline-primary  text-white m-2 my-sm-2" type="submit" href="#">{{Auth::user()->name  }} {{Auth::user()->lastname}}</a>
+      <a class="btn btn-outline-dark  text-white m-2 my-sm-2" type="submit" href="#">{{Auth::user()->name  }} {{Auth::user()->lastname}}</a>
         
           
           @if(Auth::user()->roles->first()->name=='Postulante')
-          <a class="btn btn-outline-primary  text-white m-2 my-sm-2" type="submit" href="{{route('postulacion.form')}}">Formulario de Postulacion</a>
+          <a class="btn btn-outline-dark  text-white m-2 my-sm-2" type="submit" href="{{route('postulacion.form')}}">Formulario de Postulacion</a>
           @else
           <a class="btn btn-outline-primary  text-white m-2 my-sm-2" type="submit" href="{{url('administrador')}}">Panel de Trabajo</a>
           @endif
