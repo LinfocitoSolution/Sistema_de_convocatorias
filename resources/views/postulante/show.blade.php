@@ -39,8 +39,8 @@
                 <tfoot>
                  <tr>
                      <td colspan="2">
-                        <button class="btn btn-dark btn-xm" href="{{ route('postulante.edit', $user->id) }}"  data-toggle="tooltip" data-placement="left" title="Presione el bot&oacute;n para EDITAR"><span class="fa fa-edit" aria-hidden="true"></span></button>
-                     </td>
+                        <a class="btn btn-outline-dark  text-white m-2 my-sm-2"  href="{{ route('postulante.edit', $user->id) }}">Editar</a>
+                    </td>
                   </tr>
                  </tfoot>
              </div>

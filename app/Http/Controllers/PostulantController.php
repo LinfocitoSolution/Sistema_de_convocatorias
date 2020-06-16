@@ -28,8 +28,8 @@ class PostulantController extends Controller
     
     public function edit(User $user)
     {
-        $roles = DB::table('roles')->get();
+        
 
-        return view('postulante.edit',compact('roles','user'));
+        return view('postulante.edit',compact('user'));
     }
 }
