@@ -105,7 +105,7 @@
                                      <input
                                              class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}"
                                              name="password"
-                                             placeholder="Ingrese una contrasenia" type="text" value="">
+                                             placeholder="Ingrese una contraseña" type="text" value="">
                                  </div>
                          
                                  <div class="invalid-feedback {{ $errors->has('password')? 'd-block' : '' }}">
@@ -123,7 +123,7 @@
                                      <input
                                              class="form-control {{ $errors->has('password_confirm') ? 'is-invalid' : '' }}"
                                              name="password_confirm"
-                                             placeholder="Confirme su contrasenia" type="text" value="">
+                                             placeholder="Confirme su contraseña" type="text" value="">
                                  </div>
                          
                                  <div class="invalid-feedback {{ $errors->has('password_confirm')? 'd-block' : '' }}">
@@ -142,8 +142,9 @@
                    <!----INICIO DE PIE-->   
                     <div class="card-footer">
                         <div class="form-actions text-center">
-                            <button class="btn btn-outline-dark" type="submit">Actualizar</button>
-                            <a class="btn btn-outline-dark" href="{{ route('postulante.show',ucfirst(Auth::user()->id))}}">Cancelar</a>
+                            <button class="btn btn-outline-dark" type="submit"data-toggle="tooltip" data-placement="left" title="Presione el bot&oacute;n para guardar sus cambios">Actualizar</button>
+                            <a class="btn btn-outline-dark" data-toggle="tooltip" data-placement="right" title="Presione el bot&oacute;n para cancelar" href="{{ route('postulante.show',ucfirst(Auth::user()->id))}}">Cancelar</a>
+                           
                            </div>
                     </div>
                 </form> 
