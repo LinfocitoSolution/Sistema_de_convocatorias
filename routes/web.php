@@ -95,3 +95,9 @@ Route::get('formulario_postulacion','PostulantController@index')->name('postulac
 Route::post('reset_password','\App\Http\Controllers\Auth\ResetPasswordController@resetPassword');
 Route::get('enviar_resetPassword','\App\Http\Controllers\Auth\ResetPasswordController@enviarReset_Password');
 Route::post('recuperar','\App\Http\Controllers\Auth\ResetPasswordController@recuperar');
+
+//###################### Email ###################################
+Route::get('mail/send', 'MailController@send');
+Route::get('vista', function () {
+    return view('auth.mails.email');
+});
