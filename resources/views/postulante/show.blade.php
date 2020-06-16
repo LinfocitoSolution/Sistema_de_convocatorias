@@ -36,13 +36,9 @@
                 <!----fin del cuerpo perfil--->
                  <!----INICIO DE PIE-->   
             <div class="card-footer">
-                <tfoot>
-                 <tr>
-                     <td colspan="2">
-                        <a class="btn btn-outline-dark  text-white m-2 my-sm-2"  href="{{ route('postulante.edit', $user->id) }}">Editar</a>
-                    </td>
-                  </tr>
-                 </tfoot>
+                  <div class="text-center">
+                        <a class="btn btn-outline-dark  text-white m-2 my-sm-2"  href="{{ route('postulante.edit', $user->id) }}"><i class="fa fa-edit mr-2"></i>EDITAR</a>
+                  </div>
              </div>
              <!---FIN DE PIE-->
 @endsection		

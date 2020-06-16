@@ -9,16 +9,16 @@
         <div class="row">
             <div class="col-lg-12">
                 
-            <div class="card">
-                <!---cabeza del perfil--->
-                <div class="card-header text-white">
-                    <h3>Editar Perfil</h3>
-                </div>
+              <div class="card mt-5">
+                  <!---cabeza del perfil--->
+                   <div class="card-header text-white">
+                     <h3>Editar Perfil</h3>
+                   </div>
         
-                <!--cuerpo del perfil-->				
-                <div class="card-body">
+                  <!--cuerpo del perfil-->				
+                   <div class="card-body">
                     
-                    <form class="form-vertical" action="{ route('usuarios.update', $user->id) }}" method="POST" autocomplete="off">
+                     <form class="form-vertical" action="{ route('usuarios.update', $user->id) }}" method="POST" autocomplete="off">
                         {{ method_field('PUT')}}
                         {{ csrf_field() }}
                         <div class="form-row">
@@ -130,17 +130,19 @@
                                      {{ $errors->has('password_confirm')? $errors->first('password_confirm') : 'Este campo es requerido'  }}
                                  </div>
                              </div>
-                
-                         <div class="form-actions text-center">
-                            <button class="btn btn-outline-dark" type="submit">Actualizar</button>
-                            <a class="btn btn-outline-dark" href="{{route('usuarios.index')}}">Cancelar</a>
-                        </div>
+                        </div> 
+                          <!----botones--->
+                               
+                       
                     </form> 
                  </div>
                   <!----fin del cuerpo perfil--->
                    <!----INICIO DE PIE-->   
                     <div class="card-footer">
-                
+                        <div class="form-actions text-center">
+                            <button class="btn btn-outline-dark" type="submit">Actualizar</button>
+                            <a class="btn btn-outline-dark" href="{{route('usuarios.index')}}">Cancelar</a>
+                           </div>
                     </div>
                   <!---FIN DE PIE-->
             </div>  
