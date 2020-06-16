@@ -66,7 +66,7 @@
             <!---pies-->
              <div class="card-footer">
                   <div class="form-actions text-center">
-                       <button class="btn btn-outline-dark" onclick="save();">Generar rótulo</button>
+                       <button class="btn btn-outline-dark" data-toggle="tooltip" data-placement="right" title="Presione el bot&oacute;n para generar el rótulo"onclick="save();">Generar rótulo</button>
                   </div>
              </div>
         
