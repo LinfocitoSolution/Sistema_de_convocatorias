@@ -69,24 +69,24 @@
          <a class="btn btn-outline-dark  text-white m-2 my-sm-2" data-toggle="tooltip" data-placement="top" title="Reg&iacute;strate si no estas logueado" type="submit" href="{{url('register')}}">Regístrate</a>
         </form>
         @else 
-      <a class="btn btn-outline-dark  text-white m-2 my-sm-2" type="submit" href="#">{{Auth::user()->name  }} {{Auth::user()->lastname}}</a>
+      <a class="text-white m-2 my-sm-2">{{Auth::user()->name  }} {{Auth::user()->lastname}}</a>
         
           
           @if(Auth::user()->roles->first()->name=='Postulante')
           <a class="btn btn-outline-dark  text-white m-2 my-sm-2" type="submit" href="{{route('postulacion.form')}}">Formulario de Postulacion</a>
           @else
-          <a class="btn btn-outline-primary  text-white m-2 my-sm-2" type="submit" href="{{url('administrador')}}">Panel de Trabajo</a>
+          <a class="btn btn-outline-dark  text-white m-2 my-sm-2" type="submit" href="{{url('administrador')}}">Panel de Trabajo</a>
           @endif
           <form class="form-inline float-xs-right">
             <div class="btn-group" data-toggle="tooltip" data-placement="left" data-trigger="hover" title="Presiona y selecciona si deseas cerrar sesion">
               <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown">{{Auth::user()->roles->first()->name}}</button>
                 <div class="dropdown-menu">
                   <div class="dropdown-divider"></div>
-                    <a class="dropdown-item bg-dark" tabindex="0" data-toggle="tooltip" data-placement="left" data-trigger="hover" title="informacion personal de postulante" href="{{ route('usuarios.show',ucfirst(Auth::user()->id))}}">
+                    <a class="dropdown-item bg-dark text-white" tabindex="0" data-toggle="tooltip" data-placement="left" data-trigger="hover" title="informacion personal de postulante" href="{{ route('postulante.show',ucfirst(Auth::user()->id))}}">
                       <i class="fas fa-user mr-2"></i>Perfil
                     </a>
                      <div class="dropdown-divider"></div>
-                     <a class="dropdown-item bg-dark" href="{{url('logout')}}">
+                     <a class="dropdown-item bg-dark text-white" href="{{url('logout')}}">
                       <i class="fas fa-times-circle mr-2"></i>Cerrar Sesion
                     </a>
                  
