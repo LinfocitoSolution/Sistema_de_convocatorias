@@ -91,7 +91,11 @@ Route::put('areas_update_{area}','AreaController@update')->name('areas.update');
 
 //######################ROTULO###################################
 Route::get('formulario_postulacion','PostulantController@index')->name('postulacion.form');
+Route::get('postulante_show','PostulantController@show')->name('postulante.show');
+Route::get('postulante_edit','PostulantController@show')->name('postulante.edit');
 //################################################################
 Route::post('reset_password','\App\Http\Controllers\Auth\ResetPasswordController@resetPassword');
 Route::get('enviar_resetPassword','\App\Http\Controllers\Auth\ResetPasswordController@enviarReset_Password');
 Route::post('recuperar','\App\Http\Controllers\Auth\ResetPasswordController@recuperar');
+
+

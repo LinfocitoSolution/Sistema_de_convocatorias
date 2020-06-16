@@ -12,7 +12,7 @@
         <!--CABEZA-->
            <div class="card-header">
      <!-----User { $user->id }}----->
-                <h1>User 
+                <h1>User</h1> 
           </div> 
 
         <!---FIN CABEZA-->
