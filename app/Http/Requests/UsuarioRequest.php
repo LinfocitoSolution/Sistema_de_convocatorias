@@ -32,7 +32,7 @@ class UsuarioRequest extends FormRequest
             'lastname'=>'required|max:50|regex:/^[\pL\s\-]+$/u',
             'email'=>'required|email|unique:users',
             'username'=>'required|max:20|alpha_num|regex:/^[a-zA-Z0-9]+$/S|unique:users',
-            'password'=>'required|max:25|min:8|regex:/^(?=.*[A-Za-z\d$@$!%*?&])(?=.*\d)[A-Za-z\d$@$!%*?&]{8,25}$/S',
+            'password'=>'required|max:25|min:8|regex:/^(?=.*[A-Za-z\d$@$#!%*?&])(?=.*\d)[A-Za-z\d$@$#!%*?&]{8,25}$/S',
             'password_confirm'=>'required|same:password',
                 ];
             }
@@ -43,7 +43,7 @@ class UsuarioRequest extends FormRequest
             'lastname'=>'required|max:50|regex:/^[\pL\s\-]+$/u',
             'email'=>'required|email|unique:users,email,' . $this->user->id . ',id',
             'username'=>'required|max:20|alpha_num|regex:/^[a-zA-Z0-9]+$/S|unique:users,username,'. $this->user->id . ',id',
-            'password'=>'required|max:25|min:8|regex:/^(?=.*[A-Za-z\d$@$!%*?&])(?=.*\d)[A-Za-z\d$@$!%*?&]{8,25}$/S',
+            'password'=>'required|max:25|min:8|regex:/^(?=.*[A-Za-z\d$@$#!%*?&])(?=.*\d)[A-Za-z\d$@$#!%*?&]{8,25}$/S',
             'password_confirm'=>'required|same:password',
                 ];
             }
