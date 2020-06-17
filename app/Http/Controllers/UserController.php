@@ -3,10 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Hash;
 use App\User;
 use Session;
 use App\Role;
 use DB;
+use Validator;
 use App\Http\Requests\UsuarioRequest;
 
 class UserController extends Controller
@@ -20,7 +24,6 @@ class UserController extends Controller
     {
         $users = User::all();
         return view('admin.usuarios.index',compact('users'));
-        
     }
 
     /**
@@ -30,7 +33,6 @@ class UserController extends Controller
      */
     public function create()
     {
-        
         $roles = DB::table('roles')->get();
         return view('admin.usuarios.create',compact('roles'));        
     }

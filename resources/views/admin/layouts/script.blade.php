@@ -1,5 +1,4 @@
   <!-- jQuery -->
-
 <script src="{{ URL::asset('https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js')}}"></script>
 <!-- Bootstrap 4 -->
 <script src="{{ URL::asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
@@ -37,5 +36,22 @@
    })
 </script> 
 
+<script>
+  function mostrarPassword(){
+      var cambio = document.getElementById("password");
+      if(cambio.type == "password"){
+        cambio.type = "text";
+        $('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
+      }else{
+        cambio.type = "password";
+        $('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
+      }
+    } 
+    $(document).ready(function () {
+    $('#ShowPassword').click(function () {
+      $('#Password').attr('type', $(this).is(':checked') ? 'text' : 'password');
+    });
+  });
+</script>
   
 
