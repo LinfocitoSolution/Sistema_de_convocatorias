@@ -47,16 +47,21 @@
                     <td>
                         {{-- <!--la ruta se llamara admin.roles.edit, rol dependienfo del id  { route('roles.edit', $rol->id) }}">--> --}}
                         {{-- <a class="btn btn-info btn-sm mx-1 my-1" href="{{ route('roles.edit', $rol->id) }}"> --}}
-                        <a class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title="presiona para editar un rol" href="rol/{{$rol->id}}/edit">
-                             <i class="fa fa-pencil-alt"></i>
-                        </a>                         
+                                                
                        
                       <form action="{{route('roles.destroy',$rol->id)}}" method="POST" style="display:inline-block;">
                         {{ csrf_field() }}                                                              
-                        {{ method_field('DELETE') }}                            
-                        <button class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title="presiona para eliminar un rol" type="submit" margin-left="50" onclick="return confirm('Está seguro de eliminar este rol?')">
-                            <i class="fa fa-trash-alt"></i>                                
-                        </button>                            
+                        {{ method_field('DELETE') }}     
+                        
+                        @if ($rol->id != 1)
+                          <a class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title="Presiona para editar un rol" href="rol/{{$rol->id}}/edit">
+                            <i class="fa fa-pencil-alt"></i>
+                          </a> 
+                          <button class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title="Presiona para eliminar un rol" type="submit" margin-left="50" onclick="return confirm('Está seguro de eliminar este rol?')">
+                              <i class="fa fa-trash-alt"></i>                                
+                          </button>  
+                        @endif
+
                       </form> 
                                            
                     </td>

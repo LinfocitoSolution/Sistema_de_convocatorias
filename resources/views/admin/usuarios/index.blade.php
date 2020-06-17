@@ -39,34 +39,40 @@
                               @endforeach
                           </td>
                           <td>
-                            @foreach ($user->roles as $item)
-                              @if ($item->name == 'Postulante')
-                                <a class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="No disponible por el momento" href="{{ route('usuarios.show',$user->id)}}">
-                                  <i class="fa fa-eye"></i>
-                                </a>
-                              @else
-                                <form action="{{ route('usuarios.destroy', $user->id) }}"
-                                    style="display:inline-block;"
-                                    method="POST">
+                            <form action="{{ route('usuarios.destroy', $user->id) }}"
+                              style="display:inline-block;"
+                              method="POST">
 
-                                  {{ csrf_field() }}
-                                  {{ method_field('DELETE') }}
-                                {{-- @if ($item->name == 'Admin')
-                                    IMPLEMENTAR CONDICIÓN PARA CUANDO SEA EL ADMIN NO SE LO PUEDA ELIMINAR (QUITAR BOTÓN)
-                                @endif --}}
-                                  <button class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="presiona para eliminar usuario" type="submit" margin-left="50" onclick="return confirm('Está seguro de eliminar el usuario?')">
+                            {{ csrf_field() }}
+                            {{ method_field('DELETE') }}
+                              @foreach ($user->roles as $item)
+                                @if ($item->name == 'Postulante')
+                                  <button class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="Presiona para eliminar usuario" type="submit" margin-left="50" onclick="return confirm('Está seguro de eliminar el usuario?')">
                                     <i class="fa fa-trash-alt"></i>
                                   </button>
 
-                                  <a class="btn btn-dark btn-sm ml-2" data-toggle="tooltip" data-trigger="hover" title="No disponible por el momento" href="{{ route('usuarios.show',$user->id)}}">
+                                  <a class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="No disponible por el momento" href="{{ route('usuarios.show',$user->id)}}">
                                     <i class="fa fa-eye"></i>
                                   </a>
-                                  <a class="btn btn-dark btn-sm mr-2" data-toggle="tooltip" data-trigger="hover" title="presiona para editar usuario" href="{{ route('usuarios.edit', $user->id) }}">
-                                    <i class="fa fa-edit"></i>
-                                  </a>
-                                </form>
-                              @endif
-                            @endforeach
+                                @else
+                                  
+                                    @if ($item->name != 'Admin')                                
+                                        <button class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="Presiona para eliminar usuario" type="submit" margin-left="50" onclick="return confirm('Está seguro de eliminar el usuario?')">
+                                          <i class="fa fa-trash-alt"></i>
+                                        </button>
+
+                                        <a class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="No disponible por el momento" href="{{ route('usuarios.show',$user->id)}}">
+                                          <i class="fa fa-eye"></i>
+                                        </a>
+
+                                        <a class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="Presiona para editar usuario" href="{{ route('usuarios.edit', $user->id) }}">
+                                          <i class="fa fa-edit"></i>
+                                        </a>
+                                    @endif
+                                  
+                                @endif
+                              @endforeach
+                          </form>
                         </td>
                       </tr> 
                 @endif
