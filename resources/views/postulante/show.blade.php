@@ -26,8 +26,6 @@
                             <th>Nombre de usuario</th><td>{{$user->username}}</td>
                         </tr> 
                             <th>Email</th><th>{{$user->email}}</th>
-                        <tr>
-                            <th>Contraseña</th><th></th>
                         
                             <!---{ $user->password }} -->
                         </tbody>
@@ -37,9 +35,13 @@
                  <!----INICIO DE PIE-->   
             <div class="card-footer">
                   <div class="text-center">
-                        <a class="btn btn-outline-dark  text-white m-2 my-sm-2"  href="{{ route('postulante.edit', $user->id) }}"><i class="fa fa-edit mr-2"></i>EDITAR</a>
+                        <a class="btn btn-outline-dark  text-white m-2 my-sm-2"  href="{{ route('postulante.edit', $user->id) }}"><i class="fa fa-edit mr-2"></i>Editar</a>
                   </div>
-             </div>
+                  <div class="text-center">
+                    <a class="btn btn-outline-dark  text-white m-2 my-sm-2"  href="{{ route('postulante.edit', $user->id) }}"><i class="fa fa-edit mr-2"></i>Cambiar Contraseña</a>
+                  </div>
+           
+            </div>
              <!---FIN DE PIE-->
 @endsection		
 	

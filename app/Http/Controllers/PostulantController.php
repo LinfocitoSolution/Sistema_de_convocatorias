@@ -11,7 +11,7 @@ use App\Convocatoria;
 use Illuminate\Support\Facades\Hash;
 use Session;
 use Validator;
-use App\Http\Requests\UsuarioRequest;
+use App\Http\Requests\PostulanteRequest;
 
 class PostulantController extends Controller
 {
@@ -33,10 +33,10 @@ class PostulantController extends Controller
 
         return view('postulante.edit',compact('user'));
     }
-    public function update(UsuarioRequest $request,User $user)
+    public function update(PostulanteRequest $request,User $user)
     {
         $user->update($request->all());
-        $user->password = (bcrypt($user->password));
+        
         $user->save();
 
         

@@ -93,44 +93,7 @@
                              </div>
                              
                             
-                         <!-----contraseña--->
-                             {{-- @if(!isset($user)) --}}
-                             <div class="col-md-6 mb-3">
-                                 <label class="col-form-label" for="password">Password</label>
-                                 <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="-M&aacute;ximo 25 caracteres <br>-M&iacute;nimo 8 caracteres <br>-No permite caracteres especiales <br>-Debe ingresar al menos una letra y un n&uacute;mero<br>-No permite espacios">
-                                     <span class="input-group-append">
-                                         <button class="btn btn-dark" type="button">P</button>
-                                     </span>
                          
-                                     <input
-                                             class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}"
-                                             name="password"
-                                             placeholder="Ingrese una contraseña" type="text" value="">
-                                 </div>
-                         
-                                 <div class="invalid-feedback {{ $errors->has('password')? 'd-block' : '' }}">
-                                     {{ $errors->has('password')? $errors->first('password') : 'El campo de Password es requerido'  }}
-                                 </div>
-                             </div>
-                          <!----contraseña confirmada--->
-                             <div class="col-md-6 mb-3">
-                                 <label class="col-form-label" for="confirm_password">Confirm Password</label>
-                                 <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="confirme la contraseña creada anteriormente">
-                                     <span class="input-group-append">
-                                         <button class="btn btn-dark" type="button">CP</button>
-                                     </span>
-                         
-                                     <input
-                                             class="form-control {{ $errors->has('password_confirm') ? 'is-invalid' : '' }}"
-                                             name="password_confirm"
-                                             placeholder="Confirme su contraseña" type="text" value="">
-                                 </div>
-                         
-                                 <div class="invalid-feedback {{ $errors->has('password_confirm')? 'd-block' : '' }}">
-                                     {{ $errors->has('password_confirm')? $errors->first('password_confirm') : 'Este campo es requerido'  }}
-                                 </div>
-                             </div>
-                        </div> 
                           <!----botones--->
                                
                        
