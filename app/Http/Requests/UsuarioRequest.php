@@ -26,8 +26,10 @@ class UsuarioRequest extends FormRequest
         return [//siempre son los campos "name" de los inputs de los campos en la vista
             'name'=>'required|max:50|min:3|regex:/^[\pL\s\-]+$/u',
             'lastname'=>'required|max:50|regex:/^[\pL\s\-]+$/u',
-            'email'=>'required|email|unique:users,email,' . $this->user->id . ',id',//este ultimo parametro es para ignorar la validacion unique de algunos campos al editar
-            'username'=>'required|max:20|alpha_num|regex:/^[a-zA-Z0-9]+$/S|unique:users,username,'. $this->user->id . ',id',
+            //'email'=>'required|email|unique:users,email,' . $this->user->id . ',id',
+            'email'=>'required|email|unique:users',//este ultimo parametro es para ignorar la validacion unique de algunos campos al editar
+            //'username'=>'required|max:20|alpha_num|regex:/^[a-zA-Z0-9]+$/S|unique:users,username,'. $this->user->id . ',id',
+            'username'=>'required|max:20|alpha_num|regex:/^[a-zA-Z0-9]+$/S|unique:users',
             'password'=>'required|max:25|min:8|regex:/^(?=.*[A-Za-z\d])(?=.*\d)[A-Za-z\d]{8,25}$/S',
             'password_confirm'=>'required|same:password',
             
