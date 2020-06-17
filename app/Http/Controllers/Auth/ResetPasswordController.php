@@ -34,6 +34,7 @@ class ResetPasswordController extends Controller
      */
     public function __construct()
     {
+        //quitar esta linea para que el reset password tmb funcione para usuarios ya logueados
         $this->middleware('guest');
     }
      public function resetPassword(Request $request){

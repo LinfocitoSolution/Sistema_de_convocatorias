@@ -53,7 +53,7 @@ class RegisterController extends Controller
             'lastname' => 'required|max:50|regex:/^[\pL\s\-]+$/u',
             'username' => 'required|unique:users|max:20|alpha_num|regex:/^[a-zA-Z0-9]+$/S',
             'email' => 'required|email|unique:users',
-            'password' => 'required|max:25|min:8|regex:/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,25}$/S',
+            'password' => 'required|max:25|min:8|regex:/^(?=.*[A-Za-z\d$@$!%*?&])(?=.*\d)[A-Za-z\d$@$!%*?&]{8,25}$/S',
             'confirmpassword' => 'required|same:password'
         ],[
             'name.required'=>'se requiere el campo nombre para continuar ',
