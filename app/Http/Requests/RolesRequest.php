@@ -24,11 +24,25 @@ class RolesRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            // 'name'=>'required|max:50|min:3|regex:/^[\pL\s\-]+$/u|unique:roles,name,' . $this->rol->id . ',id', corregir
-            'name'=>'required|max:50|min:3|regex:/^[\pL\s\-]+$/u|unique:roles,name',
-            'permissions'=>'required',
-        ];
+        switch ($this->method()) {
+            case 'GET':
+           
+            case 'POST': {
+                return [
+                    'name'=>'required|max:50|min:3|regex:/^[\pL\s\-]+$/u|unique:roles,name',
+                    'permissions'=>'required',
+                ];
+            }
+            case 'PUT':
+            case 'PATCH': {
+                return [
+                    'name'=>'required|max:50|min:3|regex:/^[\pL\s\-]+$/u|unique:roles,name,' . $this->rol->id . ',id',
+                    'permissions'=>'required',
+                ];
+            }
+        }
+
+      
     }
     public function messages()
     {
