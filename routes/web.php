@@ -99,4 +99,8 @@ Route::post('reset_password','\App\Http\Controllers\Auth\ResetPasswordController
 Route::get('enviar_resetPassword','\App\Http\Controllers\Auth\ResetPasswordController@enviarReset_Password');
 Route::post('recuperar','\App\Http\Controllers\Auth\ResetPasswordController@recuperar');
 
-
+//###################### Email ###################################
+Route::get('mail/send', 'MailController@send');
+Route::get('vista', function () {
+    return view('auth.mails.email');
+});
