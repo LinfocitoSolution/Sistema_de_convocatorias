@@ -114,5 +114,4 @@ class RoleController extends Controller
         Role::destroy($id);    
         return redirect(route('roles.index'));        
     }
-
 }

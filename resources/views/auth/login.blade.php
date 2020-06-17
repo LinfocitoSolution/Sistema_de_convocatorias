@@ -48,14 +48,16 @@
 
 									<input type="password" class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}"
 									name="password"
-									placeholder="Ingrese Contraseña" type="text"  value= "{{ old('password', isset($user) ? $user->password : '') }}"> 
-								
-								<div class="invalid-feedback {{ $errors->has('password')? 'd-block' : '' }}">
-									{{ $errors->has('password')? $errors->first('password') : ''  }}
-								</div>
+									id="password"
+									placeholder="Ingrese Contraseña" type="password"  value= "{{ old('password', isset($user) ? $user->password : '') }}"> 
+									<div class="input-group-append">
+											<button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
+									</div>
+									<div class="invalid-feedback {{ $errors->has('password')? 'd-block' : '' }}">
+										{{ $errors->has('password')? $errors->first('password') : ''  }}
+									</div>
 								</div>
 
-								
 								<small id="passwordHelpBlock" class="form-text text-black"> Nota:para el primer campo es valido tanto el nombre de usuario como el email  </small>
 								{{-- <!--<div class="row align-items-center remember">
 									<input type="checkbox">RECUERDAME
