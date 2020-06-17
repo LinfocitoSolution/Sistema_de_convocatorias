@@ -30,7 +30,7 @@ class UsuarioRequest extends FormRequest
             'username'=>'required|max:20|alpha_num|regex:/^[a-zA-Z0-9]+$/S|unique:users,username,'. $this->user->id . ',id',
             'password'=>'required|max:25|min:8|regex:/^(?=.*[A-Za-z\d])(?=.*\d)[A-Za-z\d]{8,25}$/S',
             'password_confirm'=>'required|same:password',
-            'roles'=>'required',
+            
         ];
     }
     public function messages()

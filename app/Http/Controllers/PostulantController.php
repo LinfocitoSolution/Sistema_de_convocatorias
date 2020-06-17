@@ -11,6 +11,7 @@ use App\Convocatoria;
 use Illuminate\Support\Facades\Hash;
 use Session;
 use Validator;
+use App\Http\Requests\UsuarioRequest;
 
 class PostulantController extends Controller
 {
@@ -28,8 +29,18 @@ class PostulantController extends Controller
     
     public function edit(User $user)
     {
-        $roles = DB::table('roles')->get();
+        
 
-        return view('postulante.edit',compact('roles','user'));
+        return view('postulante.edit',compact('user'));
+    }
+    public function update(UsuarioRequest $request,User $user)
+    {
+        $user->update($request->all());
+        $user->password = (bcrypt($user->password));
+        $user->save();
+
+        
+
+        return redirect(route('postulante.show',compact('user')))->with([ 'message' => 'Usuario actualizado exitosamente!', 'alert-type' => 'success' ]);
     }
 }

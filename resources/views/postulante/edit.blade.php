@@ -9,16 +9,16 @@
         <div class="row">
             <div class="col-lg-12">
                 
-            <div class="card">
-                <!---cabeza del perfil--->
-                <div class="card-header text-white">
-                    <h3>Editar Perfil</h3>
-                </div>
+              <div class="card mt-5">
+                  <!---cabeza del perfil--->
+                   <div class="card-header text-white">
+                     <h3>Editar Perfil</h3>
+                   </div>
         
-                <!--cuerpo del perfil-->				
-                <div class="card-body">
+                  <!--cuerpo del perfil-->				
+                   <div class="card-body">
                     
-                    <form class="form-vertical" action="{ route('usuarios.update', $user->id) }}" method="POST" autocomplete="off">
+                    <form class="form-vertical" action="{{ route('postulante.update', $user->id) }}" method="POST" autocomplete="off">
                         {{ method_field('PUT')}}
                         {{ csrf_field() }}
                         <div class="form-row">
@@ -105,7 +105,7 @@
                                      <input
                                              class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}"
                                              name="password"
-                                             placeholder="Ingrese una contrasenia" type="text" value="">
+                                             placeholder="Ingrese una contraseña" type="text" value="">
                                  </div>
                          
                                  <div class="invalid-feedback {{ $errors->has('password')? 'd-block' : '' }}">
@@ -123,25 +123,31 @@
                                      <input
                                              class="form-control {{ $errors->has('password_confirm') ? 'is-invalid' : '' }}"
                                              name="password_confirm"
-                                             placeholder="Confirme su contrasenia" type="text" value="">
+                                             placeholder="Confirme su contraseña" type="text" value="">
                                  </div>
                          
                                  <div class="invalid-feedback {{ $errors->has('password_confirm')? 'd-block' : '' }}">
                                      {{ $errors->has('password_confirm')? $errors->first('password_confirm') : 'Este campo es requerido'  }}
                                  </div>
                              </div>
+                        </div> 
+                          <!----botones--->
+                               
+                       
                 
-                         <div class="form-actions text-center">
-                            <button class="btn btn-outline-dark" type="submit">Actualizar</button>
-                            <a class="btn btn-outline-dark" href="{{route('usuarios.index')}}">Cancelar</a>
-                        </div>
-                    </form> 
+                        
+                    
                  </div>
                   <!----fin del cuerpo perfil--->
                    <!----INICIO DE PIE-->   
                     <div class="card-footer">
-                
+                        <div class="form-actions text-center">
+                            <button class="btn btn-outline-dark" type="submit"data-toggle="tooltip" data-placement="left" title="Presione el bot&oacute;n para guardar sus cambios">Actualizar</button>
+                            <a class="btn btn-outline-dark" data-toggle="tooltip" data-placement="right" title="Presione el bot&oacute;n para cancelar" href="{{ route('postulante.show',ucfirst(Auth::user()->id))}}">Cancelar</a>
+                           
+                           </div>
                     </div>
+                </form> 
                   <!---FIN DE PIE-->
             </div>  
           </div>

@@ -12,7 +12,7 @@
         <!--CABEZA-->
            <div class="card-header">
      <!-----User { $user->id }}----->
-                <h1>User</h1> 
+                <h1>User </h1>
           </div> 
 
         <!---FIN CABEZA-->
@@ -24,19 +24,19 @@
                     <th>Nombre</th><td>{{$user->name}}</h1></td>
                 </tr>
                 <!-------{ trans('users.name') }}-->
-               <th>Apellido</th><td> {{ $user->lastname}}
+                <th>Apellido</th><td> {{ $user->lastname}}
                 <tr>
                     <!----{ $user->name }}--->
-                   <th>Nombre de usuario</th><td>{{$user->username}}</td>
+                <th>Nombre de usuario</th><td>{{$user->username}}</td>
                 </tr>
                  <!-----{ trans('users.email') }}---->   
                 <th>Email</th><th>{{$user->email}}</th>
                 <tr>
-                    <th>Contraseña</th><th></th>
+                <th>Contraseña</th><th></th>
                 
                     <!---{ $user->password }} -->
                     
-               </tbody>
+                </tbody>
             </table>
             </div>
         
