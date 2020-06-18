@@ -51,23 +51,24 @@
 									id="password"
 									placeholder="Ingrese Contraseña" type="password"  value= "{{ old('password', isset($user) ? $user->password : '') }}"> 
 									<div class="input-group-append">
-											<button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
+											<button id="show_password" class="btn btn-dark" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
 									</div>
 									<div class="invalid-feedback {{ $errors->has('password')? 'd-block' : '' }}">
 										{{ $errors->has('password')? $errors->first('password') : ''  }}
 									</div>
 								</div>
 
-								<small id="passwordHelpBlock" class="form-text text-black"> Nota:para el primer campo es valido tanto el nombre de usuario como el email  </small>
+								<small id="passwordHelpBlock" class="form-text text-black"> Nota: para el primer campo es válido tanto el nombre de usuario como el email.</small>
 								{{-- <!--<div class="row align-items-center remember">
 									<input type="checkbox">RECUERDAME
 								</div>--> --}}
 								<br>
-								<div class="form-group" >
-									<button class="btn mr-sm-2 rounded-pill btn-block" type="submit">INGRESAR</button>
+								<div class="form-group">
+									<button class="btn btn-outline-dark mr-sm-2 rounded-pill btn-block" type="submit">INGRESAR</button>
 								</div>
 							</form>
-						
+							<!-----fin cuerpo--->
+						</div>
                            <!--footer de login--> 
 						   <div class="card-footer">
 							   <div class="d-flex justify-content-center links text-white mt-3">

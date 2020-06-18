@@ -27,7 +27,7 @@
                                  <label class="col-form-label" for="name">Nombre</label>
                                  <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="-M&aacute;ximo 50 caracteres <br> -M&iacute;nimo 3 caracteres <br> -No acepta caracteres especiales">
                                      <span class="input-group-append">
-                                         <button class="btn btn-dark" type="button">N</button>
+                                         <button class="btn btn-dark text-white" type="button">N</button>
                                      </span>
                                      <input
                                              class="form-control text-capitalize {{ $errors->has('name') ? 'is-invalid' : '' }}"
@@ -45,7 +45,7 @@
                                  <label class="col-form-label" for="lastname">Apellido</label>
                                  <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="-M&aacuteximo 50 caracteres <br> -No acepta caracteres especiales <br>-No acepta n&uacute;meros">
                                      <span class="input-group-append">
-                                         <button class="btn btn-dark" type="button">A</button>
+                                         <button class="btn btn-dark text-white" type="button">A</button>
                                      </span>
                                      <input
                                              class="form-control text-capitalize {{ $errors->has('lastname') ? 'is-invalid' : '' }}"
@@ -62,7 +62,7 @@
                                  <label class="col-form-label" for="email">Email</label>
                                  <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="Sigue el ejemplo">
                                      <span class="input-group-append">
-                                         <button class="btn btn-dark" type="button">@</button>
+                                         <button class="btn btn-dark text-white" type="button">@</button>
                                      </span>
                                      <input
                                              class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}"
@@ -79,7 +79,7 @@
                                  <label class="col-form-label" for="username">Nombre de Usuario</label>
                                  <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="-M&aacute;ximo 20 caracteres <br>-Solo se permite alfanum&eacute;rico <br>-No acepta espacios <br>-Se permite may&uacute;sculas">
                                      <span class="input-group-append">
-                                         <button class="btn btn-dark" type="button">NU</button>
+                                         <button class="btn btn-dark text-white" type="button">NU</button>
                                      </span>
                                      <input
                                              class="form-control {{ $errors->has('username') ? 'is-invalid' : '' }}"
@@ -103,16 +103,19 @@
                  </div>
                   <!----fin del cuerpo perfil--->
                    <!----INICIO DE PIE-->   
-                    <div class="card-footer">
-                        <div class="form-actions text-center">
+                   
+                        <div class="form-actions text-center mt-4">
                             <button class="btn btn-outline-dark" type="submit"data-toggle="tooltip" data-placement="left" title="Presione el bot&oacute;n para guardar sus cambios">Actualizar</button>
                             <a class="btn btn-outline-dark" data-toggle="tooltip" data-placement="right" title="Presione el bot&oacute;n para cancelar" href="{{ route('postulante.show',ucfirst(Auth::user()->id))}}">Cancelar</a>
                            
-                           </div>
-                    </div>
+                        </div>
+                    
                 </form> 
                   <!---FIN DE PIE-->
-            </div>  
+            </div> 
+                <div class="card-footer">
+               
+                </div> 
           </div>
         </div>
      </div>

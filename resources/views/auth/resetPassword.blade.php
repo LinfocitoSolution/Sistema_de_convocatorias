@@ -37,7 +37,7 @@
 								</div>
 								
 								
-								<button type="submit" class="btn rounded-pill active btn-block mt-3" > Recuperar Contraseña </button>
+								<button type="submit" class="btn btn-dark rounded-pill active btn-block mt-3"> Recuperar Contraseña </button>
 
 						  </form>
 						       

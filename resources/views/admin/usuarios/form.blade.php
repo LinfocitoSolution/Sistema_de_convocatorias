@@ -86,7 +86,7 @@
                             placeholder="Ingrese una contraseña" type="text" value="">
                     
                             <div class="input-group-append">
-                                <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
+                                <button id="show_password" class="btn btn-dark" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
                             </div>
                 </div>
 

@@ -7,7 +7,7 @@
   border: 1px solid;
   border-color:#DDDDDD;
   width:99,8%;
-  height:1100px;
+  height:800px;
 }
 .navbar{
   background: #607D8B ;
@@ -34,13 +34,15 @@
   
   .btn {
     
-   color:white;
+   color: black;
   }
 
   .icon-cog{
     color: white;
   }
- 
+ .fa{
+   color: white;
+ }
 
 
   

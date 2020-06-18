@@ -24,7 +24,7 @@
 									<input type="email" class="form-control" placeholder="Email" name="Email" value="" >
 									{{-- <br><small id="emailHelp" class="form-text text-muted">usuario@example.com</small>comment --}}
 								</div>
-						        <button type="submit" class="btn rounded-pill active btn-block mt-3" > Enviar restablecer contraseña </button>
+						        <button type="submit" class="btn btn-dark rounded-pill active btn-block mt-3" > Enviar restablecer contraseña </button>
 
 						  </form>
 						       

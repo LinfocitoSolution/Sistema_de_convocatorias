@@ -36,9 +36,8 @@
             <div class="card-footer">
                   <div class="text-center">
                         <a class="btn btn-outline-dark  text-white m-2 my-sm-2"  href="{{ route('postulante.edit', $user->id) }}"><i class="fa fa-edit mr-2"></i>Editar</a>
-                  </div>
-                  <div class="text-center">
-                    <a class="btn btn-outline-dark  text-white m-2 my-sm-2"  href="{{url('enviar_resetPassword')}}"><i class="fa fa-edit mr-2"></i>Cambiar Contraseña</a>
+                  
+                    <a class="btn btn-outline-dark  text-white m-2 my-sm-2"  href="{{url('enviar_resetPassword')}}"><i class="fa fa-key mr-2"></i>Cambiar Contraseña</a>
                     
                 </div>
            

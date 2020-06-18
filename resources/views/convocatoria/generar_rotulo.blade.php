@@ -60,14 +60,15 @@
                     </div>
                  </div>
                </div>
+                  <div class="form-actions text-center">
+                      <button class="btn btn-outline-dark mb-4" data-toggle="tooltip" data-placement="right" title="Presione el bot&oacute;n para generar el rótulo"onclick="save();">Generar rótulo</button>
+                  </div>
            
           </form>
         </div>  
             <!---pies-->
              <div class="card-footer">
-                  <div class="form-actions text-center">
-                       <button class="btn btn-outline-dark" data-toggle="tooltip" data-placement="right" title="Presione el bot&oacute;n para generar el rótulo"onclick="save();">Generar rótulo</button>
-                  </div>
+                  
              </div>
         
         <!----fin tarjeta-->

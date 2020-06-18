@@ -121,7 +121,7 @@
           </ol>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="{{ asset('/imagenes/tecno.jpg') }}"  class="d-block w-100" alt="web" width="1000" height="300">
+            <img src="{{ asset('/imagenes/tecno.jpg') }}"  class="d-block w-100" alt="web" width="800" height="300">
                 <div class="carousel-caption" >
                   <div class="text-white pb-4">
                     <h2>Facultad de ciencias y tecnología</h2>
@@ -129,7 +129,7 @@
                 </div>
           </div>
           <div class="carousel-item">
-            <img src="{{ asset('/imagenes/sistemas.jpg') }}" class="d-block w-100" alt="elem" width="1000" height="300">
+            <img src="{{ asset('/imagenes/sistemas.jpg') }}" class="d-block w-100" alt="elem" width="800" height="300">
             <div class="carousel-caption">
               <div class="text-white pb-4">
                   <h2>Departamento de Sistemas e Informática</h2>
@@ -137,7 +137,7 @@
               </div>
           </div>
           <div class="carousel-item">
-            <img src="{{ asset('/imagenes/aula.jpg') }}" class="d-block w-100" alt="aulalaboratorios" width="1000" height="300">
+            <img src="{{ asset('/imagenes/aula.jpg') }}" class="d-block w-100" alt="aulalaboratorios" width="800" height="300">
               <div class="carousel-caption">
                 <div class="text-white pb-4">
                   <h1>Laboratorios</h1>
@@ -145,7 +145,7 @@
               </div>
           </div>
           <div class="carousel-item">
-            <img src="{{ asset('/imagenes/edificio.jpg') }}" class="d-block w-100" alt="prog" width="1000" height="300">
+            <img src="{{ asset('/imagenes/edificio.jpg') }}" class="d-block w-100" alt="prog" width="800" height="300">
               <div class="carousel-caption" >
                   <div class="text-white pb-4">
                     <h2>Edificio Multiacadémico</h2>
