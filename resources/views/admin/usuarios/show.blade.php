@@ -47,7 +47,7 @@
                 <tr>
                     <td colspan="2">
                         <!----href--{ url('admin/users/' . $user->id . '/edit') }}-->
-                        <a href="" class="btn btn-dark btn-xm" title="Edit User"><span class="fa fa-edit" aria-hidden="true"></span></a>
+                        <a href="{{ route('usuarios.edit', $user->id) }}" class="btn btn-dark btn-xm" title="Edit User"><span class="fa fa-edit" aria-hidden="true"></span></a>
                        <!--- !! Form::open([
                             'method'=>'DELETE',
                             'url' => ['admin/users', $user->id],

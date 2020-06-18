@@ -61,7 +61,7 @@
                                           <i class="fa fa-trash-alt"></i>
                                         </button>
 
-                                        <a class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="No disponible por el momento" href="{{ route('usuarios.show',$user->id)}}">
+                                        <a class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="Presiona para observar al usuario" href="{{ route('usuarios.show',$user->id)}}">
                                           <i class="fa fa-eye"></i>
                                         </a>
 
