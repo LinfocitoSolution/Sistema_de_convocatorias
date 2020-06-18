@@ -83,11 +83,12 @@
                     <input
                             class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}"
                             name="password"
-                            placeholder="Ingrese una contraseña" type="text" value="">
+                            id="password"
+                            placeholder="Ingrese una contraseña" type="password" value="">
                     
-                            <div class="input-group-append">
+                            {{-- <div class="input-group-append">
                                 <button id="show_password" class="btn btn-dark" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
-                            </div>
+                            </div> --}}
                 </div>
 
                 <div class="invalid-feedback {{ $errors->has('password')? 'd-block' : '' }}">
@@ -105,7 +106,12 @@
                     <input
                             class="form-control {{ $errors->has('password_confirm') ? 'is-invalid' : '' }}"
                             name="password_confirm"
-                            placeholder="Confirme su contraseña" type="text" value="">
+                            id="confirm_password"
+                            placeholder="Confirme su contraseña" type="password" value="">
+
+                            <div class="input-group-append">
+                                <button id="show_password" class="btn btn-dark" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
+                            </div>
                 </div>
 
                 <div class="invalid-feedback {{ $errors->has('password_confirm')? 'd-block' : '' }}">

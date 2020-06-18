@@ -45,7 +45,7 @@
 
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
-                              @foreach ($user->roles as $item)
+                              @forelse ($user->roles as $item)
                                 @if ($item->name == 'Postulante')
                                   <button class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="Presiona para eliminar usuario" type="submit" margin-left="50" onclick="return confirm('Está seguro de eliminar el usuario?')">
                                     <i class="fa fa-trash-alt"></i>
@@ -55,7 +55,6 @@
                                     <i class="fa fa-eye"></i>
                                   </a>
                                 @else
-                                  
                                     @if ($item->name != 'Admin')                                
                                         <button class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="Presiona para eliminar usuario" type="submit" margin-left="50" onclick="return confirm('Está seguro de eliminar el usuario?')">
                                           <i class="fa fa-trash-alt"></i>
@@ -69,9 +68,20 @@
                                           <i class="fa fa-edit"></i>
                                         </a>
                                     @endif
-                                  
                                 @endif
-                              @endforeach
+                              @empty
+                                  <button class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="Presiona para eliminar usuario" type="submit" margin-left="50" onclick="return confirm('Está seguro de eliminar el usuario?')">
+                                    <i class="fa fa-trash-alt"></i>
+                                  </button>
+
+                                  <a class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="No disponible por el momento" href="{{ route('usuarios.show',$user->id)}}">
+                                    <i class="fa fa-eye"></i>
+                                  </a>
+
+                                  <a class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="Presiona para editar usuario" href="{{ route('usuarios.edit', $user->id) }}">
+                                    <i class="fa fa-edit"></i>
+                                  </a>
+                              @endforelse                              
                           </form>
                         </td>
                       </tr> 

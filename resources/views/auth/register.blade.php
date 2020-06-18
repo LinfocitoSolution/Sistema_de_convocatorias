@@ -152,7 +152,7 @@
 									         </div>
 									         <input type="password" class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}"
 									                name="password"
-									               placeholder="Ingrese Contraseña" type="text"  value="{{ old('password', isset($user) ? $user->password : '') }}"> 
+									               placeholder="Ingrese Contraseña" type="password"  value="{{ old('password', isset($user) ? $user->password : '') }}"> 
 								
 								             <div class="invalid-feedback {{ $errors->has('password')? 'd-block' : '' }}">
 									              {{ $errors->has('password')? $errors->first('password') : ''  }}
@@ -169,7 +169,7 @@
 
 									          <input type="password" class="form-control {{ $errors->has('confirmpassword') ? 'is-invalid' : '' }}"
 									                 name="confirmpassword"
-								                     placeholder="Ingrese Confirmacion de Contraseña" type="text"  value="{{ old('confirmpassword', isset($user) ? $user->password : '') }}"> 
+								                     placeholder="Ingrese Confirmacion de Contraseña" type="password"  value="{{ old('confirmpassword', isset($user) ? $user->password : '') }}"> 
 								
 								             <div class="invalid-feedback {{ $errors->has('confirmpassword')? 'd-block' : '' }}">
 									              {{ $errors->has('confirmpassword')? $errors->first('confirmpassword') : ''  }}
