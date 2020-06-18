@@ -43,11 +43,9 @@
          <!---FIN DE CUERPO--->
          <!----INICIO DE PIE-->   
             <div class="card-footer">
-               <tfoot>
-                <tr>
-                    <td colspan="2">
+                <div class="text-center">
                         <!----href--{ url('admin/users/' . $user->id . '/edit') }}-->
-                        <a href="" class="btn btn-dark btn-xm" title="Edit User"><span class="fa fa-edit" aria-hidden="true"></span></a>
+                        <a href="{{ route('usuarios.edit', $user->id) }}" class="btn btn-dark btn-xm mr-3" data-toggle="tooltip" data-placement="left" title="Presiona el botón para EDITAR "><span class="fa fa-edit mr-2" aria-hidden="true"></span>Editar</a>
                        <!--- !! Form::open([
                             'method'=>'DELETE',
                             'url' => ['admin/users', $user->id],
@@ -60,8 +58,9 @@
                                     'onclick'=>'return confirm("Confirm delete?")'
                             ));!!}
                         !! Form::close() !!}---->
-                    </td>
-                 </tr>
+                   
+                        <a class="btn btn-dark" data-toggle="tooltip" data-placement="right" title="Presiona el botón para volver a la tabla de usuarios" href="{{route('usuarios.index')}}"><i class="fa fa-arrow-left mr-2"></i>Atrás</a>
+                   </div>
                 </tfoot>
             </div>
             <!---FIN DE PIE-->
