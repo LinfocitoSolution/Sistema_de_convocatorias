@@ -16,10 +16,10 @@
                          
                            
                     <div class="card-body">
-                        <form class="form-horizontal" action="" method="">
+                        <form class="form-horizontal" action="#" method="POST">
                             
 
-                            @include('')
+                            @include('admin.requirements.form')
 
                             <div class="form-actions text-center">
                                 <button class="btn btn-outline-dark" type="submit">Guardar</button>
