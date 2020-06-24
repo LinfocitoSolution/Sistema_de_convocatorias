@@ -31,7 +31,7 @@
                                 <td>{{$area->name}}</td>
                                 <td>{{$area->description}}</td>                    
                                 <td>
-                                    <a class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title="presiona para editar un area"href="{{ route('areas.edit', $area->id) }}">
+                                    <a class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title="presiona para editar un area"href="{{ route('areas.edit', $area) }}">
                                         <i class="fa fa-pencil-alt"></i>
                                     </a> 
                                     <form action="{{route('areas.destroy',$area->id)}}" method="POST" style="display:inline-block;">

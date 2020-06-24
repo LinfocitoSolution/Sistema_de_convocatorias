@@ -23,10 +23,24 @@ class AreaRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'name'=>'required|max:100|min:3|regex:/^[\pL\s\-]+$/u|unique:areas,name',
-            'description'=>'max:250',
-        ];
+        switch ($this->method()) {
+            case 'GET':
+           
+            case 'POST': {
+                return [
+                    'name'=>'required|max:100|min:3|regex:/^[\pL\s\-]+$/u|unique:areas,name',
+                    'description'=>'max:250',
+                ];
+            }
+            case 'PUT':
+            case 'PATCH': {
+                return [
+                    'name'=>'required|max:100|min:3|regex:/^[\pL\s\-]+$/u|unique:areas,name,' .$this->area->id. ',id',
+                    'description'=>'max:250',
+                ];
+            }
+        }
+        
     }
     public function messages()
     {
