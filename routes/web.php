@@ -106,6 +106,4 @@ Route::get('vista', function () {
 });
 
 //##################### Unidades ########################
-Route::get('unidades','UnidadController@index')->name('unidades.index');
-Route::get('unidades_create','UnidadController@create')->name('unidades.create');
-Route::get('unidades_edit','UnidadController@edit')->name('unidades.edit');
+Route::resource('unidades', 'UnidadController');

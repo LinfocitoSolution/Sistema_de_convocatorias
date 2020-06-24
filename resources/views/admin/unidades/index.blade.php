@@ -21,33 +21,31 @@
                     <thead>
                     <tr>
                         <th>Nombre</th>
-                        <th>Descipcion</th>
+                        <th>Descripcion</th>
                         <th>Opciones</th>
                     </tr>
                     </thead>
                     <tbody>
-                       <!-- foreach($unidades as $unidad)-->
+                        @foreach($unidad as $unidade)
                             <tr>
-                                <!--{$unidad->name}}-->
-                                <td>Departamento de Informatica y Sistemas</td>
-                                <!--{$area->description}}-->
-                                <td>Este departamento pertece a tecnologia</td>                                                                           <!--{route('unidades.edit', $unidad->id) }}-->
+                                
+                                <td>{{$unidade->name}}</td>
+                                <td>{{$unidade->description}}</td>                                                                          
                                 <td>
-                                    <a class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title="presiona para editar una unidad" href="{{route('unidades.edit')}}">
+                                    <a class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title="presiona para editar una unidad" href="{{route('unidades.edit', $unidade->id) }}">
                                         <i class="fa fa-pencil-alt"></i>
                                     </a> 
-                                    <!---{route('areas.destroy',$area->id)}}-->
-                                    <form action="#" method="POST" style="display:inline-block;">
-                                       <!-- { csrf_field() }}                                                                                                                     
-                                        { method_field('DELETE') }}   -->         
-                                                                                                                                                                               <!---onclick="return confirm('Está seguro de eliminar el area?')"-->
-                                        <button class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title="presiona para eliminar una unidad" type="submit" margin-left="50" >
+                                    
+                                    <form action="{{route('unidades.destroy',$unidade->id)}}" method="POST" style="display:inline-block;">
+                                        {{ csrf_field() }}                                                                                                                     
+                                        {{ method_field('DELETE') }}                                                                                                                                                
+                                        <button class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title="presiona para eliminar una unidad" type="submit" margin-left="50" onclick="return confirm('Está seguro de eliminar la unidad?')" >
                                             <i class="fa fa-trash-alt"></i>                                
                                         </button>                            
                                     </form>
                                 </td>
                             </tr>
-                        <!--endforeach-->
+                        @endforeach
                     </tbody>
                 </table>
             </div>

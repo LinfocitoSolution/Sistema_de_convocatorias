@@ -15,15 +15,32 @@
 					@endforeach
 				</ul>
 			</div>
-		@endif
+    @endif
+    <div class="container">
+      <div class="row">
+       <div class="col-sm-10">
+        <div class="card mt-5"> 
+          <div class="card-header">
+            <h1>Editar convocatoria</h1>
+          </div>
+          <div class="card-body">
   <div class="medio">
         <form class="form-group" method="POST" action="/call/{{$call->id}}" enctype="multipart/form-data">
           <input type="hidden" name="_token" value="{{ csrf_token() }}">
           {{ method_field('PUT') }}
-          <h1>Editar convocatoria</h1>
+          
             @include('admin.announcements.form')
                    <br>
-        </form>       
+                   
+                   <div class="form-actions text-center">
+                    <button class="btn btn-outline-dark" type="submit">Guardar</button>
+                  </div>  
+        </form> 
+      </div> 
+        </div>
+       </div>
+      </div>
+    </div>      
    </div>      
 </div>
   <!-- /.content-wrapper -->

@@ -1,7 +1,7 @@
 @extends('admin.layouts.plantilladmin')
 
 @section('htmlheader_title')
-    Usuario
+    Requerimiento
 @endsection
 
 @section('content')
@@ -11,27 +11,19 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <i class="fa fa-user-edit"></i>Crear usuario</div>
+                        <i class="fa fa-user-edit"></i>Crear Requerimiento</div>
 
-                         <!--@if (count($errors) > 0)
-			            <div class="alert alert-danger">
-				           <ul>
-				            	@foreach ($errors->all() as $error)
-					            	<li>{{ $error }}</li>
-				            	@endforeach
-				          </ul>
-		            	</div>
-                           @endif-->
+                         
                            
                     <div class="card-body">
-                        <form class="form-horizontal" action="{{route('usuarios.guardar')}}" method="POST" autocomplete="off">
-                            {{ csrf_field() }}
+                        <form class="form-horizontal" action="{{}}" method="POST">
+                            
 
                             @include('admin.usuarios.form')
 
                             <div class="form-actions text-center">
                                 <button class="btn btn-outline-dark" type="submit">Guardar</button>
-                            <a class="btn btn-outline-dark" href="{{route('usuarios.index')}}">Cancelar</a>
+                            <a class="btn btn-outline-dark" href="{{}}">Cancelar</a>
                             </div>
                         </form>
                     </div>

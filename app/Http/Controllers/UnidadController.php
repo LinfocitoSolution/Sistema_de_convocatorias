@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use \App\Unidad;
 use Illuminate\Http\Request;
+use App\Http\Requests\UnidadRequest;
 
 class UnidadController extends Controller
 {
@@ -13,8 +14,8 @@ class UnidadController extends Controller
      */
     public function index()
     {
-        /*compact('unidades')*/
-        return view('admin.unidades.index');
+        $unidad=Unidad::all();
+        return view('admin.unidades.index',compact('unidad'));
     }
 
     /**
@@ -24,6 +25,7 @@ class UnidadController extends Controller
      */
     public function create()
     {
+        
         return view('admin.unidades.create');
     }
 
@@ -33,9 +35,11 @@ class UnidadController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UnidadRequest $request)
     {
-        //
+        $unidad=Unidad::create($request->all());
+        $unidad->save();
+        return redirect(route('unidades.index'))->with([ 'message' => 'Unidad Academica creada exitosamente!', 'alert-type' => 'success' ]);
     }
 
     /**
@@ -55,10 +59,11 @@ class UnidadController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit()
+    public function edit($id)
     {
-        /*,compact('unidad')*/
-        return view('admin.unidades.edit');
+        $unidad= Unidad::where('id',$id)
+            ->first();
+        return view('admin.unidades.edit',compact('unidad'));
     }
 
     /**
@@ -68,9 +73,14 @@ class UnidadController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UnidadRequest $request, $id)
     {
-        //
+        $unidad  = Unidad::where('id',$id)
+        ->first();
+        $unidad->name=$request->get('name');
+        $unidad->description=$request->get('description');
+        $unidad->save();
+        return redirect(route('unidades.index'))->with([ 'message' => 'Unidad Academica actualizada exitosamente!', 'alert-type' => 'success' ]);
     }
 
     /**
@@ -81,6 +91,7 @@ class UnidadController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Unidad::destroy($id);    
+        return redirect(route('unidades.index'))->with([ 'message' => 'Unidad Academica eliminada!', 'alert-type' => 'success' ]);
     }
 }
