@@ -126,6 +126,31 @@
             </ul>
           </li>
           <!---fin de unidades-->
+          <!--Requerimientos-->
+          <li class="nav-item has-treeview menu-close">
+            <a href="#" class="nav-link active bg-dark">
+              <i class="nav-icon fa fa-th-large"></i>
+              <p>
+                Requerimientos
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                 <a href="{{}}" class="nav-link">
+                  <i class="fas fa-plus-square nav-icon"></i>
+                  <p>Nuevo Requerimiento</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{}}" class="nav-link">
+                  <i class="fas fa-th-list nav-icon"></i>
+                  <p>Lista </p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <!--Fin de Requerimientos-->
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
