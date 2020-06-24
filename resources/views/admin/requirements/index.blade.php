@@ -20,7 +20,7 @@
          <table class="table table-bordered table-striped table-sm">
             <thead>
              <tr>
-                <th>Intem</th>
+                <th>Item</th>
                 <th>Cantidad de Auxiliares</th>
                 <th>Horas Académicas</th>
                 <th>Nombre de Auxiliatura</th>
@@ -29,22 +29,21 @@
              </tr>
             </thead>
             <tbody>
-                             <form action=""
-                              style="display:inline-block;"
-                              method="POST">
-
-                           
-                                          <a class="btn btn-dark btn-sm" href="">
-                                          <i class="fa fa-eye"></i>
-                                        </a>
-
-                                        <a class="btn btn-dark btn-sm"  href="">
-                                          <i class="fa fa-edit"></i>
-                                        </a>
-                                                                     
-                          </form>
-                        </td>
-                      </tr> 
+                <tr>
+                  <td> 1   </td>
+                  <td> 2   </td>          
+                  <td>  horas  </td>
+                  <td>  nombreee  </td>         
+                  <td>   codigooo </td>                  
+                   <td>      
+                        <a class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="Presiona para observar al usuario" href="">
+                            <i class="fa fa-eye"></i>
+                        </a>
+                        <a class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="Presiona para editar usuario" href="">
+                            <i class="fa fa-edit"></i>
+                        </a>
+                    </td>
+                 </tr> 
                
             </tbody>
            </table>

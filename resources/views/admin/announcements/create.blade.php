@@ -19,9 +19,9 @@
     <div class="container">
       <div class="row">
        <div class="col-sm-12">
-        <div class="card mt-5"> 
+        <div class="card mt-1"> 
           <div class="card-header">    
-            <h1>Subir convocatoria</h1>
+            <h5>Crear convocatoria</h5>
             </div>
 
             <div class="card-body">
@@ -31,6 +31,7 @@
             
                <div class="form-actions text-center">
                  <button class="btn btn-outline-dark" type="submit">Guardar</button>
+                 <a class="btn btn-outline-dark" href="{{route('call.index') }}">Cancelar</a>
                </div>  
              </form> 
            </div>
