@@ -51,8 +51,6 @@ Route::get('test', function () {
 Route::get('reset', function () {
     return view('auth.index_ResetPassword');
 });
-
-
 //##################### ROL ####################################
 Route::get('roles_create', [
     'as' => 'roles.create',
@@ -76,17 +74,8 @@ Route::post('roles_store', [
     'uses' => 'RoleController@store',
 ]);
 Route::get('edit', 'RoleController@edit');
-//##############################################################
-
-
 //#################### AREA ####################################
-Route::get('areas','AreaController@index')->name('areas.index');
-Route::get('areas_create','AreaController@create')->name('areas.create');
-Route::get('areas_{area}_edit','AreaController@edit')->name('areas.edit');
-Route::post('areas_store','AreaController@store')->name('areas.store');
-Route::delete('areas_delete_{area}','AreaController@destroy')->name('areas.destroy');
-Route::put('areas_update_{area}','AreaController@update')->name('areas.update');
-// Route::resource('areas', 'AreaController');
+Route::resource('area', 'AreaController');
 //##############################################################
 
 //######################ROTULO###################################
@@ -106,4 +95,12 @@ Route::get('vista', function () {
 });
 
 //##################### Unidades ########################
-Route::resource('unidades', 'UnidadController');
+//Route::resource('unidades', 'UnidadController');
+Route::get('unidades','UnidadController@index')->name('unidades.index');
+Route::get('unidades_create','UnidadController@create')->name('unidades.create');
+Route::get('unidades_{unidad}_edit','UnidadController@edit')->name('unidades.edit');
+Route::post('unidades_store','UnidadController@store')->name('unidades.store');
+Route::delete('unidades_delete_{unidad}','UnidadController@destroy')->name('unidades.destroy');
+Route::put('unidades_update_{unidad}','UnidadController@update')->name('unidades.update');
+//#####################Requerimientos####################
+Route::resource('requerimientos','RequerimientosController');

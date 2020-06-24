@@ -15,13 +15,13 @@
                         <h1> Crear area</h1>
                     </div>    
                     <div class="card-body">                       
-                        <form class="form-horizontal"  action="{{ route('areas.store') }}" method="POST">                                                      
+                        <form class="form-horizontal"  action="{{ url('/area') }}" method="POST">                                                      
                            <input type="hidden" name="_token" value="{{csrf_token()}}">
                            {{ csrf_field() }}                           
                             @include('admin.areas.form')
                             <div class="form-actions text-center">
                                 <button class="btn btn-outline-dark" type="submit">Guardar</button>
-                                <a class="btn btn-outline-dark" href="{{route('areas.index') }}">Cancelar</a>
+                                <a class="btn btn-outline-dark" href="{{route('area.index') }}">Cancelar</a>
                             </div>
                         </form>
                         

@@ -69,14 +69,15 @@ class UserController extends Controller
         $access_key = '7b5fa3d815e2bf9c458dfa744298a253';   
         $email_address = $email;
         // Initialize CURL:
-        $ch = curl_init('http://apilayer.net/api/check?access_key='.$access_key.'&email='.$email_address.'');  
+        $ch = curl_init('https://apilayer.net/api/check?access_key='.$access_key.'&email='.$email_address.'&smtp=1&format=1');  
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         // Store the data:
         $json = curl_exec($ch);
         curl_close($ch);
         // Decode JSON response:
         $validationResult = json_decode($json, true);
-        return $validationResult['smtp_check'];
+        return redirect(route('register'))->with([ 'errors' => 'El email no existe', 'alert-type' => 'success' ]);
+        // return $validationResult['smtp_check'];
     }
     /**
      * Show the form for editing the specified resource.
@@ -106,7 +107,7 @@ class UserController extends Controller
 
         $user->syncRoles($request->roles);//con esto asigna el rol seleccionado para los usuarios
 
-        return redirect(route('usuarios.index'))->with([ 'message' => 'Usuario actualizado exitosamente!', 'alert-type' => 'success' ]);
+        return redirect(route('/'))->with([ 'message' => 'Usuario actualizado exitosamente!', 'alert-type' => 'success' ]);
     }
 
     /**
