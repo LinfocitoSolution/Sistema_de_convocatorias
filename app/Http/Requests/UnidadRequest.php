@@ -3,7 +3,7 @@
 namespace App\Http\Requests;
 use \App\Unidad;
 use Illuminate\Foundation\Http\FormRequest;
-
+//use Illuminate\Validation\Rule; 
 class UnidadRequest extends FormRequest
 {
     /**
@@ -38,6 +38,7 @@ class UnidadRequest extends FormRequest
                 case 'PATCH': {
                     return [
                 'name'=>'required|max:50|min:3|regex:/^[\pL\s\-]+$/u |unique:unidades,name,' . $this->id . ',id',
+                //'name' => Rule::unique('unidades')->ignore($this->id),
                 'description'=>'required|max:50',
                 
                     ];
