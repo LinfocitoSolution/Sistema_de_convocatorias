@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRequirimientosTable extends Migration
+class CreaterequirimientosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateRequirimientosTable extends Migration
      */
     public function up()
     {
-        Schema::create('requirimientos', function (Blueprint $table) {
+        Schema::create('requerimientos', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('cantidad_de_auxiliares');
             $table->integer('cantidad_horas_academicas');
@@ -30,6 +30,6 @@ class CreateRequirimientosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('requirimientos');
+        Schema::dropIfExists('requerimientos');
     }
 }
