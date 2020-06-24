@@ -11,7 +11,7 @@
     <div class="card mt-5" >
       <div class="card-header">
         <h1>Requerimientos</h1> 
-            <a class="btn btn-dark" data-toggle="tooltip" data-trigger="hover" title="presiona para crear un usuario"href="{{route('usuarios.create')}}">
+            <a class="btn btn-dark" data-toggle="tooltip" data-trigger="hover" title="presiona para crear un usuario"href="{{route('requerimientos.create')}}">
               Nuevo 
               <i class="fa fa-user-plus"></i>&nbsp;
             </a>

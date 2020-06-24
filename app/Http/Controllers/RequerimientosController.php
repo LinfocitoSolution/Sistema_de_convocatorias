@@ -27,7 +27,7 @@ class RequerimientosController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.requirements.create');
     }
 
     /**
