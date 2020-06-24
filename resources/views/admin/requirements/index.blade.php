@@ -34,8 +34,7 @@
                               method="POST">
 
                            
-
-                                        <a class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="Presiona para observar al usuario" href="">
+                                          <a class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="Presiona para observar al usuario" href="">
                                           <i class="fa fa-eye"></i>
                                         </a>
 

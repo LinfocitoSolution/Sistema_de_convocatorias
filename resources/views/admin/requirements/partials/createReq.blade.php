@@ -16,14 +16,14 @@
                          
                            
                     <div class="card-body">
-                        <form class="form-horizontal" action="{{}}" method="POST">
+                        <form class="form-horizontal" action="" method="">
                             
 
-                            @include('admin.usuarios.form')
+                            @include('')
 
                             <div class="form-actions text-center">
                                 <button class="btn btn-outline-dark" type="submit">Guardar</button>
-                            <a class="btn btn-outline-dark" href="{{}}">Cancelar</a>
+                            <a class="btn btn-outline-dark" href="">Cancelar</a>
                             </div>
                         </form>
                     </div>
