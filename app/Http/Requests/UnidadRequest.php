@@ -37,7 +37,7 @@ class UnidadRequest extends FormRequest
                 case 'PUT':
                 case 'PATCH': {
                     return [
-                'name'=>'required|max:50|min:3|regex:/^[\pL\s\-]+$/u |unique:unidades,name,' . $this->id . ',id',
+                'name'=>'required|max:50|min:3|regex:/^[\pL\s\-]+$/u |unique:unidades,name,' . $this->unidad->id . ',id',
                 //'name' => Rule::unique('unidades')->ignore($this->id),
                 'description'=>'required|max:50',
                 
