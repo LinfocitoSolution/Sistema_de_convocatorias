@@ -211,8 +211,8 @@
           <div class="col-xs-11 col-md-6 text-right">
               <h5 class="text-white">ENCUENTRANOS EN LAS REDES</h5>
               <div class="redes-footer">
-                <a href="http://websis.umss.edu.bo/"><img src="{{asset('imagenes/websis.JPG')}}" width="60" height="60"></a>
-                <a href="http://www.cs.umss.edu.bo/"><img src="{{asset('imagenes/cs.JPG')}}" width="60" height="60"></a>
+                <a href="http://websis.umss.edu.bo/"><img src="{{asset('imagenes/websis.jpg')}}" width="60" height="60"></a>
+                <a href="http://www.cs.umss.edu.bo/"><img src="{{asset('imagenes/cs.jpg')}}" width="60" height="60"></a>
                 <a href="http://www.umss.edu.bo/"><img src="{{asset('imagenes/umss.png')}}" width="60" height="60"></a>
               </div>
               <hr>

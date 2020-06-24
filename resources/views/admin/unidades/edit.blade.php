@@ -15,7 +15,7 @@
                     </div>   
                     <div class="card-body"> 
                                               
-                        <form action="{{route('unidades.update',$unidad->id)}}" class="form-horizontal"  method="POST">                            
+                        <form action="{{route('unidades.update',$unidad->id)}}" class="form-horizontal"  method="POST" autocomplete="off">                            
                            {{method_field('PUT')}}
                             {{csrf_field()}}
                             @include('admin.unidades.form')

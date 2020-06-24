@@ -13,7 +13,7 @@
                     <div class="card-header">
                         <h1>Editar area</h1>
                     <div class="card-body">                        
-                        <form action="{{route('areas.update',$area->id)}}" class="form-horizontal"  method="POST">                            
+                        <form action="{{route('areas.update',$area)}}" class="form-horizontal"  method="POST">                            
                             {{method_field('PUT')}}
                             {{csrf_field()}}
                             @include('admin.areas.form')
