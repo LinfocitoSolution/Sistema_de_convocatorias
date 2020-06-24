@@ -14,10 +14,10 @@
                         <h1>Editar unidad</h1>
                     </div>   
                     <div class="card-body"> 
-                        <!--{route('unidades.update',$unidad->id)}}-->                       
-                        <form action="" class="form-horizontal"  method="POST">                            
-                           <!-- {method_field('PUT')}}
-                            {csrf_field()}}-->
+                                              
+                        <form action="{{route('unidades.update',$unidad->id)}}" class="form-horizontal"  method="POST">                            
+                           {{method_field('PUT')}}
+                            {{csrf_field()}}
                             @include('admin.unidades.form')
                             <div class="form-actions text-center">
                                 <button class="btn btn-outline-dark" type="submit">Actualizar</button>
