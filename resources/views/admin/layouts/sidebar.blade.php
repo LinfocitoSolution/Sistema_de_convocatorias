@@ -87,13 +87,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                 <a href="{{route('areas.create')}}" class="nav-link">
+                 <a href="{{route('area.create')}}" class="nav-link">
                   <i class="fas fa-plus-square nav-icon"></i>
                   <p>Nueva</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('areas.index')}}" class="nav-link">
+                <a href="{{ route('area.index')}}" class="nav-link">
                   <i class="fas fa-th-list nav-icon"></i>
                   <p>Lista</p>
                 </a>

@@ -13,13 +13,13 @@
                     <div class="card-header">
                         <h1>Editar area</h1>
                     <div class="card-body">                        
-                        <form action="{{route('areas.update',$area)}}" class="form-horizontal"  method="POST">                            
+                        <form action="/area/{{$area->id}}" class="form-horizontal"  method="POST">                            
                             {{method_field('PUT')}}
                             {{csrf_field()}}
                             @include('admin.areas.form')
                             <div class="form-actions text-center">
                                 <button class="btn btn-outline-dark" type="submit">Actualizar</button>
-                                <a class="btn btn-outline-dark" href="{{route('areas.index') }}">Cancelar</a>
+                                <a class="btn btn-outline-dark" href="{{route('area.index') }}">Cancelar</a>
                             </div>
                         </form>
                     </div>

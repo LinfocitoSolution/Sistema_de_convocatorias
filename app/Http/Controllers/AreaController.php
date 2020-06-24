@@ -38,7 +38,7 @@ class AreaController extends Controller
     {
         $area = Area::create($request->all());        
         $area->save();
-        return redirect()->route('areas.index');
+        return redirect()->route('area.index');
     }
 
     /**
@@ -82,7 +82,7 @@ class AreaController extends Controller
         // return redirect()->route('areas.index');
         $area->fill($request->all());
         $area->save();
-        return redirect()->route('areas.index');
+        return redirect()->route('area.index');
     }
 
     /**
@@ -94,6 +94,6 @@ class AreaController extends Controller
     public function destroy($id)
     {
         Area::destroy($id);    
-        return redirect(route('areas.index')); 
+        return redirect(route('area.index')); 
     }
 }

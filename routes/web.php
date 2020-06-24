@@ -51,8 +51,6 @@ Route::get('test', function () {
 Route::get('reset', function () {
     return view('auth.index_ResetPassword');
 });
-
-
 //##################### ROL ####################################
 Route::get('roles_create', [
     'as' => 'roles.create',
@@ -76,17 +74,8 @@ Route::post('roles_store', [
     'uses' => 'RoleController@store',
 ]);
 Route::get('edit', 'RoleController@edit');
-//##############################################################
-
-
 //#################### AREA ####################################
-Route::get('areas','AreaController@index')->name('areas.index');
-Route::get('areas_create','AreaController@create')->name('areas.create');
-Route::get('areas_{area}_edit','AreaController@edit')->name('areas.edit');
-Route::post('areas_store','AreaController@store')->name('areas.store');
-Route::delete('areas_delete_{area}','AreaController@destroy')->name('areas.destroy');
-Route::put('areas_update_{area}','AreaController@update')->name('areas.update');
-// Route::resource('areas', 'AreaController');
+Route::resource('area', 'AreaController');
 //##############################################################
 
 //######################ROTULO###################################
