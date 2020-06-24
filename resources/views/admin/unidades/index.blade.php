@@ -26,17 +26,17 @@
                     </tr>
                     </thead>
                     <tbody>
-                        @foreach($unidad as $unidade)
+                        @foreach($unidades as $unidad)
                             <tr>
                                 
-                                <td>{{$unidade->name}}</td>
-                                <td>{{$unidade->description}}</td>                                                                          
+                                <td>{{$unidad->name}}</td>
+                                <td>{{$unidad->description}}</td>                                                                          
                                 <td>
-                                    <a class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title="presiona para editar una unidad" href="{{route('unidades.edit', $unidade->id) }}">
+                                    <a class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title="presiona para editar una unidad" href="{{route('unidades.edit', $unidad) }}">
                                         <i class="fa fa-pencil-alt"></i>
                                     </a> 
                                     
-                                    <form action="{{route('unidades.destroy',$unidade->id)}}" method="POST" style="display:inline-block;">
+                                    <form action="{{route('unidades.destroy',$unidad->id)}}" method="POST" style="display:inline-block;">
                                         {{ csrf_field() }}                                                                                                                     
                                         {{ method_field('DELETE') }}                                                                                                                                                
                                         <button class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title="presiona para eliminar una unidad" type="submit" margin-left="50" onclick="return confirm('Está seguro de eliminar la unidad?')" >
