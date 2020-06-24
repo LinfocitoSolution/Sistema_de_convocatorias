@@ -58,10 +58,10 @@ class AreaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Area $area)
     {                                             
-        $area= Area::where('id',$id)
-            ->first();
+        // $area= Area::where('id',$id)
+        //     ->first();
         return view('admin.areas.edit',compact('area'));
     }
 
@@ -72,12 +72,15 @@ class AreaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(AreaRequest $request, $id)
+    public function update(AreaRequest $request, Area $area)
     {
-        $area  = Area::where('id',$id)
-        ->first();
-        $area->name=$request->get('name');
-        $area->description=$request->get('description');
+        // $area  = Area::where('id',$id)
+        // ->first();
+        // $area->name=$request->get('name');
+        // $area->description=$request->get('description');
+        // $area->save();
+        // return redirect()->route('areas.index');
+        $area->fill($request->all());
         $area->save();
         return redirect()->route('areas.index');
     }
