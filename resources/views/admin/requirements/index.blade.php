@@ -34,16 +34,14 @@
                               method="POST">
 
                            
-                                          <a class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="Presiona para observar al usuario" href="">
+                                          <a class="btn btn-dark btn-sm" href="">
                                           <i class="fa fa-eye"></i>
                                         </a>
 
-                                        <a class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="Presiona para editar usuario" href="">
+                                        <a class="btn btn-dark btn-sm"  href="">
                                           <i class="fa fa-edit"></i>
                                         </a>
-                                    
-                               
-                                                           
+                                                                     
                           </form>
                         </td>
                       </tr> 

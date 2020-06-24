@@ -15,7 +15,7 @@
                         <i class="fa fa-user-edit"></i>Editar Requerimiento</div>
                     <div class="card-body">
 
-                            <form class="form-horizontal" action="" method="" autocomplete="off">
+                            <form class="form-horizontal" action="" method="">
                                 
 
                                 <div class="box-solid">
