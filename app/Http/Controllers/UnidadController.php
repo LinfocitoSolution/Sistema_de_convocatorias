@@ -14,8 +14,8 @@ class UnidadController extends Controller
      */
     public function index()
     {
-        $unidad=Unidad::all();
-        return view('admin.unidades.index',compact('unidad'));
+        $unidades=Unidad::all();
+        return view('admin.unidades.index',compact('unidades'));
     }
 
     /**
@@ -59,10 +59,11 @@ class UnidadController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Unidad $unidad)
     {
-        $unidad= Unidad::where('id',$id)
-            ->first();
+        //$unidad= Unidad::where('id',$id)
+        //    ->first();
+        
         return view('admin.unidades.edit',compact('unidad'));
     }
 
@@ -73,12 +74,14 @@ class UnidadController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UnidadRequest $request, $id)
+    public function update(UnidadRequest $request, Unidad $unidad)
     {
-        $unidad  = Unidad::where('id',$id)
+        /*$unidad  = Unidad::where('id',$id)
         ->first();
         $unidad->name=$request->get('name');
         $unidad->description=$request->get('description');
+        $unidad->save();*/
+        $unidad->fill($request->all());
         $unidad->save();
         return redirect(route('unidades.index'))->with([ 'message' => 'Unidad Academica actualizada exitosamente!', 'alert-type' => 'success' ]);
     }

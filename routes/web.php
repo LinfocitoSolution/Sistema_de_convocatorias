@@ -106,4 +106,12 @@ Route::get('vista', function () {
 });
 
 //##################### Unidades ########################
-Route::resource('unidades', 'UnidadController');
+//Route::resource('unidades', 'UnidadController');
+Route::get('unidades','UnidadController@index')->name('unidades.index');
+Route::get('unidades_create','UnidadController@create')->name('unidades.create');
+Route::get('unidades_{unidad}_edit','UnidadController@edit')->name('unidades.edit');
+Route::post('unidades_store','UnidadController@store')->name('unidades.store');
+Route::delete('unidades_delete_{unidad}','UnidadController@destroy')->name('unidades.destroy');
+Route::put('unidades_update_{unidad}','UnidadController@update')->name('unidades.update');
+//#####################Requerimientos####################
+Route::resource('requerimientos','RequerimientosController');
