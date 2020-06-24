@@ -24,7 +24,7 @@
                            @endif-->
                            
                     <div class="card-body">
-                        <form class="form-horizontal" action="{{route('usuarios.guardar')}}" method="POST">
+                        <form class="form-horizontal" action="{{route('usuarios.guardar')}}" method="POST" autocomplete="off">
                             {{ csrf_field() }}
 
                             @include('admin.usuarios.form')

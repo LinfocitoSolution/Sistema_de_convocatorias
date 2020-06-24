@@ -16,7 +16,7 @@
                     </div>    
                     <div class="card-body">                 
                                                 <!--{ route('areas.store') }}-->      
-                        <form class="form-horizontal"  action="{{ route('unidades.store') }}" method="POST">                                                      
+                        <form class="form-horizontal"  action="{{ route('unidades.store') }}" method="POST" autocomplete="off">                                                      
                            <input type="hidden" name="_token" value="{{csrf_token()}}">
                           <!-- { csrf_field() }} -->                          
                             @include('admin.unidades.form')
