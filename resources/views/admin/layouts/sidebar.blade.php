@@ -143,7 +143,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="" class="nav-link">
+                <a href="{{route('requerimientos.index')}}" class="nav-link">
                   <i class="fas fa-th-list nav-icon"></i>
                   <p>Lista </p>
                 </a>
