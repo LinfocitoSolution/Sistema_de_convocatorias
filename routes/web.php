@@ -104,3 +104,8 @@ Route::get('mail/send', 'MailController@send');
 Route::get('vista', function () {
     return view('auth.mails.email');
 });
+
+//##################### Unidades ########################
+Route::get('unidades','UnidadController@index')->name('unidades.index');
+Route::get('unidades_create','UnidadController@create')->name('unidades.create');
+Route::get('unidades_edit','UnidadController@edit')->name('unidades.edit');
