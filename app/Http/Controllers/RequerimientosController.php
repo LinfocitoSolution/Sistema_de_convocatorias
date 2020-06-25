@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-
+use \App\Http\Requests\RequerimientoRequest;
 use \App\Requerimiento;
 use Illuminate\Http\Request;
 
@@ -36,9 +36,11 @@ class RequerimientosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RequerimientoRequest $request)
     {
-        //
+        $requerimiento=Requerimiento::create($request->all());
+        $requerimiento->save();
+        return redirect(route('requerimientos.index'))->with([ 'message' => 'Requerimiento creado exitosamente!', 'alert-type' => 'success' ]);
     }
 
     /**
@@ -58,9 +60,9 @@ class RequerimientosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Requerimiento $requerimiento)
     {
-        //
+        return view('admin.requirements.edit',compact('requerimiento'));
     }
 
     /**
@@ -70,9 +72,11 @@ class RequerimientosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(RequerimientoRequest $request, Requerimiento $requerimiento)
     {
-        //
+        $requerimiento->fill($request->all());
+        $requerimiento->save();
+        return redirect(route('requerimientos.index'))->with([ 'message' => 'Requerimiento  actualizado exitosamente!', 'alert-type' => 'success' ]);
     }
 
     /**
@@ -83,6 +87,7 @@ class RequerimientosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Requerimiento::destroy($id);    
+        return redirect(route('requerimientos.index'))->with([ 'message' => 'Requerimiento  eliminado!', 'alert-type' => 'success' ]);
     }
 }

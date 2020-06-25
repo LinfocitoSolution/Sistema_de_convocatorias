@@ -21,30 +21,36 @@
             <thead>
              <tr>
                 <th>Item</th>
-                <th>Cantidad de Auxiliares</th>
-                <th>Horas Académicas</th>
                 <th>Nombre de Auxiliatura</th>
                 <th>Código de la Auxiliatura</th>
+                <th>Cantidad de Auxiliares</th>
+                <th>Horas Académicas</th>
                 <th>Opciones</th>
              </tr>
             </thead>
             <tbody>
-                <tr>
-                  <td> 1   </td>
-                  <td> 2   </td>          
-                  <td>  horas  </td>
-                  <td>  nombreee  </td>         
-                  <td>   codigooo </td>                  
+              @foreach($requerimientos as $requerimiento)  
+              <tr>
+                  <td>{{$requerimiento->id}}</td>
+                  <td>{{$requerimiento->nombre_auxiliatura}}</td>          
+                  <td>{{$requerimiento->codigo_auxiliatura}}</td>
+                  <td>{{$requerimiento->cantidad_de_auxiliares}}</td>         
+                  <td>{{$requerimiento->cantidad_horas_academicas}}</td>                  
                    <td>      
-                        <a class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="Presiona para observar el requerimiento" href="">
-                            <i class="fa fa-eye"></i>
-                        </a>
-                        <a class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="Presiona para editar requerimiento" href="">
+                        
+                        <a class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="Presiona para editar requerimiento" href="{{route('requerimientos.edit',$requerimiento)}}">
                             <i class="fa fa-edit"></i>
                         </a>
+                        <form action="{{route('requerimientos.destroy',$requerimiento->id)}}" method="POST" style="display:inline-block;">
+                          {{ csrf_field() }}                                                              
+                          {{ method_field('DELETE') }}                            
+                          <button class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title="presiona para eliminar un area" type="submit" margin-left="50" onclick="return confirm('Está seguro de eliminar el area?')">
+                              <i class="fa fa-trash-alt"></i>                                
+                          </button>                            
+                      </form>
                     </td>
-                 </tr> 
-               
+              </tr> 
+              @endforeach 
             </tbody>
            </table>
          </div>

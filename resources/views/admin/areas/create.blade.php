@@ -15,7 +15,7 @@
                         <h1> Crear area</h1>
                     </div>    
                     <div class="card-body">                       
-                        <form class="form-horizontal"  action="{{ url('/area') }}" method="POST">                                                      
+                        <form class="form-horizontal"  action="{{ route('area.store') }}" method="POST">                                                      
                            <input type="hidden" name="_token" value="{{csrf_token()}}">
                            {{ csrf_field() }}                           
                             @include('admin.areas.form')

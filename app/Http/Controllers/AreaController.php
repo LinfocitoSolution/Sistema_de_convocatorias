@@ -60,8 +60,7 @@ class AreaController extends Controller
      */
     public function edit(Area $area)
     {                                             
-        // $area= Area::where('id',$id)
-        //     ->first();
+       
         return view('admin.areas.edit',compact('area'));
     }
 
@@ -74,12 +73,7 @@ class AreaController extends Controller
      */
     public function update(AreaRequest $request, Area $area)
     {
-        // $area  = Area::where('id',$id)
-        // ->first();
-        // $area->name=$request->get('name');
-        // $area->description=$request->get('description');
-        // $area->save();
-        // return redirect()->route('areas.index');
+        
         $area->fill($request->all());
         $area->save();
         return redirect()->route('area.index');
