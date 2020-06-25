@@ -11,9 +11,9 @@
     <div class="card mt-5" >
       <div class="card-header">
         <h1>Requerimientos</h1> 
-            <a class="btn btn-dark" data-toggle="tooltip" data-trigger="hover" title="presiona para crear un usuario"href="{{route('requerimientos.create')}}">
+            <a class="btn btn-dark" data-toggle="tooltip" data-trigger="hover" title="presiona para crear un requerimiento"href="{{route('requerimientos.create')}}">
               Nuevo 
-              <i class="fa fa-user-plus"></i>&nbsp;
+              <i class="fa fa-book"></i>&nbsp;
             </a>
       </div>
       <div class="card-body">
@@ -36,10 +36,10 @@
                   <td>  nombreee  </td>         
                   <td>   codigooo </td>                  
                    <td>      
-                        <a class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="Presiona para observar al usuario" href="">
+                        <a class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="Presiona para observar el requerimiento" href="">
                             <i class="fa fa-eye"></i>
                         </a>
-                        <a class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="Presiona para editar usuario" href="">
+                        <a class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="Presiona para editar requerimiento" href="">
                             <i class="fa fa-edit"></i>
                         </a>
                     </td>

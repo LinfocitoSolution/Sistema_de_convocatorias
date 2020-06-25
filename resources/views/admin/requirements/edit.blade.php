@@ -12,14 +12,14 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <i class="fa fa-user-edit"></i>Editar Requerimiento</div>
+                        <i class="fa fa-book-edit"></i>Editar Requerimiento</div>
                     <div class="card-body">
 
                             <form class="form-horizontal" action="" method="">
                                 
 
                                 <div class="box-solid">
-                                    @include('')
+                                    @include('admin.requeriments.form')
                                 </div>
 
                                 <div class="form-actions text-center">
