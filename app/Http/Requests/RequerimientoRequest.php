@@ -29,7 +29,7 @@ class RequerimientoRequest extends FormRequest
             case 'POST': {
                 return [
             'nombre_auxiliatura'=>'required|max:100|min:5|regex:/^[\pL\s\-]+$/u|unique:requerimientos,nombre_auxiliatura',
-            'codigo_auxiliatura'=>'required|min:1|numeric|digits_between:3,20|regex:/^[\0-9\s\-]+$/u',
+            'codigo_auxiliatura'=>'required|min:3|alpha_dash|max:10|unique:requerimientos,codigo_auxiliatura',
             'cantidad_de_auxiliares'=>'required|min:1|digits_between:1,5|numeric',
             'cantidad_horas_academicas'=>'required|min:1|max:100|numeric',
                 ];
@@ -38,7 +38,7 @@ class RequerimientoRequest extends FormRequest
             case 'PATCH': {
                 return [
                     'nombre_auxiliatura'=>'required|max:100|min:5|regex:/^[\pL\s\-]+$/u|unique:requerimientos,nombre_auxiliatura,' . $this->requerimiento->id . ',id',
-                    'codigo_auxiliatura'=>'required|min:1|numeric|digits_between:3,20|regex:/^[\0-9\s\-]+$/u',
+                    'codigo_auxiliatura'=>'required|min:3|max:10|alpha_dash|unique:requerimientos,codigo_auxiliatura,' . $this->requerimiento->id . ',id',
                     'cantidad_de_auxiliares'=>'required|min:1|digits_between:1,5|numeric',
                     'cantidad_horas_academicas'=>'required|min:1|max:100|digits_between:1,3|numeric',
                 ];
@@ -54,10 +54,11 @@ class RequerimientoRequest extends FormRequest
             'nombre_auxiliatura.regex'=>'el nombre de auxiliatura no debe tener caracteres especiales, ni numeros',
             'nombre_auxiliatura.unique'=>'este nombre de auxiliatura ya existe en nuestros registros',
             'codigo_auxiliatura.required'=>'se requiere el campo codigo de auxiliatura',
-            'codigo_auxiliatura.min'=>' el  valor de codigo de auxiliatura debe ser mayor a 1',
-            'codigo_auxiliatura.digits_between'=>' el codigo auxiliatura debe tener un rango de digitos entre 3 -20',
-            'codigo_auxiliatura.numeric'=>'el codigo auxiliatura solo permite numeros',
+            'codigo_auxiliatura.min'=>' el  valor de codigo de auxiliatura debe ser mayor a 3 caracteres',
+            'codigo_auxiliatura.max'=>' el  valor de codigo de auxiliatura no debe ser mayor a 10 caracteres',
+            'codigo_auxiliatura.alpha_dash'=>'el codigo auxiliatura solo permite numeros,letras y guiones ',
             'codigo_auxiliatura.regex'=>'el codigo auxiliatura no permite espacios ni caracteres especiales',
+            'codigo_auxiliatura.unique'=>'este codigo de auxiliatura ya existe en nuestros registros',
             'cantidad_de_auxiliares.required'=>'se requiere la cantidad de auxiliares para continuar',
             'cantidad_de_auxiliares.min'=>'el valor de la cantidad de auxiliares debe ser mayor a 1',
             'cantidad_de_auxiliares.digits_between'=>'el rango de digitos de la cantidad de auxiliares esta entre 1-5',
