@@ -18,8 +18,8 @@
     @endif
     <div class="container">
       <div class="row">
-       <div class="col-sm-10">
-        <div class="card mt-5"> 
+       <div class="col-sm-12">
+        <div class="card mt-2"> 
           <div class="card-header">
             <h1>Editar convocatoria</h1>
           </div>
@@ -34,6 +34,7 @@
                    
                    <div class="form-actions text-center">
                     <button class="btn btn-outline-dark" type="submit">Guardar</button>
+                    <a class="btn btn-outline-dark" href="{{route('call.index') }}">Cancelar</a>
                   </div>  
         </form> 
       </div> 
