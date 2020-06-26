@@ -28,7 +28,7 @@
            <button class="btn btn-dark" type="button">NA</button>
         </span>
         <input
-                        class="form-control text-capitalize {{ $errors->has('nombre_auxiliatura') ? 'is-invalid' : '' }}"
+                        class="form-control  {{ $errors->has('nombre_auxiliatura') ? 'is-invalid' : '' }}"
                         name="nombre_auxiliatura"
                         placeholder="Ingrese el nombre de auxiliatura" type="text"  value="{{ old('nombre_auxiliatura', isset($requerimiento) ? $requerimiento->nombre_auxiliatura : '') }}">
                     </div>
@@ -44,7 +44,7 @@
             <button class="btn btn-dark" type="button">CA</button>
         </span>
         <input
-                    class="form-control text-capitalize {{ $errors->has('codigo_auxiliatura') ? 'is-invalid' : '' }}"
+                    class="form-control {{ $errors->has('codigo_auxiliatura') ? 'is-invalid' : '' }}"
                     name="codigo_auxiliatura"
                     placeholder="Ingrese el código de la auxiliatura" type="text"  value="{{ old('codigo_auxiliatura', isset($requerimiento) ? $requerimiento->codigo_auxiliatura : '') }}">
             </div>
@@ -60,7 +60,7 @@
             <button class="btn btn-dark" type="button">CA</button>
         </span>
         <input
-                    class="form-control text-capitalize {{ $errors->has('cantidad_de_auxiliares') ? 'is-invalid' : '' }}"
+                    class="form-control  {{ $errors->has('cantidad_de_auxiliares') ? 'is-invalid' : '' }}"
                     name="cantidad_de_auxiliares"
                     placeholder="Ingrese la cantidad de auxiliares" type="text"  value="{{ old('cantidad_de_auxiliares', isset($requerimiento) ? $requerimiento->cantidad_de_auxiliares: '') }}">
                     
@@ -80,7 +80,7 @@
         <button class="btn btn-dark" type="button">HA</button>
     </span>
     <input
-                    class="form-control text-capitalize {{ $errors->has('cantidad_horas_academicas') ? 'is-invalid' : '' }}"
+                    class="form-control  {{ $errors->has('cantidad_horas_academicas') ? 'is-invalid' : '' }}"
                     name="cantidad_horas_academicas"
                     placeholder="Ingrese las horas" type="text"  value="{{ old('cantidad_horas_academicas', isset($requerimiento) ? $requerimiento->cantidad_horas_academicas : '') }}">
 </div>
