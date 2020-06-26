@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Convocatoria;
+use App\Area;
+use App\Unidad;
+use App\Requerimiento;
 use Validator;
 
 class CallController extends Controller
@@ -16,7 +19,10 @@ class CallController extends Controller
     public function index()
     {
         $calls = Convocatoria::all();
-        return view('admin.announcements.index', compact('calls'));
+        $areas = Area::all();
+        $unidades = Unidad::all();
+        $requerimientos = Requerimiento::all();
+        return view('admin.announcements.index', compact('calls', 'areas', 'unidades', 'requerimientos'));
     }
     /**
      * Show the form for creating a new resource.
@@ -26,7 +32,10 @@ class CallController extends Controller
     public function create()
     {
         $calls = Convocatoria::all();
-        return view('admin.announcements.create', compact('calls'));
+        $areas = Area::all();
+        $unidades = Unidad::all();
+        $requerimientos = Requerimiento::all();
+        return view('admin.announcements.create', compact('calls', 'areas', 'unidades', 'requerimientos'));
     }
     /**
      * Store a newly created resource in storage.

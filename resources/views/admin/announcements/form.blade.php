@@ -6,10 +6,11 @@
                  <button class="btn btn-dark" type="button">A</button>
                </span>
              <!-- <input class="form-control" type="text" name="titulo" placeholder="Ingrese el titulo " value="{ old('titulo', isset($call) ? $call->titulo_convocatoria : '') }}">--->
-              <select name="titulo" class="custom-select form-control">
-                <option selected class="text-dark" value="area">Convocatoria auxiliares de docencia</option>
-                <option value="laboratorio">Convocatoria auxiliares de laboratorio</option> 
-              </select>
+              <select class="form-control" type="text" name="titulo"  >
+                     @foreach($areas as $item)
+                           <option class="text-dark" value="{{ $item->id }}">{{ $item->name }}</option>
+                     @endforeach
+               </select>
             </div>
          </div>
       
@@ -20,12 +21,14 @@
               <span class="input-group-append">
                 <button class="btn btn-dark" type="button">U</button>
               </span>
-              <select name="unidad" class="custom-select form-control">
-                 <option selected class="text-dark" value="Sistemas">Departamento de Informatica y Sistemas</option>
-                 <option value="Biologia">Departamento de Biologia</option> 
-              </select>
+              <select class="custom-select form-control" type="text" name="unidad"  >
+                  @foreach($unidades as $item)
+                        <option class="text-dark" value="{{ $item->id }}">{{ $item->name }}</option>
+                  @endforeach
+               </select>
            </div>
         </div>
+
         <!---Gestion-->
         <div class="col-md-6 mb-2">
              <label class="col-form-label" for="nameGestion">Gestion</label>
@@ -35,7 +38,7 @@
                  <button class="btn btn-dark" type="button">G</button>
               </span> 
               <!---en value iba esto: { ucfirst(Auth::user()->name)}}-->
-               <input type="text" class="form-control" id="gestion" value="gestion1">
+               <input type="text" class="form-control" id="gestion" value="2020">
              
           </div>
         </div>  
@@ -46,10 +49,12 @@
             <span class="input-group-append">
               <button class="btn btn-dark" type="button">R</button>
             </span>
-            <select name="unidad" class="custom-select form-control">
-               <option selected class="text-dark" value="r1">Requerimiento 1</option>
-               <option value="r2">Requerimiento 2</option> 
+            <select class="custom-select form-control" type="text" name="requerimiento"  >
+               @foreach($requerimientos as $item)
+                     <option class="text-dark" value="{{ $item->id }}">{{ $item->nombre_auxiliatura }}</option>
+               @endforeach
             </select>
+            
          </div>
       </div>
        <!---descripcion--->  
