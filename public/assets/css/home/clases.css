@@ -28,13 +28,19 @@
   /*.col{
     margin-right:50px;
   }*/
-  
+.card-header{
+  background-color: #34515E;
+  color:white;
+}  
+.card-footer{
+  background-color: #34515E;
+}
 .convocatoria{
   border: 1px solid;
-  background-color: #DDDDDD;
+  background-color:#DDDDDD;
 }
 .tooltip-inner{
-  background-color: #DDDDDD;
+  background-color:#DDDDDD;
   color:black;
 }
 .tooltip.bs-tooltip-auto[x-placement^=top] .arrow::before, .tooltip.bs-tooltip-top .arrow::before {

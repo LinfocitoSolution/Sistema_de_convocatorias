@@ -75,14 +75,14 @@
           @if(Auth::user()->roles->first()->name=='Postulante')
           <a class="btn btn-outline-dark  text-white m-2 my-sm-2" type="submit" href="{{route('postulacion.form')}}">Formulario de Postulacion</a>
           @else
-          <a class="btn btn-outline-dark  text-white m-2 my-sm-2" type="submit" href="{{url('administrador')}}">Panel de Trabajo</a>
+          <a class="btn btn-outline-dark  text-white m-2 my-sm-2" type="submit" data-toggle="tooltip" data-placement="top" title="Presione el botón para entrar al panel de trabajo" href="{{url('administrador')}}">Panel de Trabajo</a>
           @endif
           <form class="form-inline float-xs-right">
-            <div class="btn-group" data-toggle="tooltip" data-placement="left" data-trigger="hover" title="Presiona y selecciona si deseas cerrar sesion">
+            <div class="btn-group" data-toggle="tooltip" data-placement="top" data-trigger="hover" title="Presiona y selecciona si deseas cerrar sesion">
               <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown">{{Auth::user()->roles->first()->name}}</button>
                 <div class="dropdown-menu">
                   <div class="dropdown-divider"></div>
-                    <a class="dropdown-item bg-dark text-white" tabindex="0" data-toggle="tooltip" data-placement="left" data-trigger="hover" title="informacion personal de postulante" href="{{ route('postulante.show',ucfirst(Auth::user()->id))}}">
+                    <a class="dropdown-item bg-dark text-white" tabindex="0" data-toggle="tooltip" data-placement="top" data-trigger="hover" title="informacion personal de postulante" href="{{ route('postulante.show',ucfirst(Auth::user()->id))}}">
                       <i class="fas fa-user mr-2"></i>Perfil
                     </a>
                      <div class="dropdown-divider"></div>
@@ -169,20 +169,23 @@
   <div class="container mt-5 mb-5">
     <div class="row justify-content-around">
         @foreach ($convocatorias as $convocatoria)
-           <div class="col-lg-6">
-                <div class="card text-white bg-dark my-3 ml-2 mr-3" style="width: 28rem;">
-                    <img src="{{ asset('/imagenes/web.jpg') }}" class="card-img-top" alt="laboratorios" width="200" height="200">
+           <div class="col-lg-4">
+                <div class="card">
+                   <div class="card-header">
+                     <h5 class="card-title">{{$convocatoria->titulo_convocatoria}}</h5>
+                   </div> 
                         <div class="card-body">
-                          <h5 class="card-title">{{$convocatoria->titulo_convocatoria}}</h5>
-                            <p class="card-text">{{$convocatoria->descripcion}}</p>
-                            {{-- <form class="form-horizontal" action="/call/{{$convocatoria->pdf_file}" method="GET"> --}}
-                          <a href="call/{{$convocatoria->pdf_file}}" target="_blank" class="btn btn-success rounded-pill active btn-block" >Ver Convocatoria</a>
+                             <p class="card-text">{{$convocatoria->descripcion}}</p>
+                              {{-- <form class="form-horizontal" action="/call/{{$convocatoria->pdf_file}" method="GET"> --}}
+                             <a href="call/{{$convocatoria->pdf_file}}" target="_blank" class="btn btn-outline-dark rounded-pill  btn-block" data-toggle="tooltip" data-placement="bottom" data-trigger="hover" title="Presiona el botón para ver la convocatoria">Ver Convocatoria</a>
                           
-                          @if(Auth::check() && Auth::user()->roles->first()->name=='Postulante')
-                          <a href="{{route('postulacion.form')}}" target="_blank" class="btn btn-success rounded-pill active btn-block" >Postularse</a>
-                          @endif
+                           @if(Auth::check() && Auth::user()->roles->first()->name=='Postulante')
+                             <a href="{{route('postulacion.form')}}" target="_blank" class="btn btn-outline-dark rounded-pill btn-block" data-toggle="tooltip" data-placement="bottom" data-trigger="hover" title="Presiona el botón para ver la convocatoria">Postularse</a>
+                           @endif
                           
                         </div>
+                        <div class="card-footer"></div>
+
                 </div>
               </div>  
         @endforeach
@@ -229,6 +232,14 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script src="{{asset('jquery/jquery-3.4.1.slim.min.js')}}" type="text/javascript"></script>
     <script src="{{asset('js/bootstrap.bundle.min.js')}}" type="text/javascript"></script>
+    <script>
+      $(function () {
+       $('[data-toggle="popover"]').popover({
+          placement:"right",
+          trigger:"hover"
+       })
+      })
+    </script>
     <script>
       $(function () {
       $('[data-toggle="tooltip"]').tooltip()
