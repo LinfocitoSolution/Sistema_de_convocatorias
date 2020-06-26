@@ -25,7 +25,7 @@
             </span>
            
             <textarea
-                class="form-control  {{ $errors->has('description') ? 'is-invalid' : '' }} "
+                class="form-control {{ $errors->has('description') ? 'is-invalid' : '' }}"
                 name="description"
                 placeholder="Ingrese una descripcion" type="text"> {{ old('description', isset($unidad) ? $unidad->description : '') }}</textarea>
                   
