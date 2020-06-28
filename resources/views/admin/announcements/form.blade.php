@@ -1,14 +1,14 @@
 <div class="form-row">
         <div class="col-md-6 mb-2">
-              <label class="col-form-label" for="nameArea">Area</label>
+              <label class="col-form-label" for="nameArea">Area-Titulo Convocatoria</label>
            <div class="input-group">
               <span class="input-group-append">
                  <button class="btn btn-dark" type="button">A</button>
                </span>
-             <!-- <input class="form-control" type="text" name="titulo" placeholder="Ingrese el titulo " value="{ old('titulo', isset($call) ? $call->titulo_convocatoria : '') }}">--->
+             <!--<input class="form-control" type="text" name="titulo" placeholder="Ingrese el titulo " value="{ old('titulo', isset($call) ? $call->titulo_convocatoria : '') }}">-->
               <select class="form-control" type="text" name="titulo"  >
                      @foreach($areas as $item)
-                           <option class="text-dark" value="{{ $item->id }}">{{ $item->name }}</option>
+                           <option class="text-dark" value="{{ $item->name }}">{{ $item->name }}</option>
                      @endforeach
                </select>
             </div>

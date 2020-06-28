@@ -7,6 +7,7 @@ use App\Convocatoria;
 use App\Area;
 use App\Unidad;
 use App\Requerimiento;
+use DB;
 use Validator;
 
 class CallController extends Controller
@@ -22,7 +23,7 @@ class CallController extends Controller
         $areas = Area::all();
         $unidades = Unidad::all();
         $requerimientos = Requerimiento::all();
-        return view('admin.announcements.index', compact('calls', 'areas', 'unidades', 'requerimientos'));
+        return view('admin.announcements.index', compact('calls','areas', 'unidades', 'requerimientos'));
     }
     /**
      * Show the form for creating a new resource.
@@ -34,8 +35,11 @@ class CallController extends Controller
         $calls = Convocatoria::all();
         $areas = Area::all();
         $unidades = Unidad::all();
-        $requerimientos = Requerimiento::all();
-        return view('admin.announcements.create', compact('calls', 'areas', 'unidades', 'requerimientos'));
+        $requerimientos=Requerimiento::all();
+        $requerimiento = DB::table('requerimientos')->get();
+       
+       
+        return view('admin.announcements.create', compact('calls','areas', 'unidades', 'requerimientos'));
     }
     /**
      * Store a newly created resource in storage.
@@ -45,7 +49,8 @@ class CallController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [
+       //$requerimiento = DB::table('requerimientos')->get();
+        /*$validator = Validator::make($request->all(), [
             'titulo' => 'required | max: 50',
             'archivo' => 'required | max:5000 | file | mimes:pdf',  
             'descripcion' => 'required | max:200'
@@ -55,12 +60,15 @@ class CallController extends Controller
             return redirect('call/create')
                         ->withErrors($validator)
                         ->withInput();
-        }
+        }*/
 
         $convocatoria = new Convocatoria();
+        //$convocatoria = Convocatoria::create($request->all());
         $convocatoria->titulo_convocatoria=$request->input('titulo');
         $convocatoria->descripcion=$request->input('descripcion');
-
+       
+        
+       
         if ($request->hasFile('archivo')) {
             $file = $request->file('archivo');
             $nombre = time().$file->getClientOriginalName();
@@ -68,7 +76,10 @@ class CallController extends Controller
             $file->move(public_path().'/convocatorias/', $nombre);
             $convocatoria->pdf_file=$nombre;
             $convocatoria->save();
+            $requerimientos=$request->input('requerimiento');
+            $convocatoria->requerimientos()->attach($requerimientos);
             return redirect('administrador');
+            
         } else {
             return redirect('administrador')
                         ->withErrors($validator)
@@ -96,7 +107,11 @@ class CallController extends Controller
      */
     public function edit(Convocatoria $call)
     {
-        return view('admin.announcements.edit',compact('call'));
+        $areas = Area::all();
+        $unidades = Unidad::all();
+        $requerimientos=Requerimiento::all();
+        $requerimiento = DB::table('requerimientos')->get();
+        return view('admin.announcements.edit',compact('call', 'areas', 'unidades', 'requerimientos'));
     }
 
     /**
@@ -124,6 +139,8 @@ class CallController extends Controller
         //                 ->withInput();
         // }
         $call->save();
+        $requerimientos=$request->input('requerimiento');
+        $call->requerimientos()->attach($requerimientos);
         return redirect(route('call.index'))->with([ 'message' => 'Convocatoria actualizada exitosamente!', 'alert-type' => 'success' ]);
     }
 

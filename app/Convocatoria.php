@@ -6,5 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Convocatoria extends Model
 {
-    protected $fillable = ['titulo_convocatoria', 'descripcion'];
+    protected $fillable = ['id', 'titulo_convocatoria', 'descripcion'];
+    public function requerimientos()
+    {
+        return $this->belongsToMany(Requerimiento::class)->withTimestamps();
+    }
 }
