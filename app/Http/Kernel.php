@@ -55,5 +55,6 @@ class Kernel extends HttpKernel
        
         'role'=>\App\Http\Middleware\RoleMiddleware::class,
         'esRol'=>\App\Http\Middleware\esRol::class,
+        'permission' => \App\Http\Middleware\PermissionMiddleware::class,
     ];
 }

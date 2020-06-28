@@ -27,19 +27,13 @@ Route::get('/', [
 
 //---------------------------------rutas registro y autenticacion------------------------------------
 Auth::routes();
-Route::get('administrador','HomeController@registrado');
+Route::get('administrador','HomeController@registrado')->middleware('permission:view-access-management');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 //Route::post('/verificar','LoginController@LoginUsuario');
 //Route::get('registrado', 'LoginController@registrado');
 
 //----------------------------------rutas de usuario--------------------------------------------------
-Route::get('usuarios','UserController@index')->name('usuarios.index');
-Route::get('usuarios_create','UserController@create')->name('usuarios.create');
-Route::post('usuarios_guardar','UserController@store')->name('usuarios.guardar');
-Route::get('usuarios_editar_{user}','UserController@edit')->name('usuarios.edit');
-Route::put('usuarios_update_{user}','UserController@update')->name('usuarios.update');
-Route::delete('usuarios_delete_{user}','UserController@destroy')->name('usuarios.destroy');
-Route::get('usuarios_show_{user}','UserController@show')->name('usuarios.show');
+Route::resource('usuarios', 'UserController');
 
 //##################### CONVOCATORIA ##########################
 Route::resource('call', 'CallController');
@@ -52,28 +46,7 @@ Route::get('reset', function () {
     return view('auth.index_ResetPassword');
 });
 //##################### ROL ####################################
-Route::get('roles_create', [
-    'as' => 'roles.create',
-    'uses' => 'RoleController@create',
-]);
-Route::get('roles', [
-    'as' => 'roles.index',
-    'uses' => 'RoleController@index',
-]);
-// Route::get('rol/{rol}/edit', [
-//     'as' => 'roles.edit',
-//     'uses' => 'RoleController@edit',
-// ]);
-Route::resource('rol','RoleController');
-Route::delete('roles_{rol}', [
-    'as' => 'roles.destroy',
-    'uses' => 'RoleController@destroy',
-]);
-Route::post('roles_store', [
-    'as' => 'roles.store',
-    'uses' => 'RoleController@store',
-]);
-Route::get('edit', 'RoleController@edit');
+Route::resource('roles', 'RoleController');
 //#################### AREA ####################################
 Route::resource('area', 'AreaController');
 //##############################################################
@@ -83,6 +56,7 @@ Route::get('formulario_postulacion','PostulantController@index')->name('postulac
 Route::get('postulante_{user}_show','PostulantController@show')->name('postulante.show');
 Route::get('postulante_edit_{user}','PostulantController@edit')->name('postulante.edit');
 Route::put('postulante_{user}_update','PostulantController@update')->name('postulante.update');
+// Route::resource('postulante','PostulantController');
 //################################################################
 Route::post('reset_password','\App\Http\Controllers\Auth\ResetPasswordController@resetPassword');
 Route::get('enviar_resetPassword','\App\Http\Controllers\Auth\ResetPasswordController@enviarReset_Password');
@@ -95,12 +69,6 @@ Route::get('vista', function () {
 });
 
 //##################### Unidades ########################
-//Route::resource('unidades', 'UnidadController');
-Route::get('unidades','UnidadController@index')->name('unidades.index');
-Route::get('unidades_create','UnidadController@create')->name('unidades.create');
-Route::get('unidades_{unidad}_edit','UnidadController@edit')->name('unidades.edit');
-Route::post('unidades_store','UnidadController@store')->name('unidades.store');
-Route::delete('unidades_delete_{unidad}','UnidadController@destroy')->name('unidades.destroy');
-Route::put('unidades_update_{unidad}','UnidadController@update')->name('unidades.update');
+Route::resource('unidades','UnidadController');
 //#####################Requerimientos####################
 Route::resource('requerimientos','RequerimientosController');
