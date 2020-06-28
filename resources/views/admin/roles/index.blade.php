@@ -10,7 +10,7 @@
  <div class="container">
   <div class="row">
    <div class="col-sm-12">
-    <div class="card mt-5"> 
+    <div class="card mt-2"> 
       <div class="card-header">  
         <h1>Roles</h1>
         {{-- <!--la ruta debe llamarse  admin.roles.create--> --}}

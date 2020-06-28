@@ -10,7 +10,7 @@
     <div class="animated fadeIn">
         <div class="row">
             <div class="col-lg-12">
-                <div class="card">
+                <div class="card mt-2">
                     <div class="card-header">
                         <i class="fa fa-user-edit"></i>Editar usuario</div>
                     <div class="card-body">

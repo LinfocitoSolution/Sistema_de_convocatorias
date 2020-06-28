@@ -8,7 +8,7 @@
  <!-- Content Wrapper. Contains contiene paginas -->
  <div class="content-wrapper">
   <div class="container">   
-    <div class="card mt-5" >
+    <div class="card mt-2" >
       <div class="card-header">
         <h1> Usuarios</h1> 
             <a class="btn btn-dark" data-toggle="tooltip" data-trigger="hover" title="presiona para crear un usuario"href="{{route('usuarios.create')}}">

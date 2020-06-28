@@ -9,7 +9,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <div class="card mt-4">
+                <div class="card mt-2">
                     <div class="card-header">
                         <h1>Crear Requerimiento</h1>
                         </div>
