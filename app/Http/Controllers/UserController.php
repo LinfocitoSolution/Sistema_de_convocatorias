@@ -119,7 +119,7 @@ class UserController extends Controller
 
         $user->syncRoles($request->roles);//con esto asigna el rol seleccionado para los usuarios
 
-        return redirect(route('/'))->with([ 'message' => 'Usuario actualizado exitosamente!', 'alert-type' => 'success' ]);
+        return redirect(route('usuarios.index'))->with([ 'message' => 'Usuario actualizado exitosamente!', 'alert-type' => 'success' ]);
     }
 
     /**
