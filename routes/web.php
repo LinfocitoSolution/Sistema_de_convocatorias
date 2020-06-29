@@ -10,7 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::auth();
 //----------------------------------rutas pagina principal-----------------------------------------
  Route::get('index', [
      'as' => 'home',
@@ -50,7 +49,28 @@ Route::get('reset', function () {
     return view('auth.index_ResetPassword');
 });
 //##################### ROL ####################################
-Route::resource('roles', 'RoleController');
+Route::get('roles_create', [
+    'as' => 'roles.create',
+    'uses' => 'RoleController@create',
+]);
+Route::get('roles', [
+    'as' => 'roles.index',
+    'uses' => 'RoleController@index',
+]);
+Route::get('rol/{rol}/edit', [
+    'as' => 'roles.edit',
+    'uses' => 'RoleController@edit',
+]);
+Route::delete('roles_{rol}', [
+    'as' => 'roles.destroy',
+    'uses' => 'RoleController@destroy',
+]);
+Route::post('roles_store', [
+    'as' => 'roles.store',
+    'uses' => 'RoleController@store',
+]);
+Route::get('edit', 'RoleController@edit');
+// Route::resource('roles', 'RoleController');
 //#################### AREA ####################################
 Route::resource('area', 'AreaController');
 //##############################################################
