@@ -5,12 +5,8 @@
               <span class="input-group-append">
                  <button class="btn btn-dark" type="button">A</button>
                </span>
-             <!--<input class="form-control" type="text" name="titulo" placeholder="Ingrese el titulo " value="{ old('titulo', isset($call) ? $call->titulo_convocatoria : '') }}">-->
-              <select class="form-control" type="text" name="titulo"  >
-                     @foreach($areas as $item)
-                           <option class="text-dark" value="{{ $item->name }}">{{ $item->name }}</option>
-                     @endforeach
-               </select>
+             <input class="form-control" type="text" name="titulo" placeholder="Ingrese el titulo " value="{{ old('titulo', isset($call) ? $call->titulo_convocatoria : '') }}">
+             
             </div>
          </div>
       
