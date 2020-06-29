@@ -49,12 +49,12 @@
                         {{-- <a class="btn btn-info btn-sm mx-1 my-1" href="{{ route('roles.edit', $rol->id) }}"> --}}
                                                 
                        
-                      <form action="{{route('roles.destroy',$rol->id)}}" method="POST" style="display:inline-block;">
+                      <form action="{{ route('roles.destroy',$rol->id) }}" method="POST" style="display:inline-block;">
                         {{ csrf_field() }}                                                              
                         {{ method_field('DELETE') }}     
                         
                         @if ($rol->id != 1)
-                          <a class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title="Presiona para editar un rol" href="rol/{{$rol->id}}/edit">
+                          <a class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title="Presiona para editar un rol" href="{{route('roles.edit',$rol)}}"> 
                             <i class="fa fa-pencil-alt"></i>
                           </a> 
                           <button class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title="Presiona para eliminar un rol" type="submit" margin-left="50" onclick="return confirm('Está seguro de eliminar este rol?')">

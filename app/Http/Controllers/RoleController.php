@@ -16,11 +16,11 @@ class RoleController extends Controller
      */
     public function __construct()
     {
-        // $this-> middleware('permission:create roles')->only(['create','store']);
-        // $this-> middleware('permission:list roles')->only('index');
-        // $this-> middleware('permission:edit roles')->only(['edit','update']);
-        // // $this-> middleware('permission:list users')->only('show');//show        
-        // $this-> middleware('permission:delete roles')->only('destroy');
+        $this-> middleware('permission:create roles')->only(['create','store']);
+        $this-> middleware('permission:list roles')->only('index');
+        $this-> middleware('permission:edit roles')->only(['edit','update']);
+        // $this-> middleware('permission:list users')->only('show');//show        
+        $this-> middleware('permission:delete roles')->only('destroy');
     }
     /**
      * Display a listing of the resource.
@@ -92,7 +92,7 @@ class RoleController extends Controller
      */
     
     public function edit(Role $rol)
-    {   
+    {  
         $permissions = Permission::all();
         return view('admin.roles.edit', compact('rol','permissions'));
     }
@@ -111,7 +111,7 @@ class RoleController extends Controller
         if ($request->permissions) {
             $rol->syncPermissions($request->permissions);
         }
-        return redirect(route('rol.index'))->with([ 'message' => 'Rol actualizado exitosamente!', 'alert-type' => 'info' ]);
+        return redirect(route('roles.index'))->with([ 'message' => 'Rol actualizado exitosamente!', 'alert-type' => 'info' ]);
     }
 
     /**

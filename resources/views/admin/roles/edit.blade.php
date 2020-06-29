@@ -14,13 +14,13 @@
                     <div class="card-header">
                         <h1>Editar Rol</h1></div>
                     <div class="card-body">
-                    <form class="form-horizontal" action="/rol/{{$rol->id}}" method="POST" autocomplete="off">
+                    <form class="form-horizontal" action="{{ route("roles.update", $rol->id) }}" method="POST" autocomplete="off">
                         {{ method_field('PUT')}}
                         {{ csrf_field() }}
                             @include('admin.roles.partials.form')
                             <div class="form-actions text-center">
                                 <button class="btn btn-outline-dark" type="submit">Actualizar</button>
-                                <a class="btn btn-outline-dark" href="{{ url('/rol') }}">Cancelar</a>
+                                <a class="btn btn-outline-dark" href="{{ url('/roles') }}">Cancelar</a>
                             </div>
                     </form>
                     </div>
