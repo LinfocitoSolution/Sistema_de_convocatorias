@@ -49,7 +49,7 @@
                         {{-- <a class="btn btn-info btn-sm mx-1 my-1" href="{{ route('roles.edit', $rol->id) }}"> --}}
                                                 
                        
-                      <form action="/roles/{{$rol}}"method="POST" style="display:inline-block;">
+                      <form action="{{ route('roles.destroy',$rol->id) }}" method="POST" style="display:inline-block;">
                         {{ csrf_field() }}                                                              
                         {{ method_field('DELETE') }}     
                         

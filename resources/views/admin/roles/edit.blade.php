@@ -14,7 +14,7 @@
                     <div class="card-header">
                         <h1>Editar Rol</h1></div>
                     <div class="card-body">
-                    <form class="form-horizontal" action="/roles/{{$rol}}" method="POST" autocomplete="off">
+                    <form class="form-horizontal" action="{{ route("roles.update", $rol->id) }}" method="POST" autocomplete="off">
                         {{ method_field('PUT')}}
                         {{ csrf_field() }}
                             @include('admin.roles.partials.form')

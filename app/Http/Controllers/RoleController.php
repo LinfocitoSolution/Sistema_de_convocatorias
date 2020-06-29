@@ -111,7 +111,7 @@ class RoleController extends Controller
         if ($request->permissions) {
             $rol->syncPermissions($request->permissions);
         }
-        return redirect(route('rol.index'))->with([ 'message' => 'Rol actualizado exitosamente!', 'alert-type' => 'info' ]);
+        return redirect(route('roles.index'))->with([ 'message' => 'Rol actualizado exitosamente!', 'alert-type' => 'info' ]);
     }
 
     /**
