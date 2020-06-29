@@ -12,6 +12,7 @@
                 <div class="card mt-2">
                     <div class="card-header">
                         <h1>Editar area</h1>
+                    </div>    
                     <div class="card-body">                        
                         <form action="/area/{{$area->id}}" class="form-horizontal"  method="POST">                            
                             {{method_field('PUT')}}
