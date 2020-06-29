@@ -22,19 +22,74 @@
 @endif
 </head> 
 <body>
-  <div class="jumbotron jumbotron-fluid mb-0 pt-4" style="height: 140px;">
+  <div class="jumbotron jumbotron-fluid mb-0 pt-4" style="height: 300px;">
     <div class="container">
-      <div class="media">
-        <img  class="logoUmss float-left align-center mt-0" width="110" height="100" src="{{asset('../imagenes/umss.png')}} " 
-           alt="umss2">
+      
           <div class="media-body" > 
-             <div class="h5 text-white text-center mt-0">CONVOCATORIAS AUXILIARES</div>
-             <div class="h5 text-white text-center">UNIVERSIDAD MAYOR DE SAN SIMÓN</div>
+                <div class="h3 text-white text-center mt-0">CONVOCATORIAS AUXILIARES</div>
+                <div class="h4 text-white text-center">UNIVERSIDAD MAYOR DE SAN SIMÓN</div>
+              <div class="row justify-content-center"> 
+                   <img  class="logoUmss float-left align-center p-0 mr-5 mt-4" width="89" height="120" src="{{asset('../imagenes/umss1.png')}} " alt="umss2">
+                <div class="col-md-8"> 
+                 <!--Carrusel-->  
+                   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                      <ol class="carousel-indicators">
+                         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                         <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                      </ol>
+                     <div class="carousel-inner">
+                       <div class="carousel-item active">
+                           <img src="{{ asset('/imagenes/tecno.jpg') }}"  class="d-block w-100" alt="web" width="700" height="250">
+                         <div class="carousel-caption" >
+                           <div class="text-white pb-5">
+                              <h3>Facultad de ciencias y tecnología</h3>
+                           </div>
+                         </div>
+                       </div>
+                       <div class="carousel-item">
+                           <img src="{{ asset('/imagenes/sistemas.jpg') }}" class="d-block w-100" alt="elem" width="700" height="250">
+                         <div class="carousel-caption">
+                           <div class="text-white pb-4">
+                             <h3>Departamento de Sistemas e Informática</h3>
+                          </div>
+                         </div>
+                       </div>
+                       <div class="carousel-item">
+                          <img src="{{ asset('/imagenes/aula.jpg') }}" class="d-block w-100" alt="aulalaboratorios" width="700" height="250">
+                         <div class="carousel-caption">
+                            <div class="text-white pb-5">
+                              <h3>Laboratorios</h3>
+                            </div>
+                         </div>
+                       </div>
+                       <div class="carousel-item">
+                           <img src="{{ asset('/imagenes/edificio.jpg') }}" class="d-block w-100" alt="prog" width="700" height="250">
+                         <div class="carousel-caption" >
+                           <div class="text-white pb-5">
+                              <h3>Edificio Multiacadémico</h3>
+                           </div>
+                         </div>   
+                       </div>
+                    </div>
+                      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                         <span class="sr-only">Previous</span>
+                      </a>
+                      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                         <span class="sr-only">Next</span>
+                      </a>
+                  </div>
+                 <!--fin carrusel-->  
+                </div> 
+                <img  class="logoCarrera float-right align-center p-0 mt-4 ml-5" width="89" height="100" src="{{asset('../imagenes/logoInformaticaSistemas.png')}}" alt="carrera"> 
+             </div>
           </div>
-          <img  class="logoCarrera float-right align-center p-0" width="100" height="100" src="{{asset('../imagenes/logoInformaticaSistemas.png')}}" 
-           alt="carrera"> 
+          
         </div>     
-    </div>       
+          
 </div> 
 <!-- navbar -->
  <nav class="navbar sticky-top navbar-expand-lg py-0">
@@ -111,57 +166,8 @@
       @endif
     
     
-  <!--carrusel-->      
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-          <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-          </ol>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="{{ asset('/imagenes/tecno.jpg') }}"  class="d-block w-100" alt="web" width="800" height="300">
-                <div class="carousel-caption" >
-                  <div class="text-white pb-4">
-                    <h2>Facultad de ciencias y tecnología</h2>
-                  </div>
-                </div>
-          </div>
-          <div class="carousel-item">
-            <img src="{{ asset('/imagenes/sistemas.jpg') }}" class="d-block w-100" alt="elem" width="800" height="300">
-            <div class="carousel-caption">
-              <div class="text-white pb-4">
-                  <h2>Departamento de Sistemas e Informática</h2>
-                </div>
-              </div>
-          </div>
-          <div class="carousel-item">
-            <img src="{{ asset('/imagenes/aula.jpg') }}" class="d-block w-100" alt="aulalaboratorios" width="800" height="300">
-              <div class="carousel-caption">
-                <div class="text-white pb-4">
-                  <h1>Laboratorios</h1>
-                </div>
-              </div>
-          </div>
-          <div class="carousel-item">
-            <img src="{{ asset('/imagenes/edificio.jpg') }}" class="d-block w-100" alt="prog" width="800" height="300">
-              <div class="carousel-caption" >
-                  <div class="text-white pb-4">
-                    <h2>Edificio Multiacadémico</h2>
-                  </div>
-              </div>   
-          </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-    </div>
+  <!--carrusel-->
+
    <!--fin carrusel--> 
 
    <!--convocatorias ofertadas-->
@@ -216,7 +222,7 @@
               <div class="redes-footer">
                 <a href="http://websis.umss.edu.bo/"><img src="{{asset('imagenes/websis.jpg')}}" width="60" height="60"></a>
                 <a href="http://www.cs.umss.edu.bo/"><img src="{{asset('imagenes/cs.jpg')}}" width="60" height="60"></a>
-                <a href="http://www.umss.edu.bo/"><img src="{{asset('imagenes/umss.png')}}" width="60" height="60"></a>
+                <a href="http://www.umss.edu.bo/"><img src="{{asset('imagenes/umss1.png')}}" width="40" height="60"></a>
               </div>
               <hr>
               <div class="col-md-12 text-right">
