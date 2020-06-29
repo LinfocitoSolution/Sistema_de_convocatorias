@@ -16,6 +16,18 @@ use App\Http\Requests\UsuarioRequest;
 class UserController extends Controller
 {
     /**
+     * Class constructor.
+     */
+    public function __construct()
+    {
+        $this-> middleware('permission:create users')->only(['create','store']);
+        $this-> middleware('permission:list users')->only('index');
+        $this-> middleware('permission:edit users')->only(['edit','update']);
+        // $this-> middleware('permission:list users')->only('show');//show        
+        $this-> middleware('permission:delete users')->only('destroy');
+  
+    }
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -107,7 +119,7 @@ class UserController extends Controller
 
         $user->syncRoles($request->roles);//con esto asigna el rol seleccionado para los usuarios
 
-        return redirect(route('/'))->with([ 'message' => 'Usuario actualizado exitosamente!', 'alert-type' => 'success' ]);
+        return redirect(route('usuarios.index'))->with([ 'message' => 'Usuario actualizado exitosamente!', 'alert-type' => 'success' ]);
     }
 
     /**

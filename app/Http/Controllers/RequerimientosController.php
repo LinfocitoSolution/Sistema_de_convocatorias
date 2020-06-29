@@ -9,6 +9,17 @@ use Illuminate\Http\Request;
 class RequerimientosController extends Controller
 {
     /**
+     * Class constructor.
+     */
+    public function __construct()
+    {
+        $this-> middleware('permission:create requirements')->only(['create','store']);
+        $this-> middleware('permission:list requirements')->only('index');
+        $this-> middleware('permission:edit requirements')->only(['edit','update']);
+        // $this-> middleware('permission:list requirements')->only('show');//show        
+        $this-> middleware('permission:delete requirements')->only('destroy');
+    }
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response

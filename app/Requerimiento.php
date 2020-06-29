@@ -18,4 +18,9 @@ class Requerimiento extends Model
     protected $hidden = [
         'remember_token',
     ];
+    public function convocatorias()
+    {
+        return $this->belongsToMany(Convocatoria::class)->withTimestamps();
+    }
 }
+

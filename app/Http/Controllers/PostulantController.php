@@ -28,19 +28,13 @@ class PostulantController extends Controller
     }
     
     public function edit(User $user)
-    {
-        
-
+    {        
         return view('postulante.edit',compact('user'));
     }
     public function update(PostulanteRequest $request,User $user)
     {
-        $user->update($request->all());
-        
-        $user->save();
-
-        
-
+        $user->update($request->all());    
+        $user->save();        
         return redirect(route('postulante.show',compact('user')))->with([ 'message' => 'Usuario actualizado exitosamente!', 'alert-type' => 'success' ]);
     }
 }

@@ -4,10 +4,24 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Convocatoria;
+use App\Unidad;
+use App\Requerimiento;
+use DB;
 use Validator;
 
 class CallController extends Controller
 {
+    /**
+     * Class constructor.
+     */
+    public function __construct()
+    {
+        $this-> middleware('permission:create announcements')->only(['create','store']);
+        $this-> middleware('permission:list announcements')->only('index');
+        $this-> middleware('permission:edit announcements')->only(['edit','update']);
+        // $this-> middleware('permission:list announcements')->only('show');//show        
+        $this-> middleware('permission:delete announcements')->only('destroy');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -16,6 +30,10 @@ class CallController extends Controller
     public function index()
     {
         $calls = Convocatoria::all();
+       
+       /* $unidades = Unidad::all();
+        $requerimientos = Requerimiento::all();*/
+        //return view('admin.announcements.index', compact('calls', 'unidades', 'requerimientos'));
         return view('admin.announcements.index', compact('calls'));
     }
     /**
@@ -26,7 +44,13 @@ class CallController extends Controller
     public function create()
     {
         $calls = Convocatoria::all();
-        return view('admin.announcements.create', compact('calls'));
+        
+        $unidades = Unidad::all();
+        $requerimientos=Requerimiento::all();
+        $requerimiento = DB::table('requerimientos')->get();
+       
+       
+        return view('admin.announcements.create', compact('calls', 'unidades', 'requerimientos'));
     }
     /**
      * Store a newly created resource in storage.
@@ -36,6 +60,9 @@ class CallController extends Controller
      */
     public function store(Request $request)
     {
+       //$requerimiento = DB::table('requerimientos')->get();
+        /*
+              "validacion comentada para ponerla directaente por el form request"
         $validator = Validator::make($request->all(), [
             'titulo' => 'required | max: 50',
             'archivo' => 'required | max:5000 | file | mimes:pdf',  
@@ -46,12 +73,15 @@ class CallController extends Controller
             return redirect('call/create')
                         ->withErrors($validator)
                         ->withInput();
-        }
+        }*/
 
         $convocatoria = new Convocatoria();
+        //$convocatoria = Convocatoria::create($request->all());   no genera ninguna funcionalidad
         $convocatoria->titulo_convocatoria=$request->input('titulo');
         $convocatoria->descripcion=$request->input('descripcion');
-
+       
+        
+       
         if ($request->hasFile('archivo')) {
             $file = $request->file('archivo');
             $nombre = time().$file->getClientOriginalName();
@@ -59,12 +89,15 @@ class CallController extends Controller
             $file->move(public_path().'/convocatorias/', $nombre);
             $convocatoria->pdf_file=$nombre;
             $convocatoria->save();
+            $requerimientos=$request->input('requerimiento');
+            $convocatoria->requerimientos()->attach($requerimientos);
             return redirect('administrador');
-        } else {
+            
+        } /*else {
             return redirect('administrador')
                         ->withErrors($validator)
                         ->withInput();
-        }
+        }*/
     }
 
     /**
@@ -87,7 +120,11 @@ class CallController extends Controller
      */
     public function edit(Convocatoria $call)
     {
-        return view('admin.announcements.edit',compact('call'));
+       
+        $unidades = Unidad::all();
+        $requerimientos=Requerimiento::all();
+        $requerimiento = DB::table('requerimientos')->get();
+        return view('admin.announcements.edit',compact('call', 'unidades', 'requerimientos'));
     }
 
     /**
@@ -99,7 +136,8 @@ class CallController extends Controller
      */
     public function update(Request $request, Convocatoria $call)
     {
-         $call->fill($request->all());
+        $call->titulo_convocatoria=$request->get('titulo'); 
+        $call->update($request->all());
         // if ($request->hasFile('archivo')) {
         //     $file = $request->file('archivo');
         //     $nombre = time().$file->getClientOriginalName();
@@ -115,6 +153,8 @@ class CallController extends Controller
         //                 ->withInput();
         // }
         $call->save();
+        /*$requerimientos=$request->input('requerimiento');
+        $call->requerimientos()->attach($requerimientos);*/
         return redirect(route('call.index'))->with([ 'message' => 'Convocatoria actualizada exitosamente!', 'alert-type' => 'success' ]);
     }
 
