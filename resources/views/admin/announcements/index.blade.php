@@ -10,7 +10,7 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-12">   
-       <div class="card mt-5" >
+       <div class="card mt-2" >
         <div class="card-header">
         <h1> Convocatorias</h1> 
         <a class="btn btn-dark px2" data-toggle="tooltip" data-trigger="hover" title="presiona para crear una convocatoria" href="{{ route('call.create')}}">

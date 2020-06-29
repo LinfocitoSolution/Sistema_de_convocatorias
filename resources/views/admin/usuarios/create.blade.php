@@ -9,7 +9,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <div class="card">
+                <div class="card mt-2">
                     <div class="card-header">
                         <i class="fa fa-user-edit"></i>Crear usuario</div>
 
@@ -24,7 +24,7 @@
                            @endif-->
                            
                     <div class="card-body">
-                        <form class="form-horizontal" action="{{route('usuarios.guardar')}}" method="POST" autocomplete="off">
+                        <form class="form-horizontal" action="{{route('usuarios.store')}}" method="POST" autocomplete="off">
                             {{ csrf_field() }}
 
                             @include('admin.usuarios.form')

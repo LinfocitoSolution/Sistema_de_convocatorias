@@ -19,7 +19,7 @@
     <div class="container">
       <div class="row">
        <div class="col-sm-12">
-        <div class="card mt-1"> 
+        <div class="card mt-2"> 
           <div class="card-header">    
             <h5>Crear convocatoria</h5>
             </div>

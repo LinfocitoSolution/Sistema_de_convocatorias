@@ -14,6 +14,7 @@ class PermissionsTableSeeder extends Seeder
     public function run()
     {
         $permissions = [
+            [ 'name' => 'view-access-management'],
             [ 'name' => 'list users' ],
             [ 'name' => 'create users' ],
             [ 'name' => 'edit users' ],
@@ -43,6 +44,11 @@ class PermissionsTableSeeder extends Seeder
             [ 'name' => 'create postulants' ],
             [ 'name' => 'edit postulants' ],
             [ 'name' => 'delete postulants' ],
+
+            [ 'name' => 'list units' ],
+            [ 'name' => 'create units' ],
+            [ 'name' => 'edit units' ],
+            [ 'name' => 'delete units' ],
         ];
 
         $admin = Role::find(1);

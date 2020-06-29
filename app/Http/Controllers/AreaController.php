@@ -8,6 +8,17 @@ use App\Http\Requests\AreaRequest;
 class AreaController extends Controller
 {
     /**
+     * Class constructor.
+     */
+    public function __construct()
+    {
+        $this-> middleware('permission:create areas')->only(['create','store']);
+        $this-> middleware('permission:list areas')->only('index');
+        $this-> middleware('permission:edit areas')->only(['edit','update']);
+        // $this-> middleware('permission:list areas')->only('show');//show        
+        $this-> middleware('permission:delete areas')->only('destroy');        
+    }
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response

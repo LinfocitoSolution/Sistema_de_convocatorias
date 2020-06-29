@@ -22,7 +22,7 @@
     <!--Nombre de auxiliatura-->
     <div class="col-md-12 mb-3">
         <label class="col-form-label" for="nombre_auxiliatura">Nombre de Auxiliatura</label>
-        <div class="input-group" data-html="true"  data-toggle="popover" title="Restricciones" data-content="-M&aacute;ximo 100 caracteres <br> -M&iacute;nimo 5 caracteres <br> -el nombre de auxiliatura no debe tener caracteres especiales, ni numeros">
+        <div class="input-group" data-html="true"  data-toggle="popover" title="Restricciones" data-content="-M&aacute;ximo 100 caracteres <br> -M&iacute;nimo 5 caracteres <br> -El nombre de auxiliatura no debe tener caracteres especiales, ni numeros">
             
         <span class="input-group-append">
            <button class="btn btn-dark" type="button">NA</button>
@@ -39,12 +39,12 @@
     <!--Código de auxiliatura-->
     <div class="col-md-12 mb-3">
         <label class="col-form-label" for="codigo_auxiliatura">Código de Auxiliatura</label>
-             <div class="input-group" data-html="true"  data-toggle="popover" title="Restricciones" data-content="-M&iacute;nimo 1 <br> -el codigo auxiliatura debe tener un rango de digitos entre 3 -2, <br> -el codigo auxiliatura solo permite numeros, <br> -el codigo auxiliatura no permite espacios ni caracteres especiales">
+             <div class="input-group" data-html="true"  data-toggle="popover" title="Restricciones" data-content="-M&iacute;nimo 1 <br> -El codigo auxiliatura debe tener un rango de digitos entre 3 -2, <br> -El codigo auxiliatura solo permite numeros, <br> -El codigo auxiliatura no permite espacios ni caracteres especiales">
         <span class="input-group-append">    
             <button class="btn btn-dark" type="button">CA</button>
         </span>
         <input
-                    class="form-control {{ $errors->has('codigo_auxiliatura') ? 'is-invalid' : '' }}"
+                    class="form-control  {{ $errors->has('codigo_auxiliatura') ? 'is-invalid' : '' }}"
                     name="codigo_auxiliatura"
                     placeholder="Ingrese el código de la auxiliatura" type="text"  value="{{ old('codigo_auxiliatura', isset($requerimiento) ? $requerimiento->codigo_auxiliatura : '') }}">
             </div>
@@ -55,7 +55,7 @@
    <!--Cantidad de auxiliares-->
    <div class="col-md-12 mb-3">
     <label class="col-form-label" for="cantidad_de_auxiliares">Cantidad de Auxiliares</label>
-    <div class="input-group" data-html="true"  data-toggle="popover" title="Restricciones" data-content="-M&iacute;nimo 1 <br> -el rango de digitos de la cantidad de auxiliares esta entre 1-5, <br> -la cantidad de auxiliares solo debe ser numeros">
+    <div class="input-group" data-html="true"  data-toggle="popover" title="Restricciones" data-content="-M&iacute;nimo 1 <br> -El rango de digitos de la cantidad de auxiliares esta entre 1-5, <br> -La cantidad de auxiliares solo debe ser numeros">
       <span class="input-group-append">
             <button class="btn btn-dark" type="button">CA</button>
         </span>

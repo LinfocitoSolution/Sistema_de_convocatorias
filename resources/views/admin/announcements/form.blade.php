@@ -1,7 +1,7 @@
 <div class="form-row">
         <div class="col-md-6 mb-2">
-              <label class="col-form-label" for="nameArea">Area-Titulo Convocatoria</label>
-           <div class="input-group">
+              <label class="col-form-label" for="nameArea">Área</label>
+           <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="-Seleccione el área que requiera">
               <span class="input-group-append">
                  <button class="btn btn-dark" type="button">A</button>
                </span>
@@ -17,7 +17,7 @@
         <!----Unidad--->
         <div class="col-md-6 mb-2">
             <label class="col-form-label" for="nameUnidad">Unidad</label>
-           <div class="input-group">
+           <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="-Seleccione la unidad que requiere">
               <span class="input-group-append">
                 <button class="btn btn-dark" type="button">U</button>
               </span>
@@ -31,8 +31,8 @@
 
         <!---Gestion-->
         <div class="col-md-6 mb-2">
-             <label class="col-form-label" for="nameGestion">Gestion</label>
-             <div class="input-group">
+             <label class="col-form-label" for="nameGestion">Gestión</label>
+             <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="-La gestión se mostrará de forma automática">
             
               <span class="input-group-append">
                  <button class="btn btn-dark" type="button">G</button>
@@ -45,7 +45,7 @@
         <!----Requerimientos--->
         <div class="col-md-6 mb-2">
           <label class="col-form-label" for="nameReque">Requerimiento</label>
-         <div class="input-group">
+         <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="-Seleccione los requerimientos que requiera">
             <span class="input-group-append">
               <button class="btn btn-dark" type="button">R</button>
             </span>
@@ -60,7 +60,7 @@
        <!---descripcion--->  
        <div class="col-md-6 mb-2">  
         <label class="col-form-label" for="">Descripción: </label>
-         <div class="input-group">
+         <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="-Escriba la descripción de la convocatoria">
             <textarea class="form-control" name="descripcion" rows="3" maxlength="150" >{{ old('descripcion', isset($call) ? $call->descripcion : '') }}</textarea>
          </div>
           <small class="form-text text-muted">Descripción corta de la convocatoria</small>
@@ -68,7 +68,7 @@
       <!---Requisitos--->  
       <div class="col-md-6 mb-2">  
         <label class="col-form-label" for="">Requisitos: </label>
-         <div class="input-group">
+         <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="-Escriba los requisitos de la convocatoria">
             <textarea class="form-control" name="descripcion" rows="3" maxlength="150" ></textarea>
          </div>
          <!--- <small class="form-text text-muted">Descripción corta de la convocatoria</small>-->
