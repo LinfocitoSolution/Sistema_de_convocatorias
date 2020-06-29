@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::auth();
 //----------------------------------rutas pagina principal-----------------------------------------
  Route::get('index', [
      'as' => 'home',
