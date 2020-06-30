@@ -51,25 +51,54 @@ class PermissionsTableSeeder extends Seeder
             [ 'name' => 'delete units' ],
         ];
 
-        $admin = Role::find(1);
-        $validator = Role::find(2);
-        $calificador = Role::find(3);
-        $postulante = Role::find(4);
+        $rol_admin = Role::find(1);
+        $rol_validator = Role::find(2);
+        $rol_calificador = Role::find(3);
+        $rol_postulante = Role::find(4);
+        $rol_jefeDepartamento=Role::find(5);
+        $rol_secretaria=Role::find(6);
 
         foreach ($permissions as $permission) {
             Permission::create($permission);
-            $admin->givePermissionTo($permission);
+            $rol_admin->givePermissionTo($permission);
         }
 
-        $calificador->givePermissionTo([
+        $rol_calificador->givePermissionTo([
+            'view-access-management',
             'list postulants',
             'list announcements',
         ]);
 
-        $postulante->givePermissionTo([
-            //'list postulants',
+        $rol_postulante->givePermissionTo([            
+            'list announcements',//debemos crear otro permiso diferente
+        ]);
+        $rol_validator->givePermissionTo([
+            'view-access-management',            
             'list announcements',
         ]);
+        $rol_secretaria->givePermissionTo([
+            'view-access-management',
+            'list areas',
+            'create areas',
+            'edit areas',
+            'delete areas',
+            'list units',
+            'create units',
+            'edit units',
+            'delete units',
+            'list requirements',
+            'create requirements',
+            'edit requirements',
+            'delete requirements',
+            'list announcements',
+            'create announcements',
+            'edit announcements',
+            'delete announcements',
+        ]);
+        $rol_jefeDepartamento->givePermissionTo([ 
+            'view-access-management',           
+            'list announcements',
+        ]);    
 
     }
 }
