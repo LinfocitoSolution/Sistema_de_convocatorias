@@ -41,6 +41,8 @@ Route::get('usuarios_show_{user}','UserController@show')->name('usuarios.show')-
 //##################### CONVOCATORIA ##########################
 Route::resource('call', 'CallController');
 Route::get('convocatoria','HomeController@convocatorias')->name('convocatoria');
+Route::get('generar', function () {     
+    return view('admin.announcements.plantilla.generar_convocatoria'); })->name('generar');
 //##############################################################
 Route::get('test', function () {
     return view('pruebaVerify');
@@ -106,3 +108,6 @@ Route::put('unidades_update_{unidad}','UnidadController@update')->name('unidades
 // Route::resource('unidades','UnidadController');
 //#####################Requerimientos####################
 Route::resource('requerimientos','RequerimientosController');
+
+//################FECHAS############
+Route::resource('fechas','FechaController');

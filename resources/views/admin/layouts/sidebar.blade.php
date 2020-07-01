@@ -90,6 +90,12 @@
                     </a>
                   </li>
                 @endif
+                <li class="nav-item">
+                  <a href="{{ route('generar')}}" class="nav-link">
+                    <i class="fas fa-th-list nav-icon"></i>
+                    <p>Generar convocatoria</p>
+                  </a>
+                </li>
               </ul>
             </li>
           @endif          
@@ -129,7 +135,7 @@
           @if(Auth::user()->hasPermission('list units') || Auth::user()->hasPermission('create units'))
             <li class="nav-item has-treeview menu-close">
               <a href="#" class="nav-link active bg-dark">
-                <i class="nav-icon fa fa-th-large"></i>
+                <i class="nav-icon fa fa-file-alt"></i>
                 <p>
                   Unidades
                   <i class="right fas fa-angle-left"></i>
@@ -161,7 +167,7 @@
           @if(Auth::user()->hasPermission('list requirements') || Auth::user()->hasPermission('create requirements'))
             <li class="nav-item has-treeview menu-close">
               <a href="#" class="nav-link active bg-dark">
-                <i class="nav-icon fa fa-th-large"></i>
+                <i class="nav-icon fa fa-address-card"></i>
                 <p>
                   Requerimientos
                   <i class="right fas fa-angle-left"></i>
@@ -188,17 +194,47 @@
             </li>
           @endif
         <!--Fin de Requerimientos-->
+          <!--Fechas-->
+          <!---if(Auth::user()->hasPermission('list requirements') || Auth::user()->hasPermission('create requirements'))-->
+            <li class="nav-item has-treeview menu-close">
+              <a href="#" class="nav-link active bg-dark">
+                <i class="nav-icon fa fa-calendar-alt"></i>
+                <p>
+                  Fechas
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+               <!--- if(Auth::user()->hasPermission('create requirements'))-->
+                  <li class="nav-item">
+                    <a href="{{route('fechas.create')}}" class="nav-link">
+                      <i class="fas fa-plus-square nav-icon"></i>
+                      <p>Nueva Fecha</p>
+                    </a>
+                  </li>
+               <!--- endif-->
+                <!---if(Auth::user()->hasPermission('list requirements'))--->
+                  <li class="nav-item">
+                    <a href="{{route('fechas.index')}}" class="nav-link">
+                      <i class="fas fa-th-list nav-icon"></i>
+                      <p>Lista </p>
+                    </a>
+                  </li>
+               <!--- endif---->
+              </ul>
+            </li>
+          <!----endif---->
+        <!--Fin Fechas-->
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
     </div>
+    
     @endif
     <!-- /.sidebar -->
   </aside>
 
- 
-
-  <!-- Control Sidebar -->
+ <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
     <div class="p-3">
@@ -207,3 +243,4 @@
     </div>
   </aside>
   <!-- /.control-sidebar -->
+

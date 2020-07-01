@@ -36,6 +36,39 @@
                     <input type="text" class="text" id="lastname" value="{{ ucfirst(Auth::user()->lastname)}}">
                  </div>
                </div>
+                <!-----Direccion-->  
+                <div class="form-group-row mb-3">
+                  <div class="col-md-6">
+                     <label for="inputPassword4" class="mr-2">Direccion:</label>
+                     {{-- <input type="text" class="text" id="lastname" placeholder="Ingrese su apellido"> --}}
+                     <input type="text" class="text" id="direccion" value="">
+                  </div>
+                </div>
+                 <!----telefonos-->  
+               <div class="form-group-row mb-3">
+                <div class="col-md-6">
+                   <label for="inputPassword4" class="mr-2">Telefonos:</label>
+                   {{-- <input type="text" class="text" id="lastname" placeholder="Ingrese su apellido"> --}}
+                   <input type="text" class="text" id="telefono" value="">
+                </div>
+              </div>
+               <!-----e-mail-->  
+               <div class="form-group-row mb-3">
+                <div class="col-md-6">
+                   <label for="inputPassword4" class="mr-2">E-mail:</label>
+                   {{-- <input type="text" class="text" id="lastname" placeholder="Ingrese su apellido"> --}}
+                   <input type="text" class="" id="email" value="">
+                </div>
+              </div>
+               <!-----codigp de item-->  
+               <div class="form-group-row mb-3">
+                <div class="col-md-6">
+                   <label for="inputPassword4" class="mr-2">Codigo de item:</label>
+                   {{-- <input type="text" class="text" id="lastname" placeholder="Ingrese su apellido"> --}}
+                   <input type="text" class="text" id="lastname" value="">
+                </div>
+              </div>
+              
               <!----carrera--->
               <div class="form-group-row mb-3"> 
                 <div class="col-md-6">
