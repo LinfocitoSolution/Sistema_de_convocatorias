@@ -7,7 +7,7 @@
 
 @section("infoGeneral")
 
-  <div class="container">
+  <div class="container" id="capture">
     <div class="row">
       <div class="col-lg-12">
         <div class="card mt-5"> 
@@ -59,10 +59,10 @@
                       </select>
                     </div>
                  </div>
+                </div>
+               <div class="form-actions text-center">
+                  <button class="btn btn-outline-dark mb-4" data-toggle="tooltip" data-placement="right" title="Presione el bot&oacute;n para generar el rótulo"onclick="getPdf();">Generar rótulo</button>
                </div>
-                  <div class="form-actions text-center">
-                      <button class="btn btn-outline-dark mb-4" data-toggle="tooltip" data-placement="right" title="Presione el bot&oacute;n para generar el rótulo"onclick="save();">Generar rótulo</button>
-                  </div>
            
           </form>
         </div>  
