@@ -61,6 +61,8 @@
          </div>
           <small class="form-text text-muted">Descripción corta de la convocatoria</small>
       </div> 
+      
+      
       <!---Requisitos--->  
       <div class="col-md-6 mb-2">  
         <label class="col-form-label" for="">Requisitos: </label>
@@ -70,6 +72,14 @@
          <!--- <small class="form-text text-muted">Descripción corta de la convocatoria</small>-->
       </div> 
 </div>
+    <!--Documentos a presentar-->
+    <div class="col-md-6 mb-2">  
+      <label class="col-form-label" for="">Documentos a presentar </label>
+       <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="-Escriba los documentos que debe presentar">
+          <textarea class="form-control" name="descripcion" rows="3" maxlength="150" ></textarea>
+       </div>
+        <small class="form-text text-muted">Documentos a presentar</small>
+    </div> 
 @if (!isset($call))
 <input type="file" name="archivo">   
 <div class="text-left">
