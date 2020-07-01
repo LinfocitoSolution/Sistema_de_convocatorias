@@ -223,7 +223,8 @@
       </nav>
       <!-- /.sidebar-menu -->
     </div>
-    <!----endif--->
+    
+    @endif
     <!-- /.sidebar -->
   </aside>
 
