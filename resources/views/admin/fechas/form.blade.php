@@ -46,7 +46,7 @@
            <label class="col-form-label" for="ubicacion">Ubicacion</label>
         <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content= "">
            <span class="input-group-append">
-              <button class="btn btn-dark" type="button">F</button>
+              <button class="btn btn-dark" type="button">U</button>
            </span>
         
            <input
