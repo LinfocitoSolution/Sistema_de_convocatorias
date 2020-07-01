@@ -7,7 +7,7 @@
 
 @section("infoGeneral")
 
-  <div class="container" id="capture">
+  <div class="container">
     <div class="row">
       <div class="col-lg-12">
         <div class="card mt-5"> 
@@ -16,7 +16,7 @@
               <h2>Verifique sus datos:</h2>
             </div>
             <!---cuerpo--->
-          <div class="card-body">
+          <div class="card-body" id="datos">
             <form class="form-group" method="get" action={{url("/rotulo")}} >
               <input type="hidden" name="_token" value="{{ csrf_token() }}">
               <!--nombre--->
@@ -61,7 +61,8 @@
                  </div>
                 </div>
                <div class="form-actions text-center">
-                  <button class="btn btn-outline-dark mb-4" data-toggle="tooltip" data-placement="right" title="Presione el bot&oacute;n para generar el rótulo"onclick="getPdf();">Generar rótulo</button>
+                  <button class="btn btn-outline-dark mb-4" data-toggle="tooltip" data-placement="right" title="Presione el bot&oacute;n para generar el rótulo"onclick="test();">Generar rótulo</button>
+                  <a href="javascript:getPdf()">test</a>
                </div>
            
           </form>
