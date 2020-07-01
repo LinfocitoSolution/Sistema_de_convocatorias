@@ -21,7 +21,8 @@
                     <tr>
                         <th>Item</th>
                         <th>Evento</th>
-                        <th>Fecha</th>
+                        <th>Fecha Inicial</th>
+                        <th>Fecha Final</th>
                         <th>Ubicacion</th>
                         <th>Opciones</th>
                      </tr>
@@ -32,6 +33,7 @@
                   <td>{{$fecha->id}}</td>
                   <td>{{$fecha->evento}}</td>          
                   <td>{{$fecha->fecha}}</td>
+                  <td>{{$fecha->fechaF}}
                   <td>{{$fecha->ubicacion}}</td>                   
                                 <td>
                                     <a class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title="presiona para editar una fecha"href="{{route('fechas.edit',$fecha)}}">
