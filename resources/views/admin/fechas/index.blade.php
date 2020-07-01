@@ -1,5 +1,3 @@
-@extends("admin.layouts.plantilladmin")
-
 @section('title')
     Fechas
 @endsection
@@ -33,7 +31,7 @@
                                 <td>jueves,16 de enero de 2020</td>
                                 <td>En la pagina de convocatorias</td>                    
                                 <td>
-                                    <a class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title="presiona para editar un area"href="{{ route('fechas.edit') }}">
+                                    <a class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title="presiona para editar un area"href="{{ route('fechas.edit'),$fecha }}">
                                         <i class="fa fa-pencil-alt"></i>
                                     </a> 
                                    <!--va dentro de action {route('area.destroy',$area->id)}}--->
@@ -46,7 +44,7 @@
                                     </form>
                                 </td>
                             </tr>
-                       <!-- endforeach-->
+                       <!-- endforeach--<>
                     </tbody>
                 </table>
             </div>
