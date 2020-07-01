@@ -18,11 +18,16 @@
      </div>-->
    <!--Fecha-->
     <div class="col-md-6">
-        <label for="fechaIni">Fechas</label>
-        <input type="date" name="fechaIni" class="form-control" id="fechaIni" placeholder="09/10/2019" required>
-      <div class="invalid-feedback">
-        Fecha invalida
-      </div>
+          <label for="fechaIni">Fechas</label>
+          <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content= "-Presione el icono de calendario para elegir la fecha">
+              <span class="input-group-append">
+                 <button class="btn btn-dark" type="button">F</button>
+              </span>
+            <input type="date" name="fechaIni" class="form-control" id="fechaIni" placeholder="09/10/2019" required>
+          </div>
+        <div class="invalid-feedback">
+            Fecha invalida
+        </div>
     </div>
 
      <!----ubicacion-->
@@ -30,7 +35,7 @@
            <label class="col-form-label" for="description">Ubicacion</label>
         <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content= "-M&aacute;ximo 100 caracteres">
            <span class="input-group-append">
-              <button class="btn btn-dark" type="button">F</button>
+              <button class="btn btn-dark" type="button">U</button>
            </span>
         
            <input

@@ -1,3 +1,4 @@
+@extends("admin.layouts.plantilladmin")
 @section('title')
     Fechas
 @endsection
@@ -44,7 +45,7 @@
                                     </form>
                                 </td>
                             </tr>
-                       <!-- endforeach--<>
+                       <!-- endforeach-->
                     </tbody>
                 </table>
             </div>

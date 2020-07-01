@@ -90,6 +90,12 @@
                     </a>
                   </li>
                 @endif
+                <li class="nav-item">
+                  <a href="{{ route('generar')}}" class="nav-link">
+                    <i class="fas fa-th-list nav-icon"></i>
+                    <p>Generar convocatoria</p>
+                  </a>
+                </li>
               </ul>
             </li>
           @endif          
@@ -129,7 +135,7 @@
           @if(Auth::user()->hasPermission('list units') || Auth::user()->hasPermission('create units'))
             <li class="nav-item has-treeview menu-close">
               <a href="#" class="nav-link active bg-dark">
-                <i class="nav-icon fa fa-th-large"></i>
+                <i class="nav-icon fa fa-file-alt"></i>
                 <p>
                   Unidades
                   <i class="right fas fa-angle-left"></i>
@@ -161,7 +167,7 @@
           @if(Auth::user()->hasPermission('list requirements') || Auth::user()->hasPermission('create requirements'))
             <li class="nav-item has-treeview menu-close">
               <a href="#" class="nav-link active bg-dark">
-                <i class="nav-icon fa fa-th-large"></i>
+                <i class="nav-icon fa fa-address-card"></i>
                 <p>
                   Requerimientos
                   <i class="right fas fa-angle-left"></i>
@@ -192,7 +198,7 @@
           <!---if(Auth::user()->hasPermission('list requirements') || Auth::user()->hasPermission('create requirements'))-->
             <li class="nav-item has-treeview menu-close">
               <a href="#" class="nav-link active bg-dark">
-                <i class="nav-icon fa fa-th-large"></i>
+                <i class="nav-icon fa fa-calendar-alt"></i>
                 <p>
                   Fechas
                   <i class="right fas fa-angle-left"></i>

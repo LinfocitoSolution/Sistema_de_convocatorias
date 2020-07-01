@@ -15,8 +15,8 @@
                     <div class="card-body">
                         <!----va dentro del action  /area/{$area->id}}-->                        
                         <form action="" class="form-horizontal"  method="POST">                            
-                            {{method_field('PUT')}}
-                            {{csrf_field()}}
+                           <!-- {method_field('PUT')}}
+                            {csrf_field()}}-->
                             @include('admin.areas.form')
                             <div class="form-actions text-center">
                                 <button class="btn btn-outline-dark" type="submit">Actualizar</button>
