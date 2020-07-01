@@ -41,6 +41,8 @@ Route::get('usuarios_show_{user}','UserController@show')->name('usuarios.show')-
 //##################### CONVOCATORIA ##########################
 Route::resource('call', 'CallController');
 Route::get('convocatoria','HomeController@convocatorias')->name('convocatoria');
+Route::get('generar', function () {     
+    return view('admin.announcements.plantilla.generar_convocatoria'); })->name('generar');
 //##############################################################
 Route::get('test', function () {
     return view('pruebaVerify');
