@@ -21,7 +21,7 @@
      <!--Fecha inicial-->
     <div class="col-md-6">
         <label for="fecha">Fecha Inicial</label>
-        <input type="datetime-local" name="fecha" class="form-control" id="fecha" placeholder="Ingrese fecha" value="{{ old('fecha', isset($fecha) ? $fecha->fecha : '') }}">
+        <input type="datetime-local" name="fecha" class="form-control" id="fecha" placeholder="Ingrese fecha inicial" value="{{ old('fecha', isset($fecha) ? $fecha->fecha : '') }}">
       <div class="invalid-feedback">
         Fecha invalida
       </div>
@@ -31,14 +31,14 @@
    </div>
     <!--Fecha Fin-->
     <div class="col-md-6">
-      <label for="fecha">Fecha Final</label>
-      <input type="datetime-local" name="fecha final" class="form-control" id="fecha" placeholder="Ingrese fecha" value="{{ old('fecha', isset($fecha) ? $fecha->fecha : '') }}">
+      <label for="fechaF">Fecha Final</label>
+      <input type="datetime-local" name="fechaF" class="form-control" id="fechaF" placeholder="Ingrese fecha final" value="{{ old('fechaF', isset($fecha) ? $fecha->fechaF : '') }}">
     <div class="invalid-feedback">
       Fecha invalida
     </div>
   </div>
-  <div class="invalid-feedback {{ $errors->has('fecha')? 'd-block' : '' }}">
-    {{ $errors->has('fecha')? $errors->first('fecha') : ''  }}
+  <div class="invalid-feedback {{ $errors->has('fechaF')? 'd-block' : '' }}">
+    {{ $errors->has('fechaF')? $errors->first('fechaF') : ''  }}
  </div>
 
      <!----ubicacion-->

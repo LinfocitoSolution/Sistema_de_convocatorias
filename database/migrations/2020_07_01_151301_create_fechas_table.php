@@ -16,7 +16,8 @@ class CreateFechasTable extends Migration
         Schema::create('fechas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('evento')->unique();
-            $table->date('fecha');
+            $table->datetime('fecha');
+            $table->datetime('fechaF');
             $table->string('ubicacion');
             $table->timestamps();
         });
