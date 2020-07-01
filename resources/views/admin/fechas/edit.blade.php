@@ -14,10 +14,10 @@
                     </div>    
                     <div class="card-body">
                         <!----va dentro del action  /area/{$area->id}}-->                        
-                        <form action="" class="form-horizontal"  method="POST">                            
+                        <form action="{{ route('fechas.update', $fecha->id) }}" class="form-horizontal"  method="POST">                            
                             {{method_field('PUT')}}
                             {{csrf_field()}}
-                            @include('admin.areas.form')
+                            @include('admin.fechas.form')
                             <div class="form-actions text-center">
                                 <button class="btn btn-outline-dark" type="submit">Actualizar</button>
                                 <a class="btn btn-outline-dark" href="{{route('fechas.index')}}">Cancelar</a>

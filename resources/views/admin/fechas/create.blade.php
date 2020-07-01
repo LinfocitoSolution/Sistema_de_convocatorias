@@ -16,7 +16,7 @@
                     </div>    
                     <div class="card-body">
                         <!---va dentro de action  { route('area.store') }}-->                       
-                        <form class="form-horizontal"  action="" method="POST">                                                      
+                        <form class="form-horizontal"  action="{{ route('fechas.store') }}" method="POST">                                                      
                            <input type="hidden" name="_token" value="{{csrf_token()}}">
                            {{ csrf_field() }}                           
                             @include('admin.fechas.form')

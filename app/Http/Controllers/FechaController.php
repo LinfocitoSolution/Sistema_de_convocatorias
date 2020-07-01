@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use \App\Fecha;
 use Illuminate\Http\Request;
 
 class FechaController extends Controller
@@ -13,7 +13,8 @@ class FechaController extends Controller
      */
     public function index()
     {
-        return view('admin.fechas.index');
+        $fechas=Fecha::all();
+        return view('admin.fechas.index', compact('fechas'));
     }
 
     /**
@@ -34,7 +35,9 @@ class FechaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $fecha=Fecha::create($request->all());
+        $fecha->save();
+        return redirect(route('fechas.index'))->with(['message'=>'fecha creada exitosamente¡','alert-type'=>'success']);
     }
 
     /**
@@ -54,9 +57,9 @@ class FechaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit()
+    public function edit(Fecha $fecha)
     {
-        return view('admin.fechas.edit');
+        return view('admin.fechas.edit',compact('fecha'));
     }
 
     /**
@@ -66,9 +69,11 @@ class FechaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Fecha $fecha)
     {
-        //
+        $fecha->fill($request->all());
+        $fecha->save();
+        return redirect(route('fechas.index'))->with([ 'message' => 'Fecha  actualizada exitosamente!', 'alert-type' => 'success' ]);
     }
 
     /**
@@ -79,6 +84,7 @@ class FechaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Fecha::destroy($id);
+        return redirect(route('fechas.index'))->with([ 'message' => 'Fecha  eliminada!', 'alert-type' => 'success' ]);
     }
 }

@@ -2,45 +2,50 @@
 
     <div class="col-md-12 mb-3">
         <label class="col-form-label" for="name">Evento</label>
-        <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content= "-M&aacute;ximo 50 caracteres <br> -M&iacute;nimo 3 caracteres<br> -El campo nombre no acepta caracteres especiales,numeros<br> -El nombre ingresado ya existe en nuestros registros">
+        <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content= "">
             <span class="input-group-append">
                 <button class="btn btn-dark" type="button">E</button>
             </span>
             <input
                     class="form-control"
-                    name="name"
-                    placeholder="Ingrese Nombre" type="text" value="">
-                    <!---dentro de value{ old('description', isset($area) ? $area->description : '') }-->
+                    name="evento"
+                    placeholder="Ingrese Evento" type="text" value="{{ old('evento', isset($fecha) ? $fecha->evento : '') }}">
+                    
         </div>
     </div>
-   <!-- <div class="invalid-feedback { $errors->has('name')? 'd-block' : '' }}">
-        { $errors->has('name')? $errors->first('name') : 'Se requiere el campo nombre para continuar'}}
-     </div>-->
-   <!--Fecha-->
+   <div class="invalid-feedback { $errors->has('evento')? 'd-block' : '' }}">
+        {{ $errors->has('evento')? $errors->first('evento') : ''}}
+     </div>
+  
+  
+     <!--Fecha-->
     <div class="col-md-6">
-        <label for="fechaIni">Fechas</label>
-        <input type="date" name="fechaIni" class="form-control" id="fechaIni" placeholder="09/10/2019" required>
+        <label for="fecha">Fechas</label>
+        <input type="date" name="fecha" class="form-control" id="fecha" placeholder="Ingrese fecha" value="{{ old('fecha', isset($fecha) ? $fecha->fecha : '') }}">
       <div class="invalid-feedback">
         Fecha invalida
       </div>
     </div>
+    <div class="invalid-feedback {{ $errors->has('fecha')? 'd-block' : '' }}">
+      {{ $errors->has('fecha')? $errors->first('fecha') : ''  }}
+   </div>
 
      <!----ubicacion-->
      <div class="col-md-12 mb-3">
-           <label class="col-form-label" for="description">Ubicacion</label>
-        <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content= "-M&aacute;ximo 100 caracteres">
+           <label class="col-form-label" for="ubicacion">Ubicacion</label>
+        <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content= "">
            <span class="input-group-append">
               <button class="btn btn-dark" type="button">F</button>
            </span>
         
            <input
                class="form-control"
-               name="description"
-               placeholder="Ingrese una descripcion" type="text" value=""> 
+               name="ubicacion"
+               placeholder="Ingrese una una ubicacion" type="text" value="{{ old('ubicacion', isset($fecha) ? $fecha->ubicacion : '') }}"> 
               
        </div>
     </div>
-<!---<div class="invalid-feedback { $errors->has('description')? 'd-block' : '' }}">
-    { $errors->has('description')? $errors->first('description') : 'El campo de Nombre es requerido'  }}
- </div>--->
+<div class="invalid-feedback {{ $errors->has('ubicacion')? 'd-block' : '' }}">
+    {{ $errors->has('ubicacion')? $errors->first('ubicacion') : ''  }}
+ </div>
 </div>
