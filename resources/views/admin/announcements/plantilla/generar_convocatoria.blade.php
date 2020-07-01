@@ -46,7 +46,52 @@
    <br>&nbsp;&nbsp;&nbsp; - Nombre(s) de la(s) auxiliatura(s) a la(s) que sepresenta. 
   </p>
   <br>
-  
+  <h4>5. &nbsp; CALIFICACION DE MERITOS</h4>
+  <p>&nbsp;La calificación de méritos se basará en los documentos presentados por el postulante y se 
+    realizará sobre la base de 100 puntos que representa el 20% del puntaje final y se ponderará 
+    de la &nbsp;siguiente manera. </p>
+   <br>
+   <p><b>NOTA.-</b>Todo certificado será ponderado hasta el valor delpuntaje especificado en la tabla.</p>
+  <h4>6. &nbsp; CALIFICACIÓN DE CONOCIMIENTOS</h4> 
+  <p>&nbsp;La  calificación  de  conocimientos  se  realiza  sobre  la  base  de  100  puntos,  equivalentes  al  80%  de  la 
+    calificación final.</p> 
+  <p>&nbsp;Las  pruebas  para  los  auxiliares  sobre  conocimientos se  realizarán  de  acuerdo  al  temario  y  tabla 
+    siguiente.</p> 
+   <h4> 6.1. &nbsp; PORCENTAJES DE CALIFICACIÓN PARA CADA TIPO DE AUXILIAR</h4> 
+   <h4> 6.1.1.  PRUEBAS ESCRITAS</h4>
+   <br>
+  <h4> 7. &nbsp; DE LOS TRIBUNALES </h4>
+<p>Los Honorables Consejos de Carrera de Informática ySistemas designarán respectivamente; para la 
+calificación de méritos 1 docente y 1 delegado estudiante, de la misma manera para la comisión de 
+conocimientos cada consejo designará 1 docente y unestudiante veedor por cada temática.</p> 
+<br>
+<h4> 8.&nbsp;CRONOGRAMA GENERAL</h4>
+<div class="cronograma">
+
+</div>
+<br>
+<h4>9. &nbsp;SELECCIÓN</h4>  
+<br>
+<div class="fecha"> <h3 align="center">Fecha:.............</h3></div>
+<br>
+<br>
+<p> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Lic. Henrry Villarroel Tapia&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Lic. Yony Montoya Brugos</p>
+<p> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>DIR. ING. SISTEMAS</b>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <b> ING. INFORMATICA</b></p>
+<br>
+<br>
+<br>
+<br>
+<p> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Jimmy Villarroel Novillo&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; </p> 
+<p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>DPTO INFORMATICA Y SISTEMAS</b>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b></b></p>
+<br>
+<br>
+<br>
+<br>
+<p> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Ing. Alfredo Cosio Papadopolis&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; </p> 
+<p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;;&emsp;;&emsp;<b>DECANO - FCyT</b>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b></b></p>
+<br>
+<br>
+<br>
   </body>
         
 </html> 
