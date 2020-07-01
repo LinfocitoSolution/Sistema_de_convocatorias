@@ -106,3 +106,8 @@ Route::put('unidades_update_{unidad}','UnidadController@update')->name('unidades
 // Route::resource('unidades','UnidadController');
 //#####################Requerimientos####################
 Route::resource('requerimientos','RequerimientosController');
+
+//################FECHAS############
+Route::get('fechas','FechaController@index')->name('fechas.index');
+Route::get('fechas_create','FechaController@create')->name('fechas.create');
+Route::get('fechas_{fecha}_edit','FechaController@edit')->name('fechas.edit');
