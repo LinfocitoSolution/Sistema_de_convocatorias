@@ -1,7 +1,7 @@
 @extends("admin.layouts.plantilladmin")
 
 @section('title')
-    Crear-area
+    Fecha
 @endsection
 
 @section("content")

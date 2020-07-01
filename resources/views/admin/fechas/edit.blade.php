@@ -1,3 +1,8 @@
+@extends("admin.layouts.plantilladmin")
+
+@section('title')
+    Editar-Fecha
+@endsection
 @section("content")
  <div class="content-wrapper">
     <div class="container">
@@ -15,7 +20,7 @@
                             @include('admin.areas.form')
                             <div class="form-actions text-center">
                                 <button class="btn btn-outline-dark" type="submit">Actualizar</button>
-                                <a class="btn btn-outline-dark" href="{{route('fechas.index') }}">Cancelar</a>
+                                <a class="btn btn-outline-dark" href="{{route('fechas.index')}}">Cancelar</a>
                             </div>
                         </form>
                     </div>

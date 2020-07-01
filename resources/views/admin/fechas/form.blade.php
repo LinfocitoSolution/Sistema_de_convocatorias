@@ -16,14 +16,14 @@
    <!-- <div class="invalid-feedback { $errors->has('name')? 'd-block' : '' }}">
         { $errors->has('name')? $errors->first('name') : 'Se requiere el campo nombre para continuar'}}
      </div>-->
-<!--Fecha-->
-<div class="col-md-6">
-    <label for="fechaIni">Fechas</label>
-    <input type="date" name="fechaIni" class="form-control" id="fechaIni" placeholder="09/10/2019" required>
-    <div class="invalid-feedback">
-      Fecha invalida
+   <!--Fecha-->
+    <div class="col-md-6">
+        <label for="fechaIni">Fechas</label>
+        <input type="date" name="fechaIni" class="form-control" id="fechaIni" placeholder="09/10/2019" required>
+      <div class="invalid-feedback">
+        Fecha invalida
+      </div>
     </div>
-  </div>
 
      <!----ubicacion-->
      <div class="col-md-12 mb-3">
@@ -38,8 +38,8 @@
                name="description"
                placeholder="Ingrese una descripcion" type="text" value=""> 
               
+       </div>
     </div>
-</div>
 <!---<div class="invalid-feedback { $errors->has('description')? 'd-block' : '' }}">
     { $errors->has('description')? $errors->first('description') : 'El campo de Nombre es requerido'  }}
  </div>--->
