@@ -80,8 +80,8 @@ class UsuarioRequest extends FormRequest
             'password.max'=>'el campo contraseña tiene un maximo de 25 caracteres',
             'password.min'=>'el campo contraseña tiene un minimo de 8 caracteres',
             'password.regex'=>'el campo contraseña es invalido, la contraseña debe tener al menos una letra y un numero para ser valido',
-            'confirmpassword.required'=>'se requiere el campo contraseña para continuar',
-            'confirmpassword.same'=>'campo confirmar contraseña y contraseña no cinciden',
+            'password_confirm.required'=>'se requiere el campo contraseña para continuar',
+            'password_confirm.same'=>'campo confirmar contraseña y contraseña no coinciden',
         ];
     }
 }
