@@ -8,7 +8,7 @@
             </span>
             <input
                     class="form-control"
-                    name="evento"
+                    name="item"
                     placeholder="Ingrese el item" type="text" value="">
                     
         </div>
@@ -16,7 +16,7 @@
     <div class="invalid-feedback { $errors->has('item')? 'd-block' : '' }}">
         {{ $errors->has('Item')? $errors->first('item') : ''}}
      </div>
-    <div class="form-row">
+    
 
         <div class="col-md-12 mb-3">
             <label class="col-form-label" for="name">Temática</label>
@@ -26,7 +26,7 @@
                 </span>
                 <input
                         class="form-control"
-                        name="evento"
+                        name="tematica"
                         placeholder="Ingrese el tema" type="text" value="">
                         
             </div>
@@ -34,7 +34,7 @@
         <div class="invalid-feedback { $errors->has('tematica')? 'd-block' : '' }}">
             {{ $errors->has('tematica')? $errors->first('tematica') : ''}}
          </div>
-        <div class="form-row">
+        
 
             <div class="col-md-12 mb-3">
                 <label class="col-form-label" for="codigp_auxilitura">Código de Auxiliatura</label>
@@ -44,7 +44,7 @@
                     </span>
                     <input
                             class="form-control"
-                            name="evento"
+                            name="tematica"
                             placeholder="Ingrese Código de auxiliatura" type="text" value="">
                             
                 </div>
@@ -52,7 +52,7 @@
             <div class="invalid-feedback { $errors->has('codigo_auxiliatura')? 'd-block' : '' }}">
                 {{ $errors->has('codigo_auxiliatura')? $errors->first('codigo') : ''}}
              </div>
-            <div class="form-row">
+            
 
                 <div class="col-md-12 mb-3">
                     <label class="col-form-label" for="puntaje">Puntaje</label>
@@ -70,3 +70,7 @@
                 <div class="invalid-feedback { $errors->has('puntaje')? 'd-block' : '' }}">
                     {{ $errors->has('puntaje')? $errors->first('puntaje') : ''}}
                  </div>
+                </div>
+           
+
+            

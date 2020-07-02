@@ -219,6 +219,36 @@
             </li>
           <!----endif---->
         <!--Fin Fechas-->
+        <!--Inicio de tabla de conocimiento-->
+        <li class="nav-item has-treeview menu-close">
+          <a href="#" class="nav-link active bg-dark">
+            <i class="nav-icon fa fa-th-large"></i>
+            <p>
+              Tabla de conocimiento
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+           <!--- if(Auth::user()->hasPermission('create requirements'))-->
+              <li class="nav-item">
+                <a href="{{route('conocimientoCalif.create')}}" class="nav-link">
+                  <i class="fas fa-plus-square nav-icon"></i>
+                  <p>Nueva Tabla</p>
+                </a>
+              </li>
+           <!--- endif-->
+            <!---if(Auth::user()->hasPermission('list requirements'))--->
+              <li class="nav-item">
+                <a href="{{route('conocimientoCalif.index')}}" class="nav-link">
+                  <i class="fas fa-th-list nav-icon"></i>
+                  <p>Lista </p>
+                </a>
+              </li>
+           <!--- endif---->
+          </ul>
+        </li>
+      <!----endif---->
+    <!--Fin tabla de conocimiento-->
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

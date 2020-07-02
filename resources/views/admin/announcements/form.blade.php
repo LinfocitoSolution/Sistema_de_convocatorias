@@ -45,7 +45,7 @@
             <span class="input-group-append">
               <button class="btn btn-dark" type="button">R</button>
             </span>
-            <select class="custom-select form-control" type="text" name="requerimiento"  >
+            <select class="form-control js-example-basic-multiple " name="requerimientos[]" multiple="multiple">
                @foreach($requerimientos as $item)
                      <option class="text-dark" value="{{ $item->id }}">{{ $item->nombre_auxiliatura }}</option>
                @endforeach
@@ -79,7 +79,25 @@
           <textarea class="form-control" name="descripcion" rows="3" maxlength="150" ></textarea>
        </div>
         <small class="form-text text-muted">Documentos a presentar</small>
-    </div> 
+    </div>
+   <!--fechas-->
+   <div class="col-md-6 mb-2">
+      <label class="col-form-label" for="name">Eventos</label>
+     <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="-Seleccione los eventos que requiera">
+        <span class="input-group-append">
+          <button class="btn btn-dark" type="button">E</button>
+        </span>
+        <select class="form-control js-example-basic-multiple " name="eventos[]" multiple="multiple">
+         
+                 <option class="text-dark" value=""></option>
+         
+</select>
+        </div>
+  </div>
+  <!--fin de fechas-->
+
+   <br>
+                     
 @if (!isset($call))
 <input type="file" name="archivo">   
 <div class="text-left">

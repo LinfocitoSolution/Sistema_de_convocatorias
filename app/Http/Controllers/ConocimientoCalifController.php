@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use \App\ConocimientoCalif;
 use Illuminate\Http\Request;
 
 class ConocimientoCalifController extends Controller
@@ -13,7 +13,8 @@ class ConocimientoCalifController extends Controller
      */
     public function index()
     {
-        $conocimientoCalif=ConocimientoCalif::all();
+        //$conocimientoCalif=ConocimientoCalif::all();
+        $conocimientoCalif=array(1,2,3);
         return view('admin.conocimientoCalif.index', compact('conocimientoCalif'));
     }
 
