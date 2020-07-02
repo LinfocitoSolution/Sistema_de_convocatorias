@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use \App\Http\Requests\FechaRequest;
 use \App\Fecha;
 use Illuminate\Http\Request;
 
@@ -33,7 +34,7 @@ class FechaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(FechaRequest $request)
     {
         $fecha=Fecha::create($request->all());
         $fecha->save();
@@ -69,7 +70,7 @@ class FechaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Fecha $fecha)
+    public function update(FechaRequest $request, Fecha $fecha)
     {
         $fecha->fill($request->all());
         $fecha->save();

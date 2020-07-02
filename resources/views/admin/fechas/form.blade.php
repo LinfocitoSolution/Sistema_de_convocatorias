@@ -13,31 +13,26 @@
                     
         </div>
     </div>
-   <div class="invalid-feedback { $errors->has('evento')? 'd-block' : '' }}">
+   <div class="invalid-feedback {{ $errors->has('evento')? 'd-block' : '' }}">
         {{ $errors->has('evento')? $errors->first('evento') : ''}}
      </div>
   
   
      <!--Fecha inicial-->
     <div class="col-md-6">
-        <label for="fecha">Fecha Inicial</label>
-        <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content= "">
-          <span class="input-group-append">
-            <button class="btn btn-dark" type="button">F</button>
-          </span>
-            <input type="datetime-local" name="fecha" class="form-control" id="fecha" placeholder="Ingrese fecha inicial" value="{{ old('fecha', isset($fecha) ? $fecha->fecha : '') }}">
-        </div>
-        <div class="invalid-feedback">
-          Fecha inválida
-        </div>
+        <label for="fechaI">Fecha Inicial</label>
+        <input type="datetime-local" name="fechaI" class="form-control" id="fechaI" placeholder="Ingrese fecha inicial" value="{{old('fechaI', date("Y-m-d\TH:i"), isset($fecha) ? $fecha->fechaI : '')}}">
+      <div class="invalid-feedback">                                                                                      
+        Fecha invalida
+      </div>
     </div>
-    <div class="invalid-feedback {{ $errors->has('fecha')? 'd-block' : '' }}">
-      {{ $errors->has('fecha')? $errors->first('fecha') : ''  }}
+    <div class="invalid-feedback {{ $errors->has('fechaI')? 'd-block' : '' }}">
+      {{ $errors->has('fechaI')? $errors->first('fechaI') : ''  }}
    </div>
     <!--Fecha Fin-->
     <div class="col-md-6">
       <label for="fechaF">Fecha Final</label>
-      <input type="datetime-local" name="fechaF" class="form-control" id="fechaF" placeholder="Ingrese fecha final" value="{{ old('fechaF', isset($fecha) ? $fecha->fechaF : '') }}">
+      <input type="datetime-local" name="fechaF" class="form-control" id="fechaF" placeholder="Ingrese fecha final" value="{{ old('fechaF', date("Y-m-d\TH:i"), isset($fecha) ? $fecha->fechaF : '')}}">
     <div class="invalid-feedback">
       Fecha inválida
     </div>
