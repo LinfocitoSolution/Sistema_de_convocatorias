@@ -23,22 +23,21 @@
 </head> 
 <body>
   <div class="jumbotron jumbotron-fluid mb-0 pt-4" style="height: 300px;">
-    <div class="container">
-      
+     <div class="container">
           <div class="media-body" > 
-                <div class="h3 text-white text-center mt-0">CONVOCATORIAS AUXILIARES</div>
-                <div class="h4 text-white text-center">UNIVERSIDAD MAYOR DE SAN SIMÓN</div>
+                 <div class="h3 text-white text-center mt-0">CONVOCATORIAS AUXILIARES</div>
+                 <div class="h4 text-white text-center">UNIVERSIDAD MAYOR DE SAN SIMÓN</div>
               <div class="row justify-content-center"> 
                    <img  class="logoUmss float-left align-center p-0 mr-5 mt-4" width="89" height="120" src="{{asset('../imagenes/umss1.png')}} " alt="umss2">
                 <div class="col-md-8"> 
-                 <!--Carrusel-->  
-                   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                      <ol class="carousel-indicators">
+                    <!--Carrusel-->  
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                       <ol class="carousel-indicators">
                          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                          <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-                      </ol>
+                       </ol>
                      <div class="carousel-inner">
                        <div class="carousel-item active">
                            <img src="{{ asset('/imagenes/tecno.jpg') }}"  class="d-block w-100" alt="web" width="700" height="250">
@@ -87,10 +86,8 @@
                 <img  class="logoCarrera float-right align-center p-0 mt-4 ml-5" width="89" height="100" src="{{asset('../imagenes/logoInformaticaSistemas.png')}}" alt="carrera"> 
              </div>
           </div>
-          
-        </div>     
-          
-</div> 
+       </div>     
+    </div> 
 <!-- navbar -->
  <nav class="navbar sticky-top navbar-expand-lg py-0">
   <a class="navbar-brand  text-white" href="{{url('/')}}" tabindex="-1" >Inicio</a>
