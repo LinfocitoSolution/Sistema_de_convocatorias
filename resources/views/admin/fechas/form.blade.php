@@ -21,10 +21,15 @@
      <!--Fecha inicial-->
     <div class="col-md-6">
         <label for="fecha">Fecha Inicial</label>
-        <input type="datetime-local" name="fecha" class="form-control" id="fecha" placeholder="Ingrese fecha inicial" value="{{ old('fecha', isset($fecha) ? $fecha->fecha : '') }}">
-      <div class="invalid-feedback">
-        Fecha invalida
-      </div>
+        <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content= "">
+          <span class="input-group-append">
+            <button class="btn btn-dark" type="button">F</button>
+          </span>
+            <input type="datetime-local" name="fecha" class="form-control" id="fecha" placeholder="Ingrese fecha inicial" value="{{ old('fecha', isset($fecha) ? $fecha->fecha : '') }}">
+        </div>
+        <div class="invalid-feedback">
+          Fecha invalida
+        </div>
     </div>
     <div class="invalid-feedback {{ $errors->has('fecha')? 'd-block' : '' }}">
       {{ $errors->has('fecha')? $errors->first('fecha') : ''  }}
