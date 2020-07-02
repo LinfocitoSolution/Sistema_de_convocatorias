@@ -28,7 +28,7 @@
             <input type="datetime-local" name="fecha" class="form-control" id="fecha" placeholder="Ingrese fecha inicial" value="{{ old('fecha', isset($fecha) ? $fecha->fecha : '') }}">
         </div>
         <div class="invalid-feedback">
-          Fecha invalida
+          Fecha inválida
         </div>
     </div>
     <div class="invalid-feedback {{ $errors->has('fecha')? 'd-block' : '' }}">
@@ -39,7 +39,7 @@
       <label for="fechaF">Fecha Final</label>
       <input type="datetime-local" name="fechaF" class="form-control" id="fechaF" placeholder="Ingrese fecha final" value="{{ old('fechaF', isset($fecha) ? $fecha->fechaF : '') }}">
     <div class="invalid-feedback">
-      Fecha invalida
+      Fecha inválida
     </div>
   </div>
   <div class="invalid-feedback {{ $errors->has('fechaF')? 'd-block' : '' }}">
@@ -48,7 +48,7 @@
 
      <!----ubicacion-->
      <div class="col-md-12 mb-3">
-           <label class="col-form-label" for="ubicacion">Ubicacion</label>
+           <label class="col-form-label" for="ubicacion">Ubicación</label>
         <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content= "">
            <span class="input-group-append">
               <button class="btn btn-dark" type="button">U</button>
@@ -57,7 +57,7 @@
            <input
                class="form-control"
                name="ubicacion"
-               placeholder="Ingrese una una ubicacion" type="text" value="{{ old('ubicacion', isset($fecha) ? $fecha->ubicacion : '') }}"> 
+               placeholder="Ingrese una una ubicación" type="text" value="{{ old('ubicacion', isset($fecha) ? $fecha->ubicacion : '') }}"> 
               
        </div>
     </div>

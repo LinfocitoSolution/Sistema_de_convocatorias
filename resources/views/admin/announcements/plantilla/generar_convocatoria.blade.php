@@ -5,8 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="{{asset('assets/css/convo/stil.css')}}" rel="stylesheet">            
-
+    <link href="{{asset('assets/css/convo/stil.css')}}" rel="stylesheet">    
+    <script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script>
+    <script src="{{asset('js/html2canvas.js')}}" type="text/javascript"></script>        
+    @include('admin.announcements.script')
  </head>  
  <body>
    <div class="hoja">  
@@ -95,5 +97,7 @@
      <br>
    </div> 
  </body>
-        
+    <a href="javascript:toPDF()">Guardar</a>
+    <a href="javascript:test()">Guardar2</a>
+    <a href="javascript:preView()">Ver</a>
 </html> 
