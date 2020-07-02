@@ -111,3 +111,4 @@ Route::resource('requerimientos','RequerimientosController');
 
 //################FECHAS############
 Route::resource('fechas','FechaController');
+Route::resource('conocimientoCalif','ConocimientoCalifController');
