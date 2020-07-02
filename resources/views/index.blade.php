@@ -23,13 +23,13 @@
 </head> 
 <body>
   <div class="jumbotron jumbotron-fluid mb-0 pt-4" style="height: 300px;">
-     <div class="container">
-          <div class="media-body" > 
+    <!---Inicio de container--->
+      <div class="container">
                  <div class="h3 text-white text-center mt-0">CONVOCATORIAS AUXILIARES</div>
                  <div class="h4 text-white text-center">UNIVERSIDAD MAYOR DE SAN SIMÓN</div>
-              <div class="row justify-content-center"> 
+          <div class="row justify-content-center"> 
                    <img  class="logoUmss float-left align-center p-0 mr-5 mt-4" width="89" height="120" src="{{asset('../imagenes/umss1.png')}} " alt="umss2">
-                <div class="col-md-8"> 
+              <div class="col-md-8"> 
                     <!--Carrusel-->  
                     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                        <ol class="carousel-indicators">

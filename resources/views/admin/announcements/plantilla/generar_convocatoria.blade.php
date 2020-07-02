@@ -11,8 +11,8 @@
  <body>
    <div class="hoja">  
          <br>
-           <div class="titulo"> <h3 align="center">TITULO DE LA CONVOCATORIA</h3></div>
-           <div class="gestion"><h3 align="center">GESTION 2020</h3></div>
+           <div class="titulo"> <h3>TITULO DE LA CONVOCATORIA</h3></div>
+           <div class="gestion"><h3>GESTION 2020</h3></div>
          <br>
         <p>El Departamento de Informática y Sistemas junto a las Carreras de Ing. Informática e Ing. 
            De  Sistemas  de  la  Facultad  de  Ciencias  y  Tecnología,  convoca  al  concurso  de  méritos  y 
@@ -73,23 +73,25 @@
       <br>
       <h4>9.&nbsp;&nbsp;SELECCIÓN</h4>  
       <br>
-      <div class="fecha"> <h3 align="center">Fecha:.............</h3></div>
+      <div class="fecha"> <h3>Fecha:.............</h3></div>
       <br>
       <br>
-      <p align="center"> Lic. Henrry Villarroel Tapia&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;Lic. Yony Montoya Brugos</p>
-      <p align="center"> <b>DIR. ING. SISTEMAS</b>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b> ING. INFORMATICA</b></p>
+    <div class="firma">
+      <p> Lic. Henrry Villarroel Tapia&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;Lic. Yony Montoya Brugos</p>
+      <p> <b>DIR. ING. SISTEMAS</b>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b> ING. INFORMATICA</b></p>
      <br>
      <br>
      <br>
      <br>
-     <p  align="center">Jimmy Villarroel Novillo </p> 
-     <p  align="center"><b>DPTO INFORMATICA Y SISTEMAS</b></p>
+     <p>Jimmy Villarroel Novillo </p> 
+     <p><b>DPTO INFORMATICA Y SISTEMAS</b></p>
      <br>
      <br>
      <br>
       <br>
-       <p  align="center">Ing. Alfredo Cosio Papadopolis</p> 
-       <p  align="center"><b>DECANO - FCyT</b></p>
+       <p>Ing. Alfredo Cosio Papadopolis</p> 
+       <p><b>DECANO - FCyT</b></p>
+    </div>   
      <br>
      <br>
      <br>
