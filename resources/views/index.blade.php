@@ -4,7 +4,7 @@
    <meta charset="utf-8">
    <!-- CSRF Token -->
    <meta name="csrf-token" content="{{ csrf_token() }}">
-   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta http-equiv="x-ua-compatible" content="ie=edge">
 
    <title> INDEX </title>
@@ -22,75 +22,78 @@
 @endif
 </head> 
 <body>
-  <div class="jumbotron jumbotron-fluid mb-0 pt-4" style="height: 300px;">
-    <div class="container">
-      
-          <div class="media-body" > 
-                <div class="h3 text-white text-center mt-0">CONVOCATORIAS AUXILIARES</div>
-                <div class="h4 text-white text-center">UNIVERSIDAD MAYOR DE SAN SIMÓN</div>
-              <div class="row justify-content-center"> 
-                   <img  class="logoUmss float-left align-center p-0 mr-5 mt-4" width="89" height="120" src="{{asset('../imagenes/umss1.png')}} " alt="umss2">
-                <div class="col-md-8"> 
-                 <!--Carrusel-->  
-                   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                      <ol class="carousel-indicators">
+<div class="cabeza">
+  <div class="container"> 
+     <div class="jumbotron jumbotron-fluid mb-0 pt-4" style="height: 300px;">
+                 
+              <div class="h3 text-white text-center mt-0">CONVOCATORIAS AUXILIARES</div>
+              <div class="h4 text-white text-center">UNIVERSIDAD MAYOR DE SAN SIMÓN</div>
+          <div class="row justify-content-center responsive">
+                   <div class="col-3 col-md-2">
+                      <img class="logoUmss float-left  p-0  mt-4 img-responsive" width="89" height="120" src="{{asset('../imagenes/umss1.png')}} " alt="umss2">
+                   </div>
+                  <div class="col-6 col-md-8"> 
+                  <!--Carrusel-->  
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                       <ol class="carousel-indicators">
                          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                          <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-                      </ol>
-                     <div class="carousel-inner">
-                       <div class="carousel-item active">
-                           <img src="{{ asset('/imagenes/tecno.jpg') }}"  class="d-block w-100" alt="web" width="700" height="250">
-                         <div class="carousel-caption" >
-                           <div class="text-white pb-5">
-                              <h3>Facultad de ciencias y tecnología</h3>
+                       </ol>
+                       <div class="carousel-inner">
+                           <div class="carousel-item active">
+                              <img src="{{ asset('/imagenes/tecno.jpg') }}"  class="d-block w-100" alt="web" width="500" height="210">
+                              <div class="carousel-caption" >
+                                 <div class="text-white pb-5">
+                                    <h4>Facultad de ciencias y tecnología</h4>
+                                 </div>
+                              </div>
                            </div>
-                         </div>
-                       </div>
-                       <div class="carousel-item">
-                           <img src="{{ asset('/imagenes/sistemas.jpg') }}" class="d-block w-100" alt="elem" width="700" height="250">
-                         <div class="carousel-caption">
-                           <div class="text-white pb-4">
-                             <h3>Departamento de Sistemas e Informática</h3>
-                          </div>
-                         </div>
-                       </div>
-                       <div class="carousel-item">
-                          <img src="{{ asset('/imagenes/aula.jpg') }}" class="d-block w-100" alt="aulalaboratorios" width="700" height="250">
-                         <div class="carousel-caption">
-                            <div class="text-white pb-5">
-                              <h3>Laboratorios</h3>
-                            </div>
-                         </div>
-                       </div>
-                       <div class="carousel-item">
-                           <img src="{{ asset('/imagenes/edificio.jpg') }}" class="d-block w-100" alt="prog" width="700" height="250">
-                         <div class="carousel-caption" >
-                           <div class="text-white pb-5">
-                              <h3>Edificio Multiacadémico</h3>
+                           <div class="carousel-item">
+                                <img src="{{ asset('/imagenes/sistemas.jpg') }}" class="d-block w-100" alt="elem" width="500" height="210">
+                              <div class="carousel-caption">
+                                 <div class="text-white pb-4">
+                                    <h4>Departamento de Sistemas e Informática</h4>
+                                 </div>
+                              </div>
                            </div>
-                         </div>   
-                       </div>
-                    </div>
-                      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                         <span class="sr-only">Previous</span>
-                      </a>
-                      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                         <span class="sr-only">Next</span>
-                      </a>
-                  </div>
-                 <!--fin carrusel-->  
+                           <div class="carousel-item">
+                               <img src="{{ asset('/imagenes/aula.jpg') }}" class="d-block w-100" alt="aulalaboratorios" width="500" height="210">
+                              <div class="carousel-caption">
+                                 <div class="text-white pb-5">
+                                   <h3>Laboratorio</h3>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="carousel-item">
+                                 <img src="{{ asset('/imagenes/edificio.jpg') }}" class="d-block w-100" alt="prog" width="500" height="210">
+                              <div class="carousel-caption" >
+                                 <div class="text-white pb-5">
+                                    <h4>Edificio Multiacadémico</h4>
+                                 </div>
+                              </div>   
+                           </div>
+                        </div>
+                          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                              <span class="sr-only">Previous</span>
+                          </a>
+                          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                             <span class="sr-only">Next</span>
+                          </a>
+                     </div>
+                    <!--fin carrusel-->  
                 </div> 
-                <img  class="logoCarrera float-right align-center p-0 mt-4 ml-5" width="89" height="100" src="{{asset('../imagenes/logoInformaticaSistemas.png')}}" alt="carrera"> 
-             </div>
+                <div class="col-3 col-md-2">
+                   <img  class="logoCarrera float-right  p-0 mt-4  img-responsive" width="89" height="100" src="{{asset('../imagenes/logoInformaticaSistemas.png')}}" alt="carrera"> 
+                </div>
+              </div>
           </div>
-          
-        </div>     
-          
-</div> 
+         <!--fin de container--> 
+     </div>     
+   </div>
 <!-- navbar -->
  <nav class="navbar sticky-top navbar-expand-lg py-0">
   <a class="navbar-brand  text-white" href="{{url('/')}}" tabindex="-1" >Inicio</a>

@@ -32,7 +32,7 @@
                      <tr>
                   <td>{{$fecha->id}}</td>
                   <td>{{$fecha->evento}}</td>          
-                  <td>{{$fecha->fecha}}</td>
+                  <td>{{$fecha->fechaI}}</td>
                   <td>{{$fecha->fechaF}}
                   <td>{{$fecha->ubicacion}}</td>                   
                                 <td>
