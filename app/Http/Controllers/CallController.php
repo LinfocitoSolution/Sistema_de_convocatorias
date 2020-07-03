@@ -76,11 +76,10 @@ class CallController extends Controller
         // } 
         $convocatoria->save();
         $unidad = $request->input('unidad');
-        $requerimientos=$request->input('requerimientos[]');
-        $evento = $request->input('evento');
-
+        $requerimientos = $request->input('requerimientos');
         $convocatoria->requerimientos()->attach($requerimientos);
-        $convocatoria->fechas()->attach($evento);
+        $eventos = $request->input('eventos');
+        $convocatoria->fechas()->attach($eventos);
         return redirect('administrador');  
     }
 
