@@ -38,7 +38,7 @@ class FechaController extends Controller
     {
         $fecha=Fecha::create($request->all());
         $fecha->save();
-        return redirect(route('fechas.index'))->with(['message'=>'fecha creada exitosamente¡','alert-type'=>'success']);
+        return redirect(route('fechas.index'))->with(['message'=>'Fecha registrada exitosamente!','alert-type'=>'success']);
     }
 
     /**
