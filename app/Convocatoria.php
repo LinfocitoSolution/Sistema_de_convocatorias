@@ -11,4 +11,8 @@ class Convocatoria extends Model
     {
         return $this->belongsToMany(Requerimiento::class)->withTimestamps();
     }
+    public function fechas()
+    {
+        return $this->belongsToMany(Fecha::class)->withTimestamps();
+    }
 }
