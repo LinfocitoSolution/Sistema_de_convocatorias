@@ -85,10 +85,10 @@
          <span class="input-group-append">
             <button class="btn btn-dark" type="button">E</button>
          </span>
-         <select class="custom-select form-control" type="text" name="evento"  >
-               @foreach($eventos as $item)
-                     <option class="text-dark" value="{{ $item->id }}">{{ $item->evento }}</option>
-               @endforeach
+         <select class="form-control js-example-basic-multiple " name="eventos[]" multiple="multiple">
+            @foreach($eventos as $item)
+                  <option class="text-dark" value="{{ $item->id }}">{{ $item->evento }}</option>
+            @endforeach
          </select>
       </div>
   </div>
