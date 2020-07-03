@@ -16,8 +16,11 @@ class CreateConvocatoriasTable extends Migration
         Schema::create('convocatorias', function (Blueprint $table) {
             $table->increments('id');
             $table->string('titulo_convocatoria');
+            $table->date('gestion');
+            $table->longText('descripcion');
+            $table->longText('requisitos');
+            $table->longText('documentos_a_presentar');
             $table->string('pdf_file');
-            $table->string('descripcion');
             $table->timestamps();
         });
     }
