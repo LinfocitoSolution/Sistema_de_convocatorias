@@ -56,6 +56,7 @@ class CallController extends Controller
     {
         $convocatoria = new Convocatoria();
         $convocatoria->titulo_convocatoria=$request->input('titulo');
+        $convocatoria->unit_id=$request->get('unidad');
         $convocatoria->descripcion=$request->input('descripcion');
         $convocatoria->requisitos=$request->input('requisito');
         $convocatoria->documentos_a_presentar=$request->input('docsapresentar');
@@ -104,10 +105,12 @@ class CallController extends Controller
     public function edit(Convocatoria $call)
     {
        
-        $unidades = Unidad::all();
+        // $unidades = Unidad::all();
         $requerimientos=Requerimiento::all();
         $requerimiento = DB::table('requerimientos')->get();
-        return view('admin.announcements.edit',compact('call', 'unidades', 'requerimientos'));
+        $eventos = DB::table('fechas')->get();
+        $unidades = DB::table('units')->get();
+        return view('admin.announcements.edit',compact('call', 'unidades', 'requerimientos','eventos'));
     }
 
     /**

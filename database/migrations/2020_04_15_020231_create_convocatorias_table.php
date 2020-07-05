@@ -20,7 +20,7 @@ class CreateConvocatoriasTable extends Migration
             $table->longText('descripcion');
             $table->longText('requisitos');
             $table->longText('documentos_a_presentar');
-            $table->string('pdf_file');
+            $table->string('pdf_file')->nullable();
             $table->timestamps();
         });
     }

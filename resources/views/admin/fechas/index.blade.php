@@ -33,7 +33,7 @@
                   <td>{{$fecha->id}}</td>
                   <td>{{$fecha->evento}}</td>          
                   <td>{{$fecha->fechaI}}</td>
-                  <td>{{$fecha->fechaF}}
+                  <td>{{$fecha->fechaF}}</td>
                   <td>{{$fecha->ubicacion}}</td>                   
                                 <td>
                                     <a class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title="presiona para editar una fecha"href="{{route('fechas.edit',$fecha)}}">
