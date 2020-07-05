@@ -31,10 +31,6 @@ class CallController extends Controller
     public function index()
     {
         $calls = Convocatoria::all();
-       
-       /* $unidades = Unidad::all();
-        $requerimientos = Requerimiento::all();*/
-        //return view('admin.announcements.index', compact('calls', 'unidades', 'requerimientos'));
         return view('admin.announcements.index', compact('calls'));
     }
     /**
@@ -45,10 +41,8 @@ class CallController extends Controller
     public function create()
     {
         $calls = Convocatoria::all();
-        
         $unidades = Unidad::all();
         $requerimientos=Requerimiento::all();
-        $requerimiento = DB::table('requerimientos')->get();
         $eventos = fecha::all();
         return view('admin.announcements.create', compact('calls', 'unidades', 'requerimientos', 'eventos'));
     }
@@ -60,7 +54,6 @@ class CallController extends Controller
      */
     public function store(Request $request)
     {
-       //$requerimiento = DB::table('requerimientos')->get();
         $convocatoria = new Convocatoria();
         $convocatoria->titulo_convocatoria=$request->input('titulo');
         $convocatoria->unit_id=$request->get('unidad');
@@ -94,9 +87,16 @@ class CallController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($file_name)
-    {
+    {   
         $file_path = public_path('convocatorias/'.$file_name);
         return response()->file($file_path);
+    }
+    public function generarConvocatoria(Convocatoria $call)
+    {   
+        // $requerimientos = $call->requerimientos()->get();
+        // $unidades = Unidad::all();
+        // // $eventos = fecha::all();
+        return view('admin.announcements.plantilla.generar_convocatoria', compact('call'));
     }
 
     /**

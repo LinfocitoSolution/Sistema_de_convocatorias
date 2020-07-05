@@ -6,15 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="{{asset('assets/css/convo/stil.css')}}" rel="stylesheet">    
-    <script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script>
-    <script src="{{asset('js/html2canvas.js')}}" type="text/javascript"></script>        
+        
     @include('admin.announcements.plantilla.script')
  </head>  
  <body>
    <div class="hoja" id="datos">  
          <br>
-           <h2 style="margin-left: 8cm">TITULO DE LA CONVOCATORIA</h2>
-           <h3 style="margin-left: 12cm">GESTION 2020</h3>
+           <h2 style="margin-left: 8cm">{{$call->titulo_convocatoria}}</h2>
+           <h3 style="margin-left: 10cm">GESTION 2020</h3>
            
          <br>
         <p class="parrafo" style="text-align:justify">El Departamento de Informática y Sistemas junto a las Carreras de Ing. Informática e Ing. 
@@ -24,13 +23,32 @@
         <br>
         <h4>1.&nbsp;&nbsp;REQUERIMIENTOS</h4> 
            <div class="tabla1">
-
-           </div>  
+            <table>
+               <tr>
+                 <th>ITEMS</th>
+                 <th>CANTIDAD</th>
+                 <th>HRS. ACADEMICAS</th>
+                 <th>DESTINO</th>
+               </tr>
+               @foreach ($call->requerimientos as $requerimiento)
+                  <tr>
+                  <td>{{$requerimiento->id}}</td>
+                  <td>{{$requerimiento->cantidad_de_auxiliares}}</td>
+                  <td>{{$requerimiento->cantidad_horas_academicas}}</td>
+                  <td>{{$requerimiento->nombre_auxiliatura}}</td>
+                  </tr>
+              @endforeach
+                  <tr>
+                  <td>Total</td>
+                  <td>16 Aux.</td>
+                  <td></td>
+                  <td></td>
+                  </tr>
+                 </table>  
+         </div>   
         <br>
         <h4>2.&nbsp;&nbsp;REQUISITOS</h4>
-           <div class="requisito">
-
-           </div>
+              <p>{{$call->requisitos}}</p>
         <br>
         <h4>3.&nbsp;&nbsp;DOCUMENTOS A PRESENTAR</h4>
            <div class="documentos">
@@ -41,7 +59,21 @@
            de  Informática  y  Sistemas.  (Presentar  original  y  fotocopias).  La  documentación  no  será 
            devuelta.</p> 
        <br>
+    </div> <<!--FIN DE LA PRIMERA PARTE -->
+    <div id = "parte2"> 
        <h4>4.&nbsp; &nbsp; FECHA Y LUGAR DE PRESENTACIÓN DE DOCUMENTOS </h4>
+         <table>
+            <tr>
+            <th>EVENTOS</th>
+            <th>FECHAS</th>
+            </tr>
+            @foreach ($call->fechas as $fecha)
+               <tr>
+               <td>{{$fecha->evento}}</td>
+               <td>{{$fecha->fechaI}}</td>
+               </tr>
+         @endforeach
+         </table>  
        <h4>4.1.&nbsp;DE LA FORMA</h4>
        <p  class="parrafo">Presentación de la documentación en sobre manila cerrado y rotulado con:</p>
        <p  class="parrafo">- Nombre y apellidos completos, dirección, teléfono(s) y e-mail del postulante.</p> 
@@ -57,9 +89,7 @@
         <h4>6.&nbsp;&nbsp;CALIFICACIÓN DE CONOCIMIENTOS</h4> 
         <p  class="parrafo" style="text-align:justify">La  calificación  de  conocimientos  se  realiza  sobre  la  base  de  100  puntos,  equivalentes  al  80%  de  la calificación final.</p> 
         <p  class="parrafo" style="text-align:justify">Las  pruebas  para  los  auxiliares  sobre  conocimientos se  realizarán  de  acuerdo  al  temario  y  tabla siguiente.</p> 
-    </div> 
-    {{-- FIN DE LA PRIMERA PARTE --}}
-    <div id = "parte2"> 
+    
       <h4> 6.1. &nbsp; PORCENTAJES DE CALIFICACIÓN PARA CADA TIPO DE AUXILIAR</h4> 
       <h4> 6.1.1.  PRUEBAS ESCRITAS</h4>
       <br>
@@ -69,6 +99,8 @@
          calificación de méritos 1 docente y 1 delegado estudiante, de la misma manera para la comisión de 
          conocimientos cada consejo designará 1 docente y unestudiante veedor por cada temática.</p> 
       <br>
+   </div>{{--FIN SEGUNDA PARTE--}}
+   <div id = "parte3"> 
       <h4> 8.&nbsp;&nbsp;CRONOGRAMA GENERAL</h4>
          <div class="cronograma">
 
@@ -78,10 +110,9 @@
       <br>
       <div class="fecha"> <h3>Fecha:.............</h3></div>
       <br>
-
-
       <br>
-    </div>{{--FIN SEGUNDA PARTE--}}
+   </div>
+    
     <div id="firma">
          <p id="nombre1" class="parrafo"> Lic. Henrry Villarroel Tapia</p> 
          <p id = "nombre2"class="parrafo"> Lic. Yony Montoya Brugos </p>

@@ -1,7 +1,12 @@
-<script>function toPDF(){
+<script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script>
+<script src="{{asset('js/html2canvas.js')}}" type="text/javascript"></script>   
+
+<script> window.onload = async function toPDF(){
   var doc = new jsPDF();
   var elemento1 = document.getElementById('datos');
   var elemento2 = document.getElementById('parte2');
+  var elemento3 = document.getElementById('parte3');
+
   var specialElementHandlers = {
       '#elementH': function (element, renderer) {
           return true;
@@ -17,6 +22,13 @@
       'width': 180,
       'elementHandlers': specialElementHandlers
   });
+  //TERCER DIV
+  doc.addPage();
+  doc.fromHTML(elemento3, 15, 15, {
+      'width': 180,
+      'elementHandlers': specialElementHandlers
+  });
+
   //FIRMAS
   doc.setFontSize(11);
   var n1 = document.getElementById('nombre1');
@@ -62,10 +74,8 @@
       
   //   }
   // }
-
-      
-
   doc.setFontStyle('Arial');
-  doc.save('sample-document.pdf');
+  doc.save('convocatoria.pdf');
+  location.href = "/";
 }
 </script>
