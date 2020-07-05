@@ -34,7 +34,7 @@
                 <tr>
                     <td>{{$call->titulo_convocatoria}}</td>
                     <td>{{$call->descripcion}}</td>
-                    <td><a href="call/{{$call->pdf_file}}" target="_blank" >{{$call->pdf_file}}</a></td>
+                   <!-- <td><a href="call/{{$call->pdf_file}}" target="_blank" >{{$call->pdf_file}}</a></td> -->
                     <td>{{$call->created_at}}</td>
                     <td>
                         <a class="btn btn-dark btn-sm mt-1 ml-2" data-toggle="tooltip" data-trigger="hover" title="presiona para editar una convocatoria"href="{{ route('call.edit', $call) }}">
