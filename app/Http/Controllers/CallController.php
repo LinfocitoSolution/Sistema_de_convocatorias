@@ -75,9 +75,11 @@ class CallController extends Controller
                         ->withInput();
         }*/
 
+        // dd($request->get('unidad'));
         $convocatoria = new Convocatoria();
         //$convocatoria = Convocatoria::create($request->all());   no genera ninguna funcionalidad
-        $convocatoria->titulo_convocatoria=$request->input('titulo');
+        $convocatoria->titulo_convocatoria=$request->input('titulo');                
+        $convocatoria->unit_id=$request->get('unidad');
         $convocatoria->descripcion=$request->input('descripcion');
        
         

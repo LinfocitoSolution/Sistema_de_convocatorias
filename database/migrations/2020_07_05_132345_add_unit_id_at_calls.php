@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUnidadsTable extends Migration
+class AddUnitIdAtCalls extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateUnidadsTable extends Migration
      */
     public function up()
     {
-        Schema::create('units', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name')->unique();
-            $table->string('description');
-            $table->timestamps();
+        Schema::table('convocatorias', function (Blueprint $table) {
+            $table->unsignedInteger('unit_id')->after('id');//->nullable() ;          
+            $table->foreign('unit_id')->references('id')->on('units')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+
         });
     }
 
@@ -28,6 +29,6 @@ class CreateUnidadsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('units');
+        //
     }
 }
