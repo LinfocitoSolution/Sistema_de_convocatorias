@@ -77,7 +77,10 @@ class CallController extends Controller
         // } 
         $convocatoria->save();
         $unidad = $request->input('unidad');
-        $requerimientos = $request->input('requerimientos');
+        $requerimientos=$request->input('requerimientos');
+        
+        $evento = $request->input('evento');
+
         $convocatoria->requerimientos()->attach($requerimientos);
         $eventos = $request->input('eventos');
         $convocatoria->fechas()->attach($eventos);
@@ -123,6 +126,7 @@ class CallController extends Controller
     public function update(Request $request, Convocatoria $call)
     {
         $call->titulo_convocatoria=$request->get('titulo'); 
+        $call->unit_id=$request->get('unidad');
         $call->update($request->all());
         // if ($request->hasFile('archivo')) {
         //     $file = $request->file('archivo');
@@ -139,6 +143,14 @@ class CallController extends Controller
         //                 ->withInput();
         // }
         $call->save();
+        
+        $requerimientos=$request->input('requerimientos');
+        
+        $evento = $request->input('evento');
+
+        $call->requerimientos()->sync($requerimientos);
+        $eventos = $request->input('eventos');
+        $call->fechas()->sync($eventos);
         /*$requerimientos=$request->input('requerimiento');
         $call->requerimientos()->attach($requerimientos);*/
         return redirect(route('call.index'))->with([ 'message' => 'Convocatoria actualizada exitosamente!', 'alert-type' => 'success' ]);
