@@ -32,7 +32,7 @@
               <span class="input-group-append">
                  <button class="btn btn-dark" type="button">G</button>
               </span> 
-               <input type="month" class="form-control" name="gestion" value="">
+               <input type="date" class="form-control" name="gestion" value="">
              
           </div>
         </div>  

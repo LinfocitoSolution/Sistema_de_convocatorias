@@ -105,10 +105,12 @@ class CallController extends Controller
     public function edit(Convocatoria $call)
     {
        
-        $unidades = Unidad::all();
+        // $unidades = Unidad::all();
         $requerimientos=Requerimiento::all();
         $requerimiento = DB::table('requerimientos')->get();
-        return view('admin.announcements.edit',compact('call', 'unidades', 'requerimientos'));
+        $eventos = DB::table('fechas')->get();
+        $unidades = DB::table('units')->get();
+        return view('admin.announcements.edit',compact('call', 'unidades', 'requerimientos','eventos'));
     }
 
     /**
