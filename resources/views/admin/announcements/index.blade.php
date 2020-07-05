@@ -24,7 +24,7 @@
              <tr>
                 <th>Título</th>
                 <th>Descripción</th>
-                <th>Archivo</th>
+             <!--   <th>Archivo</th> -->
                 <th>Fecha de creación</th>
                 <th>Opciones</th>
              </tr>

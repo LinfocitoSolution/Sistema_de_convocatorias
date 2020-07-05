@@ -6,14 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="{{asset('assets/css/convo/stil.css')}}" rel="stylesheet">    
-    <script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script>
-    <script src="{{asset('js/html2canvas.js')}}" type="text/javascript"></script>        
+        
     @include('admin.announcements.plantilla.script')
  </head>  
  <body>
    <div class="hoja" id="datos">  
          <br>
-           <h2 style="margin-left: 8cm">TITULO DE LA CONVOCATORIA</h2>
+           <h2 style="margin-left: 8cm">{{$call->titulo_convocatoria}}</h2>
            <h3 style="margin-left: 12cm">GESTION 2020</h3>
            
          <br>
@@ -24,13 +23,13 @@
         <br>
         <h4>1.&nbsp;&nbsp;REQUERIMIENTOS</h4> 
            <div class="tabla1">
-
+              @foreach ($call->requerimientos as $requerimiento)
+                     <p>{{$requerimiento->nombre_auxiliatura}}</p>
+              @endforeach
            </div>  
         <br>
         <h4>2.&nbsp;&nbsp;REQUISITOS</h4>
-           <div class="requisito">
-
-           </div>
+              <p>{{$call->requisitos}}</p>
         <br>
         <h4>3.&nbsp;&nbsp;DOCUMENTOS A PRESENTAR</h4>
            <div class="documentos">
@@ -82,8 +81,6 @@
       <br>
       <div class="fecha"> <h3>Fecha:.............</h3></div>
       <br>
-
-
       <br>
     </div>{{--FIN SEGUNDA PARTE--}}
     <div id="firma">

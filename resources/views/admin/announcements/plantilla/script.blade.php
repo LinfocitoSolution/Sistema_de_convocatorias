@@ -1,4 +1,7 @@
-<script>function toPDF(){
+<script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script>
+<script src="{{asset('js/html2canvas.js')}}" type="text/javascript"></script>   
+
+<script> window.onload = async function toPDF(){
   var doc = new jsPDF();
   var elemento1 = document.getElementById('datos');
   var elemento2 = document.getElementById('parte2');
@@ -62,10 +65,8 @@
       
   //   }
   // }
-
-      
-
   doc.setFontStyle('Arial');
-  doc.save('sample-document.pdf');
+  doc.save('convocatoria.pdf');
+  location.href = "/";
 }
 </script>
