@@ -6,7 +6,6 @@
                  <button class="btn btn-dark" type="button">A</button>
                </span>
              <input class="form-control" type="text" name="titulo" placeholder="Ingrese el titulo " value="{{ old('titulo', isset($call) ? $call->titulo_convocatoria : '') }}">
-             
             </div>
          </div>
       
@@ -28,13 +27,12 @@
         <!---Gestion-->
         <div class="col-md-6 mb-2">
              <label class="col-form-label" for="nameGestion">Gestión</label>
-             <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="-La gestión se mostrará de forma automática">
+             <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="Solo se permite en la gestión actual">
             
               <span class="input-group-append">
                  <button class="btn btn-dark" type="button">G</button>
               </span> 
-              <!---en value iba esto: { ucfirst(Auth::user()->name)}}-->
-               <input type="text" class="form-control" id="gestion" value="2020">
+               <input type="month" class="form-control" name="gestion" value="">
              
           </div>
         </div>  
@@ -67,40 +65,41 @@
       <div class="col-md-6 mb-2">  
         <label class="col-form-label" for="">Requisitos: </label>
          <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="-Escriba los requisitos de la convocatoria">
-            <textarea class="form-control" name="descripcion" rows="3" maxlength="150" ></textarea>
+            <textarea class="form-control" name="requisito" rows="3" maxlength="150" ></textarea>
          </div>
          <!--- <small class="form-text text-muted">Descripción corta de la convocatoria</small>-->
       </div> 
-</div>
+
     <!--Documentos a presentar-->
     <div class="col-md-6 mb-2">  
-      <label class="col-form-label" for="">Documentos a presentar </label>
-       <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="-Escriba los documentos que debe presentar">
-          <textarea class="form-control" name="descripcion" rows="3" maxlength="150" ></textarea>
-       </div>
-        <small class="form-text text-muted">Documentos a presentar</small>
+         <label class="col-form-label" for="">Documentos a presentar </label>
+         <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="-Escriba los documentos que debe presentar">
+            <textarea class="form-control" name="docsapresentar" rows="3" maxlength="150" ></textarea>
+         </div>
+         <small class="form-text text-muted">Documentos a presentar</small>
     </div>
    <!--fechas-->
    <div class="col-md-6 mb-2">
-      <label class="col-form-label" for="name">Eventos</label>
-     <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="-Seleccione los eventos que requiera">
-        <span class="input-group-append">
-          <button class="btn btn-dark" type="button">E</button>
-        </span>
-        <select class="form-control js-example-basic-multiple " name="eventos[]" multiple="multiple">
-         
-                 <option class="text-dark" value=""></option>
-         
-</select>
-        </div>
+         <label class="col-form-label" for="name">Eventos</label>
+      <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="-Seleccione los eventos que requiera">
+         <span class="input-group-append">
+            <button class="btn btn-dark" type="button">E</button>
+         </span>
+         <select class="form-control js-example-basic-multiple " name="eventos[]" multiple="multiple">
+            @foreach($eventos as $item)
+                  <option class="text-dark" value="{{ $item->id }}">{{ $item->evento }}</option>
+            @endforeach
+         </select>
+      </div>
   </div>
   <!--fin de fechas-->
+</div>
 
    <br>
                      
-@if (!isset($call))
+{{-- @if (!isset($call))
 <input type="file" name="archivo">   
 <div class="text-left">
  <small class="form-text text-muted">Solo se admiten archivos tipo PDF</small>  
  </div> 
-@endif  
+@endif   --}}

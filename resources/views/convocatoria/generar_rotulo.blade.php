@@ -16,7 +16,7 @@
               <h2>Verifique sus datos:</h2>
             </div>
             <!---cuerpo--->
-          <div class="card-body">
+          <div class="card-body" id="datos">
             <form class="form-group" method="get" action={{url("/rotulo")}} >
               <input type="hidden" name="_token" value="{{ csrf_token() }}">
               <!--nombre--->
@@ -92,10 +92,11 @@
                       </select>
                     </div>
                  </div>
+                </div>
+               <div class="form-actions text-center">
+                  <button class="btn btn-outline-dark mb-4" data-toggle="tooltip" data-placement="right" title="Presione el bot&oacute;n para generar el rótulo"onclick="test();">Generar rótulo</button>
+                  <a href="javascript:getPdf()">test</a>
                </div>
-                  <div class="form-actions text-center">
-                      <button class="btn btn-outline-dark mb-4" data-toggle="tooltip" data-placement="right" title="Presione el bot&oacute;n para generar el rótulo"onclick="save();">Generar rótulo</button>
-                  </div>
            
           </form>
         </div>  

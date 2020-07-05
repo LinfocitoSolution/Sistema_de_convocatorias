@@ -23,7 +23,7 @@
                         <th>Evento</th>
                         <th>Fecha Inicial</th>
                         <th>Fecha Final</th>
-                        <th>Ubicacion</th>
+                        <th>Ubicación</th>
                         <th>Opciones</th>
                      </tr>
                     </thead>

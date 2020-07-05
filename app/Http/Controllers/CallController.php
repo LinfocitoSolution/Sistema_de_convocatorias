@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Convocatoria;
 use App\Unidad;
 use App\Requerimiento;
+use App\fecha;
 use DB;
 use Validator;
 
@@ -48,9 +49,8 @@ class CallController extends Controller
         $unidades = Unidad::all();
         $requerimientos=Requerimiento::all();
         $requerimiento = DB::table('requerimientos')->get();
-       
-       
-        return view('admin.announcements.create', compact('calls', 'unidades', 'requerimientos'));
+        $eventos = fecha::all();
+        return view('admin.announcements.create', compact('calls', 'unidades', 'requerimientos', 'eventos'));
     }
     /**
      * Store a newly created resource in storage.
@@ -61,45 +61,27 @@ class CallController extends Controller
     public function store(Request $request)
     {
        //$requerimiento = DB::table('requerimientos')->get();
-        /*
-              "validacion comentada para ponerla directaente por el form request"
-        $validator = Validator::make($request->all(), [
-            'titulo' => 'required | max: 50',
-            'archivo' => 'required | max:5000 | file | mimes:pdf',  
-            'descripcion' => 'required | max:200'
-        ]);
-
-       if ($validator->fails()) {
-            return redirect('call/create')
-                        ->withErrors($validator)
-                        ->withInput();
-        }*/
-
-        // dd($request->get('unidad'));
         $convocatoria = new Convocatoria();
-        //$convocatoria = Convocatoria::create($request->all());   no genera ninguna funcionalidad
-        $convocatoria->titulo_convocatoria=$request->input('titulo');                
+        $convocatoria->titulo_convocatoria=$request->input('titulo');
         $convocatoria->unit_id=$request->get('unidad');
         $convocatoria->descripcion=$request->input('descripcion');
-       
-        
-       
-        if ($request->hasFile('archivo')) {
-            $file = $request->file('archivo');
-            $nombre = time().$file->getClientOriginalName();
-            //Se almacena en: C:\laragon\www\[nombreProyecto]\public\convocatorias
-            $file->move(public_path().'/convocatorias/', $nombre);
-            $convocatoria->pdf_file=$nombre;
-            $convocatoria->save();
-            $requerimientos=$request->input('requerimiento');
-            $convocatoria->requerimientos()->attach($requerimientos);
-            return redirect('administrador');
-            
-        } /*else {
-            return redirect('administrador')
-                        ->withErrors($validator)
-                        ->withInput();
-        }*/
+        $convocatoria->requisitos=$request->input('requisito');
+        $convocatoria->documentos_a_presentar=$request->input('docsapresentar');
+        $convocatoria->gestion=$request->input('gestion');
+        // if ($request->hasFile('archivo')) {
+        //     $file = $request->file('archivo');
+        //     $nombre = time().$file->getClientOriginalName();
+        //     //Se almacena en: C:\laragon\www\[nombreProyecto]\public\convocatorias
+        //     $file->move(public_path().'/convocatorias/', $nombre);
+        //     $convocatoria->pdf_file=$nombre;
+        // } 
+        $convocatoria->save();
+        $unidad = $request->input('unidad');
+        $requerimientos = $request->input('requerimientos');
+        $convocatoria->requerimientos()->attach($requerimientos);
+        $eventos = $request->input('eventos');
+        $convocatoria->fechas()->attach($eventos);
+        return redirect('administrador');  
     }
 
     /**

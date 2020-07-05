@@ -15,5 +15,9 @@ class Convocatoria extends Model
     public function unit()
     {
         return $this->belongsTo('Unidad');
+    }    
+    public function fechas()
+    {
+        return $this->belongsToMany(Fecha::class)->withTimestamps();
     }
 }

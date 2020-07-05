@@ -1,12 +1,9 @@
 .hoja {
     border: white 1px solid;
     font-size: 100%;
-    margin-left: 3cm;
-    margin-right: 3cm;
+    margin-left: 9cm;
+    margin-right: 8cm;
   }
-  h3{
-      text-align: center;
-  }
-  .firma{
-    text-align: center; 
-  }
+.parrafo{
+  font-family: serif;
+}
