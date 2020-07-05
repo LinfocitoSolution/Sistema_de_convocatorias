@@ -22,10 +22,9 @@
 @endif
 </head> 
 <body>
-<div class="cabeza">
-  <div class="container"> 
+ <div class="cabeza">
+   <div class="container"> 
      <div class="jumbotron jumbotron-fluid mb-0 pt-4" style="height: 300px;">
-                 
               <div class="h3 text-white text-center mt-0">CONVOCATORIAS AUXILIARES</div>
               <div class="h4 text-white text-center">UNIVERSIDAD MAYOR DE SAN SIMÓN</div>
           <div class="row justify-content-center responsive">
@@ -89,45 +88,45 @@
                 <div class="col-3 col-md-2">
                    <img  class="logoCarrera float-right  p-0 mt-4  img-responsive" width="89" height="100" src="{{asset('../imagenes/logoInformaticaSistemas.png')}}" alt="carrera"> 
                 </div>
-              </div>
           </div>
+      </div>
          <!--fin de container--> 
-     </div>     
-   </div>
-<!-- navbar -->
+    </div>     
+ </div> 
+ <!-- navbar -->
  <nav class="navbar sticky-top navbar-expand-lg py-0">
-  <a class="navbar-brand  text-white" href="{{url('/')}}" tabindex="-1" >Inicio</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+   <a class="navbar-brand  text-white" href="{{url('/')}}" tabindex="-1" >Inicio</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item" tabindex="0" data-toggle="tooltip" data-trigger="hover" title="Este boton no esta disponible">
-        <a class="nav-link text-white"disabled href="#">Calendario</a>
-      </li>
-      <li class="nav-item" tabindex="0" data-toggle="tooltip" title="Este boton no esta disponible">
-        <a class="nav-link text-white" disabled href="#">Información</a>
-      </li>
-     <li class="nav-item dropdown" tabindex="0" data-toggle="tooltip" data-trigger="hover" title="Este boton no esta disponible">
-        <a class="nav-link dropdown-toggle text-white" disabled href="#"  id="nabarDropdown" tabindex="-2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+     <ul class="navbar-nav mr-auto">
+       <li class="nav-item" tabindex="0" data-toggle="tooltip" data-trigger="hover" title="Este boton no esta disponible">
+         <a class="nav-link text-white"disabled href="#">Calendario</a>
+       </li>
+       <li class="nav-item" tabindex="0" data-toggle="tooltip" title="Este boton no esta disponible">
+         <a class="nav-link text-white" disabled href="#">Información</a>
+       </li>
+       <li class="nav-item dropdown" tabindex="0" data-toggle="tooltip" data-trigger="hover" title="Este boton no esta disponible">
+         <a class="nav-link dropdown-toggle text-white" disabled href="#"  id="nabarDropdown" tabindex="-2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
          Malla Curricular
-        </a>
-        <div class="dropdown-menu hover" >
-          <a class="dropdown-item" href="#">Sistemas</a>
-          <a class="dropdown-item" href="#">Informática</a>
-          <a class="dropdown-item" href="#">Industrial</a>
-        </div>  
-      </li>
-    </ul>
-    <!----si es invitado--->
-    @if (Auth::guest())
-      <form class="form-inline float-xs-right">
-         <a class="btn btn-outline-dark  text-white m-2 my-sm-2" data-toggle="tooltip" data-placement="top" title="Si ya te registraste pudes iniciar sesi&oacute;n"type="submit" href="{{url('login')}}">Iniciar Sesión</a>
-         <a class="btn btn-outline-dark  text-white m-2 my-sm-2" data-toggle="tooltip" data-placement="top" title="Reg&iacute;strate si no estas logueado" type="submit" href="{{url('register')}}">Regístrate</a>
+         </a>
+         <div class="dropdown-menu hover" >
+           <a class="dropdown-item" href="#">Sistemas</a>
+           <a class="dropdown-item" href="#">Informática</a>
+           <a class="dropdown-item" href="#">Industrial</a>
+         </div>  
+        </li>
+     </ul>
+       <!----si es invitado--->
+       @if (Auth::guest())
+        <form class="form-inline float-xs-right">
+          <a class="btn btn-outline-dark  text-white m-2 my-sm-2" data-toggle="tooltip" data-placement="top" title="Si ya te registraste pudes iniciar sesi&oacute;n"type="submit" href="{{url('login')}}">Iniciar Sesión</a>
+          <a class="btn btn-outline-dark  text-white m-2 my-sm-2" data-toggle="tooltip" data-placement="top" title="Reg&iacute;strate si no estas logueado" type="submit" href="{{url('register')}}">Regístrate</a>
         </form>
         @else 
-      <a class="text-white m-2 my-sm-2">{{Auth::user()->name  }} {{Auth::user()->lastname}}</a>
+       <a class="text-white m-2 my-sm-2">{{Auth::user()->name  }} {{Auth::user()->lastname}}</a>
         
           
           @if(Auth::user()->roles->first()->name=='Postulante')
@@ -147,26 +146,23 @@
                      <a class="dropdown-item bg-dark text-white" href="{{url('logout')}}">
                       <i class="fas fa-times-circle mr-2"></i>Cerrar Sesion
                     </a>
-                 
-        </form>
-        @endif
-     
-
-  </div>
-</nav>
+           </form>
+           @endif
+    </div>
+ </nav>
  <!--fin navbar-->   
  <!--contenido medio-->
 
  <!--ERRORES-->
-      @if (count($errors) > 0)
+     <!-- if (count($errors) > 0)
       <div class="alert alert-danger">
         <ul>
-          @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-          @endforeach
+          foreach ($errors->all() as $error)
+            <li>{ $error }}</li>
+          endforeach
         </ul>
       </div>
-      @endif
+      endif--->
     
     
   <!--carrusel-->
@@ -174,33 +170,48 @@
    <!--fin carrusel--> 
 
    <!--convocatorias ofertadas-->
-<div class="convocatoria">
-  <div class="container mt-5 mb-5">
-    <div class="row justify-content-around">
+ <div class="convocatoria">
+   <div class="container mt-5 mb-5">
+     <div class="row justify-content-around">
         @foreach ($convocatorias as $convocatoria)
            <div class="col-lg-4">
                 <div class="card">
                    <div class="card-header">
-                     <h5 class="card-title">{{$convocatoria->titulo_convocatoria}}</h5>
+                     <h6 class="card-title">{{$convocatoria->titulo_convocatoria}}</h6>
                    </div> 
                         <div class="card-body">
-                             <p class="card-text">{{$convocatoria->descripcion}}</p>
+                           <table class="table table-bordered table-striped table-sm">
+                             <thead>
+                               <tr>
+                                 <th>Evento</th>
+                                 <th>Fecha Inicial</th>
+                               </tr>
+                             </thead>
+                             <tbody>
+                                <!--foreach($fechas as $fecha)-->  
+                                 <tr>
+                                   <td>eventooooo</td>          
+                                   <td>fechassss</td> 
+                                 </tr>
+                                 <!--endforeach-->
+                              </tbody>
+                           </table>         
                               {{-- <form class="form-horizontal" action="/call/{{$convocatoria->pdf_file}" method="GET"> --}}
                              <a href="call/{{$convocatoria->pdf_file}}" target="_blank" class="btn btn-outline-dark rounded-pill  btn-block" data-toggle="tooltip" data-placement="bottom" data-trigger="hover" title="Presiona el botón para ver la convocatoria">Ver Convocatoria</a>
                           
-                           @if(Auth::check() && Auth::user()->roles->first()->name=='Postulante')
-                             <a href="{{route('postulacion.form')}}" target="_blank" class="btn btn-outline-dark rounded-pill btn-block" data-toggle="tooltip" data-placement="bottom" data-trigger="hover" title="Presiona el botón para ver la convocatoria">Postularse</a>
-                           @endif
+                             @if(Auth::check() && Auth::user()->roles->first()->name=='Postulante')
+                               <a href="{{route('postulacion.form')}}" target="_blank" class="btn btn-outline-dark rounded-pill btn-block" data-toggle="tooltip" data-placement="bottom" data-trigger="hover" title="Presiona el botón para ver la convocatoria">Postularse</a>
+                             @endif
                           
                         </div>
                         <div class="card-footer"></div>
 
                 </div>
-              </div>  
+            </div>  
         @endforeach
       </div>
-   </div>
-</div>
+    </div>
+ </div>
    <!--fin de convocatorias ofertadas-->     
    
    
@@ -234,9 +245,8 @@
           </div>
        </div>
     </div>
-
   </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script src="{{asset('jquery/jquery-3.4.1.slim.min.js')}}" type="text/javascript"></script>
@@ -262,5 +272,5 @@
     <!-- Select2 -->
     <link href="{{URL::asset('https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css')}}" rel="stylesheet" />
     <script src="{{URL::asset('https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js')}}"></script>
-</body>
+ </body>
 </html>

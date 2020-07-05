@@ -24,8 +24,28 @@
         <br>
         <h4>1.&nbsp;&nbsp;REQUERIMIENTOS</h4> 
            <div class="tabla1">
-
-           </div>  
+            <table>
+               
+               <tr>
+                 <th>ITEMS</th>
+                 <th>CANTIDAD</th>
+                 <th>HRS. ACADEMICAS</th>
+                 <th>DESTINO</th>
+               </tr>
+               <tr>
+                 <td></td>
+                 <td></td>
+                 <td></td>
+                 <td></td>
+               </tr>
+               <tr>
+                 <td>Total</td>
+                 <td>16 Aux.</td>
+                 <td></td>
+                 <td></td>
+               </tr>
+            </table>  
+          </div>  
         <br>
         <h4>2.&nbsp;&nbsp;REQUISITOS</h4>
            <div class="requisito">
