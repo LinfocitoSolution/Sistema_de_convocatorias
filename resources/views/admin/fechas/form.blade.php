@@ -2,7 +2,7 @@
 
     <div class="col-md-12 mb-3">
         <label class="col-form-label" for="name">Evento</label>
-        <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content= "">
+        <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content= "-M&aacute;ximo 200 caracteres <br> -M&iacute;nimo 3 caracteres <br-El evento no debe tener caracteres especiales, ni números">
             <span class="input-group-append">
                 <button class="btn btn-dark" type="button">E</button>
             </span>
@@ -14,16 +14,18 @@
         </div>
     </div>
    <div class="invalid-feedback {{ $errors->has('evento')? 'd-block' : '' }}">
-        {{ $errors->has('evento')? $errors->first('evento') : ''}}
+        {{ $errors->has('evento')? $errors->first('evento') : 'El evento ingresado ya existe en nuestro registros'}}
      </div>
   
   
      <!--Fecha inicial-->
     <div class="col-md-6">
         <label for="fechaI">Fecha Inicial</label>
-        <input type="datetime-local" name="fechaI" class="form-control" id="fechaI" placeholder="Ingrese fecha inicial" value="{{old('fechaI', date("Y-m-d\TH:i"), isset($fecha) ? $fecha->fechaI : '')}}">
-      <div class="invalid-feedback">                                                                                      
+        <div data-toggle="popover" title="Restricciones" data-content= " -El campo fecha tiene que tener el formato valido de fechas">
+        <input type="datetime-local" name="fechaI" class="form-control" id="fechaI" placeholder="El campo fecha tiene que ser despues del dia actual" value="{{old('fechaI', date("Y-m-d\TH:i"), isset($fecha) ? $fecha->fechaI : '')}}">
+      <div class="invalid-feedback">                                                                                     
         Fecha invalida
+      </div>
       </div>
     </div>
     <div class="invalid-feedback {{ $errors->has('fechaI')? 'd-block' : '' }}">
@@ -32,9 +34,12 @@
     <!--Fecha Fin-->
     <div class="col-md-6">
       <label for="fechaF">Fecha Final</label>
-      <input type="datetime-local" name="fechaF" class="form-control" id="fechaF" placeholder="Ingrese fecha final" value="{{ old('fechaF', date("Y-m-d\TH:i"), isset($fecha) ? $fecha->fechaF : '')}}">
+      <div data-toggle="popover" title="Restricciones" data-content="-El campo fecha tiene que tener el formato valido de fechas">
+      <input type="datetime-local" name="fechaF" class="form-control" id="fechaF" placeholder="el campo fecha final no tiene que estar antes de la fecha inicial" value="{{ old('fechaF', date("Y-m-d\TH:i"), isset($fecha) ? $fecha->fechaF : '')}}">
     <div class="invalid-feedback">
+    
       Fecha inválida
+    </div>
     </div>
   </div>
   <div class="invalid-feedback {{ $errors->has('fechaF')? 'd-block' : '' }}">
@@ -44,7 +49,7 @@
      <!----ubicacion-->
      <div class="col-md-12 mb-3">
            <label class="col-form-label" for="ubicacion">Ubicación</label>
-        <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content= "">
+        <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content= "-M&aacute;ximo 100 caracteres<br> -No acepta caracteres especiales">
            <span class="input-group-append">
               <button class="btn btn-dark" type="button">U</button>
            </span>
