@@ -18,15 +18,15 @@ class UserController extends Controller
     /**
      * Class constructor.
      */
-    public function __construct()
-    {
-        $this-> middleware('permission:create users')->only(['create','store']);
-        $this-> middleware('permission:list users')->only('index');
-        $this-> middleware('permission:edit users')->only(['edit','update']);
-        // $this-> middleware('permission:list users')->only('show');//show        
-        $this-> middleware('permission:delete users')->only('destroy');
+    // public function __construct()
+    // {
+    //     $this-> middleware('permission:create users')->only(['create','store']);
+    //     $this-> middleware('permission:list users')->only('index');
+    //     $this-> middleware('permission:edit users')->only(['edit','update']);
+    //     // $this-> middleware('permission:list users')->only('show');//show        
+    //     $this-> middleware('permission:delete users')->only('destroy');
   
-    }
+    // }
     /**
      * Display a listing of the resource.
      *
