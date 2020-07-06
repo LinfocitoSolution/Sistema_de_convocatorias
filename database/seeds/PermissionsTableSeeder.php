@@ -49,6 +49,18 @@ class PermissionsTableSeeder extends Seeder
             [ 'name' => 'create units' ],
             [ 'name' => 'edit units' ],
             [ 'name' => 'delete units' ],
+
+
+            [ 'name' => 'list tablaConocimientos' ],
+            [ 'name' => 'create tablaConocimientos' ],
+            [ 'name' => 'edit tablaConocimientos' ],
+            [ 'name' => 'delete tablaConocimientos' ],    
+
+            [ 'name' => 'list fechas' ],
+            [ 'name' => 'create fechas' ],
+            [ 'name' => 'edit fechas' ],
+            [ 'name' => 'delete fechas' ],            
+
         ];
 
         $rol_admin = Role::find(1);
