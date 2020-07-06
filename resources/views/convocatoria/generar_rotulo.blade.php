@@ -91,12 +91,17 @@
                         <option value="3">Laboratorio de redes</option>
                       </select>
                     </div>
+                    <div class="form-group">
+                      <label for="exampleFormControlFile1">Subir curriculum</label>
+                      <input type="file" class="form-control-file" id="exmapleFormControlFile1">
+                    </div>
                  </div>
                 </div>
                <div class="form-actions text-center">
                   <button class="btn btn-outline-dark mb-4" data-toggle="tooltip" data-placement="right" title="Presione el bot&oacute;n para generar el rótulo"onclick="test();">Generar rótulo</button>
                   <a href="javascript:getPdf()">test</a>
                </div>
+               
            
           </form>
         </div>  
