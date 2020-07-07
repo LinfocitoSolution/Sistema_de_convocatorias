@@ -51,15 +51,6 @@
             
          </div>
       </div>
-       <!---descripcion--->  
-       <div class="col-md-6 mb-2">  
-        <label class="col-form-label" for="">Descripción: </label>
-         <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="-Escriba la descripción de la convocatoria">
-            <textarea class="form-control" name="descripcion" rows="3" maxlength="150" >{{ old('descripcion', isset($call) ? $call->descripcion : '') }}</textarea>
-         </div>
-          <small class="form-text text-muted">Descripción corta de la convocatoria</small>
-      </div> 
-      
       
       <!---Requisitos--->  
       <div class="col-md-6 mb-2">  
@@ -70,32 +61,24 @@
          <!--- <small class="form-text text-muted">Descripción corta de la convocatoria</small>-->
       </div> 
 
-    <!--Documentos a presentar-->
-    <div class="col-md-6 mb-2">  
-         <label class="col-form-label" for="">Documentos a presentar </label>
-         <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="-Escriba los documentos que debe presentar">
-            <textarea class="form-control" name="docsapresentar" rows="3" maxlength="150" >{{ old('docsapresentar', isset($call) ? $call->documentos_a_presentar : '') }}</textarea>
-         </div>
-         <small class="form-text text-muted">Documentos a presentar</small>
-    </div>
-   <!--fechas-->
-   <div class="col-md-6 mb-2">
-         <label class="col-form-label" for="name">Eventos</label>
-      <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="-Seleccione los eventos que requiera">
-         <span class="input-group-append">
-            <button class="btn btn-dark" type="button">E</button>
-         </span>
-         <select class="form-control js-example-basic-multiple " name="eventos[]" multiple="multiple">
-            @foreach($eventos as $item)
+      <!--fechas-->
+      <div class="col-md-6 mb-2">
+            <label class="col-form-label" for="name">Eventos</label>
+         <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="-Seleccione los eventos que requiera">
+            <span class="input-group-append">
+               <button class="btn btn-dark" type="button">E</button>
+            </span>
+           <select class="form-control js-example-basic-multiple " name="eventos[]" multiple="multiple">
+              @foreach($eventos as $item)
                   <option class="text-dark" value="{{ $item->id }}">{{ $item->evento }}</option>
-            @endforeach
-         </select>
-      </div>
-  </div>
-  <!--fin de fechas-->
+               @endforeach
+           </select>
+        </div>
+     </div>
+     <!--fin de fechas-->
 </div>
 
-   <br>
+ 
                      
 {{-- @if (!isset($call))
 <input type="file" name="archivo">   

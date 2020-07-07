@@ -6,6 +6,10 @@
   var elemento1 = document.getElementById('datos');
   var elemento2 = document.getElementById('parte2');
   var elemento3 = document.getElementById('parte3');
+/*tabla   
+var elem = document.getElementById('tabla1');
+var res = doc.autoTableHtmlToJson(elem);
+doc.autoTable(res.columns, res.data);*/
 
   var specialElementHandlers = {
       '#elementH': function (element, renderer) {
