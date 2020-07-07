@@ -77,4 +77,3 @@ class ConvocatoriaRequest extends FormRequest
     }
 }
 
-}
