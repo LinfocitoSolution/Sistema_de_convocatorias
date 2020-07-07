@@ -44,7 +44,10 @@ class CallController extends Controller
         $unidades = Unidad::all();
         $requerimientos=Requerimiento::all();
         $eventos = fecha::all();
+        @if(Auth::call())
         return view('admin.announcements.create', compact('calls', 'unidades', 'requerimientos', 'eventos'));
+        @else
+        return view('admin.announcements.create1' , compact('calls','unidades', 'requerimientos','eventos'));
     }
     /**
      * Store a newly created resource in storage.
@@ -110,7 +113,10 @@ class CallController extends Controller
         $requerimiento = DB::table('requerimientos')->get();
         $eventos = DB::table('fechas')->get();
         $unidades = DB::table('units')->get();
+        @if(Auth::call())
         return view('admin.announcements.edit',compact('call', 'unidades', 'requerimientos','eventos'));
+        @else
+        return view('admin.annoucements,edit1',compact('call','unidades', 'requerimientos','eventos'));
     }
 
     /**

@@ -98,6 +98,8 @@ Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 // Route::resource('call', 'CallController');
 Route::get('convocatoria','HomeController@convocatorias')->name('convocatoria');// falta los middlewares
 Route::get('generar_{call}', 'CallController@generarConvocatoria')->name('generar');// falta los middlewares
+Route::get('call_create1','CallController@create1')->name('call.create1');
+Route::post('call_guardar','CallController@store')->name('call.guardar');
 //##############################################################
 Route::get('test', function () {
     return view('pruebaVerify');
