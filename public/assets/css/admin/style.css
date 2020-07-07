@@ -27,3 +27,9 @@
   .card-footer{
     background:  #34515E;
   }
+ 
+
+.pagination>li .active>a {
+  background: black;
+  color: #fff;
+}
