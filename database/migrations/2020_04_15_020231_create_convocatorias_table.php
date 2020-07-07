@@ -17,9 +17,7 @@ class CreateConvocatoriasTable extends Migration
             $table->increments('id');
             $table->string('titulo_convocatoria');
             $table->date('gestion');
-            $table->longText('descripcion');
             $table->longText('requisitos');
-            $table->longText('documentos_a_presentar');
             $table->string('pdf_file')->nullable();
             $table->timestamps();
         });
