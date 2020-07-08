@@ -18,7 +18,7 @@
           </span>
           <select class="custom-select form-control" type="text" name="unidad"  >
               @foreach($unidades as $item)
-                    <option class="text-dark" value="">name</option>
+                    <option class="text-dark" value="{{ $item->id }}">{{ $item->name }}</option>
               @endforeach
            </select>
        </div>
@@ -46,8 +46,7 @@
         <select class="form-control js-example-basic-multiple " name="requerimientos[]" multiple="multiple">
            @foreach($requerimientos as $item)
            @if($item->tipo_requerimiento=='requerimiento de docencia')
-                     
-                     <option class="text-dark" value="{{ $item->id }}">{{ $item->nombre_auxiliatura }}</option>
+                  <option class="text-dark" value="{{ $item->id }}">{{ $item->nombre_auxiliatura }}</option>
             @endif     
            @endforeach
         </select>
@@ -72,9 +71,9 @@
            <button class="btn btn-dark" type="button">E</button>
         </span>
        <select class="form-control js-example-basic-multiple " name="eventos[]" multiple="multiple">
-          
-              <option class="text-dark" value="">evento</option>
-           
+         @foreach($eventos as $item)
+              <option class="text-dark" value="{{ $item->id }}">{{ $item->evento }}</option>
+         @endforeach
        </select>
     </div>
  </div>
