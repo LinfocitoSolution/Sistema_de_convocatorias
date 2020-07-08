@@ -1,69 +1,123 @@
-<script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script>
+<script src="https://unpkg.com/jspdf"></script>
+{{-- <script src="https://unpkg.com/jspdf-autotable"></script> --}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/2.0.16/jspdf.plugin.autotable.js"></script>
 <script src="{{asset('js/html2canvas.js')}}" type="text/javascript"></script>   
 
 <script> window.onload = async function toPDF(){
-  var doc = new jsPDF();
+  var doc = new jsPDF('p', 'pt', 'letter');
   var elemento1 = document.getElementById('datos');
   var elemento2 = document.getElementById('parte2');
   var elemento3 = document.getElementById('parte3');
+  var elemento4 = document.getElementById('parte4');
+  var elemento5 = document.getElementById('parte5');
 /*tabla   
 var elem = document.getElementById('tabla1');
 var res = doc.autoTableHtmlToJson(elem);
 doc.autoTable(res.columns, res.data);*/
 
   var specialElementHandlers = {
-      '#elementH': function (element, renderer) {
+      '#bypassme': function (element, renderer) {
           return true;
       }
   };
-  doc.fromHTML(elemento1, 15, 15, {
-      'width': 180,
+  margins = {
+        top: 50,
+        bottom: 60,
+        left: 40,
+        width: 522  
+    };
+
+  doc.fromHTML(elemento1, margins.left, margins.top, {
+      'width': margins.width,
       'elementHandlers': specialElementHandlers
   });
+
+  var res = doc.autoTableHtmlToJson(document.getElementById("requirements-table"));
+  doc.autoTable(res.columns, res.data, {margin: {top: 215}});
+
   //SEGUNDO DIV
   doc.addPage();
-  doc.fromHTML(elemento2, 15, 15, {
-      'width': 180,
+  doc.fromHTML(elemento2, margins.left, margins.top, {
+      'width': margins.width,
       'elementHandlers': specialElementHandlers
   });
   //TERCER DIV
   doc.addPage();
-  doc.fromHTML(elemento3, 15, 15, {
-      'width': 180,
+  doc.fromHTML(elemento3, margins.left, margins.top, {
+      'width': margins.width,
+      'elementHandlers': specialElementHandlers
+  });
+  //CUARTO DIV
+  doc.addPage();
+  doc.fromHTML(elemento4, margins.left, margins.top, {
+      'width': margins.width,
+      'elementHandlers': specialElementHandlers
+  });
+  //QUINTO DIV
+  doc.addPage();
+  doc.fromHTML(elemento5, margins.left, margins.top, {
+      'width': margins.width,
       'elementHandlers': specialElementHandlers
   });
 
+  var res = doc.autoTableHtmlToJson(document.getElementById("tab_eventos"));
+  doc.autoTable(res.columns, res.data, {margin: {top: 200}});
+
+//   doc.addPage();
   //FIRMAS
   doc.setFontSize(11);
   var n1 = document.getElementById('nombre1');
   var n2 = document.getElementById('nombre2');
   var text1 = n1.textContent;
   var text2 = n2.textContent;
-  doc.text(text1,45,160);//string,x,y
-  doc.text(text2 ,100,160);
+  doc.text(text1,100,500);//string,x,y
+  doc.text(text2 ,400,500);
   doc.setFontType('bold');
   var s = document.getElementById('sistemas');
   var i = document.getElementById('informatica');
   var texts = s.textContent;
   var texti = i.textContent;
-  doc.text(texts ,46,165);//string,x,y
-  doc.text(texti ,101,165);
+  doc.text(texts ,99,515);//string,x,y
+  doc.text(texti ,399,515);
   doc.setFontType('normal');
 
   var n3 = document.getElementById('nombre3');
   var n4 = document.getElementById('nombre4');
   var text3 = n3.textContent;
   var text4 = n4.textContent;
-  doc.text(text3,40,195);//string,x,y
-  doc.text(text4,110,195);
+  doc.text(text3,100,700);//string,x,y
+  doc.text(text4,400,700);
   doc.setFontType('bold');
   var is = document.getElementById('infoysis');
   var de = document.getElementById('decano');
   var textis = is.textContent;
   var textde = de.textContent;
-  doc.text(textis ,35,200);//string,x,y
-  doc.text(textde ,118,200);
+  doc.text(textis ,100,715);//string,x,y
+  doc.text(textde ,399,715);
   doc.setFontType('normal');
+  doc.setFontStyle('Arial');
+  doc.addPage();
+
+  var columns = ["Items", "Cant", "Hrs.Academicas", "Nombre de la Auxiliatura", "Cod. de la Auxiliatura"];
+  var requirements = {!! json_encode($call->requerimientos) !!};
+  var json = requirements[0].id;
+  console.log(json);
+  // get the first result set, or you can loop trhrough all, assuming that each reuslt set is the same. 
+  for (var i in col)
+  {
+    console.log(i);
+  }
+  // for(var i in requirements)
+  // {
+  //   data.concat(
+  //   [i.id, i.cantidad_de_auxiliares, 
+  //   i.cantidad_horas_academicas, i.nombre_auxiliatura,
+  //   i.codigo_auxiliatura]); 
+  //  }
+  //  console.log(data);
+  
+  // doc.autoTable(columns,data,
+  // { margin:{ top: 25 }});
 
   //ARRAY DE FIRMAS
   // var x = document.getElementById("firma").querySelectorAll(".fi");
@@ -78,8 +132,8 @@ doc.autoTable(res.columns, res.data);*/
       
   //   }
   // }
-  doc.setFontStyle('Arial');
-  doc.save('convocatoria.pdf');
-  location.href = "/";
+  
+  //doc.save('convocatoria.pdf');
+  //location.href = "/";
 }
 </script>
