@@ -19,6 +19,7 @@ class CreateConvocatoriasTable extends Migration
             $table->date('gestion');
             $table->longText('requisitos');
             $table->string('pdf_file')->nullable();
+            $table->string('tipo_convocatoria');
             $table->timestamps();
         });
     }

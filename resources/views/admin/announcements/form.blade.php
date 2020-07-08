@@ -38,14 +38,18 @@
         </div>  
         <!----Requerimientos--->
         <div class="col-md-6 mb-2">
-          <label class="col-form-label" for="nameReque">Requerimiento</label>
+          <label class="col-form-label" for="nameReque">Requerimiento de Laboratorio</label>
          <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="-Seleccione los requerimientos que requiera">
             <span class="input-group-append">
               <button class="btn btn-dark" type="button">R</button>
             </span>
             <select class="form-control js-example-basic-multiple " name="requerimientos[]" multiple="multiple">
                @foreach($requerimientos as $item)
+                     @if($item->tipo_requerimiento=='requerimiento de laboratorio')
                      <option class="text-dark" value="{{ $item->id }}">{{ $item->nombre_auxiliatura }}</option>
+                     
+                     
+                     @endif      
                @endforeach
             </select>
             

@@ -49,7 +49,7 @@ class AreaController extends Controller
     {
         $area = Area::create($request->all());        
         $area->save();
-        return redirect()->route('area.index');
+        return redirect()->route('area.index')->with([ 'message' => 'Area creada exitosamente!', 'alert-type' => 'success' ]);
     }
 
     /**
@@ -87,7 +87,7 @@ class AreaController extends Controller
         
         $area->fill($request->all());
         $area->save();
-        return redirect()->route('area.index');
+        return redirect()->route('area.index')->with([ 'message' => 'Area actualizada exitosamente!', 'alert-type' => 'success' ]);
     }
 
     /**
