@@ -44,9 +44,14 @@ class CallController extends Controller
         $unidades = Unidad::all();
         $requerimientos=Requerimiento::all();
         $eventos = fecha::all();
-        @if(Auth::call())
         return view('admin.announcements.create', compact('calls', 'unidades', 'requerimientos', 'eventos'));
-        @else
+    }
+        public function create1()
+        {
+        $calls = Convocatoria::all();
+        $unidades = Unidad::all();
+        $requerimientos=Requerimiento::all();
+        $eventos = fecha::all();
         return view('admin.announcements.create1' , compact('calls','unidades', 'requerimientos','eventos'));
     }
     /**
@@ -107,16 +112,20 @@ class CallController extends Controller
      */
     public function edit(Convocatoria $call)
     {
-       
         // $unidades = Unidad::all();
         $requerimientos=Requerimiento::all();
         $requerimiento = DB::table('requerimientos')->get();
         $eventos = DB::table('fechas')->get();
         $unidades = DB::table('units')->get();
-        @if(Auth::call())
-        return view('admin.announcements.edit',compact('call', 'unidades', 'requerimientos','eventos'));
-        @else
-        return view('admin.annoucements,edit1',compact('call','unidades', 'requerimientos','eventos'));
+        return view('admin.announcements.edit', compact('call', 'unidades', 'requerimientos', 'eventos'));
+    }    
+      public function edit1(Convocatoria $call) 
+      {
+        $requerimientos=Requerimiento::all();
+        $requerimiento = DB::table('requerimientos')->get();
+        $eventos = DB::table('fechas')->get();
+        $unidades = DB::table('units')->get();   
+    return view('admin.annoucements,edit1',compact('call','unidades', 'requerimientos','eventos'));
     }
 
     /**
