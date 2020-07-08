@@ -150,13 +150,13 @@ class CallController extends Controller
         return view('admin.annoucements,edit1',compact('call','unidades', 'requerimientos','eventos'));*/
          
     }
-    public function editar(Convocatoria $call)
+    public function editardoc(Convocatoria $call)
     {
         $requerimientos=Requerimiento::all();
         $requerimiento = DB::table('requerimientos')->get();
         $eventos = DB::table('fechas')->get();
         $unidades = DB::table('units')->get();
-        return view('admin.announcements.editar',compact('call', 'unidades', 'requerimientos','eventos'));
+        return view('admin.announcements.editdoc',compact('call', 'unidades', 'requerimientos','eventos'));
     }
 
     /**
@@ -166,9 +166,29 @@ class CallController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    public function updatedoc(Request $request, Convocatoria $call)
+    {
+        $call->titulo_convocatoria=$request->get('titulo'); 
+        $call->tipo_convocatoria='convocatoria de docencia';
+        $call->unit_id=$request->get('unidad');
+        $call->update($request->all());
+       
+        $call->save();
+        
+        $requerimientos=$request->input('requerimientos');
+        
+        $evento = $request->input('evento');
+
+        $call->requerimientos()->sync($requerimientos);
+        $eventos = $request->input('eventos');
+        $call->fechas()->sync($eventos);
+        
+        return redirect(route('call.index'))->with([ 'message' => 'Convocatoria actualizada exitosamente!', 'alert-type' => 'success' ]);
+    }
     public function update(Request $request, Convocatoria $call)
     {
         $call->titulo_convocatoria=$request->get('titulo'); 
+        $call->tipo_convocatoria='convocatoria de laboratorios';
         $call->unit_id=$request->get('unidad');
         $call->update($request->all());
         // if ($request->hasFile('archivo')) {
