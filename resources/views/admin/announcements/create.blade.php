@@ -19,8 +19,8 @@
     <div class="container">
       <nav aria-label="Page navigation example">
          <ul class="pagination">
-               <li class="page-item active"><a class="page-link bg-dark" href="{{ route('call.create')}}">Laboratorio</a></li>
-               <li class="page-item"><a class="page-link text-dark" href="{{route('call.createdoc')}}">Docencia</a></li>
+               <li class="page-item"><a class="page-link bg-dark" href="{{ route('call.create')}}">Laboratorio</a></li>
+               <li class="page-item"><a class="page-link text-dark" href="{{route('call.createdoc')}}"  data-toggle="tooltip" data-trigger="hover" title="presiona para crear nueva convocatoria de Docencia">Docencia</a></li>
          </ul>
       </nav>
       <div class="row">

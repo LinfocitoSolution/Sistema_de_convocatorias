@@ -91,7 +91,13 @@
                     <li class="nav-item">
                       <a href="{{ route('call.create')}}" class="nav-link">                
                         <i class="fas fa-plus-square nav-icon"></i>
-                        <p>NuevaConvocatoria</p>
+                        <p>NuevaConvocatoriaLabos</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="{{route('call.createdoc')}}" class="nav-link">                
+                        <i class="fas fa-plus-square nav-icon"></i>
+                        <p>NuevaConvocatoriaDoc</p>
                       </a>
                     </li>
                   @endif
