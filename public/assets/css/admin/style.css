@@ -27,3 +27,8 @@
   .card-footer{
     background:  #34515E;
   }
+ 
+
+  a:active {
+    background-color: black;
+  }
