@@ -1,6 +1,6 @@
 <div class="form-row">
         <div class="col-md-6 mb-2">
-              <label class="col-form-label" for="nameArea">Área</label>
+              <label class="col-form-label" for="nameArea">Titulo</label>
            <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="-Seleccione el área que requiera">
               <span class="input-group-append">
                  <button class="btn btn-dark" type="button">A</button>
@@ -32,20 +32,24 @@
               <span class="input-group-append">
                  <button class="btn btn-dark" type="button">G</button>
               </span> 
-               <input type="date" class="form-control" name="gestion" value="">
+               <input type="date" class="form-control" name="gestion" value="{{old('gestion', date("Y-m-d"), isset($call) ? $call->gestion : '')}}">
              
           </div>
         </div>  
         <!----Requerimientos--->
         <div class="col-md-6 mb-2">
-          <label class="col-form-label" for="nameReque">Requerimiento</label>
+          <label class="col-form-label" for="nameReque">Requerimiento de Laboratorio</label>
          <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="-Seleccione los requerimientos que requiera">
             <span class="input-group-append">
               <button class="btn btn-dark" type="button">R</button>
             </span>
             <select class="form-control js-example-basic-multiple " name="requerimientos[]" multiple="multiple">
                @foreach($requerimientos as $item)
+                     @if($item->tipo_requerimiento=='requerimiento de laboratorio')
                      <option class="text-dark" value="{{ $item->id }}">{{ $item->nombre_auxiliatura }}</option>
+                     
+                     
+                     @endif      
                @endforeach
             </select>
             
@@ -56,7 +60,7 @@
       <div class="col-md-6 mb-2">  
         <label class="col-form-label" for="">Requisitos: </label>
          <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="-Escriba los requisitos de la convocatoria">
-            <textarea class="form-control" name="requisito" rows="3" maxlength="150" ></textarea>
+            <textarea class="form-control" name="requisito" rows="3" maxlength="150" >{{ old('requisito', isset($call) ? $call->requisitos : '') }}</textarea>
          </div>
          <!--- <small class="form-text text-muted">Descripción corta de la convocatoria</small>-->
       </div> 

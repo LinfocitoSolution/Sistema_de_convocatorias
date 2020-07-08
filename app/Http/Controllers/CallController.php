@@ -50,13 +50,13 @@ class CallController extends Controller
         return view('admin.announcements.create1' , compact('calls','unidades', 'requerimientos','eventos'));
         @endif*/
     }
-    public function chuto()
+    public function createdoc()
     {
         $calls = Convocatoria::all();
         $unidades = Unidad::all();
         $requerimientos=Requerimiento::all();
         $eventos = fecha::all();
-        return view('admin.announcements.chuto', compact('calls', 'unidades', 'requerimientos', 'eventos'));
+        return view('admin.announcements.createdoc', compact('calls', 'unidades', 'requerimientos', 'eventos'));
     }
     /**
      * Store a newly created resource in storage.
@@ -67,11 +67,10 @@ class CallController extends Controller
     public function store(Request $request)
     {
         $convocatoria = new Convocatoria();
+        $convocatoria->tipo_convocatoria='convocatoria de laboratorios';
         $convocatoria->titulo_convocatoria=$request->input('titulo');
         $convocatoria->unit_id=$request->get('unidad');
-        $convocatoria->descripcion=$request->input('descripcion');
         $convocatoria->requisitos=$request->input('requisito');
-        $convocatoria->documentos_a_presentar=$request->input('docsapresentar');
         $convocatoria->gestion=$request->input('gestion');
         // if ($request->hasFile('archivo')) {
         //     $file = $request->file('archivo');
@@ -82,12 +81,35 @@ class CallController extends Controller
         // } 
         $convocatoria->save();
         $unidad = $request->input('unidad');
-        $requerimientos = $request->input('requerimientos');
+        $requerimientos=$request->input('requerimientos');
+        
+        $evento = $request->input('evento');
+
         $convocatoria->requerimientos()->attach($requerimientos);
         $eventos = $request->input('eventos');
         $convocatoria->fechas()->attach($eventos);
-        return redirect('administrador');  
+        return redirect('administrador')->with([ 'message' => 'Convocatoria de Laboratorios creada exitosamente!', 'alert-type' => 'success' ]);  
     }
+    public function storedoc(Request $request)
+    {
+        $convocatoria = new Convocatoria();
+        $convocatoria->tipo_convocatoria='convocatoria de docencia';
+        $convocatoria->titulo_convocatoria=$request->input('titulo');
+        $convocatoria->unit_id=$request->get('unidad');
+        $convocatoria->requisitos=$request->input('requisito');
+        $convocatoria->gestion=$request->input('gestion');
+        
+        $convocatoria->save();
+        $unidad = $request->input('unidad');
+        $requerimientos=$request->input('requerimientos');
+        $evento = $request->input('evento');
+        $convocatoria->requerimientos()->attach($requerimientos);
+        $eventos = $request->input('eventos');
+        $convocatoria->fechas()->attach($eventos);
+        return redirect('administrador')->with([ 'message' => 'Convocatoria de Docencia creada exitosamente!', 'alert-type' => 'success' ]);  
+    }
+    
+
 
     /**
      * Display the specified resource.
@@ -147,6 +169,7 @@ class CallController extends Controller
     public function update(Request $request, Convocatoria $call)
     {
         $call->titulo_convocatoria=$request->get('titulo'); 
+        $call->unit_id=$request->get('unidad');
         $call->update($request->all());
         // if ($request->hasFile('archivo')) {
         //     $file = $request->file('archivo');
@@ -163,6 +186,14 @@ class CallController extends Controller
         //                 ->withInput();
         // }
         $call->save();
+        
+        $requerimientos=$request->input('requerimientos');
+        
+        $evento = $request->input('evento');
+
+        $call->requerimientos()->sync($requerimientos);
+        $eventos = $request->input('eventos');
+        $call->fechas()->sync($eventos);
         /*$requerimientos=$request->input('requerimiento');
         $call->requerimientos()->attach($requerimientos);*/
         return redirect(route('call.index'))->with([ 'message' => 'Convocatoria actualizada exitosamente!', 'alert-type' => 'success' ]);

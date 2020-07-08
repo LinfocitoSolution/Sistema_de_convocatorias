@@ -19,6 +19,7 @@ class CreaterequirimientosTable extends Migration
             $table->integer('cantidad_horas_academicas');
             $table->string('nombre_auxiliatura')->unique();
             $table->string('codigo_auxiliatura');
+            $table->string('tipo_requerimiento');
             $table->timestamps();
         });
     }

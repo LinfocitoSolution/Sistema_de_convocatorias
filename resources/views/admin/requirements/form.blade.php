@@ -19,6 +19,24 @@
                 <option value="electrónica">9</option>
           </select>
         </div>-->
+        <!--tipo de requerimiento-->
+    <div class="col-md-12 mb-3">
+        <label class="col-form-label" for="tipo_requerimiento">Tipo de requerimiento</label>
+        <div class="input-group" data-html="true"  data-toggle="popover" title="Restricciones" data-content="para que tipo de convocatoria va dirigido este requerimiento">
+            
+        <span class="input-group-append">
+           <button class="btn btn-dark" type="button">TR</button>
+        </span>
+        <select name="tipo_requerimiento" class="custom-select form-control" >
+            <option selected class="text-muted"value="requerimiento de laboratorio">Requerimiento de laboratorio</option>
+            <option value="requerimiento de docencia">Requerimiento de docencia</option> 
+             
+        </select>
+                    </div>
+                </div>
+                <div class="invalid-feedback {{ $errors->has('tipo_requerimiento')? 'd-block' : '' }}">
+                    {{ $errors->has('tipo_requerimiento')? $errors->first('tipo_requerimiento') : 'Este nombre de auxiliatura ya existe en nuestros registros'  }}
+                 </div>
     <!--Nombre de auxiliatura-->
     <div class="col-md-12 mb-3">
         <label class="col-form-label" for="nombre_auxiliatura">Nombre de Auxiliatura</label>
