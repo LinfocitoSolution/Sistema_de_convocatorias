@@ -101,8 +101,8 @@ Route::get('generar_{call}', 'CallController@generarConvocatoria')->name('genera
 Route::get('call_createdoc','CallController@createdoc')->name('call.createdoc');
 Route::get('call_{call}_editardoc','CallController@editardoc')->name('call.editardoc');
 Route::post('call_storedoc','CallController@storedoc')->name('call.storedoc');
-Route::delete('call_deletedoc_{call}','CallController@destroydoc')->name('unidades.destroydoc');
-Route::put('call_updatedoc_{call}','CallController@updatedoc')->name('unidades.updatedoc');
+Route::delete('call_deletedoc_{call}','CallController@destroydoc')->name('call.destroydoc');
+Route::put('call_updatedoc_{call}','CallController@updatedoc')->name('call.updatedoc');
 //##############################################################
 Route::get('test', function () {
     return view('pruebaVerify');

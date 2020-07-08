@@ -23,9 +23,10 @@
             <thead>
              <tr>
                 <th>Título</th>
-                
+                <th>Tipo de convocatoria</th>
              <!--   <th>Archivo</th> -->
                 <th>Fecha de creación</th>
+                
                 <th>Opciones</th>
              </tr>
             </thead>
@@ -33,13 +34,19 @@
             @foreach($calls as $call)
                 <tr>
                     <td>{{$call->titulo_convocatoria}}</td>
-                    
+                    <td>{{$call->tipo_convocatoria}}</td>
                    <!-- <td><a href="call/{{$call->pdf_file}}" target="_blank" >{{$call->pdf_file}}</a></td> -->
                     <td>{{$call->created_at}}</td>
                     <td>
-                        <a class="btn btn-dark btn-sm mt-1 ml-2" data-toggle="tooltip" data-trigger="hover" title="presiona para editar una convocatoria" href="{{ route('call.edit', $call) }}">
+                      @if($call->tipo_convocatoria=='convocatoria de docencia')
+                        <a class="btn btn-dark btn-sm mt-1 ml-2" data-toggle="tooltip" data-trigger="hover" title="presiona para editar una convocatoria" href="{{ route('call.editardoc', $call) }}">
                             <i class="fa fa-pencil-alt"></i>
                         </a>
+                      @elseif($call->tipo_convocatoria=='convocatoria de laboratorios')
+                      <a class="btn btn-dark btn-sm mt-1 ml-2" data-toggle="tooltip" data-trigger="hover" title="presiona para editar una convocatoria" href="{{ route('call.edit', $call) }}">
+                        <i class="fa fa-pencil-alt"></i>
+                      </a>
+                      @endif
                         <form action="{{ route('call.destroy', $call->id) }}" style="display:inline-block;" method="POST">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
