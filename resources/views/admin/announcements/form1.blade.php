@@ -5,7 +5,7 @@
           <span class="input-group-append">
              <button class="btn btn-dark" type="button">A</button>
            </span>
-         <input class="form-control" type="text" name="titulo" placeholder="Ingrese el titulo " value="{{ old('titulo', isset($call) ? $call->titulo_convocatoria : '') }}">
+         <input class="form-control" type="text" name="titulo" placeholder="Ingrese el titulo " value="">
         </div>
      </div>
   
@@ -18,7 +18,7 @@
           </span>
           <select class="custom-select form-control" type="text" name="unidad"  >
               @foreach($unidades as $item)
-                    <option class="text-dark" value="{{ $item->id }}">{{ $item->name }}</option>
+                    <option class="text-dark" value="">name</option>
               @endforeach
            </select>
        </div>
@@ -45,7 +45,7 @@
         </span>
         <select class="form-control js-example-basic-multiple " name="requerimientos[]" multiple="multiple">
            @foreach($requerimientos as $item)
-                 <option class="text-dark" value="{{ $item->id }}">{{ $item->nombre_auxiliatura }}</option>
+                 <option class="text-dark" value="">nombre auxiliatura</option>
            @endforeach
         </select>
         
@@ -69,9 +69,9 @@
            <button class="btn btn-dark" type="button">E</button>
         </span>
        <select class="form-control js-example-basic-multiple " name="eventos[]" multiple="multiple">
-          @foreach($eventos as $item)
-              <option class="text-dark" value="{{ $item->id }}">{{ $item->evento }}</option>
-           @endforeach
+          
+              <option class="text-dark" value="">evento</option>
+           
        </select>
     </div>
  </div>

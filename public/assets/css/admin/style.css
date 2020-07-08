@@ -29,7 +29,6 @@
   }
  
 
-.pagination>li .active>a {
-  background: black;
-  color: #fff;
-}
+  a:active {
+    background-color: black;
+  }

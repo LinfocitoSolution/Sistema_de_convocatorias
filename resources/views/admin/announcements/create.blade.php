@@ -20,20 +20,21 @@
       <nav aria-label="Page navigation example">
          <ul class="pagination">
                <li class="page-item active"><a class="page-link" href="{{ route('call.create')}}">Laboratorio</a></li>
-               <li class="page-item"><a class="page-link" href="#">Docencia</a></li>
+               <li class="page-item"><a class="page-link" href="{{route('call.chuto')}}">Docencia</a></li>
          </ul>
       </nav>
       <div class="row">
        <div class="col-sm-12">
         <div class="card mt-2"> 
           <div class="card-header">    
-            <h5>Crear convocatoria</h5>
+            <h5>Crear convocatoria Laboratorio</h5>
                
            </div>
 
             <div class="card-body">
-             <form class="form-group" method="post" action={{url("/call")}} enctype="multipart/form-data">
+             <form class="form-group" method="post" action="{{url("/call")}}" enctype="multipart/form-data">
                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+               <!---{method_field('PUT')}}-->
                   @include('admin.announcements.form')
             
                <div class="form-actions text-center">
@@ -49,4 +50,5 @@
    </div>      
 </div>
   <!-- /.content-wrapper -->
+  
 @endsection

@@ -8,26 +8,32 @@
 <div class="content-wrapper">
     
        @if (count($errors) > 0)
-			<div class="alert alert-danger">
-				<ul>
-					@foreach ($errors->all() as $error)
-						<li>{{ $error }}</li>
-					@endforeach
-				</ul>
-			</div>
-    @endif
+			   <div class="alert alert-danger">
+				    <ul>
+					     @foreach ($errors->all() as $error)
+						     <li>{{ $error }}</li>
+					     @endforeach
+			    	</ul>
+		    	</div>
+       @endif
     <div class="container">
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+              <li class="page-item"><a class="page-link" href="{{ route('call.create')}}">Laboratorio</a></li>
+              <li class="page-item"><a class="page-link" href="{{route('call.chuto')}}">Docencia</a></li>
+        </ul>
+     </nav>
       <div class="row">
        <div class="col-sm-12">
         <div class="card mt-2"> 
           <div class="card-header">
-            <h1>Editar convocatoria de Docencia</h1>
+            <h5>Crear convocatoria de Docencia</h5>
           </div>
           <div class="card-body">
   <div class="medio">
-        <form class="form-group" method="POST" action="/call/{{$call->id}}" enctype="multipart/form-data">
+        <form class="form-group" method="POST" action="{{url("/call")}}" enctype="multipart/form-data">
           <input type="hidden" name="_token" value="{{ csrf_token() }}">
-          {{ method_field('PUT') }}
+         <!---- { method_field('PUT') }}-->
           
             @include('admin.announcements.form')
                    <br>
