@@ -20,7 +20,7 @@
       <nav aria-label="Page navigation example">
         <ul class="pagination">
               <li class="page-item"><a class="page-link" href="{{ route('call.edit', $call) }}">Laboratorio</a></li>
-              <li class="page-item"><a class="page-link" href="{{route('call.editar')}}">Docencia</a></li>
+              <li class="page-item"><a class="page-link" href="#">Docencia</a></li>
         </ul>
      </nav>
       <div class="row">
@@ -31,11 +31,11 @@
           </div>
           <div class="card-body">
   <div class="medio">
-        <form class="form-group" method="POST" action="/call/{{$call->id}}" enctype="multipart/form-data">
+        <form class="form-group" method="POST" action="{{route('call.updatedoc', $call->id)}}" enctype="multipart/form-data">
           <input type="hidden" name="_token" value="{{ csrf_token() }}">
           {{ method_field('PUT') }}
           
-            @include('admin.announcements.form')
+            @include('admin.announcements.formdoc')
                    <br>
                    
                    <div class="form-actions text-center">
