@@ -21,6 +21,7 @@
             <thead>
              <tr>
                 <th>Item</th>
+                <th>Tipo de Requerimiento
                 <th>Nombre de Auxiliatura</th>
                 <th>Código de la Auxiliatura</th>
                 <th>Cantidad de Auxiliares</th>
@@ -32,6 +33,7 @@
               @foreach($requerimientos as $requerimiento)  
               <tr>
                   <td>{{$requerimiento->id}}</td>
+                  <td>{{$requerimiento->tipo_requerimiento}}</td>
                   <td>{{$requerimiento->nombre_auxiliatura}}</td>          
                   <td>{{$requerimiento->codigo_auxiliatura}}</td>
                   <td>{{$requerimiento->cantidad_de_auxiliares}}</td>         

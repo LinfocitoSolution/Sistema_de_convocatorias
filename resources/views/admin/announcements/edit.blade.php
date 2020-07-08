@@ -17,11 +17,17 @@
 			</div>
     @endif
     <div class="container">
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+              <li class="page-item"><a class="page-link" href="{{ route('call.edit', $call) }}">Laboratorio</a></li>
+              <li class="page-item"><a class="page-link" href="{{route('call.editar')}}">Docencia</a></li>
+        </ul>
+     </nav>
       <div class="row">
        <div class="col-sm-12">
         <div class="card mt-2"> 
           <div class="card-header">
-            <h1>Editar convocatoria</h1>
+            <h1>Editar convocatoria Laboratorio</h1>
           </div>
           <div class="card-body">
   <div class="medio">

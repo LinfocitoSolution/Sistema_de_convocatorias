@@ -13,7 +13,8 @@ class Requerimiento extends Model
         'cantidad_de_auxiliares',
         'cantidad_horas_academicas',
         'nombre_auxiliatura',
-        'codigo_auxiliatura'        
+        'codigo_auxiliatura',
+        'tipo_requerimiento',        
         ];
     protected $hidden = [
         'remember_token',

@@ -23,7 +23,7 @@
             <thead>
              <tr>
                 <th>Título</th>
-                <th>Descripción</th>
+                
              <!--   <th>Archivo</th> -->
                 <th>Fecha de creación</th>
                 <th>Opciones</th>
@@ -33,11 +33,11 @@
             @foreach($calls as $call)
                 <tr>
                     <td>{{$call->titulo_convocatoria}}</td>
-                    <td>{{$call->descripcion}}</td>
+                    
                    <!-- <td><a href="call/{{$call->pdf_file}}" target="_blank" >{{$call->pdf_file}}</a></td> -->
                     <td>{{$call->created_at}}</td>
                     <td>
-                        <a class="btn btn-dark btn-sm mt-1 ml-2" data-toggle="tooltip" data-trigger="hover" title="presiona para editar una convocatoria"href="{{ route('call.edit', $call) }}">
+                        <a class="btn btn-dark btn-sm mt-1 ml-2" data-toggle="tooltip" data-trigger="hover" title="presiona para editar una convocatoria" href="{{ route('call.edit', $call) }}">
                             <i class="fa fa-pencil-alt"></i>
                         </a>
                         <form action="{{ route('call.destroy', $call->id) }}" style="display:inline-block;" method="POST">

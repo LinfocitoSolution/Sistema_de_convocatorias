@@ -5,7 +5,7 @@
           <span class="input-group-append">
              <button class="btn btn-dark" type="button">A</button>
            </span>
-         <input class="form-control" type="text" name="titulo" placeholder="Ingrese el titulo " value="{{ old('titulo', isset($call) ? $call->titulo_convocatoria : '') }}">
+         <input class="form-control" type="text" name="titulo" placeholder="Ingrese el titulo " value="">
         </div>
      </div>
   
@@ -18,7 +18,7 @@
           </span>
           <select class="custom-select form-control" type="text" name="unidad"  >
               @foreach($unidades as $item)
-                    <option class="text-dark" value="{{ $item->id }}">{{ $item->name }}</option>
+                    <option class="text-dark" value="">name</option>
               @endforeach
            </select>
        </div>
@@ -38,14 +38,17 @@
     </div>  
     <!----Requerimientos--->
     <div class="col-md-6 mb-2">
-      <label class="col-form-label" for="nameReque">Requerimiento</label>
+      <label class="col-form-label" for="nameReque">Requerimiento de Docencia</label>
      <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="-Seleccione los requerimientos que requiera">
         <span class="input-group-append">
           <button class="btn btn-dark" type="button">R</button>
         </span>
         <select class="form-control js-example-basic-multiple " name="requerimientos[]" multiple="multiple">
            @foreach($requerimientos as $item)
-                 <option class="text-dark" value="{{ $item->id }}">{{ $item->nombre_auxiliatura }}</option>
+           @if($item->tipo_requerimiento=='requerimiento de docencia')
+                     
+                     <option class="text-dark" value="{{ $item->id }}">{{ $item->nombre_auxiliatura }}</option>
+            @endif     
            @endforeach
         </select>
         
@@ -69,9 +72,9 @@
            <button class="btn btn-dark" type="button">E</button>
         </span>
        <select class="form-control js-example-basic-multiple " name="eventos[]" multiple="multiple">
-          @foreach($eventos as $item)
-              <option class="text-dark" value="{{ $item->id }}">{{ $item->evento }}</option>
-           @endforeach
+          
+              <option class="text-dark" value="">evento</option>
+           
        </select>
     </div>
  </div>
