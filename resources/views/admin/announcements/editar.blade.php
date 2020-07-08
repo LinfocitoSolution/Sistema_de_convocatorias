@@ -1,7 +1,7 @@
 @extends("admin.layouts.plantilladmin")
 
 @section('title')
-    Nueva Convocatoria
+    Editar Convocatoria de Docencia
 @endsection
 @section("content")
  <!-- Content Wrapper. Contains contiene paginas -->
@@ -27,7 +27,7 @@
        <div class="col-sm-12">
         <div class="card mt-2"> 
           <div class="card-header">
-            <h1>Editar convocatoria Laboratorio</h1>
+            <h1>Editar convocatoria de Docencia</h1>
           </div>
           <div class="card-body">
   <div class="medio">
