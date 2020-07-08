@@ -25,8 +25,9 @@
                 <th>Título</th>
                 <th>Tipo de convocatoria</th>
              <!--   <th>Archivo</th> -->
-                <th>Fecha de creación</th>
-                
+                <th>Gestión</th>
+                <th>Eventos</th>
+                <th>Fechas</th>
                 <th>Opciones</th>
              </tr>
             </thead>
@@ -36,7 +37,11 @@
                     <td>{{$call->titulo_convocatoria}}</td>
                     <td>{{$call->tipo_convocatoria}}</td>
                    <!-- <td><a href="call/{{$call->pdf_file}}" target="_blank" >{{$call->pdf_file}}</a></td> -->
-                    <td>{{$call->created_at}}</td>
+                    <td>{{$call->gestion}}</td>
+                    
+                    <td>@foreach($call->fechas as $req) {{$req->evento}} <br> @endforeach</td>
+                    <td>@foreach($call->fechas as $req) {{$req->fechaI}} <br> @endforeach</td>
+                  
                     <td>
                       @if($call->tipo_convocatoria=='convocatoria de docencia')
                         <a class="btn btn-dark btn-sm mt-1 ml-2" data-toggle="tooltip" data-trigger="hover" title="presiona para editar una convocatoria" href="{{ route('call.editardoc', $call) }}">
