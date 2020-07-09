@@ -178,7 +178,7 @@
                 <div class="card">
                    <div class="card-header">
                      <h5 class="card-title">{{$convocatoria->titulo_convocatoria}}</h5>
-                   <h6> </h6>
+                   <h6> {{App\Unidad::find($convocatoria->unit_id)->name}}</h6>
                    </div> 
                         <div class="card-body">
                            <table class="table table-bordered table-striped table-sm">
