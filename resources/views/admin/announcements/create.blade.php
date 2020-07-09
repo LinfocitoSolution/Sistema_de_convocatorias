@@ -7,7 +7,7 @@
  <!-- Content Wrapper. Contains contiene paginas -->
 <div class="content-wrapper">
     
-        @if (count($errors) > 0)
+        <!--@if (count($errors) > 0)
 		 	   <div class="alert alert-danger">
 				<ul>
 					@foreach ($errors->all() as $error)
@@ -15,7 +15,7 @@
 					@endforeach
 				</ul>
 			</div>
-		@endif
+		@endif-->
     <div class="container">
       <nav aria-label="Page navigation example">
          <ul class="pagination">
