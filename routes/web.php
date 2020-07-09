@@ -117,6 +117,8 @@ Route::get('postulante_{user}_show','PostulantController@show')->name('postulant
 Route::get('postulante_edit_{user}','PostulantController@edit')->name('postulante.edit');// falta los middlewares
 Route::put('postulante_{user}_update','PostulantController@update')->name('postulante.update');// falta los middlewares
 // Route::resource('postulante','PostulantController');
+Route::get('primer_paso','PostulantController@primer_paso')->name('rotulo.primer');
+Route::get('segundo_paso','PostulantController@segundo_paso')->name('rotulo.segundo');
 //################################################################
 Route::post('reset_password','\App\Http\Controllers\Auth\ResetPasswordController@resetPassword');// falta los middlewares
 Route::get('enviar_resetPassword','\App\Http\Controllers\Auth\ResetPasswordController@enviarReset_Password');// falta los middlewares
