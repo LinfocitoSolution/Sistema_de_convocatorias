@@ -91,7 +91,13 @@
                     <li class="nav-item">
                       <a href="{{ route('call.create')}}" class="nav-link">                
                         <i class="fas fa-plus-square nav-icon"></i>
-                        <p>NuevaConvocatoria</p>
+                        <p>NuevaConvocatoriaLabos</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="{{route('call.createdoc')}}" class="nav-link">                
+                        <i class="fas fa-plus-square nav-icon"></i>
+                        <p>NuevaConvocatoriaDoc</p>
                       </a>
                     </li>
                   @endif
@@ -142,7 +148,7 @@
             @if(Auth::user()->hasPermission('list units') || Auth::user()->hasPermission('create units'))
               <li class="nav-item has-treeview menu-close">
                 <a href="#" class="nav-link active bg-dark">
-                  <i class="nav-icon fa fa-th-large"></i>
+                  <i class="nav-icon fa fa-folder"></i>
                   <p>
                     Unidades
                     <i class="right fas fa-angle-left"></i>
@@ -174,7 +180,7 @@
             @if(Auth::user()->hasPermission('list requirements') || Auth::user()->hasPermission('create requirements'))
               <li class="nav-item has-treeview menu-close">
                 <a href="#" class="nav-link active bg-dark">
-                  <i class="nav-icon fa fa-th-large"></i>
+                  <i class="nav-icon fa fa-file-alt"></i>
                   <p>
                     Requerimientos
                     <i class="right fas fa-angle-left"></i>
@@ -205,7 +211,7 @@
             @if(Auth::user()->hasPermission('list fechas') || Auth::user()->hasPermission('create fechas'))
               <li class="nav-item has-treeview menu-close">
                 <a href="#" class="nav-link active bg-dark">
-                  <i class="nav-icon fa fa-th-large"></i>
+                  <i class="nav-icon fa fa-calendar"></i>
                   <p>
                     Fechas
                     <i class="right fas fa-angle-left"></i>
@@ -236,7 +242,7 @@
             @if(Auth::user()->hasPermission('list tablaConocimientos') || Auth::user()->hasPermission('create tablaConocimientos'))
               <li class="nav-item has-treeview menu-close">
                 <a href="#" class="nav-link active bg-dark">
-                  <i class="nav-icon fa fa-th-large"></i>
+                  <i class="nav-icon fa fa-table"></i>
                   <p>
                     Tabla de conocimiento
                     <i class="right fas fa-angle-left"></i>

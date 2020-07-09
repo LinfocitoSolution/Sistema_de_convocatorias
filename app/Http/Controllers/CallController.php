@@ -31,6 +31,7 @@ class CallController extends Controller
     public function index()
     {
         $calls = Convocatoria::all();
+       
         return view('admin.announcements.index', compact('calls'));
     }
     /**
@@ -88,7 +89,8 @@ class CallController extends Controller
         $convocatoria->requerimientos()->attach($requerimientos);
         $eventos = $request->input('eventos');
         $convocatoria->fechas()->attach($eventos);
-        return redirect('administrador')->with([ 'message' => 'Convocatoria de Laboratorios creada exitosamente!', 'alert-type' => 'success' ]);  
+        return redirect(route('call.index'))->with([ 'message' => 'Convocatoria de Laboratorios creada exitosamente!', 'alert-type' => 'success' ]);  
+        
     }
     public function storedoc(Request $request)
     {
@@ -106,7 +108,7 @@ class CallController extends Controller
         $convocatoria->requerimientos()->attach($requerimientos);
         $eventos = $request->input('eventos');
         $convocatoria->fechas()->attach($eventos);
-        return redirect('administrador')->with([ 'message' => 'Convocatoria de Docencia creada exitosamente!', 'alert-type' => 'success' ]);  
+        return redirect(route('call.index'))->with([ 'message' => 'Convocatoria de Docencia creada exitosamente!', 'alert-type' => 'success' ]);  
     }
     
 
