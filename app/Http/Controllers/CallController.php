@@ -9,6 +9,7 @@ use App\Requerimiento;
 use App\fecha;
 use DB;
 use Validator;
+use App\Http\Requests\ConvocatoriaRequest;
 
 class CallController extends Controller
 {
@@ -65,7 +66,7 @@ class CallController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ConvocatoriaRequest $request)
     {
         $convocatoria = new Convocatoria();
         $convocatoria->tipo_convocatoria='convocatoria de laboratorios';
@@ -92,7 +93,7 @@ class CallController extends Controller
         return redirect(route('call.index'))->with([ 'message' => 'Convocatoria de Laboratorios creada exitosamente!', 'alert-type' => 'success' ]);  
         
     }
-    public function storedoc(Request $request)
+    public function storedoc(ConvocatoriaRequest $request)
     {
         $convocatoria = new Convocatoria();
         $convocatoria->tipo_convocatoria='convocatoria de docencia';
@@ -170,7 +171,7 @@ class CallController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function updatedoc(Request $request, Convocatoria $call)
+    public function updatedoc(ConvocatoriaRequest $request, Convocatoria $call)
     {
         $call->titulo_convocatoria=$request->get('titulo'); 
         $call->tipo_convocatoria='convocatoria de docencia';
@@ -189,7 +190,7 @@ class CallController extends Controller
         
         return redirect(route('call.index'))->with([ 'message' => 'Convocatoria actualizada exitosamente!', 'alert-type' => 'success' ]);
     }
-    public function update(Request $request, Convocatoria $call)
+    public function update(ConvocatoriaRequest $request, Convocatoria $call)
     {
         $call->titulo_convocatoria=$request->get('titulo'); 
         $call->tipo_convocatoria='convocatoria de laboratorios';
