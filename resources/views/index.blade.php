@@ -177,7 +177,8 @@
            <div class="col-lg-4">
                 <div class="card mb-4">
                    <div class="card-header">
-                     <h6 class="card-title">{{$convocatoria->titulo_convocatoria}}</h6>
+                     <h5 class="card-title">{{$convocatoria->titulo_convocatoria}}</h5>
+                   <h6> {{App\Unidad::find($convocatoria->unit_id)->name}}</h6>
                    </div> 
                         <div class="card-body">
                            <table class="table table-bordered table-striped table-sm">
