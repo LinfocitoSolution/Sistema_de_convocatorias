@@ -1,5 +1,4 @@
 <script src="https://unpkg.com/jspdf"></script>
-{{-- <script src="https://unpkg.com/jspdf-autotable"></script> --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/2.0.16/jspdf.plugin.autotable.js"></script>
 <script src="{{asset('js/html2canvas.js')}}" type="text/javascript"></script>   
 
@@ -47,12 +46,26 @@ doc.autoTable(res.columns, res.data);*/
       'width': margins.width,
       'elementHandlers': specialElementHandlers
   });
+  
+  //AGREAGANDO TABLAS
+  var tab1 = doc.autoTableHtmlToJson(document.getElementById("rendimiento-table"));
+  doc.autoTable(tab1.columns, tab1.data, {margin: {top: 215}});
+
+  var tab2 = doc.autoTableHtmlToJson(document.getElementById("rendimiento2-table2"));
+  doc.autoTable(tab2.columns, tab2.data, {margin: {top: 300}});
+
   //CUARTO DIV
   doc.addPage();
   doc.fromHTML(elemento4, margins.left, margins.top, {
       'width': margins.width,
       'elementHandlers': specialElementHandlers
   });
+  //TERCER TABLA
+  var tab3 = doc.autoTableHtmlToJson(document.getElementById("pruebas-table"));
+  doc.autoTable(tab3.columns, tab3.data, {margin: {top: 300}});
+  var tab4 = doc.autoTableHtmlToJson(document.getElementById("pruebas-table2"));
+  doc.autoTable(tab4.columns, tab4.data, {margin: {top: 315}});
+
   //QUINTO DIV
   doc.addPage();
   doc.fromHTML(elemento5, margins.left, margins.top, {
@@ -96,26 +109,26 @@ doc.autoTable(res.columns, res.data);*/
   doc.text(textde ,399,715);
   doc.setFontType('normal');
   doc.setFontStyle('Arial');
-  doc.addPage();
+  doc.save('convocatoria.pdf');
+  //location.href = "/";
+}
+</script>
 
-  var columns = ["Items", "Cant", "Hrs.Academicas", "Nombre de la Auxiliatura", "Cod. de la Auxiliatura"];
-  var requirements = {!! json_encode($call->requerimientos) !!};
-  var json = requirements[0].id;
-  console.log(json);
-  // get the first result set, or you can loop trhrough all, assuming that each reuslt set is the same. 
-  for (var i in col)
-  {
-    console.log(i);
-  }
-  // for(var i in requirements)
-  // {
-  //   data.concat(
-  //   [i.id, i.cantidad_de_auxiliares, 
-  //   i.cantidad_horas_academicas, i.nombre_auxiliatura,
-  //   i.codigo_auxiliatura]); 
-  //  }
-  //  console.log(data);
+<script> function paraJoelDelFuturo(){
   
+  //SEGUNDA FORMA DE HACER LAS TABLAS
+  // var columns = ["Items", "Cant", "Hrs.Academicas", "Nombre de la Auxiliatura", "Cod. de la Auxiliatura"];
+  // var requirements = {!! json_encode($call->requerimientos) !!};
+  // var json = requirements[0].id;
+  // var data = []
+  // console.log(requirements.length);
+  // console.log(requirements[0]);
+  // for(var i=0; i<requirements.length; i++)
+  // {
+  //   data.push([requirements[i].id,requirements[i].cantidad_de_auxiliares,requirements[i].cantidad_horas_academicas,
+  //             requirements[i].nombre_auxiliatura,requirements[i].codigo_auxiliatura]);
+  // }
+  // console.log(data);
   // doc.autoTable(columns,data,
   // { margin:{ top: 25 }});
 
@@ -132,8 +145,5 @@ doc.autoTable(res.columns, res.data);*/
       
   //   }
   // }
-  
-  //doc.save('convocatoria.pdf');
-  //location.href = "/";
 }
 </script>
