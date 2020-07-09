@@ -1,6 +1,6 @@
 <div class="form-row">
     <div class="col-md-6 mb-2">
-          <label class="col-form-label" for="nameArea">Área</label>
+          <label class="col-form-label" for="nameArea">Titulo</label>
        <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="-Seleccione el área que requiera">
           <span class="input-group-append">
              <button class="btn btn-dark" type="button">A</button>

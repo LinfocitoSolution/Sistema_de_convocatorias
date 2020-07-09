@@ -31,6 +31,7 @@ class CallController extends Controller
     public function index()
     {
         $calls = Convocatoria::all();
+       
         return view('admin.announcements.index', compact('calls'));
     }
     /**
@@ -88,7 +89,8 @@ class CallController extends Controller
         $convocatoria->requerimientos()->attach($requerimientos);
         $eventos = $request->input('eventos');
         $convocatoria->fechas()->attach($eventos);
-        return redirect('administrador')->with([ 'message' => 'Convocatoria de Laboratorios creada exitosamente!', 'alert-type' => 'success' ]);  
+        return redirect(route('call.index'))->with([ 'message' => 'Convocatoria de Laboratorios creada exitosamente!', 'alert-type' => 'success' ]);  
+        
     }
     public function storedoc(Request $request)
     {
@@ -106,7 +108,7 @@ class CallController extends Controller
         $convocatoria->requerimientos()->attach($requerimientos);
         $eventos = $request->input('eventos');
         $convocatoria->fechas()->attach($eventos);
-        return redirect('administrador')->with([ 'message' => 'Convocatoria de Docencia creada exitosamente!', 'alert-type' => 'success' ]);  
+        return redirect(route('call.index'))->with([ 'message' => 'Convocatoria de Docencia creada exitosamente!', 'alert-type' => 'success' ]);  
     }
     
 
@@ -129,6 +131,7 @@ class CallController extends Controller
         // // $eventos = fecha::all();
         return view('admin.announcements.plantilla.generar_convocatoria', compact('call'));
     }
+   
 
     /**
      * Show the form for editing the specified resource.
@@ -138,7 +141,6 @@ class CallController extends Controller
      */
     public function edit(Convocatoria $call)
     {
-       
         // $unidades = Unidad::all();
         $requerimientos=Requerimiento::all();
         $requerimiento = DB::table('requerimientos')->get();
@@ -157,6 +159,9 @@ class CallController extends Controller
         $eventos = DB::table('fechas')->get();
         $unidades = DB::table('units')->get();
         return view('admin.announcements.editdoc',compact('call', 'unidades', 'requerimientos','eventos'));
+    }
+    public function generarConvocatoriaDoc(Convocatoria $call){
+        return view('admin.announcements.plantilla.generar_convocatoriaDoc',compact('call'));
     }
 
     /**

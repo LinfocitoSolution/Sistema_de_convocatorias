@@ -20,7 +20,7 @@ class PermissionMiddleware
             return $next($request);
         }
         else{
-            abort(401,'no tienes permisos');
+           return redirect('resources.views.erors.401');
         }        
     }
 }
