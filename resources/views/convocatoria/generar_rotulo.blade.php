@@ -23,57 +23,82 @@
                 <div class="form-row">
                  
                     <div class="col-md-6 mb-3">
-                        <label for=""class="mr-2">Nombre:</label>
-                        {{-- <input type="text" class="text" id="name" placeholder="Ingrese su nombre"> --}}
-                         <input type="text" class="text" id="name" value="{{ ucfirst(Auth::user()->name)}}">
+                        <label for=""class="col-form-label mr-2"><b>Nombres:</b></label>
+                        <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="-M&aacute;ximo 50 caracteres <br> -M&iacute;nimo 3 caracteres <br> -No acepta caracteres especiales">
+                           {{-- <input type="text" class="text" id="name" placeholder="Ingrese su nombre"> --}}
+                           <span class="input-group-append">
+                            <button class="btn btn-dark text-white" type="button">N</button>
+                            </span>
+                           <input type="text" class="form-control" id="name" value="{{ ucfirst(Auth::user()->name)}}">
+                    
+                        </div>
                     </div>
-                
                       <!-----apellido-->  
                
                     <div class="col-md-6 mb-3">
-                        <label for="inputPassword4" class="mr-2">Apellido:</label>
-                        {{-- <input type="text" class="text" id="lastname" placeholder="Ingrese su apellido"> --}}
-                        <input type="text" class="text" id="lastname" value="{{ ucfirst(Auth::user()->lastname)}}">
+                        <label for="" class="col-form-label mr-2"><b>Apellidos:</b></label>
+                          {{-- <input type="text" class="text" id="lastname" placeholder="Ingrese su apellido"> --}}
+                          <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="Revise sus datos">
+                            <span class="input-group-append">
+                                <button class="btn btn-dark text-white" type="button">A</button>
+                            </span>
+                              <input type="text" class="form-control" id="lastname" value="{{ ucfirst(Auth::user()->lastname)}}">
+                          </div>
                     </div>
-              
                       <!-----Direccion-->  
                
                      <div class="col-md-6 mb-3">
-                         <label for="inputPassword4" class="mr-2">Direccion:</label>
-                         {{-- <input type="text" class="text" id="lastname" placeholder="Ingrese su apellido"> --}}
-                         <input type="text" class="text" id="direccion" value="">
-                      </div>
-                
+                         <label for="" class=" col-form-label mr-2"><b>Direccion:</b></label>
+                          {{-- <input type="text" class="text" id="lastname" placeholder="Ingrese su apellido"> --}}
+                          <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="Revise sus datos">
+                            <span class="input-group-append">
+                                <button class="btn btn-dark text-white" type="button">D</button>
+                            </span>
+                            <input type="text" class="form-control" id="direccion" value="">
+                          </div>
+                     </div>
                       <!----telefonos-->  
                
                       <div class="col-md-6 mb-3">
-                          <label for="inputPassword4" class="mr-2">Telefonos:</label>
+                          <label for="" class="col-form-label mr-2"><b>Telefonos:</b></label>
                           {{-- <input type="text" class="text" id="lastname" placeholder="Ingrese su apellido"> --}}
-                          <input type="text" class="text" id="telefono" value="">
+                          <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="Revise sus datos">
+                             <span class="input-group-append">
+                                 <button class="btn btn-dark text-white" type="button">T</button>
+                             </span>
+                              <input type="text" class="form-control" id="telefono" value="">
+                          </div>
                       </div>
-             
                       <!-----e-mail-->  
                 
                        <div class="col-md-6 mb-3">
-                            <label for="inputPassword4" class="mr-2">E-mail:</label>
+                            <label for="" class="col-form-label mr-2"><b>E-mail:</b></label>
                             {{-- <input type="text" class="text" id="lastname" placeholder="Ingrese su apellido"> --}}
-                            <input type="text" class="" id="email" value="">
+                            <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="Revise sus datos">
+                              <span class="input-group-append">
+                                  <button class="btn btn-dark text-white" type="button">E</button>
+                              </span>
+                               <input type="text" class="form-control" id="email" value="">
+                            </div>
                        </div>
-             
                       <!-----codigp de item-->  
                
                        <div class="col-md-6 mb-3">
-                           <label for="inputPassword4" class="mr-2">Codigo de item:</label>
-                            {{-- <input type="text" class="text" id="lastname" placeholder="Ingrese su apellido"> --}}
-                           <input type="text" class="text" id="lastname" value="">
-                      </div>
-             
+                           <label for="" class="col-form-label mr-2"><b>Codigo de item:</b></label>
+                             {{-- <input type="text" class="text" id="lastname" placeholder="Ingrese su apellido"> --}}
+                             <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="Revise sus datos">
+                                <span class="input-group-append">
+                                   <button class="btn btn-dark text-white" type="button">C</button>
+                                </span>
+                               <input type="text" class="form-control" id="lastname" value="">
+                             </div>
+                       </div>
               
                      <!----carrera--->
             
                       <!-----documento subir curriculum-->
                       <div class="col-mb-6 mb-3">
-                        <label for="exampleFormControlFile1">Subir curriculum</label>
+                        <label for="exampleFormControlFile1" class="col-form-label mr-2"><b>Subir curriculum</b></label>
                         <input type="file" class="form-control-file" id="exmapleFormControlFile1">
                       </div>
                       

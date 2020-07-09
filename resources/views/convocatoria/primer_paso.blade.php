@@ -12,7 +12,7 @@
           <div class="card mt-5"> 
               <!---cabeza--> 
                <div class="card-header text-white">
-                   <h2>Seleccione Area a Postular:</h2>
+                   <h2>Seleccione Unidad a Postular:</h2>
                </div>
               <!---cuerpo--->
               <div class="card-body">
@@ -30,14 +30,18 @@
                               <option value="3">Dep. de Mecanica</option>
                            </select>
                       </div>
-                  </div>
+                   </div>
                     <div class="form-actions text-center">
                       
                       <a class="btn btn-outline-dark" href="{{route('rotulo.segundo')}}">Siguiente</a>
                       
                     </div> 
                 </form> 
-              </div>       
+              </div> 
+                  <!---pies-->
+                 <div class="card-footer">
+                  
+                </div>
            </div>
         </div>
      </div>

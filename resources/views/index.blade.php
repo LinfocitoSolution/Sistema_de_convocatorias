@@ -171,11 +171,11 @@
 
    <!--convocatorias ofertadas-->
  <div class="convocatoria">
-   <div class="container mt-5 mb-5">
+   <div class="container mt-4 mb-3">
      <div class="row justify-content-around">
         @foreach ($convocatorias as $convocatoria)
            <div class="col-lg-4">
-                <div class="card">
+                <div class="card mb-4">
                    <div class="card-header">
                      <h5 class="card-title">{{$convocatoria->titulo_convocatoria}}</h5>
                    <h6> {{App\Unidad::find($convocatoria->unit_id)->name}}</h6>
@@ -201,7 +201,7 @@
                              {{-- <a href="call/{{$convocatoria->pdf_file}}" target="_blank" class="btn btn-outline-dark rounded-pill  btn-block" data-toggle="tooltip" data-placement="bottom" data-trigger="hover" title="Presiona el botón para ver la convocatoria">Ver Convocatoria</a>
                               --}}
                           <a href="{{route('generar',$convocatoria)}}" class="btn btn-outline-dark rounded-pill  btn-block" data-toggle="tooltip" data-placement="bottom" data-trigger="hover" title="Presiona el botón para ver la convocatoria">Ver Convocatoria</a>
-                           <!--<a href="{{route('generarConv',$convocatoria)}}" class="btn btn-outline-dark rounded-pill  btn-block" data-toggle="tooltip" data-placement="bottom" data-trigger="hover" title="Presiona el botón para ver la convocatoria">Ver Convocatoria</a>-->
+                           <!---<a href="{route('generarConv',$convocatoria)}}" class="btn btn-outline-dark rounded-pill  btn-block" data-toggle="tooltip" data-placement="bottom" data-trigger="hover" title="Presiona el botón para ver la convocatoria">Ver Convocatoria</a>--->
                            @if(Auth::check() && Auth::user()->roles->first()->name=='Postulante')
                              <a href="{{route('postulacion.form')}}" target="_blank" class="btn btn-outline-dark rounded-pill btn-block" data-toggle="tooltip" data-placement="bottom" data-trigger="hover" title="Presiona el botón para ver la convocatoria">Postularse</a>
                            @endif

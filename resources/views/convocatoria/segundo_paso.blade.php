@@ -19,7 +19,7 @@
                 <!---<form class="form-group" method="get" action={url("/rotulo")}} >
                     <input type="hidden" name="_token" value="{ csrf_token() }}">--->
                     
-                  <div class="form-row">
+                  <div class="form-group-row">
                     <!----Laboratorio---->
                       <div class="col-mb-5 mb-3">
                          <label class="input-group-text text-white" for="">Convocatoria a postular:</label>
@@ -37,7 +37,11 @@
                    </div> 
                 </form> 
               </div>  
-              <!---fin cuerpo--->     
+              <!---fin cuerpo--->
+               <!---pies-->
+               <div class="card-footer">
+                  
+               </div>     
            </div>
         </div>
      </div>
