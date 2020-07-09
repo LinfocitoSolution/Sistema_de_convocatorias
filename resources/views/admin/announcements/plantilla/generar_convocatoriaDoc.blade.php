@@ -13,14 +13,8 @@
         <div class="card-body">
             <div class="hoja" id="datos">  
                 <br>
-                <div class="text-center">
-                    <h4>{{$call->titulo_convocatoria}}</h4>
-                    
-                </div>                  
-                <div class="text-center">
-                   
-                    <h5>GESTION 2020</h5>                  
-                </div>                  
+                <h4 style="margin-left: 8cm">{{$call->titulo_convocatoria}}</h4>
+                <h5 style="margin-left: 10cm">GESTION 2020</h5> 
                 <br>
                <p class="parrafo" style="text-align:justify">El Departamento de Informática y Sistemas junto a las Carreras de Ing. Informática e Ing. 
                   De  Sistemas  de  la  Facultad  de  Ciencias  y  Tecnología,  convoca  al  concurso  de  méritos  y 
@@ -165,7 +159,7 @@
                                                   <p style="padding-left: 60px">b.-1 pto/semestre x materia de aux. de practicas  </p>
                                                   <P>c.-) Disertación cursillos y/o participación en Proyectos:……... 5%</P>
                                                   <p style="padding-left: 60px">a.-</p>
-                                                  <p style="padding-left: 60px">b.-</p>
+                                                  <p style="padding-left: 60px">b.-1 pto/semestre x materia de aux. de practicas  </p>
                                                   <P>d.-</P>
                                               </td>
                                           </tr>
