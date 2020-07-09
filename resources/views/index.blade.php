@@ -130,7 +130,7 @@
         
           
           @if(Auth::user()->roles->first()->name=='Postulante')
-          <a class="btn btn-outline-dark  text-white m-2 my-sm-2" type="submit" href="{{route('postulacion.form')}}">Formulario de Postulacion</a>
+          <a class="btn btn-outline-dark  text-white m-2 my-sm-2" type="submit" href="{{route('rotulo.primer')}}">Formulario de Postulacion</a>
           @else
           <a class="btn btn-outline-dark  text-white m-2 my-sm-2" type="submit" data-toggle="tooltip" data-placement="top" title="Presione el botón para entrar al panel de trabajo" href="{{url('administrador')}}">Panel de Trabajo</a>
           @endif
@@ -200,8 +200,8 @@
                               {{-- <form class="form-horizontal" action="/call/{{$convocatoria->pdf_file}" method="GET"> --}}
                              {{-- <a href="call/{{$convocatoria->pdf_file}}" target="_blank" class="btn btn-outline-dark rounded-pill  btn-block" data-toggle="tooltip" data-placement="bottom" data-trigger="hover" title="Presiona el botón para ver la convocatoria">Ver Convocatoria</a>
                               --}}
-                          <a href="{{route('generar',$convocatoria)}}" class="btn btn-outline-dark rounded-pill  btn-block" data-toggle="tooltip" data-placement="bottom" data-trigger="hover" title="Presiona el botón para ver la convocatoria">Ver Convocatoria</a>
-                           <!--<a href="{{route('generarConv',$convocatoria)}}" class="btn btn-outline-dark rounded-pill  btn-block" data-toggle="tooltip" data-placement="bottom" data-trigger="hover" title="Presiona el botón para ver la convocatoria">Ver Convocatoria</a>-->
+                          <!--<a href="{{route('generar',$convocatoria)}}" class="btn btn-outline-dark rounded-pill  btn-block" data-toggle="tooltip" data-placement="bottom" data-trigger="hover" title="Presiona el botón para ver la convocatoria">Ver Convocatoria</a>-->
+                           <a href="{{route('generarConv',$convocatoria)}}" class="btn btn-outline-dark rounded-pill  btn-block" data-toggle="tooltip" data-placement="bottom" data-trigger="hover" title="Presiona el botón para ver la convocatoria">Ver Convocatoria</a>
                            @if(Auth::check() && Auth::user()->roles->first()->name=='Postulante')
                              <a href="{{route('postulacion.form')}}" target="_blank" class="btn btn-outline-dark rounded-pill btn-block" data-toggle="tooltip" data-placement="bottom" data-trigger="hover" title="Presiona el botón para ver la convocatoria">Postularse</a>
                            @endif

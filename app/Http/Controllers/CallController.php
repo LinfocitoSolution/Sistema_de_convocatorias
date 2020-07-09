@@ -132,9 +132,7 @@ class CallController extends Controller
         // // $eventos = fecha::all();
         return view('admin.announcements.plantilla.generar_convocatoria', compact('call'));
     }
-    //public function generarConvocatoriaDoc(Convocatoria $call){
-       // return view('admin.announcements.plantilla.generar_convocatoriaDoc',compact('call'));
-    //}
+   
 
     /**
      * Show the form for editing the specified resource.
@@ -162,6 +160,9 @@ class CallController extends Controller
         $eventos = DB::table('fechas')->get();
         $unidades = DB::table('units')->get();
         return view('admin.announcements.editdoc',compact('call', 'unidades', 'requerimientos','eventos'));
+    }
+    public function generarConvocatoriaDoc(Convocatoria $call){
+        return view('admin.announcements.plantilla.generar_convocatoriaDoc',compact('call'));
     }
 
     /**
