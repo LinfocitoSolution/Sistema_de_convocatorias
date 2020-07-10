@@ -94,15 +94,15 @@
         'elementHandlers': specialElementHandlers
     });
 
-    var n =  new Date();
-    var y = n.getFullYear();
-    var m = n.getMonth();
-    var d = n.getDate();
+    var fecha = {!! json_encode($call->gestion) !!};
+    var y = fecha.substr(0,4);
+    var m = parseInt(fecha.substr(5,7));
+    var d = parseInt(fecha.substr(8,10));
     var meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
     doc.setFontType('normal');
     doc.setFontStyle('Arial');
     doc.setFontSize(12);
-    doc.text("Cochabamba, " + d + " de " + meses[m] + " de " + y, 60, 260);
+    doc.text("Cochabamba, " + d + " de " + meses[m] + " de " + y, 60, 400)
 
      //FIRMAS
     doc.setFontSize(11);

@@ -89,10 +89,11 @@ doc.autoTable(res.columns, res.data);*/
   var res = doc.autoTableHtmlToJson(document.getElementById("tab_eventos"));
   doc.autoTable(res.columns, res.data, {margin: {top: 200}});
 
-  var n =  new Date();
-  var y = n.getFullYear();
-  var m = n.getMonth();
-  var d = n.getDate();
+
+  var fecha = {!! json_encode($call->gestion) !!};
+  var y = fecha.substr(0,4);
+  var m = parseInt(fecha.substr(5,7));
+  var d = parseInt(fecha.substr(8,10));
   var meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
   doc.setFontType('normal');
   doc.setFontStyle('Arial');
@@ -133,7 +134,7 @@ doc.autoTable(res.columns, res.data);*/
   doc.setFontType('normal');
   doc.setFontStyle('Arial');
   doc.save('convocatoria.pdf');
-  location.href = "/";
+//   location.href = "/";
 }
 </script>
 
