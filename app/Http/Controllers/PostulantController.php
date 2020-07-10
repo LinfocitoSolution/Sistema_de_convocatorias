@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Unidad;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Redirect,Response;
 use App\Convocatoria;
 use Illuminate\Support\Facades\Hash;
+use DB;
 use Session;
 use Validator;
 use App\Http\Requests\PostulanteRequest;
@@ -22,11 +23,18 @@ class PostulantController extends Controller
         return view('convocatoria.generar_rotulo');
       
     } 
-    public function primer_paso(){
-        return view('convocatoria.primer_paso');
+    public function primer_paso()
+    {   
+        $user=User::all();
+        $unidad=Unidad::all();
+
+        return view('convocatoria.primer_paso',compact('unidad','user'));
     }
-    public function segundo_paso(){
-        return view('convocatoria.segundo_paso');
+    public function segundo_paso()
+    {
+        $convocatoria =Convocatoria::all();
+
+        return view('convocatoria.segundo_paso', compact('convocatoria'));
     }
     public function show(User $user)
     { 
