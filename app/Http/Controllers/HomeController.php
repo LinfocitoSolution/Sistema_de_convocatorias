@@ -7,6 +7,7 @@ use Redirect,Response;
 use App\User;
 use App\Unidad;
 use App\Convocatoria;
+use App\fecha;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;

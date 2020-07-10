@@ -20,7 +20,7 @@
 
    <div class="hoja" id="datos">  
          <br>
-           <h4 style="margin-left: 6cm">{{$call->titulo_convocatoria}}</h4>
+           <h4 style="margin-left: 8cm">{{$call->titulo_convocatoria}}</h4>
            <h5 style="margin-left: 8cm">GESTIÓN 2020</h5>
            
          <br>
@@ -30,7 +30,7 @@
            base los requerimientos que se tienen programados para la gestión 2020.</p>  
         <br>
         <h6>1.&nbsp;&nbsp;REQUERIMIENTOS</h6> 
-      </div> <<!--FIN DE LA PRIMERA PARTE -->
+      </div> <!--FIN DE LA PRIMERA PARTE -->
            <div id="tabla1">
             <table id="requirements-table" class="table table-striped">
                <colgroup>
@@ -339,7 +339,7 @@
          <br>
          <h6>9.&nbsp;&nbsp;SELECCIÓN</h6>  
          <br>
-         <div class="fecha"> <h6>Fecha:.............</h6></div>
+         <div class="fecha"> <h6></h6></div>
          <br>
          <br>
       
@@ -356,5 +356,4 @@
          <p id ="decano" class="parrafo"><b>DECANO - FCyT</b></p>
     </div>      
  </body>
-    <a href="javascript:toPDF()">PDF</a>
 </html> 
