@@ -29,7 +29,7 @@
                            <span class="input-group-append">
                             <button class="btn btn-dark text-white" type="button">N</button>
                             </span>
-                           <input type="text" class="form-control" id="name" value="{{ ucfirst(Auth::user()->name)}}">
+                           <input type="text" class="form-control" id="name" value="{{ucfirst(Auth::user()->name)}}">
                     
                         </div>
                     </div>
@@ -60,7 +60,7 @@
                       <!----telefonos-->  
                
                       <div class="col-md-6 mb-3">
-                          <label for="" class="col-form-label mr-2"><b>Telefonos:</b></label>
+                          <label for="" class="col-form-label mr-2"><b>Teléfono:</b></label>
                           {{-- <input type="text" class="text" id="lastname" placeholder="Ingrese su apellido"> --}}
                           <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="Revise sus datos">
                              <span class="input-group-append">
@@ -73,24 +73,22 @@
                 
                        <div class="col-md-6 mb-3">
                             <label for="" class="col-form-label mr-2"><b>E-mail:</b></label>
-                            {{-- <input type="text" class="text" id="lastname" placeholder="Ingrese su apellido"> --}}
                             <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="Revise sus datos">
                               <span class="input-group-append">
                                   <button class="btn btn-dark text-white" type="button">E</button>
                               </span>
-                               <input type="text" class="form-control" id="email" value="">
+                               <input type="text" class="form-control" id="email" value="{{ ucfirst(Auth::user()->email)}}">
                             </div>
                        </div>
                       <!-----codigp de item-->  
                
                        <div class="col-md-6 mb-3">
                            <label for="" class="col-form-label mr-2"><b>Codigo de item:</b></label>
-                             {{-- <input type="text" class="text" id="lastname" placeholder="Ingrese su apellido"> --}}
                              <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="Revise sus datos">
                                 <span class="input-group-append">
                                    <button class="btn btn-dark text-white" type="button">C</button>
                                 </span>
-                               <input type="text" class="form-control" id="lastname" value="">
+                               <input type="text" class="form-control" id="codigoItem" value="">
                              </div>
                        </div>
               
@@ -103,23 +101,16 @@
                       </div>
                       
                   </div>    
-                      
-                        
                         <div class="form-actions text-center">
                             <a class="btn btn-outline-dark px-4" href="{{route('rotulo.segundo')}}">Atras</a>
-                            
-                            <button class="btn btn-outline-dark" data-toggle="tooltip" data-placement="right" title="Presione el bot&oacute;n para generar el rótulo"onclick="test();">Generar rótulo</button>
-                             <a href="javascript:getPdf()">test</a>
+                            <a href="javascript:save()"> <button  class="btn btn-outline-dark" data-toggle="tooltip" data-placement="right" title="Presione el bot&oacute;n para generar el rótulo" >GENERAR ROTULO</button></a>
+
                          </div>
                 </div>
-              
                <!-- </form>-->
-              
                 <!---pies-->
                  <div class="card-footer">
-                  
                  </div>
-        
               <!----fin tarjeta-->
          </div>
        </div>

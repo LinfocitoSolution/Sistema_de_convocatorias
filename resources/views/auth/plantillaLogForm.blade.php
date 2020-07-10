@@ -1,5 +1,4 @@
 <!doctype html>
-<html lang="en">
 {{-- <!--<input type="hidden" name="_token" value="{{ csrf_token() }}">--> --}}
 <head>
 

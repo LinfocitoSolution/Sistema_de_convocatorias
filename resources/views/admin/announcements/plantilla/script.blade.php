@@ -4,6 +4,19 @@
 
 <script> window.onload = async function toPDF(){
   var doc = new jsPDF('p', 'pt', 'letter');
+  var pageHeight = doc.internal.pageSize.height || doc.internal.pageSize.getHeight();
+  var pageWidth = doc.internal.pageSize.width || doc.internal.pageSize.getWidth();
+
+  doc.setFontSize(15);
+  doc.setFontType('bold');
+  var titulo = document.getElementById('titulo');
+  var gestion = document.getElementById('gestion');//12
+
+  doc.text(titulo.textContent, pageWidth/2, 40, 'center');
+  doc.text(gestion.textContent, pageWidth/2,  55, 'center');
+
+  doc.setFontType('normal');
+
   var elemento1 = document.getElementById('datos');
   var elemento2 = document.getElementById('parte2');
   var elemento3 = document.getElementById('parte3');
@@ -26,7 +39,7 @@ doc.autoTable(res.columns, res.data);*/
         width: 522  
     };
 
-  doc.fromHTML(elemento1, margins.left, margins.top, {
+  doc.fromHTML(elemento1, margins.left, margins.top+30, {
       'width': margins.width,
       'elementHandlers': specialElementHandlers
   });
