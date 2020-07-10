@@ -111,9 +111,6 @@ class CallController extends Controller
         $convocatoria->fechas()->attach($eventos);
         return redirect(route('call.index'))->with([ 'message' => 'Convocatoria de Docencia creada exitosamente!', 'alert-type' => 'success' ]);  
     }
-    
-
-
     /**
      * Display the specified resource.
      *
@@ -125,15 +122,16 @@ class CallController extends Controller
         $file_path = public_path('convocatorias/'.$file_name);
         return response()->file($file_path);
     }
-    public function generarConvocatoria(Convocatoria $call)
+    public function generarConvocatoriaLabo(Convocatoria $call)
     {   
-        // $requerimientos = $call->requerimientos()->get();
-        // $unidades = Unidad::all();
-        // // $eventos = fecha::all();
         return view('admin.announcements.plantilla.generar_convocatoria', compact('call'));
     }
-   
 
+    public function generarConvocatoriaDocencia(Convocatoria $call)
+    {   
+        return view('admin.announcements.plantilla.generar_convocatoriaDoc', compact('call'));
+    }
+   
     /**
      * Show the form for editing the specified resource.
      *
