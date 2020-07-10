@@ -15,8 +15,8 @@
                    <h2>Seleccione Unidad a Postular:</h2>
                </div>
               <!---cuerpo--->
-              <div class="card-body">
-                <form class="form-group" method="get" action={{url("/rotulo")}} >
+              <div class="card-body">                           
+                <form class="form-group" method="get" action="{{route('rotulo.segundo')}}" >
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                   <div class="form-group-row">
@@ -24,16 +24,18 @@
                       <div class="col-mb-5 mb-3">
                          <label class="input-group-text text-white" for="">Unidad a postular:</label>
                    
-                           <select  class="custom-select form-control" id="toApply" required> 
-                              <option selected value="1">Dep. de Sistemas e Informatica</option>
-                              <option value="2">Dep. de Informatica</option>
-                              <option value="3">Dep. de Mecanica</option>
-                           </select>
+                           <select  class="custom-select form-control" type="text" name="unidad" > 
+                            @foreach($unidad as $uni)  
+                            
+                           <option class="text-dark" value="{{$uni->id}}">{{$uni->name}}</option>
+                              
+                            @endforeach
+                            </select>
                       </div>
                    </div>
                     <div class="form-actions text-center">
-                      
-                      <a class="btn btn-outline-dark" href="{{route('rotulo.segundo')}}">Siguiente</a>
+                      <button class="btn btn-outline-dark" type="submit">siguiente</button>
+                      <!--<a class="btn btn-outline-dark" href="{{route('rotulo.segundo')}}">Siguiente</a>-->
                       
                     </div> 
                 </form> 

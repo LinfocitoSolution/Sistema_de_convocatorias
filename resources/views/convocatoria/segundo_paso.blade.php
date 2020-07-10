@@ -16,23 +16,27 @@
                </div>
               <!---cuerpo--->
               <div class="card-body">
-                <!---<form class="form-group" method="get" action={url("/rotulo")}} >
-                    <input type="hidden" name="_token" value="{ csrf_token() }}">--->
+                <form class="form-group" method="get" action={{route("postulacion.form")}} >
+                    <input type="hidden" name="_token" value="{ csrf_token() }}">
                     
                   <div class="form-group-row">
                     <!----Laboratorio---->
                       <div class="col-mb-5 mb-3">
                          <label class="input-group-text text-white" for="">Convocatoria a postular:</label>
                    
-                           <select  class="custom-select form-control" id="toApply" required> 
-                              <option selected value="1">Convocatoria de laboratorio</option>
-                              <option value="2">Convocatoria de docencia</option>
+                         <select  class="custom-select form-control" type="text" name="convoca" > 
+                           @foreach($convocatoria as $convo)  
+                           
+                          <option class="text-dark" value="{{$convo->id}}">{{$convo->titulo_convocatoria}}</option>
+                             
+                           @endforeach
                            </select>
                       </div>
                   </div>
                    <div class="form-actions text-center">
+                     
                     <a class="btn btn-outline-dark px-4" href="{{route('rotulo.primer')}}">Atras</a>  
-                    <a class="btn btn-outline-dark" href="{{route('postulacion.form')}}">Siguiente</a>
+                    <button class="btn btn-outline-dark" type="submit">siguiente</button>
                       
                    </div> 
                 </form> 
