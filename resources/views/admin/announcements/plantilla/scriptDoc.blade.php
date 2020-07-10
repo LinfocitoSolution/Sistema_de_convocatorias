@@ -122,17 +122,7 @@
     doc.text(textde ,399,715);
     doc.setFontType('normal');
     doc.setFontStyle('Arial');
-    setDate();
     doc.save('convocatoria.pdf');
-    // location.href = "/";
-</script>
-
-<script> function setDate(){
-    var n =  new Date();
-    var y = n.getFullYear();
-    var m = n.getMonth();
-    var d = n.getDate();
-    var meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
-    document.getElementById("date").innerHTML = "Cochabamba, " + d + " de " + meses[m] + " de " + y;
+    location.href = "/";
 }
 </script>

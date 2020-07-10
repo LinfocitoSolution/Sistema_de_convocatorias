@@ -20,7 +20,7 @@
 
    <div class="hoja" id="datos">  
          <br>
-           <h4 style="margin-left: 6cm">{{$call->titulo_convocatoria}}</h4>
+           <h4 style="margin-left: 8cm">{{$call->titulo_convocatoria}}</h4>
            <h5 style="margin-left: 8cm">GESTIÓN 2020</h5>
            
          <br>

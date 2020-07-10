@@ -15,7 +15,7 @@
             <div class="hoja" id="datos">  
                 <br>
                 <h4 style="margin-left: 8cm">{{$call->titulo_convocatoria}}</h4>
-                <h5 style="margin-left: 8cm">GESTION 2020</h5> 
+                <h5 style="margin-left: 8cm">GESTIÓN 2020</h5> 
                 <br>
                <p class="parrafo" style="text-align:justify">El Departamento de Informática y Sistemas junto a las Carreras de Ing. Informática e Ing. 
                   De  Sistemas  de  la  Facultad  de  Ciencias  y  Tecnología,  convoca  al  concurso  de  méritos  y 
