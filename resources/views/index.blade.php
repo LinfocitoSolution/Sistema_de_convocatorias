@@ -130,7 +130,7 @@
         
           
           @if(Auth::user()->roles->first()->name=='Postulante')
-          <a class="btn btn-outline-dark  text-white m-2 my-sm-2" type="submit" href="{{route('postulacion.form')}}">Formulario de Postulacion</a>
+          <a class="btn btn-outline-dark  text-white m-2 my-sm-2" type="submit" href="{{route('rotulo.primer')}}">Formulario de Postulacion</a>
           @else
           <a class="btn btn-outline-dark  text-white m-2 my-sm-2" type="submit" data-toggle="tooltip" data-placement="top" title="Presione el botón para entrar al panel de trabajo" href="{{url('administrador')}}">Panel de Trabajo</a>
           @endif
@@ -171,13 +171,14 @@
 
    <!--convocatorias ofertadas-->
  <div class="convocatoria">
-   <div class="container mt-5 mb-5">
+   <div class="container mt-4 mb-3">
      <div class="row justify-content-around">
         @foreach ($convocatorias as $convocatoria)
            <div class="col-lg-4">
-                <div class="card">
+                <div class="card mb-4">
                    <div class="card-header">
-                     <h6 class="card-title">{{$convocatoria->titulo_convocatoria}}</h6>
+                     <h5 class="card-title">{{$convocatoria->titulo_convocatoria}}</h5>
+                   <h6> {{App\Unidad::find($convocatoria->unit_id)->name}}</h6>
                    </div> 
                         <div class="card-body">
                            <table class="table table-bordered table-striped table-sm">

@@ -40,7 +40,7 @@ class ConvocatoriaRequest extends FormRequest
             case 'PUT':
             case 'PATCH': {
                 return [
-                    'titulo'=>'required|max:200|min:3|regex:/^[a-zA-Z0-9]+/s|unique:convocatorias,titulo_convocatoria,' . $this->convocatoria->id . ',id',
+                    'titulo'=>'required|max:200|min:3|regex:/^[a-zA-Z0-9]+/s|unique:convocatorias,titulo_convocatoria,' . $this->call->id . ',id',
                     'unidad'=>'required',
                     'gestion'=>'required|date|after_or_equal:' . $actual . '',
                     'requerimientos'=>'required',

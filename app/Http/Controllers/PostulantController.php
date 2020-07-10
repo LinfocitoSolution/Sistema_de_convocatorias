@@ -22,6 +22,12 @@ class PostulantController extends Controller
         return view('convocatoria.generar_rotulo');
       
     } 
+    public function primer_paso(){
+        return view('convocatoria.primer_paso');
+    }
+    public function segundo_paso(){
+        return view('convocatoria.segundo_paso');
+    }
     public function show(User $user)
     { 
         return view('postulante.show',compact('user'));
