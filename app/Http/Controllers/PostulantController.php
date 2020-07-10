@@ -25,10 +25,10 @@ class PostulantController extends Controller
     } 
     public function primer_paso()
     {   
-        $user=User::all();
+        
         $unidad=Unidad::all();
 
-        return view('convocatoria.primer_paso',compact('unidad','user'));
+        return view('convocatoria.primer_paso',compact('unidad'));
     }
     public function segundo_paso()
     {
