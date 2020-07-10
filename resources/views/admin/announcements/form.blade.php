@@ -3,7 +3,7 @@
               <label class="col-form-label" for="nameArea">Titulo</label>
            <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="-Seleccione el área que requiera">
               <span class="input-group-append">
-                 <button class="btn btn-dark" type="button">A</button>
+                 <button class="btn btn-dark" type="button">T</button>
                </span>
              <input class="form-control" type="text" name="titulo" placeholder="Ingrese el titulo " value="{{ old('titulo', isset($call) ? $call->titulo_convocatoria : '') }}">
             </div>
