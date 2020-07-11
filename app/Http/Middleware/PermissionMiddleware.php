@@ -20,7 +20,7 @@ class PermissionMiddleware
             return $next($request);
         }
         else{
-           return redirect('resources.views.erors.401');
+            return redirect()->route('denied');                       
         }        
     }
 }

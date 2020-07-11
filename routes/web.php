@@ -132,3 +132,7 @@ Route::get('mail/send', 'MailController@send');// falta los middlewares
 Route::get('vista', function () {
     return view('auth.mails.email');
 });// falta los middlewares
+
+Route::get('/denied', ['as' => 'denied', function() {
+    return view('errors.401');
+}]);
