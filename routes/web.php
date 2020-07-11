@@ -103,7 +103,8 @@ Route::get('call_{call}_editardoc','CallController@editardoc')->name('call.edita
 Route::post('call_storedoc','CallController@storedoc')->name('call.storedoc');
 Route::delete('call_deletedoc_{call}','CallController@destroydoc')->name('call.destroydoc');
 Route::put('call_updatedoc_{call}','CallController@updatedoc')->name('call.updatedoc');
-Route::get('generarConv_{call}', 'CallController@generarConvocatoriaDoc')->name('generarConv');
+Route::get('generarConv_{call}', 'CallController@generarConvocatoriaLabo')->name('generarConv');
+Route::get('generarConvDoc_{call}', 'CallController@generarConvocatoriaDocencia')->name('generarConvDoc');
 //##############################################################
 Route::get('test', function () {
     return view('pruebaVerify');
@@ -118,6 +119,9 @@ Route::get('postulante_{user}_show','PostulantController@show')->name('postulant
 Route::get('postulante_edit_{user}','PostulantController@edit')->name('postulante.edit');// falta los middlewares
 Route::put('postulante_{user}_update','PostulantController@update')->name('postulante.update');// falta los middlewares
 // Route::resource('postulante','PostulantController');
+Route::get('primer_paso','PostulantController@primer_paso')->name('rotulo.primer');
+Route::get('segundo_paso','PostulantController@segundo_paso')->name('rotulo.segundo');
+Route::post('guardar_rotulo','PostulantController@guardarRotulo')->name('rotulo.guardar');
 //################################################################
 Route::post('reset_password','\App\Http\Controllers\Auth\ResetPasswordController@resetPassword');// falta los middlewares
 Route::get('enviar_resetPassword','\App\Http\Controllers\Auth\ResetPasswordController@enviarReset_Password');// falta los middlewares

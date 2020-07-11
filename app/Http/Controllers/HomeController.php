@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Redirect,Response;
 use App\User;
-use App\Carrera;
+use App\Unidad;
 use App\Convocatoria;
+use App\fecha;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -25,9 +26,9 @@ class HomeController extends Controller
     //protected $guard='login';
     public function index()
     {
-        $convocatorias = Convocatoria::orderBy('created_at', 'asc')->take(8)->get();
-        $user=User::all();    
-        // $carreras = Carrera::all();        
+        $unidades = Unidad::all();
+        $convocatorias = Convocatoria::orderBy('created_at', 'asc')->take(15)->get();
+        $user=User::all();
         return view('index', [ 'convocatorias' => $convocatorias] ,['user'=>$user]);
     }
 

@@ -9,6 +9,7 @@ use App\Requerimiento;
 use App\fecha;
 use DB;
 use Validator;
+use App\Http\Requests\ConvocatoriaRequest;
 
 class CallController extends Controller
 {
@@ -65,7 +66,7 @@ class CallController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ConvocatoriaRequest $request)
     {
         $convocatoria = new Convocatoria();
         $convocatoria->tipo_convocatoria='convocatoria de laboratorios';
@@ -92,7 +93,7 @@ class CallController extends Controller
         return redirect(route('call.index'))->with([ 'message' => 'Convocatoria de Laboratorios creada exitosamente!', 'alert-type' => 'success' ]);  
         
     }
-    public function storedoc(Request $request)
+    public function storedoc(ConvocatoriaRequest $request)
     {
         $convocatoria = new Convocatoria();
         $convocatoria->tipo_convocatoria='convocatoria de docencia';
@@ -110,9 +111,6 @@ class CallController extends Controller
         $convocatoria->fechas()->attach($eventos);
         return redirect(route('call.index'))->with([ 'message' => 'Convocatoria de Docencia creada exitosamente!', 'alert-type' => 'success' ]);  
     }
-    
-
-
     /**
      * Display the specified resource.
      *
@@ -124,15 +122,16 @@ class CallController extends Controller
         $file_path = public_path('convocatorias/'.$file_name);
         return response()->file($file_path);
     }
-    public function generarConvocatoria(Convocatoria $call)
+    public function generarConvocatoriaLabo(Convocatoria $call)
     {   
-        // $requerimientos = $call->requerimientos()->get();
-        // $unidades = Unidad::all();
-        // // $eventos = fecha::all();
         return view('admin.announcements.plantilla.generar_convocatoria', compact('call'));
     }
-   
 
+    public function generarConvocatoriaDocencia(Convocatoria $call)
+    {   
+        return view('admin.announcements.plantilla.generar_convocatoriaDoc', compact('call'));
+    }
+   
     /**
      * Show the form for editing the specified resource.
      *
@@ -171,7 +170,7 @@ class CallController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function updatedoc(Request $request, Convocatoria $call)
+    public function updatedoc(ConvocatoriaRequest $request, Convocatoria $call)
     {
         $call->titulo_convocatoria=$request->get('titulo'); 
         $call->tipo_convocatoria='convocatoria de docencia';
@@ -190,7 +189,7 @@ class CallController extends Controller
         
         return redirect(route('call.index'))->with([ 'message' => 'Convocatoria actualizada exitosamente!', 'alert-type' => 'success' ]);
     }
-    public function update(Request $request, Convocatoria $call)
+    public function update(ConvocatoriaRequest $request, Convocatoria $call)
     {
         $call->titulo_convocatoria=$request->get('titulo'); 
         $call->tipo_convocatoria='convocatoria de laboratorios';

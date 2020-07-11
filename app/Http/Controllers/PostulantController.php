@@ -1,15 +1,17 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Unidad;
 use App\User;
+use App\Convocatoria;
+use App\Requerimiento;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Redirect,Response;
-use App\Convocatoria;
 use App\Carrera;
 use Illuminate\Support\Facades\Hash;
+use DB;
 use Session;
 use Validator;
 use App\Http\Requests\PostulanteRequest;
@@ -18,18 +20,28 @@ class PostulantController extends Controller
 {
     public function index()
     {
-        /*$users = User::all();
-        return view('convocatoria.generar_rotulo',compact('users'));*/
-        // dd('se detiene');
-        // dd(Auth::user()->find(Auth::user()->id)->carreras->name);
-        // dd(Auth::user()->find(Auth:?:user()->id)->carrera_id->carreras->name);
-        // dd(Carrera::find(Auth::user()->carrera_id)->name);
-        // $users = User::all();
-        // dd($users)->get('name');
         $carreras = Carrera::all();
-        return view('convocatoria.generar_rotulo',compact('carreras'));
+        $convocatoria=Convocatoria::all();
+        return view('convocatoria.generar_rotulo',compact('convocatoria','carreras'));
       
     } 
+    public function guardarRotulo()
+    {
+          return redirect('/');;
+    }
+    public function primer_paso()
+    {   
+        
+        $unidad=Unidad::all();
+
+        return view('convocatoria.primer_paso',compact('unidad'));
+    }
+    public function segundo_paso()
+    {
+        $convocatoria =Convocatoria::all();
+
+        return view('convocatoria.segundo_paso', compact('convocatoria'));
+    }
     public function show(User $user)
     { 
         return view('postulante.show',compact('user'));

@@ -9,7 +9,7 @@ class Unidad extends Model
     protected $table='units';
 
     protected $fillable = [
-        // 'id',
+        'id',
         'name',
         'description'        
         ];
