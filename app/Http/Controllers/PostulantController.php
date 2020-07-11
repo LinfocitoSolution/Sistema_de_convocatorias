@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Redirect,Response;
 use App\Convocatoria;
+use App\Carrera;
 use Illuminate\Support\Facades\Hash;
 use Session;
 use Validator;
@@ -19,7 +20,14 @@ class PostulantController extends Controller
     {
         /*$users = User::all();
         return view('convocatoria.generar_rotulo',compact('users'));*/
-        return view('convocatoria.generar_rotulo');
+        // dd('se detiene');
+        // dd(Auth::user()->find(Auth::user()->id)->carreras->name);
+        // dd(Auth::user()->find(Auth:?:user()->id)->carrera_id->carreras->name);
+        // dd(Carrera::find(Auth::user()->carrera_id)->name);
+        // $users = User::all();
+        // dd($users)->get('name');
+        $carreras = Carrera::all();
+        return view('convocatoria.generar_rotulo',compact('carreras'));
       
     } 
     public function show(User $user)

@@ -114,22 +114,22 @@
 									             {{ $errors->has('username')? $errors->first('username') : ''  }}
 								              </div>
 										 </div>
-									</div>	 
+									</div>									
 									<!--campo carrera--->
 									<div class="col-md-6 mb-3">
 								            <label for="validationTooltip04"class="text-black">Carrera</label>
 								         <div class="input-group form-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="selecciona la carrera que est&aacute; cursando">
 									         <div class="input-group-prepend">
 										        <span class="input-group-text"><i class="fa fa-graduation-cap icon-cog"></i></span>
-									         </div>
-									        <!--<input type="text" class="form-control text-capitalize" placeholder="Carrera" name="career" value="{ old('career') }}">-->
+									         </div>									        
 									          <select name="career" class="custom-select form-control">
-										          <option selected class="text-muted"value="sistemas">Ing Sistemas</option>
-										          <option value="informatica">Ing. Informática</option> 
-										          <option value="electrónica">Ing. Electrónica</option> 
+												  {{$carreras = App\Carrera::all()}}												  
+												@foreach($carreras as $item)
+													<option class="text-dark" value="{{ $item->id }}">{{ $item->name }}</option>
+										  		@endforeach												  
 									          </select>
 										</div>
-									</div>	
+									</div>									
 									<!--campo email-->
 									<div class="col-md-6 mb-3">
 								         <label for="validationTooltip05"class="text-black">E-mail</label>

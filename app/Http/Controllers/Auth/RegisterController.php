@@ -89,20 +89,21 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        // dd('hola');
+        // dd($data['career']);
+        return User::create([            
             'name' => $data['name'],
             'lastname' => $data['lastname'],
             'username' => $data['username'],
-            'career' => $data['career'],
+            'carrera_id' => $data['career'],                        
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
     }
 
      public function register(Request $request)
-     {
-         $this->validator($request->all())->validate();
-
+     {         
+         $this->validator($request->all())->validate();        
         event(new Registered($user = $this->create($request->all())));
 
         $user->assignRole(['Postulante']);

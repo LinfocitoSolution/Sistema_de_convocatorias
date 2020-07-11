@@ -13,13 +13,15 @@ class User extends Model implements  AuthenticatableContract
     use Notifiable;         
     use Authenticatable;
 
-    public $table='users';
+    public $table='users';    
     protected $fillable = [
         'id',
+        'carrera_id',
         'name',
         'lastname',
         'email',              //moidificar el archivo del modelo para borrar
-        'career',
+        'direction',
+        'telephone',
         'username',
         'password',
     ];
@@ -29,4 +31,9 @@ class User extends Model implements  AuthenticatableContract
     // public function setPasswordAttribute($value) {
     //     $this->attributes['password'] = bcrypt($value);
     // }
+
+    public function carrera()
+    {
+        return $this->belongsTo('Carrera');
+    }  
 }

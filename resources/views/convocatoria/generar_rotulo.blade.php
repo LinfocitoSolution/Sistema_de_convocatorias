@@ -73,10 +73,13 @@
               <div class="form-group-row mb-3"> 
                 <div class="col-md-6">
                     <label for="inputAddress" class="mr-3">Carrera:</label>
-                  {{--<div class="input-group-prepend"> --}}                   
-                    {{-- <input type="text" class="text" id="career" placeholder="Ingrese su carrera"> --}}
-                     <input type="text" class="text" id="career" value="{{ ucfirst(Auth::user()->career)}}">
-                   {{--</div>--}}
+                    </div>
+                      <select  class="custom-select form-control" id="toApply" required> 
+												@foreach($carreras as $item)
+													<option class="text-dark" value="carrera" {{ ($item->id == (Auth::user()->carrera_id)) ? 'selected' : '' }}>{{ $item->name }}</option>
+										  	@endforeach	
+                      </select>
+                    </div>
                 </div>
              </div>
              <!---convocatoria--->

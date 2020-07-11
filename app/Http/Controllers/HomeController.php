@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Redirect,Response;
 use App\User;
+use App\Carrera;
 use App\Convocatoria;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -25,7 +26,8 @@ class HomeController extends Controller
     public function index()
     {
         $convocatorias = Convocatoria::orderBy('created_at', 'asc')->take(8)->get();
-        $user=User::all();
+        $user=User::all();    
+        // $carreras = Carrera::all();        
         return view('index', [ 'convocatorias' => $convocatorias] ,['user'=>$user]);
     }
 
