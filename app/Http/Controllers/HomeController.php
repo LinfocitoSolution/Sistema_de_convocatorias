@@ -27,7 +27,7 @@ class HomeController extends Controller
     public function index()
     {
         $unidades = Unidad::all();
-        $convocatorias = Convocatoria::orderBy('created_at', 'asc')->take(8)->get();
+        $convocatorias = Convocatoria::orderBy('created_at', 'asc')->take(15)->get();
         $user=User::all();
         return view('index', [ 'convocatorias' => $convocatorias] ,['user'=>$user]);
     }

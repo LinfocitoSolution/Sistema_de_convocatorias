@@ -16,7 +16,7 @@
                </div>
               <!---cuerpo--->
               <div class="card-body">                           
-                <form class="form-group" method="get" action="{{route('rotulo.segundo')}}" >
+              <form class="form-group" method="get" action="{{route('rotulo.segundo')}}" >
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                   <div class="form-group-row">
@@ -35,7 +35,7 @@
                    </div>
                     <div class="form-actions text-center">
                       <button class="btn btn-outline-dark" type="submit">siguiente</button>
-                      <!--<a class="btn btn-outline-dark" href="{{route('rotulo.segundo')}}">Siguiente</a>-->
+                      <!--<a class="btn btn-outline-dark" href="{{route('rotulo.segundo')}}">Siguientes</a>-->
                       
                     </div> 
                 </form> 

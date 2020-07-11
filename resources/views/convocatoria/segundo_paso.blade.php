@@ -17,7 +17,7 @@
               <!---cuerpo--->
               <div class="card-body">
                 <form class="form-group" method="get" action={{route("postulacion.form")}} >
-                    <input type="hidden" name="_token" value="{ csrf_token() }}">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     
                   <div class="form-group-row">
                     <!----Laboratorio---->
@@ -25,10 +25,11 @@
                          <label class="input-group-text text-white" for="">Convocatoria a postular:</label>
                    
                          <select  class="custom-select form-control" type="text" name="convoca" > 
-                           @foreach($convocatoria as $convo)  
-                           
+                           @foreach($convocatoria as $convo)
+                           {{$unidad= $_GET['unidad']}}  
+                           @if($convo->unit_id==$unidad && $convo->whereYear('gestion', '=', '2020'))
                           <option class="text-dark" value="{{$convo->id}}">{{$convo->titulo_convocatoria}}</option>
-                             
+                            @endif
                            @endforeach
                            </select>
                       </div>
