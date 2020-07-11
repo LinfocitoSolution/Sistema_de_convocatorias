@@ -91,7 +91,7 @@
                                 </span>
                                 <p hidden> {{$convoca= $_GET['convoca']}}</p>
                                 <p hidden>{{$convocatoria=App\Convocatoria::find($convoca)}}</p>
-                                <select class="form-control js-example-basic-single " name="requerimientos" single="single">
+                                <select class="form-control custom-select " name="requerimientos">
                                   
                                   @foreach($convocatoria->requerimientos as $item)
                                 <option class="text-dark" value="{{$item->id}}">{{ $item->nombre_auxiliatura }}</option>
@@ -104,18 +104,18 @@
                        <!----carrera--->
                       
                        <div class="col-md-6 mb-3">
-                        <label for="" class="col-form-label "><b>Carrera:</b></label>
-                        <div class="input-group">
-                        <span class="input-group-append">
-                          <button class="btn btn-dark text-white" type="button">C</button>
-                        </span>
+                           <label for="" class="col-form-label "><b>Carrera:</b></label>
+                          <div class="input-group">
+                             <span class="input-group-append">
+                                <button class="btn btn-dark text-white" type="button">C</button>
+                             </span>
                                <select  class="custom-select form-control" id="toApply" required> 
                                  @foreach($carreras as $item)
                                    <option class="text-dark" value="carrera" {{ ($item->id == (Auth::user()->carrera_id)) ? 'selected' : '' }}>{{ $item->name }}</option>
                                  @endforeach	
                                </select>
-                              </div>
-                         </div>
+                           </div>
+                        </div>
                       
               
                       <!-----documento subir curriculum-->
@@ -123,29 +123,30 @@
                         <label for="exampleFormControlFile1" class="col-form-label mr-2"><b>Subir curriculum</b></label>
                         <input type="file" class="form-control-file" id="exmapleFormControlFile1">
                       </div>
-                    </div>
+
+                    <!--fin row-->  
+                   </div>
                     
                         
-                        <div class="form-actions text-center">
+                        <div class="form-actions text-center mt-3">
                             <a class="btn btn-outline-dark px-4" href="{{route('rotulo.segundo')}}">Atras</a>
                             <a href="javascript:save()"> <button  class="btn btn-outline-dark" type="submit" data-toggle="tooltip" data-placement="right" title="Presione el bot&oacute;n para generar el rótulo" >GENERAR ROTULO</button></a>
+                        </div>
+                      
+                      
+                  </form>
+               </div>
                         
-                      
-                      
-               <!-- </form>-->
-                        </div>
-                        </div>
-                <!---pies-->
-                 <div class="card-footer">
-                 </div>
-              <!----fin tarjeta-->
-                </div>
-            </div>
-              
-         </div>
-       </div>
+                  <!---pies-->
+                  <div class="card-footer">
+                  </div>
+                 <!----fin tarjeta-->
+              </div>
+          </div>
+        </div>
+      </div>
       
   
   
-       @include('admin.layouts.script')
+      
  @endsection
