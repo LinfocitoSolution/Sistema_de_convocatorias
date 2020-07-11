@@ -27,7 +27,7 @@
                          <select  class="custom-select form-control" type="text" name="convoca" > 
                            @foreach($convocatoria as $convo)
                            {{$unidad= $_GET['unidad']}}  
-                           @if($convo->unit_id==$unidad)
+                           @if($convo->unit_id==$unidad && $convo->whereYear('gestion', '=', '2020'))
                           <option class="text-dark" value="{{$convo->id}}">{{$convo->titulo_convocatoria}}</option>
                             @endif
                            @endforeach

@@ -17,8 +17,8 @@
             </div>
             <!---cuerpo--->
           <div class="card-body">
-            <!-- <form class="form-group" method="get" action={url("/rotulo")}} >
-               <input type="hidden" name="_token" value="{ csrf_token() }}">--->
+             <form class="form-group" method="POST" action={{route("rotulo.guardar")}} >
+               <input type="hidden" name="_token" value="{{ csrf_token() }}">
                  <!--nombre--->
                 <div class="form-row">
                  
@@ -80,15 +80,24 @@
                                <input type="text" class="form-control" id="email" value="{{ ucfirst(Auth::user()->email)}}">
                             </div>
                        </div>
-                      <!-----codigp de item-->  
-               
+                      <!-----nombre de auxiliatura-->  
+                      
+                      
                        <div class="col-md-6 mb-3">
-                           <label for="" class="col-form-label mr-2"><b>Codigo de item:</b></label>
+                           <label for="" class="col-form-label mr-2"><b>Nombre de Auxiliatura:</b></label>
                              <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="Revise sus datos">
                                 <span class="input-group-append">
                                    <button class="btn btn-dark text-white" type="button">C</button>
                                 </span>
-                               <input type="text" class="form-control" id="codigoItem" value="">
+                                <p hidden> {{$convoca= $_GET['convoca']}}</p>
+                                <p hidden>{{$convocatoria=App\Convocatoria::find($convoca)}}</p>
+                                <select class="form-control js-example-basic-single " name="requerimientos" single="single">
+                                  
+                                  @foreach($convocatoria->requerimientos as $item)
+                                <option class="text-dark" value="{{$item->id}}">{{ $item->nombre_auxiliatura }}</option>
+                                  @endforeach
+                              
+                               </select>
                              </div>
                        </div>
               
@@ -103,7 +112,7 @@
                   </div>    
                         <div class="form-actions text-center">
                             <a class="btn btn-outline-dark px-4" href="{{route('rotulo.segundo')}}">Atras</a>
-                            <a href="javascript:save()"> <button  class="btn btn-outline-dark" data-toggle="tooltip" data-placement="right" title="Presione el bot&oacute;n para generar el rótulo" >GENERAR ROTULO</button></a>
+                            <a href="javascript:save()"> <button  class="btn btn-outline-dark" type="submit" data-toggle="tooltip" data-placement="right" title="Presione el bot&oacute;n para generar el rótulo" >GENERAR ROTULO</button></a>
 
                          </div>
                 </div>
@@ -116,4 +125,5 @@
        </div>
     </div>
   </div>
+  @include('admin.layouts.script')
  @endsection
