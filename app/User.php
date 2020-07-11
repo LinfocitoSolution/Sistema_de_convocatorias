@@ -35,5 +35,9 @@ class User extends Model implements  AuthenticatableContract
     public function carrera()
     {
         return $this->belongsTo('Carrera');
+    }
+    public function curriculum()
+    {
+        return $this->hasOne('Curriculum');
     }  
 }
