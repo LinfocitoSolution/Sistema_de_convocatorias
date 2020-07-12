@@ -6,7 +6,8 @@
   <script src="{{asset('jquery/jquery-3.4.1.slim.min.js')}}" type="text/javascript"></script>
   <script src="{{asset('js/bootstrap.bundle.min.js')}}" type="text/javascript"></script>
   <script src="{{asset('js/html2canvas.js')}}" type="text/javascript"></script>
-
+  <link href="{{URL::asset('https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css')}}" rel="stylesheet" />
+  <script src="{{URL::asset('https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js')}}"></script>
   <script> function save(){
     var doc = new jsPDF('l', 'pt', 'letter');
     doc.setFontType('normal');
