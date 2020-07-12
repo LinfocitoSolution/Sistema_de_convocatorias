@@ -38,11 +38,11 @@
             left: 40,
             width: 522  
         };
-    doc.fromHTML(elemento1, margins.left, margins.top+30, {
+    doc.fromHTML(elemento1, margins.left, margins.top+60, {
         'width': margins.width,
         'elementHandlers': specialElementHandlers
     });
-    doc.fromHTML(elemento2, margins.left, margins.top+250, {
+    doc.fromHTML(elemento2, margins.left, margins.top+270, {
         'width': margins.width,
         'elementHandlers': specialElementHandlers
     });
@@ -102,7 +102,7 @@
     doc.setFontType('normal');
     doc.setFontStyle('Arial');
     doc.setFontSize(12);
-    doc.text("Cochabamba, " + d + " de " + meses[m] + " de " + y, 60, 400)
+    doc.text("Cochabamba, " + d + " de " + meses[m-1] + " de " + y, 60, 400)
 
      //FIRMAS
     doc.setFontSize(11);

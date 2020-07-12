@@ -16,29 +16,26 @@
                </div>
               <!---cuerpo--->
               <div class="card-body">                           
-              <form class="form-group" method="get" action="{{route('rotulo.segundo')}}" >
-                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-                  <div class="form-group-row">
-                    <!----Laboratorio---->
-                      <div class="col-mb-5 mb-3">
-                         <label class="input-group-text text-white" for="">Unidad a postular:</label>
-                   
-                           <select  class="custom-select form-control" type="text" name="unidad" > 
-                            @foreach($unidad as $uni)  
-                            
-                           <option class="text-dark" value="{{$uni->id}}">{{$uni->name}}</option>
+                @foreach($unidad as $uni)  
+                <form class="form-group" method="get" action="{{route('rotulo.segundo', $uni)}}" >
+                      <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <div class="form-group-row">
+                      <!----Laboratorio---->
+                        <div class="col-mb-5 mb-3">
+                          <label class="input-group-text text-white" for="">Unidad a postular:</label>
+                            <select  class="custom-select form-control" type="text" name="unidad" > 
                               
-                            @endforeach
-                            </select>
-                      </div>
-                   </div>
-                    <div class="form-actions text-center">
-                      <button class="btn btn-outline-dark" type="submit">siguiente</button>
-                      <!--<a class="btn btn-outline-dark" href="{{route('rotulo.segundo')}}">Siguientes</a>-->
-                      
-                    </div> 
-                </form> 
+                                  <option class="text-dark" value="{{$uni->id}}">{{$uni->name}}</option>
+                              
+                              </select>
+                        </div>
+                    </div>
+                      <div class="form-actions text-center">
+                        <button class="btn btn-outline-dark" type="submit">Siguiente</button>
+                        <!--<a class="btn btn-outline-dark" href="{{route('rotulo.segundo', $uni)}}">Siguientes</a>-->
+                      </div> 
+                  </form> 
+                @endforeach
               </div> 
                   <!---pies-->
                  <div class="card-footer">
