@@ -31,6 +31,7 @@
                         </div>
                         <div class="form-actions text-center">
                           <button class="btn btn-outline-dark" type="submit">Siguiente</button>
+                          <a class="btn btn-outline-dark" href="{{url("home")}}">Atras</a>
                           {{-- <a class="btn btn-outline-dark" href="{{route('rotulo.segundo', $uni)}}">Siguiente</a> --}}
                         </div> 
                     </div>
