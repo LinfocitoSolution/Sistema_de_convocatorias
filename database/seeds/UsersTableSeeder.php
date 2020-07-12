@@ -35,7 +35,7 @@ class UsersTableSeeder extends Seeder
                 'email' => 'postulante@gmail.com',
                 'carrera_id' => 2,
                 'direction'=>'Avenida Melchor Perez',
-                'telephonewe'=>'79869786',
+                'telephone'=>'79869786',
                 'username' => 'postulante',                            
                 'password' => bcrypt('postulante'),
                 'remember_token' => '',

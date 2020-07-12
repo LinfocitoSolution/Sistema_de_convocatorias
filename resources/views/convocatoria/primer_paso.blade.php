@@ -23,12 +23,9 @@
                     <!----Laboratorio---->
                       <div class="col-mb-5 mb-3">
                          <label class="input-group-text text-white" for="">Unidad a postular:</label>
-                   
                            <select  class="custom-select form-control" type="text" name="unidad" > 
                             @foreach($unidad as $uni)  
-                            
-                           <option class="text-dark" value="{{$uni->id}}">{{$uni->name}}</option>
-                              
+                                <option class="text-dark" value="{{$uni->id}}">{{$uni->name}}</option>
                             @endforeach
                             </select>
                       </div>

@@ -14,24 +14,24 @@
     doc.setFontSize(20);
     // doc.setFontType('bold');
     
-    var columns = ["Nombre", "Apellido","Dirección","Teléfono","Email","Código de item"];
-    var nomb = document.getElementById("name").value;
-    var ap = document.getElementById("lastname").value;
-    var dir = document.getElementById("direccion").value;
-    var telf = document.getElementById("telefono").value;
-    var email = document.getElementById("email").value;
-    var cod = document.getElementById("codigoItem").value;
-    var data = [];
-    data.push([nomb,ap,dir,telf,email,cod]);
-    console.log(data);
-    doc.autoTable(columns,data,
-    { margin:{ top: 40 }});
+    // var columns = ["Nombre", "Apellido","Dirección","Teléfono","Email","Código de item"];
+    // var nomb = document.getElementById("name").value;
+    // var ap = document.getElementById("lastname").value;
+    // var dir = document.getElementById("direccion").value;
+    // var telf = document.getElementById("telefono").value;
+    // var email = document.getElementById("email").value;
+    // var cod = document.getElementById("codigoItem").value;
+    // var data = [];
+    // data.push([nomb,ap,dir,telf,email,cod]);
+    // console.log(data);
+    // doc.autoTable(columns,data,
+    // { margin:{ top: 40 }});
 
-    // doc.text("Nombre: ".concat(document.getElementById("name").value) , 40,60);
-    // doc.text("Apellido: ".concat(document.getElementById("lastname").value) , 40,80);
-    // doc.text("Dirección: ".concat(document.getElementById("direccion").value) , 40,100);
-    // doc.text("Teléfono: ".concat(document.getElementById("telefono").value) , 40,120);
-    // doc.text("Email: ".concat(document.getElementById("email").value) , 40,140);
+    doc.text("Nombre: ".concat(document.getElementById("name").value) , 40,60);
+    doc.text("Apellido: ".concat(document.getElementById("lastname").value) , 40,80);
+    doc.text("Dirección: ".concat(document.getElementById("direccion").value) , 40,100);
+    doc.text("Teléfono: ".concat(document.getElementById("telefono").value) , 40,120);
+    doc.text("Email: ".concat(document.getElementById("email").value) , 40,140);
     // doc.text("Código de item: ".concat(document.getElementById("codigoItem").value) ,40,160);
 
     // var list = document.getElementById("toApply");

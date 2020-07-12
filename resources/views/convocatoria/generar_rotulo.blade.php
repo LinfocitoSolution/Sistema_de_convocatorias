@@ -91,12 +91,10 @@
                                 </span>
                                 <p hidden> {{$convoca= $_GET['convoca']}}</p>
                                 <p hidden>{{$convocatoria=App\Convocatoria::find($convoca)}}</p>
-                                <select class="form-control js-example-basic-single " name="requerimientos" single="single">
-                                  
+                                <select class="form-control js-example-basic-single " name="codigoItem" single="single">
                                   @foreach($convocatoria->requerimientos as $item)
-                                <option class="text-dark" value="{{$item->id}}">{{ $item->nombre_auxiliatura }}</option>
+                                      <option class="text-dark" value="{{$item->codigo_auxiliatura}}">{{ $item->nombre_auxiliatura }}</option>
                                   @endforeach
-                              
                                </select>
                              </div>
                        </div>
@@ -125,10 +123,9 @@
                         <div class="form-actions text-center">
                             <a class="btn btn-outline-dark px-4" href="{{route('rotulo.segundo')}}">Atras</a>
                             <a href="javascript:save()"> <button  class="btn btn-outline-dark" type="submit" data-toggle="tooltip" data-placement="right" title="Presione el bot&oacute;n para generar el rótulo" >GENERAR ROTULO</button></a>
-
-                         </div>
+                        </div>
                 </div>
-               <!-- </form>-->
+              </form>
                 <!---pies-->
                  <div class="card-footer">
                  </div>
@@ -137,5 +134,4 @@
        </div>
     </div>
   </div>
-  @include('admin.layouts.script')
  @endsection

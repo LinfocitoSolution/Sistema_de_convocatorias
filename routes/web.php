@@ -114,7 +114,7 @@ Route::get('reset', function () {
 });// falta los middlewares
 
 //######################ROTULO###################################
-Route::get('formulario_postulacion','PostulantController@index')->name('postulacion.form');// falta los middlewares
+Route::get('formulario_postulacion_{call}','PostulantController@index')->name('postulacion.form');// falta los middlewares
 Route::get('postulante_{user}_show','PostulantController@show')->name('postulante.show');// falta los middlewares
 Route::get('postulante_edit_{user}','PostulantController@edit')->name('postulante.edit');// falta los middlewares
 Route::put('postulante_{user}_update','PostulantController@update')->name('postulante.update');// falta los middlewares

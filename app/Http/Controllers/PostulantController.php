@@ -18,11 +18,11 @@ use App\Http\Requests\PostulanteRequest;
 
 class PostulantController extends Controller
 {
-    public function index()
+    public function index(Convocatoria $call)
     {
         $carreras = Carrera::all();
-        $convocatoria=Convocatoria::all();
-        return view('convocatoria.generar_rotulo',compact('convocatoria','carreras'));
+        // $convocatoria = Convocatoria::all();
+        return view('convocatoria.generar_rotulo',compact('call','carreras'));
       
     } 
     public function guardarRotulo()
