@@ -73,7 +73,7 @@
       <div class="col-md-6 mb-2">  
         <label class="col-form-label" for="">Requisitos: </label>
          <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="-Escriba los requisitos de la convocatoria">
-            <textarea class="form-control" name="requisito" rows="3" maxlength="150" >{{ old('requisito', isset($call) ? $call->requisitos : '') }}</textarea>
+            <textarea class="form-control" name="requisito" rows="10" maxlength="3000" >{{ old('requisito', isset($call) ? $call->requisitos : '') }}</textarea>
          </div>
          <div class="invalid-feedback {{ $errors->has('requisito')? 'd-block' : '' }}">
             {{ $errors->has('requisito')? $errors->first('requisito') : 'El campo de Nombre es requerido'  }}
