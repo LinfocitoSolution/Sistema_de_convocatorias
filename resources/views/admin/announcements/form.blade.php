@@ -5,7 +5,7 @@
               <span class="input-group-append">
                  <button class="btn btn-dark" type="button">T</button>
                </span>
-             <input class="form-control" type="text" name="titulo" placeholder="Ingrese el titulo " value="{{ old('titulo', isset($call) ? $call->titulo_convocatoria : '') }}">
+             <input class="form-control text-uppercase" type="text" name="titulo" placeholder="Ingrese el titulo " value="{{ old('titulo', isset($call) ? $call->titulo_convocatoria : '') }}">
             </div>
             <div class="invalid-feedback {{ $errors->has('titulo')? 'd-block' : '' }}">
                {{ $errors->has('titulo')? $errors->first('titulo') : 'El titulo ingresado ya existe en nuestros registros'  }}
@@ -49,7 +49,7 @@
         <!----Requerimientos--->
         <div class="col-md-6 mb-2">
           <label class="col-form-label" for="nameReque">Requerimiento de Laboratorio</label>
-         <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="-Debe seleccionar al menos u requerimiento para continuar.">
+         <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="-Debe seleccionar al menos un requerimiento para continuar.">
             <span class="input-group-append">
               <button class="btn btn-dark" type="button">R</button>
             </span>
