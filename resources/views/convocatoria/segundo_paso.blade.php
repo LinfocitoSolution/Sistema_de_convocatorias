@@ -38,8 +38,8 @@
                             </div>
                         </div>
                         <div class="form-actions text-center">
-                            <a class="btn btn-outline-dark px-4" href="{{route('rotulo.primer')}}">Atras</a>  
-                            <button class="btn btn-outline-dark" type="submit">Siguiente</button>
+                            <a class="btn btn-outline-dark px-4" href="{{route('rotulo.primer')}}" data-toggle="tooltip" data-placement="left" title="Presione para volver al anterior paso">Atras</a>  
+                            <button class="btn btn-outline-dark" type="submit" data-toggle="tooltip" data-placement="right" title="Presione para avanzar al formulario de rótulo">Siguiente</button>
                         </div> 
                     </form> 
               </div>  
