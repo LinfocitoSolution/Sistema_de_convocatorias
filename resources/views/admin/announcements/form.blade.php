@@ -56,13 +56,10 @@
             <select class="form-control js-example-basic-multiple " name="requerimientos[]" multiple="multiple">
                @foreach($requerimientos as $item)
                      @if($item->tipo_requerimiento=='requerimiento de laboratorio')
-                     <option class="text-dark" value="{{ $item->id }}">{{ $item->nombre_auxiliatura }}</option>
-                     
-                     
+                        <option class="text-dark" value="{{ $item->id }}">{{ $item->nombre_auxiliatura }}</option>
                      @endif      
                @endforeach
             </select>
-            
          </div>
          <div class="invalid-feedback {{ $errors->has('requerimientos')? 'd-block' : '' }}">
             {{ $errors->has('requerimientos')? $errors->first('requerimientos') : ''  }}
@@ -72,8 +69,8 @@
       <!---Requisitos--->  
       <div class="col-md-6 mb-2">  
         <label class="col-form-label" for="">Requisitos: </label>
-         <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="-M&aacute;ximo 900 caracteres <br> -M&iacute;nimo 5 caracteres">
-            <textarea class="form-control" name="requisito" rows="3" maxlength="150" >{{ old('requisito', isset($call) ? $call->requisitos : '') }}</textarea>
+         <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="-Escriba los requisitos de la convocatoria">
+            <textarea class="form-control" name="requisito" rows="10" maxlength="3000" >{{ old('requisito', isset($call) ? $call->requisitos : '') }}</textarea>
          </div>
          <div class="invalid-feedback {{ $errors->has('requisito')? 'd-block' : '' }}">
             {{ $errors->has('requisito')? $errors->first('requisito') : 'El campo de Nombre es requerido'  }}

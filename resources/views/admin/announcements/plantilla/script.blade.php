@@ -98,7 +98,7 @@ doc.autoTable(res.columns, res.data);*/
   doc.setFontType('normal');
   doc.setFontStyle('Arial');
   doc.setFontSize(12);
-  doc.text("Cochabamba, " + d + " de " + meses[m] + " de " + y, 60, 400);
+  doc.text("Cochabamba, " + d + " de " + meses[m-1] + " de " + y, 60, 400);
 
 
   //FIRMAS
@@ -134,7 +134,7 @@ doc.autoTable(res.columns, res.data);*/
   doc.setFontType('normal');
   doc.setFontStyle('Arial');
   doc.save('convocatoria.pdf');
-//   location.href = "/";
+  location.href = "/";
 }
 </script>
 

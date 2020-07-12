@@ -12,6 +12,10 @@
     @include('admin.announcements.plantilla.scriptDoc')
 </head>
 <body>
+    <script>
+        const conv = {!! json_encode($call) !!};
+        // console.log(conv);
+    </script>
                 <h4 style="margin-left: 8cm" id="titulo">{{$call->titulo_convocatoria}}</h4>
                  <h5 style="margin-left: 8cm" id="gestion">GESTIÓN 2020</h5>
             <div class="hoja" id="datos">  
@@ -62,7 +66,7 @@
           </div>
         <div id="parte2">
             <h6>2.&nbsp;&nbsp;REQUISITOS</h6>
-                  <p>{{$call->requisitos}}</p>
+                        <p>{{$call->requisitos}}</p><br>
             <br>
             <h6>3.&nbsp;&nbsp;DOCUMENTOS A PRESENTAR</h6>
                <div class="documentos">

@@ -26,8 +26,8 @@
                 <th>Tipo de convocatoria</th>
              <!--   <th>Archivo</th> -->
                 <th>Gestión</th>
-                <th>Eventos</th>
-                <th>Fechas</th>
+                <th>Unidad</th>
+                
                 <th>Opciones</th>
              </tr>
             </thead>
@@ -39,8 +39,8 @@
                    <!-- <td><a href="call/{{$call->pdf_file}}" target="_blank" >{{$call->pdf_file}}</a></td> -->
                     <td>{{$call->gestion}}</td>
                     
-                    <td>@foreach($call->fechas as $req) {{$req->evento}} <br> @endforeach</td>
-                    <td>@foreach($call->fechas as $req) {{$req->fechaI}} <br> @endforeach</td>
+                    <td>{{App\Unidad::find($call->unit_id)->name}}</td>
+                    
                   
                     <td>
                       @if($call->tipo_convocatoria=='convocatoria de docencia')
