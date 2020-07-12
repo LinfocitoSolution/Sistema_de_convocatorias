@@ -24,7 +24,7 @@
                  
                     <div class="col-md-6 mb-3">
                         <label for=""class="col-form-label mr-2"><b>Nombres:</b></label>
-                        <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="-M&aacute;ximo 50 caracteres <br> -M&iacute;nimo 3 caracteres <br> -No acepta caracteres especiales">
+                        <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="revise sus datos">
                            {{-- <input type="text" class="text" id="name" placeholder="Ingrese su nombre"> --}}
                            <span class="input-group-append">
                             <button class="btn btn-dark text-white" type="button">N</button>
@@ -50,7 +50,7 @@
                      <div class="col-md-6 mb-3">
                          <label for="" class=" col-form-label mr-2"><b>Dirección:</b></label>
                           {{-- <input type="text" class="text" id="lastname" placeholder="Ingrese su apellido"> --}}
-                          <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="Revise sus datos">
+                          <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="Ingrese la direccion en donde vive">
                             <span class="input-group-append">
                                 <button class="btn btn-dark text-white" type="button">D</button>
                             </span>
@@ -62,7 +62,7 @@
                       <div class="col-md-6 mb-3">
                           <label for="" class="col-form-label mr-2"><b>Teléfono:</b></label>
                           {{-- <input type="text" class="text" id="lastname" placeholder="Ingrese su apellido"> --}}
-                          <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="Revise sus datos">
+                          <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="Ingrese su número de celular o teléfono">
                              <span class="input-group-append">
                                  <button class="btn btn-dark text-white" type="button">T</button>
                              </span>
@@ -87,7 +87,7 @@
                            <label for="" class="col-form-label mr-2"><b>Nombre de Auxiliatura:</b></label>
                              <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="Revise sus datos">
                                 <span class="input-group-append">
-                                   <button class="btn btn-dark text-white" type="button">C</button>
+                                   <button class="btn btn-dark text-white" type="button">NA</button>
                                 </span>
                                 {{-- <p hidden> {{$convoca= $_GET['convoca']}}</p>
                                 <p hidden>{{$convocatoria=App\Convocatoria::find($convoca)}}</p> --}}
@@ -104,7 +104,7 @@
                       
                        <div class="col-md-6 mb-3">
                            <label for="" class="col-form-label "><b>Carrera:</b></label>
-                          <div class="input-group">
+                          <div class="input-group" data-toggle="tooltip" data-placement="right" title="Seleccione su carrera">
                              <span class="input-group-append">
                                 <button class="btn btn-dark text-white" type="button">C</button>
                              </span>
@@ -126,7 +126,7 @@
                     <!--fin row-->  
                    </div>
                         <div class="form-actions text-center mt-3">
-                            <a class="btn btn-outline-dark px-4" href="{{route('rotulo.segundo')}}">Atras</a>
+                            <a class="btn btn-outline-dark px-4" href="{{route('rotulo.segundo')}}" data-toggle="tooltip" data-placement="left" title="Presione para volver al paso anterior">Atras</a>
                            <button  class="btn btn-outline-dark" onclick="save()" type="submit" data-toggle="tooltip" data-placement="right" title="Presione el bot&oacute;n para generar el rótulo" >GENERAR RÓTULO</button>
                             {{-- <a href="javascript:save()"> Test</a> --}}
                         </div>

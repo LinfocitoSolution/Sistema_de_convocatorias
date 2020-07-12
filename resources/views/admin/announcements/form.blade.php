@@ -5,7 +5,7 @@
               <span class="input-group-append">
                  <button class="btn btn-dark" type="button">T</button>
                </span>
-             <input class="form-control" type="text" name="titulo" placeholder="Ingrese el titulo " value="{{ old('titulo', isset($call) ? $call->titulo_convocatoria : '') }}">
+             <input class="form-control text-uppercase" type="text" name="titulo" placeholder="Ingrese el titulo " value="{{ old('titulo', isset($call) ? $call->titulo_convocatoria : '') }}">
             </div>
             <div class="invalid-feedback {{ $errors->has('titulo')? 'd-block' : '' }}">
                {{ $errors->has('titulo')? $errors->first('titulo') : 'El campo de Nombre es requerido'  }}
