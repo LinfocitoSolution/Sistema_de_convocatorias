@@ -119,8 +119,8 @@ Route::get('postulante_edit_{user}','PostulantController@edit')->name('postulant
 Route::put('postulante_{user}_update','PostulantController@update')->name('postulante.update');// falta los middlewares
 // Route::resource('postulante','PostulantController');
 Route::get('primerPaso','PostulantController@primerPaso')->name('rotulo.primer');
-Route::get('segundoPaso_{uni}','PostulantController@segundoPaso')->name('rotulo.segundo');
-Route::get('formularioPostulacion_{call}','PostulantController@index')->name('postulacion.form');// falta los middlewares
+Route::get('segundoPaso','PostulantController@segundoPaso')->name('rotulo.segundo');
+Route::get('formularioPostulacion','PostulantController@index')->name('postulacion.form');// falta los middlewares
 
 Route::post('guardarRotulo','PostulantController@guardarRotulo')->name('rotulo.guardar');
 //################################################################

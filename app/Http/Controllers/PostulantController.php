@@ -19,12 +19,12 @@ use App\Http\Requests\PostulanteRequest;
 
 class PostulantController extends Controller
 {
-    public function index(Convocatoria $call)
+    public function index(Request $request)
     {
+        $callid = $request->input('convoca');
+        $call = Convocatoria::find($callid);
         $carreras = Carrera::all();
-        // $convocatoria = Convocatoria::all();
         return view('convocatoria.generar_rotulo',compact('call','carreras'));
-      
     } 
     public function guardarRotulo(Request $request)
     {
@@ -41,13 +41,12 @@ class PostulantController extends Controller
     }
     public function primerPaso()
     {   
-        
         $unidad=Unidad::all();
-
         return view('convocatoria.primer_paso',compact('unidad'));
     }
-    public function segundoPaso(Unidad $uni)
+    public function segundoPaso(Request $request)
     {
+        $uni = $request->input('unidad');
         $convocatoria =Convocatoria::all();
         return view('convocatoria.segundo_paso', compact('convocatoria', 'uni'));
     }
