@@ -126,7 +126,7 @@
                     <!--fin row-->  
                    </div>
                         <div class="form-actions text-center mt-3">
-                            <a class="btn btn-outline-dark px-4" href="{{route('rotulo.segundo')}}">Atras</a>
+                            <a class="btn btn-outline-dark px-4" href="{{route('rotulo.primer')}}">Cancelar</a>
                            <button  class="btn btn-outline-dark" onclick="save()" type="submit" data-toggle="tooltip" data-placement="right" title="Presione el bot&oacute;n para generar el rótulo" >GENERAR RÓTULO</button>
                             {{-- <a href="javascript:save()"> Test</a> --}}
                         </div>
