@@ -1,21 +1,21 @@
 <div class="form-row">
     <div class="col-md-6 mb-2">
           <label class="col-form-label" for="nameArea">Titulo</label>
-       <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="-Seleccione el área que requiera">
+       <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="--M&aacute;ximo 200 caracteres <br> -M&iacute;nimo 3 caracteres <br> -No acepta caracteres especiales,números">
           <span class="input-group-append">
              <button class="btn btn-dark" type="button">T</button>
            </span>
          <input class="form-control" type="text" name="titulo" placeholder="Ingrese el titulo " value="{{ old('titulo', isset($call) ? $call->titulo_convocatoria : '') }}">
         </div>
         <div class="invalid-feedback {{ $errors->has('titulo')? 'd-block' : '' }}">
-         {{ $errors->has('titulo')? $errors->first('titulo') : 'El campo de Nombre es requerido'  }}
+         {{ $errors->has('titulo')? $errors->first('titulo') : 'El titulo ingresado ya existe en nuestros registros' }}
      </div>
      </div>
   
     <!----Unidad--->
     <div class="col-md-6 mb-2">
         <label class="col-form-label" for="nameUnidad">Unidad</label>
-       <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="-Seleccione la unidad que requiere">
+       <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="Seleccione la unidad que requiera.">
           <span class="input-group-append">
             <button class="btn btn-dark" type="button">U</button>
           </span>
@@ -33,7 +33,7 @@
     <!---Gestion-->
     <div class="col-md-6 mb-2">
          <label class="col-form-label" for="nameGestion">Gestión</label>
-         <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="Solo se permite en la gestión actual">
+         <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="El campo gestión tiene que ser despues del dia actual.<br> -El campo gestion tiene que tener el formato de fecha.">
         
           <span class="input-group-append">
              <button class="btn btn-dark" type="button">G</button>
@@ -48,7 +48,7 @@
     <!----Requerimientos--->
     <div class="col-md-6 mb-2">
       <label class="col-form-label" for="nameReque">Requerimiento de Docencia</label>
-     <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="-Seleccione los requerimientos que requiera">
+     <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="-Debe seleccionar al menos un requerimiento para continuar.">
         <span class="input-group-append">
           <button class="btn btn-dark" type="button">R</button>
         </span>
