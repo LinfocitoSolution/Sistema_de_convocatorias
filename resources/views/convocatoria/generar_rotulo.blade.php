@@ -89,10 +89,8 @@
                                 <span class="input-group-append">
                                    <button class="btn btn-dark text-white" type="button">C</button>
                                 </span>
-                                {{-- <p hidden> {{$convoca= $_GET['convoca']}}</p>
-                                <p hidden>{{$convocatoria=App\Convocatoria::find($convoca)}}</p> --}}
+                                {{-- <p hidden>{{$convocatoria=App\Convocatoria::find($convoca)}}</p> --}}
                                 <select class="form-control custom-select " id="requerimientos">
-                                  
                                   @foreach($call->requerimientos as $item)
                                       <option class="text-dark" value="{{$item->codigo_auxiliatura}}">{{ $item->nombre_auxiliatura }}</option>
                                   @endforeach
