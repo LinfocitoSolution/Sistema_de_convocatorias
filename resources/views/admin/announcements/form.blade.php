@@ -56,13 +56,10 @@
             <select class="form-control js-example-basic-multiple " name="requerimientos[]" multiple="multiple">
                @foreach($requerimientos as $item)
                      @if($item->tipo_requerimiento=='requerimiento de laboratorio')
-                     <option class="text-dark" value="{{ $item->id }}">{{ $item->nombre_auxiliatura }}</option>
-                     
-                     
+                        <option class="text-dark" value="{{ $item->id }}">{{ $item->nombre_auxiliatura }}</option>
                      @endif      
                @endforeach
             </select>
-            
          </div>
          <div class="invalid-feedback {{ $errors->has('requerimientos')? 'd-block' : '' }}">
             {{ $errors->has('requerimientos')? $errors->first('requerimientos') : ''  }}

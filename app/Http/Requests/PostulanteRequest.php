@@ -26,8 +26,8 @@ class PostulanteRequest extends FormRequest
         return [
             'name'=>'required|max:50|min:3|regex:/^[\pL\s\-]+$/u',
             'lastname'=>'required|max:50|regex:/^[\pL\s\-]+$/u',
-            'email'=>'required|email|unique:users,email,' . $this->user->id . ',id',
-            'username'=>'required|max:20|alpha_num|regex:/^[a-zA-Z0-9]+$/S|unique:users,username,'. $this->user->id . ',id',
+            // 'email'=>'required|email|unique:users,email,' . $this->user->id . ',id',
+            // 'username'=>'required|max:20|alpha_num|regex:/^[a-zA-Z0-9]+$/S|unique:users,username,'. $this->user->id . ',id',
         ];
     }
     public function messages()

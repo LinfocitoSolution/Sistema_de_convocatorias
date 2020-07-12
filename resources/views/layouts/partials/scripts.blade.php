@@ -8,12 +8,14 @@
   <script src="{{asset('js/html2canvas.js')}}" type="text/javascript"></script>
   <link href="{{URL::asset('https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css')}}" rel="stylesheet" />
   <script src="{{URL::asset('https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js')}}"></script>
-  <script> function save(){
+
+  <script> async function save(){
     var doc = new jsPDF('l', 'pt', 'letter');
     doc.setFontType('normal');
     doc.setFontStyle('Arial');
-    doc.setFontSize(20);
-    // doc.setFontType('bold');
+    doc.setFontSize(25);
+    console.log('test');
+    doc.setFontType('bold');
     
     // var columns = ["Nombre", "Apellido","Dirección","Teléfono","Email","Código de item"];
     // var nomb = document.getElementById("name").value;
@@ -28,18 +30,24 @@
     // doc.autoTable(columns,data,
     // { margin:{ top: 40 }});
 
-    doc.text("Nombre: ".concat(document.getElementById("name").value) , 40,60);
-    doc.text("Apellido: ".concat(document.getElementById("lastname").value) , 40,80);
-    doc.text("Dirección: ".concat(document.getElementById("direccion").value) , 40,100);
-    doc.text("Teléfono: ".concat(document.getElementById("telefono").value) , 40,120);
-    doc.text("Email: ".concat(document.getElementById("email").value) , 40,140);
-    // doc.text("Código de item: ".concat(document.getElementById("codigoItem").value) ,40,160);
+    doc.text("Nombre: ".concat(document.getElementById("name").value) , 70,65);
+    doc.text("Apellido: ".concat(document.getElementById("lastname").value) , 70,90);
+    doc.text("Dirección: ".concat(document.getElementById("direccion").value) , 70,115);
+    doc.text("Teléfono: ".concat(document.getElementById("telefono").value) , 70,140);
+    doc.text("Email: ".concat(document.getElementById("email").value) , 70,165);
 
-    // var list = document.getElementById("toApply");
-    // var selectedValue = list.options[list.selectedIndex].value;
-    // var selectedText = list.options[list.selectedIndex].text;
-    // doc.text("Aplica a: ".concat(selectedText),20,38);
+    var list = document.getElementById("requerimientos");
+    var selectedValue = list.options[list.selectedIndex].value;
+    var selectedText = list.options[list.selectedIndex].text;
+    doc.text("Aplica a: ".concat(selectedText),70, 190);
+
+    var carrera = document.getElementById("carrera");
+    var selectedVal = carrera.options[carrera.selectedIndex].value;
+    var selectedT = carrera.options[carrera.selectedIndex].text;
+    doc.text("Carrera: ".concat(selectedT),70, 215);
+
     doc.save('rotulo.pdf');
+    // location.href = "/";
    }
   </script>
 

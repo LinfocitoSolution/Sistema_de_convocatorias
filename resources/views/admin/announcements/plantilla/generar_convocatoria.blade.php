@@ -73,7 +73,7 @@
       
       <div id = "parte2" class="hoja"> 
                <h6>2.&nbsp;&nbsp;REQUISITOS</h6>
-                     <p>{{$call->requisitos}}</p>
+                     <p>{{$call->requisitos}}</p><br>
                <br>
                <h6>3.&nbsp;&nbsp;DOCUMENTOS A PRESENTAR</h6>
                   <div class="documentos">
