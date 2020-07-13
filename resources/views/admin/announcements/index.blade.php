@@ -43,6 +43,22 @@
                     
                   
                     <td>
+                      @if($call->publicado=="si")
+                      <form action="{{ route('call.destroy', $call->id) }}" style="display:inline-block;" method="POST">
+                        {{ csrf_field() }}
+                        {{ method_field('DELETE') }}
+                        <button class="btn btn-dark btn-sm mt-2 ml-2" data-toggle="tooltip" data-trigger="hover" title="presiona para eliminar una convocatoria"type="submit" margin-left="50" onclick="return confirm('Está seguro de eliminar la convocatoria?')">
+                          <i class="fa fa-trash-alt"></i>
+                        </button>
+                    </form>
+                    <form action="{{ route('call.quitar', $call->id) }}" style="display:inline-block;" method="POST">
+                      {{ csrf_field() }}
+                      {{ method_field('PUT') }}
+                      <button class="btn btn-dark btn-sm mt-2 ml-2" data-toggle="tooltip" data-trigger="hover" title="presiona para quitar una una convocatoria publicada"type="submit" margin-left="50" onclick="return confirm('Está seguro que desea ocultar esta convocatoria?')">
+                        <i class="fa fa-upload-alt"></i>
+                      </button>
+                    </form>
+                    @else
                       @if($call->tipo_convocatoria=='convocatoria de docencia')
                         <a class="btn btn-dark btn-sm mt-1 ml-2" data-toggle="tooltip" data-trigger="hover" title="presiona para editar una convocatoria" href="{{ route('call.editardoc', $call) }}">
                             <i class="fa fa-pencil-alt"></i>
@@ -59,6 +75,14 @@
                               <i class="fa fa-trash-alt"></i>
                             </button>
                         </form>
+                        <form action="{{ route('call.publicar', $call->id) }}" style="display:inline-block;" method="POST">
+                          {{ csrf_field() }}
+                          {{ method_field('PUT') }}
+                          <button class="btn btn-dark btn-sm mt-2 ml-2" data-toggle="tooltip" data-trigger="hover" title="presiona para publicar una convocatoria"type="submit" margin-left="50" onclick="return confirm('Está seguro que desea publicar la convocatoria?')">
+                            <i class="fa fa-upload-alt"></i>
+                          </button>
+                        </form>
+                        @endif
                     </td>
                 </tr>
             @endforeach

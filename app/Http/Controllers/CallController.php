@@ -229,7 +229,19 @@ class CallController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Convocatoria $call)
+    public function publicarConvocatoria(Convocatoria $call)
+    {
+        $call->publicado="si";
+        $call->save();
+        return redirect(route('call.index'))->with([ 'message' => 'Convocatoria publicada exitosamente!', 'alert-type' => 'success' ]);
+    }
+    public function quitarPublicacion(Convocatoria $call)
+    {
+        $call->publicado="no";
+        $call->save();
+        return redirect(route('call.index'))->with([ 'message' => 'Publicacion quitada exitosamente!', 'alert-type' => 'success' ]);
+    }
+     public function destroy(Convocatoria $call)
     {
         $file_path = public_path().'/convocatorias/'.$call->pdf_file;
         \File::delete($file_path);

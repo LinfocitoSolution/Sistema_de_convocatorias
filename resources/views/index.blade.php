@@ -174,7 +174,8 @@
    <div class="container mt-4 mb-3">
      <div class="row justify-content-around">
         @foreach ($convocatorias as $convocatoria)
-           <div class="col-lg-5">
+          @if($convocatoria->publicado=="si") 
+          <div class="col-lg-5">
                 <div class="card mb-4">
                    <div class="card-header">
                      <h5 class="card-title">{{$convocatoria->titulo_convocatoria}}</h5>
@@ -219,6 +220,7 @@
 
                 </div>
             </div>  
+            @endif
         @endforeach
       </div>
     </div>
