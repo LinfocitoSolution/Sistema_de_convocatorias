@@ -2,8 +2,8 @@
 
     <div class="col-md-12 mb-3">
         <label class="col-form-label" for="name">Nombre de Unidad</label>
-        <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="Nombre de la unidad academica a crear, Ej:Departamento de informatica-sistemas">
-            <span class="input-group-append">
+        <div class="input-group">
+            <span class="input-group-append" data-html="true" data-toggle="popover" title="Restricciones" data-content="Nombre de la unidad academica a crear, Ej:Departamento de informatica-sistemas">
                 <button class="btn btn-dark" type="button">N</button>
             </span>
             <input
@@ -20,7 +20,7 @@
     <div class="col-md-12 mb-3">
         <label class="col-form-label" for="description">Descripcion</label>
         <div class="input-group">
-            <span class="input-group-append">
+            <span class="input-group-append" data-html="true" data-toggle="popover" title="Restricciones" data-content="-Máximo 100 caracteres">
                 <button class="btn btn-dark" type="button">D</button>
             </span>
            

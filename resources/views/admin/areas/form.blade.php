@@ -2,8 +2,8 @@
 
     <div class="col-md-12 mb-3">
         <label class="col-form-label" for="name">Nombre de Area</label>
-        <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content= "-M&aacute;ximo 50 caracteres <br> -M&iacute;nimo 3 caracteres<br> -El campo nombre no acepta caracteres especiales,numeros<br> -El nombre ingresado ya existe en nuestros registros">
-            <span class="input-group-append">
+        <div class="input-group">
+            <span class="input-group-append" data-html="true" data-toggle="popover" title="Restricciones" data-content= "-M&aacute;ximo 50 caracteres <br> -M&iacute;nimo 3 caracteres<br> -El campo nombre no acepta caracteres especiales,numeros<br> -El nombre ingresado ya existe en nuestros registros">
                 <button class="btn btn-dark" type="button">N</button>
             </span>
             <input
@@ -18,8 +18,8 @@
 <!--Descripción-->
     <div class="col-md-12 mb-3">
         <label class="col-form-label" for="description">Descripcion</label>
-        <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content= "-M&aacute;ximo 100 caracteres">
-            <span class="input-group-append">
+        <div class="input-group">
+            <span class="input-group-append" data-html="true" data-toggle="popover" title="Restricciones" data-content= "-M&aacute;ximo 100 caracteres">
                 <button class="btn btn-dark" type="button">D</button>
             </span>
             
