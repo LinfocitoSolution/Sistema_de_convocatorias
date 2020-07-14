@@ -10,38 +10,24 @@
 
   <script> async function save(){
     var doc = new jsPDF('l', 'pt', 'letter');
-    doc.setFontType('normal');
+    // doc.setFontType('normal');
     doc.setFontStyle('Arial');
     doc.setFontSize(25);
     console.log('test');
     doc.setFontType('bold');
     
-    // var columns = ["Nombre", "Apellido","Dirección","Teléfono","Email","Código de item"];
-    // var nomb = document.getElementById("name").value;
-    // var ap = document.getElementById("lastname").value;
-    // var dir = document.getElementById("direccion").value;
-    // var telf = document.getElementById("telefono").value;
-    // var email = document.getElementById("email").value;
-    // var cod = document.getElementById("codigoItem").value;
-    // var data = [];
-    // data.push([nomb,ap,dir,telf,email,cod]);
-    // console.log(data);
-    // doc.autoTable(columns,data,
-    // { margin:{ top: 40 }});
-
-    doc.text("Nombre: ".concat(document.getElementById("name").value) , 70,65);
-    doc.text("Apellido: ".concat(document.getElementById("lastname").value) , 70,90);
-    doc.text("Dirección: ".concat(document.getElementById("direccion").value) , 70,115);
-    doc.text("Teléfono: ".concat(document.getElementById("telefono").value) , 70,140);
-    doc.text("Email: ".concat(document.getElementById("email").value) , 70,165);
-
     var list = document.getElementById("requerimientos");
     var selectedValue = list.options[list.selectedIndex].value;
     var selectedText = list.options[list.selectedIndex].text;
-    doc.text("Aplica a: ".concat(selectedText),70, 190);
-    
-    doc.text("Código auxiliatura: ".concat(selectedValue), 70, 215);
+    doc.text("Aplica a: ".concat(selectedText),70, 65);
+    doc.text("Código auxiliatura: ".concat(selectedValue), 70, 90);
 
+    doc.text("Nombre: ".concat(document.getElementById("name").value) , 70,115);
+    doc.text("Apellido: ".concat(document.getElementById("lastname").value) , 70,140);
+    doc.text("Dirección: ".concat(document.getElementById("direccion").value) , 70,165);
+    doc.text("Teléfono: ".concat(document.getElementById("telefono").value) , 70,190);
+    doc.text("Email: ".concat(document.getElementById("email").value) , 70,215);
+    
     var carrera = document.getElementById("carrera");
     var selectedVal = carrera.options[carrera.selectedIndex].value;
     var selectedT = carrera.options[carrera.selectedIndex].text;

@@ -32,8 +32,8 @@ class PostulantController extends Controller
         $curriculum->user_id = Auth::user()->id;
         if ($request->hasFile('archivo')) {
             $file = $request->file('archivo');
-            $nombre = time().$file->getClientOriginalName();
-            $file->move(public_path().'/rotulos/', $nombre);
+            $nombre = Auth::user()->id.$file->getClientOriginalName();
+            $file->move(public_path().'/curriculums/', $nombre);
             $curriculum->pdf_file = $nombre;  
         } 
         $curriculum->save();
