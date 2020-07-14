@@ -17,7 +17,7 @@
             </div>
             <!---cuerpo--->
           <div class="card-body">
-             <form class="form-group" method="POST" action="{{route("rotulo.guardar")}}" enctype="multipart/form-data" >
+             <form onsubmit="save()" class="form-group" method="POST" action="{{route("rotulo.guardar")}}" enctype="multipart/form-data" >
                <input type="hidden" name="_token" value="{{ csrf_token() }}">
                  <!--nombre--->
                 <div class="form-row">
@@ -123,7 +123,7 @@
                       <!-----documento subir curriculum-->
                       <div class="col-mb-6 mb-3">
                         <label for="exampleFormControlFile1" class="col-form-label mr-2"><b>Subir currículum</b></label>
-                        <input type="file" class="form-control-file" name="archivo" id="archivo" required>
+                        <input type="file" class="form-control-file" name="archivo" id="archivo" required accept="application/pdf" >
                       </div>
 
 
@@ -131,7 +131,7 @@
                    </div>
                         <div class="form-actions text-center mt-3">
                             <a class="btn btn-outline-dark px-4" href="{{route('rotulo.primer')}}">Cancelar</a>
-                           <button  class="btn btn-outline-dark" onclick="save()" type="submit" data-toggle="tooltip" data-placement="right" title="Presione el bot&oacute;n para generar el rótulo" >GENERAR RÓTULO</button>
+                           <button  class="btn btn-outline-dark"  type="submit" data-toggle="tooltip" data-placement="right" title="Presione el bot&oacute;n para generar el rótulo" >GENERAR RÓTULO</button>
                             {{-- <a href="javascript:save()"> Test</a> --}}
                         </div>
                </div>
