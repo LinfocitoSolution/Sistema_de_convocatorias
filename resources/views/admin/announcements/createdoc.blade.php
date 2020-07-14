@@ -38,7 +38,7 @@
             @include('admin.announcements.formdoc')
                    <br>
                    
-                   <div class="form-actions text-center">
+                   <div class="form-actions text-center mt-2">
                     <button class="btn btn-outline-dark" type="submit">Guardar</button>
                     <a class="btn btn-outline-dark" href="{{route('call.index') }}">Cancelar</a>
                   </div>  
