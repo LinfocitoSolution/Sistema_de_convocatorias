@@ -5,7 +5,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/2.0.16/jspdf.plugin.autotable.js"></script>
   <script src="{{asset('jquery/jquery-3.4.1.slim.min.js')}}" type="text/javascript"></script>
   <script src="{{asset('js/bootstrap.bundle.min.js')}}" type="text/javascript"></script>
-  <script src="{{asset('js/html2canvas.js')}}" type="text/javascript"></script>
   <link href="{{URL::asset('https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css')}}" rel="stylesheet" />
   <script src="{{URL::asset('https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js')}}"></script>
 
@@ -40,14 +39,15 @@
     var selectedValue = list.options[list.selectedIndex].value;
     var selectedText = list.options[list.selectedIndex].text;
     doc.text("Aplica a: ".concat(selectedText),70, 190);
+    
+    doc.text("Código auxiliatura: ".concat(selectedValue), 70, 215);
 
     var carrera = document.getElementById("carrera");
     var selectedVal = carrera.options[carrera.selectedIndex].value;
     var selectedT = carrera.options[carrera.selectedIndex].text;
-    doc.text("Carrera: ".concat(selectedT),70, 215);
+    doc.text("Carrera: ".concat(selectedT),70, 240);
 
     doc.save('rotulo.pdf');
-    // location.href = "/";
    }
   </script>
 

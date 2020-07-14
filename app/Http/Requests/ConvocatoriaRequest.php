@@ -33,7 +33,7 @@ class ConvocatoriaRequest extends FormRequest
             'unidad'=>'required',
             'gestion'=>'required|after_or_equal:' . $actual . '',
             'requerimientos'=>'required',
-            'requisito'=>'required|min:5|max:900',
+            'requisito'=>'required|min:5|max:3000',
             'eventos'=>'required',
                 ];
             }
@@ -44,7 +44,7 @@ class ConvocatoriaRequest extends FormRequest
                     'unidad'=>'required',
                     'gestion'=>'required|date|after_or_equal:' . $actual . '',
                     'requerimientos'=>'required',
-                    'requisito'=>'required|min:5|max:900',
+                    'requisito'=>'required|min:5|max:3000',
                     'eventos'=>'required',
                 ];
             }

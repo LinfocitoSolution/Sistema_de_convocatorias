@@ -174,13 +174,14 @@
    <div class="container mt-4 mb-3">
      <div class="row justify-content-around">
         @foreach ($convocatorias as $convocatoria)
-           <div class="col-lg-4">
+          @if($convocatoria->publicado=="si") 
+          <div class="col-lg-5">
                 <div class="card mb-4">
                    <div class="card-header">
                      <h5 class="card-title">{{$convocatoria->titulo_convocatoria}}</h5>
-                   <h6> {{App\Unidad::find($convocatoria->unit_id)->name}}</h6>
+                     <h6>{{App\Unidad::find($convocatoria->unit_id)->name}}</h6>
                    </div> 
-                        <div class="card-body">
+                        <div class="card-body"  >
                            <table class="table table-bordered table-striped table-sm">
                              <thead>
                                <tr>
@@ -191,8 +192,12 @@
                              <tbody>
                               <tr>
                                 @foreach($convocatoria->fechas as $fecha) 
+                                  @if($fecha->evento=='convocatoria' || $fecha->evento=='Presentacion de Documentos'  )
+                                  <tr>
                                   <td>{{$fecha->evento}}</td>          
                                   <td>{{$fecha->fechaI}}</td> 
+                                  </tr>
+                                  @endif
                                  @endforeach
                               </tr>
                               </tbody>
@@ -215,6 +220,7 @@
 
                 </div>
             </div>  
+            @endif
         @endforeach
       </div>
     </div>

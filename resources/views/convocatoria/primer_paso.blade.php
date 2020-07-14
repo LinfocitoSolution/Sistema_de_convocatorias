@@ -30,7 +30,9 @@
                               </select>
                         </div>
                         <div class="form-actions text-center">
-                          <button class="btn btn-outline-dark" type="submit" data-toggle="tooltip" data-placement="right" title="Presione para ir al paso siguiente">Siguiente</button>
+                          
+                          <a class="btn btn-outline-dark" href="{{url("home")}}">Atras</a>
+                          <button class="btn btn-outline-dark" type="submit">Siguiente</button>
                           {{-- <a class="btn btn-outline-dark" href="{{route('rotulo.segundo', $uni)}}">Siguiente</a> --}}
                         </div> 
                     </div>
