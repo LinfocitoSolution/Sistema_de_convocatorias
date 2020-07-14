@@ -103,7 +103,7 @@
                                     <input
                                             class="form-control"
                                             name="telephone"
-                                            placeholder="Ingrese su número de teléfono o celular" type="number" value="{{ old('username', isset($user) ? $user->telephone : '') }}">
+                                            placeholder="Ingrese su número de teléfono o celular" type="number" value="{{ old('telephone', isset($user) ? $user->telephone : '') }}">
                                 </div>
                             </div>
                          <!----dirección----->
@@ -116,7 +116,7 @@
                                     <input
                                             class="form-control"
                                             name="direction"
-                                            placeholder="Ingrese su dirección" type="text" value="{{ old('username', isset($user) ? $user->direction : '') }}">
+                                            placeholder="Ingrese su dirección" type="text" value="{{ old('direction', isset($user) ? $user->direction : '') }}">
                                 </div>
                             </div>
                         {{-- @endif --}}

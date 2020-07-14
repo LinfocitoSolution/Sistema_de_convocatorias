@@ -26,6 +26,10 @@
                             <th>Nombre de usuario</th><td>{{$user->username}}</td>
                         </tr> 
                             <th>Email</th><th>{{$user->email}}</th>
+                        <tr>
+                                <th>Telefono</th><td>{{$user->telephone}}</td>
+                        </tr> 
+                                <th>Direccion</th><th>{{$user->direction}}</th>
                         
                             <!---{ $user->password }} -->
                         </tbody>

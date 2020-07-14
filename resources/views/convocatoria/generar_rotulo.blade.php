@@ -123,7 +123,7 @@
                       <!-----documento subir curriculum-->
                       <div class="col-mb-6 mb-3">
                         <label for="exampleFormControlFile1" class="col-form-label mr-2"><b>Subir currículum</b></label>
-                        <input type="file" class="form-control-file" name="archivo" id="archivo" required accept="application/pdf" >
+                        <input type="file" class="form-control-file" name="archivo" id="archivo" required accept="application/pdf">
                       </div>
 
 
