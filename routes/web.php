@@ -105,6 +105,8 @@ Route::delete('call_deletedoc_{call}','CallController@destroydoc')->name('call.d
 Route::put('call_updatedoc_{call}','CallController@updatedoc')->name('call.updatedoc');
 Route::get('generarConv_{call}', 'CallController@generarConvocatoriaLabo')->name('generarConv');
 Route::get('generarConvDoc_{call}', 'CallController@generarConvocatoriaDocencia')->name('generarConvDoc');
+Route::put('call_publicar_{call}','CallController@publicarConvocatoria')->name('call.publicar');
+Route::put('call_quitar_{call}','CallController@quitarPublicacion')->name('call.quitar');
 //##############################################################
 Route::get('test', function () {
     return view('pruebaVerify');
