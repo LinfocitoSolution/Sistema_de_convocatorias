@@ -130,7 +130,7 @@
         
           
           @if(Auth::user()->roles->first()->name=='Postulante')
-          <a class="btn btn-outline-dark  text-white m-2 my-sm-2" type="submit" href="{{route('rotulo.primer')}}">Formulario de Postulacion</a>
+          <a class="btn btn-outline-dark  text-white m-2 my-sm-2" data-toggle="tooltip" data-placement="top" title="Presione para generar su rótulo"type="submit" href="{{route('rotulo.primer')}}">Formulario de Postulacion</a>
           @else
           <a class="btn btn-outline-dark  text-white m-2 my-sm-2" type="submit" data-toggle="tooltip" data-placement="top" title="Presione el botón para entrar al panel de trabajo" href="{{url('administrador')}}">Panel de Trabajo</a>
           @endif
@@ -174,7 +174,8 @@
    <div class="container mt-4 mb-3">
      <div class="row justify-content-around">
         @foreach ($convocatorias as $convocatoria)
-           <div class="col-lg-5">
+          @if($convocatoria->publicado=="si") 
+          <div class="col-lg-5">
                 <div class="card mb-4">
                    <div class="card-header">
                      <h5 class="card-title">{{$convocatoria->titulo_convocatoria}}</h5>
@@ -219,6 +220,7 @@
 
                 </div>
             </div>  
+            @endif
         @endforeach
       </div>
     </div>
