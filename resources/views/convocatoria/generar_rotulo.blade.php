@@ -29,8 +29,10 @@
                            <span class="input-group-append">
                             <button class="btn btn-dark text-white" type="button">N</button>
                             </span>
-                           <input type="text" class="form-control" id="name" value="{{ucfirst(Auth::user()->name)}}">
-                    
+                           <input  type="text" name="name" class="form-control" {{ $errors->has('name') ? 'is-invalid' : '' }} id="name" value="{{ucfirst(Auth::user()->name)}}">
+                           <div class="invalid-feedback {{ $errors->has('name')? 'd-block' : '' }}">
+                            {{ $errors->has('name')? $errors->first('name') : 'El campo de Nombre es requerido'  }}
+                          </div>
                         </div>
                     </div>
                       <!-----apellido-->  
@@ -90,12 +92,15 @@
                                    <button class="btn btn-dark text-white" type="button">NA</button>
                                 </span>
                                 {{-- <p hidden>{{$convocatoria=App\Convocatoria::find($convoca)}}</p> --}}
-                                <select class="form-control custom-select " id="requerimientos">
+                                <select class="form-control custom-select " name="requerimiento" id="requerimientos">
                                   @foreach($call->requerimientos as $item)
                                       <option class="text-dark" value="{{$item->codigo_auxiliatura}}">{{ $item->nombre_auxiliatura }}</option>
                                   @endforeach
                                </select>
                              </div>
+                             <div class="invalid-feedback {{ $errors->has('archivo')? 'd-block' : '' }}">
+                              {{ $errors->has('archivo')? $errors->first('archivo') : 'Este campo es requerido'  }}
+                          </div>
                        </div>
                                    
                        <!----carrera--->
@@ -118,8 +123,9 @@
                       <!-----documento subir curriculum-->
                       <div class="col-mb-6 mb-3">
                         <label for="exampleFormControlFile1" class="col-form-label mr-2"><b>Subir currículum</b></label>
-                        <input type="file" class="form-control-file" name="archivo" id="archivo">
+                        <input type="file" class="form-control-file" name="archivo" id="archivo" required>
                       </div>
+
 
                     <!--fin row-->  
                    </div>
