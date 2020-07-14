@@ -54,7 +54,7 @@
                             <span class="input-group-append">
                                 <button class="btn btn-dark text-white" type="button">D</button>
                             </span>
-                            <input type="text" class="form-control" id="direccion" value="">
+                            <input type="text" class="form-control" id="direccion" value="{{ ucfirst(Auth::user()->direction)}}">
                           </div>
                      </div>
                       <!----telefonos-->  
@@ -66,7 +66,7 @@
                              <span class="input-group-append">
                                  <button class="btn btn-dark text-white" type="button">T</button>
                              </span>
-                              <input type="text" class="form-control" id="telefono" value="">
+                              <input type="text" class="form-control" id="telefono" value="{{ ucfirst(Auth::user()->telephone)}}">
                           </div>
                       </div>
                       <!-----e-mail-->  

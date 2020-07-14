@@ -98,6 +98,8 @@ class RegisterController extends Controller
             'carrera_id' => $data['career'],                        
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'direction' => $data['direction'],
+            'telephone' => $data['telephone'],
         ]);
     }
 
