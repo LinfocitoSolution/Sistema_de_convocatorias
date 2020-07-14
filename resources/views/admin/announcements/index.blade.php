@@ -55,7 +55,7 @@
                       {{ csrf_field() }}
                       {{ method_field('PUT') }}
                       <button class="btn btn-dark btn-sm mt-2 ml-2" data-toggle="tooltip" data-trigger="hover" title="presiona para quitar una una convocatoria publicada"type="submit" margin-left="50" onclick="return confirm('Está seguro que desea ocultar esta convocatoria?')">
-                        <i class="fa fa-upload-alt"></i>
+                        <i class="fa fa-times"></i>
                       </button>
                     </form>
                     @else
@@ -79,7 +79,7 @@
                           {{ csrf_field() }}
                           {{ method_field('PUT') }}
                           <button class="btn btn-dark btn-sm mt-2 ml-2" data-toggle="tooltip" data-trigger="hover" title="presiona para publicar una convocatoria"type="submit" margin-left="50" onclick="return confirm('Está seguro que desea publicar la convocatoria?')">
-                            <i class="fa fa-upload-alt"></i>
+                            <i class="fa fa-cloud"></i>
                           </button>
                         </form>
                         @endif

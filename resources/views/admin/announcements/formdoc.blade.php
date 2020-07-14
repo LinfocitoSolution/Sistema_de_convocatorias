@@ -68,8 +68,8 @@
   
   <!---Requisitos--->  
   <div class="col-md-6 mb-2">  
-    <label class="col-form-label" for="">Requisitos: </label>
-     <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="-M&aacute;ximo 900 caracteres. <br> -M&iacute;nimo 5 caracteres.">
+    <label class="col-form-label" for="" data-html="true" data-toggle="popover" title="Restricciones" data-content="-M&aacute;ximo 900 caracteres. <br> -M&iacute;nimo 5 caracteres.">Requisitos: </label>
+     <div class="input-group">
         <textarea class="form-control" name="requisito" rows="10" maxlength="3000" >{{ old('requisito', isset($call) ? $call->requisitos : '') }}</textarea>
      </div>
      <div class="invalid-feedback {{ $errors->has('requisito')? 'd-block' : '' }}">
