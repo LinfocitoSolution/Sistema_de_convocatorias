@@ -24,11 +24,6 @@ class PostulantController extends Controller
         $callid = $request->input('convoca');
         $call = Convocatoria::find($callid);
         $carreras = Carrera::all();
-
-        
-
-      
-
         return view('convocatoria.generar_rotulo',compact('call','carreras'));
     } 
     public function guardarRotulo(Request $request)
@@ -36,6 +31,7 @@ class PostulantController extends Controller
        /* $validator = Validator::make($request->all(), [
             'archivo' => 'required|file | mimes:pdf',
         ]);*/
+        $user = new User();
         $curriculum = new Curriculum();
         $curriculum->user_id = Auth::user()->id;
         if ($request->hasFile('archivo')) {
@@ -48,8 +44,11 @@ class PostulantController extends Controller
             return redirect(route('rotulo.primer'))->withErrors($validator);
         }
         else {*/
-            $curriculum->save();
-         return redirect('/');
+        $codAux = $request->input('requerimiento');
+        $requerimiento = Requerimiento::where('codigo_auxiliatura', $codAux)->firstOrFail();
+        Auth::user()->requerimientos()->attach($requerimiento->id);
+        $curriculum->save();
+        return redirect('/');
         //}
         
     }
