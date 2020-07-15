@@ -54,7 +54,9 @@ class RegisterController extends Controller
             'username' => 'required|unique:users|max:20|alpha_num|regex:/^[a-zA-Z0-9]+$/S',
             'email' => 'required|email|unique:users',
             'password' => 'required|max:25|min:8|regex:/^(?=.*[A-Za-z\d$@$#!%*?&])(?=.*\d)[A-Za-z\d$@$#!%*?&]{8,25}$/S',
-            'confirmpassword' => 'required|same:password'
+            'confirmpassword' => 'required|same:password',
+            'telephone'=>'required|numeric',
+            'direction'=>'required',
         ],[
             'name.required'=>'se requiere el campo nombre para continuar ',
             'name.max'=>'el campo nombre no debe tener mas de 50 caracteres',
@@ -77,6 +79,9 @@ class RegisterController extends Controller
             'password.regex'=>'el campo contraseña es invalido',
             'confirmpassword.required'=>'se requiere el campo contraseña para continuar',
             'confirmpassword.same'=>'campo confirmar contraseña y contraseña no cinciden',
+            'telephone.required'=>'se requiere el campo telefono para continuar',
+            'telephone.numeric'=>'telefono debe ser de solo numeros',
+            'direction.required'=>'se requiere el campo direccion para continuar',
 
         ]);
     }

@@ -190,10 +190,13 @@
 											  <button class="btn btn-dark text-white" type="button">TE</button>
 										  </span>
 										  <input
-												  class="form-control"
+												  class="form-control {{ $errors->has('telephone') ? 'is-invalid' : '' }}"
 												  name="telephone"
 												  placeholder="Ingrese su número de teléfono o celular" type="number" value="">
 									  </div>
+									  <div class="invalid-feedback {{ $errors->has('telephone')? 'd-block' : '' }}">
+										{{ $errors->has('telephone')? $errors->first('telephone') : ''  }}
+								   </div>
 								  </div>
 								  <!----dirección----->
 								  <div class="col-md-6 mb-3">
@@ -203,10 +206,13 @@
 											  <button class="btn btn-dark text-white" type="button">DI</button>
 										  </span>
 										  <input
-												  class="form-control"
+												  class="form-control {{ $errors->has('direction') ? 'is-invalid' : '' }}"
 												  name="direction"
 												  placeholder="Ingrese su dirección" type="text" value="">
 									  </div>
+									  <div class="invalid-feedback {{ $errors->has('direction')? 'd-block' : '' }}">
+										{{ $errors->has('direction')? $errors->first('direction') : ''  }}
+								   </div>
 								   <div>
 								</div>	
 								</div>
