@@ -92,7 +92,7 @@
                                    <button class="btn btn-dark text-white" type="button">NA</button>
                                 </span>
                                 {{-- <p hidden>{{$convocatoria=App\Convocatoria::find($convoca)}}</p> --}}
-                                <select class="form-control custom-select " name="requerimiento" id="requerimientos">
+                                <select class="form-control custom-select " name="requerimiento" id="requerimiento">
                                   @foreach($call->requerimientos as $item)
                                       <option class="text-dark" value="{{$item->codigo_auxiliatura}}">{{ $item->nombre_auxiliatura }}</option>
                                   @endforeach
