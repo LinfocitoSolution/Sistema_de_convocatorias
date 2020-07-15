@@ -269,6 +269,27 @@
               </li>
             @endif
           <!--Fin tabla de conocimiento-->
+             <!--Postulante-->
+            
+             <li class="nav-item has-treeview menu-close">
+               <a href="#" class="nav-link active bg-dark">
+                 <i class="nav-icon fa fa-user-graduate"></i>
+                 <p>
+                   Entrega documentos
+                   <i class="right fas fa-angle-left"></i>
+                 </p>
+               </a>
+               <ul class="nav nav-treeview">
+                 <li class="nav-item">
+                    <a href="#" class="nav-link">
+                       <i class="fas fa-th-list nav-icon"></i>
+                       <p>Lista Postulantes</p>
+                    </a>
+                  </li>
+               </ul>
+             </li>
+          
+         <!--Fin Postulantes-->
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
