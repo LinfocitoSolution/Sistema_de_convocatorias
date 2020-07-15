@@ -102,3 +102,36 @@
       });
     });
   </script>
+ <script>function validar(){
+  var url = "http://apilayer.net/api/check?access_key=7b5fa3d815e2bf9c458dfa744298a253&email=" + document.getElementById("email").value + "&smtp=1&format=1";
+  const api = new XMLHttpRequest();
+  var resp = false;
+  api.open('GET',url,true);
+  api.send();
+  var resultado = document.querySelector('#resultado');
+  api.onreadystatechange = function valid(){
+    if(this.status == 200 && this.readyState == 4)
+    {
+      let datos = JSON.parse(this.responseText);
+      console.log(datos.smtp_check);
+      
+      resultado.innerHTML = '';
+      if(datos.smtp_check)
+      {
+        console.log('ok');
+           document.fregistro.submit();
+        resp = true;
+      }
+      else
+      {
+        document.fregistro.submit();
+         document.fregistro.email.focus();
+        resultado.innerHTML += 'Ingrese un correo válido!';
+        alert('Dirección de correo inválida!');
+      }
+    }	
+  }
+  resultado.innerHTML += 'Ingrese un correo válido!';
+  return resp;
+}
+</script>
