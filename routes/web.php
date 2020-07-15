@@ -139,3 +139,4 @@ Route::get('vista', function () {
 Route::get('/denied', ['as' => 'denied', function() {
     return view('errors.401');
 }]);
+Route::post('lista','ListaController@index')->name('listahabInhab.lista');
