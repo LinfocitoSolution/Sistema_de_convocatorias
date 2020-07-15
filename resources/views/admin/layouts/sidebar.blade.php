@@ -273,9 +273,9 @@
             
              <li class="nav-item has-treeview menu-close">
                <a href="#" class="nav-link active bg-dark">
-                 <i class="nav-icon fa fa-calendar"></i>
+                 <i class="nav-icon fa fa-user-graduate"></i>
                  <p>
-                   Postulante
+                   Entrega documentos
                    <i class="right fas fa-angle-left"></i>
                  </p>
                </a>
@@ -286,14 +286,6 @@
                        <p>Lista Postulantes</p>
                     </a>
                   </li>
-               </ul>
-               <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                     <a href="#" class="nav-link">
-                       <i class="fas fa-th-list nav-icon"></i>
-                       <p>habilitados/inhabilitados</p>
-                     </a>
-                    </li>
                </ul>
              </li>
           
