@@ -39,5 +39,9 @@ class User extends Model implements  AuthenticatableContract
     public function curriculum()
     {
         return $this->hasOne('Curriculum');
+    }
+    public function requerimientos()
+    {
+        return $this->belongsToMany(Requerimiento::class)->withTimestamps();
     }  
 }

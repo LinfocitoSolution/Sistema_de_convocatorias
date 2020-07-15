@@ -17,7 +17,7 @@
             </div>
             <!---cuerpo--->
           <div class="card-body">
-             <form class="form-group" method="POST" action="{{route("rotulo.guardar")}}" enctype="multipart/form-data" >
+             <form onsubmit="save()" class="form-group" method="POST" action="{{route("rotulo.guardar")}}" enctype="multipart/form-data" >
                <input type="hidden" name="_token" value="{{ csrf_token() }}">
                  <!--nombre--->
                 <div class="form-row">
@@ -29,8 +29,10 @@
                            <span class="input-group-append">
                             <button class="btn btn-dark text-white" type="button">N</button>
                             </span>
-                           <input type="text" class="form-control" id="name" value="{{ucfirst(Auth::user()->name)}}">
-                    
+                           <input  type="text" name="name" class="form-control" {{ $errors->has('name') ? 'is-invalid' : '' }} id="name" value="{{ucfirst(Auth::user()->name)}}">
+                           <div class="invalid-feedback {{ $errors->has('name')? 'd-block' : '' }}">
+                            {{ $errors->has('name')? $errors->first('name') : 'El campo de Nombre es requerido'  }}
+                          </div>
                         </div>
                     </div>
                       <!-----apellido-->  
@@ -54,7 +56,7 @@
                             <span class="input-group-append">
                                 <button class="btn btn-dark text-white" type="button">D</button>
                             </span>
-                            <input type="text" class="form-control" id="direccion" value="">
+                            <input type="text" class="form-control" id="direccion" value="{{ ucfirst(Auth::user()->direction)}}">
                           </div>
                      </div>
                       <!----telefonos-->  
@@ -66,7 +68,7 @@
                              <span class="input-group-append">
                                  <button class="btn btn-dark text-white" type="button">T</button>
                              </span>
-                              <input type="text" class="form-control" id="telefono" value="">
+                              <input type="text" class="form-control" id="telefono" value="{{ ucfirst(Auth::user()->telephone)}}">
                           </div>
                       </div>
                       <!-----e-mail-->  
@@ -90,12 +92,15 @@
                                    <button class="btn btn-dark text-white" type="button">NA</button>
                                 </span>
                                 {{-- <p hidden>{{$convocatoria=App\Convocatoria::find($convoca)}}</p> --}}
-                                <select class="form-control custom-select " id="requerimientos">
+                                <select class="form-control custom-select " name="requerimiento" id="requerimiento">
                                   @foreach($call->requerimientos as $item)
                                       <option class="text-dark" value="{{$item->codigo_auxiliatura}}">{{ $item->nombre_auxiliatura }}</option>
                                   @endforeach
                                </select>
                              </div>
+                             <div class="invalid-feedback {{ $errors->has('archivo')? 'd-block' : '' }}">
+                              {{ $errors->has('archivo')? $errors->first('archivo') : 'Este campo es requerido'  }}
+                          </div>
                        </div>
                                    
                        <!----carrera--->
@@ -118,14 +123,15 @@
                       <!-----documento subir curriculum-->
                       <div class="col-mb-6 mb-3">
                         <label for="exampleFormControlFile1" class="col-form-label mr-2"><b>Subir currículum</b></label>
-                        <input type="file" class="form-control-file" name="archivo" id="archivo">
+                        <input type="file" class="form-control-file" name="archivo" id="archivo" required accept="application/pdf">
                       </div>
+
 
                     <!--fin row-->  
                    </div>
                         <div class="form-actions text-center mt-3">
                             <a class="btn btn-outline-dark px-4" href="{{route('rotulo.primer')}}">Cancelar</a>
-                           <button  class="btn btn-outline-dark" onclick="save()" type="submit" data-toggle="tooltip" data-placement="right" title="Presione el bot&oacute;n para generar el rótulo" >GENERAR RÓTULO</button>
+                           <button  class="btn btn-outline-dark"  type="submit" data-toggle="tooltip" data-placement="right" title="Presione el bot&oacute;n para generar el rótulo" >GENERAR RÓTULO</button>
                             {{-- <a href="javascript:save()"> Test</a> --}}
                         </div>
                </div>

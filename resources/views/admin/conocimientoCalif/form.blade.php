@@ -2,8 +2,8 @@
 
     <div class="col-md-12 mb-3">
         <label class="col-form-label" for="name">Item</label>
-        <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content= "">
-            <span class="input-group-append">
+        <div class="input-group">
+            <span class="input-group-append" data-html="true" data-toggle="popover" title="Restricciones" data-content= "">
                 <button class="btn btn-dark" type="button">I</button>
             </span>
             <input
@@ -20,8 +20,8 @@
 
         <div class="col-md-12 mb-3">
             <label class="col-form-label" for="name">Temática</label>
-            <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content= "">
-                <span class="input-group-append">
+            <div class="input-group">
+                <span class="input-group-append" data-html="true" data-toggle="popover" title="Restricciones" data-content= "">
                     <button class="btn btn-dark" type="button">T</button>
                 </span>
                 <input
@@ -38,8 +38,8 @@
 
             <div class="col-md-12 mb-3">
                 <label class="col-form-label" for="codigp_auxilitura">Código de Auxiliatura</label>
-                <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content= "">
-                    <span class="input-group-append">
+                <div class="input-group">
+                    <span class="input-group-append" data-html="true" data-toggle="popover" title="Restricciones" data-content= "">
                         <button class="btn btn-dark" type="button">C</button>
                     </span>
                     <input
@@ -56,8 +56,8 @@
 
                 <div class="col-md-12 mb-3">
                     <label class="col-form-label" for="puntaje">Puntaje</label>
-                    <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content= "">
-                        <span class="input-group-append">
+                    <div class="input-group">
+                        <span class="input-group-append" data-html="true" data-toggle="popover" title="Restricciones" data-content= "">
                             <button class="btn btn-dark" type="button">P</button>
                         </span>
                         <input
@@ -70,7 +70,7 @@
                 <div class="invalid-feedback { $errors->has('puntaje')? 'd-block' : '' }}">
                     {{ $errors->has('puntaje')? $errors->first('puntaje') : ''}}
                  </div>
-                </div>
+</div>
            
 
             

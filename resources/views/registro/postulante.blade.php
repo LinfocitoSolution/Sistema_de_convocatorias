@@ -77,6 +77,32 @@
 									<input type="password" class="form-control" placeholder="Confirmar Password" name="confirmpassword">
 								</div>
 								<small id="passwordHelpBlock" class="form-text text-white mt-3"> Tu contraseña debe tener 8-20 caracteres, contener letras y numeros , <br>no debe contener espacios, caracteres especiales, o emoji. </small>
+
+								  <!----teléfono----->
+								  <div class="col-md-6 mb-3">
+									<label class="col-form-label" for="telefono">Teléfono</label>
+									<div class="input-group" data-html="true">
+										<span class="input-group-append">
+											<button class="btn btn-dark text-white" type="button">TE</button>
+										</span>
+										<input
+												class="form-control"
+												name="telefono"
+												placeholder="Ingrese su número de teléfono o celular" type="number" value="">
+									</div>
+								</div>
+							<!----dirección----->
+								<div class="col-md-6 mb-3">
+									<label class="col-form-label" for="direccion">Dirección</label>
+									<div class="input-group" data-html="true">
+										<span class="input-group-append">
+											<button class="btn btn-dark text-white" type="button">DI</button>
+										</span>
+										<input
+												class="form-control"
+												name="direccion"
+												placeholder="Ingrese su dirección" type="text" value="">
+									</div>
 								
 								<button type="submit" class="btn btn-success rounded-pill active btn-block mt-3" > Registrar </button>
 

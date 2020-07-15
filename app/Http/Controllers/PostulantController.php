@@ -16,7 +16,7 @@ use DB;
 use Session;
 use Validator;
 use App\Http\Requests\PostulanteRequest;
-
+use App\Http\Requests\RotuloRequest;
 class PostulantController extends Controller
 {
     public function index(Request $request)
@@ -28,6 +28,10 @@ class PostulantController extends Controller
     } 
     public function guardarRotulo(Request $request)
     {
+       /* $validator = Validator::make($request->all(), [
+            'archivo' => 'required|file | mimes:pdf',
+        ]);*/
+        $user = new User();
         $curriculum = new Curriculum();
         $curriculum->user_id = Auth::user()->id;
         if ($request->hasFile('archivo')) {
@@ -36,8 +40,17 @@ class PostulantController extends Controller
             $file->move(public_path().'/curriculums/', $nombre);
             $curriculum->pdf_file = $nombre;  
         } 
+        /*if ($validator->fails()) {
+            return redirect(route('rotulo.primer'))->withErrors($validator);
+        }
+        else {*/
+        $codAux = $request->input('requerimiento');
+        $requerimiento = Requerimiento::where('codigo_auxiliatura', $codAux)->firstOrFail();
+        Auth::user()->requerimientos()->attach($requerimiento->id);
         $curriculum->save();
-         return redirect('/');
+        return redirect('/');
+        //}
+        
     }
     public function primerPaso()
     {   
