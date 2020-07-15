@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use\App\Lista;
 use Illuminate\Http\Request;
 
 class ListaController extends Controller
