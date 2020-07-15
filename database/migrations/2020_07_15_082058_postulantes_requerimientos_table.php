@@ -13,7 +13,7 @@ class PostulantesRequerimientosTable extends Migration
      */
     public function up()
     {
-        Schema::create('users_requerimientos',function(Blueprint $table)
+        Schema::create('requerimiento_user',function(Blueprint $table)
         {
             $table->increments('id');
             $table->Integer('user_id')->unsigned();
