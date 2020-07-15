@@ -29,7 +29,7 @@
                            <span class="input-group-append">
                             <button class="btn btn-dark text-white" type="button">N</button>
                             </span>
-                           <input  type="text" name="name" class="form-control" {{ $errors->has('name') ? 'is-invalid' : '' }} id="name" value="{{ucfirst(Auth::user()->name)}}">
+                           <input  type="text" name="name" class="form-control" required disabled {{ $errors->has('name') ? 'is-invalid' : '' }} id="name" value="{{ucfirst(Auth::user()->name)}}">
                            <div class="invalid-feedback {{ $errors->has('name')? 'd-block' : '' }}">
                             {{ $errors->has('name')? $errors->first('name') : 'El campo de Nombre es requerido'  }}
                           </div>
@@ -44,8 +44,11 @@
                             <span class="input-group-append">
                                 <button class="btn btn-dark text-white" type="button">A</button>
                             </span>
-                              <input type="text" class="form-control" id="lastname" value="{{ ucfirst(Auth::user()->lastname)}}">
+                              <input type="text" required disabled name="lastname" class="form-control" id="lastname" value="{{ ucfirst(Auth::user()->lastname)}}">
                           </div>
+                          <div class="invalid-feedback {{ $errors->has('lastname')? 'd-block' : '' }}">
+                            {{ $errors->has('lastname')? $errors->first('lastname') : 'El campo de Apellido es requerido'  }}
+                        </div>
                     </div>
                       <!-----Direccion-->  
                
@@ -56,8 +59,11 @@
                             <span class="input-group-append">
                                 <button class="btn btn-dark text-white" type="button">D</button>
                             </span>
-                            <input type="text" class="form-control" id="direccion" value="{{ ucfirst(Auth::user()->direction)}}">
+                            <input type="text" required disabled name="direction" class="form-control" id="direccion" value="{{ ucfirst(Auth::user()->direction)}}">
                           </div>
+                          <div class="invalid-feedback {{ $errors->has('lastname')? 'd-block' : '' }}">
+                            {{ $errors->has('direction')? $errors->first('lastname') : 'El campo de Apellido es requerido'  }}
+                        </div>
                      </div>
                       <!----telefonos-->  
                
@@ -68,8 +74,11 @@
                              <span class="input-group-append">
                                  <button class="btn btn-dark text-white" type="button">T</button>
                              </span>
-                              <input type="text" class="form-control" id="telefono" value="{{ ucfirst(Auth::user()->telephone)}}">
+                              <input type="text" required disabled name="telephone" class="form-control" id="telefono" value="{{ ucfirst(Auth::user()->telephone)}}">
                           </div>
+                          <div class="invalid-feedback {{ $errors->has('telephone')? 'd-block' : '' }}">
+                            {{ $errors->has('telephone')? $errors->first('email') : 'Este campo es requerido'  }}
+                        </div>
                       </div>
                       <!-----e-mail-->  
                 
@@ -79,8 +88,11 @@
                               <span class="input-group-append">
                                   <button class="btn btn-dark text-white" type="button">E</button>
                               </span>
-                               <input type="text" class="form-control" id="email" value="{{ ucfirst(Auth::user()->email)}}">
+                               <input type="text" name="email" required disabled class="form-control" id="email" value="{{ ucfirst(Auth::user()->email)}}">
                             </div>
+                            <div class="invalid-feedback {{ $errors->has('email')? 'd-block' : '' }}">
+                              {{ $errors->has('email')? $errors->first('email') : 'Este campo es requerido'  }}
+                          </div>
                        </div>
                       <!-----nombre de auxiliatura-->  
                       
@@ -92,14 +104,14 @@
                                    <button class="btn btn-dark text-white" type="button">NA</button>
                                 </span>
                                 {{-- <p hidden>{{$convocatoria=App\Convocatoria::find($convoca)}}</p> --}}
-                                <select class="form-control custom-select " name="requerimiento" id="requerimiento">
+                                <select class="form-control custom-select " required name="requerimiento" id="requerimientos">
                                   @foreach($call->requerimientos as $item)
                                       <option class="text-dark" value="{{$item->codigo_auxiliatura}}">{{ $item->nombre_auxiliatura }}</option>
                                   @endforeach
                                </select>
                              </div>
-                             <div class="invalid-feedback {{ $errors->has('archivo')? 'd-block' : '' }}">
-                              {{ $errors->has('archivo')? $errors->first('archivo') : 'Este campo es requerido'  }}
+                             <div class="invalid-feedback {{ $errors->has('requerimiento')? 'd-block' : '' }}">
+                              {{ $errors->has('requerimiento')? $errors->first('requerimiento') : 'Este campo es requerido'  }}
                           </div>
                        </div>
                                    
@@ -111,20 +123,26 @@
                              <span class="input-group-append">
                                 <button class="btn btn-dark text-white" type="button">C</button>
                              </span>
-                               <select  class="custom-select form-control" id="carrera"> 
+                               <select  class="custom-select form-control" required id="carrera" name="carrera"> 
                                  @foreach($carreras as $item)
                                    <option class="text-dark" value = "carrera"{{ ($item->id == (Auth::user()->carrera_id)) ? 'selected' : '' }}>{{ $item->name }}</option>
                                  @endforeach	
                                </select>
                            </div>
+                           <div class="invalid-feedback {{ $errors->has('carrera')? 'd-block' : '' }}">
+                            {{ $errors->has('carrera')? $errors->first('carrera') : 'El campo de Apellido es requerido'  }}
+                        </div>
                         </div>
                       
               
                       <!-----documento subir curriculum-->
                       <div class="col-mb-6 mb-3">
                         <label for="exampleFormControlFile1" class="col-form-label mr-2"><b>Subir currículum</b></label>
-                        <input type="file" class="form-control-file" name="archivo" id="archivo" required accept="application/pdf">
+                        <input type="file" class="form-control-file" name="archivo" id="archivo" required accept="application/pdf" >
                       </div>
+                      <div class="invalid-feedback {{ $errors->has('archivo')? 'd-block' : '' }}">
+                        {{ $errors->has('archivo')? $errors->first('archivo') : 'El campo de Apellido es requerido'  }}
+                    </div>
 
 
                     <!--fin row-->  

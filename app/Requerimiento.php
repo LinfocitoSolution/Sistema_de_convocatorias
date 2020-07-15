@@ -27,5 +27,9 @@ class Requerimiento extends Model
     {
         return $this->belongsToMany(User::class)->withTimestamps();
     }
+    public function habilitados()
+    {
+        return $this->belongsToMany(Habilitados::class)->withTimestamps();
+    } 
 }
 

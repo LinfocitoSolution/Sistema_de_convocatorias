@@ -24,7 +24,10 @@ class RotuloRequest extends FormRequest
     public function rules()
     {
         return [
+            'name'=>'required',
+            'lastname'=>'required',
             'requerimiento'=>'required',
+            'archivo'=>'required|file',
            
         ];
     }
