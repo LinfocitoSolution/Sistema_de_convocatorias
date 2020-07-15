@@ -145,9 +145,7 @@
 									            	{{ $errors->has('email')? $errors->first('email') : ''  }}
 									          </div>
 										</div>
-										<small class="form-text text-muted" id="resultado" name="resultado"></small>
 									</div>	
-								
 									
 									 <!--campo contraseña-->
 									 <div class="col-md-6 mb-3">
@@ -182,18 +180,41 @@
 								             </div>
 										 </div>
 									 </div>	 
-                                    <!------fin campo contraseña confirmada--->
+									<!------fin campo contraseña confirmada--->
+								
+									<!----teléfono----->
+									<div class="col-md-6 mb-3">
+									  <label class="col-form-label" for="telefono">Teléfono</label>
+									  <div class="input-group" data-html="true">
+										  <span class="input-group-append">
+											  <button class="btn btn-dark text-white" type="button">TE</button>
+										  </span>
+										  <input
+												  class="form-control"
+												  name="telephone"
+												  placeholder="Ingrese su número de teléfono o celular" type="number" value="">
+									  </div>
+								  </div>
+								  <!----dirección----->
+								  <div class="col-md-6 mb-3">
+									  <label class="col-form-label" for="direccion">Dirección</label>
+									  <div class="input-group" data-html="true">
+										  <span class="input-group-append">
+											  <button class="btn btn-dark text-white" type="button">DI</button>
+										  </span>
+										  <input
+												  class="form-control"
+												  name="direction"
+												  placeholder="Ingrese su dirección" type="text" value="">
+									  </div>
+								   <div>
+								</div>	
 								</div>
 								<!---fin row--->	
-								        <small id="passwordHelpBlock" class="form-text text-black">La contraseña debe tener 8-25 caracteres, contener al menos una letra y  un numero, puede ser mayúsculas, no debe contener espacios, caracteres especiales, o emoji.</small>
-								
-							         <div>
-									    <button type="submit" class="btn btn-outline-dark rounded-pill btn-block mt-4 btn-lg" >Confirmar </button> 
-								     </div>	
-								
-								
+								       
+									   <div> <button type="submit" class="btn btn-outline-dark rounded-pill btn-block mt-4 btn-lg" >Confirmar </button> </div>
+									
 						        <!-- ventana de confirmación-->
-						
 							         <!-- <a href="#ventana1" class="btn rounded-pill active btn-block mt-3 btn-lg " data-toggle="modal">Registrar</a>-->
 								      <div class="modal fade" id="ventana1">
 								          <div class="modal-dialog">

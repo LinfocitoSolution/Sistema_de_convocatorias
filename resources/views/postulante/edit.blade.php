@@ -90,17 +90,38 @@
                                  <div class="invalid-feedback {{ $errors->has('username')? 'd-block' : '' }}">
                                      {{ $errors->has('username')? $errors->first('username') : 'El campo de Nombre de usuario es requerido'  }}
                                  </div>
-                             </div>
-                             
-                            
-                         
+                             </div>                 
+
+                        {{-- @if (Auth::user()->roles->first()->name == 'Postulante')    --}}
+                         <!----teléfono----->
+                            <div class="col-md-6 mb-3">
+                                <label class="col-form-label" for="telefono">Teléfono</label>
+                                <div class="input-group" data-html="true">
+                                    <span class="input-group-append">
+                                        <button class="btn btn-dark text-white" type="button">TE</button>
+                                    </span>
+                                    <input
+                                            class="form-control"
+                                            name="telephone"
+                                            placeholder="Ingrese su número de teléfono o celular" type="number" value="{{ old('telephone', isset($user) ? $user->telephone : '') }}">
+                                </div>
+                            </div>
+                         <!----dirección----->
+                            <div class="col-md-6 mb-3">
+                                <label class="col-form-label" for="direccion">Dirección</label>
+                                <div class="input-group" data-html="true">
+                                    <span class="input-group-append">
+                                        <button class="btn btn-dark text-white" type="button">DI</button>
+                                    </span>
+                                    <input
+                                            class="form-control"
+                                            name="direction"
+                                            placeholder="Ingrese su dirección" type="text" value="{{ old('direction', isset($user) ? $user->direction : '') }}">
+                                </div>
+                            </div>
+                        {{-- @endif --}}
                           <!----botones--->
-                               
-                       
-                
-                        
-                    
-                 </div>
+                   </div>
                   <!----fin del cuerpo perfil--->
                    <!----INICIO DE PIE-->   
                    
