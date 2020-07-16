@@ -139,3 +139,4 @@ Route::get('vista', function () {
 Route::get('/denied', ['as' => 'denied', function() {
     return view('errors.401');
 }]);
+Route::resource('habilitado_inhabilitado','ListaController@index');

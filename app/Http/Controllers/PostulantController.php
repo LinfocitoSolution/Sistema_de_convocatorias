@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Unidad;
 use App\User;
+use App\Habilitado;
 use App\Convocatoria;
 use App\Requerimiento;
 use App\Curriculum;
@@ -31,6 +32,7 @@ class PostulantController extends Controller
        /* $validator = Validator::make($request->all(), [
             'archivo' => 'required|file | mimes:pdf',
         ]);*/
+        $habilitado=new Habilitado();
         $user = new User();
         $curriculum = new Curriculum();
         $curriculum->user_id = Auth::user()->id;
@@ -46,8 +48,13 @@ class PostulantController extends Controller
         else {*/
         $codAux = $request->input('requerimiento');
         $requerimiento = Requerimiento::where('codigo_auxiliatura', $codAux)->firstOrFail();
-        Auth::user()->requerimientos()->attach($requerimiento->id);
+        
+        $habilitado->save();
+        
         $curriculum->save();
+        Auth::user()->requerimientos()->attach($requerimiento->id);
+        $habilitado->requerimientos()->attach($requerimiento->id);
+       
         return redirect('/');
         //}
         
