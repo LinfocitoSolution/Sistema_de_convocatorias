@@ -251,7 +251,7 @@
                 <ul class="nav nav-treeview">
                   @if(Auth::user()->hasPermission('create tablaConocimientos'))
                     <li class="nav-item">
-                      <a href="{{route('conocimientoCalif.create')}}" class="nav-link">
+                      <a href="{{route('calif.primero')}}" class="nav-link">
                         <i class="fas fa-plus-square nav-icon"></i>
                         <p>Nueva Tabla</p>
                       </a>
