@@ -22,7 +22,7 @@
                                      <div class="form-group-row">
                                           <!----Laboratorio---->
                                          <div class="col-mb-5 mb-3">
-                                              <label class="input-group-text text-white" for="">Seleccione unidad:</label>
+                                              <label class="input-group-text text-white" for="">Seleccione la unidad:</label>
                                               <select  class="custom-select form-control" type="text" name="unidad" > 
                                                  @foreach($unidad as $uni)  
                                                       <option class="text-dark" value="{{$uni->id}}">{{$uni->name}}</option>
