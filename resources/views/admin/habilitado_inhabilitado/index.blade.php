@@ -18,6 +18,7 @@
                     <tr>
                         <th>Nombre</th>
                         <th>Apellido</th>
+                        <th>Nombre de Auxiliatura</th>
                         <th>Código de la Auxiliatura</th>
                         <th>Habilitado/Inhabilitado</th>
                         <th>Opciones</th>
@@ -25,26 +26,29 @@
                      </tr>
                     </thead>
                 <tbody>
+                    @foreach($users as $user)
+                    @foreach($user->requerimientos as $requerimiento )
+                    
                     <tr>
-                        <td>Fabiola</td>
-                        <td>Bernal</td>
-                        <td>LADMT</td>
-                        <td>Habilitado</td>
+                       
+                    <td>{{$user->name}}</td>
+                    <td>{{$user->lastname}}</td>
+                    <td>{{$requerimiento->nombre_auxiliatura}}</td>
+                    <td>{{$requerimiento->codigo_auxiliatura}}</td>
+                    
+                    <td></td>
+                    
                         <td><a class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title=""href="#">
                           <i class="fa fa-folder"></i>
                       </a>
 
-                    </tr>
-                        <td>Brayan</td>
-                        <td>Barreto Flores</td>
-                        <td>ADMLAB</td>
-                        <td>Inhabilitado</td>
-
-                        <td><a class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title=""href="#">
-                          <i class="fa fa-folder"></i></a> 
-                        <form action="" method="POST" style="display:inline-block;">                            
+                        <form action="" method="POST" style="display:inline-block;">
+                                                   
+                                                       
                         </form>
-                    </td>
+                    
+                    @endforeach
+                    @endforeach
                      </tr>
                     </tbody>
                 </table>
