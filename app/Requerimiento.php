@@ -29,7 +29,7 @@ class Requerimiento extends Model
     }
     public function habilitados()
     {
-        return $this->belongsToMany(Habilitados::class)->withTimestamps();
+        return $this->belongsToMany(Habilitado::class)->withTimestamps();
     } 
 }
 
