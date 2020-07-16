@@ -40,8 +40,12 @@ class User extends Model implements  AuthenticatableContract
     {
         return $this->hasOne('Curriculum');
     }
+    public function habilitados()
+    {
+        return $this->belongsToMany(Habilitado::class)->withTimestamps();
+    }  
     public function requerimientos()
     {
         return $this->belongsToMany(Requerimiento::class)->withTimestamps();
-    }  
+    }
 }
