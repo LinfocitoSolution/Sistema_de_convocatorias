@@ -37,7 +37,6 @@ Route::group(['middleware' => 'permission:view-access-management'], function () 
     Route::put('usuarios_update_{user}','UserController@update')->name('usuarios.update')->middleware('permission:edit users');
     Route::delete('usuarios_delete_{user}','UserController@destroy')->name('usuarios.destroy')->middleware('permission:delete users');
     Route::get('usuarios_show_{user}','UserController@show')->name('usuarios.show')->middleware('permission:list users');
-    // Route::resource('usuarios', 'UserController');
 
     //##################### ROL ####################################
     Route::get('roles_create', [
@@ -139,4 +138,7 @@ Route::get('vista', function () {
 Route::get('/denied', ['as' => 'denied', function() {
     return view('errors.401');
 }]);
-Route::resource('habilitado_inhabilitado','ListaController@index');
+//###################### LISTA CONTROLLER ###################################
+Route::get('filtroUnidad','ListaController@primerPaso')->name('filtro.primer');
+Route::get('filtroConvocatoria','ListaController@segundoPaso')->name('filtro.segundo');
+Route::get('habilitado_inhabilitado','ListaController@index')->name('habilitado_inhabilitado.index');

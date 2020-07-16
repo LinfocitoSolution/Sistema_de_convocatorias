@@ -6,7 +6,8 @@ use App\Requerimiento;
 use App\User;
 use App\Curriculum;
 use App\Habilitado;
-
+use App\Unidad;
+use App\Convocatoria;
 use DB;
 use Illuminate\Http\Request;
 
@@ -91,5 +92,16 @@ class ListaController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function primerPaso()
+    {   
+        $unidad=Unidad::all();
+        return view('admin.habilitado_inhabilitado.primer_paso',compact('unidad'));
+    }
+    public function segundoPaso(Request $request)
+    {
+        $uni = $request->input('unidad');
+        $convocatoria =Convocatoria::all();
+        return view('admin.habilitado_inhabilitado.segundo_paso', compact('convocatoria', 'uni'));
     }
 }
