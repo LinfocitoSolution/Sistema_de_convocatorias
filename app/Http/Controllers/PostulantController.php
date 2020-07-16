@@ -53,7 +53,7 @@ class PostulantController extends Controller
         
         $curriculum->save();
         Auth::user()->requerimientos()->attach($requerimiento->id);
-        $habilitado->requerimientos()->attach($requerimiento->id);
+        Auth::user()->habilitados()->attach($habilitado->id);
        
         return redirect('/');
         //}
