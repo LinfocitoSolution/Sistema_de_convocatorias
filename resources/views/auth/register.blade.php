@@ -32,7 +32,7 @@
 								           <input type="hidden" name="_token" value="{{ csrf_token() }}">
 									     <div class="form-row" > 
 										          <!--campo nombre-->
-								                     <div class="col-md-6 mb-3">
+								                     <div class="col-md-6 mb-2">
 								                         <label for="validationTooltip01"class="text-black">Nombre completo</label>
 								                         <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="-M&aacute;ximo 50 caracteres <br> -M&iacute;nimo 3 caracteres <br> -No acepta caracteres especiales" >
 									                         <div class="input-group-prepend">
@@ -49,7 +49,7 @@
 												        </div> 
 												   <!--fin campo nombre-->  
 								                   <!--campo apellido-->
-								                      <div class="col-md-6 mb-3">
+								                      <div class="col-md-6 mb-2">
                                                               <label for="validationTooltip02"class="text-black">Apellido completo</label>
 								                            <div class="input-group form-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="-M&aacuteximo 50 caracteres <br> -No acepta caracteres especiales <br>-No acepta n&uacute;meros">
 									                             <div class="input-group-prepend">
@@ -67,7 +67,7 @@
 													  </div>
 											      <!----fin campo apellido--->		  		 							
 									              <!--campo nombre de usuario -->
-									                 <div class="col-md-6 mb-3">
+									                 <div class="col-md-6 mb-2">
 								                          <label for="validationTooltip03" class="text-black">Nombre usuario</label>
 								                             <div class="input-group form-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="-M&aacute;ximo 20 caracteres <br>-Solo se permite alfanum&eacute;rico <br>-No acepta espacios <br>-Se permite may&uacute;sculas">
 									                             <div class="input-group-prepend">
@@ -84,7 +84,7 @@
 													   </div>
 												  <!--fin campo usuario--->	   									
 									              <!--campo carrera--->
-									                 <div class="col-md-6 mb-3">
+									                 <div class="col-md-6 mb-2">
 								                             <label for="validationTooltip04"class="text-black">Carrera</label>
 								                         <div class="input-group form-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="selecciona la carrera que est&aacute; cursando">
 									                         <div class="input-group-prepend">
@@ -100,7 +100,7 @@
 													 </div>	
 												  <!---fin campo carrera--> 								
 									              <!--campo email-->
-									                      <div class="col-md-6 mb-3">
+									                      <div class="col-md-6 mb-2">
 								                             <label for="validationTooltip05"class="text-black">E-mail</label>
 								                             <div class="input-group form-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="Sigue el ejemplo">
 									                              <div class="input-group-prepend">
@@ -117,7 +117,7 @@
 									                    </div>	
 									               <!---fin campo email--->
 									                <!--campo contraseña-->
-									                   <div class="col-md-6 mb-3">
+									                   <div class="col-md-6 mb-2">
 								                           <label for="validationTooltip06"class="text-black">Contraseña</label>
 								                            <div class="input-group form-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="-M&aacute;ximo 25 caracteres <br>-M&iacute;nimo 8 caracteres <br>-No permite caracteres especiales <br>-Debe ingresar al menos una letra y un n&uacute;mero<br>-No permite espacios">
 									                            <div class="input-group-prepend">
@@ -134,7 +134,7 @@
 													   </div>	 
 												    <!---fin campo contraseña--->
 									                <!--campo confirmar contraseña-->
-									                    <div class="col-md-6 mb-3">
+									                    <div class="col-md-6 mb-2">
 								                              <label for="validationTooltip07"class="text-black">Confirma contraseña</label>
 								                             <div class="input-group form-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="confirme la contraseña creada anteriormente">
 									                             <div class="input-group-prepend">
@@ -153,29 +153,37 @@
 													 <!------fin campo contraseña confirmada--->
 								
 									                  <!----teléfono----->
-									                     <div class="col-md-6 mb-3">
+									                     <div class="col-md-6 mb-2">
 									                          <label class="text-black" for="telefono">Teléfono</label>
 									                           <div class="input-group" data-html="true">
 										                              <div class="input-group-append">
 											                               <span class="input-group-text px-3"><i class="fas fa-mobile-alt icon-cog"></i></span>
 											                          </div>
-										                              <input  class="form-control"
+										                              <input  class="form-control {{ $errors->has('telephone') ? 'is-invalid' : '' }}"
 												                          name="telephone"
 												                          placeholder="Ingrese su número de teléfono o celular" type="number" value="">
-									                             </div>
+																		
+																		   <div class="invalid-feedback {{ $errors->has('telephone')? 'd-block' : '' }}">
+																			    {{ $errors->has('telephone')? $errors->first('telephone') : ''  }}
+																	       </div>
+																</div>
 														 </div>
 													 <!---fin telefono--->
 								                      <!----dirección----->
-								                           <div class="col-md-6 mb-3">
+								                           <div class="col-md-6 mb-2">
 									                               <label class="text-black" for="direccion">Dirección</label>
 									                               <div class="input-group" data-html="true">
 										                                 <div class="input-group-append">
 											                                  <span class="input-group-text px-3"><i class="fas fa-building icon-cog"></i></span>
 											                             </div>
-										                                <input class="form-control"
+										                                <input class="form-control {{ $errors->has('direction') ? 'is-invalid' : '' }}"
 												                               name="direction"
 												                               placeholder="Ingrese su dirección" type="text" value="">
-									                                 </div>
+																		  
+																			   <div class="invalid-feedback {{ $errors->has('direction')? 'd-block' : '' }}">
+																				   {{ $errors->has('direction')? $errors->first('direction') : ''  }}
+																		       </div>
+																	</div>
 															 </div>
 													    <!---fin direccion--> 
 								             
@@ -184,44 +192,8 @@
 									          <div class="form-actions text-center"> 
 									               <button type="submit" class="btn btn-outline-dark rounded-pill mt-4 btn-lg px-5" >Confirmar </button> 
 								              </div>
-									<!----teléfono----->
-									<div class="col-md-6 mb-3">
-									  <label class="col-form-label" for="telefono">Teléfono</label>
-									  <div class="input-group" data-html="true">
-										  <span class="input-group-append">
-											  <button class="btn btn-dark text-white" type="button">TE</button>
-										  </span>
-										  <input
-												  class="form-control {{ $errors->has('telephone') ? 'is-invalid' : '' }}"
-												  name="telephone"
-												  placeholder="Ingrese su número de teléfono o celular" type="number" value="">
-									  </div>
-									  <div class="invalid-feedback {{ $errors->has('telephone')? 'd-block' : '' }}">
-										{{ $errors->has('telephone')? $errors->first('telephone') : ''  }}
-								   </div>
-								  </div>
-								  <!----dirección----->
-								  <div class="col-md-6 mb-3">
-									  <label class="col-form-label" for="direccion">Dirección</label>
-									  <div class="input-group" data-html="true">
-										  <span class="input-group-append">
-											  <button class="btn btn-dark text-white" type="button">DI</button>
-										  </span>
-										  <input
-												  class="form-control {{ $errors->has('direction') ? 'is-invalid' : '' }}"
-												  name="direction"
-												  placeholder="Ingrese su dirección" type="text" value="">
-									  </div>
-									  <div class="invalid-feedback {{ $errors->has('direction')? 'd-block' : '' }}">
-										{{ $errors->has('direction')? $errors->first('direction') : ''  }}
-								   </div>
-								   <div>
-								</div>	
-								</div>
-								<!---fin row--->	
-								       
-									   <div> <button type="submit" class="btn btn-outline-dark rounded-pill btn-block mt-4 btn-lg" >Confirmar </button> </div>
 									
+								  
 						                 </form>
 							        <!--fin de pie formulario-->
 							
