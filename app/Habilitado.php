@@ -13,8 +13,8 @@ class Habilitado extends Model
         'description',
 
     ];
-    public function requerimientos()
+    public function users()
     {
-        return $this->belongsToMany(Requerimiento::class)->withTimestamps();
+        return $this->belongsToMany(User::class)->withTimestamps();
     }
 }
