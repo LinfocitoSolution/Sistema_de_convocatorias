@@ -41,19 +41,11 @@
                         <td>Inhabilitado</td>
 
                         <td><a class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title=""href="#">
-                          <i class="fa fa-folder"></i>
-                      </a> 
-                       
-                            
-                        
-                       
-                        <form action="" method="POST" style="display:inline-block;">
-                                                   
-                                                       
+                          <i class="fa fa-folder"></i></a> 
+                        <form action="" method="POST" style="display:inline-block;">                            
                         </form>
                     </td>
                      </tr>
-                
                     </tbody>
                 </table>
             </div>

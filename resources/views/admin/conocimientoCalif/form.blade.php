@@ -9,15 +9,12 @@
             <input
                     class="form-control"
                     name="item"
-                    placeholder="Ingrese el item" type="text" value="">
-                    
+                    placeholder="Ingrese el item" type="text" value="">       
         </div>
     </div>
     <div class="invalid-feedback { $errors->has('item')? 'd-block' : '' }}">
         {{ $errors->has('Item')? $errors->first('item') : ''}}
      </div>
-    
-
         <div class="col-md-12 mb-3">
             <label class="col-form-label" for="name">Temática</label>
             <div class="input-group">
@@ -27,15 +24,12 @@
                 <input
                         class="form-control"
                         name="tematica"
-                        placeholder="Ingrese el tema" type="text" value="">
-                        
+                        placeholder="Ingrese el tema" type="text" value="">        
             </div>
         </div>
         <div class="invalid-feedback { $errors->has('tematica')? 'd-block' : '' }}">
             {{ $errors->has('tematica')? $errors->first('tematica') : ''}}
-         </div>
-        
-
+        </div>
             <div class="col-md-12 mb-3">
                 <label class="col-form-label" for="codigp_auxilitura">Código de Auxiliatura</label>
                 <div class="input-group">
@@ -44,16 +38,13 @@
                     </span>
                     <input
                             class="form-control"
-                            name="tematica"
-                            placeholder="Ingrese Código de auxiliatura" type="text" value="">
-                            
+                            name="codAux"
+                            placeholder="Ingrese Código de auxiliatura" type="text" value="">         
                 </div>
             </div>
             <div class="invalid-feedback { $errors->has('codigo_auxiliatura')? 'd-block' : '' }}">
                 {{ $errors->has('codigo_auxiliatura')? $errors->first('codigo') : ''}}
              </div>
-            
-
                 <div class="col-md-12 mb-3">
                     <label class="col-form-label" for="puntaje">Puntaje</label>
                     <div class="input-group">
@@ -62,7 +53,7 @@
                         </span>
                         <input
                                 class="form-control"
-                                name="evento"
+                                name="puntaje"
                                 placeholder="Ingrese puntaje" type="text" value="">
                                 
                     </div>

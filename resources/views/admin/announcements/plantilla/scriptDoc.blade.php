@@ -42,7 +42,7 @@
         'width': margins.width,
         'elementHandlers': specialElementHandlers
     });
-    doc.fromHTML(elemento2, margins.left, margins.top+270, {
+    doc.fromHTML(elemento2, margins.left, margins.top+280, {
         'width': margins.width,
         'elementHandlers': specialElementHandlers
     });

@@ -8,34 +8,28 @@
 		<script>function validar(){
 				var url = "http://apilayer.net/api/check?access_key=7b5fa3d815e2bf9c458dfa744298a253&email=" + document.getElementById("email").value + "&smtp=1&format=1";
 				const api = new XMLHttpRequest();
-				var resp = false;
 				api.open('GET',url,true);
 				api.send();
-				var resultado = document.querySelector('#resultado');
+				var form = document.getElementById('formReg');
 				api.onreadystatechange = function valid(){
 					if(this.status == 200 && this.readyState == 4)
 					{
 						let datos = JSON.parse(this.responseText);
 						console.log(datos.smtp_check);
-						
-						resultado.innerHTML = '';
 						if(datos.smtp_check)
 						{
 							console.log('ok');
   						 	document.fregistro.submit();
-							resp = true;
 						}
 						else
 						{
-							document.fregistro.submit();
+							console.log('correo no valido');
 	 						document.fregistro.email.focus();
-							resultado.innerHTML += 'Ingrese un correo válido!';
 							alert('Dirección de correo inválida!');
 						}
 					}	
 				}
-				resultado.innerHTML += 'Ingrese un correo válido!';
-				return resp;
+				return false;
 			}
 	</script>
 	  @if (count($errors) > 0)
@@ -62,8 +56,8 @@
 					  <!--Inicio cuerpo de formulario-->  
 						<div class="card-body">
 					
-							{{-- <form name="fregistro" class="form-group" method="POST" action={{url("/register")}} onsubmit='return validar()' id="formReg"> --}}
-						    <form name="fregistro" class="form-group" method="POST" action={{url("/register")}}  id="formReg"  >                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       	 
+							<!--<form name="fregistro" class="form-group" method="POST" action="{{url("/register")}}" onsubmit='return validar()' id="formReg">-->
+						    <form name="fregistro" class="form-group" method="POST" action="{{url("/register")}}"  id="formReg"  >
 								   <input type="hidden" name="_token" value="{{ csrf_token() }}">
 								<div class="form-row">
 								   <!--campo nombre-->
