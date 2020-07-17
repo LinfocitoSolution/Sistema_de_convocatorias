@@ -282,7 +282,7 @@
 
                <ul class="nav nav-treeview">
                 <li clas="nav-item">
-                  <a href="{{route('documentos.indexdoc')}}" class="nav-link">
+                  <a href="#" class="nav-link">
                     <i class="nav-icon fa fa-folder"></i>
                     <p>
                       

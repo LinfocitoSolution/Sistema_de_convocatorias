@@ -140,8 +140,11 @@ Route::get('vista', function () {
 Route::get('/denied', ['as' => 'denied', function() {
     return view('errors.401');
 }]);
+
+#######################  Habilitados ###############################
 Route::resource('habilitado_inhabilitado','ListaController@index');
-Route::get('documentosPresentar', 'ListaController@indexdoc@indexdoc')->name('documentos.indexdoc');
+Route::get('documentosPresentar_{user}', 'ListaController@indexdoc')->name('documentos.indexdoc');
+Route::put('habilitar_{user}','ListaController@habilitar')->name('documentos.habilitar');
 ################tablacalif########
 Route::get('form_primerPaso','ConocimientoCalifController@primerPaso')->name('calif.primero');
 Route::get('form_segundoPaso','ConocimientoCalifController@segundoPaso')->name('calif.segundo');

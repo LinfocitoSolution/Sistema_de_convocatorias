@@ -115,7 +115,7 @@
       document.getElementById("ventana").style.backgroundColor='#dc3545';
       document.getElementById("habilitado").value="desabilitado";
       }
-      document.getElementById("descripcion").value="Su calificacion es :"+calificacion;
+     /* document.getElementById("descripcion").value="Su calificacion es :"+calificacion;*/
       
        $('#exampleModalLong').modal('show');
        calificacion=0;

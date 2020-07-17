@@ -38,9 +38,9 @@
                     <td>{{$req->nombre_auxiliatura}}</td>
                     <td>{{$req->codigo_auxiliatura}}</td>
                     <td>{{$user->habilitados->first()->name}}</td>
+                    <td>{{$user->habilitados->first()->description}}</td>
                     
-                    
-                        <td><a class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title=""href="#">
+                        <td><a class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title=""href="{{route('documentos.indexdoc',$user->id)}}">
                           <i class="fa fa-folder"></i>
                       </a>
 

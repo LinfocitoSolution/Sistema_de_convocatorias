@@ -26,9 +26,23 @@ class ListaController extends Controller
         $curriculums=Curriculum::all();
         return view('admin.habilitado_inhabilitado.index' ,compact('requerimientos','users','curriculums','habilitados'));
     }
-      public function indexdoc(){
-        return view('admin.habilitado_inhabilitado.documentosPresentar');
       
+    public function indexdoc(User $user)
+    {
+        return view('admin.habilitado_inhabilitado.documentosPresentar', compact('user'));
+      
+    }
+    public function habilitar(User $user, Request $request)
+    {
+       
+      
+        
+        $user->habilitados->first()->name=$request->input('habilitado');
+        $user->habilitados->first()->description=$request->input('descripcion');
+        $user->save();
+        $user->push();
+        return $user->habilitados;
+        //return redirect(route('habilitado_inhabilitado.index'))->with([ 'message' => 'Usuario habilitado/inhabilitado exitosamente!', 'alert-type' => 'success' ]);
     }
       
     /**
