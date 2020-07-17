@@ -3,7 +3,13 @@
 namespace App\Http\Controllers;
 use \App\ConocimientoCalif;
 use Illuminate\Http\Request;
-
+use App\Unidad;
+use App\User;
+use App\Habilitado;
+use App\Convocatoria;
+use App\Requerimiento;
+use App\Curriculum;
+use App\Carrera;
 class ConocimientoCalifController extends Controller
 {
     public function __construct()
@@ -25,6 +31,17 @@ class ConocimientoCalifController extends Controller
         //$conocimientoCalif=ConocimientoCalif::all();
         $conocimientoCalif=array(1,2,3);
         return view('admin.conocimientoCalif.index', compact('conocimientoCalif'));
+    }
+    public function primerPaso()
+    {   
+        $unidad=Unidad::all();
+        return view('admin.conocimientoCalif.form_primerpaso',compact('unidad'));
+    }
+    public function segundoPaso(Request $request)
+    {
+        $uni = $request->input('unidad');
+        $convocatoria =Convocatoria::all();
+        return view('admin.conocimientoCalif.form_segundopaso', compact('convocatoria', 'uni'));
     }
 
     /**

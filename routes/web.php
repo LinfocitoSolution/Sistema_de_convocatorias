@@ -85,7 +85,7 @@ Route::group(['middleware' => 'permission:view-access-management'], function () 
     //################FECHAS############
     Route::resource('fechas','FechaController');
     Route::resource('conocimientoCalif','ConocimientoCalifController');
-    
+
     //###########Convocatorias#############################endregion
     Route::resource('call', 'CallController');
 
@@ -141,3 +141,7 @@ Route::get('/denied', ['as' => 'denied', function() {
     return view('errors.401');
 }]);
 Route::resource('habilitado_inhabilitado','ListaController@index');
+Route::get('documentosPresentar', 'ListaController@indexdoc@indexdoc')->name('documentos.indexdoc');
+################tablacalif########
+Route::get('form_primerPaso','ConocimientoCalifController@primerPaso')->name('calif.primero');
+Route::get('form_segundoPaso','ConocimientoCalifController@segundoPaso')->name('calif.segundo');

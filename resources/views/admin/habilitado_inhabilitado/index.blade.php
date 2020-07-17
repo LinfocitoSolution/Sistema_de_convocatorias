@@ -21,32 +21,34 @@
                         <th>Nombre de Auxiliatura</th>
                         <th>Código de la Auxiliatura</th>
                         <th>Habilitado/Inhabilitado</th>
+                        <th>Descripción</th>
                         <th>Opciones</th>
                           
                      </tr>
                     </thead>
                 <tbody>
                     @foreach($users as $user)
-                    @foreach($user->requerimientos as $requerimiento )
-                    @foreach($user->habilitados as $hab)
+                    @foreach($user->requerimientos as $req )
+                    
                     <tr>
                        
                     <td>{{$user->name}}</td>
                     <td>{{$user->lastname}}</td>
-                    <td>{{$requerimiento->nombre_auxiliatura}}</td>
-                    <td>{{$requerimiento->codigo_auxiliatura}}</td>
-                    <td>{{$hab->name}}</td>
-                    <td></td>
+
+                    <td>{{$req->nombre_auxiliatura}}</td>
+                    <td>{{$req->codigo_auxiliatura}}</td>
+                    <td>{{$user->habilitados->first()->name}}</td>
+                    
                     
                         <td><a class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title=""href="#">
                           <i class="fa fa-folder"></i>
                       </a>
 
-                        <form action="" method="POST" style="display:inline-block;">
+                    <form action="" method="POST" style="display:inline-block;">
                                                    
                                                        
                         </form>
-                    @endforeach
+                    
                     @endforeach
                     @endforeach
                      </tr>

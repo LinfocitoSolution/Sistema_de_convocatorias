@@ -26,7 +26,11 @@ class ListaController extends Controller
         $curriculums=Curriculum::all();
         return view('admin.habilitado_inhabilitado.index' ,compact('requerimientos','users','curriculums','habilitados'));
     }
-
+      public function indexdoc(){
+        return view('admin.habilitado_inhabilitado.documentosPresentar');
+      
+    }
+      
     /**
      * Show the form for creating a new resource.
      *
