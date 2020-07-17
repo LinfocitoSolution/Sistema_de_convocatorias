@@ -119,6 +119,26 @@
                                             placeholder="Ingrese su dirección" type="text" value="{{ old('direction', isset($user) ? $user->direction : '') }}">
                                 </div>
                             </div>
+                        <!-- postulación actual --> 
+                        <div class="col-md-6 mb-3">
+                            <label class="col-form-label" for="">Postula a</label>
+                            <div class="input-group" data-html="true">
+                                <span class="input-group-append">
+                                    <button class="btn btn-dark text-white" type="button">PA</button>
+                                </span>
+                                @if ($curriculum != null)
+                                    <input
+                                        class="form-control"
+                                        name="postulacion"
+                                        placeholder="Ingrese su dirección" type="text" value="{{$user->requerimientos->first()->nombre_auxiliatura}}" disabled>
+                                @else
+                                <input
+                                        class="form-control"
+                                        name="postulacion"
+                                        type="text" value="No se ha registrado ninguna postulación" disabled>
+                                @endif
+                            </div>
+                        </div>
                         {{-- @endif --}}
                           <!----botones--->
                    </div>

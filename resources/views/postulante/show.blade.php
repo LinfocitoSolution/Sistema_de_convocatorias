@@ -30,6 +30,19 @@
                                 <th>Telefono</th><td>{{$user->telephone}}</td>
                         </tr> 
                                 <th>Direccion</th><th>{{$user->direction}}</th>
+                        </tr> 
+                                @if ($curriculum != null)
+                                    <form action="{{route('cancelar.postulacion', $user) }}" style="display:inline-block;" method="POST">
+                                        {{ csrf_field() }}
+                                        {{ method_field('PUT') }}
+                                        <th>Postula a: </th><th>{{$user->requerimientos->first()->nombre_auxiliatura}}
+                                        <button class="btn btn-dark btn-sm mt-2 ml-2" data-toggle="tooltip" data-trigger="hover" title="presiona para cancelar su postulación"type="submit" margin-left="50" onclick="return confirm('Está seguro que desea cancelar su postulación?')">
+                                          <i class="fa fa-times"></i>
+                                        </button></th>
+                                    </form>
+                                @else
+                                    <th>No se ha registrado ninguna postulación</th>
+                                @endif
                         
                             <!---{ $user->password }} -->
                         </tbody>

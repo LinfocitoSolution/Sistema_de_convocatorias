@@ -72,12 +72,21 @@ class PostulantController extends Controller
     }
     public function show(User $user)
     { 
-        return view('postulante.show',compact('user'));
+        $curriculum = Curriculum::where('user_id', '=', $user->id)->first();
+        return view('postulante.show',compact('user', 'curriculum'));
     }
     
     public function edit(User $user)
     {        
-        return view('postulante.edit',compact('user'));
+        $curriculum = Curriculum::where('user_id', '=', $user->id)->first();
+        return view('postulante.edit',compact('user', 'curriculum'));
+    }
+    public function cancelarPostulacion(User $user)
+    {
+        $user->requerimientos()->detach();
+        $curriculum = Curriculum::where('user_id', '=', $user->id)->first();
+        $curriculum->delete();
+        return redirect('/');
     }
     public function update(PostulanteRequest $request,User $user)
     {

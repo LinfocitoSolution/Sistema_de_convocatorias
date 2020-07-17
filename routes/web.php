@@ -29,7 +29,7 @@ Auth::routes();
  
 Route::group(['middleware' => 'permission:view-access-management'], function () {// restriccion de dashboard
     Route::get('administrador','HomeController@registrado');
-    //----------------------------------rutas de usuario--------------------------------------------------
+    //----------------------------------RUTAS USUARIO--------------------------------------------------
     Route::get('usuarios','UserController@index')->name('usuarios.index')->middleware('permission:list users');
     Route::get('usuarios_create','UserController@create')->name('usuarios.create')->middleware('permission:create users');
     Route::post('usuarios_guardar','UserController@store')->name('usuarios.guardar')->middleware('permission:create users');
@@ -115,7 +115,7 @@ Route::get('reset', function () {
     return view('auth.index_ResetPassword');
 });// falta los middlewares
 
-//######################ROTULO###################################
+//######################ROTULO y POSTULANTE###################################
 Route::get('postulante_{user}_show','PostulantController@show')->name('postulante.show');// falta los middlewares
 Route::get('postulante_edit_{user}','PostulantController@edit')->name('postulante.edit');// falta los middlewares
 Route::put('postulante_{user}_update','PostulantController@update')->name('postulante.update');// falta los middlewares
@@ -123,6 +123,7 @@ Route::put('postulante_{user}_update','PostulantController@update')->name('postu
 Route::get('primerPaso','PostulantController@primerPaso')->name('rotulo.primer');
 Route::get('segundoPaso','PostulantController@segundoPaso')->name('rotulo.segundo');
 Route::get('formularioPostulacion','PostulantController@index')->name('postulacion.form');// falta los middlewares
+Route::put('cancelar_postulacion_{user}','PostulantController@cancelarPostulacion')->name('cancelar.postulacion');
 
 Route::post('guardarRotulo','PostulantController@guardarRotulo')->name('rotulo.guardar');
 //################################################################
