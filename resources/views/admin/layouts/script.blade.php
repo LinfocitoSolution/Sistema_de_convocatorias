@@ -110,12 +110,12 @@
       }
       if(calificacion==70){
       document.getElementById("ventana").style.backgroundColor='#28a745';
-      document.getElementById("habilitado").value="habilitado";
+      document.getElementById("hab").value="habilitado";
       }else{
       document.getElementById("ventana").style.backgroundColor='#dc3545';
-      document.getElementById("habilitado").value="desabilitado";
+      document.getElementById("hab").value="deshabilitado";
       }
-     /* document.getElementById("descripcion").value="Su calificacion es :"+calificacion;*/
+      //document.getElementById("descripcion").value="Su calificacion es :"+calificacion;
       
        $('#exampleModalLong').modal('show');
        calificacion=0;

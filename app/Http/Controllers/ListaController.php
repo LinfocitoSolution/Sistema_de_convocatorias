@@ -37,12 +37,12 @@ class ListaController extends Controller
        
       
         
-        $user->habilitados->first()->name=$request->input('habilitado');
+        $user->habilitados->first()->name=$request->input('hab');
         $user->habilitados->first()->description=$request->input('descripcion');
         $user->save();
         $user->push();
-        return $user->habilitados;
-        //return redirect(route('habilitado_inhabilitado.index'))->with([ 'message' => 'Usuario habilitado/inhabilitado exitosamente!', 'alert-type' => 'success' ]);
+        //return $request->input('hab');
+        return redirect(route('habilitado_inhabilitado.index'))->with([ 'message' => 'Usuario habilitado/inhabilitado exitosamente!', 'alert-type' => 'success' ]);
     }
       
     /**

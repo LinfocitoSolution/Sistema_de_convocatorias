@@ -91,7 +91,7 @@
                             <div class="input-group-prepend">
                               <span class="input-group-text">Estado</span>
                             </div>		  
-                            <input type="text" class="form-control" disabled name="habilitado" value="" id="habilitado">
+                            <input type="text" class="form-control"  name="hab" value="" id="hab">
                           </div>
                          <div class="input-group">
                          
