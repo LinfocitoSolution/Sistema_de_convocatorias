@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Redirect,Response;
 use App\User;
 use App\Unidad;
+use App\Curriculum;
 use App\Convocatoria;
 use App\fecha;
 use Illuminate\Support\Facades\Auth;
