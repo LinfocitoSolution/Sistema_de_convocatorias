@@ -15,7 +15,11 @@ class ListaController extends Controller
     {
         return view('admin.habilitado_inhabilitado.index');
     }
-
+      public function indexdoc(){
+        return view('admin.habilitado_inhabilitado.documentosPresentar');
+      
+    }
+      
     /**
      * Show the form for creating a new resource.
      *

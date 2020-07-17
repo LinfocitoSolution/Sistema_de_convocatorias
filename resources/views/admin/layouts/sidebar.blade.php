@@ -279,6 +279,19 @@
                    <i class="right fas fa-angle-left"></i>
                  </p>
                </a>
+
+               <ul class="nav nav-treeview">
+                <li clas="nav-item">
+                  <a href="{{route('documentos.indexdoc')}}" class="nav-link">
+                    <i class="nav-icon fa fa-folder"></i>
+                    <p>
+                      
+                      Recepción Documentos
+                    </p>
+                  </a>
+                 </li>
+               </ul>
+     
                <ul class="nav nav-treeview">
                  <li class="nav-item">
                     <a href="{{route('habilitado_inhabilitado.index')}}" class="nav-link">
@@ -288,7 +301,7 @@
                     </a>
                   </li>
                </ul>
-             </li>
+            </li>
           
          <!--Fin Postulantes-->
         </ul>

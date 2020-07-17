@@ -140,3 +140,4 @@ Route::get('/denied', ['as' => 'denied', function() {
     return view('errors.401');
 }]);
 Route::resource('habilitado_inhabilitado','ListaController@index');
+Route::get('documentosPresentar', 'ListaController@indexdoc@indexdoc')->name('documentos.indexdoc');
