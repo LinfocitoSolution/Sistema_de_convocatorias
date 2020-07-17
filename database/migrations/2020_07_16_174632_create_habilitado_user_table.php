@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateHabilitadoRequerimientoTable extends Migration
+class CreateHabilitadoUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,18 @@ class CreateHabilitadoRequerimientoTable extends Migration
      */
     public function up()
     {
-        Schema::create('habilitado_requerimiento',function(Blueprint $table)
+        Schema::create('habilitado_user',function(Blueprint $table)
         {
             $table->increments('id');
-            $table->Integer('requerimiento_id')->unsigned();
-            $table->Integer('habilitado_id')->unsigned();            
+            $table->Integer('habilitado_id')->unsigned();
+            $table->Integer('user_id')->unsigned();            
             $table->timestamps();
 
-            $table->foreign('requerimiento_id')->references('id')->on('requerimientos')
+            $table->foreign('habilitado_id')->references('id')->on('habilitados')
                   ->onDelete('cascade')
                   ->onUpdate('cascade');
 
-                  $table->foreign('habilitado_id')->references('id')->on('habilitados')
+                  $table->foreign('user_id')->references('id')->on('users')
                   ->onDelete('cascade')
                   ->onUpdate('cascade');
         });
@@ -37,6 +37,6 @@ class CreateHabilitadoRequerimientoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('habilitado_requerimiento');
+        Schema::dropIfExists('habilitado_user');
     }
 }

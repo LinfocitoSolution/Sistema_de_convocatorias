@@ -2,6 +2,12 @@
 
 namespace App\Http\Controllers;
 use\App\Lista;
+use App\Requerimiento;
+use App\User;
+use App\Curriculum;
+use App\Habilitado;
+
+use DB;
 use Illuminate\Http\Request;
 
 class ListaController extends Controller
@@ -13,7 +19,12 @@ class ListaController extends Controller
      */
     public function index()
     {
-        return view('admin.habilitado_inhabilitado.index');
+        
+        $habilitados=Habilitado::all();
+        $requerimientos=Requerimiento::all();
+        $users=User::all();
+        $curriculums=Curriculum::all();
+        return view('admin.habilitado_inhabilitado.index' ,compact('requerimientos','users','curriculums','habilitados'));
     }
       public function indexdoc(){
         return view('admin.habilitado_inhabilitado.documentosPresentar');
