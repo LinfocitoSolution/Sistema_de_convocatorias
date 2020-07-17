@@ -54,6 +54,73 @@
       $('#Password').attr('type', $(this).is(':checked') ? 'text' : 'password');
     });
   });
+  //##################################################/
+  //Script de documentos a presentar asignandole valores//
+  
+  var calificacion=0;
+  function hola(){
+      if(document.getElementById("switch1").checked==true){
+          document.getElementById("switch1").value=10;
+          calificacion=calificacion+10;
+          
+      }else{
+          document.getElementById("switch1").value=0;
+      }
+      if(document.getElementById("switch2").checked==true){
+          document.getElementById("switch2").value=10;
+          calificacion=calificacion+10;
+          
+      }else{
+          document.getElementById("switch2").value=0;
+      }
+      if(document.getElementById("switch3").checked==true){
+          document.getElementById("switch3").value=10;
+          calificacion=calificacion+10;
+          
+      }else{
+          document.getElementById("switch3").value=0;
+      }
+      if(document.getElementById("switch4").checked==true){
+          document.getElementById("switch4").value=10;
+          calificacion=calificacion+10;
+          
+      }else{
+          document.getElementById("switch4").value=0;
+      }
+      if(document.getElementById("switch5").checked==true){
+          document.getElementById("switch5").value=10;
+          calificacion=calificacion+10;
+          
+      }else{
+          document.getElementById("switch5").value=0;
+      }
+      if(document.getElementById("switch6").checked==true){
+          document.getElementById("switch6").value=10;
+          calificacion=calificacion+10;
+          
+      }else{
+          document.getElementById("switch6").value=0;
+      }
+      if(document.getElementById("switch7").checked==true){
+          document.getElementById("switch7").value=10;
+          calificacion=calificacion+10;
+          
+      }else{
+          document.getElementById("switch7").value=0;
+      }
+      if(calificacion==70){
+      document.getElementById("ventana").style.backgroundColor='#28a745';
+      document.getElementById("habilitado").value="habilitado";
+      }else{
+      document.getElementById("ventana").style.backgroundColor='#dc3545';
+      document.getElementById("habilitado").value="desabilitado";
+      }
+      document.getElementById("descripcion").value="Su calificacion es :"+calificacion;
+      
+       $('#exampleModalLong').modal('show');
+       calificacion=0;
+  }
+  //fin del script de documentos a presentar//
 </script>
- 
 
+ 

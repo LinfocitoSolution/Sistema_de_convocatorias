@@ -20,6 +20,7 @@
                         <th>Apellido</th>
                         <th>Código de la Auxiliatura</th>
                         <th>Habilitado/Inhabilitado</th>
+                        <th>Descripción</th>
                         <th>Opciones</th>
                           
                      </tr>
@@ -30,6 +31,7 @@
                         <td>Bernal</td>
                         <td>LADMT</td>
                         <td>Habilitado</td>
+                        <td>hola como estas</td>
                         <td><a class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title=""href="#">
                           <i class="fa fa-folder"></i>
                       </a>
@@ -39,7 +41,7 @@
                         <td>Barreto Flores</td>
                         <td>ADMLAB</td>
                         <td>Inhabilitado</td>
-
+                        <td>estoy bien</td>
                         <td><a class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title=""href="#">
                           <i class="fa fa-folder"></i>
                       </a> 
