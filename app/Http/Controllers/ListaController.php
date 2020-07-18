@@ -32,6 +32,10 @@ class ListaController extends Controller
         return view('admin.habilitado_inhabilitado.documentosPresentar', compact('user'));
       
     }
+    public function indexdoce(User $user)
+    {
+        return view('admin.habilitado_inhabilitado.documentosPresentar_doc',compact('user'));
+    }
     public function habilitar(User $user, Request $request)
     {
        

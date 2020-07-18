@@ -144,10 +144,10 @@ Route::get('/denied', ['as' => 'denied', function() {
 #######################  Habilitados ###############################
 Route::resource('habilitado_inhabilitado','ListaController@index');
 Route::get('documentosPresentar_{user}', 'ListaController@indexlab')->name('documentos.indexlab');
+Route::get('documentosPresentar_doc_{user}','ListaController@indexdoce')->name('documentos.indexdoce');
 Route::put('habilitar_{user}','ListaController@habilitar')->name('documentos.habilitar');
 
 ################tablacalif########
 Route::get('form_primerPaso','ConocimientoCalifController@primerPaso')->name('calif.primero');
 Route::get('form_segundoPaso','ConocimientoCalifController@segundoPaso')->name('calif.segundo');
 Route::get('descripcion_postulante','ListaController@describe')->name('descripcion.desc');
-Route::get('documentosPresentar_doc','ListaControllerindexdoc')->name('docuemntoDoc.indexdoc');
