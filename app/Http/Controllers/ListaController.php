@@ -27,7 +27,7 @@ class ListaController extends Controller
         return view('admin.habilitado_inhabilitado.index' ,compact('requerimientos','users','curriculums','habilitados'));
     }
       
-    public function indexdoc(User $user)
+    public function indexlab(User $user)
     {
         return view('admin.habilitado_inhabilitado.documentosPresentar', compact('user'));
       
@@ -109,5 +109,9 @@ class ListaController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function indexdoc(){
+        return view('admin.habilotado_inhabilitado.documentosPresentar_doc');
+
     }
 }
