@@ -115,7 +115,7 @@ class ListaController extends Controller
         //
     }
     public function indexdoc(){
-        return view('admin.habilotado_inhabilitado.documentosPresentar_doc');
+        return view('admin.habilitado_inhabilitado.documentosPresentar_doc');
 
     }
 }

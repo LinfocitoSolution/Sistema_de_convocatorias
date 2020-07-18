@@ -67,10 +67,7 @@
                     @endif
                         
 
-                    <form action="" method="POST" style="display:inline-block;">
-                                                   
-                                                       
-                     </form>
+                   
                     
                     @endforeach
                     @endforeach
