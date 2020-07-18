@@ -50,10 +50,7 @@ class ListaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
+   
 
     /**
      * Store a newly created resource in storage.
@@ -85,7 +82,10 @@ class ListaController extends Controller
      */
     public function edit($id)
     {
-        //
+        
+    }
+    public function describe(){
+        return view('admin.habilitado_inhabilitado.descripcion');
     }
 
     /**

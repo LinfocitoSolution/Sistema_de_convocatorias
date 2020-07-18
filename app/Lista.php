@@ -13,7 +13,8 @@ class Lista extends Model
         'name',
         'lastname',
         'codigo_auxiliatura',
-        'habilitado/inhabilitado'        
+        'habilitado/inhabilitado',
+        'descripcion',       
         ];
     
 }

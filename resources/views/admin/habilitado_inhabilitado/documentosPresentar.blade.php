@@ -89,14 +89,14 @@
                           <div class="input-group">
                          
                             <div class="input-group-prepend">
-                              <span class="input-group-text">Estado</span>
+                              <span class="input-group-text text-white">Estado</span>
                             </div>		  
                             <input type="text" class="form-control"  name="hab" value="" id="hab">
                           </div>
                          <div class="input-group">
                          
                             <div class="input-group-prepend">
-                              <span class="input-group-text">Descripcion</span>
+                              <span class="input-group-text text-white">Descripcion</span>
                             </div>
                             
                             <textarea class="form-control" aria-label="With textarea" name="descripcion" value="" id="descripcion"></textarea>
@@ -105,7 +105,7 @@
                         <div class="modal-footer">
                           <button class="btn btn-outline-dark" type="submit">Confirmar Habilitado/Inhabilitado</button>
                           <button type="button" class="btn btn-dark" data-dismiss="modal">Cancelar</button>
-                          <!--<button type="button" class="btn btn-dark">Guardar</button>-->
+                          
                         </div>
                         </form>
                       </div>

@@ -42,12 +42,23 @@
                     
                         <td><a class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title=""href="{{route('documentos.indexdoc',$user->id)}}">
                           <i class="fa fa-folder"></i>
-                      </a>
-
-                    <form action="" method="POST" style="display:inline-block;">
-                                                   
-                                                       
+                        </a>
+                          <form action="" style="display:inline-block;" method="POST">
+                            <!--{{ csrf_field() }}
+                            {{ method_field('DELETE') }}-->
+                            <button class="btn btn-dark btn-sm mt-2 ml-2" data-toggle="tooltip" data-trigger="hover" title="presiona para eliminar una convocatoria"type="submit" margin-left="50" onclick="return confirm('Está seguro de eliminar la convocatoria?')">
+                              <i class="fa fa-trash-alt"></i>
+                            </button>
                         </form>
+
+                        <form action="" style="display:inline-block;" method="POST">
+                            <!--{{ csrf_field() }}
+                            {{ method_field('PUT') }}-->
+                            <button class="btn btn-dark btn-sm mt-2 ml-2" data-toggle="tooltip" data-trigger="hover" title="presiona para publicar la descripción"type="submit" margin-left="50" onclick="">
+                              <i class="fa fa-cloud"></i>
+                            </button>
+                          </form>
+                      
                     
                     @endforeach
                     @endforeach

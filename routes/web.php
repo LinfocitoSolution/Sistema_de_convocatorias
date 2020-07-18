@@ -145,6 +145,8 @@ Route::get('/denied', ['as' => 'denied', function() {
 Route::resource('habilitado_inhabilitado','ListaController@index');
 Route::get('documentosPresentar_{user}', 'ListaController@indexdoc')->name('documentos.indexdoc');
 Route::put('habilitar_{user}','ListaController@habilitar')->name('documentos.habilitar');
+
 ################tablacalif########
 Route::get('form_primerPaso','ConocimientoCalifController@primerPaso')->name('calif.primero');
 Route::get('form_segundoPaso','ConocimientoCalifController@segundoPaso')->name('calif.segundo');
+Route::get('descripcion_postulante','ListaController@describe')->name('descripcion.desc');

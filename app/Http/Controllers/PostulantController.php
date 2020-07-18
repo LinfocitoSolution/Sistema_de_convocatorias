@@ -94,4 +94,5 @@ class PostulantController extends Controller
         $user->save();        
         return redirect(route('postulante.show',compact('user')))->with([ 'message' => 'Usuario actualizado exitosamente!', 'alert-type' => 'success' ]);
     }
+    
 }
