@@ -42,7 +42,20 @@
                     @if ($req->convocatorias->first()->tipo_convocatoria == 'convocatoria de laboratorios')
                         <td><a class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title=""href="{{route('documentos.indexlab',$user->id)}}">
                             <i class="fa fa-folder"></i>
-                        </a></td>
+                        </a>
+                        <form action="" style="display:inline-block;" method="POST">
+                            
+                        <button class="btn btn-dark btn-sm mt-2 ml-2" data-toggle="tooltip" data-trigger="hover" title="presiona para eliminar una convocatoria"type="submit" margin-left="50" onclick="return confirm('Está seguro de eliminar la convocatoria?')">
+                            <i class="fa fa-trash-alt"></i>
+                          </button>
+                        </form>
+                        <form action="" style="display:inline-block;" method="POST">
+                            
+                          <button class="btn btn-dark btn-sm mt-2 ml-2" data-toggle="tooltip" data-trigger="hover" title="presiona para publicar una convocatoria"type="submit" margin-left="50" onclick="return confirm('Está seguro que desea publicar la convocatoria?')">
+                            <i class="fa fa-cloud"></i>
+                          </button>
+                        </form>
+                    </td> 
                     @else  
                         {{-- PARA DOCENCIA
                             <td><a class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title=""href="{{route('documentos.indexdoc',$user->id)}}">
@@ -52,10 +65,7 @@
                     @endif
                         
 
-                    <form action="" method="POST" style="display:inline-block;">
-                                                   
-                                                       
-                     </form>
+                   
                     
                     @endforeach
                     @endforeach
