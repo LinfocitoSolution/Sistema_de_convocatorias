@@ -20,7 +20,7 @@
                         <th>Nombre de Auxiliatura</th>
                         <th>Código de la Auxiliatura</th>
                         <th>Habilitado/Inhabilitado</th>
-                        <th>Descripción</th>
+                        
                         <th>Opciones</th>
                           
                      </tr>
@@ -37,7 +37,7 @@
                     <td>{{$req->nombre_auxiliatura}}</td>
                     <td>{{$req->codigo_auxiliatura}}</td>
                     <td>{{$user->habilitados->first()->name}}</td>
-                    <td>{{$user->habilitados->first()->description}}</td>
+                    
                     
                     @if ($req->convocatorias->first()->tipo_convocatoria == 'convocatoria de laboratorios')
                         <td><a class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title=""href="{{route('documentos.indexlab',$user->id)}}">
@@ -45,7 +45,7 @@
                         </a>
                         <form action="" style="display:inline-block;" method="POST">
                             
-                        <button class="btn btn-dark btn-sm mt-2 ml-2" data-toggle="tooltip" data-trigger="hover" title="presiona para eliminar una convocatoria"type="submit" margin-left="50" onclick="return confirm('Está seguro de eliminar la convocatoria?')">
+                        <!--<button class="btn btn-dark btn-sm mt-2 ml-2" data-toggle="tooltip" data-trigger="hover" title="presiona para eliminar una convocatoria"type="submit" margin-left="50" onclick="return confirm('Está seguro de eliminar la convocatoria?')">
                             <i class="fa fa-trash-alt"></i>
                           </button>
                         </form>
@@ -53,14 +53,16 @@
                             
                           <button class="btn btn-dark btn-sm mt-2 ml-2" data-toggle="tooltip" data-trigger="hover" title="presiona para publicar una convocatoria"type="submit" margin-left="50" onclick="return confirm('Está seguro que desea publicar la convocatoria?')">
                             <i class="fa fa-cloud"></i>
-                          </button>
+                          </button>-->
                         </form>
                     </td> 
                     @else  
                         
                             <td><a class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title=""href="{{route('documentos.indexdoce',$user->id)}}">
                             <i class="fa fa-folder"></i>
-                        </a></td> 
+                        </a>
+                        <form action="" style="display:inline-block;" method="POST">
+                    </td> 
                         
                     @endif
                         

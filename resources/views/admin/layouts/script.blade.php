@@ -174,14 +174,8 @@
       }else{
           document.getElementById("switch6").value=0;
       }
-      if(document.getElementById("switch7").checked==true){
-          document.getElementById("switch7").value=10;
-          calificacion=calificacion+10;
-          
-      }else{
-          document.getElementById("switch7").value=0;
-      }
-      if(calificacion==70){
+     
+      if(calificacion==60){
       document.getElementById("ventana").style.backgroundColor='#28a745';
       document.getElementById("hab").value="habilitado";
       }else{
