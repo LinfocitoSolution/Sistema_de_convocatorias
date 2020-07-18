@@ -10,7 +10,6 @@
         <div class="card mt-2">
             <div class="card-header">
                 <h1>Lista de Postulantes Habilitados e Inhabilitados</h1>
-                
             </div>
             <div class="card-body">
                 <table class="table table-bordered table-striped table-sm">
@@ -26,7 +25,7 @@
                           
                      </tr>
                     </thead>
-                <tbody>
+                    <tbody>
                     @foreach($users as $user)
                     @foreach($user->requerimientos as $req )
                     
@@ -40,23 +39,23 @@
                     <td>{{$user->habilitados->first()->name}}</td>
                     <td>{{$user->habilitados->first()->description}}</td>
                     
+                    @if ($req->convocatorias->first()->tipo_convocatoria == 'convocatoria de laboratorios')
                         <td><a class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title=""href="{{route('documentos.indexdoc',$user->id)}}">
-                          <i class="fa fa-folder"></i>
-                        </a>
-                          <form action="" style="display:inline-block;" method="POST">
-                           
-                            <button class="btn btn-dark btn-sm mt-2 ml-2" data-toggle="tooltip" data-trigger="hover" title=""type="submit" margin-left="">
-                              <i class="fa fa-trash-alt"></i>
-                            </button>
-                        </form>
+                            <i class="fa fa-folder"></i>
+                        </a></td>
+                    @else  
+                        {{-- PARA DOCENCIA
+                            <td><a class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title=""href="{{route('documentos.indexdoc',$user->id)}}">
+                            <i class="fa fa-folder"></i>
+                        </a></td> 
+                        --}}
+                    @endif
+                        
 
-                        <form action="" style="display:inline-block;" method="POST">
-                            
-                            <button class="btn btn-dark btn-sm mt-2 ml-2" data-toggle="tooltip" data-trigger="hover" title="presiona para publicar la descripción"type="submit" margin-left="50" onclick="">
-                              <i class="fa fa-cloud"></i>
-                            </button>
-                          </form>
-                      
+                    <form action="" method="POST" style="display:inline-block;">
+                                                   
+                                                       
+                     </form>
                     
                     @endforeach
                     @endforeach
