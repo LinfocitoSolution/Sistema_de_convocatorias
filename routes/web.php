@@ -144,7 +144,7 @@ Route::get('/denied', ['as' => 'denied', function() {
 #######################  Habilitados ###############################
 Route::resource('habilitado_inhabilitado','ListaController@index');
 Route::get('documentosPresentar_{user}', 'ListaController@indexlab')->name('documentos.indexlab');
-Route::get('documentosPresentar_doc_{user}','ListaController@indexdoce')->name('documentos.indexdoce');
+Route::get('documentosPresentardoc_{user}','ListaController@indexdoce')->name('documentos.indexdoce');
 Route::put('habilitar_{user}','ListaController@habilitar')->name('documentos.habilitar');
 
 ################tablacalif########

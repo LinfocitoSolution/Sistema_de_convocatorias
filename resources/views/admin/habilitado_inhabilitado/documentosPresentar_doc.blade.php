@@ -72,7 +72,7 @@
                             
                           
                             <div class="form-actions text-center">
-                                <button class="btn btn-dark" onclick="hola()" type="button">Confirmar la calificacion</button>
+                                <button class="btn btn-dark" onclick="hola2()" type="button">Confirmar la calificacion</button>
                             </div>
                             
                             </div>
@@ -80,7 +80,7 @@
                     </div>
                 </div>
                 @endsection
-                <form action="#" method="POST" style="display:inline-block">
+                <form action="{{route('documentos.habilitar',$user->id)}}" method="POST" style="display:inline-block">
                   {{ method_field('PUT')}}
                       {{ csrf_field() }}
                 <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
