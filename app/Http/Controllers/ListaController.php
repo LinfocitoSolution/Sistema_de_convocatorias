@@ -48,6 +48,21 @@ class ListaController extends Controller
         //return $request->input('hab');
         return redirect(route('habilitado_inhabilitado.index'))->with([ 'message' => 'Usuario habilitado/inhabilitado exitosamente!', 'alert-type' => 'success' ]);
     }
+    public function publicar(User $user,Request $request)
+    {
+        $user->habilitados->first()->publicado="si";
+        $user->save();
+        $user->push();
+        return redirect(route('habilitado_inhabilitado.index'))->with([ 'message' => 'habilitacion publicada exitosamente!', 'alert-type' => 'success' ]);
+    }
+    public function quitar(User $user,Request $request)
+    {
+        $user->habilitados->first()->publicado="no";
+        $user->save();
+        $user->push();
+        return redirect(route('habilitado_inhabilitado.index'))->with([ 'message' => 'habilitacion quitada exitosamente!', 'alert-type' => 'success' ]);
+    }
+
       
     /**
      * Show the form for creating a new resource.
@@ -88,7 +103,8 @@ class ListaController extends Controller
     {
         
     }
-    public function describe(){
+    public function describe(User $user){
+        
         return view('admin.habilitado_inhabilitado.descripcion');
     }
 

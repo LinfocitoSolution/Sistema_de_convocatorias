@@ -20,7 +20,6 @@
                         <th>Nombre de Auxiliatura</th>
                         <th>Código de la Auxiliatura</th>
                         <th>Habilitado/Inhabilitado</th>
-                        
                         <th>Opciones</th>
                           
                      </tr>
@@ -38,32 +37,54 @@
                     <td>{{$req->codigo_auxiliatura}}</td>
                     <td>{{$user->habilitados->first()->name}}</td>
                     
-                    
+                    @if($user->habilitados->first()->publicado=="si")
+                    <form action="{{ route('documento.quitar', $user->id) }}" style="display:inline-block;" method="POST">
+                        {{ csrf_field() }}
+                        {{ method_field('PUT') }}
+                       <td> <button class="btn btn-dark btn-sm mt-2 ml-2" data-toggle="tooltip" data-trigger="hover" title="presiona para quitar una habilitacion publicada"type="submit" margin-left="50" onclick="return confirm('Está seguro que desea ocultar esta publicacion?')">
+                            <i class="fa fa-times"></i>
+                          </button>
+                    </form>
+                </td>
+                    @else
+                   
                     @if ($req->convocatorias->first()->tipo_convocatoria == 'convocatoria de laboratorios')
                         <td><a class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title=""href="{{route('documentos.indexlab',$user->id)}}">
                             <i class="fa fa-folder"></i>
                         </a>
-                        <form action="" style="display:inline-block;" method="POST">
-                            
+                        
+                        
+                        
                         <!--<button class="btn btn-dark btn-sm mt-2 ml-2" data-toggle="tooltip" data-trigger="hover" title="presiona para eliminar una convocatoria"type="submit" margin-left="50" onclick="return confirm('Está seguro de eliminar la convocatoria?')">
                             <i class="fa fa-trash-alt"></i>
                           </button>
                         </form>
                         <form action="" style="display:inline-block;" method="POST">
                             
-                          <button class="btn btn-dark btn-sm mt-2 ml-2" data-toggle="tooltip" data-trigger="hover" title="presiona para publicar una convocatoria"type="submit" margin-left="50" onclick="return confirm('Está seguro que desea publicar la convocatoria?')">
-                            <i class="fa fa-cloud"></i>
-                          </button>-->
-                        </form>
-                    </td> 
+                          -->
+                        
+                   
                     @else  
+
                         
                             <td><a class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title=""href="{{route('documentos.indexdoce',$user->id)}}">
                             <i class="fa fa-folder"></i>
                         </a>
-                        <form action="" style="display:inline-block;" method="POST">
-                    </td> 
+                       
+                    
                         
+                    @endif
+                    <form action="{{ route('documento.publicar', $user->id) }}" style="display:inline-block;" method="POST">
+                        {{ csrf_field() }}
+                        {{ method_field('PUT') }}
+                        <button class="btn btn-dark btn-sm mt-2 ml-2" data-toggle="tooltip" data-trigger="hover" title="presiona para publicar la habilitacion"type="submit" margin-left="50" onclick="return confirm('Está seguro que desea publicar esta habilitacion?')">
+                        <i class="fa fa-cloud"></i>
+                        </button>
+                    </form>
+
+                    </td>
+                    
+                    
                     @endif
                         
 
