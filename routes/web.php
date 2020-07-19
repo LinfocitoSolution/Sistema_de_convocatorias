@@ -146,8 +146,10 @@ Route::resource('habilitado_inhabilitado','ListaController@index');
 Route::get('documentosPresentar_{user}', 'ListaController@indexlab')->name('documentos.indexlab');
 Route::get('documentosPresentardoc_{user}','ListaController@indexdoce')->name('documentos.indexdoce');
 Route::put('habilitar_{user}','ListaController@habilitar')->name('documentos.habilitar');
-
-################tablacalif########
+Route::put('documentosPublicar_{user}','ListaController@publicar')->name('documento.publicar');
+Route::put('documentosQuitar_{user}','ListaController@quitar')->name('documento.quitar');
+Route::get('descripcionPostulante{user}','ListaController@describe')->name('descripcion.desc');
+################tablacalif############################################
 Route::get('form_primerPaso','ConocimientoCalifController@primerPaso')->name('calif.primero');
 Route::get('form_segundoPaso','ConocimientoCalifController@segundoPaso')->name('calif.segundo');
-Route::get('descripcion_postulante','ListaController@describe')->name('descripcion.desc');
+
