@@ -151,3 +151,4 @@ Route::put('habilitar_{user}','ListaController@habilitar')->name('documentos.hab
 Route::get('form_primerPaso','ConocimientoCalifController@primerPaso')->name('calif.primero');
 Route::get('form_segundoPaso','ConocimientoCalifController@segundoPaso')->name('calif.segundo');
 Route::get('descripcion_postulante','ListaController@describe')->name('descripcion.desc');
+Route::get('descripcion_doc','ListaController@descripcion')->name('descrip.describe');

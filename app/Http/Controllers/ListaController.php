@@ -118,4 +118,7 @@ class ListaController extends Controller
         return view('admin.habilitado_inhabilitado.documentosPresentar_doc');
 
     }
+    public function descripcion(){
+        return view('admin.habilitado_inhabilitado.descripcionDoc');
+    }
 }
