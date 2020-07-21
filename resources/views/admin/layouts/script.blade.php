@@ -72,6 +72,7 @@
           
       }else{
           document.getElementById("switch1").value=0;
+          document.getElementById("descripcion").value += $("#switch1t").text() + '\r\n';
       }
       if(document.getElementById("switch2").checked==true){
           document.getElementById("switch2").value=10;
@@ -79,6 +80,7 @@
           
       }else{
           document.getElementById("switch2").value=0;
+          document.getElementById("descripcion").value += $("#switch2t").text() + '\r\n';
       }
       if(document.getElementById("switch3").checked==true){
           document.getElementById("switch3").value=10;
@@ -86,6 +88,7 @@
           
       }else{
           document.getElementById("switch3").value=0;
+          document.getElementById("descripcion").value += $("#switch3t").text() + '\r\n';
       }
       if(document.getElementById("switch4").checked==true){
           document.getElementById("switch4").value=10;
@@ -93,6 +96,7 @@
           
       }else{
           document.getElementById("switch4").value=0;
+          document.getElementById("descripcion").value += $("#switch4t").text() + '\r\n';
       }
       if(document.getElementById("switch5").checked==true){
           document.getElementById("switch5").value=10;
@@ -100,6 +104,7 @@
           
       }else{
           document.getElementById("switch5").value=0;
+          document.getElementById("descripcion").value += $("#switch5t").text() + '\r\n';
       }
       if(document.getElementById("switch6").checked==true){
           document.getElementById("switch6").value=10;
@@ -107,6 +112,7 @@
           
       }else{
           document.getElementById("switch6").value=0;
+          document.getElementById("descripcion").value += $("#switch6t").text() + '\r\n';
       }
       if(document.getElementById("switch7").checked==true){
           document.getElementById("switch7").value=10;
@@ -114,10 +120,12 @@
           
       }else{
           document.getElementById("switch7").value=0;
+          document.getElementById("descripcion").value += $("#switch7t").text() + '\r\n';
       }
       if(calificacion==70){
       document.getElementById("ventana").style.backgroundColor='#28a745';
       document.getElementById("hab").value="habilitado";
+      document.getElementById("descripcion").value =" ";
       }else{
       document.getElementById("ventana").style.backgroundColor='#dc3545';
       document.getElementById("hab").value="deshabilitado";
