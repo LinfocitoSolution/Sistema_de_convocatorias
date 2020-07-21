@@ -280,17 +280,8 @@
                  </p>
                </a>
 
-               <ul class="nav nav-treeview">
-                <li clas="nav-item">
-                  <a href="#" class="nav-link">
-                    <i class="nav-icon fa fa-folder"></i>
-                    <p>
                       
-                      Recepción Documentos
-                    </p>
-                  </a>
-                 </li>
-               </ul>
+                     
      
                <ul class="nav nav-treeview">
                  <li class="nav-item">
