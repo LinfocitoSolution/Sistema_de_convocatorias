@@ -23,7 +23,7 @@
                 <div class="input-group-prepend">
                  <span class="input-group-text text-white">Descripcion</span>
                 </div>
-              <textarea class="form-control" name="descripcion" value="" id="descripcion">{{Auth::user()->habilitados->first()->description}}</textarea>
+              <textarea class="form-control" name="descripcion" value="" id="descripcion" disabled>{{Auth::user()->habilitados->first()->description}}</textarea>
             </div>
         </div>
             @endif
