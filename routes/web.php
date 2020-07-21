@@ -152,4 +152,4 @@ Route::get('descripcionPostulante{user}','ListaController@describe')->name('desc
 ################tablacalif############################################
 Route::get('form_primerPaso','ConocimientoCalifController@primerPaso')->name('calif.primero');
 Route::get('form_segundoPaso','ConocimientoCalifController@segundoPaso')->name('calif.segundo');
-
+/*Route::get('formdoc','ConocimientoCalifController@formdoc')->name('calif.formdoc');*/
