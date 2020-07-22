@@ -307,7 +307,7 @@
 
           <ul class="nav nav-treeview">
             <li class="nav-item">
-               <a href="{{route('merito-crear.create')}}" class="nav-link">
+               <a href="{{route('merito.create')}}" class="nav-link">
                   <i class="fas fa-th-list nav-icon"></i>
                   Nueva Tabla Méritos
                   <p></p>
@@ -318,7 +318,7 @@
 
           <ul class="nav nav-treeview">
             <li class="nav-item">
-               <a href="{{route('meritoLab.index')}}" class="nav-link">
+               <a href="{{route('merito.index')}}" class="nav-link">
                   <i class="fas fa-th-list nav-icon"></i>
                   Lista de méritos
                   <p></p>
