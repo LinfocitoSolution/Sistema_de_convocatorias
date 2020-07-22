@@ -295,6 +295,39 @@
             </li>
           
          <!--Fin Postulantes-->
+         <!--inicio de tabla de merito-->
+         <li class="nav-item has-treeview menu-close">
+          <a href="#" class="nav-link active bg-dark">
+            <i class="nav-icon fa fa-table"></i>
+            <p>
+              Tabla de méritos
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          </a>
+
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+               <a href="{{route('merito-crear.create')}}" class="nav-link">
+                  <i class="fas fa-th-list nav-icon"></i>
+                  Nueva Tabla Méritos
+                  <p></p>
+               </a>
+             </li>
+          </ul>   
+                
+
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+               <a href="{{route('meritoLab.index')}}" class="nav-link">
+                  <i class="fas fa-th-list nav-icon"></i>
+                  Lista de méritos
+                  <p></p>
+               </a>
+             </li>
+          </ul>
+       </li>
+         <!--fin de tabla de merito-->
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

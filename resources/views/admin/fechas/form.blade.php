@@ -1,18 +1,3 @@
-<div class="form-row">
-
-    <div class="col-md-12 mb-3">
-        <label class="col-form-label" for="name">Evento</label>
-        <div class="input-group">
-            <span class="input-group-append" data-html="true" data-toggle="popover" title="Restricciones" data-content= "-M&aacute;ximo 200 caracteres <br> -M&iacute;nimo 3 caracteres <br-El evento no debe tener caracteres especiales, ni números">
-                <button class="btn btn-dark" type="button">E</button>
-            </span>
-            <input
-                    class="form-control"
-                    name="evento"
-                    placeholder="Ingrese Evento" type="text" value="{{ old('evento', isset($fecha) ? $fecha->evento : '') }}">
-                    
-        </div>
-    </div>
    <div class="invalid-feedback {{ $errors->has('evento')? 'd-block' : '' }}">
         {{ $errors->has('evento')? $errors->first('evento') : 'El evento ingresado ya existe en nuestro registros'}}
      </div>
