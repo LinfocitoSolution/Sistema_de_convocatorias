@@ -153,10 +153,10 @@ Route::get('descripcionPostulante{user}','ListaController@describe')->name('desc
 Route::get('form_primerPaso','ConocimientoCalifController@primerPaso')->name('calif.primero');
 Route::get('form_segundoPaso','ConocimientoCalifController@segundoPaso')->name('calif.segundo');
 ######################## Méritos ####
-Route::get('Merito','MeritosController@index')->name('merito.index');
-Route::get('crear-merito','MeritosController@create')->name('merito.create');
+Route::get('Merito','MeritosController@index')->name('meritoLab.index');
+Route::get('crear-merito','MeritosController@create')->name('merito-crear.create');
 Route::post('merito_store','MeritosController@store')->name('merito.storemerito');
-Route::get('create-submerito','MeritosController@createsubmerito')->name('submerito.create');
-Route::post('submerito_store','MeritosController@submeritostore')->name('submerito.storemerito');
-Route::delete('meritoeliminar_{merito}','MeritosController@destroy')->name('merito.destroy');
+Route::get('sub-merito','MeritosController@submerito')->name('sub-Merito.submerito');
+Route::delete('merito_eliminar','CallController@destroy')->name('merito.eliminar');
 /*Route::get('formdoc','ConocimientoCalifController@formdoc')->name('calif.formdoc');*/
+Route::get('indexsub','MeritosController@indexsubmerito')->name('sub_Merito.indexsubmerito');

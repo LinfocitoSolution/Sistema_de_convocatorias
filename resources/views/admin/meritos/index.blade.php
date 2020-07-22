@@ -35,6 +35,9 @@
                         <td><a class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title="Crear sub-méritos"href="{{ route('submerito.create',$merito)}}">
                             <i class="far fa-plus-square"></i>
                         </a> 
+                        <td><a class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title="Crear sub-méritos"href="#">
+                            <i class="far fa-eye"></i>
+                        </a> 
                         
                         <form action="{{ route('merito.destroy', $merito->id) }}" method="POST" style="display:inline-block;">
                             {{ csrf_field() }}
