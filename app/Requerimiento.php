@@ -27,6 +27,9 @@ class Requerimiento extends Model
     {
         return $this->belongsToMany(User::class)->withTimestamps();
     }
+    public function tematica_requerimietos(){
+        return $this->hasMany('Tematica_requerimiento');
+    }
      
 }
 
