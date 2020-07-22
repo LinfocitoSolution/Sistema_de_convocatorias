@@ -10,7 +10,8 @@ class Merito extends Model
         'id',
         'convocatoria_id',
         'description',
-        'score',    
+        'score',  
+        'name',  
     ];
     public function submeritos(){
         return $this->hasMany('Submerito');

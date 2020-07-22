@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateHabilitadosTable extends Migration
+class CreateTematicasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,10 @@ class CreateHabilitadosTable extends Migration
      */
     public function up()
     {
-        Schema::create('habilitados', function (Blueprint $table) {
+        Schema::create('tematicas', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->nullable();
-            $table->string('description')->nullable();            
-            
-            $table->rememberToken();
+            $table->string('name');
             $table->timestamps();
-            
         });
     }
 
@@ -31,6 +27,6 @@ class CreateHabilitadosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('habilitados');
+        Schema::dropIfExists('tematicas');
     }
 }

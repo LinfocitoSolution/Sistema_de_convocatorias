@@ -10,7 +10,8 @@ class Submerito extends Model
         'id',
         'merito_id',    
         'description', 
-        'score',              
+        'score',  
+        'name',            
     ];
     public function merito()
     {
