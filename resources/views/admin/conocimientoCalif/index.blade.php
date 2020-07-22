@@ -32,9 +32,7 @@
                         <td>Tematica</td>
                         <td>Código de la Auxiliatura</td>
                         <td>Calificación</td>
-                        <td><a class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title="presiona para editar una fecha"href="{{route('conocimientoCalif.edit',1)}}">
-                            <i class="fa fa-pencil-alt"></i>
-                        </a> 
+                        <td>
                        
                         <form action="" method="POST" style="display:inline-block;">
                             {{ csrf_field() }}                                                              

@@ -20,4 +20,7 @@ class Convocatoria extends Model
     {
         return $this->belongsToMany(Fecha::class)->withTimestamps();
     }
+    public function merito() {
+        return $this->hasOne('Merito');
+    }
 }

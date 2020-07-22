@@ -158,3 +158,4 @@ Route::get('crear-merito','MeritosController@create')->name('merito-crear.create
 Route::post('merito_store','MeritosController@store')->name('merito.storemerito');
 Route::get('sub-merito','MeritosController@submerito')->name('sub-Merito.submerito');
 Route::delete('merito_eliminar','CallController@destroy')->name('merito.eliminar');
+/*Route::get('formdoc','ConocimientoCalifController@formdoc')->name('calif.formdoc');*/
