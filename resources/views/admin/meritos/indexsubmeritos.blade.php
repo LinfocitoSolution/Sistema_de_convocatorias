@@ -19,21 +19,18 @@
                 <table class="table table-bordered table-striped table-sm">
                     <thead>
                     <tr>
-                        <th>Nombre de mérito</th>
-                        <th>Puntaje</th>
-                        <th>Nombre sub-mérito</th>
+                        <th>Nombre de sub-mérito</th>
                         <th>Puntaje</th>
                         <th>Opciones</th>
                      </tr>
                     </thead>
                 <tbody>
                     <tr>
-                        <td> RENDIMIENTO ACADÉMICO </td>
-                        <td>65</td>
+                        <td>Promedio general de las materias cursadas (Incluye reprobadas y
+                            abandonos)</td>
+                        <td>35%</td>
                         
-                        <td><a class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title="Crear sub-méritos"href="#">
-                            <i class="far fa-plus-square"></i>
-                        </a> 
+                        <td>
                         
                         <form action="#" method="POST" style="display:inline-block;">
                             {{ csrf_field() }}

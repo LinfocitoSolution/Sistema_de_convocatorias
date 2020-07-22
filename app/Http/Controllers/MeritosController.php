@@ -125,4 +125,8 @@ class MeritosController extends Controller
     {
         return view('admin.meritos.formsubmerito');
     }
+    
+    public function indexsubmerito(){
+        return view('admin.meritos.indexsubmeritos');
+    }
 }
