@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use \App\Merito;
 use \App\Submerito;
 use \App\Convocatoria;
-
+use App\Http\Requests\MeritoRequest;
 
 use Illuminate\Http\Request;
 
@@ -49,7 +49,7 @@ class MeritosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(MeritoRequest $request)
     {
         
         $meritos=new Merito;
