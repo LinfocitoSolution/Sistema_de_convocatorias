@@ -11,7 +11,7 @@
             <div class="card-header">
                 <h1>Tabla de Méritos</h1>
                 <a class="btn btn-dark px2" data-toggle="tooltip" data-trigger="hover" title="" href="{{route('merito.create')}}">
-                    Nuevo
+                    Nuevo Merito
                     <i class="fa fa-table"></i>
                 </a>
             </div>
@@ -43,7 +43,7 @@
                         <form action="{{ route('merito.destroy', $merito->id) }}" method="POST" style="display:inline-block;">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}                
-                            <button class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title="Eliminar Méritos"  type="submit" margin-left="50" onclick="return confirm('Está seguro que desea eliminar esta publicacion?')">
+                            <button class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title="Eliminar Méritos"  type="submit" margin-left="50" onclick="return confirm('Está seguro que desea eliminar este merito?')">
                                 <i class="fa fa-trash-alt"></i>                                
                             </button> 
                             
