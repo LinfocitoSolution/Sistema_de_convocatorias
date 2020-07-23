@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use \App\Merito;
 use \App\Submerito;
 use \App\Convocatoria;
+use Validator;
 use App\Http\Requests\MeritoRequest;
 
 use Illuminate\Http\Request;
@@ -52,13 +53,36 @@ class MeritosController extends Controller
     public function store(MeritoRequest $request)
     {
         
+        $meritosa = Merito::where('convocatoria_id', '=',$request->input('convocatoria') )->get()->sum("score");
+        $meritosa=100-$meritosa;
+        //$meritosa=Merito::select("SUM(score) as puntaje")->get();
+        
         $meritos=new Merito;
         $meritos->name=$request->input('name');
         $meritos->score=$request->input('score');
         $meritos->convocatoria_id=$request->get('convocatoria');
+        $messages=[
+            
+            'score.required'=>'se requiere el campo puntuacion para continuar',
+            'score.numeric'=>'el campo puntuacion debe ser numerico',
+            'score.digits_between'=>'el campo puntaje tiene que tener entre 1 y 3 digitos',
+            'score.max'=>'el campo puntaje no debe pasar de los ' . $meritosa . ' puntos',
+            'score.min'=>'el campo puntaje debe ser de al menos 1 punto para continuar',
+        ];
+        $validator = Validator::make($request->all(), [
+            'score'=>'required|numeric|digits_between:1,3|max:' . $meritosa . '|min:1',
+        ],$messages);
+       
+        
+        
+        if ($validator->fails()) {
+            return redirect(route('merito.create'))->withErrors($validator);
+        }
+        else {
         $meritos->save();
-    
+       // return $meritosa;
         return redirect(route('merito.index'))->with([ 'message' => 'Mérito creado exitosamente!', 'alert-type' => 'success' ]);
+        }
     }
     public function submeritostore(Request $request,Merito $meri)
     {
