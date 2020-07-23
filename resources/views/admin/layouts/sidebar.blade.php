@@ -325,7 +325,16 @@
                </a>
              </li>
           </ul>
-       </li>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+               <a href="{{route('calif.index')}}" class="nav-link">
+                  <i class="fas fa-check-square nav-icon"></i>
+                  Calificación de Méritos
+                  <p></p>
+               </a>
+             </li>
+          </ul>
+        </li>
          <!--fin de tabla de merito-->
 
         </ul>

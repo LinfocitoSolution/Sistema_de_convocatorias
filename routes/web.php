@@ -161,3 +161,4 @@ Route::post('submerito_store','MeritosController@submeritostore')->name('submeri
 Route::delete('meritoeliminar_{merito}','MeritosController@destroy')->name('merito.destroy');
 /*Route::get('formdoc','ConocimientoCalifController@formdoc')->name('calif.formdoc');*/
 Route::get('submerito-index','MeritosController@indexsubmerito')->name('subMerito.indexsubmerito');
+Route::get('calificacion','CalificacionController@index')->name('calif.index');
