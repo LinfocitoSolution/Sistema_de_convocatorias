@@ -36,11 +36,12 @@ class MeritosController extends Controller
     }
     public function createsubmerito(Merito $merito)
     {
+        
         $calls=Convocatoria::all();
         $meritos=Merito::all();
-        $meri=Merito::Find($merito->first()->id);
-       return view('admin.meritos.createsub', compact('calls','meritos','meri'));
-        //return $meri;
+        //$meri=Merito::Find($merito);
+       return view('admin.meritos.createsub', compact('calls','meritos','merito'));
+        //return $merito;
     }
 
 
@@ -84,19 +85,49 @@ class MeritosController extends Controller
         return redirect(route('merito.index'))->with([ 'message' => 'Mérito creado exitosamente!', 'alert-type' => 'success' ]);
         }
     }
-    public function submeritostore(Request $request,Merito $meri)
+    public function submeritostore(Request $request,Merito $merito)
     {
         
         $submeritos=new Submerito;
         $submeritos->name=$request->input('name');
         $submeritos->score=$request->input('score');
         $submeritos->description=$request->input('description');
-        $merid=Merito::Find($meri->first()->id)->id;
-        $submeritos->merito_id=$merid;
-       
+        //$merid=Merito::Find($meri->first()->id)->id;
+        $submeritos->merito_id=$merito->id;
+       //return $merito;
+       $submeritosa = ($merito->score)-(Submerito::where('merito_id', '=',$merito->id )->get()->sum("score"));
+       $messages=[
+
+        'name.required' => 'se requiere el campo nombre para continuar',
+        'name.max'=>'el campo nombre no debe tener mas de 50 caracteres',
+        'name.min'=>'el campo nombre tiene un minimo de 3 caracteres',
+        'name.regex'=>'el campo nombre no acepta caracteres especiales', 
+        'score.required'=>'se requiere el campo puntuacion para continuar',
+        'score.numeric'=>'el campo puntuacion debe ser numerico',
+        'score.digits_between'=>'el campo puntaje tiene que tener entre 1 y 3 digitos',
+        'score.max'=>'el campo puntaje no debe pasar de los ' . $submeritosa . ' puntos',
+        'score.min'=>'el campo puntaje debe ser de al menos 1 punto para continuar',
+    ];
+    $validator = Validator::make($request->all(), [
+        'score'=>'required|numeric|digits_between:1,3|max:' . $submeritosa . '|min:1',
+        'name'=>'required|max:50|min:3|regex:/^[\pL\s\-]+$/u',
+    ],$messages);
+   
+    
+    
+    if ($validator->fails()) {
+        //return Submerito::where('merito_id', '=',$merito->id )->get()->sum("score");
+        return redirect(route('submerito.create',compact('merito')))->withErrors($validator);
+    }
+    else {
+        
+    
+
         $submeritos->save();
         
         return redirect(route('merito.index'))->with([ 'message' => 'submerito creado exitosamente!', 'alert-type' => 'success' ]);
+        
+    }
     }
 
     /**
@@ -145,12 +176,22 @@ class MeritosController extends Controller
 
         return redirect(route('merito.index'))->with([ 'message' => 'Mérito   eliminado!', 'alert-type' => 'success' ]);
     }
+    public function destroysub($id)
+    {
+        Submerito::destroy($id);  
+
+        return redirect(route('merito.index'))->with([ 'message' => 'Submerito   eliminado!', 'alert-type' => 'success' ]);
+    }
     public function submerito()
     {
         return view('admin.meritos.formsubmerito');
     }
     
-    public function indexsubmerito(){
-        return view('admin.meritos.indexsubmeritos');
+    public function indexsubmerito(Merito $merito)
+    {
+        //$meri=Merito::Find($merito->first()->id);
+        $submeritos=Submerito::all();
+       return view('admin.meritos.indexsubmeritos',compact('submeritos','merito'));
+        //return $merito;
     }
 }

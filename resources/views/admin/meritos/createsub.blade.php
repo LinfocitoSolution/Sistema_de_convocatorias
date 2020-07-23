@@ -12,8 +12,9 @@
                 <div class="card mt-2">
                     <div class="card-header">
                     <h1>Crear tabla de Submeritos </h1>
-                    <h2>Submeritos para el merito:  {{$meri->name}}</h2>
-                    <h2>Limite de puntuacion:  {{$meri->score}}</h2>
+                    <h2>Submeritos para el merito:  {{$merito->name}}</h2>
+                    <h2>Limite de puntuacion:  {{($merito->score)-(App\Submerito::where('merito_id', '=',$merito->id )->get()->sum("score"))}}</h2>
+                    
                     
                         
                        
@@ -21,7 +22,7 @@
 
                          <div class="card-body">
                             
-                        <form class="form-horizontal" action="{{route('submerito.storemerito',$meri->id)}}" method="POST">                                                      
+                        <form class="form-horizontal" action="{{route('submerito.storemerito',$merito->id)}}" method="POST">                                                      
                             <input type="hidden" name="_token" value="{{csrf_token()}}">
                             {{ csrf_field() }}  
                             @include('admin.meritos.formsubmerito')
