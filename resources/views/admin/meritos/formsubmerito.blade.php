@@ -30,20 +30,17 @@
             {{ $errors->has('score')? $errors->first('score') : 'El campo de Nombre es requerido'  }}
         </div>
     </div>
-    <div class="col-md-12 mb-3">
-        <label class="col-form-label" for="description">Descripción</label>
-        <div class="input-group">
-         <span class="input-group-append" data-html="true" data-toggle="popover" title="Restricciones" data-content= "descripcion opcional para cada submerito">
-             <button class="btn btn-dark" type="button">D</button>
-         </span>
-         <input
-                 class="form-control"
-                 name="description"
-                 placeholder="Ingrese una descripcion (Opcional)" type="text" value="">
-            </div>
-            <div class="invalid-feedback {{ $errors->has('description')? 'd-block' : '' }}">
-                {{ $errors->has('description')? $errors->first('description') : 'El campo de Nombre es requerido'  }}
-            </div>
+    <div class="col-md-12 mb-2">  
+        <label class="col-form-label" for="" data-html="true" data-toggle="popover" title="Restricciones" data-content="">Descripción: </label>
+         <div class="input-group">
+            <textarea class="form-control" placeholder="Ingrese Descripción" name="descripción" rows="10" maxlength="3000" ></textarea>
+            
+         </div>
+         <div class="invalid-feedback">
+           
+        </div>
+      </div> 
+
     </div>
                     
                 
