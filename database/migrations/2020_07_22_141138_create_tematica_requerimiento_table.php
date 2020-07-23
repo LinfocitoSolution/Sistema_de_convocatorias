@@ -13,7 +13,7 @@ class CreateTematicaRequerimientoTable extends Migration
      */
     public function up()
     {
-        Schema::create('tematica_requerimiento',function(Blueprint $table)
+        Schema::create('requerimiento_tematica',function(Blueprint $table)
         {
             $table->increments('id');
             $table->Integer('tematica_id')->unsigned();
@@ -38,6 +38,6 @@ class CreateTematicaRequerimientoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tematica_requerimiento');
+        Schema::dropIfExists('requerimiento_tematica');
     }
 }

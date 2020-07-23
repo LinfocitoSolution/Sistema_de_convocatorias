@@ -149,13 +149,20 @@ Route::put('habilitar_{user}','ListaController@habilitar')->name('documentos.hab
 Route::put('documentosPublicar_{user}','ListaController@publicar')->name('documento.publicar');
 Route::put('documentosQuitar_{user}','ListaController@quitar')->name('documento.quitar');
 Route::get('descripcionPostulante{user}','ListaController@describe')->name('descripcion.desc');
-################tablacalif############################################
+
+################ TABLA CALIF ############################################
 Route::get('form_primerPaso','ConocimientoCalifController@primerPaso')->name('calif.primero');
 Route::get('form_segundoPaso','ConocimientoCalifController@segundoPaso')->name('calif.segundo');
+
+Route::get('listarPostulantes','ConocimientoCalifController@listarPostulantes')->name('lista.postulantes');
+Route::get('calificarPostulante_{user}','ConocimientoCalifController@calificarPostulant')->name('calificar.postulante');
+Route::get('calificarPostulanteDocencia_{user}','ConocimientoCalifController@calificarPostDoc')->name('calificar.postulanteDoc');
+Route::post('registrarNotas','ConocimientoCalifController@registrarNotas')->name('registrar.notas');
+/*Route::get('formdoc','ConocimientoCalifController@formdoc')->name('calif.formdoc');*/
+
 ######################## Méritos ####
 Route::get('Merito','MeritosController@index')->name('meritoLab.index');
 Route::get('crear-merito','MeritosController@create')->name('merito-crear.create');
 Route::post('merito_store','MeritosController@store')->name('merito.storemerito');
 Route::get('sub-merito','MeritosController@submerito')->name('sub-Merito.submerito');
 Route::delete('merito_eliminar','CallController@destroy')->name('merito.eliminar');
-/*Route::get('formdoc','ConocimientoCalifController@formdoc')->name('calif.formdoc');*/

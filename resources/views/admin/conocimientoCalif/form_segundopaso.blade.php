@@ -13,7 +13,7 @@
                 <div class="card mt-2">
                        <!---cabeza--> 
                        <div class="card-header text-white">
-                        <h2>Convocatorias</h2>
+                        <h2>Convocatorias de laboratorio:</h2>
                     </div>
                    <!---cuerpo--->
                    <div class="card-body">
@@ -25,9 +25,8 @@
                                    {{-- <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="Puede seleccionar uno o mas permisos"> --}}
                                      <label class="input-group-text text-white" for="">Seleccione la Convocatoria:</label>                         
                                      <select  class="custom-select form-control" type="text" name="convoca" > 
-                                         {{-- {{$unidad= $_GET['unidad']}}   --}}
                                          @foreach($convocatoria as $convo)
-                                           @if($convo->unit_id == $uni && $convo->whereYear('gestion', '=', '2020'))
+                                           @if($convo->unit_id == $uni && $convo->whereYear('gestion', '=', '2020') && $convo->tipo_convocatoria == 'convocatoria de laboratorios')
                                              <option class="text-dark" value="{{$convo->id}}">{{$convo->titulo_convocatoria}}</option>
                                            @endif
                                          @endforeach

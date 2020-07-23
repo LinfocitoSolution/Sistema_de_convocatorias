@@ -45,6 +45,11 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        //AGREGAR LAS EXCEPCIONES AQUÍ PARA CUANDO ESTÉ EN PRODUCCIÓN
+        // if ($e instanceof ModelNotFoundException)
+        // {
+        //     return 'MODELO NO ENCONTRADO O NULO';
+        // }
 
         return parent::render($request, $exception);
     }

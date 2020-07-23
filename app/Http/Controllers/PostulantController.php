@@ -29,11 +29,7 @@ class PostulantController extends Controller
     } 
     public function guardarRotulo(Request $request)
     {
-       /* $validator = Validator::make($request->all(), [
-            'archivo' => 'required|file | mimes:pdf',
-        ]);*/
         $habilitado=new Habilitado();
-        $user = new User();
         $curriculum = new Curriculum();
         $curriculum->user_id = Auth::user()->id;
         if ($request->hasFile('archivo')) {
@@ -42,22 +38,14 @@ class PostulantController extends Controller
             $file->move(public_path().'/curriculums/', $nombre);
             $curriculum->pdf_file = $nombre;  
         } 
-        /*if ($validator->fails()) {
-            return redirect(route('rotulo.primer'))->withErrors($validator);
-        }
-        else {*/
         $codAux = $request->input('requerimiento');
         $requerimiento = Requerimiento::where('codigo_auxiliatura', $codAux)->firstOrFail();
-        
         $habilitado->save();
-        
         $curriculum->save();
         Auth::user()->requerimientos()->attach($requerimiento->id);
         Auth::user()->habilitados()->attach($habilitado->id);
        
         return redirect('/');
-        //}
-        
     }
     public function primerPaso()
     {   

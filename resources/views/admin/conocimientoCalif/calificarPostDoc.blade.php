@@ -1,7 +1,7 @@
 @extends("admin.layouts.plantilladmin")
 
 @section('title')
-    Crear tabla de calificación
+    Crear-tabla de calificación
 @endsection
 
 @section("content")
@@ -12,18 +12,12 @@
             <div class="col-lg-12">
                 <div class="card mt-2">
                     <div class="card-header">
-                        <h1> Registrar notas de la tabla de conocimientos</h1>
+                        <h1> Registrar notas de conocimiento Docencia</h1>
                     </div>    
-                    <div class="card-body">
-                        <!---va dentro de action  { route('area.store') }}-->                       
-                        <form class="form-horizontal"  action="{{ route('conocimientoCalif.store') }}" method="POST">                                                      
-                           <input type="hidden" name="_token" value="{{csrf_token()}}">
-                           {{ csrf_field() }}                          
-                           @if ($call->tipo_convocatoria == "convocatoria de laboratorios")
-                            @include('admin.conocimientoCalif.form')
-                           @else
-                            @include('admin.conocimientoCalif.formdoc')   
-                           @endif                             
+                    <div class="card-body">                     
+                        <form class="form-horizontal" action="#" method="POST">                                                      
+                           {{ csrf_field() }}                           
+                            @include('admin.conocimientoCalif.formdoc')
                             <div class="form-actions text-center">
                                 <button class="btn btn-outline-dark" type="submit">Guardar</button>
                                 <a class="btn btn-outline-dark" href="{{route('conocimientoCalif.index')}}">Cancelar</a>

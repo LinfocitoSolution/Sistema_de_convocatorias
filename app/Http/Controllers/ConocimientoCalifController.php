@@ -9,7 +9,10 @@ use App\Habilitado;
 use App\Convocatoria;
 use App\Requerimiento;
 use App\Curriculum;
+use App\Role;
 use App\Carrera;
+use App\Tematica;
+use App\Tematica_requerimiento;
 class ConocimientoCalifController extends Controller
 {
     public function __construct()
@@ -49,9 +52,14 @@ class ConocimientoCalifController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('admin.conocimientoCalif.create');
+        $callid = $request->input('convoca');
+        $call = Convocatoria::find($callid);
+        $tematicas = Tematica::all();
+        $requerimientosLab = Requerimiento::where('tipo_requerimiento', 'requerimiento de laboratorio')->get();
+        $requerimientosDoc = Requerimiento::where('tipo_requerimiento', 'requerimiento de docencia')->get();
+        return view('admin.conocimientoCalif.create',compact('call', 'requerimientosLab', 'requerimientosDoc', 'tematicas'));
     }
 
     /**
@@ -62,9 +70,26 @@ class ConocimientoCalifController extends Controller
      */
     public function store(Request $request)
     {
-        $conocimientoCalif=ConocimientoCalif::create($request->all());
-        $conocimientoCalif->save();
-        return redirect(route('conocimientoCalif.index'))->with(['message'=>'tabla creada exitosamente¡','alert-type'=>'success']);
+        $notas = $request->input('nota');
+        $requerimientosLab = Requerimiento::where('tipo_requerimiento', 'requerimiento de laboratorio')->get();
+        $tematicas = Tematica::all();
+        $aux = 0;
+        foreach($tematicas as $tm)
+        {
+            foreach($requerimientosLab as $r)
+            {
+                if($notas[$aux]!=0)
+                {
+                    $tabla = new Tematica_requerimiento();
+                    $tabla->requerimiento_id = $r->id;
+                    $tabla->tematica_id = $tm->id;
+                    $tabla->score = $notas[$aux];
+                    $tabla->save();
+                }
+                $aux++;
+            }
+        }
+        return redirect(route('conocimientoCalif.index'))->with(['message'=>'Tabla creada exitosamente¡','alert-type'=>'success']);
     }
 
     /**
@@ -109,9 +134,31 @@ class ConocimientoCalifController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(ConocimientoCalif $tabla)
     {
-        ConocimientoCalif::destroy($id);
+        $tabla->delete();
+        // Tematica_requerimiento::destroy($id);
         return redirect(route('conocimientoCalif.index'))->with([ 'message' => 'Tabla  eliminada!', 'alert-type' => 'success' ]);
+    }
+    public function listarPostulantes()
+    {
+        $postulantes = User::where('carrera_id', '!=', 'null')->get();
+        return view('admin.conocimientoCalif.listaPostulantes', compact('postulantes'));
+    }
+
+    public function calificarPostulant(User $user)
+    {
+        $tematicas = Tematica::all();
+        return view('admin.conocimientoCalif.calificarPostulante', compact('user', 'tematicas'));
+    }
+    public function calificarPostDoc(User $user)
+    {
+        $tematicas = Tematica::all();
+        return view('admin.conocimientoCalif.calificarPostDoc', compact('user', 'tematicas'));
+    }
+
+    public function registrarNotas(Request $request)
+    {
+        //es como un store de las notas del postulante
     }
 }
