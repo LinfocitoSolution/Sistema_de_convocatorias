@@ -72,6 +72,7 @@ class PostulantController extends Controller
     public function cancelarPostulacion(User $user)
     {
         $user->requerimientos()->detach();
+        $user->habilitados()->detach();
         $curriculum = Curriculum::where('user_id', '=', $user->id)->first();
         $curriculum->delete();
         return redirect('/');
