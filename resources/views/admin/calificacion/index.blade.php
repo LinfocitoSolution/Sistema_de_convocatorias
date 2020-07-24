@@ -20,13 +20,17 @@
                     <thead>
                     <tr>
                         <th>Nombre postulante</th>
-                        <th>Merito</th>
+                       <th>Merito</th>
                         <th>puntaje de merito</th>
                          <th>Opciones</th>
                      </tr>
                     </thead>
                <tbody>  
-                <td>Cristian Alvarez</td>
+                   @foreach($users as $user)
+                   @foreach($user->habilitados as $hab)
+                   @if($hab->name=="habilitado")
+               <tr>
+                <td>{{$user->name}}</td>
                 <td>Rendimiento Académico</td>
                 <td>65</td>
                  
@@ -46,6 +50,9 @@
                                                        
                         </form>
                     </td>
+                    @endif
+                    @endforeach
+                    @endforeach
                      </tr>
                 
                     </tbody>

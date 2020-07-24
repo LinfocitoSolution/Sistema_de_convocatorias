@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\User;
 
 use Illuminate\Http\Request;
 
@@ -13,7 +14,8 @@ class CalificacionController extends Controller
      */
     public function index()
     {
-        return view('admin.calificacion.index');
+        $users=User::all();
+        return view('admin.calificacion.index',compact('users'));
     }
 
     /**
