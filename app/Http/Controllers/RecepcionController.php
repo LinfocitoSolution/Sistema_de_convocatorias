@@ -1,11 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\User;
 
 use Illuminate\Http\Request;
 
-class CalificacionController extends Controller
+class RecepcionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,10 +13,8 @@ class CalificacionController extends Controller
      */
     public function index()
     {
-        $users=User::all();
-        return view('admin.calificacion.index',compact('users'));
+        return view('admin.libro.index');
     }
-    
 
     /**
      * Show the form for creating a new resource.
@@ -26,7 +23,7 @@ class CalificacionController extends Controller
      */
     public function create()
     {
-        return view('admin.calificacion.createCalif');
+        return view('admin.libro.create');
     }
 
     /**
