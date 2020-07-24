@@ -48,4 +48,12 @@ class User extends Model implements  AuthenticatableContract
     {
         return $this->belongsToMany(Requerimiento::class)->withTimestamps();
     }
+    public function calificacion_merito() {
+       return $this->hasOne('Calificacion_merito');
+    }
+    public function postulante_submeritos()
+    {
+        return $this->belongsToMany(Postulante_submerito::class)->withTimestamps();
+    }  
+    
 }
