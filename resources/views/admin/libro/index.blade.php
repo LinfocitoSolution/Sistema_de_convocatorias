@@ -26,10 +26,11 @@
                       </tr>
                     </thead>
                     <tbody>  
+                        @foreach($libros as $libro)
                        <tr> 
-                         <td>Pepito Grillo</td>
-                         <td>20</td>
-                          <td>14:00</td>
+                         <td>{{App\User::where('id', '=',$libro->user_id )->first()->name}}</td>
+                       <td>{{$libro->documento}}</td>
+                       <td>{{$libro->fecha_entrega}}</td>
                  
                 
                         
@@ -41,6 +42,7 @@
                                    <i class="fa fa-trash-alt"></i>                                
                                  </button> 
                              </form>
+                             @endforeach
                          </td>
                       </tr>
                 

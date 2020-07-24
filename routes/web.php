@@ -168,3 +168,4 @@ Route::get('califMerito','CalificacionController@create')->name('crearCalif.crea
 ################ Libro de recepcion ########
 Route::get('libro','RecepcionController@index')->name('libro.index');
 Route::get('crear_libro','RecepcionController@create')->name('libro.create');
+Route::post('libro_store','RecepcionController@store')->name('libro.store');

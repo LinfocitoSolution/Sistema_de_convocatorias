@@ -48,4 +48,7 @@ class User extends Model implements  AuthenticatableContract
     {
         return $this->belongsToMany(Requerimiento::class)->withTimestamps();
     }
+    public function libro(){
+        return $this->hasMany('Libro');
+    }
 }

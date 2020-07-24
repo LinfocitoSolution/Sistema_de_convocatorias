@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Libro;
+use App\User;
 use Illuminate\Http\Request;
 
 class RecepcionController extends Controller
@@ -13,7 +14,8 @@ class RecepcionController extends Controller
      */
     public function index()
     {
-        return view('admin.libro.index');
+        $libros=Libro::all();
+        return view('admin.libro.index', compact('libros'));
     }
 
     /**
@@ -23,7 +25,8 @@ class RecepcionController extends Controller
      */
     public function create()
     {
-        return view('admin.libro.create');
+        $users=User::all();
+        return view('admin.libro.create', compact('users'));
     }
 
     /**
@@ -34,7 +37,12 @@ class RecepcionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $libro=new Libro;
+        $libro->user_id=$request->input('name');
+        $libro->documento=$request->input('documento');
+        $libro->fecha_entrega=$request->input('fecha_entrega');
+        $libro->save();
+        return redirect(route('libro.index'))->with([ 'message' => 'Recepcion creada exitosamente!', 'alert-type' => 'success' ]);
     }
 
     /**
