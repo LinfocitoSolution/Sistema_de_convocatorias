@@ -1,70 +1,47 @@
-
-@extends("admin.layouts.plantilladmin")
-@section('title')
-    Sub Méritos
-@endsection
-
-@section("content")
-
-<div class="content-wrapper">
-    <div class="container">
-        <div class="card mt-2">
-            <div class="card-header">
-                <h1>Sub Méritos<h1>
-                 
-                </div>
-
-            <div class="card-body">
-             <div class="form-row">
+<div class="form-row">
             <div class="col-md-12 mb-3">
            <label class="col-form-label" for="name">Nombre de Sub-merito</label>
             <div class="input-group">
-            <span class="input-group-append" data-html="true" data-toggle="popover" title="Restricciones" data-content= "">
+            <span class="input-group-append" data-html="true" data-toggle="popover" title="Restricciones" data-content= " ">
                 <button class="btn btn-dark" type="button">N</button>
             </span>
             <input
                     class="form-control"
                     name="name"
-                    placeholder="" type="text" value="">
+                    placeholder="Ingrese el nombre de submerito" type="text" value="">
+        </div>
+        <div class="invalid-feedback {{ $errors->has('name')? 'd-block' : '' }}">
+            {{ $errors->has('name')? $errors->first('name') : 'El campo de Nombre es requerido'  }}
         </div>
     </div>
 
           <div class="col-md-12 mb-3">
-           <label class="col-form-label" for="name">Puntaje</label>
+           <label class="col-form-label" for="score">Puntaje</label>
            <div class="input-group">
-            <span class="input-group-append" data-html="true" data-toggle="popover" title="Restricciones" data-content= "">
+            <span class="input-group-append" data-html="true" data-toggle="popover" title="Restricciones" data-content= "Ingrese el puntaje, tiene que ser menor a 100 y tambien menor al merito primario">
                 <button class="btn btn-dark" type="button">N</button>
             </span>
             <input
                     class="form-control"
-                    name="puntaje"
-                    placeholder="" type="text" value="">
+                    name="score"
+                    placeholder="Ingrese el puntaje" type="text" value="">
+        </div>
+        <div class="invalid-feedback {{ $errors->has('score')? 'd-block' : '' }}">
+            {{ $errors->has('score')? $errors->first('score') : 'El campo de Nombre es requerido'  }}
         </div>
     </div>
-    <div class="col-md-12 mb-3">
-        <label class="col-form-label" for="name">Descripción</label>
-        <div class="input-group">
-         <span class="input-group-append" data-html="true" data-toggle="popover" title="Restricciones" data-content= "">
-             <button class="btn btn-dark" type="button">D</button>
-         </span>
-         <input
-                 class="form-control"
-                 name="descripcion"
-                 placeholder="" type="text" value="">
-            </div>
-          </div>
-                    <form class="form-horizontal" action="">
-                    <div class="form-actions text-center">
-                        
-                        <button class="btn btn-outline-dark" type="submit">Guardar</button>
-                    <a class="btn btn-outline-dark" href="{{route('meritoLab.index')}}">Cancelar</a>
-                    </div>
+    <div class="col-md-12 mb-2">  
+        <label class="col-form-label" for="" data-html="true" data-toggle="popover" title="Restricciones" data-content="">Descripción: </label>
+         <div class="input-group">
+            <textarea class="form-control" placeholder="Ingrese Descripción" name="descripción" rows="10" maxlength="3000" ></textarea>
+            
+         </div>
+         <div class="invalid-feedback">
+           
+        </div>
+      </div> 
+
+    </div>
+                    
                 
-                </form>     
-           </div>
-       </div>
-    </div>
-  </div>
-</div>
-    </div>
-@endsection
+               

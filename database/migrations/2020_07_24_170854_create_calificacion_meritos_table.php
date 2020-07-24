@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateHabilitadosTable extends Migration
+class CreateCalificacionMeritosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,15 @@ class CreateHabilitadosTable extends Migration
      */
     public function up()
     {
-        Schema::create('habilitados', function (Blueprint $table) {
+        Schema::create('calificacion_meritos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->nullable();
-            $table->string('description')->nullable();            
-            
-            $table->rememberToken();
+            $table->unsignedInteger('user_id');
+            $table->double('score');
             $table->timestamps();
-            
+            $table->foreign('user_id')->references('id')->on('users')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');  
+
         });
     }
 
@@ -31,6 +32,6 @@ class CreateHabilitadosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('habilitados');
+        Schema::dropIfExists('calificacion_meritos');
     }
 }

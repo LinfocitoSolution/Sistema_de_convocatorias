@@ -161,8 +161,18 @@ Route::post('registrarNotas','ConocimientoCalifController@registrarNotas')->name
 /*Route::get('formdoc','ConocimientoCalifController@formdoc')->name('calif.formdoc');*/
 
 ######################## Méritos ####
-Route::get('Merito','MeritosController@index')->name('meritoLab.index');
-Route::get('crear-merito','MeritosController@create')->name('merito-crear.create');
+Route::get('Merito','MeritosController@index')->name('merito.index');
+Route::get('crear-merito','MeritosController@create')->name('merito.create');
 Route::post('merito_store','MeritosController@store')->name('merito.storemerito');
-Route::get('sub-merito','MeritosController@submerito')->name('sub-Merito.submerito');
-Route::delete('merito_eliminar','CallController@destroy')->name('merito.eliminar');
+Route::get('createsubmerito_{merito}','MeritosController@createsubmerito')->name('submerito.create');
+Route::post('submerito_store_{merito}','MeritosController@submeritostore')->name('submerito.storemerito');
+Route::delete('meritoeliminar_{merito}','MeritosController@destroy')->name('merito.destroy');
+/*Route::get('formdoc','ConocimientoCalifController@formdoc')->name('calif.formdoc');*/
+Route::get('submerito-index_{merito}','MeritosController@indexsubmerito')->name('subMerito.indexsubmerito');
+Route::delete('submeritoeliminar_{submerito}','MeritosController@destroysub')->name('submerito.destroy');
+Route::get('calificacion','CalificacionController@index')->name('calif.index');
+Route::get('califMerito','CalificacionController@create')->name('crearCalif.create');
+
+################ Libro de recepcion ########
+Route::get('libro','RecepcionController@index')->name('libro.index');
+Route::get('crear_libro','RecepcionController@create')->name('libro.create');

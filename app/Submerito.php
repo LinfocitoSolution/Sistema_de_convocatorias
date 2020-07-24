@@ -10,10 +10,15 @@ class Submerito extends Model
         'id',
         'merito_id',    
         'description', 
-        'score',              
+        'score',  
+        'name',            
     ];
     public function merito()
     {
         return $this->belongsTo('Merito');
     }
+    public function postulante_submeritos()
+    {
+        return $this->belongsToMany(Postulante_submerito::class)->withTimestamps();
+    }   
 }

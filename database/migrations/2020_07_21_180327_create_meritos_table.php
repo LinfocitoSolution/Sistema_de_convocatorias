@@ -15,7 +15,7 @@ class CreateMeritosTable extends Migration
         Schema::create('meritos', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('convocatoria_id');
-            $table->string('description');
+            $table->string('description')->nullable();
             $table->double('score');            
             $table->rememberToken();
             $table->timestamps();

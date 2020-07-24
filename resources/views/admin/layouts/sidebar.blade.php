@@ -316,7 +316,7 @@
 
           <ul class="nav nav-treeview">
             <li class="nav-item">
-               <a href="{{route('merito-crear.create')}}" class="nav-link">
+               <a href="{{route('merito.create')}}" class="nav-link">
                   <i class="fas fa-th-list nav-icon"></i>
                   Nueva Tabla Méritos
                   <p></p>
@@ -327,15 +327,54 @@
 
           <ul class="nav nav-treeview">
             <li class="nav-item">
-               <a href="{{route('meritoLab.index')}}" class="nav-link">
+               <a href="{{route('merito.index')}}" class="nav-link">
                   <i class="fas fa-th-list nav-icon"></i>
                   Lista de méritos
                   <p></p>
                </a>
              </li>
           </ul>
-       </li>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+               <a href="{{route('calif.index')}}" class="nav-link">
+                  <i class="fas fa-check-square nav-icon"></i>
+                  Calificación de Méritos
+                  <p></p>
+               </a>
+             </li>
+          </ul>
+        </li>
          <!--fin de tabla de merito-->
+           <!--Recepcion de documentos-->
+           
+           <li class="nav-item has-treeview menu-close">
+             <a href="#" class="nav-link active bg-dark">
+               <i class="nav-icon fa fa-table"></i>
+               <p>
+                 Libro de recepcion
+                 <i class="right fas fa-angle-left"></i>
+               </p>
+             </a>
+             <ul class="nav nav-treeview">
+
+                 <li class="nav-item">
+                   <a href="{{route('libro.create')}}" class="nav-link">
+                     <i class="fas fa-plus-square nav-icon"></i>
+                     <p>Nuevo </p>
+                   </a>
+                 </li>
+               
+                 <li class="nav-item">
+                   <a href="{{route('libro.index')}}" class="nav-link">
+                     <i class="fas fa-th-list nav-icon"></i>
+                     <p>Lista del libro</p>
+                   </a>
+                 </li>
+              
+             </ul>
+           </li>
+         
+       <!--Fin libro recepcion-->
 
         </ul>
       </nav>

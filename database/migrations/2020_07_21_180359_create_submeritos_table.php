@@ -15,7 +15,7 @@ class CreateSubmeritosTable extends Migration
         Schema::create('submeritos', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('merito_id');
-            $table->string('description');
+            $table->string('description')->nullable();
             $table->double('score');
             $table->foreign('merito_id')->references('id')->on('meritos')
             ->onDelete('cascade')
