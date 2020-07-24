@@ -15,6 +15,7 @@ class CalificacionController extends Controller
     {
         return view('admin.calificacion.index');
     }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -23,7 +24,7 @@ class CalificacionController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.calificacion.createCalif');
     }
 
     /**

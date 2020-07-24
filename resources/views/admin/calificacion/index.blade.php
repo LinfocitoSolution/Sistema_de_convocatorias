@@ -32,8 +32,8 @@
                  
                 
                         
-                     <td>   <a class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="Presiona " href="#">
-                            <i class="fa fa-eye"></i>
+                     <td>   <a class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="Presiona " href="{{route('crearCalif.create')}}">
+                            <i class="fa fa-check-square"></i>
                         </a>
                         
                         <form action="#" method="POST" style="display:inline-block;">
