@@ -30,6 +30,9 @@ class Requerimiento extends Model
     public function tematica_requerimietos(){
         return $this->hasMany('Tematica_requerimiento');
     }
-     
+    
+    public function postulante_tematica_requerimientos(){
+        return $this->hasMany('Postulante_tematica_requerimiento');
+    }
 }
 
