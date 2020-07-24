@@ -164,3 +164,7 @@ Route::get('submerito-index_{merito}','MeritosController@indexsubmerito')->name(
 Route::delete('submeritoeliminar_{submerito}','MeritosController@destroysub')->name('submerito.destroy');
 Route::get('calificacion','CalificacionController@index')->name('calif.index');
 Route::get('califMerito','CalificacionController@create')->name('crearCalif.create');
+
+################ Libro de recepcion ########
+Route::get('libro','RecepcionController@index')->name('libro.index');
+Route::get('crear_libro','RecepcionController@create')->name('libro.create');
