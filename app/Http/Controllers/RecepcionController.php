@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class CalificacionController extends Controller
+class RecepcionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,9 +13,8 @@ class CalificacionController extends Controller
      */
     public function index()
     {
-        return view('admin.calificacion.index');
+        return view('admin.libro.index');
     }
-    
 
     /**
      * Show the form for creating a new resource.
@@ -24,7 +23,7 @@ class CalificacionController extends Controller
      */
     public function create()
     {
-        return view('admin.calificacion.createCalif');
+        return view('admin.libro.create');
     }
 
     /**

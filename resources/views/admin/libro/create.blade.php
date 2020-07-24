@@ -1,7 +1,7 @@
 @extends("admin.layouts.plantilladmin")
 
 @section('title')
-    Crear tabla de Calificación
+    Crear-libro
 @endsection
 
 @section("content")
@@ -12,18 +12,17 @@
             <div class="col-lg-12">
                 <div class="card mt-2">
                     <div class="card-header">
-                        <h1> Crear Tabla de Calificación</h1>
+                        <h3>Registrar en libro de recepcion</h3>
                     </div>    
                     <div class="card-body">
                         <!---va dentro de action  { route('area.store') }}-->                       
                         <form class="form-horizontal"  action="" method="POST">                                                      
                            <input type="hidden" name="_token" value="{{csrf_token()}}">
                            {{ csrf_field() }}                           
-                            @include('admin.calificacion.form')
-                            <!----include('admin.conocimientoCalif.formdoc')---->
-                            <div class="form-actions text-center">
+                            @include('admin.libro.form')
+                            <div class="form-actions text-center mt-3">
                                 <button class="btn btn-outline-dark" type="submit">Guardar</button>
-                                <a class="btn btn-outline-dark" href="#">Cancelar</a>
+                                <a class="btn btn-outline-dark" href="{{route('libro.index')}}">Cancelar</a>
                             </div>
                         </form>
                         
