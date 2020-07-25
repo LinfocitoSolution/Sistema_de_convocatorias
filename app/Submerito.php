@@ -17,4 +17,8 @@ class Submerito extends Model
     {
         return $this->belongsTo('Merito');
     }
+    public function postulante_submeritos()
+    {
+        return $this->belongsToMany(Postulante_submerito::class)->withTimestamps();
+    }   
 }
