@@ -1,8 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Merito;
+use App\Submerito;
 use App\User;
-
+use App\Postulante_submerito;
+use App\Calificacion_merito;
 use Illuminate\Http\Request;
 
 class CalificacionController extends Controller
@@ -14,8 +17,10 @@ class CalificacionController extends Controller
      */
     public function index()
     {
+        $calificacion=Calificacion_merito::all();
         $users=User::all();
-        return view('admin.calificacion.index',compact('users'));
+
+        return view('admin.calificacion.index',compact('users','calificacion'));
     }
     
 
@@ -24,9 +29,13 @@ class CalificacionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(User $user)
     {
-        return view('admin.calificacion.createCalif');
+        $users=User::where('id','=',$user->id);
+        $meritos=Merito::all();
+        $submeritos=Submerito::all();
+        //return $user;
+        return view('admin.calificacion.createCalif' ,compact('meritos','submeritos','user'));
     }
 
     /**
@@ -35,9 +44,39 @@ class CalificacionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,User $user)
     {
-        //
+        $calificacion=new Postulante_submerito;
+        $calificacion->user_id=$user->id;
+        
+        $meritos=Merito::all();
+        $submeritos=Submerito::all();
+        $notas=$request->input('notas');
+        $caf=0;
+        $c=0;
+        $b=0;
+        foreach($meritos as $merito)
+        {
+            
+            if($user->requerimientos->first()->convocatorias->first()->id==$merito->convocatoria_id)
+            {
+                foreach($submeritos as $submerito)
+                 {
+                    if($submerito->merito_id==$merito->id)
+                    {
+                        
+                        $caf=$caf+$notas[$c];
+                        
+                        $c++;
+                    }
+                 }
+            }
+            
+        }
+        $calificacion->score=$notas;
+        return $caf;
+        
+    
     }
 
     /**

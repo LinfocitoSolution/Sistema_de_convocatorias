@@ -12,11 +12,9 @@
                 <div class="card mt-2">
                     <div class="card-header">
                         <h1> Calificacion de meritos</h1>
-                        
-                        
-                        </div>
+                    </div>
                          <div class="card-body">
-                        <form class="form-horizontal" action="" method="POST">                                                      
+                        <form class="form-horizontal" action="{{route('calif.store',$user)}}" method="POST">                                                      
                             <input type="hidden" name="_token" value="{{csrf_token()}}">
                             {{ csrf_field() }}  
                             @include('admin.calificacion.form')

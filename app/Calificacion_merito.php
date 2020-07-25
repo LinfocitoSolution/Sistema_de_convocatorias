@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Calificacion_merito extends Model
 {
-    public $table='calificacion_submeritos';    
+    public $table='calificacion_meritos';    
     protected $fillable = [
         'id',
         'user_id',

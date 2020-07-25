@@ -20,8 +20,8 @@
                     <thead>
                     <tr>
                         <th>Nombre postulante</th>
-                       <th>Merito</th>
-                        <th>puntaje de merito</th>
+                       <th>Auxiliatura</th>
+                        <th>puntaje total de meritos</th>
                          <th>Opciones</th>
                      </tr>
                     </thead>
@@ -31,12 +31,19 @@
                    @if($hab->name=="habilitado")
                <tr>
                 <td>{{$user->name}}</td>
-                <td>Rendimiento Académico</td>
-                <td>65</td>
+                <td>{{$user->requerimientos->first()->nombre_auxiliatura}}</td>
+               <td>@foreach($calificacion as $caf)
+                    @if($caf->user_id==$user->id)
+                    {{$caf->score}}
+                    @endif
+                @endforeach
+            </td>
+
+               
                  
                 
                         
-                     <td>   <a class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="Presiona " href="{{route('crearCalif.create')}}">
+                     <td>   <a class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="Presiona " href="{{route('crearCalif.create',$user)}}">
                             <i class="fa fa-check-square"></i>
                         </a>
                         

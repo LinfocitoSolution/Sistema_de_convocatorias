@@ -99,7 +99,7 @@ class MeritosController extends Controller
        $messages=[
 
         'name.required' => 'se requiere el campo nombre para continuar',
-        'name.max'=>'el campo nombre no debe tener mas de 50 caracteres',
+        'name.max'=>'el campo nombre no debe tener mas de 200 caracteres',
         'name.min'=>'el campo nombre tiene un minimo de 3 caracteres',
         'name.regex'=>'el campo nombre no acepta caracteres especiales', 
         'score.required'=>'se requiere el campo puntuacion para continuar',
@@ -110,7 +110,7 @@ class MeritosController extends Controller
     ];
     $validator = Validator::make($request->all(), [
         'score'=>'required|numeric|digits_between:1,3|max:' . $submeritosa . '|min:1',
-        'name'=>'required|max:50|min:3|regex:/^[\pL\s\-]+$/u',
+        'name'=>'required|max:200|min:3|regex:/^[\pL\s\-]+$/u',
     ],$messages);
    
     
