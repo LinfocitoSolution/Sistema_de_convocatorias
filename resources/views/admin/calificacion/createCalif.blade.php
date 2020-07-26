@@ -20,7 +20,7 @@
                             @include('admin.calificacion.form')
 
                             <div class="form-actions text-center">
-                                <button class="btn btn-outline-dark" type="submit">Guardar</button>
+                                <button class="btn btn-outline-dark" type="submit" margin-left="50" onclick="return confirm('Está seguro de confirmar la calificacion ???)">Guardar</button>
                             <a class="btn btn-outline-dark" href="{{route('calif.index')}}">Cancelar</a>
                             </div>
                         </form>

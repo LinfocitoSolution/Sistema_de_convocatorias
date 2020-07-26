@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Merito;
 use App\Submerito;
 use App\User;
+use App\Libro;
+use Validator;
 use App\Postulante_submerito;
 use App\Calificacion_merito;
 use Illuminate\Http\Request;
@@ -17,7 +19,7 @@ class CalificacionController extends Controller
      */
     public function index()
     {
-        $calificacion=Calificacion_merito::all();
+        $calificacion=Postulante_submerito::all();
         $users=User::all();
 
         return view('admin.calificacion.index',compact('users','calificacion'));
@@ -34,8 +36,9 @@ class CalificacionController extends Controller
         $users=User::where('id','=',$user->id);
         $meritos=Merito::all();
         $submeritos=Submerito::all();
-        //return $user;
-        return view('admin.calificacion.createCalif' ,compact('meritos','submeritos','user'));
+        $documentos=Libro::where('user_id','=',$user->id)->first();
+        //return $documentos->documento;
+        return view('admin.calificacion.createCalif' ,compact('meritos','submeritos','user','documentos'));
     }
 
     /**
@@ -47,14 +50,17 @@ class CalificacionController extends Controller
     public function store(Request $request,User $user)
     {
         $calificacion=new Postulante_submerito;
+    
         $calificacion->user_id=$user->id;
         
         $meritos=Merito::all();
         $submeritos=Submerito::all();
         $notas=$request->input('notas');
+        $documentos=$request->input('doc');
         $caf=0;
+        $doc=0;
         $c=0;
-        $b=0;
+        
         foreach($meritos as $merito)
         {
             
@@ -66,15 +72,34 @@ class CalificacionController extends Controller
                     {
                         
                         $caf=$caf+$notas[$c];
-                        
+                        $doc=$doc+$documentos[$c];
                         $c++;
+                       /* $messages=[
+            
+                            'notas.required'=>'se requiere el campo puntuacion para continuar',
+                           
+                            
+                            'notas.max'=>'el campo puntaje no debe pasar de los ' . $submerito->score . ' puntos',
+                            'notas.min'=>'el campo puntaje debe ser de al menos 1 punto para continuar',
+                        ];
+                        $validator = Validator::make($request->all(), [
+                            'notas'=>'required|max:' . $submerito->score . '|min:1',
+                        ],$messages);*/
                     }
                  }
             }
             
         }
-        $calificacion->score=$notas;
-        return $caf;
+       
+        //$calificacion->score=$caf*0.20;
+        
+        $calificacion->score=$caf;
+        $calificacion->documentos=$doc;
+        $calificacion->save();
+       
+        return redirect(route('calif.index'))->with([ 'message' => 'calificacion asignada exitosamente!', 'alert-type' => 'success' ]);;
+        
+        //return $calificacion;
         
     
     }
@@ -119,8 +144,11 @@ class CalificacionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete(User $user)
     {
-        //
+        $caf=Postulante_submerito::where('user_id',$user->id)->first();
+       
+         Postulante_submerito::destroy($caf->id);
+         return redirect(route('calif.index'))->with([ 'message' => 'calificacion  eliminada!', 'alert-type' => 'success' ]);
     }
 }

@@ -16,7 +16,7 @@ class CreatePostulanteSubmeritoTable extends Migration
         Schema::create('postulante_submerito', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('user_id');
-            $table->unsignedInteger('submerito_id');
+            $table->unsignedInteger('submerito_id')->nullable();
             $table->double('score');        
             $table->timestamps();
             $table->foreign('submerito_id')->references('id')->on('submeritos')
