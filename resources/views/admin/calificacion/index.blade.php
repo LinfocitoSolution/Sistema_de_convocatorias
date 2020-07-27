@@ -32,10 +32,10 @@
                 <td>{{$user->requerimientos->first()->nombre_auxiliatura}}</td>
                 <td>
                     @foreach($calificacion as $caf)
-                    @if($caf->user_id==$user->id)
-                    {{$caf->score}}
-                    @endif
-                    @endforeach
+                @if($caf->user_id==$user->id)
+                {{($caf->score)}}
+                @endif
+                @endforeach
                 </td>
             <td>
                 @foreach($calificacion as $caf)

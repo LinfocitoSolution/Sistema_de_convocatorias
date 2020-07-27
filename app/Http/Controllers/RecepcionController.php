@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Libro;
 use App\User;
 use Illuminate\Http\Request;
+use App\Http\Requests\LibroRequest;
 
 class RecepcionController extends Controller
 {
@@ -35,7 +36,7 @@ class RecepcionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(LibroRequest $request)
     {
         $libro=new Libro;
         $libro->user_id=$request->input('name');
@@ -85,8 +86,11 @@ class RecepcionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Libro $libro)
     {
-        //
+        
+       
+        Libro::destroy($libro->id);
+        return redirect(route('libro.index'))->with([ 'message' => 'recepcion eliminada!', 'alert-type' => 'success' ]);
     }
 }

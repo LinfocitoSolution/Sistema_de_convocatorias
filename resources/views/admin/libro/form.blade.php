@@ -17,6 +17,9 @@
          </select>
      </div>
   </div>
+  <div class="invalid-feedback {{ $errors->has('name')? 'd-block' : '' }}">
+   {{ $errors->has('name')? $errors->first('name') : 'El campo unidade es requerido'  }}
+</div>
   
     <!----NUMERO DE DOCUMENTOS--->
     <div class="col-md-6 mb-2">
@@ -29,6 +32,9 @@
         </div>
        
     </div>
+    <div class="invalid-feedback {{ $errors->has('documento')? 'd-block' : '' }}">
+      {{ $errors->has('documento')? $errors->first('documento') : 'El campo unidade es requerido'  }}
+  </div>
 
    
    
@@ -41,10 +47,12 @@
       </span>
       <input type="time" name="fecha_entrega" class="form-control" id="" placeholder="Ingrese fecha y hora de postulacion" value="">
         
-       <div class="invalid-feedback">                                                                                     
-       Hora invalida
-      </div>
+       
    </div>
+
+</div>
+<div class="invalid-feedback {{ $errors->has('fecha_entrega')? 'd-block' : '' }}">
+   {{ $errors->has('fecha_entrega')? $errors->first('fecha_entrega') : 'El campo unidade es requerido'  }}
 </div>
  <!--fin de fechas-->
 

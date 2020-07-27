@@ -171,3 +171,4 @@ Route::delete('calificacion_eliminar_{user}','CalificacionController@delete')->n
 Route::get('libro','RecepcionController@index')->name('libro.index');
 Route::get('crear_libro','RecepcionController@create')->name('libro.create');
 Route::post('libro_store','RecepcionController@store')->name('libro.store');
+Route::delete('libro_delete_{libro}','RecepcionController@destroy')->name('libro.delete');
