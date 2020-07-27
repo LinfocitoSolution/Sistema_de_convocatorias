@@ -45,11 +45,19 @@
                         @endif
                         @endforeach
                     </td>
+                    
                      </tr>
                 
                     </tbody>
                 </table>
+            
+                
+                
+                <a class="btn btn-outline-dark center-block" href="{{route('merito.index')}}">Atras</a>
+                
             </div>
+            
+                            
         </div>
     </div>  
 </div>
