@@ -159,11 +159,13 @@ Route::post('merito_store','MeritosController@store')->name('merito.storemerito'
 Route::get('createsubmerito_{merito}','MeritosController@createsubmerito')->name('submerito.create');
 Route::post('submerito_store_{merito}','MeritosController@submeritostore')->name('submerito.storemerito');
 Route::delete('meritoeliminar_{merito}','MeritosController@destroy')->name('merito.destroy');
-Route::get ('descrip','MeritosController@indexdescripcion')->name('descrip.indexdescripcion');
-Route::get('crear_Descrip','MeritosController@createdescripcion')->name('crearDescrip.createdescrip');
+
 /*Route::get('formdoc','ConocimientoCalifController@formdoc')->name('calif.formdoc');*/
 Route::get('submerito-index_{merito}','MeritosController@indexsubmerito')->name('subMerito.indexsubmerito');
 Route::delete('submeritoeliminar_{submerito}','MeritosController@destroysub')->name('submerito.destroy');
+Route::get ('descripcion_{submerito}','MeritosController@indexdescripcion')->name('descripcion.index');
+Route::get('crearDescripcion_{submerito}','MeritosController@createdescripcion')->name('descripcion.create');
+Route::post('descripcionStore_{submerito}','MeritosController@storedescripcion')->name('descripcion.store');
 #################################calificacion meritos#################################
 Route::get('calificacion','CalificacionController@index')->name('calif.index');
 Route::get('califMerito_{user}','CalificacionController@create')->name('crearCalif.create');

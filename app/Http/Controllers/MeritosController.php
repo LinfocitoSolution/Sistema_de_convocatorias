@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use \App\Merito;
 use \App\Submerito;
 use \App\Convocatoria;
+use \App\Descripcion;
 use Validator;
 use App\Http\Requests\MeritoRequest;
 
@@ -34,15 +35,7 @@ class MeritosController extends Controller
         $meritos=Merito::all();
         return view('admin.meritos.create', compact('calls','meritos'));
     }
-    public function createsubmerito(Merito $merito)
-    {
-        
-        $calls=Convocatoria::all();
-        $meritos=Merito::all();
-        //$meri=Merito::Find($merito);
-       return view('admin.meritos.createsub', compact('calls','meritos','merito'));
-        //return $merito;
-    }
+    
 
 
     /**
@@ -194,10 +187,65 @@ class MeritosController extends Controller
        return view('admin.meritos.indexsubmeritos',compact('submeritos','merito'));
         //return $merito;
     }
-    public function indexdescripcion(){
-        return view('admin.meritos.index_descripcion');
+    public function createsubmerito(Merito $merito)
+    {
+        
+        $calls=Convocatoria::all();
+        $meritos=Merito::all();
+        //$meri=Merito::Find($merito);
+       return view('admin.meritos.createsub', compact('calls','meritos','merito'));
+        //return $merito;
     }
-    public function createdescripcion(){
-        return view ('admin.meritos.create_descripcion');
+    public function indexdescripcion(Submerito $submerito){
+        $descripcion=Descripcion::all();
+        return view('admin.meritos.index_descripcion',compact('descripcion','submerito'));
+    }
+    public function createdescripcion(Submerito $submerito){
+        $submeritos=Submerito::all();
+        $meritos=Merito::all();
+        return view ('admin.meritos.create_descripcion',compact('submerito','submeritos','meritos'));
+    }
+    public function storedescripcion(Request $request,Submerito $submerito)
+    {
+        $descripcion=new Descripcion;
+        $descripcion->descripcion=$request->input('descripcion');
+        $descripcion->tipo_descripcion=$request->input('tipo');
+        $descripcion->score=$request->input('score');
+        
+        
+        $descripcion->submerito_id=$submerito->id;
+       
+       $descripcionsa = ($submerito->score);
+       //return $descripcionsa;
+       $messages=[
+
+        'descripcion.required' => 'se requiere el campo nombre para continuar',
+         
+        'score.required'=>'se requiere el campo puntuacion para continuar',
+        'score.numeric'=>'el campo puntuacion debe ser numerico',
+        'score.digits_between'=>'el campo puntaje tiene que tener entre 1 y 3 digitos',
+        'score.max'=>'el campo puntaje no debe pasar de los ' . $descripcionsa . ' puntos',
+        'score.min'=>'el campo puntaje debe ser de al menos 1 punto para continuar',
+    ];
+    $validator = Validator::make($request->all(), [
+        'score'=>'required|numeric|digits_between:1,3|max:' . $descripcionsa . '|min:0',
+        'descripcion'=>'required',
+    ],$messages);
+   
+    
+    
+    if ($validator->fails()) {
+        //return Submerito::where('merito_id', '=',$merito->id )->get()->sum("score");
+        return redirect(route('descripcion.create',compact('submerito')))->withErrors($validator);
+    }
+    else {
+        
+    
+
+        $descripcion->save();
+        
+        return redirect(route('merito.index'))->with([ 'message' => 'descripcion creada exitosamente!', 'alert-type' => 'success' ]);
+        
+    } 
     }
 }

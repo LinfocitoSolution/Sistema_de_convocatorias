@@ -29,7 +29,7 @@
 
                             <div class="form-actions text-center">
                                 <button class="btn btn-outline-dark" type="submit">Guardar</button>
-                            <a class="btn btn-outline-dark" href="{{route('merito.index')}}">Cancelar</a>
+                            <a class="btn btn-outline-dark" href="{{route('subMerito.indexsubmerito',$merito)}}">Cancelar</a>
                             </div>
                         </form>
                     </div>
