@@ -194,4 +194,10 @@ class MeritosController extends Controller
        return view('admin.meritos.indexsubmeritos',compact('submeritos','merito'));
         //return $merito;
     }
+    public function indexdescripcion(){
+        return view('admin.meritos.index_descripcion');
+    }
+    public function createdescripcion(){
+        return view ('admin.meritos.create_descripcion');
+    }
 }

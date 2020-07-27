@@ -32,10 +32,9 @@
                     <td>{{$submerito->name}}</td>
                     <td>{{$submerito->score}}</td>
                         
-                        <td>
-                            <a class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title="Crear descripcion"href="{{ route('submerito.create',$merito)}}">
-                                <i class="far fa-plus-square"></i>
-                            </a>  
+                        <td><a class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title="Crear Decripción"href="{{route('descrip.indexdescripcion')}}">
+                            <i class="far fa-plus-square"></i>
+                        </a> 
                         
                         <form action="{{route('submerito.destroy', $submerito->id)}}" method="POST" style="display:inline-block;">
                             {{ csrf_field() }}
@@ -43,16 +42,25 @@
                             <button class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title="Eliminar submeritos"  type="submit" margin-left="50" onclick="return confirm('Está seguro que desea eliminar este submerito?')">
                                 <i class="fa fa-trash-alt"></i>                                
                             </button> 
+                            
                                                        
                         </form>
                         @endif
                         @endforeach
                     </td>
+                    
                      </tr>
                 
                     </tbody>
                 </table>
+            
+                
+                
+                <a class="btn btn-outline-dark center-block" href="{{route('merito.index')}}">Atras</a>
+                
             </div>
+            
+                            
         </div>
     </div>  
 </div>
