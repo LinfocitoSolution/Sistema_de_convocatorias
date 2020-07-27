@@ -1,5 +1,5 @@
 
-        <h6 class="text-center"><span style="background-color: #3366FF;"><b>Cristian Alvarez Medrano</b></span></h6>
+        <h6 class="text-center"><b>Cristian Alvarez Medrano</b></span></h6>
         <div class="form-horizontal">
     
         <div class="table-responsive">
@@ -16,7 +16,7 @@
           </thead>
           <tbody>
                 <tr>
-                    <td  bgcolor="blak">merito</td>                  
+                    <td>merito</td>                  
                     <td> <div style="width:3em">
                               <input class="form-control" type="text" name="" value="">
                          </div>
