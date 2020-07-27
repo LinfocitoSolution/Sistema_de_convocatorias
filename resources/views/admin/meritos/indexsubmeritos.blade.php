@@ -33,6 +33,9 @@
                     <td>{{$submerito->score}}</td>
                         
                         <td>
+                            <a class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title="Crear descripcion"href="{{ route('submerito.create',$merito)}}">
+                                <i class="far fa-plus-square"></i>
+                            </a>  
                         
                         <form action="{{route('submerito.destroy', $submerito->id)}}" method="POST" style="display:inline-block;">
                             {{ csrf_field() }}
