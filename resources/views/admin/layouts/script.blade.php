@@ -196,5 +196,3 @@
        calificacion=0;
   }
 </script>
-
- 

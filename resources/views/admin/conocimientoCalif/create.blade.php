@@ -14,10 +14,8 @@
                     <div class="card-header">
                         <h1> Registrar notas de la tabla de conocimientos</h1>
                     </div>    
-                    <div class="card-body">
-                        <!---va dentro de action  { route('area.store') }}-->                       
-                        <form class="form-horizontal"  action="{{ route('conocimientoCalif.store') }}" method="POST">                                                      
-                           <input type="hidden" name="_token" value="{{csrf_token()}}">
+                    <div class="card-body">                   
+                        <form class="form-horizontal"  action="{{ route('registrar.tabla',$call) }}" method="POST">
                            {{ csrf_field() }}                          
                            @if ($call->tipo_convocatoria == "convocatoria de laboratorios")
                             @include('admin.conocimientoCalif.form')

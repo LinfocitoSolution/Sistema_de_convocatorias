@@ -262,7 +262,7 @@
                     <li class="nav-item">
                       <a href="{{route('conocimientoCalif.index')}}" class="nav-link">
                         <i class="fas fa-th-list nav-icon"></i>
-                        <p>Tabla actual </p>
+                        <p>Tablas creadas </p>
                       </a>
                     </li>
                   @endif

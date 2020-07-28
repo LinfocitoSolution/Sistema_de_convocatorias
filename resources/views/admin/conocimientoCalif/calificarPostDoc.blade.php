@@ -1,7 +1,7 @@
 @extends("admin.layouts.plantilladmin")
 
 @section('title')
-    Crear-tabla de calificación
+    Registrar calificación
 @endsection
 
 @section("content")
@@ -12,10 +12,10 @@
             <div class="col-lg-12">
                 <div class="card mt-2">
                     <div class="card-header">
-                        <h1> Registrar notas de conocimiento Docencia</h1>
+                        <h1> Registrar notas de conocimiento (Docencia)</h1>
                     </div>    
                     <div class="card-body">                     
-                        <form class="form-horizontal" action="#" method="POST">                                                      
+                        <form class="form-horizontal" action= "{{route("registrar.notasDoc", $user)}}" method="POST">                                                      
                            {{ csrf_field() }}                           
                             @include('admin.conocimientoCalif.formdoc')
                             <div class="form-actions text-center">

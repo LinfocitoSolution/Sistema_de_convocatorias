@@ -1,3 +1,6 @@
+<script type="text/javascript">
+    const conv = {!! json_encode($notas) !!};
+</script>
 <h6 class="text-center"><b>Código de auxiliatura</b></h6>
 <div class="form-horizontal">
     
@@ -5,8 +8,7 @@
        <table class="table table-bordered table-striped table-sm">
            <thead>
              <tr>
-                  <th>#</th>
-                  <th>Temática</th>
+                    <th>Temática</th>
                         @foreach ($user->requerimientos as $req)
                             <th>{{$req->codigo_auxiliatura}}</th>
                         @endforeach                                     
@@ -15,17 +17,37 @@
           <tbody>
             @foreach ($tematicas as $item)
             <tr>
-                <td>{{$item->id}}</td>        
-                    <td>{{$item ->name}}</td>    
-                    @foreach ($user->requerimientos as $req)
+                    <td>{{$item->name}}</td>    
+                    {{-- @foreach ($user->requerimientos as $req) YA QUE SOLOS SE POSTULA A UNA SOLA CONVOCATORIA--}}
                     <td> 
                         <div style="width:5em">
-                            <input class="form-control" type="number" id="nota" name="nota[]" value="0" min="0" max="100">
+                        <input class="form-control" type="number" id="notas" name="notas[]" value="0" min="0" max="100">
                         </div>
                     </td>
-                @endforeach        
+                    {{-- @endforeach    --}}
             </tr>
-        @endforeach
+            @endforeach
       </table>
    </div>
 </div>        
+
+<script> window.onload = function conocimientosCalif(){
+    var nots = {!! json_encode($notas) !!};
+    console.log(nots);
+    for(var i=0;i<nots.length;i++)
+    {
+        var p1 = document.getElementsByName('notas[]')[i];    
+        
+        if(nots[i].score == 0)
+        {
+            p1.setAttribute("value", nots[i].score -1);
+            p1.setAttribute("type", "hidden");
+        }
+        else
+        {
+            p1.setAttribute("max", nots[i].score);
+        }
+    }    
+    console.log(p1);
+}
+</script>

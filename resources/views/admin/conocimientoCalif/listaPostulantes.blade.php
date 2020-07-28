@@ -29,22 +29,22 @@
                           @if($user->habilitados->first()->name == "habilitado")
                               <td>{{$user->name}}</td>
                               <td>{{$user->lastname}}</td>
-                              {{-- FALTA VERIFICAR A QUÉ TIPO DE REQUERIMIENTO SE ESTÁN POSTULANDO. DE MOMENTO SOLO ESTÁ PARA LABO EN EL LINK SIGUIENTE--}}
                               <td>{{$user->requerimientos->first()->nombre_auxiliatura}}</td>
-                              @if ($user->requerimientos->first()->tipo_requerimiento == "requerimiento de laboratorio")
-                                <td>                                
-                                  <a class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="Presiona para calificar a un usuario" href="{{ route('calificar.postulante',$user->id)}}">
-                                      <i class="fa fa-eye"></i>
-                                  </a>
-                                </td>      
-                              @else
-                                <td>                                
-                                  <a class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="Presiona para calificar a un usuario" href="{{ route('calificar.postulanteDoc',$user->id)}}">
-                                      <i class="fa fa-eye"></i>
-                                  </a>
-                                </td>      
+                              @if (!App\Calificacion_conocimiento::where('user_id', '=', $user->id)->exists())
+                                  @if ($user->requerimientos->first()->tipo_requerimiento == "requerimiento de laboratorio")
+                                    <td>                                
+                                      <a class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="Presiona para calificar a un usuario" href="{{ route('calificar.postulante',$user)}}">
+                                          <i class="fa fa-eye"></i>
+                                      </a>
+                                    </td>      
+                                  @else
+                                    <td>                                
+                                      <a class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="Presiona para calificar a un usuario" href="{{ route('calificar.postulanteDoc',$user)}}">
+                                          <i class="fa fa-eye"></i>
+                                      </a>
+                                    </td>      
+                                  @endif
                               @endif
-                              
                           @endif
                         @endif                              
                       </tr> 

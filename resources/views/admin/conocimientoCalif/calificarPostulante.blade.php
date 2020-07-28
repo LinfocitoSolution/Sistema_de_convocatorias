@@ -12,10 +12,10 @@
             <div class="col-lg-12">
                 <div class="card mt-2">
                     <div class="card-header">
-                        <h1> Registrar notas del postulante Laboratorio</h1>
+                    <h1> Registrar notas del postulante: {{$user->name }} {{$user->lastname}}</h1>
                     </div>    
                     <div class="card-body">                   
-                        <form class="form-horizontal" action="{{ route('registrar.notas') }}" method="POST">                                                      
+                        <form class="form-horizontal" action="{{ route('registrar.notas',$user) }}" method="POST">                                                      
                             {{ csrf_field() }}               
                             @include('admin.conocimientoCalif.formCalif')
                             <div class="form-actions text-center">

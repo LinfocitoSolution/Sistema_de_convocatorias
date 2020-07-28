@@ -157,8 +157,10 @@ Route::get('form_segundoPaso','ConocimientoCalifController@segundoPaso')->name('
 Route::get('listarPostulantes','ConocimientoCalifController@listarPostulantes')->name('lista.postulantes');
 Route::get('calificarPostulante_{user}','ConocimientoCalifController@calificarPostulant')->name('calificar.postulante');
 Route::get('calificarPostulanteDocencia_{user}','ConocimientoCalifController@calificarPostDoc')->name('calificar.postulanteDoc');
-Route::post('registrarNotas','ConocimientoCalifController@registrarNotas')->name('registrar.notas');
-/*Route::get('formdoc','ConocimientoCalifController@formdoc')->name('calif.formdoc');*/
+Route::post('registrarNotas_{user}','ConocimientoCalifController@registrarNotas')->name('registrar.notas');
+Route::post('guardarTabla_{call}','ConocimientoCalifController@store')->name('registrar.tabla');
+Route::post('regNotasDoc_{user}','ConocimientoCalifController@regNotasDocencia')->name('registrar.notasDoc');
+Route::delete('eliminarTabla_{item}','ConocimientoCalifController@destroy')->name('tabla.destroy');
 
 ######################## Méritos ####
 Route::get('Merito','MeritosController@index')->name('merito.index');

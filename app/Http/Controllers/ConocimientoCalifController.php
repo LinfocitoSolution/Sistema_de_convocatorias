@@ -13,6 +13,7 @@ use App\Role;
 use App\Carrera;
 use App\Tematica;
 use App\Tematica_requerimiento;
+use App\Calificacion_conocimiento;
 class ConocimientoCalifController extends Controller
 {
     public function __construct()
@@ -31,9 +32,10 @@ class ConocimientoCalifController extends Controller
      */
     public function index()
     {
-        //$conocimientoCalif=ConocimientoCalif::all();
-        $conocimientoCalif=array(1,2,3);
-        return view('admin.conocimientoCalif.index', compact('conocimientoCalif'));
+        $tablas = Tematica_requerimiento::distinct()->get(['convocatoria_id']);
+        // return $tablas;
+        $calls = Convocatoria::all();
+        return view('admin.conocimientoCalif.index', compact('tablas', 'calls'));
     }
     public function primerPaso()
     {   
@@ -68,7 +70,7 @@ class ConocimientoCalifController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Convocatoria $call)
     {
         $notas = $request->input('nota');
         $requerimientosLab = Requerimiento::where('tipo_requerimiento', 'requerimiento de laboratorio')->get();
@@ -78,16 +80,19 @@ class ConocimientoCalifController extends Controller
         {
             foreach($requerimientosLab as $r)
             {
-                if($notas[$aux]!=0)
-                {
+                // if($notas[$aux]!=0)
+                // {
                     $tabla = new Tematica_requerimiento();
                     $tabla->requerimiento_id = $r->id;
                     $tabla->tematica_id = $tm->id;
                     $tabla->score = $notas[$aux];
+                    $tabla->convocatoria_id=$call->id;
+                    $tabla->unit_id=$call->unit_id;
                     $tabla->save();
-                }
+                // }
                 $aux++;
             }
+         
         }
         return redirect(route('conocimientoCalif.index'))->with(['message'=>'Tabla creada exitosamente¡','alert-type'=>'success']);
     }
@@ -134,10 +139,13 @@ class ConocimientoCalifController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ConocimientoCalif $tabla)
+    public function destroy($item)
     {
-        $tabla->delete();
-        // Tematica_requerimiento::destroy($id);
+        $tabla = Tematica_requerimiento::where('convocatoria_id', $item)->get();
+        foreach($tabla as $tb)
+        {
+            $tb->delete();
+        }
         return redirect(route('conocimientoCalif.index'))->with([ 'message' => 'Tabla  eliminada!', 'alert-type' => 'success' ]);
     }
     public function listarPostulantes()
@@ -149,16 +157,46 @@ class ConocimientoCalifController extends Controller
     public function calificarPostulant(User $user)
     {
         $tematicas = Tematica::all();
-        return view('admin.conocimientoCalif.calificarPostulante', compact('user', 'tematicas'));
+        $requerimientoId = $user->requerimientos->first()->id;//requerimiento al que se postula
+        $notas = Tematica_requerimiento::where('requerimiento_id', '=', $requerimientoId)->get();//solo notas de tematicas que tenga el requerimiento del postulante
+        return view('admin.conocimientoCalif.calificarPostulante', compact('user', 'tematicas', 'notas'));
     }
     public function calificarPostDoc(User $user)
     {
-        $tematicas = Tematica::all();
-        return view('admin.conocimientoCalif.calificarPostDoc', compact('user', 'tematicas'));
+        return view('admin.conocimientoCalif.calificarPostDoc', compact('user'));
     }
 
-    public function registrarNotas(Request $request)
+    public function registrarNotas(Request $request, User $user)
     {
-        //es como un store de las notas del postulante
+        $calificacion = new Calificacion_conocimiento();
+        $notas = $request->input('notas');
+        $tam=count($notas);
+        $suma=0;
+        for($i=0;$i<$tam;$i++)
+        {
+            if($notas[$i] != -1)
+            {
+                $suma+=$notas[$i];
+            }
+        }
+        $suma*=0.8;
+        $calificacion->score=$suma;
+        $calificacion->user_id=$user->id;
+        $calificacion->save();
+        return redirect(route('lista.postulantes'))->with([ 'message' => 'Nota registrada exitosamente!', 'alert-type' => 'success' ]);;
+    }
+    public function regNotasDocencia(Request $request, User $user)
+    {
+        $calificacion = new Calificacion_conocimiento();
+        $notA = $request->input('notA');
+        $notB = $request->input('notB');
+        $porcA = ($request->input('porcentajeA'))/100;
+        $porcB = ($request->input('porcentajeB'))/100;
+        $total = ($notA*$porcA + $notB*$porcB)*0.8;
+
+        $calificacion->score=$total;
+        $calificacion->user_id=$user->id;
+        $calificacion->save();
+        return redirect(route('lista.postulantes'))->with([ 'message' => 'Nota registrada exitosamente!', 'alert-type' => 'success' ]);;
     }
 }
