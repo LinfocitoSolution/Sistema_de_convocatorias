@@ -17,7 +17,7 @@
                       </div>
                           <!---cuerpo--->
                      <div class="card-body">                           
-                          <form class="form-group" method="get" action="{{route('calif.segundo')}}" >
+                          <form class="form-group" method="get" action="{{route('calif.segundo')}}">
                                  <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                      <div class="form-group-row">
                                           <!----Laboratorio---->
