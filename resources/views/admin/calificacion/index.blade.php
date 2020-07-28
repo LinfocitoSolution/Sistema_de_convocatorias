@@ -16,10 +16,11 @@
                 <table class="table table-bordered table-striped table-sm">
                     <thead>
                     <tr>
-                        <th>Nombre postulante</th>
+                        <th>Nombre Postulante</th>
                        <th>Auxiliatura</th>
-                        <th>Puntaje de meritos</th>
-                        <th>Puntaje promediado Final</th>
+                       <th>Documentos Revisados</th>
+                        <th>Puntaje de Meritos</th>
+                        <th>Puntaje Promediado Final</th>
                          <th>Opciones</th>
                      </tr>
                     </thead>
@@ -30,6 +31,14 @@
                <tr>
                 <td>{{$user->name}}</td>
                 <td>{{$user->requerimientos->first()->nombre_auxiliatura}}</td>
+                <td>
+                    
+                @foreach($calificacion as $caf)
+                @if($caf->user_id==$user->id)
+                {{($caf->documentos)}}
+                @endif
+                @endforeach
+                </td>
                 <td>
                     @foreach($calificacion as $caf)
                 @if($caf->user_id==$user->id)

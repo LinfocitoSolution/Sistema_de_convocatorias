@@ -18,20 +18,26 @@
               </tr>
               <tr><th><strong>Puntaje Limite:{{$merito->score}}</strong></th></tr>
               <tr> 
-                <th>Sub-merito</th>
-                <th>Descripción</th>
-                <th>Puntaje Limite</th>
-                <th>Puntaje</th>
-                <th>Nro documentos</th>
+               
+                
               </tr>
               @foreach($submeritos as $submerito)
               @if($submerito->merito_id==$merito->id)
               <tr>
                   
-                  <td>{{$submerito->name}}</td>
+                  <th>Submerito:{{$submerito->name}}</th></tr>
 
-                  <td>{{$submerito->description}}</td>
-                  <td>{{$submerito->score}}</td>
+                  <tr><th>Puntaje Limnite:{{$submerito->score}}</th>
+              </tr>
+               <tr>
+                  <th>Descripcion</th>   
+                  <th>Puntaje</th>
+                  <th>Nro documentos</th>
+               </tr>
+                  @foreach($descripciones as $desc)
+                  @if($desc->submerito_id==$submerito->id)
+                <td>{{$desc->descripcion}}</td>
+                 @if($desc->descripcion=="promedio")
                   <td> 
                     <div style="width:4em">
                         <input class="form-control" type="number" id="nota" name="notas[]" value="0" required min ="0" max=<?php echo $submerito->score ?>>
@@ -40,7 +46,8 @@
                       {{ $errors->has('notas')? $errors->first('notas') : ''  }}
                   </div>
                   </td>
-
+                  @else
+                  <td></td>
                   <td> 
                     <div style="width:4em">
                         <input class="form-control" type="number" id="doc" name="doc[]" value="0" required min="0" max=<?php echo $documentos->documento ?> >
@@ -49,9 +56,12 @@
                       {{ $errors->has('doc')? $errors->first('doc') : ''  }}
                     </div>
                   </td>
-              
-              
+                  
+                 @endif
                 </tr>
+                
+                @endif
+                @endforeach
               @endif
               @endforeach
               @endif

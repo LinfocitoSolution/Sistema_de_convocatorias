@@ -49,7 +49,7 @@ class MeritosController extends Controller
         
         $meritosa = Merito::where('convocatoria_id', '=',$request->input('convocatoria') )->get()->sum("score");
         $meritosa=100-$meritosa;
-        //$meritosa=Merito::select("SUM(score) as puntaje")->get();
+        //$meritosa=Merito::select("score " from  )->get();
         
         $meritos=new Merito;
         $meritos->name=$request->input('name');

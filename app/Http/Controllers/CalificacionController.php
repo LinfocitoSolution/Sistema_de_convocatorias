@@ -5,7 +5,9 @@ use App\Merito;
 use App\Submerito;
 use App\User;
 use App\Libro;
+use App\Descripcion;
 use Validator;
+
 use App\Postulante_submerito;
 use App\Calificacion_merito;
 use Illuminate\Http\Request;
@@ -33,12 +35,13 @@ class CalificacionController extends Controller
      */
     public function create(User $user)
     {
+        $descripciones=Descripcion::all();
         $users=User::where('id','=',$user->id);
         $meritos=Merito::all();
         $submeritos=Submerito::all();
         $documentos=Libro::where('user_id','=',$user->id)->first();
         //return $documentos->documento;
-        return view('admin.calificacion.createCalif' ,compact('meritos','submeritos','user','documentos'));
+        return view('admin.calificacion.createCalif' ,compact('meritos','submeritos','user','documentos','descripciones'));
     }
 
     /**
@@ -55,12 +58,15 @@ class CalificacionController extends Controller
         
         $meritos=Merito::all();
         $submeritos=Submerito::all();
+        $descripciones=Descripcion::all();
         $notas=$request->input('notas');
         $documentos=$request->input('doc');
+        $puntaje=0;
         $caf=0;
         $doc=0;
         $c=0;
-        
+        $d=0;
+        $docen=0;
         foreach($meritos as $merito)
         {
             
@@ -70,37 +76,56 @@ class CalificacionController extends Controller
                  {
                     if($submerito->merito_id==$merito->id)
                     {
+                        foreach($descripciones as $desc)
+                        {
+                            if($desc->submerito_id==$submerito->id)
+                            {
+                                if($desc->tipo_descripcion=="documentos")
+                                {
+                                    
+                                    $docen=$docen+$documentos[$c];
+                                    $doc=$documentos[$c] * $desc->score;
+                                    $puntaje=$puntaje + $doc;
+                                    /*echo "descripcion" . $desc->descripcion . "<br>";
+                                    echo  $desc->descripcion . "<br>"; 
+                                    echo  $documentos[$c] . "*" . $desc->score . "=" .  $doc . "<br>" ;*/
+                                    
+                                    $c++;
+                                    $doc=0;
+
+                                }
+                                else 
+                                {
+                                    if($desc->tipo_descripcion=="promedio")
+                                {
+                                    $caf=$caf+$notas[$d];
+                                    
+                                    $d++;
+                                    //echo "puntos en promedio:" . $caf;
+                                    
+                                }
+                                }
+                                
+                                
+                            }
+                        }
                         
-                        $caf=$caf+$notas[$c];
-                        $doc=$doc+$documentos[$c];
-                        $c++;
-                       /* $messages=[
-            
-                            'notas.required'=>'se requiere el campo puntuacion para continuar',
-                           
-                            
-                            'notas.max'=>'el campo puntaje no debe pasar de los ' . $submerito->score . ' puntos',
-                            'notas.min'=>'el campo puntaje debe ser de al menos 1 punto para continuar',
-                        ];
-                        $validator = Validator::make($request->all(), [
-                            'notas'=>'required|max:' . $submerito->score . '|min:1',
-                        ],$messages);*/
+                      
                     }
                  }
             }
             
         }
        
-        //$calificacion->score=$caf*0.20;
         
-        $calificacion->score=$caf;
-        $calificacion->documentos=$doc;
+        
+        $calificacion->score=$caf + $puntaje;
+        $calificacion->documentos=$docen;
         $calificacion->save();
        
         return redirect(route('calif.index'))->with([ 'message' => 'calificacion asignada exitosamente!', 'alert-type' => 'success' ]);;
         
-        //return $calificacion;
-        
+        //return $calificacion->score;
     
     }
 
