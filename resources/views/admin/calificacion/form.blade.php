@@ -1,5 +1,5 @@
 
-        <h6 class="text-center"><b>Cristian Alvarez Medrano</b></h6>
+        <h6 class="text-center"><b>Cristian Alvarez Medrano</b></span></h6>
         <div class="form-horizontal">
     
         <div class="table-responsive">

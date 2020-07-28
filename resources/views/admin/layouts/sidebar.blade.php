@@ -238,6 +238,34 @@
               </li>
             @endif
           <!--Fin Fechas-->
+          <!---Tematica--->
+          <li class="nav-item has-treeview menu-close">
+            <a href="#" class="nav-link active bg-dark">
+              <i class="nav-icon fa fa-table"></i>
+              <p>
+                Tematicas
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              
+                <li class="nav-item">
+                  <a href="{{route('tematica.unidad')}}" class="nav-link">
+                    <i class="fas fa-plus-square nav-icon"></i>
+                    <p>Nueva Tematica</p>
+                  </a>
+                </li>
+             
+                <li class="nav-item">
+                  <a href="{{route('tematica.index')}}" class="nav-link">
+                    <i class="fas fa-th-list nav-icon"></i>
+                    <p>Lista </p>
+                  </a>
+                </li>
+              
+            </ul>
+          </li>
+          <!---Fin tematica--->
           <!--Inicio de tabla de conocimiento-->
             @if(Auth::user()->hasPermission('list tablaConocimientos') || Auth::user()->hasPermission('create tablaConocimientos'))
               <li class="nav-item has-treeview menu-close">
@@ -278,6 +306,7 @@
               </li>
             @endif
           <!--Fin tabla de conocimiento-->
+
              <!--Postulante-->
             
              <li class="nav-item has-treeview menu-close">

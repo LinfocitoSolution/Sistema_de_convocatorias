@@ -169,6 +169,8 @@ Route::post('merito_store','MeritosController@store')->name('merito.storemerito'
 Route::get('createsubmerito_{merito}','MeritosController@createsubmerito')->name('submerito.create');
 Route::post('submerito_store_{merito}','MeritosController@submeritostore')->name('submerito.storemerito');
 Route::delete('meritoeliminar_{merito}','MeritosController@destroy')->name('merito.destroy');
+Route::get ('descrip','MeritosController@indexdescripcion')->name('descrip.indexdescripcion');
+Route::get('crear_Descrip','MeritosController@createdescripcion')->name('crearDescrip.createdescrip');
 /*Route::get('formdoc','ConocimientoCalifController@formdoc')->name('calif.formdoc');*/
 Route::get('submerito-index_{merito}','MeritosController@indexsubmerito')->name('subMerito.indexsubmerito');
 Route::delete('submeritoeliminar_{submerito}','MeritosController@destroysub')->name('submerito.destroy');
@@ -178,3 +180,9 @@ Route::get('califMerito','CalificacionController@create')->name('crearCalif.crea
 ################ Libro de recepcion ########
 Route::get('libro','RecepcionController@index')->name('libro.index');
 Route::get('crear_libro','RecepcionController@create')->name('libro.create');
+
+################ Tematica ######################
+Route::get('tematica','TematicaController@index')->name('tematica.index');
+Route::get('create','TematicaController@create')->name('tematica.create');
+Route::get('tematicaConvocatoria','TematicaController@tematicaConvocatoria')->name('tematica.convocatoria');
+Route::get('tematicaUnidad','TematicaController@tematicaUnidad')->name('tematica.unidad');
