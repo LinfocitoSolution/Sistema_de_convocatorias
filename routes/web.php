@@ -170,3 +170,9 @@ Route::get('califMerito','CalificacionController@create')->name('crearCalif.crea
 ################ Libro de recepcion ########
 Route::get('libro','RecepcionController@index')->name('libro.index');
 Route::get('crear_libro','RecepcionController@create')->name('libro.create');
+
+################ Tematica ######################
+Route::get('tematica','TematicaController@index')->name('tematica.index');
+Route::get('create','TematicaController@create')->name('tematica.create');
+Route::get('tematicaConvocatoria','TematicaController@tematicaConvocatoria')->name('tematica.convocatoria');
+Route::get('tematicaUnidad','TematicaController@tematicaUnidad')->name('tematica.unidad');
