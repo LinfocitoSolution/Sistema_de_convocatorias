@@ -196,5 +196,22 @@
        calificacion=0;
   }
 </script>
-
+<script>
+    var campos_max=10;//maximo 10 campos
+    var x=0;
+    $('#add_field').click (function(e) {
+        e.preventDefault();//prevenir nuevos clicks
+        if(x<campos_max){
+            $('#listas').append('<div>\<input type="text" name="campo[]">\ <button class="btn btn-outline-dark mr-3 my-2  remover_campo">Eliminar</button>\</div>');
+            x++;
+         
+        }
+    });
+    //Remover 
+    $('#listas').on("click",".remover_campo",function(e) {
+        e.preventDefault();
+        $(this).parent('div').remove();
+        x--;
+    });
+</script>
  

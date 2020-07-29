@@ -31,4 +31,18 @@
     background: #34515E;
   }
 
-  
+  input[type=button]{
+    width: 180px;
+    height: 30px;
+    background-color: #34515E;
+    color: white;
+    padding-left: auto;
+    padding-right: auto;
+    margin-left: 3px;
+    text-align: center;
+    font-size: 18px;
+    border-style: solid;
+    border-width: thin;
+    border-color: black;
+    border-radius: 3px;
+  }
