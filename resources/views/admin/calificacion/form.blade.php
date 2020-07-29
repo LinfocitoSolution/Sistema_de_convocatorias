@@ -37,7 +37,7 @@
                   @foreach($descripciones as $desc)
                   @if($desc->submerito_id==$submerito->id)
                 <td>{{$desc->descripcion}}</td>
-                 @if($desc->descripcion=="promedio")
+                 @if($desc->tipo_descripcion=="promedio")
                   <td> 
                     <div style="width:4em">
                         <input class="form-control" type="number" id="nota" name="notas[]" value="0" required min ="0" max=<?php echo $submerito->score ?>>
@@ -46,11 +46,12 @@
                       {{ $errors->has('notas')? $errors->first('notas') : ''  }}
                   </div>
                   </td>
+                  
                   @else
                   <td></td>
                   <td> 
                     <div style="width:4em">
-                        <input class="form-control" type="number" id="doc" name="doc[]" value="0" required min="0" max=<?php echo $documentos->documento ?> >
+                        <input class="form-control" type="number"  id="doc" name="doc[]" value="0" required min="0" max=<?php echo $documentos->documento ?> >
                     </div>
                     <div class="invalid-feedback {{ $errors->has('doc')? 'd-block' : '' }}">
                       {{ $errors->has('doc')? $errors->first('doc') : ''  }}

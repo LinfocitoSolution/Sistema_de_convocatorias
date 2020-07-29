@@ -56,22 +56,28 @@
 
 
                
-                 
-                
+            <p hidden>{{$a=App\Postulante_submerito::where('user_id',$user->id)->first()}}</p>
+                   
                         
-                     <td>   <a class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="Presiona " href="{{route('crearCalif.create',$user)}}">
-                            <i class="fa fa-check-square"></i>
-                        </a>
+                     <td>
                         
+                       
+                        @if(isset($a))
                         <form action="{{route('calif.delete',$user)}}" method="POST" style="display:inline-block;">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}                
                             <button class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title=""  type="submit" margin-left="50" onclick="return confirm('Está seguro que desea eliminar esta publicacion?')">
                                 <i class="fa fa-trash-alt"></i>                                
                             </button> 
-                            
-                                                       
                         </form>
+                        
+                        @else
+                        <a class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="Presiona " href="{{route('crearCalif.create',$user)}}">
+                            <i class="fa fa-check-square"></i>
+                        </a>
+                        
+                       
+                      @endif
                     </td>
                     @endif
                     @endforeach

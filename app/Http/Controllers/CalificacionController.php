@@ -21,10 +21,11 @@ class CalificacionController extends Controller
      */
     public function index()
     {
+        
         $calificacion=Postulante_submerito::all();
         $users=User::all();
 
-        return view('admin.calificacion.index',compact('users','calificacion'));
+        return view('admin.calificacion.index',compact('users','calificacion','a'));
     }
     
 
