@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use \App\Tematica;
+use App\Tematica;
 use Illuminate\Http\Request;
 use App\Unidad;
 use App\User;
@@ -20,8 +20,15 @@ class TematicaController extends Controller
      */
     public function index()
     {
-        $tematica=array(1,2,3);
-        return view('admin.tematica.index', compact('tematica'));
+        $callsLab = Convocatoria::where('tipo_convocatoria', 'convocatoria de laboratorios')->get();
+        $tematicas = Tematica::all();
+        
+        if(!$tematicas->isEmpty())
+        {
+            $reqsLab = $tematicas->first()->requerimientos()->distinct()->get(['requerimiento_id']);        
+            return view('admin.tematica.index', compact('callsLab', 'reqsLab'));
+        }
+        return redirect(route('tematica.create'))->with(['message'=>'Registre sus temáticas','alert-type'=>'success']);
     }
 
     /**
@@ -40,9 +47,11 @@ class TematicaController extends Controller
         $convocatoria =Convocatoria::all();
         return view('admin.tematica.convocatoria', compact('convocatoria', 'uni'));
     }
-    public function create()
+    public function create(Request $request)
     {
-        return view('admin.tematica.create');
+        $callid = $request->get('convoca');
+        $call = Convocatoria::find($callid);
+        return view('admin.tematica.create',compact('call'));
     }
 
     /**
@@ -51,11 +60,19 @@ class TematicaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Convocatoria $call)
     {
-        $tematica=Tematica::create($request->all());
-        $tematica->save();
-        return redirect(route('tematica.index'))->with(['message'=>'tabla creada exitosamente¡','alert-type'=>'success']);
+        $names = $request->input('campo');
+        $tam = count($names);
+        $requerimientos = $call->requerimientos()->get();
+        for($i=0;$i<$tam;$i++)
+        {
+            $tematica = new Tematica();
+            $tematica->name = $names[$i];
+            $tematica->save();
+            $tematica->requerimientos()->attach($requerimientos);
+        }
+        return redirect(route('tematica.index'))->with(['message'=>'Tabla creada exitosamente!','alert-type'=>'success']);
     }
 
     /**
@@ -98,8 +115,21 @@ class TematicaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy(Convocatoria $call)
+    { 
+        $requerimientos = $call->requerimientos()->get();
+        $tematicas = Tematica::all();
+        foreach($requerimientos->distinct() as $r)
+        {
+            foreach($tematicas as $t)
+            {
+                if($t->requerimientos()->first()->id == $r->id)
+                {
+                    $t->delete();
+                    // $r->tematicas()->detach();
+                }
+            }
+        }
+        return redirect(route('tematica.index'))->with(['message'=>'Tematicas eliminadas con éxito!','alert-type'=>'success']);
     }
 }

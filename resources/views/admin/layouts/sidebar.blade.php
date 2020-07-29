@@ -285,14 +285,23 @@
                       </a>
                     </li>
                   @endif
+
                   @if(Auth::user()->hasPermission('list tablaConocimientos'))
                     <li class="nav-item">
                       <a href="{{route('conocimientoCalif.index')}}" class="nav-link">
                         <i class="fas fa-th-list nav-icon"></i>
-                        <p>Lista </p>
+                        <p>Tablas creadas </p>
                       </a>
                     </li>
                   @endif
+
+                  <li class="nav-item">
+                    <a href="{{route('lista.postulantes')}}" class="nav-link">
+                      <i class="fas fa-th-list nav-icon"></i>
+                      <p>Calificar Postulantes </p>
+                    </a>
+                  </li>
+
                 </ul>
               </li>
             @endif

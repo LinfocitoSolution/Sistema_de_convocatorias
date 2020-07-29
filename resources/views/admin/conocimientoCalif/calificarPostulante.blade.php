@@ -1,7 +1,7 @@
 @extends("admin.layouts.plantilladmin")
 
 @section('title')
-    Tematica-requerimiento
+    Calificación del Postulante
 @endsection
 
 @section("content")
@@ -12,20 +12,17 @@
             <div class="col-lg-12">
                 <div class="card mt-2">
                     <div class="card-header">
-                        <h1> Crear Tematicas</h1>
+                    <h1> Registrar notas del postulante: {{$user->name }} {{$user->lastname}}</h1>
                     </div>    
-                    <div class="card-body">                  
-                    <form class="form-horizontal"  action="{{route('tematica.store', $call)}}" method="POST">                                                      
-                           <input type="hidden" name="_token" value="{{csrf_token()}}">
-                           {{ csrf_field() }}                           
-                            @include('admin.tematica.form')
-                           
+                    <div class="card-body">                   
+                        <form class="form-horizontal" action="{{ route('registrar.notas',$user) }}" method="POST">                                                      
+                            {{ csrf_field() }}               
+                            @include('admin.conocimientoCalif.formCalif')
                             <div class="form-actions text-center">
                                 <button class="btn btn-outline-dark" type="submit">Guardar</button>
-                                <a class="btn btn-outline-dark" href="#">Cancelar</a>
+                                <a class="btn btn-outline-dark" href="{{route('conocimientoCalif.index')}}">Cancelar</a>
                             </div>
                         </form>
-                        
                     </div>
                 </div>
             </div>
