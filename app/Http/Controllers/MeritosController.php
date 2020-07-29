@@ -248,4 +248,10 @@ class MeritosController extends Controller
         
     } 
     }
+    public function destroyDes($id)
+    {
+        Descripcion::destroy($id);  
+
+        return redirect(route('merito.index'))->with([ 'message' => 'Descripcion   eliminado!', 'alert-type' => 'success' ]);
+    }
 }

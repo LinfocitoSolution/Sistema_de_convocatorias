@@ -166,6 +166,7 @@ Route::delete('submeritoeliminar_{submerito}','MeritosController@destroysub')->n
 Route::get ('descripcion_{submerito}','MeritosController@indexdescripcion')->name('descripcion.index');
 Route::get('crearDescripcion_{submerito}','MeritosController@createdescripcion')->name('descripcion.create');
 Route::post('descripcionStore_{submerito}','MeritosController@storedescripcion')->name('descripcion.store');
+Route::delete('descripcioneliminar_{desc}','MeritosController@destroydes')->name('descripcion.destroy');
 #################################calificacion meritos#################################
 Route::get('calificacion','CalificacionController@index')->name('calif.index');
 Route::get('califMerito_{user}','CalificacionController@create')->name('crearCalif.create');

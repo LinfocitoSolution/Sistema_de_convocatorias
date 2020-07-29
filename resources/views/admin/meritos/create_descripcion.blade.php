@@ -12,6 +12,8 @@
                 <div class="card mt-2">
                     <div class="card-header">
                         <h1>Crear Descripción</h1>
+                        <h2>Descripciones para el submerito:  {{$submerito->name}}</h2>
+                   
                      </div>
                          <div class="card-body">
                         <form class="form-horizontal" action="{{route('descripcion.store',$submerito)}}" method="POST">                                                      
