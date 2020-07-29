@@ -8,7 +8,7 @@ use App\User;
 use App\Unidad;
 use App\Curriculum;
 use App\Convocatoria;
-use App\fecha;
+use App\Fecha;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;

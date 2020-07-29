@@ -16,7 +16,7 @@
                     </div>    
                     <div class="card-body">
                         <!---va dentro de action  { route('area.store') }}-->                       
-                        <form class="form-horizontal"  action="" method="POST">                                                      
+                    <form class="form-horizontal"  action="{{route("libro.store")}}" method="POST">                                                      
                            <input type="hidden" name="_token" value="{{csrf_token()}}">
                            {{ csrf_field() }}                           
                             @include('admin.libro.form')
@@ -24,7 +24,7 @@
                                 <button class="btn btn-outline-dark" type="submit">Guardar</button>
                                 <a class="btn btn-outline-dark" href="{{route('libro.index')}}">Cancelar</a>
                             </div>
-                        </form>
+                    </form>
                         
                     </div>
                 </div>

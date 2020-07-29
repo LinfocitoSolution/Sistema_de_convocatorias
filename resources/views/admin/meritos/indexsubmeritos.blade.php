@@ -9,6 +9,7 @@
     <div class="container"> 
         <div class="card mt-2">
             <div class="card-header">
+            <h1>Merito:{{$merito->name}}</h1>
                 <h1>Tabla de Sub-Méritos</h1>
                 <a class="btn btn-dark px2" data-toggle="tooltip" data-trigger="hover" title="" href="{{ route('submerito.create',$merito)}}">
                     Nuevo Submerito
@@ -32,10 +33,12 @@
                     <td>{{$submerito->name}}</td>
                     <td>{{$submerito->score}}</td>
                         
-                        <td><a class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title="Crear Decripción"href="{{route('descrip.indexdescripcion')}}">
+                        <td><a class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="Presiona para ver descripciones" href="{{ route('descripcion.index',$submerito)}}">
+                            <i class="fa fa-eye"></i>
+                        </a> 
+                        <a class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title="Crear descripciones"href="{{route('descripcion.create',$submerito)}}">
                             <i class="far fa-plus-square"></i>
                         </a> 
-                        
                         <form action="{{route('submerito.destroy', $submerito->id)}}" method="POST" style="display:inline-block;">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}                

@@ -26,21 +26,23 @@
                       </tr>
                     </thead>
                     <tbody>  
+                        @foreach($libros as $libro)
                        <tr> 
-                         <td>Pepito Grillo</td>
-                         <td>20</td>
-                          <td>14:00</td>
+                         <td>{{App\User::where('id', '=',$libro->user_id )->first()->name}}</td>
+                       <td>{{$libro->documento}}</td>
+                       <td>{{$libro->fecha_entrega}}</td>
                  
                 
                         
                           <td>   
-                             <form action="#" method="POST" style="display:inline-block;">
-                              <!----{ csrf_field() }}
-                               { method_field('DELETE') }}  -->              
-                               <button class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title=""  type="submit" margin-left="50" onclick="return confirm('Está seguro que desea eliminar esta publicacion?')">
+                          <form action="{{route('libro.delete',$libro)}}" method="POST" style="display:inline-block;">
+                              {{ csrf_field() }}
+                               {{ method_field('DELETE') }}             
+                               <button class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title=""  type="submit" margin-left="50" onclick="return confirm('Está seguro que desea eliminar esta recepcion?')">
                                    <i class="fa fa-trash-alt"></i>                                
                                  </button> 
                              </form>
+                             @endforeach
                          </td>
                       </tr>
                 

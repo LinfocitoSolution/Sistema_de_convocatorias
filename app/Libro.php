@@ -4,17 +4,18 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Calificacion_merito extends Model
+class Libro extends Model
 {
-    public $table='calificacion_meritos';    
+    public $table='libros';    
     protected $fillable = [
         'id',
-        'user_id',
-        'score',
+        'name',
+        'documento',
+        'fecha_entrega',
+
     ];
     public function user()
     {
         return $this->belongsTo('User');
-    }
-
+    } 
 }

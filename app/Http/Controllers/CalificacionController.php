@@ -1,7 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Merito;
+use App\Submerito;
+use App\User;
+use App\Libro;
+use App\Descripcion;
+use Validator;
 
+use App\Postulante_submerito;
+use App\Calificacion_merito;
 use Illuminate\Http\Request;
 
 class CalificacionController extends Controller
@@ -13,7 +21,11 @@ class CalificacionController extends Controller
      */
     public function index()
     {
-        return view('admin.calificacion.index');
+        
+        $calificacion=Postulante_submerito::all();
+        $users=User::all();
+
+        return view('admin.calificacion.index',compact('users','calificacion','a'));
     }
     
 
@@ -22,9 +34,15 @@ class CalificacionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(User $user)
     {
-        return view('admin.calificacion.createCalif');
+        $descripciones=Descripcion::all();
+        $users=User::where('id','=',$user->id);
+        $meritos=Merito::all();
+        $submeritos=Submerito::all();
+        $documentos=Libro::where('user_id','=',$user->id)->first();
+        //return $documentos->documento;
+        return view('admin.calificacion.createCalif' ,compact('meritos','submeritos','user','documentos','descripciones'));
     }
 
     /**
@@ -33,9 +51,83 @@ class CalificacionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,User $user)
     {
-        //
+        $calificacion=new Postulante_submerito;
+    
+        $calificacion->user_id=$user->id;
+        
+        $meritos=Merito::all();
+        $submeritos=Submerito::all();
+        $descripciones=Descripcion::all();
+        $notas=$request->input('notas');
+        $documentos=$request->input('doc');
+        $puntaje=0;
+        $caf=0;
+        $doc=0;
+        $c=0;
+        $d=0;
+        $docen=0;
+        foreach($meritos as $merito)
+        {
+            
+            if($user->requerimientos->first()->convocatorias->first()->id==$merito->convocatoria_id)
+            {
+                foreach($submeritos as $submerito)
+                 {
+                    if($submerito->merito_id==$merito->id)
+                    {
+                        foreach($descripciones as $desc)
+                        {
+                            if($desc->submerito_id==$submerito->id)
+                            {
+                                if($desc->tipo_descripcion=="documentos")
+                                {
+                                    
+                                    $docen=$docen+$documentos[$c];
+                                    $doc=$documentos[$c] * $desc->score;
+                                    $puntaje=$puntaje + $doc;
+                                    /*echo "descripcion" . $desc->descripcion . "<br>";
+                                    echo  $desc->descripcion . "<br>"; 
+                                    echo  $documentos[$c] . "*" . $desc->score . "=" .  $doc . "<br>" ;*/
+                                    
+                                    $c++;
+                                    $doc=0;
+
+                                }
+                                else 
+                                {
+                                    if($desc->tipo_descripcion=="promedio")
+                                {
+                                    $caf=$caf+$notas[$d];
+                                    
+                                    $d++;
+                                    //echo "puntos en promedio:" . $caf;
+                                    
+                                }
+                                }
+                                
+                                
+                            }
+                        }
+                        
+                      
+                    }
+                 }
+            }
+            
+        }
+       
+        
+        
+        $calificacion->score=$caf + $puntaje;
+        $calificacion->documentos=$docen;
+        $calificacion->save();
+       
+        return redirect(route('calif.index'))->with([ 'message' => 'calificacion asignada exitosamente!', 'alert-type' => 'success' ]);;
+        
+        //return $calificacion->score;
+    
     }
 
     /**
@@ -78,8 +170,11 @@ class CalificacionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete(User $user)
     {
-        //
+        $caf=Postulante_submerito::where('user_id',$user->id)->first();
+       
+         Postulante_submerito::destroy($caf->id);
+         return redirect(route('calif.index'))->with([ 'message' => 'calificacion  eliminada!', 'alert-type' => 'success' ]);
     }
 }

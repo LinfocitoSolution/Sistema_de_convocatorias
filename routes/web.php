@@ -149,24 +149,28 @@ Route::put('habilitar_{user}','ListaController@habilitar')->name('documentos.hab
 Route::put('documentosPublicar_{user}','ListaController@publicar')->name('documento.publicar');
 Route::put('documentosQuitar_{user}','ListaController@quitar')->name('documento.quitar');
 Route::get('descripcionPostulante{user}','ListaController@describe')->name('descripcion.desc');
-################tablacalif############################################
+################tablacalif########################################################
 Route::get('form_primerPaso','ConocimientoCalifController@primerPaso')->name('calif.primero');
 Route::get('form_segundoPaso','ConocimientoCalifController@segundoPaso')->name('calif.segundo');
-######################## Méritos ####
+######################## Méritos ################################################
 Route::get('Merito','MeritosController@index')->name('merito.index');
 Route::get('crear-merito','MeritosController@create')->name('merito.create');
 Route::post('merito_store','MeritosController@store')->name('merito.storemerito');
 Route::get('createsubmerito_{merito}','MeritosController@createsubmerito')->name('submerito.create');
 Route::post('submerito_store_{merito}','MeritosController@submeritostore')->name('submerito.storemerito');
 Route::delete('meritoeliminar_{merito}','MeritosController@destroy')->name('merito.destroy');
-Route::get ('descrip','MeritosController@indexdescripcion')->name('descrip.indexdescripcion');
-Route::get('crear_Descrip','MeritosController@createdescripcion')->name('crearDescrip.createdescrip');
+
 /*Route::get('formdoc','ConocimientoCalifController@formdoc')->name('calif.formdoc');*/
 Route::get('submerito-index_{merito}','MeritosController@indexsubmerito')->name('subMerito.indexsubmerito');
 Route::delete('submeritoeliminar_{submerito}','MeritosController@destroysub')->name('submerito.destroy');
+Route::get ('descripcion_{submerito}','MeritosController@indexdescripcion')->name('descripcion.index');
+Route::get('crearDescripcion_{submerito}','MeritosController@createdescripcion')->name('descripcion.create');
+Route::post('descripcionStore_{submerito}','MeritosController@storedescripcion')->name('descripcion.store');
+#################################calificacion meritos#################################
 Route::get('calificacion','CalificacionController@index')->name('calif.index');
-Route::get('califMerito','CalificacionController@create')->name('crearCalif.create');
-
+Route::get('califMerito_{user}','CalificacionController@create')->name('crearCalif.create');
+Route::post('calif_store_{user}','CalificacionController@store')->name('calif.store');
+Route::delete('calificacion_eliminar_{user}','CalificacionController@delete')->name('calif.delete');
 ################ Libro de recepcion ########
 Route::get('libro','RecepcionController@index')->name('libro.index');
 Route::get('crear_libro','RecepcionController@create')->name('libro.create');
@@ -176,3 +180,5 @@ Route::get('tematica','TematicaController@index')->name('tematica.index');
 Route::get('create','TematicaController@create')->name('tematica.create');
 Route::get('tematicaConvocatoria','TematicaController@tematicaConvocatoria')->name('tematica.convocatoria');
 Route::get('tematicaUnidad','TematicaController@tematicaUnidad')->name('tematica.unidad');
+Route::post('libro_store','RecepcionController@store')->name('libro.store');
+Route::delete('libro_delete_{libro}','RecepcionController@destroy')->name('libro.delete');

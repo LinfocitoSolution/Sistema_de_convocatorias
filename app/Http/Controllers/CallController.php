@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Convocatoria;
 use App\Unidad;
 use App\Requerimiento;
-use App\fecha;
+use App\Fecha;
 use DB;
 use Validator;
 use App\Http\Requests\ConvocatoriaRequest;

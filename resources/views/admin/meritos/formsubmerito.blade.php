@@ -30,16 +30,7 @@
             {{ $errors->has('score')? $errors->first('score') : 'El campo de Nombre es requerido'  }}
         </div>
     </div>
-    <div class="col-md-12 mb-2">  
-        <label class="col-form-label" for="" data-html="true" data-toggle="popover" title="Restricciones" data-content="">Descripción: </label>
-         <div class="input-group">
-            <textarea class="form-control" placeholder="Ingrese Descripción" name="descripción" rows="10" maxlength="3000" ></textarea>
-            
-         </div>
-         <div class="invalid-feedback">
-           
-        </div>
-      </div> 
+     
 
     </div>
                     
