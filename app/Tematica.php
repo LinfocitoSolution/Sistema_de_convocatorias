@@ -11,6 +11,10 @@ class Tematica extends Model
         'id',
         'name',
     ];
+    public function requerimientos()
+    {
+        return $this->belongsToMany(Requerimiento::class)->withTimestamps();
+    }
     public function tematica_requerimietos(){
         return $this->hasMany('Tematica_requerimiento');
     }

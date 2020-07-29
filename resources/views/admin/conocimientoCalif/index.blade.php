@@ -19,31 +19,31 @@
                 <table class="table table-bordered table-striped table-sm">
                     <thead>
                     <tr>
-                        <th>Item</th>
-                        <th>Tematica</th>
-                        <th>Código de la Auxiliatura</th>
-                        <th>Calificación</th>
+                        <th>Unidad</th>
+                        <th>Convocatoria</th>
                         <th>Opciones</th>
                      </tr>
                     </thead>
                 <tbody>
-                    <tr>
-                        <td>Item</td>
-                        <td>Tematica</td>
-                        <td>Código de la Auxiliatura</td>
-                        <td>Calificación</td>
-                        <td>
-                       
-                        <form action="" method="POST" style="display:inline-block;">
-                            {{ csrf_field() }}                                                              
-                            {{ method_field('DELETE') }}                        
-                            <button class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title="presiona para eliminar una fecha" type="submit" margin-left="50" onclick="return confirm('Está seguro de eliminar la fecha?')">
-                                <i class="fa fa-trash-alt"></i>                                
-                            </button>                            
-                        </form>
-                    </td>
-                     </tr>
-                
+                    @foreach ($tablas as $item)
+                        @foreach ($calls as $call)
+                            <tr>
+                                @if ($item->convocatoria_id == $call->id)
+                                    <td>{{App\Unidad::where('id', '=', $call->unit_id )->first()->name}}</td>
+                                    <td>{{$call->titulo_convocatoria}}</td>
+                                    <td>
+                                    <form action="{{ route('tabla.destroy',$item->convocatoria_id)}}" method="POST" style="display:inline-block;">
+                                            {{ csrf_field() }}                                                              
+                                            {{ method_field('DELETE') }}                        
+                                            <button class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title="presiona para eliminar una fecha" type="submit" margin-left="50" onclick="return confirm('Está seguro de eliminar la fecha?')">
+                                                <i class="fa fa-trash-alt"></i>                                
+                                            </button>                            
+                                        </form>
+                                    </td>
+                                @endif
+                            </tr>
+                        @endforeach
+                     @endforeach
                     </tbody>
                 </table>
             </div>

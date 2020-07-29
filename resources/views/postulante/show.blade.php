@@ -31,7 +31,7 @@
                         </tr> 
                                 <th>Direccion</th><th>{{$user->direction}}</th>
                         </tr> 
-                                @if ($curriculum != null)
+                                @if ($curriculum != null && $user->habilitados->first()->publicado=="no")
                                     <form action="{{route('cancelar.postulacion', $user) }}" style="display:inline-block;" method="POST">
                                         {{ csrf_field() }}
                                         {{ method_field('PUT') }}
@@ -41,7 +41,7 @@
                                         </button></th>
                                     </form>
                                 @else
-                                    <th>No se ha registrado ninguna postulación</th>
+                                    <th>Postula a: </th><th>{{$user->requerimientos->first()->nombre_auxiliatura}}
                                 @endif
                         
                             <!---{ $user->password }} -->
