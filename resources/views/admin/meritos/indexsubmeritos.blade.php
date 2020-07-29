@@ -9,8 +9,9 @@
     <div class="container"> 
         <div class="card mt-2">
             <div class="card-header">
-            <h1>Merito:{{$merito->name}}</h1>
-                <h1>Tabla de Sub-Méritos</h1>
+            <h2>Tabla de Sub-Méritos</h2>
+            <h3>Merito:{{$merito->name}}</h3>
+                
                 <a class="btn btn-dark px2" data-toggle="tooltip" data-trigger="hover" title="" href="{{ route('submerito.create',$merito)}}">
                     Nuevo Submerito
                     <i class="fa fa-table"></i>
@@ -58,9 +59,9 @@
                 </table>
             
                 
-                
-                <a class="btn btn-outline-dark center-block" href="{{route('merito.index')}}">Atras</a>
-                
+                <div class="form-actions text-center mt-5">
+                   <a class="btn btn-outline-dark center-block" href="{{route('merito.index')}}">Atrás</a>
+                </div>
             </div>
             
                             

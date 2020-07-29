@@ -9,7 +9,7 @@
     <div class="container"> 
         <div class="card mt-2">
             <div class="card-header">
-                <h1>Tabla de Méritos</h1>
+                <h2>Tabla de Méritos</h2>
                 <a class="btn btn-dark px2" data-toggle="tooltip" data-trigger="hover" title="" href="{{route('merito.create')}}">
                     Nuevo Merito
                     <i class="fa fa-table"></i>

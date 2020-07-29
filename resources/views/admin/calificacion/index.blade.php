@@ -72,7 +72,7 @@
                         </form>
                         
                         @else
-                        <a class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="Presiona " href="{{route('crearCalif.create',$user)}}">
+                        <a class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="Presiona para calificar a este postulante" href="{{route('crearCalif.create',$user)}}">
                             <i class="fa fa-check-square"></i>
                         </a>
                         
