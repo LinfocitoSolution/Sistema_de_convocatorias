@@ -14,9 +14,8 @@
                     <div class="card-header">
                         <h1> Crear Tematicas</h1>
                     </div>    
-                    <div class="card-body">
-                        <!---va dentro de action  { route('area.store') }}-->                       
-                        <form class="form-horizontal"  action="" method="POST">                                                      
+                    <div class="card-body">                  
+                    <form class="form-horizontal"  action="{{route('tematica.store', $call)}}" method="POST">                                                      
                            <input type="hidden" name="_token" value="{{csrf_token()}}">
                            {{ csrf_field() }}                           
                             @include('admin.tematica.form')

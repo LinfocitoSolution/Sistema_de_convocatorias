@@ -33,7 +33,6 @@ class ConocimientoCalifController extends Controller
     public function index()
     {
         $tablas = Tematica_requerimiento::distinct()->get(['convocatoria_id']);
-        // return $tablas;
         $calls = Convocatoria::all();
         return view('admin.conocimientoCalif.index', compact('tablas', 'calls'));
     }
@@ -45,8 +44,10 @@ class ConocimientoCalifController extends Controller
     public function segundoPaso(Request $request)
     {
         $uni = $request->input('unidad');
-        $convocatoria =Convocatoria::all();
-        return view('admin.conocimientoCalif.form_segundopaso', compact('convocatoria', 'uni'));
+        $convocatoria =Convocatoria::where('unit_id','=', $uni)->whereYear('gestion', '=', '2020')->get();
+        $tematicas=Tematica::all();
+        $reqsLab = $tematicas->first()->requerimientos()->distinct()->get(['requerimiento_id']);  
+        return view('admin.conocimientoCalif.form_segundopaso', compact('convocatoria', 'reqsLab'));
     }
 
     /**
@@ -59,9 +60,8 @@ class ConocimientoCalifController extends Controller
         $callid = $request->input('convoca');
         $call = Convocatoria::find($callid);
         $tematicas = Tematica::all();
-        $requerimientosLab = Requerimiento::where('tipo_requerimiento', 'requerimiento de laboratorio')->get();
-        $requerimientosDoc = Requerimiento::where('tipo_requerimiento', 'requerimiento de docencia')->get();
-        return view('admin.conocimientoCalif.create',compact('call', 'requerimientosLab', 'requerimientosDoc', 'tematicas'));
+        $requerimientosLab = $call->requerimientos()->get();
+        return view('admin.conocimientoCalif.create',compact('call', 'requerimientosLab', 'tematicas'));
     }
 
     /**
@@ -70,10 +70,11 @@ class ConocimientoCalifController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Convocatoria $call)
-    {
+    public function store(Request $request, Convocatoria $call)//DONDE GUARDO LAS NOTAS DE LAS TABLAS YA QUE PARA CONOCIMIENTO HAGO EL REGISTRO
+    {                                                           // DE LA NOTA DEL POSTLANTE CONJUNTAMENTE CUANDO AGREGO LOS PORCENTAJES PARA CADA INCISO (ORAL-ESCRITO)
         $notas = $request->input('nota');
-        $requerimientosLab = Requerimiento::where('tipo_requerimiento', 'requerimiento de laboratorio')->get();
+        // $requerimientosLab = Requerimiento::where('tipo_requerimiento', 'requerimiento de laboratorio')->get();
+        $requerimientosLab = $call->requerimientos()->get();
         $tematicas = Tematica::all();
         $aux = 0;
         foreach($tematicas as $tm)
@@ -128,9 +129,9 @@ class ConocimientoCalifController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $conocimientoCalif->fill($request->all());
-        $conocimientoCalif->save();
-        return redirect(route('conocimientoCalif.index'))->with([ 'message' => 'Tabla  actualizada exitosamente!', 'alert-type' => 'success' ]);
+        // $conocimientoCalif->fill($request->all());
+        // $conocimientoCalif->save();
+        // return redirect(route('conocimientoCalif.index'))->with([ 'message' => 'Tabla  actualizada exitosamente!', 'alert-type' => 'success' ]);
     }
 
     /**
@@ -164,6 +165,13 @@ class ConocimientoCalifController extends Controller
     public function calificarPostDoc(User $user)
     {
         return view('admin.conocimientoCalif.calificarPostDoc', compact('user'));
+    }
+
+    public function eliminarCalificacion(User $user)
+    {
+        $calificacion = Calificacion_conocimiento::where('user_id', $user->id);
+        $calificacion->delete();
+        return redirect(route('lista.postulantes'))->with([ 'message' => 'Nota eliminada exitosamente!', 'alert-type' => 'success' ]);;
     }
 
     public function registrarNotas(Request $request, User $user)

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tematica_requerimiento extends Model
 {   
-    protected $table='requerimiento_tematica';
+    protected $table='modelo_requerimiento_tematica';
     protected $fillable = [
         'id',
         'tematica_id',

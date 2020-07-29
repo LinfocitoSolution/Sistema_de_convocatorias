@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTematicaRequerimientoTable extends Migration
+class CreateRequerimientosTematicasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,21 +13,20 @@ class CreateTematicaRequerimientoTable extends Migration
      */
     public function up()
     {
-        Schema::create('modelo_requerimiento_tematica',function(Blueprint $table)
-        {
+        Schema::create('requerimiento_tematica', function (Blueprint $table) {
             $table->increments('id');
-            $table->Integer('tematica_id')->unsigned();
-            $table->Integer('requerimiento_id')->unsigned();
-            $table->double('score');            
             $table->timestamps();
 
-            $table->foreign('requerimiento_id')->references('id')->on('requerimientos')
+            $table->Integer('tematica_id')->unsigned();
+            $table->Integer('requerimiento_id')->unsigned();
+
+            $table->foreign('tematica_id')->references('id')->on('tematicas')
                   ->onDelete('cascade')
                   ->onUpdate('cascade');
 
-                  $table->foreign('tematica_id')->references('id')->on('tematicas')
-                  ->onDelete('cascade')
-                  ->onUpdate('cascade');
+            $table->foreign('requerimiento_id')->references('id')->on('requerimientos')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
         });
     }
 

@@ -13,7 +13,7 @@ class AddUnitIdToRequerimientoTematicaTable extends Migration
      */
     public function up()
     {
-        Schema::table('requerimiento_tematica', function (Blueprint $table) {
+        Schema::table('modelo_requerimiento_tematica', function (Blueprint $table) {
             $table->unsignedInteger('unit_id');
         });
     }

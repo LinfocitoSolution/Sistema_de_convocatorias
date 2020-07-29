@@ -23,6 +23,10 @@ class Requerimiento extends Model
     {
         return $this->belongsToMany(Convocatoria::class)->withTimestamps();
     }
+    public function tematicas()
+    {
+        return $this->belongsToMany(Tematica::class)->withTimestamps();
+    }
     public function users()
     {
         return $this->belongsToMany(User::class)->withTimestamps();

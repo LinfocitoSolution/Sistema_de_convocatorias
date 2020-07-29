@@ -17,7 +17,7 @@
               </tr>
           </thead>
           <tbody>
-            @foreach ($tematicas as $item)
+            @foreach ($tematicas as $item){{-- FALTA SERPARAR LOS ITEMS POR REQUERIMIENTOS --}}
                 <tr>
                     <td>{{$item->id}}</td>        
                         <td>{{$item ->name}}</td>    

@@ -161,6 +161,7 @@ Route::post('registrarNotas_{user}','ConocimientoCalifController@registrarNotas'
 Route::post('guardarTabla_{call}','ConocimientoCalifController@store')->name('registrar.tabla');
 Route::post('regNotasDoc_{user}','ConocimientoCalifController@regNotasDocencia')->name('registrar.notasDoc');
 Route::delete('eliminarTabla_{item}','ConocimientoCalifController@destroy')->name('tabla.destroy');
+Route::post('eliminarNota_{user}','ConocimientoCalifController@eliminarCalificacion')->name('eliminar.nota');
 
 ######################## Méritos ####
 Route::get('Merito','MeritosController@index')->name('merito.index');
@@ -186,3 +187,5 @@ Route::get('tematica','TematicaController@index')->name('tematica.index');
 Route::get('create','TematicaController@create')->name('tematica.create');
 Route::get('tematicaConvocatoria','TematicaController@tematicaConvocatoria')->name('tematica.convocatoria');
 Route::get('tematicaUnidad','TematicaController@tematicaUnidad')->name('tematica.unidad');
+Route::post('guardarTematica_{call}','TematicaController@store')->name('tematica.store');
+Route::delete('eliminarTematicas_{call}','TematicaController@destroy')->name('tematica.destroy');

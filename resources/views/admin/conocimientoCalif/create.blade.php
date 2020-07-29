@@ -17,17 +17,13 @@
                     <div class="card-body">                   
                         <form class="form-horizontal"  action="{{ route('registrar.tabla',$call) }}" method="POST">
                            {{ csrf_field() }}                          
-                           @if ($call->tipo_convocatoria == "convocatoria de laboratorios")
                             @include('admin.conocimientoCalif.form')
-                           @else
-                            @include('admin.conocimientoCalif.formdoc')   
-                           @endif                             
                             <div class="form-actions text-center">
                                 <button class="btn btn-outline-dark" type="submit">Guardar</button>
                                 <a class="btn btn-outline-dark" href="{{route('conocimientoCalif.index')}}">Cancelar</a>
                             </div>
                         </form>
-                        
+                        <h6>*Recuerde que la sumatoria de las notas por auxiliatura debe ser 100</h6>    
                     </div>
                 </div>
             </div>
