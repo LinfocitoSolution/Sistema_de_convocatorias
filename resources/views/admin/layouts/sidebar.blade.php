@@ -404,6 +404,26 @@
            </li>
          
        <!--Fin libro recepcion-->
+       <!-- inicio nota final-->
+       <li class="nav-item has-treeview menu-close">
+        <a href="#" class="nav-link active bg-dark">
+          <i class="nav-icon fa fa-table"></i>
+          <p>
+            Notas Finales
+            <i class="right fas fa-angle-left"></i>
+          </p>
+        </a>
+        <ul class="nav nav-treeview">
+
+            <li class="nav-item">
+              <a href="{{route('NotaFin.notafinal')}}" class="nav-link">
+                <i class="fas fa-plus-square nav-icon"></i>
+                <p>Lista de Notas Finales</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+       <!--fin de nota final-->
 
         </ul>
       </nav>

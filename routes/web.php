@@ -183,6 +183,8 @@ Route::get('calificacion','CalificacionController@index')->name('calif.index');
 Route::get('califMerito_{user}','CalificacionController@create')->name('crearCalif.create');
 Route::post('calif_store_{user}','CalificacionController@store')->name('calif.store');
 Route::delete('calificacion_eliminar_{user}','CalificacionController@delete')->name('calif.delete');
+##################### NotaFinal  ###########
+Route::get('notFinal','CalificacionController@notafinal')->name('NotaFin.notafinal');
 ################ Libro de recepcion ########
 Route::get('libro','RecepcionController@index')->name('libro.index');
 Route::get('crear_libro','RecepcionController@create')->name('libro.create');
