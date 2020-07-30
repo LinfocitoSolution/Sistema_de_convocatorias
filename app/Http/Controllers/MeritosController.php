@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use \App\Merito;
 use \App\Submerito;
+use \App\Unidad;
 use \App\Convocatoria;
 use \App\Descripcion;
 use Validator;
@@ -29,11 +30,14 @@ class MeritosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
+        $uni = $request->input('unidad');
+        
         $calls=Convocatoria::all();
         $meritos=Merito::all();
-        return view('admin.meritos.create', compact('calls','meritos'));
+        
+        return view('admin.meritos.create', compact('calls','meritos','uni'));
     }
     
 
@@ -254,4 +258,10 @@ class MeritosController extends Controller
 
         return redirect(route('merito.index'))->with([ 'message' => 'Descripcion   eliminado!', 'alert-type' => 'success' ]);
     }
+    public function primerPaso()
+    {   
+        $unidad=Unidad::all();
+        return view('admin.meritos.primer_paso',compact('unidad'));
+    }
+   
 }
