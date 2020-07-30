@@ -177,4 +177,7 @@ class CalificacionController extends Controller
          Postulante_submerito::destroy($caf->id);
          return redirect(route('calif.index'))->with([ 'message' => 'calificacion  eliminada!', 'alert-type' => 'success' ]);
     }
+    public function notafinal(){
+        return view('admin.notaFinal.index');
+    }
 }

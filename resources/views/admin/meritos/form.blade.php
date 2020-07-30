@@ -3,7 +3,7 @@
         <label class="col-form-label" for="nameConvocatoria">Convocatoria</label>
        <div class="input-group">
           <span class="input-group-append"  data-html="true" data-toggle="popover" title="Restricciones" data-content="-Seleccione la convocatoria a la que pertenece este merito">
-            <button class="btn btn-dark" type="button">U</button>
+            <button class="btn btn-dark" type="button">C</button>
           </span>
           <select class="custom-select form-control" type="text" name="convocatoria"  >
               @foreach($calls as $item)
@@ -38,7 +38,7 @@
         <label class="col-form-label" for="name">Puntaje</label>
         <div class="input-group">
             <span class="input-group-append" data-html="true" data-toggle="popover" title="Restricciones" data-content= "seleccione la cantidad de puntaje para este merito no mayor a 100">
-                <button class="btn btn-dark" type="button">N</button>
+                <button class="btn btn-dark" type="button">P</button>
             </span>
             <input
                     class="form-control"
