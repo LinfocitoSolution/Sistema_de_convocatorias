@@ -28,7 +28,7 @@ class TematicaController extends Controller
             $reqsLab = $tematicas->first()->requerimientos()->distinct()->get(['requerimiento_id']);        
             return view('admin.tematica.index', compact('callsLab', 'reqsLab'));
         }
-        return redirect(route('admin.tematica.create'))->with(['message'=>'Registre sus temáticas','alert-type'=>'success']);
+        return redirect(route('tematica.create'))->with(['message'=>'Registre sus temáticas','alert-type'=>'success']);
     }
 
     /**
@@ -72,7 +72,7 @@ class TematicaController extends Controller
             $tematica->save();
             $tematica->requerimientos()->attach($requerimientos);
         }
-        return redirect(route('admin.tematica.index'))->with(['message'=>'Tabla creada exitosamente!','alert-type'=>'success']);
+        return redirect(route('tematica.index'))->with(['message'=>'Tabla creada exitosamente!','alert-type'=>'success']);
     }
 
     /**
