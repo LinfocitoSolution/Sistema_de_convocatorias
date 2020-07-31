@@ -14,8 +14,10 @@
                         <h2>Crear tabla de Méritos</h2>
                         <h3>Puntajes limite para cada convocatoria:</h3>
                         @foreach($calls as $call)
-                        @if($call->publicado=="si")
-                    <h4>{{$call->titulo_convocatoria . ":"}} {{100-(App\Merito::where('convocatoria_id', '=',$call->id )->get()->sum("score"))}}</h4>
+                        @if($call->publicado=="no")
+                        @if($call->unit_id==$uni)
+                    <h2>{{$call->titulo_convocatoria . ":"}} {{100-(App\Merito::where('convocatoria_id', '=',$call->id )->get()->sum("score"))}}</h2>
+                        @endif
                         @endif
                         @endforeach
                         </div>

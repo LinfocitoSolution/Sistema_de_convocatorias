@@ -73,6 +73,7 @@ class CalificacionController extends Controller
             
             if($user->requerimientos->first()->convocatorias->first()->id==$merito->convocatoria_id)
             {
+                $dc=Libro::where('user_id',$user->id)->first()->documento;
                 foreach($submeritos as $submerito)
                  {
                     if($submerito->merito_id==$merito->id)
@@ -122,10 +123,16 @@ class CalificacionController extends Controller
         
         $calificacion->score=$caf + $puntaje;
         $calificacion->documentos=$docen;
+        if($docen>$dc)
+        {
+        return redirect(route('crearCalif.create',$user))->with([ 'message' => 'la suma total de documentos no puede exceder los registrados de este postulante', 'alert-type' => 'danger' ]);;
+        }
+        else 
+        {
         $calificacion->save();
        
         return redirect(route('calif.index'))->with([ 'message' => 'calificacion asignada exitosamente!', 'alert-type' => 'success' ]);;
-        
+        }
         //return $calificacion->score;
     
     }
@@ -176,5 +183,8 @@ class CalificacionController extends Controller
        
          Postulante_submerito::destroy($caf->id);
          return redirect(route('calif.index'))->with([ 'message' => 'calificacion  eliminada!', 'alert-type' => 'success' ]);
+    }
+    public function notafinal(){
+        return view('admin.notaFinal.index');
     }
 }

@@ -51,7 +51,7 @@
                   <td></td>
                   <td> 
                     <div style="width:4em">
-                        <input class="form-control" type="number"  id="doc" name="doc[]" value="0" required min="0" max=<?php echo $documentos->documento ?> >
+                        <input class="form-control" type="number"  id="doc" name="doc[]" value="0" required min="0" max=<?php echo ($submerito->score)/$desc->score ?> >
                     </div>
                     <div class="invalid-feedback {{ $errors->has('doc')? 'd-block' : '' }}">
                       {{ $errors->has('doc')? $errors->first('doc') : ''  }}

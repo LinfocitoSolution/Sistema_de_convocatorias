@@ -37,7 +37,7 @@
                     <td> <form action="{{route("descripcion.destroy" , $desc->id)}}" method="POST" style="display:inline-block;">
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}                
-                        <button class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title="Eliminar Méritos"  type="submit" margin-left="50" onclick="return confirm('Está seguro que desea eliminar este merito?')">
+                        <button class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title="Eliminar Descripción"  type="submit" margin-left="50" onclick="return confirm('Está seguro que desea eliminar esta Descripción?')">
                             <i class="fa fa-trash-alt"></i>                                
                         </button> 
                         

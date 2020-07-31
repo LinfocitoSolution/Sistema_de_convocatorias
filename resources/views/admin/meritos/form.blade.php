@@ -3,13 +3,13 @@
         <label class="col-form-label" for="nameConvocatoria">Convocatoria</label>
        <div class="input-group">
           <span class="input-group-append"  data-html="true" data-toggle="popover" title="Restricciones" data-content="-Seleccione la convocatoria a la que pertenece este merito">
-            <button class="btn btn-dark" type="button">U</button>
+            <button class="btn btn-dark" type="button">C</button>
           </span>
           <select class="custom-select form-control" type="text" name="convocatoria"  >
               @foreach($calls as $item)
-              @if($item->publicado=="si")
+             
                     <option class="text-dark" value="{{ $item->id }}">{{ $item->titulo_convocatoria }}</option>
-              @endif      
+                    
               @endforeach
            </select>
        </div>
@@ -20,7 +20,7 @@
     <div class="col-md-12 mb-3">
         <label class="col-form-label" for="name">Nombre de merito</label>
         <div class="input-group">
-            <span class="input-group-append" data-html="true" data-toggle="popover" title="Restricciones" data-content= "">
+            <span class="input-group-append" data-html="true" data-toggle="popover" title="Restricciones" data-content= "-M&aacute;ximo 100 caracteres">
                 <button class="btn btn-dark" type="button">N</button>
             </span>
             <input
@@ -38,7 +38,7 @@
         <label class="col-form-label" for="name">Puntaje</label>
         <div class="input-group">
             <span class="input-group-append" data-html="true" data-toggle="popover" title="Restricciones" data-content= "seleccione la cantidad de puntaje para este merito no mayor a 100">
-                <button class="btn btn-dark" type="button">N</button>
+                <button class="btn btn-dark" type="button">P</button>
             </span>
             <input
                     class="form-control"
