@@ -75,7 +75,7 @@ class ConocimientoCalifController extends Controller
         $notas = $request->input('nota');
         $requerimientosLab = $call->requerimientos()->get();
         $tematicas = Tematica::all();
-        if(array_sum($notas) < 100*count($requerimientosLab))
+        if(array_sum($notas) <= 100*count($requerimientosLab))
         {
             $aux = 0;
             foreach($tematicas as $tm)

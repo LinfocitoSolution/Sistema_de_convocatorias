@@ -16,7 +16,10 @@
             <h2>Postulante: {{Auth::user()->name}} {{Auth::user()->lastname}}</h2>
               <h2>Auxiliatura: {{Auth::user()->requerimientos->first()->nombre_auxiliatura}}</h2>
             <h2>Nota Meritos: {{$postulante}}</h2>
-            </div>
+            
+          
+          
+          </div>
             
 
     </div>
