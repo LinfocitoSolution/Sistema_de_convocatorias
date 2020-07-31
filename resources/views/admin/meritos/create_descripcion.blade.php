@@ -11,8 +11,8 @@
             <div class="col-lg-12">
                 <div class="card mt-2">
                     <div class="card-header">
-                        <h1>Crear Descripción</h1>
-                        <h2>Descripciones para el submerito:  {{$submerito->name}}</h2>
+                        <h2>Crear Descripción</h2>
+                        <h3>Descripciones para el submerito:  {{$submerito->name}}</h3>
                    
                      </div>
                          <div class="card-body">

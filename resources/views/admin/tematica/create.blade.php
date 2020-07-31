@@ -20,9 +20,9 @@
                            {{ csrf_field() }}                           
                             @include('admin.tematica.form')
                            
-                            <div class="form-actions text-center">
+                            <div class="form-actions text-center mt-3">
                                 <button class="btn btn-outline-dark" type="submit">Guardar</button>
-                                <a class="btn btn-outline-dark" href="#">Cancelar</a>
+                                <!--<a class="btn btn-outline-dark" href="{route('tematica.index')}}">Cancelar</a>--->
                             </div>
                         </form>
                         

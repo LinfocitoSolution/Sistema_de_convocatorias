@@ -183,14 +183,16 @@ Route::get('calificacion','CalificacionController@index')->name('calif.index');
 Route::get('califMerito_{user}','CalificacionController@create')->name('crearCalif.create');
 Route::post('calif_store_{user}','CalificacionController@store')->name('calif.store');
 Route::delete('calificacion_eliminar_{user}','CalificacionController@delete')->name('calif.delete');
+
 ################ Libro de recepcion ########
 Route::get('libro','RecepcionController@index')->name('libro.index');
 Route::get('crear_libro','RecepcionController@create')->name('libro.create');
-
+Route::post('libro_store','RecepcionController@store')->name('libro.store');
+Route::delete('libro_delete_{libro}','RecepcionController@destroy')->name('libro.delete');
 ################ Tematica ######################
 Route::get('tematica','TematicaController@index')->name('tematica.index');
 Route::get('create','TematicaController@create')->name('tematica.create');
 Route::get('tematicaConvocatoria','TematicaController@tematicaConvocatoria')->name('tematica.convocatoria');
 Route::get('tematicaUnidad','TematicaController@tematicaUnidad')->name('tematica.unidad');
-Route::post('libro_store','RecepcionController@store')->name('libro.store');
-Route::delete('libro_delete_{libro}','RecepcionController@destroy')->name('libro.delete');
+Route::post('guardarTematica_{call}','TematicaController@store')->name('tematica.store');
+Route::delete('eliminarTematicas_{call}','TematicaController@destroy')->name('tematica.destroy');

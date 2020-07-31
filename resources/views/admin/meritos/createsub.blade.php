@@ -11,9 +11,9 @@
             <div class="col-lg-12">
                 <div class="card mt-2">
                     <div class="card-header">
-                    <h1>Crear tabla de Submeritos </h1>
-                    <h2>Submeritos para el merito:  {{$merito->name}}</h2>
-                    <h2>Limite de puntuacion:  {{($merito->score)-(App\Submerito::where('merito_id', '=',$merito->id )->get()->sum("score"))}}</h2>
+                    <h2>Crear tabla de Submeritos </h2>
+                    <h3>Submeritos para el merito:  {{$merito->name}}</h3>
+                    <h3>Limite de puntuacion:  {{($merito->score)-(App\Submerito::where('merito_id', '=',$merito->id )->get()->sum("score"))}}</h3>
                     
                     
                         
