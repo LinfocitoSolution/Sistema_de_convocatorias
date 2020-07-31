@@ -135,6 +135,13 @@
               @else
               <a class="btn btn-outline-dark  text-white m-2 my-sm-2" data-toggle="tooltip" data-placement="top" title="Presione para ver su estado"type="submit" href="{{route('descripcion.desc',ucfirst(Auth::user()->id))}}">Estado de Entrega de Documentos:</a> 
               @endif
+              <p hidden>{{$a=App\Postulante_submerito::where('user_id',Auth::user()->id)->first()}}</p>
+           @if(isset($a)) 
+           @if($a->publicado=="si")
+           <a class="btn btn-outline-dark  text-white m-2 my-sm-2" data-toggle="tooltip" data-placement="top" title="Presione para ver su nota de meritos"type="submit" href="{{route('calificacion.merito',ucfirst(Auth::user()->id))}}">Estado Notas de Meritos:</a>
+           @endif
+           @endif
+
           @else
           
           <a class="btn btn-outline-dark  text-white m-2 my-sm-2" type="submit" data-toggle="tooltip" data-placement="top" title="Presione el botón para entrar al panel de trabajo" href="{{url('administrador')}}">Panel de Trabajo</a>

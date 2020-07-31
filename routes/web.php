@@ -38,7 +38,7 @@ Route::group(['middleware' => 'permission:view-access-management'], function () 
     Route::delete('usuarios_delete_{user}','UserController@destroy')->name('usuarios.destroy')->middleware('permission:delete users');
     Route::get('usuarios_show_{user}','UserController@show')->name('usuarios.show')->middleware('permission:list users');
     // Route::resource('usuarios', 'UserController');
-
+    
     //##################### ROL ####################################
     Route::get('roles_create', [
         'as' => 'roles.create',
@@ -185,6 +185,9 @@ Route::get('calificacion','CalificacionController@index')->name('calif.index');
 Route::get('califMerito_{user}','CalificacionController@create')->name('crearCalif.create');
 Route::post('calif_store_{user}','CalificacionController@store')->name('calif.store');
 Route::delete('calificacion_eliminar_{user}','CalificacionController@delete')->name('calif.delete');
+Route::put('calificacion_publicar_{user}','CalificacionController@publicar')->name('calif.publicar');
+Route::put('calif_quitar_{user}','CalificacionController@quitarPublicacion')->name('calif.quitar');
+Route::get('calificacion_merito_{user}','CalificacionController@muestra')->name('calificacion.merito');
 ##################### NotaFinal  ###########
 Route::get('notFinal','CalificacionController@notafinal')->name('NotaFin.notafinal');
 ################ Libro de recepcion ########
