@@ -13,6 +13,11 @@
                
             </div>
             <div class="card-body">
+                
+
+
+                
+               
                 <table class="table table-bordered table-striped table-sm">
                     <thead>
                     <tr>
@@ -63,6 +68,7 @@
                         
                        
                         @if(isset($a))
+                        @if($a->publicado!="si")
                         <form action="{{route('calif.delete',$user)}}" method="POST" style="display:inline-block;">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}                
@@ -70,7 +76,23 @@
                                 <i class="fa fa-trash-alt"></i>                                
                             </button> 
                         </form>
-                        
+
+                        <form action="{{ route('calif.publicar',$user->id) }}" style="display:inline-block;" method="POST">
+                            {{ csrf_field() }}
+                            {{ method_field('PUT') }}
+                            <button class="btn btn-dark btn-sm mt-2 ml-2" data-toggle="tooltip" data-trigger="hover" title="presiona para publicar la nota"type="submit" margin-left="50" onclick="return confirm('Está seguro que desea publicar las notas?')">
+                              <i class="fa fa-cloud"></i>
+                            </button>
+                          </form>
+                        @else
+                        <form action="{{ route('calif.quitar',$user->id) }}" style="display:inline-block;" method="POST">
+                            {{ csrf_field() }}
+                            {{ method_field('PUT') }}
+                            <button class="btn btn-dark btn-sm mt-2 ml-2" data-toggle="tooltip" data-trigger="hover" title="presiona para quitar la publicacion de nota"type="submit" margin-left="50" onclick="return confirm('Está seguro que desea quitar la publicacion?')">
+                              <i class="fa fa-cloud"></i>
+                            </button>
+                          </form>
+                        @endif
                         @else
                         <a class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="Presiona para calificar a este postulante" href="{{route('crearCalif.create',$user)}}">
                             <i class="fa fa-check-square"></i>

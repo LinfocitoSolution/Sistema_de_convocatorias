@@ -262,6 +262,7 @@ class MeritosController extends Controller
     {   
         $unidad=Unidad::all();
         return view('admin.meritos.primer_paso',compact('unidad'));
-    }
-   
+        
+        
+    }      
 }
