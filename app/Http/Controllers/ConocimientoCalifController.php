@@ -44,10 +44,10 @@ class ConocimientoCalifController extends Controller
     public function segundoPaso(Request $request)
     {
         $uni = $request->input('unidad');
-        $convocatoria =Convocatoria::where('unit_id','=', $uni)->whereYear('gestion', '=', '2020')->get();
+        $convocatorias =Convocatoria::where('unit_id','=', $uni)->whereYear('gestion', '=', '2020')->get();
         $tematicas=Tematica::all();
         $reqsLab = $tematicas->first()->requerimientos()->distinct()->get(['requerimiento_id']);  
-        return view('admin.conocimientoCalif.form_segundopaso', compact('convocatoria', 'reqsLab'));
+        return view('admin.conocimientoCalif.form_segundopaso', compact('convocatorias', 'reqsLab'));
     }
 
     /**
@@ -73,29 +73,36 @@ class ConocimientoCalifController extends Controller
     public function store(Request $request, Convocatoria $call)//DONDE GUARDO LAS NOTAS DE LAS TABLAS YA QUE PARA CONOCIMIENTO HAGO EL REGISTRO
     {                                                           // DE LA NOTA DEL POSTLANTE CONJUNTAMENTE CUANDO AGREGO LOS PORCENTAJES PARA CADA INCISO (ORAL-ESCRITO)
         $notas = $request->input('nota');
-        // $requerimientosLab = Requerimiento::where('tipo_requerimiento', 'requerimiento de laboratorio')->get();
         $requerimientosLab = $call->requerimientos()->get();
         $tematicas = Tematica::all();
-        $aux = 0;
-        foreach($tematicas as $tm)
+        if(array_sum($notas) < 100*count($requerimientosLab))
         {
-            foreach($requerimientosLab as $r)
+            $aux = 0;
+            foreach($tematicas as $tm)
             {
-                // if($notas[$aux]!=0)
-                // {
-                    $tabla = new Tematica_requerimiento();
-                    $tabla->requerimiento_id = $r->id;
-                    $tabla->tematica_id = $tm->id;
-                    $tabla->score = $notas[$aux];
-                    $tabla->convocatoria_id=$call->id;
-                    $tabla->unit_id=$call->unit_id;
-                    $tabla->save();
-                // }
-                $aux++;
+                foreach($requerimientosLab as $r)
+                {
+                    if($r->id == $tm->requerimientos->first()->id)   
+                    {
+                        $tabla = new Tematica_requerimiento();
+                        $tabla->requerimiento_id = $r->id;
+                        $tabla->tematica_id = $tm->id;
+                        $tabla->score = $notas[$aux];
+                        $tabla->convocatoria_id=$call->id;
+                        $tabla->unit_id=$call->unit_id;
+                        $tabla->save();
+                        $aux++;
+                    }
+                }
+            
             }
-         
+             return redirect(route('conocimientoCalif.index'))->with(['message'=>'Tabla creada exitosamente!','alert-type'=>'success']);
         }
-        return redirect(route('conocimientoCalif.index'))->with(['message'=>'Tabla creada exitosamente¡','alert-type'=>'success']);
+        else
+        { //necesito que este mensaje sea en ROJO
+            return redirect(route('conocimientoCalif.index'))->with(['message'=>'La tabla no se registró debido a que excedió el puntaje máximo permitido (100pts por requerimiento)!','alert-type'=>'success']);
+        }
+        
     }
 
     /**
@@ -201,7 +208,6 @@ class ConocimientoCalifController extends Controller
         $porcA = ($request->input('porcentajeA'))/100;
         $porcB = ($request->input('porcentajeB'))/100;
         $total = ($notA*$porcA + $notB*$porcB)*0.8;
-
         $calificacion->score=$total;
         $calificacion->user_id=$user->id;
         $calificacion->save();

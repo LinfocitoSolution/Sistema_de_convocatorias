@@ -25,22 +25,20 @@
                                    {{-- <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="Puede seleccionar uno o mas permisos"> --}}
                                      <label class="input-group-text text-white" for="">Seleccione la Convocatoria:</label>                         
                                      <select  class="custom-select form-control" type="text" name="convoca" > 
-                                      
-                                      @foreach ($reqsLab as $item)
-                                        @foreach($convocatoria as $call)  
+                                        @foreach($convocatorias as $call)  
                                             @if($call->tipo_convocatoria == 'convocatoria de laboratorios') <!-- PERMITE CONVOCATORIAS NO PUBLICADAS -->
-                                              @if (!App\Tematica_requerimiento::where('convocatoria_id', '=', $call->id)->exists())) <!-- CONVOCATORIA QUE NO SE HAYA REGISTRADO TABLAS -->
-                                                {{-- @if ($item->requerimiento_id == $call->requerimientos()->first()->id)) <!-- CONVOCATORIA QUE TIENE REGISTRADA TEMATICAS-->  --}}
+                                            <p hidden> {{$aux = $call->requerimientos->first()->tematicas->first()}} </p>
+                                              @if (!App\Tematica_requerimiento::where('convocatoria_id', '=', $call->id)->exists()) <!-- CONVOCATORIA QUE NO SE HAYA REGISTRADO TABLAS -->
+                                                @if (isset($aux) == true) <!-- CONVOCATORIA QUE TIENE REGISTRADA TEMATICAS--> 
                                                   <option class="text-dark" value="{{$call->id}}">{{$call->titulo_convocatoria}}</option>   
                                                 {{-- @else --}}
                                                 <!-- DEBERIA MOSTRAR UN MENSAJE QUE NO EXISTEN TEMATICAS REGISTRADAS PARA SU CONVOCATORIA -->   
-                                                {{-- @endif --}}
-                                              @else
+                                                @endif
+                                              {{-- @else --}}
                                                 <!-- DEBERIA MOSTRAR UN MENSAJE QUE SU CONVOCATORIA YA TIENE UNA TABLA REGISTRADA -->
                                               @endif
                                             @endif
                                            @endforeach
-                                      @endforeach
                                      </select>
                                    {{-- </div> --}}
                                  </div>
