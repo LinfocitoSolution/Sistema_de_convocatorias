@@ -198,3 +198,5 @@ Route::get('tematicaConvocatoria','TematicaController@tematicaConvocatoria')->na
 Route::get('tematicaUnidad','TematicaController@tematicaUnidad')->name('tematica.unidad');
 Route::post('libro_store','RecepcionController@store')->name('libro.store');
 Route::delete('libro_delete_{libro}','RecepcionController@destroy')->name('libro.delete');
+Route::post('guardarTematica_{call}','TematicaController@store')->name('tematica.store');
+Route::delete('eliminarTematica_{call}','TematicaController@destroy')->name('tematica.destroy');
