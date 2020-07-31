@@ -24,24 +24,24 @@
                      </tr>
                     </thead>
                 <tbody>
-                    <tr>
-                        @foreach ($reqsLab as $req)
-                            @foreach ($callsLab as $call)
-                                @if ($call->requerimientos()->first()->id == $req->requerimiento_id)
-                                    <td>{{$call->titulo_convocatoria}}</td>
-                                    <td>
-                                        <form action="{{route('tematica.destroy',$call)}}" method="POST" style="display:inline-block;">
-                                            {{ csrf_field() }}                                                              
-                                            {{ method_field('DELETE') }}                        
-                                            <button class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title="" type="submit" margin-left="50" onclick="return confirm('Está seguro de eliminar la fecha?')">
-                                                <i class="fa fa-trash-alt"></i>                                
-                                            </button>                            
-                                        </form>
-                                    </td>
-                                @endif
-                            @endforeach
-                        @endforeach
-                     </tr>
+
+                    @foreach ($callsLab as $call)
+                        <tr>
+                            <p hidden> {{$aux = $call->requerimientos->first()->tematicas->first()}} </p>
+                            @if (isset($aux))
+                                <td>{{$call->titulo_convocatoria}}</td>
+                                <td>
+                                    <form action="{{route('tematica.destroy',$call)}}" method="POST" style="display:inline-block;">
+                                        {{ csrf_field() }}                                                              
+                                        {{ method_field('DELETE') }}                        
+                                        <button class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title="" type="submit" margin-left="50" onclick="return confirm('Está seguro de eliminar la fecha?')">
+                                            <i class="fa fa-trash-alt"></i>                                
+                                        </button>                            
+                                    </form>
+                                </td>
+                            @endif
+                        </tr>
+                     @endforeach
                     </tbody>
                 </table>
             </div>

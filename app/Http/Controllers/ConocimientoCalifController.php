@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use \App\ConocimientoCalif;
+use App\ConocimientoCalif;
 use Illuminate\Http\Request;
 use App\Unidad;
 use App\User;
