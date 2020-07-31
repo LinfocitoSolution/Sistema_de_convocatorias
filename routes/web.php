@@ -165,6 +165,8 @@ Route::post('eliminarNota_{user}','ConocimientoCalifController@eliminarCalificac
 
 ######################## Méritos ####
 Route::get('Merito','MeritosController@index')->name('merito.index');
+Route::get('Mform_primerPaso','MeritosController@primerPaso')->name('merito.primero');
+
 Route::get('crear-merito','MeritosController@create')->name('merito.create');
 Route::post('merito_store','MeritosController@store')->name('merito.storemerito');
 Route::get('createsubmerito_{merito}','MeritosController@createsubmerito')->name('submerito.create');

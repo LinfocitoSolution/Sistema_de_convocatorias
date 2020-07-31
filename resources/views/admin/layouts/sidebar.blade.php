@@ -345,7 +345,7 @@
 
           <ul class="nav nav-treeview">
             <li class="nav-item">
-               <a href="{{route('merito.create')}}" class="nav-link">
+               <a href="{{route('merito.primero')}}" class="nav-link">
                   <i class="fas fa-th-list nav-icon"></i>
                   Nueva Tabla Méritos
                   <p></p>
