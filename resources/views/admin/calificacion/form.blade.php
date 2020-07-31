@@ -27,10 +27,10 @@
                   
                   <th>Submerito:{{$submerito->name}}</th></tr>
 
-                  <tr><th>Puntaje Limnite:{{$submerito->score}}</th>
+                  <tr><th>Puntaje Limite:{{$submerito->score}}</th>
               </tr>
                <tr>
-                  <th>Descripcion</th>   
+                  <th>Descripción</th>   
                   <th>Puntaje</th>
                   <th>Nro documentos</th>
                </tr>
