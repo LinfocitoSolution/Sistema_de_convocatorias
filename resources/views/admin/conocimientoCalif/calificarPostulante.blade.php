@@ -12,7 +12,8 @@
             <div class="col-lg-12">
                 <div class="card mt-2">
                     <div class="card-header">
-                    <h1> Registrar notas del postulante: {{$user->name }} {{$user->lastname}}</h1>
+                    <h1> Registrar notas del postulante:</h1>
+                    <h3>{{$user->name }} {{$user->lastname}}</h3>
                     </div>    
                     <div class="card-body">                   
                         <form class="form-horizontal" action="{{ route('registrar.notas',$user) }}" method="POST">                                                      

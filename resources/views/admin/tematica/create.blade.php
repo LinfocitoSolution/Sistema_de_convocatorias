@@ -12,7 +12,8 @@
             <div class="col-lg-12">
                 <div class="card mt-2">
                     <div class="card-header">
-                        <h1> Crear Tematicas</h1>
+                        <h1> Crear Tematicas para:</h1>
+                        <h3>{{$call->titulo_convocatoria}}</h3>
                     </div>    
                     <div class="card-body">                  
                     <form class="form-horizontal"  action="{{route('tematica.store', $call)}}" method="POST">                                                      
