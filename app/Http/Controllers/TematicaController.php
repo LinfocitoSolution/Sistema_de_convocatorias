@@ -26,7 +26,7 @@ class TematicaController extends Controller
         {
             return view('admin.tematica.index',compact('callsLab', 'tematicas'));
         }
-        return redirect(route('tematica.create'))->with(['message'=>'Registre sus temáticas','alert-type'=>'success']);
+        return redirect(route('tematica.unidad'))->with(['message'=>'Registre sus temáticas','alert-type'=>'success']);
     }
 
     /**
