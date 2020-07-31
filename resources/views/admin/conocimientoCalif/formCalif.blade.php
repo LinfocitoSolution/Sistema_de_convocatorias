@@ -16,16 +16,18 @@
           </thead>
           <tbody>
             @foreach ($tematicas as $item)
-            <tr>
-                    <td>{{$item->name}}</td>    
-                    {{-- @foreach ($user->requerimientos as $req) YA QUE SOLOS SE POSTULA A UNA SOLA CONVOCATORIA--}}
-                    <td> 
-                        <div style="width:5em">
-                        <input class="form-control" type="number" id="notas" name="notas[]" value="0" min="0" max="100">
-                        </div>
-                    </td>
-                    {{-- @endforeach    --}}
-            </tr>
+                @foreach ($notas as $nt)
+                    <tr>
+                            @if ($item->id == $nt->tematica_id)
+                                <td>{{$item->name}}</td>    
+                                <td> 
+                                    <div style="width:5em">
+                                    <input class="form-control" type="number" id="notas" name="notas[]" value="0" min="0" max="100">
+                                    </div>
+                                </td>
+                            @endif                            
+                    </tr>
+                @endforeach   
             @endforeach
       </table>
    </div>

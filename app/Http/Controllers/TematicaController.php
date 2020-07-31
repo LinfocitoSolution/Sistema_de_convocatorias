@@ -22,11 +22,9 @@ class TematicaController extends Controller
     {
         $callsLab = Convocatoria::where('tipo_convocatoria', 'convocatoria de laboratorios')->get();
         $tematicas = Tematica::all();
-        
         if(!$tematicas->isEmpty())
         {
-            $reqsLab = $tematicas->first()->requerimientos()->distinct()->get(['requerimiento_id']);        
-            return view('admin.tematica.index', compact('callsLab', 'reqsLab'));
+            return view('admin.tematica.index',compact('callsLab', 'tematicas'));
         }
         return redirect(route('tematica.create'))->with(['message'=>'Registre sus temáticas','alert-type'=>'success']);
     }
@@ -44,8 +42,8 @@ class TematicaController extends Controller
     public function tematicaConvocatoria(Request $request)
     {
         $uni = $request->input('unidad');
-        $convocatoria =Convocatoria::all();
-        return view('admin.tematica.convocatoria', compact('convocatoria', 'uni'));
+        $convocatoria =Convocatoria::where('unit_id','=', $uni)->whereYear('gestion', '=', '2020')->get();
+        return view('admin.tematica.convocatoria',compact('convocatoria', 'uni'));
     }
     public function create(Request $request)
     {
@@ -119,7 +117,7 @@ class TematicaController extends Controller
     { 
         $requerimientos = $call->requerimientos()->get();
         $tematicas = Tematica::all();
-        foreach($requerimientos->distinct() as $r)
+        foreach($requerimientos as $r)
         {
             foreach($tematicas as $t)
             {

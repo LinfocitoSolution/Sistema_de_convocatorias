@@ -197,7 +197,7 @@
   }
 </script>
 <script>
-    var campos_max=10;//maximo 10 campos
+    var campos_max=12;//maximo 10 campos
     var x=0;
     $('#add_field').click (function(e) {
         e.preventDefault();//prevenir nuevos clicks

@@ -9,7 +9,6 @@
        <table class="table table-bordered table-striped table-sm">
            <thead>
              <tr>
-                <th>#</th>
                 <th>Temática</th>
                 @foreach ($requerimientosLab as $req)
                     <th>{{$req->codigo_auxiliatura}}</th>
@@ -17,18 +16,22 @@
               </tr>
           </thead>
           <tbody>
-            @foreach ($tematicas as $item){{-- FALTA SERPARAR LOS ITEMS POR REQUERIMIENTOS --}}
-                <tr>
-                    <td>{{$item->id}}</td>        
-                        <td>{{$item ->name}}</td>    
-                    @foreach ($requerimientosLab as $req)
-                        <td> 
-                            <div style="width:5em">
-                                <input class="form-control" type="number" id="nota" name="nota[]" value="0" min="0" max="100">
-                            </div>
-                        </td>
-                    @endforeach        
-                </tr>
+              {{-- FALTA SERPARAR LOS ITEMS POR REQUERIMIENTOS --}}
+            @foreach ($tematicas as $tem)
+                @foreach ($call->requerimientos as $req)
+                    <tr>
+                        @if ($req->id == $tem->requerimientos->first()->id)   
+                                <td>{{$tem ->name}}</td>    
+                            @foreach ($requerimientosLab as $req)
+                                <td> 
+                                    <div style="width:5em">
+                                        <input class="form-control" type="number" id="nota" name="nota[]" value="0" min="0" max="100">
+                                    </div>
+                                </td>
+                            @endforeach        
+                        @endif
+                    </tr>
+                @endforeach
             @endforeach
          </tbody>
       </table>

@@ -12,7 +12,8 @@
             <div class="col-lg-12">
                 <div class="card mt-2">
                     <div class="card-header">
-                        <h1> Registrar notas de la tabla de conocimientos</h1>
+                        <h1> Registrar notas de la tabla de conocimientos para:</h1>
+                        <h3>{{$call->titulo_convocatoria}}</h3>
                     </div>    
                     <div class="card-body">                   
                         <form class="form-horizontal"  action="{{ route('registrar.tabla',$call) }}" method="POST">
