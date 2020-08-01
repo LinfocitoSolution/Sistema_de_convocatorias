@@ -59,8 +59,74 @@ class PermissionsTableSeeder extends Seeder
             [ 'name' => 'list fechas' ],
             [ 'name' => 'create fechas' ],
             [ 'name' => 'edit fechas' ],
-            [ 'name' => 'delete fechas' ],            
+            [ 'name' => 'delete fechas' ],
+            
+            [ 'name' => 'list meritos' ],
+            [ 'name' => 'primer_paso meritos' ],
+            [ 'name' => 'create meritos' ],
+            [ 'name' => 'create submeritos' ],
+            [ 'name' => 'delete meritos' ],
+            [ 'name' => 'list submerito' ],
+            [ 'name' => 'delete submerito' ],
+            [ 'name' => 'descripcion submerito' ],
+            [ 'name' => 'create descripcion_submerito' ],
+            [ 'name' => 'delete descripcion_submerito' ],
 
+            [ 'name' => 'lits calificacion_meritos' ],
+            [ 'name' => 'create calificacion_meritos' ],
+            [ 'name' => 'delete calificacion_meritos' ],
+            [ 'name' => 'publicar calificacion_meritos' ],
+            [ 'name' => 'quitar calificacion_meritos' ],
+            [ 'name' => 'calificacion_meritos' ],   
+            [ 'name' => 'notaFinal' ],
+
+
+            [ 'name' => 'list books' ],
+            [ 'name' => 'create books' ],   
+            [ 'name' => 'delete books' ],
+            [ 'name' => 'list tematics' ],
+            [ 'name' => 'create tematics' ],
+            [ 'name' => 'call tematics' ],   
+            [ 'name' => 'call unit_tematics' ],
+            [ 'name' => 'delete tematics' ],
+            
+            
+            
+#######################  Habilitados ###############################
+            [ 'name' => 'list habilitado' ],
+            [ 'name' => 'documentos_indexlab habilitado' ],
+            [ 'name' => 'documentos_indexdoce habilitado' ],
+            [ 'name' => 'documentos_habilitar habilitado' ],
+            [ 'name' => 'documentos_publicar habilitado' ],
+            [ 'name' => 'documento_quitar habilitado' ],
+            [ 'name' => 'descripcion habilitado' ],
+
+################ TABLA CALIF ############################################
+            [ 'name' => 'calfi_primero tablaCalif' ],
+            [ 'name' => 'calfi_segundo tablaCalif' ],
+            [ 'name' => 'list_postulantes tablaCalif' ],
+            [ 'name' => 'calificar_postulantes tablaCalif' ],
+            [ 'name' => 'calificar_postlanteDoc tablaCalif' ],
+            [ 'name' => 'registrar_notas tablaCalif' ],
+            [ 'name' => 'registrar_tabla tablaCalif' ],
+            [ 'name' => 'registrar_notasDoc tablaCalif' ],
+            [ 'name' => 'delete tabla tablaCalif' ],
+            [ 'name' => 'delete nota tablaCalif' ],
+
+
+            
+//######################ROTULO y POSTULANTE###################################
+            [ 'name' => 'show_postulante rotulopostulante' ],
+            [ 'name' => 'edit_postulante rotulopostulante' ],
+            [ 'name' => 'postulante_update rotulopostulante' ],
+            [ 'name' => 'primer_rotulo rotulopostulante' ],
+            [ 'name' => 'segundo_rotulo rotulopostulante' ],
+            [ 'name' => 'formulario_postulacion rotulopostulante' ],
+            [ 'name' => 'cancelar_postulacion rotulopostulante' ],
+            [ 'name' => 'rotulo_guardar rotulopostulante' ],
+            
+            // [ 'name' => '' ],
+            [ 'name' => 'rotulo_postulante' ],            
         ];
 
         $rol_admin = Role::find(1);
@@ -83,6 +149,7 @@ class PermissionsTableSeeder extends Seeder
 
         $rol_postulante->givePermissionTo([            
             'list announcements',//debemos crear otro permiso diferente
+            'rotulo_postulante',
         ]);
         $rol_validator->givePermissionTo([
             'view-access-management',            
@@ -114,6 +181,4 @@ class PermissionsTableSeeder extends Seeder
 
     }
 }
-
-
 

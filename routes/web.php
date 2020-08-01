@@ -80,33 +80,101 @@ Route::group(['middleware' => 'permission:view-access-management'], function () 
     Route::put('unidades_update_{unidad}','UnidadController@update')->name('unidades.update')->middleware('permission:edit units');
     // Route::resource('unidades','UnidadController');
     //#####################Requerimientos####################
-    Route::resource('requerimientos','RequerimientosController');
+    Route::resource('requerimientos','RequerimientosController');//ya tiene middleware
 
     //################FECHAS############
-    Route::resource('fechas','FechaController');
-    Route::resource('conocimientoCalif','ConocimientoCalifController');
+    Route::resource('fechas','FechaController');////ya tiene middleware
+    Route::resource('conocimientoCalif','ConocimientoCalifController');//ya tiene middleware
 
     //###########Convocatorias#############################endregion
-    Route::resource('call', 'CallController');
+    Route::resource('call', 'CallController');//ya tiene middleware
 
 
+
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    #######################  Habilitados ###############################
+    Route::resource('habilitado_inhabilitado','ListaController@index');//->middleware('permission:list habilitado');
+    Route::get('documentosPresentar_{user}', 'ListaController@indexlab')->name('documentos.indexlab')->middleware('permission:documentos_indexlab habilitado');
+    Route::get('documentosPresentardoc_{user}','ListaController@indexdoce')->name('documentos.indexdoce')->middleware('permission:documentos_indexdoce habilitado');
+    Route::put('habilitar_{user}','ListaController@habilitar')->name('documentos.habilitar')->middleware('permission:documentos_habilitar habilitado');
+    Route::put('documentosPublicar_{user}','ListaController@publicar')->name('documento.publicar')->middleware('permission:documentos_publicar habilitado');
+    Route::put('documentosQuitar_{user}','ListaController@quitar')->name('documento.quitar')->middleware('permission:documento_quitar habilitado');
+    Route::get('descripcionPostulante{user}','ListaController@describe')->name('descripcion.desc')->middleware('permission:descripcion habilitado');
+
+    ################ TABLA CALIF ############################################
+    Route::get('form_primerPaso','ConocimientoCalifController@primerPaso')->name('calif.primero')->middleware('permission:calfi_primero tablaCalif');
+    Route::get('form_segundoPaso','ConocimientoCalifController@segundoPaso')->name('calif.segundo')->middleware('permission:calfi_segundo tablaCalif');
+
+    Route::get('listarPostulantes','ConocimientoCalifController@listarPostulantes')->name('lista.postulantes')->middleware('permission:list_postulantes tablaCalif');
+    Route::get('calificarPostulante_{user}','ConocimientoCalifController@calificarPostulant')->name('calificar.postulante')->middleware('permission:calificar_postulantes tablaCalif');
+    Route::get('calificarPostulanteDocencia_{user}','ConocimientoCalifController@calificarPostDoc')->name('calificar.postulanteDoc')->middleware('permission:calificar_postlanteDoc tablaCalif');
+    Route::post('registrarNotas_{user}','ConocimientoCalifController@registrarNotas')->name('registrar.notas')->middleware('permission:registrar_notas tablaCalif');
+    Route::post('guardarTabla_{call}','ConocimientoCalifController@store')->name('registrar.tabla')->middleware('permission:registrar_tabla tablaCalif');
+    Route::post('regNotasDoc_{user}','ConocimientoCalifController@regNotasDocencia')->name('registrar.notasDoc')->middleware('permission:registrar_notasDoc tablaCalif');
+    Route::delete('eliminarTabla_{item}','ConocimientoCalifController@destroy')->name('tabla.destroy')->middleware('permission:delete tabla tablaCalif');
+    Route::post('eliminarNota_{user}','ConocimientoCalifController@eliminarCalificacion')->name('eliminar.nota')->middleware('permission:delete nota tablaCalif');
+
+    ######################## Méritos #################################################################
+    Route::get('Merito','MeritosController@index')->name('merito.index')->middleware('permission:list meritos');
+    Route::get('Mform_primerPaso','MeritosController@primerPaso')->name('merito.primero')->middleware('permission:primer_paso meritos');
+
+    Route::get('crear-merito','MeritosController@create')->name('merito.create')->middleware('permission:create meritos');
+    Route::post('merito_store','MeritosController@store')->name('merito.storemerito')->middleware('permission:create meritos');
+    Route::get('createsubmerito_{merito}','MeritosController@createsubmerito')->name('submerito.create')->middleware('permission:create submeritos');
+    Route::post('submerito_store_{merito}','MeritosController@submeritostore')->name('submerito.storemerito')->middleware('permission:create submeritos');
+    Route::delete('meritoeliminar_{merito}','MeritosController@destroy')->name('merito.destroy')->middleware('permission:delete meritos');
+
+    /*Route::get('formdoc','ConocimientoCalifController@formdoc')->name('calif.formdoc');*/
+    Route::get('submerito-index_{merito}','MeritosController@indexsubmerito')->name('subMerito.indexsubmerito')->middleware('permission:list submerito');
+    Route::delete('submeritoeliminar_{submerito}','MeritosController@destroysub')->name('submerito.destroy')->middleware('permission:delete submerito');
+    Route::get ('descripcion_{submerito}','MeritosController@indexdescripcion')->name('descripcion.index')->middleware('permission:descripcion submerito');
+    Route::get('crearDescripcion_{submerito}','MeritosController@createdescripcion')->name('descripcion.create')->middleware('permission:create descripcion_submerito');
+    Route::post('descripcionStore_{submerito}','MeritosController@storedescripcion')->name('descripcion.store')->middleware('permission:create descripcion_submerito');
+    Route::delete('descripcioneliminar_{desc}','MeritosController@destroydes')->name('descripcion.destroy')->middleware('permission:delete descripcion_submerito');
+
+    #################################calificacion meritos#################################
+    Route::get('calificacion','CalificacionController@index')->name('calif.index')->middleware('permission:lits calificacion_meritos');
+    Route::get('califMerito_{user}','CalificacionController@create')->name('crearCalif.create')->middleware('permission:create calificacion_meritos');
+    Route::post('calif_store_{user}','CalificacionController@store')->name('calif.store')->middleware('permission:create calificacion_meritos');
+    Route::delete('calificacion_eliminar_{user}','CalificacionController@delete')->name('calif.delete')->middleware('permission:delete calificacion_meritos');
+    Route::put('calificacion_publicar_{user}','CalificacionController@publicar')->name('calif.publicar')->middleware('permission:publicar calificacion_meritos');
+    Route::put('calif_quitar_{user}','CalificacionController@quitarPublicacion')->name('calif.quitar')->middleware('permission:quitar calificacion_meritos');
+    Route::get('calificacion_merito_{user}','CalificacionController@muestra')->name('calificacion.merito')->middleware('permission:calificacion_meritos');
+    ##################### NotaFinal  ###########
+    Route::get('notFinal','CalificacionController@notafinal')->name('NotaFin.notafinal')->middleware('permission:notaFinal');
+    ################ Libro de recepcion ########
+
+    Route::get('libro','RecepcionController@index')->name('libro.index')->middleware('permission:list books');
+    Route::get('crear_libro','RecepcionController@create')->name('libro.create')->middleware('permission:create books');
+    Route::post('libro_store','RecepcionController@store')->name('libro.store')->middleware('permission:create books');
+    Route::delete('libro_delete_{libro}','RecepcionController@destroy')->name('libro.delete')->middleware('permission:delete books');
+
+    ################ Tematica ######################
+    Route::get('tematica','TematicaController@index')->name('tematica.index')->middleware('permission:list tematics');
+    Route::get('create','TematicaController@create')->name('tematica.create')->middleware('permission:create tematics');
+    Route::get('tematicaConvocatoria','TematicaController@tematicaConvocatoria')->name('tematica.convocatoria')->middleware('permission:call tematics');
+    Route::get('tematicaUnidad','TematicaController@tematicaUnidad')->name('tematica.unidad')->middleware('permission:call unit_tematics');
+    Route::post('guardarTematica_{call}','TematicaController@store')->name('tematica.store')->middleware('permission: create tematics');
+    Route::delete('eliminarTematicas_{call}','TematicaController@destroy')->name('tematica.destroy')->middleware('permission:delete tematics');
+
+    //##################### CONVOCATORIA ########################## FALTA MIDDLEWARE
+    // Route::resource('call', 'CallController');
+    Route::get('convocatoria','HomeController@convocatorias')->name('convocatoria');
+    Route::get('generar_{call}', 'CallController@generarConvocatoria')->name('generar');
+    Route::get('call_createdoc','CallController@createdoc')->name('call.createdoc');
+    Route::get('call_{call}_editardoc','CallController@editardoc')->name('call.editardoc');
+    Route::post('call_storedoc','CallController@storedoc')->name('call.storedoc');
+    Route::delete('call_deletedoc_{call}','CallController@destroydoc')->name('call.destroydoc');
+    Route::put('call_updatedoc_{call}','CallController@updatedoc')->name('call.updatedoc');
+    Route::get('generarConv_{call}', 'CallController@generarConvocatoriaLabo')->name('generarConv');
+    Route::get('generarConvDoc_{call}', 'CallController@generarConvocatoriaDocencia')->name('generarConvDoc');
+    Route::put('call_publicar_{call}','CallController@publicarConvocatoria')->name('call.publicar');
+    Route::put('call_quitar_{call}','CallController@quitarPublicacion')->name('call.quitar');
     
 });
-
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
-//##################### CONVOCATORIA ##########################
-// Route::resource('call', 'CallController');
-Route::get('convocatoria','HomeController@convocatorias')->name('convocatoria');// falta los middlewares
-Route::get('generar_{call}', 'CallController@generarConvocatoria')->name('generar');// falta los middlewares
-Route::get('call_createdoc','CallController@createdoc')->name('call.createdoc');
-Route::get('call_{call}_editardoc','CallController@editardoc')->name('call.editardoc');
-Route::post('call_storedoc','CallController@storedoc')->name('call.storedoc');
-Route::delete('call_deletedoc_{call}','CallController@destroydoc')->name('call.destroydoc');
-Route::put('call_updatedoc_{call}','CallController@updatedoc')->name('call.updatedoc');
-Route::get('generarConv_{call}', 'CallController@generarConvocatoriaLabo')->name('generarConv');
-Route::get('generarConvDoc_{call}', 'CallController@generarConvocatoriaDocencia')->name('generarConvDoc');
-Route::put('call_publicar_{call}','CallController@publicarConvocatoria')->name('call.publicar');
-Route::put('call_quitar_{call}','CallController@quitarPublicacion')->name('call.quitar');
 //##############################################################
 Route::get('test', function () {
     return view('pruebaVerify');
@@ -116,90 +184,27 @@ Route::get('reset', function () {
 });// falta los middlewares
 
 //######################ROTULO y POSTULANTE###################################
-Route::get('postulante_{user}_show','PostulantController@show')->name('postulante.show');// falta los middlewares
-Route::get('postulante_edit_{user}','PostulantController@edit')->name('postulante.edit');// falta los middlewares
-Route::put('postulante_{user}_update','PostulantController@update')->name('postulante.update');// falta los middlewares
-// Route::resource('postulante','PostulantController');
-Route::get('primerPaso','PostulantController@primerPaso')->name('rotulo.primer');
-Route::get('segundoPaso','PostulantController@segundoPaso')->name('rotulo.segundo');
-Route::get('formularioPostulacion','PostulantController@index')->name('postulacion.form');// falta los middlewares
-Route::put('cancelar_postulacion_{user}','PostulantController@cancelarPostulacion')->name('cancelar.postulacion');
-
-Route::post('guardarRotulo','PostulantController@guardarRotulo')->name('rotulo.guardar');
+Route::group(['middleware' => 'permission:rotulo_postulante'], function () {// restriccion formulario de postulante
+    Route::get('postulante_{user}_show','PostulantController@show')->name('postulante.show');//->middleware('permission:show_postulante rotulopostulante');
+    Route::get('postulante_edit_{user}','PostulantController@edit')->name('postulante.edit');//->middleware('permission:edit_postulante rotulopostulante');
+    Route::put('postulante_{user}_update','PostulantController@update')->name('postulante.update');//->middleware('permission:postulante_update rotulopostulante');
+    // Route::resource('postulante','PostulantController');
+    Route::get('primerPaso','PostulantController@primerPaso')->name('rotulo.primer');//->middleware('permission:primer_rotulo rotulopostulante');
+    Route::get('segundoPaso','PostulantController@segundoPaso')->name('rotulo.segundo');//->middleware('permission:segundo_rotulo rotulopostulante');
+    Route::get('formularioPostulacion','PostulantController@index')->name('postulacion.form');//->middleware('permission:formulario_postulacion rotulopostulante');
+    Route::put('cancelar_postulacion_{user}','PostulantController@cancelarPostulacion')->name('cancelar.postulacion');//->middleware('permission:cancelar_postulacion rotulopostulante');
+    Route::post('guardarRotulo','PostulantController@guardarRotulo')->name('rotulo.guardar');//->middleware('permission:rotulo_guardar rotulopostulante');
+});
 //################################################################
-Route::post('reset_password','\App\Http\Controllers\Auth\ResetPasswordController@resetPassword');// falta los middlewares
-Route::get('enviar_resetPassword','\App\Http\Controllers\Auth\ResetPasswordController@enviarReset_Password');// falta los middlewares
-Route::post('recuperar','\App\Http\Controllers\Auth\ResetPasswordController@recuperar');// falta los middlewares
+Route::post('reset_password','\App\Http\Controllers\Auth\ResetPasswordController@resetPassword');
+Route::get('enviar_resetPassword','\App\Http\Controllers\Auth\ResetPasswordController@enviarReset_Password');
+Route::post('recuperar','\App\Http\Controllers\Auth\ResetPasswordController@recuperar');
 
 //###################### Email ###################################
-Route::get('mail/send', 'MailController@send');// falta los middlewares
+Route::get('mail/send', 'MailController@send');
 Route::get('vista', function () {
     return view('auth.mails.email');
-});// falta los middlewares
-
+});
 Route::get('/denied', ['as' => 'denied', function() {
     return view('errors.401');
 }]);
-
-#######################  Habilitados ###############################
-Route::resource('habilitado_inhabilitado','ListaController@index');
-Route::get('documentosPresentar_{user}', 'ListaController@indexlab')->name('documentos.indexlab');
-Route::get('documentosPresentardoc_{user}','ListaController@indexdoce')->name('documentos.indexdoce');
-Route::put('habilitar_{user}','ListaController@habilitar')->name('documentos.habilitar');
-Route::put('documentosPublicar_{user}','ListaController@publicar')->name('documento.publicar');
-Route::put('documentosQuitar_{user}','ListaController@quitar')->name('documento.quitar');
-Route::get('descripcionPostulante{user}','ListaController@describe')->name('descripcion.desc');
-
-################ TABLA CALIF ############################################
-Route::get('form_primerPaso','ConocimientoCalifController@primerPaso')->name('calif.primero');
-Route::get('form_segundoPaso','ConocimientoCalifController@segundoPaso')->name('calif.segundo');
-
-Route::get('listarPostulantes','ConocimientoCalifController@listarPostulantes')->name('lista.postulantes');
-Route::get('calificarPostulante_{user}','ConocimientoCalifController@calificarPostulant')->name('calificar.postulante');
-Route::get('calificarPostulanteDocencia_{user}','ConocimientoCalifController@calificarPostDoc')->name('calificar.postulanteDoc');
-Route::post('registrarNotas_{user}','ConocimientoCalifController@registrarNotas')->name('registrar.notas');
-Route::post('guardarTabla_{call}','ConocimientoCalifController@store')->name('registrar.tabla');
-Route::post('regNotasDoc_{user}','ConocimientoCalifController@regNotasDocencia')->name('registrar.notasDoc');
-Route::delete('eliminarTabla_{item}','ConocimientoCalifController@destroy')->name('tabla.destroy');
-Route::post('eliminarNota_{user}','ConocimientoCalifController@eliminarCalificacion')->name('eliminar.nota');
-
-######################## Méritos ####
-Route::get('Merito','MeritosController@index')->name('merito.index');
-Route::get('Mform_primerPaso','MeritosController@primerPaso')->name('merito.primero');
-
-Route::get('crear-merito','MeritosController@create')->name('merito.create');
-Route::post('merito_store','MeritosController@store')->name('merito.storemerito');
-Route::get('createsubmerito_{merito}','MeritosController@createsubmerito')->name('submerito.create');
-Route::post('submerito_store_{merito}','MeritosController@submeritostore')->name('submerito.storemerito');
-Route::delete('meritoeliminar_{merito}','MeritosController@destroy')->name('merito.destroy');
-
-/*Route::get('formdoc','ConocimientoCalifController@formdoc')->name('calif.formdoc');*/
-Route::get('submerito-index_{merito}','MeritosController@indexsubmerito')->name('subMerito.indexsubmerito');
-Route::delete('submeritoeliminar_{submerito}','MeritosController@destroysub')->name('submerito.destroy');
-Route::get ('descripcion_{submerito}','MeritosController@indexdescripcion')->name('descripcion.index');
-Route::get('crearDescripcion_{submerito}','MeritosController@createdescripcion')->name('descripcion.create');
-Route::post('descripcionStore_{submerito}','MeritosController@storedescripcion')->name('descripcion.store');
-Route::delete('descripcioneliminar_{desc}','MeritosController@destroydes')->name('descripcion.destroy');
-#################################calificacion meritos#################################
-Route::get('calificacion','CalificacionController@index')->name('calif.index');
-Route::get('califMerito_{user}','CalificacionController@create')->name('crearCalif.create');
-Route::post('calif_store_{user}','CalificacionController@store')->name('calif.store');
-Route::delete('calificacion_eliminar_{user}','CalificacionController@delete')->name('calif.delete');
-Route::put('calificacion_publicar_{user}','CalificacionController@publicar')->name('calif.publicar');
-Route::put('calif_quitar_{user}','CalificacionController@quitarPublicacion')->name('calif.quitar');
-Route::get('calificacion_merito_{user}','CalificacionController@muestra')->name('calificacion.merito');
-##################### NotaFinal  ###########
-Route::get('notFinal','CalificacionController@notafinal')->name('NotaFin.notafinal');
-################ Libro de recepcion ########
-Route::get('libro','RecepcionController@index')->name('libro.index');
-Route::get('crear_libro','RecepcionController@create')->name('libro.create');
-
-################ Tematica ######################
-Route::get('tematica','TematicaController@index')->name('tematica.index');
-Route::get('create','TematicaController@create')->name('tematica.create');
-Route::get('tematicaConvocatoria','TematicaController@tematicaConvocatoria')->name('tematica.convocatoria');
-Route::get('tematicaUnidad','TematicaController@tematicaUnidad')->name('tematica.unidad');
-Route::post('guardarTematica_{call}','TematicaController@store')->name('tematica.store');
-Route::delete('eliminarTematicas_{call}','TematicaController@destroy')->name('tematica.destroy');
-Route::post('libro_store','RecepcionController@store')->name('libro.store');
-Route::delete('libro_delete_{libro}','RecepcionController@destroy')->name('libro.delete');
