@@ -187,4 +187,25 @@ class CalificacionController extends Controller
     public function notafinal(){
         return view('admin.notaFinal.index');
     }
+    public function publicar(User $user)
+    {
+        $postulante=Postulante_submerito::where('user_id',$user->id)->first();
+        $postulante->publicado="si";
+        //return $postulante;
+        $postulante->save();
+        return redirect(route('calif.index'))->with([ 'message' => 'Nota publicada exitosamente!', 'alert-type' => 'success' ]);
+    }
+    public function quitarPublicacion(User $user)
+    {
+        $postulante=Postulante_submerito::where('user_id',$user->id)->first();
+        $postulante->publicado="no";
+        //return $user;
+        $postulante->save();
+        return redirect(route('calif.index'))->with([ 'message' => 'Nota quitada exitosamente!', 'alert-type' => 'success' ]);
+    }
+    public function muestra(User $user)
+    {
+        $postulante=(Postulante_submerito::where('user_id',$user->id)->first()->score) * 0.20;
+        return view('admin.calificacion.descripcion' , compact('postulante'));
+    }
 }
