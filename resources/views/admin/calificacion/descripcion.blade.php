@@ -17,6 +17,13 @@
               <h2>Auxiliatura: {{Auth::user()->requerimientos->first()->nombre_auxiliatura}}</h2>
             <h2>Nota Meritos: {{$postulante}}</h2>
             
+            @if(isset($calf))
+            @if($calf->publicado=="si")
+            <h2>Nota Conocimiento: {{$calf->score}}</h2>
+            <h2>Nota Final: {{$calf->score + $postulante}}</h2>
+            @endif
+            @endif
+            
           
           
           </div>
