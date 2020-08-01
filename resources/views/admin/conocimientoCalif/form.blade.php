@@ -16,7 +16,6 @@
               </tr>
           </thead>
           <tbody>
-              {{-- FALTA SERPARAR LOS ITEMS POR REQUERIMIENTOS --}}
             @foreach ($tematicas as $tem)
                 @foreach ($call->requerimientos as $req)
                     <tr>

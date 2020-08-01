@@ -124,7 +124,6 @@ class ConocimientoCalifController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.conocimientoCalif.edit', compact('conocimientoCalif'));
     }
 
     /**
@@ -136,9 +135,6 @@ class ConocimientoCalifController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // $conocimientoCalif->fill($request->all());
-        // $conocimientoCalif->save();
-        // return redirect(route('conocimientoCalif.index'))->with([ 'message' => 'Tabla  actualizada exitosamente!', 'alert-type' => 'success' ]);
     }
 
     /**
