@@ -124,7 +124,6 @@ class ConocimientoCalifController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.conocimientoCalif.edit', compact('conocimientoCalif'));
     }
 
     /**
@@ -136,9 +135,6 @@ class ConocimientoCalifController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // $conocimientoCalif->fill($request->all());
-        // $conocimientoCalif->save();
-        // return redirect(route('conocimientoCalif.index'))->with([ 'message' => 'Tabla  actualizada exitosamente!', 'alert-type' => 'success' ]);
     }
 
     /**
@@ -158,8 +154,9 @@ class ConocimientoCalifController extends Controller
     }
     public function listarPostulantes()
     {
+        $calf=Calificacion_conocimiento::all();
         $postulantes = User::where('carrera_id', '!=', 'null')->get();
-        return view('admin.conocimientoCalif.listaPostulantes', compact('postulantes'));
+        return view('admin.conocimientoCalif.listaPostulantes', compact('postulantes','calf'));
     }
 
     public function calificarPostulant(User $user)
@@ -212,5 +209,21 @@ class ConocimientoCalifController extends Controller
         $calificacion->user_id=$user->id;
         $calificacion->save();
         return redirect(route('lista.postulantes'))->with([ 'message' => 'Nota registrada exitosamente!', 'alert-type' => 'success' ]);;
+    }
+    public function publicar(User $user)
+    {
+        $postulante=Calificacion_conocimiento::where('user_id',$user->id)->first();
+        $postulante->publicado="si";
+        //return $postulante;
+        $postulante->save();
+        return redirect(route('lista.postulantes'))->with([ 'message' => 'Nota publicada exitosamente!', 'alert-type' => 'success' ]);
+    }
+    public function quitarPublicacion(User $user)
+    {
+        $postulante=Calificacion_conocimiento::where('user_id',$user->id)->first();
+        $postulante->publicado="no";
+        //return $user;
+        $postulante->save();
+        return redirect(route('lista.postulantes'))->with([ 'message' => 'Nota quitada exitosamente!', 'alert-type' => 'success' ]);
     }
 }

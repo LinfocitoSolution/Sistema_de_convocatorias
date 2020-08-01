@@ -162,7 +162,8 @@ Route::post('guardarTabla_{call}','ConocimientoCalifController@store')->name('re
 Route::post('regNotasDoc_{user}','ConocimientoCalifController@regNotasDocencia')->name('registrar.notasDoc');
 Route::delete('eliminarTabla_{item}','ConocimientoCalifController@destroy')->name('tabla.destroy');
 Route::post('eliminarNota_{user}','ConocimientoCalifController@eliminarCalificacion')->name('eliminar.nota');
-
+Route::put('calificacion_con_publicar_{user}','ConocimientoCalifController@publicar')->name('conocimiento.publicar');
+Route::put('calif__con_quitar_{user}','ConocimientoCalifController@quitarPublicacion')->name('conocimiento.quitar');
 ######################## Méritos ####
 Route::get('Merito','MeritosController@index')->name('merito.index');
 Route::get('Mform_primerPaso','MeritosController@primerPaso')->name('merito.primero');

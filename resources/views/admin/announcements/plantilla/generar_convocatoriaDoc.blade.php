@@ -110,71 +110,47 @@
                     realizará sobre la base de 100 puntos que representa el 20% del puntaje final y se ponderará 
                     de la siguiente manera.</p>
         </div>
+        <!-- INICIO DE LA TABLA MERITOS -->
+        <table class="table table-bordered table-striped table-sm" id="tabla2">
+            <thead>
+            
+            </thead>
+            <tbody>
+               @foreach($meritos as $merito)
+                     <tr>
+                        <th><strong>Nombre</strong></th>
+                        <th><strong>Puntaje</strong></th>
+                     </tr>
+                     <tr>
+                        <th><strong>{{$merito->name}}</strong></th>
+                        <th><strong>{{$merito->score}}</strong></th>
+                     </tr>
+                     @foreach($submeritos as $submerito)
+                        @if($submerito->merito_id==$merito->id)
+                           <tr>
+                              <th>{{$submerito->name}}</th>
+                              <th>{{$submerito->score}}</th>
+                           </tr>
+                           <tr>
+                              <th>Descripción</th>   
+                              <th></th>
+                           </tr>
+                              @foreach($descripciones as $desc)
+                                 @if($desc->submerito_id==$submerito->id)
+                                    @if ($desc->tipo_descripcion == 'documentos')
+                                       <td>{{$desc->descripcion}}</td>
+                                       <td>{{$desc->score}}</td>             
+                                    @endif
+                                 @endif
+                              @endforeach
+                           </tr>
+                        @endif
+                     @endforeach
+               @endforeach
+            </tbody>
+       </table>
         
-            <table class="table" border="1px" id="tabla2">
-                <colgroup>
-                    <col width="25%">
-                        <col width="35%">
-                        <col width="40%">
-                </colgroup>   
-                    <thead>
-                        <tr>
-                            <td colspan="2"><strong>DESCRIPCION DE MERITOS</strong></td>
-                            <td><strong>PORCENTAJE</strong></td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td colspan="2"><strong>6.1 RENDIMIENTO ACADEMICO</strong></td>
-                            <td align="right"><strong>65%</strong></td>
-                        </tr>
-                        <tr>
-                            <td colspan="3" scope="rowgroup">
-                                <p> a) Promedio de aprobación de la materia a la que postula (incluye reprobadas y
-                                    abandonos): ………………………………………………………….……... 35%</p>
-                                <p> b)Promedio general de materias ………………………...……………. ..30%</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th colspan="3" scope="rowgroup"><strong>6.2.EXPERIENCIA GENERAL</strong></th>
-                        </tr>
-                        <tr>
-                            <td colspan="3"><p> Se califica sobre la base de tablas elaboradas por el Departamento de informatica y Sistemas
-                                                conforme a desglose </p></td>
-                        </tr>
-                        <tr>
-                            <td colspan="2"><strong>6.2.1.Documentos de experiencia universitaria</strong></td>
-                            <td align="right"><strong>25%</strong></td>
-                        </tr>
-                        <tr>
-                            <td colspan="3">
-                                <P>a)Auxiliar docente en materias del área troncal: …..…….…… 15% </P>
-                                <p>     a. 2 ptos/semestre y materia de aux. titular</p>
-                                <p>     b. 1 ptos/semestre y materia de aux. invitado </p>
-                                <p>     c. 1 ptos/semestre y materia de aux. de practicas </p>
-                                <P>b)Auxiliar en otras ramas o carreras:…………………………5%</P>
-                                <p>     a. 1 pto/semestre x materia de aux. invitado o titular</p>
-                                <p>     b. 1 pto/semestre x materia de aux. de practicas  </p>
-                                <P>c) Disertación cursillos y/o participación en Proyectos:…….... 5%</P>
-                                <p>     a. 3 ptos por dirección de cursillo</p>
-                                <p>     b. 2 pto/semestre x materia de aux. de practicas  </p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2" scope="rowgroup"><strong>6.2.2.Documentos de experiencia extrauniversitaria:</strong> </td>
-                            <td align="right"><strong>10%</strong></td>
-                        </tr>
-                        <tr>
-                            <td colspan="3">
-                                <p>a) Experiencia como operador, programador, analista de sistemas, cargo
-                                    directivo en centro de cómputo …………………..……………... 5%</p>
-                                <p>     a. 1 punto cargo/semestre</p>
-                                <p>b) Experiencia docente en colegios, institutos, etc ……..……...5%</p>
-                                <P>     a. 1 punto cargo/semestre y certificado</P>
-                            </td>
-                        </tr>
-                    </tbody>
-            </table>
+            
             <div id="parte4">
                 <h6>7.&nbsp;CALIFICACIÓN DE CONOCIMIENTOS</h6>
                 <p  class="parrafo" style="text-align:justify">La calificación de conocimientos se realiza sobre la base de 100 puntos, equivalentes al 80%
@@ -184,7 +160,7 @@
                             <p>b) Examen oral, donde se evaluarán aspectos didácticos y pedagógicos sobre
                             conocimiento y dominio de la materia.Tendrá una duración máxima de 25 minutos:
                             15 minutos de exposición y 10 minutos de 
-                            preguntas..............................................................60%</p> 
+                            preguntas...................................................................60%</p> 
                     <br>
             
                 <h6> 8.&nbsp;&nbsp;DE LOS TRIBUNALES </h6>
