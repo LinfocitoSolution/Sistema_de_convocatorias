@@ -47,14 +47,14 @@
                 <td>
                     @foreach($calificacion as $caf)
                 @if($caf->user_id==$user->id)
-                {{($caf->score)}}
+                {{($caf->score)/0.20}}
                 @endif
                 @endforeach
                 </td>
             <td>
                 @foreach($calificacion as $caf)
                 @if($caf->user_id==$user->id)
-                {{($caf->score)*0.20}}
+                {{($caf->score)}}
                 @endif
                 @endforeach
             </td>
