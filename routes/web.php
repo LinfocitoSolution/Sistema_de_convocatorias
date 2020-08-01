@@ -203,4 +203,4 @@ Route::get('tematicaConvocatoria','TematicaController@tematicaConvocatoria')->na
 Route::get('tematicaUnidad','TematicaController@tematicaUnidad')->name('tematica.unidad');
 Route::post('guardarTematica_{call}','TematicaController@store')->name('tematica.store');
 Route::delete('eliminarTematicas_{call}','TematicaController@destroy')->name('tematica.destroy');
-
+Route::get('show_{call}','TematicaController@show')->name('tematica.show');

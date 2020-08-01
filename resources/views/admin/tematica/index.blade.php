@@ -31,6 +31,9 @@
                             @if (isset($aux))
                                 <td>{{$call->titulo_convocatoria}}</td>
                                 <td>
+                                    <a class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="Presiona para ver las tematicas creadas" href="{{route('tematica.show',$call)}}">
+                                        <i class="fa fa-eye"></i>
+                                    </a>
                                     <form action="{{route('tematica.destroy',$call)}}" method="POST" style="display:inline-block;">
                                         {{ csrf_field() }}                                                              
                                         {{ method_field('DELETE') }}       
