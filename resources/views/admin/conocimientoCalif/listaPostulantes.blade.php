@@ -39,7 +39,6 @@
                             @endif
                             @endforeach
                             </td>
-                             
                               @if (!App\Calificacion_conocimiento::where('user_id', '=', $user->id)->exists())
                                   @if ($user->requerimientos->first()->tipo_requerimiento == "requerimiento de laboratorio")
                                     <td>                                
@@ -54,7 +53,6 @@
                                       </a>
                                     </td>      
                                   @endif
-
                               @elseif($a->publicado!="si")
                               <td>
                               <form action="{{ route('conocimiento.publicar',$user->id) }}" style="display:inline-block;" method="POST">
@@ -64,9 +62,6 @@
                                   <i class="fa fa-cloud"></i>
                                 </button>
                               </form>
-                              
-                              
-                              
                                   <form action="{{route('eliminar.nota',$user)}}" method="POST" style="display:inline-block;">
                                       {{ csrf_field() }}                                                              
                                       <button class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title="" type="submit" margin-left="50" onclick="return confirm('Está seguro de eliminar la calificación?')">
@@ -84,12 +79,7 @@
                                   </button>
                                 </form>
                               </td>
-
                               @endif
-
-
-
-
                           @endif
                         @endif                              
                       </tr> 

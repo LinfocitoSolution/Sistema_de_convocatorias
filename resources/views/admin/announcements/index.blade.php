@@ -76,7 +76,7 @@
                                 </button>
                             </form>
                             <!-- SOLO SE PERMITEN PUBLICAR AQUELLAS QUE HAYAN REGISTRADO SUS TABLAS -->
-                            @if (App\Tematica_requerimiento::where('convocatoria_id', '=',$call->id)->exists())
+                            @if (App\Tematica_requerimiento::where('convocatoria_id', '=',$call->id)->exists() && App\Merito::where('convocatoria_id', '=',$call->id)->exists())
                               <form action="{{ route('call.publicar', $call->id) }}" style="display:inline-block;" method="POST">
                                 {{ csrf_field() }}
                                 {{ method_field('PUT') }}
