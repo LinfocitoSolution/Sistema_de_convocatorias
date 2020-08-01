@@ -207,7 +207,7 @@ class CalificacionController extends Controller
     public function muestra(User $user)
     {
         $calf=Calificacion_conocimiento::where('user_id',$user->id)->first();
-        $postulante=(Postulante_submerito::where('user_id',$user->id)->first()->score) * 0.20;
+        $postulante=(Postulante_submerito::where('user_id',$user->id)->first()->score);
         return view('admin.calificacion.descripcion' , compact('postulante','calf'));
     }
 }
