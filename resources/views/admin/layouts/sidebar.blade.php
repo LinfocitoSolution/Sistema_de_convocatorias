@@ -416,7 +416,7 @@
         <ul class="nav nav-treeview">
 
             <li class="nav-item">
-              <a href="{{route('NotaFin.notafinal')}}" class="nav-link">
+              <a href="{{route('nota.final')}}" class="nav-link">
                 <i class="fas fa-plus-square nav-icon"></i>
                 <p>Lista de Notas Finales</p>
               </a>

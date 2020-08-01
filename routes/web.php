@@ -190,7 +190,7 @@ Route::put('calificacion_publicar_{user}','CalificacionController@publicar')->na
 Route::put('calif_quitar_{user}','CalificacionController@quitarPublicacion')->name('calif.quitar');
 Route::get('calificacion_merito_{user}','CalificacionController@muestra')->name('calificacion.merito');
 ##################### NotaFinal  ###########
-Route::get('notFinal','CalificacionController@notafinal')->name('NotaFin.notafinal');
+Route::get('notasFinales','ConocimientoCalifController@tablaNotasFinales')->name('nota.final');
 ################ Libro de recepcion ########
 Route::get('libro','RecepcionController@index')->name('libro.index');
 Route::get('crear_libro','RecepcionController@create')->name('libro.create');
