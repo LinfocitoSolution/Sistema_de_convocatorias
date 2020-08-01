@@ -26,6 +26,7 @@
                         @foreach ($postulantes as $user)
                             @foreach ($notasMerito as $notaM)
                                 @foreach ($notasConocimiento as $notaC)
+                                 <tr>
                                     @if ($notaM->user_id == $user->id && $notaC->user_id == $user->id)
                                         <td>{{$user->name}}</td>
                                         <td>{{$user->lastname}}</td>
@@ -33,6 +34,7 @@
                                         <td>{{$notaC->score}}</td>
                                         <td>{{$notaM->score + $notaC->score}}</td>
                                     @endif
+                                 </tr>  
                                 @endforeach        
                             @endforeach    
                         @endforeach

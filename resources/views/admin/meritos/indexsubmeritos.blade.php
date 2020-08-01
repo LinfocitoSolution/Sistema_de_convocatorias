@@ -12,7 +12,7 @@
             <h2>Tabla de Sub-Méritos</h2>
             <h3>Merito:{{$merito->name}}</h3>
                 
-                <a class="btn btn-dark px2" data-toggle="tooltip" data-trigger="hover" title="" href="{{ route('submerito.create',$merito)}}">
+                <a class="btn btn-dark px2" data-toggle="tooltip" data-trigger="hover" title="Presione para crear un nuevo submérito" href="{{ route('submerito.create',$merito)}}">
                     Nuevo Submerito
                     <i class="fa fa-table"></i>
                 </a>
@@ -34,16 +34,16 @@
                     <td>{{$submerito->name}}</td>
                     <td>{{$submerito->score}}</td>
                         
-                        <td><a class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="Presiona para ver descripciones" href="{{ route('descripcion.index',$submerito)}}">
+                        <td><a class="btn btn-dark btn-sm ml-2 my-1" data-toggle="tooltip" data-trigger="hover" title="Presiona para ver descripciones" href="{{ route('descripcion.index',$submerito)}}">
                             <i class="fa fa-eye"></i>
                         </a> 
-                        <a class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title="Crear descripciones"href="{{route('descripcion.create',$submerito)}}">
+                        <a class="btn btn-dark btn-sm ml-2 my-1" data-toggle="tooltip" data-trigger="hover" title="Crear descripciones"href="{{route('descripcion.create',$submerito)}}">
                             <i class="far fa-plus-square"></i>
                         </a> 
                         <form action="{{route('submerito.destroy', $submerito->id)}}" method="POST" style="display:inline-block;">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}                
-                            <button class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title="Eliminar submeritos"  type="submit" margin-left="50" onclick="return confirm('Está seguro que desea eliminar este submerito?')">
+                            <button class="btn btn-dark btn-sm ml-2 my-1" data-toggle="tooltip" data-trigger="hover" title="Eliminar submeritos"  type="submit" margin-left="50" onclick="return confirm('Está seguro que desea eliminar este submerito?')">
                                 <i class="fa fa-trash-alt"></i>                                
                             </button> 
                             

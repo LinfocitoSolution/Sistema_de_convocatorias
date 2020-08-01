@@ -11,7 +11,7 @@
             <div class="card-header">
                 <h2>Descripción</h2>
             <h4>Submerito:{{$submerito->name}}</h4>
-                <a class="btn btn-dark px2" data-toggle="tooltip" data-trigger="hover" title="" href="{{route('descripcion.create',$submerito)}}">
+                <a class="btn btn-dark px2" data-toggle="tooltip" data-trigger="hover" title="Presione para crear una nueva  descripción de puntos" href="{{route('descripcion.create',$submerito)}}">
                     Nueva Descripción
                     <i class="fa fa-table"></i>
                 </a>

@@ -64,7 +64,7 @@
                               </form>
                                   <form action="{{route('eliminar.nota',$user)}}" method="POST" style="display:inline-block;">
                                       {{ csrf_field() }}                                                              
-                                      <button class="btn btn-dark btn-sm mx-1 mt-2 ml-1" data-toggle="tooltip" data-trigger="hover" title="presione para eliminar postulante" type="submit" margin-left="50" onclick="return confirm('Está seguro de eliminar la calificación?')">
+                                      <button class="btn btn-dark btn-sm mx-1 mt-2 ml-1" data-toggle="tooltip" data-trigger="hover" title="presione para eliminar calificación" type="submit" margin-left="50" onclick="return confirm('Está seguro de eliminar la calificación?')">
                                           <i class="fa fa-trash-alt"></i>                                
                                       </button>                            
                                   </form>
