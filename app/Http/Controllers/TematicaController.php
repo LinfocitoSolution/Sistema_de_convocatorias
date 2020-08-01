@@ -117,17 +117,22 @@ class TematicaController extends Controller
     { 
         $requerimientos = $call->requerimientos()->get();
         $tematicas = Tematica::all();
-        foreach($requerimientos as $r)
+        if($call->publicado == 'no')
         {
             foreach($tematicas as $t)
             {
-                if($t->requerimientos()->first()->id == $r->id)
+                foreach($requerimientos as $r)    
                 {
-                    $t->delete();
-                    // $r->tematicas()->detach();
+                    if($t->requerimientos()->first()->id == $r->id)
+                    {
+                        $t->delete();
+                        // $r->tematicas()->detach();
+                    }
                 }
             }
+            return redirect(route('tematica.index'))->with(['message'=>'Tematicas eliminadas con éxito!','alert-type'=>'success']);
         }
-        return redirect(route('tematica.index'))->with(['message'=>'Tematicas eliminadas con éxito!','alert-type'=>'success']);
+        //ROJO
+        return redirect(route('tematica.index'))->with(['message'=>'No puede eliminar una temática si la convocatoria está publicada!','alert-type'=>'success']);
     }
 }
