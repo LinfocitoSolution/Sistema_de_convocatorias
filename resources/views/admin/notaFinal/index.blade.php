@@ -19,31 +19,23 @@
                         <th>Apellido</>
                         <th>Nota final de Mérito</th>
                         <th>Nota Final de Conocimiento</th>
-                        <th>Opciones</th>
-                          
+                        <th>Total</th>
                      </tr>
                     </thead>
                     <tbody>
-                        
-                        
-                        <td>Nombre</td>
-                        <td>Apellido</td>
-                        <td>Nota final de Mérito</td>
-                        <td>Nota Final de Conocimiento</td>
-                        
-                        
-                        <form action="#" style="display:inline-block;" method="POST">
-                            {{ csrf_field() }}
-                            {{ method_field('PUT') }}
-                           <td> <button class="btn btn-dark btn-sm mt-2 ml-2" data-toggle="tooltip" data-trigger="hover" title="presiona para publicar la nota Final" type="submit" margin-left="50" onclick="return confirm('Está seguro de publicar la nota?')">
-                                <i class="fa fa-cloud"></i>
-                              </button>
-                        </form>
-                        
-                    </td>
-                    
-                     </tr>
-                
+                        @foreach ($postulantes as $user)
+                            @foreach ($notasMerito as $notaM)
+                                @foreach ($notasConocimiento as $notaC)
+                                    @if ($notaM->user_id == $user->id && $notaC->user_id == $user->id)
+                                        <td>{{$user->name}}</td>
+                                        <td>{{$user->lastname}}</td>
+                                        <td>{{$notaM->score}}</td>    
+                                        <td>{{$notaC->score}}</td>
+                                        <td>{{$notaM->score + $notaC->score}}</td>
+                                    @endif
+                                @endforeach        
+                            @endforeach    
+                        @endforeach
                     </tbody>
                 </table>
             </div>
