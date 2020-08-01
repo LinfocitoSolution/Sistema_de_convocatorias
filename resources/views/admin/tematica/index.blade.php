@@ -10,7 +10,7 @@
         <div class="card mt-2">
             <div class="card-header">
                 <h3>Tabla de Tematicas</h3>
-                <a class="btn btn-dark px2" data-toggle="tooltip" data-trigger="hover" title="presiona para crear un area" href="{{route('tematica.unidad')}}">
+                <a class="btn btn-dark px2" data-toggle="tooltip" data-trigger="hover" title="presiona para crear una temática" href="{{route('tematica.unidad')}}">
                     Nuevo
                     <i class="fa fa-table"></i>
                 </a>
@@ -34,7 +34,7 @@
                                     <form action="{{route('tematica.destroy',$call)}}" method="POST" style="display:inline-block;">
                                         {{ csrf_field() }}                                                              
                                         {{ method_field('DELETE') }}                        
-                                        <button class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title="" type="submit" margin-left="50" onclick="return confirm('Está seguro de eliminar la fecha?')">
+                                        <button class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title="" type="submit" margin-left="50" onclick="return confirm('Está seguro de eliminar la tematica?')">
                                             <i class="fa fa-trash-alt"></i>                                
                                         </button>                            
                                     </form>

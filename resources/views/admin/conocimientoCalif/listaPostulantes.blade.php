@@ -34,13 +34,13 @@
                                   @if ($user->requerimientos->first()->tipo_requerimiento == "requerimiento de laboratorio")
                                     <td>                                
                                       <a class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="Presiona para calificar a un usuario" href="{{ route('calificar.postulante',$user)}}">
-                                          <i class="fa fa-eye"></i>
+                                          <i class="fa fa-edit"></i>
                                       </a>
                                     </td>      
                                   @else
                                     <td>                                
                                       <a class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="Presiona para calificar a un usuario" href="{{ route('calificar.postulanteDoc',$user)}}">
-                                          <i class="fa fa-eye"></i>
+                                          <i class="fa fa-edit"></i>
                                       </a>
                                     </td>      
                                   @endif

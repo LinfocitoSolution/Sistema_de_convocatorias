@@ -378,7 +378,7 @@
            
            <li class="nav-item has-treeview menu-close">
              <a href="#" class="nav-link active bg-dark">
-               <i class="nav-icon fa fa-table"></i>
+               <i class="nav-icon fa fa-book-open"></i>
                <p>
                  Libro de recepcion
                  <i class="right fas fa-angle-left"></i>

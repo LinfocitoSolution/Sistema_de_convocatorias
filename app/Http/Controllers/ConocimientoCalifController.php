@@ -100,7 +100,7 @@ class ConocimientoCalifController extends Controller
         }
         else
         { //necesito que este mensaje sea en ROJO
-            return redirect(route('conocimientoCalif.index'))->with(['message'=>'La tabla no se registró debido a que excedió el puntaje máximo permitido (100pts por requerimiento)!','alert-type'=>'success']);
+            return redirect(route('conocimientoCalif.index'))->with(['message'=>'La tabla no se registró debido a que excedió el puntaje máximo permitido (100pts por requerimiento)!','alert-type'=>'danger']);
         }
         
     }
