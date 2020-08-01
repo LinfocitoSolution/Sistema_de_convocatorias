@@ -122,7 +122,7 @@ class CalificacionController extends Controller
        
         
         
-        $calificacion->score=$caf + $puntaje;
+        $calificacion->score=($caf + $puntaje)*0.20;
         $calificacion->documentos=$docen;
         if($docen>$dc)
         {
