@@ -7,9 +7,12 @@
           </span>
           <select class="custom-select form-control" type="text" name="convocatoria"  >
               @foreach($calls as $item)
-             
+              @if($item->unit_id==$uni)  
+              @if($item->publicado=="no")
+                
                     <option class="text-dark" value="{{ $item->id }}">{{ $item->titulo_convocatoria }}</option>
-                    
+                @endif    
+                @endif
               @endforeach
            </select>
        </div>

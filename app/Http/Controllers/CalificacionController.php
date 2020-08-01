@@ -6,6 +6,7 @@ use App\Submerito;
 use App\User;
 use App\Libro;
 use App\Descripcion;
+use App\Calificacion_conocimiento;
 use Validator;
 
 use App\Postulante_submerito;
@@ -205,7 +206,8 @@ class CalificacionController extends Controller
     }
     public function muestra(User $user)
     {
+        $calf=Calificacion_conocimiento::where('user_id',$user->id)->first();
         $postulante=(Postulante_submerito::where('user_id',$user->id)->first()->score) * 0.20;
-        return view('admin.calificacion.descripcion' , compact('postulante'));
+        return view('admin.calificacion.descripcion' , compact('postulante','calf'));
     }
 }
