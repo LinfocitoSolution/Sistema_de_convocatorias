@@ -102,22 +102,9 @@
 
    <div class="collapse navbar-collapse" id="navbarSupportedContent">
      <ul class="navbar-nav mr-auto">
-       <li class="nav-item" tabindex="0" data-toggle="tooltip" data-trigger="hover" title="Este boton no esta disponible">
-         <a class="nav-link text-white"disabled href="#">Calendario</a>
-       </li>
        <li class="nav-item" tabindex="0" data-toggle="tooltip" title="Este boton no esta disponible">
          <a class="nav-link text-white" disabled href="#">Información</a>
        </li>
-       <li class="nav-item dropdown" tabindex="0" data-toggle="tooltip" data-trigger="hover" title="Este boton no esta disponible">
-         <a class="nav-link dropdown-toggle text-white" disabled href="#"  id="nabarDropdown" tabindex="-2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-         Malla Curricular
-         </a>
-         <div class="dropdown-menu hover" >
-           <a class="dropdown-item" href="#">Sistemas</a>
-           <a class="dropdown-item" href="#">Informática</a>
-           <a class="dropdown-item" href="#">Industrial</a>
-         </div>  
-        </li>
      </ul>
        <!----si es invitado--->
        @if (Auth::guest())

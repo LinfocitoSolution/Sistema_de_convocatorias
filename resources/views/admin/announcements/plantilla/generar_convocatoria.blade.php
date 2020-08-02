@@ -62,7 +62,7 @@
                      @endforeach
                     <tr>
                       <td>Total</td>
-                      <td>22 Aux.</td>
+                      <td>{{count($call->requerimientos()->get())}}</td>
                       <td></td>
                       <td></td>
                     </tr>
@@ -103,8 +103,8 @@
          <h6>4.&nbsp; &nbsp; FECHA Y LUGAR DE PRESENTACIÓN DE DOCUMENTOS </h6>
          <h6>4.1.&nbsp;DE LA FORMA</h6>
          <p  class="parrafo">Presentación de la documentación en sobre manila cerrado y rotulado con:</p>
-         <p  class="parrafo">- Nombre y apellidos completos, dirección, teléfono(s) y e-mail del postulante.</p> 
-         <p  class="parrafo">- Código(s) de item de la(s) auxiliatura(s) a la(s) que se postula.</p> 
+         <p  class="parrafo">- Nombre y apellidos completos, dirección, teléfono(s) y e-mail del postulante.
+         <p  class="parrafo">- Código(s) de item de la(s) auxiliatura(s) a la(s) que se postula.
          <p  class="parrafo">- Nombre(s) de la(s) auxiliatura(s) a la(s) que sepresenta.</p>
          <br>
          <h6>4.2.&nbsp;DE LA FECHA Y LUGAR</h6>
@@ -117,92 +117,49 @@
             de la siguiente manera.</p>
          <br>
       </div><!--FIN DE LA TERCERA PARTE -->
-      <div class="hoja">
-      <table id="rendimiento-table" class="table table-striped">
-         <colgroup>
-            <col width="90%">
-              <col width="10%">
-         </colgroup>
-          <thead>   
-             <tr>
-               <th>5.1. RENDIMIENTO ACADÉMICO</th>
-               <th>65</th>
-            </tr>
-          </thead>  
-          <tbody> 
-              <tr>
-                <td>a) Promedio general de las materias cursadas (Incluye reprobadas y
-                  abandonos)………………………………………………..………………………………....35 %
-               </td>
-              </tr>
-              <tr>
-               <td>b) Promedio general de materias en el periodo académico anterior ………………………..…….. 30 %</td>
-              </tr>
-          </tbody>   
-      </table>
-   </div>
-   <div class="hoja">
-      <table id="rendimiento2-table2" class="table table-striped">
-         <colgroup>
-            <col width="90%">
-              <col width="10%">
-         </colgroup>
-         <thead>
-            <tr>
-              <th>5.2. EXPERIENCIA GENERAL</th>
-              <th>35</th>
-           </tr>
-         </thead>
+      <!-- TABLA DE MERITOS -->
 
-         <tbody> 
-            <tr>
-              <td>Documentos de experiencia en laboratorios: (20)</td>
-            </tr>
-            <tr>
-               <td> a) Auxiliar de Laboratorio Departamento de Informática - Sistemas del item respectivo ...............12
-                  <br>
-                  a. 2 pts/semestre Auxiliar titular
-                  b. 1 pts/semestre Auxiliar Invitado
-               </td>
-            </tr>
-            <tr>
-               <td>
-                  b) Auxiliares de Practicas Laboratorio Departamento de Informática - Sistemas ………6
-                  a. 1 pts/semestre Auxiliar.
-               </td>
-            </tr>
-            <tr>
-               <td>
-                  c) Otros auxiliares en laboratorios de computación ………………………………………...2
-                  a. 1 pts/semestre Auxiliar.
-               </td>
-            </tr>
-            <tr>
-             <th>Producción: (5 )</th>
-           </tr>
-            <tr>
-               <td>a) Disertación cursos y/o participación en Proyectos: …………………….……………………………...5 <br>
-                  a. 2.5 pts/certificado</td>
-             </tr>
-            <tr>
-             <th>Documentos de experiencia extrauniversitaria y de capacitación: (10)</th>
-           </tr>
-            <tr>
-               <td>a) Experiencia como operador, programador, analista de sistemas, cargo directivo en centro de
-                     cómputo. ………………………………………………........................……….....................6 <br>
-                     a. 2 puntos por certificado
-               </td>
-             </tr>
-             <tr>
-               <td>b) Certificación de capacitación en el área específica expedidos por el sistema
-                  universitario ………………………………………………………………………………..........4 <br>
-                     a. 2 pts/certificado aprobación <br>
-                     b. 1 pts/certificado asistencia 
-               </td>
-             </tr>
-         </tbody>
-      </table>  
+      <div class="hoja">
+         <table class="table table-bordered table-striped table-sm" id="rendimiento-table">
+            <thead>
+            
+            </thead>
+            <tbody>
+               @foreach($meritos as $merito)
+                     <tr>
+                        <th><strong>Nombre</strong></th>
+                        <th><strong>Puntaje</strong></th>
+                     </tr>
+                     <tr>
+                        <th><strong>{{$merito->name}}</strong></th>
+                        <th><strong>{{$merito->score}}</strong></th>
+                     </tr>
+                     @foreach($submeritos as $submerito)
+                        @if($submerito->merito_id==$merito->id)
+                           <tr>
+                              <th>{{$submerito->name}}</th>
+                              <th>{{$submerito->score}}</th>
+                           </tr>
+                           <tr>
+                              <th>Descripción</th>   
+                              <th></th>
+                           </tr>
+                              @foreach($descripciones as $desc)
+                                 @if($desc->submerito_id==$submerito->id)
+                                    @if ($desc->tipo_descripcion == 'documentos')
+                                       <td>{{$desc->descripcion}}</td>
+                                       <td>{{$desc->score}}</td>             
+                                    @endif
+                                 @endif
+                              @endforeach
+                           </tr>
+                        @endif
+                     @endforeach
+               @endforeach
+            </tbody>
+       </table>
    </div>
+   <!-- FIN DE LA TABLA DE MERITOS -->
       <div id = "parte4" class="hoja">
          <p  class="parrafo" style="text-align:justify"><b>NOTA.-</b>Todo certificado será ponderado hasta el valor delpuntaje especificado en la tabla.</p>
          <h6>6.&nbsp;&nbsp;CALIFICACIÓN DE CONOCIMIENTOS</h6> 
@@ -212,99 +169,33 @@
          <h6> 6.1. &nbsp; PORCENTAJES DE CALIFICACIÓN PARA CADA TIPO DE AUXILIAR</h6> 
          <h6> 6.1.1.  PRUEBAS ESCRITAS</h6>
       </div><!-- FIN DE LA CUARTA PARTE -->
-   <div id="pruebas" class="hoja">
-      <table  id="pruebas-table" class="table table-striped">
-            <tr>
-              <td>#</td>
-              <td>TEMÁTICA</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td>CÓDIGO DE AUXILIATURA</td>
-           </tr>
-      </table>
-
-      <table id="pruebas-table2" class="table table-striped">
-         <thead>
-            <tr>
-               <td></td>
-               <td></td>
-               @foreach ($call->requerimientos as $requerimiento)
-                <td>{{$requerimiento->codigo_auxiliatura}}</td>
-               @endforeach
-            </tr>
-         </thead>
-         <tbody>
-            <tr>
-               <td>1</td>
-               <td>ADM LINUX</td>
-               @foreach ($call->requerimientos as $requerimiento)
-                   <td></td>
-               @endforeach
-            </tr>
-            <tr>
-               <td>2</td>
-               <td>REDES NIVEL INTERMEDIO</td>
-               @foreach ($call->requerimientos as $requerimiento)
-                   <td></td>
-               @endforeach
-           </tr>
-           <tr>
-            <td>3</td>
-            <td>POSTGRES, MYSQL
-                NIVEL INTERMEDIO
-            </td>
-            @foreach ($call->requerimientos as $requerimiento)
-                   <td></td>
-            @endforeach
-           </tr>
-         <tr>
-            <td>4</td>
-            <td>PROGRAMACIÓN PARA INTERNET,<br>
-            LENGUAJES DE PROGRAMACION (JSP,<br>
-            JAVASCRIPT, CSS, HTML, PHP, DELPHI)</td>
-            @foreach ($call->requerimientos as $requerimiento)
-            <td></td>
-            @endforeach
-        </tr>
-        <tr>
-            <td>5</td>
-            <td>MODELAJE DE APLICACIONES WEB <br>
-            (UML),PROCESO UNIFICADO <br>
-            ESTRUCTURADO</td>
-            @foreach ($call->requerimientos as $requerimiento)
-            <td></td>
-            @endforeach
-         </tr>
-         <tr>
-            <td>6</td>
-            <td>ENSAMBLAJE Y MANTENIMIENTO DE <br>
-            COMPUTADORA EN HARDWARE Y <br>
-            SOFTWARE</td>
-            @foreach ($call->requerimientos as $requerimiento)
-            <td></td>
-            @endforeach
-         </tr>
-         <tr>
-            <td>7</td>
-            <td>ELECTRÓNICA APLICADA <br>
-            - Teórico <br>
-            - Practico</td>
-            @foreach ($call->requerimientos as $requerimiento)
-            <td></td>
-            @endforeach
-         </tr>
-         <tr>
-            <td>8</td>
-            <td>DIDÁCTICA</td>
-            @foreach ($call->requerimientos as $requerimiento)
-            <td></td>
-            @endforeach
-      </tr>
-   </tbody>
-   </table>
-   </div>
+      <div class="hoja">
+         <table class="table table-bordered table-striped table-sm" id="pruebas-table">
+               <thead>
+                  <tr>
+                     <th>Temáticas</th>
+                        @foreach ($call->requerimientos as $req)
+                           <th>{{$req->codigo_auxiliatura}}</th>
+                        @endforeach                                     
+                  </tr>
+               </thead>
+            <tbody>
+                  @foreach ($tematicas as $tem)
+                  <tr>
+                     @foreach ($notas as $nt)
+                        @if ($nt->tematica_id == $tem->id)   
+                           <td>{{$tem ->name}}</td>    
+                           @foreach ($call->requerimientos as $reqN)
+                              <td>{{$nt->score}}</td>
+                           @endforeach        
+                        @endif
+                     @endforeach
+                  </tr>
+                  @endforeach
+            </tbody>
+         </table>
+      </div>
+      <!-- FIN DE LA TABLA DE CONOCIMIENTOS -->
 
       <div id = "parte5" class="hoja">
          <br>

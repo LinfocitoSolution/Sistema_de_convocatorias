@@ -162,7 +162,8 @@ Route::post('guardarTabla_{call}','ConocimientoCalifController@store')->name('re
 Route::post('regNotasDoc_{user}','ConocimientoCalifController@regNotasDocencia')->name('registrar.notasDoc');
 Route::delete('eliminarTabla_{item}','ConocimientoCalifController@destroy')->name('tabla.destroy');
 Route::post('eliminarNota_{user}','ConocimientoCalifController@eliminarCalificacion')->name('eliminar.nota');
-
+Route::put('calificacion_con_publicar_{user}','ConocimientoCalifController@publicar')->name('conocimiento.publicar');
+Route::put('calif__con_quitar_{user}','ConocimientoCalifController@quitarPublicacion')->name('conocimiento.quitar');
 ######################## Méritos ####
 Route::get('Merito','MeritosController@index')->name('merito.index');
 Route::get('Mform_primerPaso','MeritosController@primerPaso')->name('merito.primero');
@@ -189,11 +190,12 @@ Route::put('calificacion_publicar_{user}','CalificacionController@publicar')->na
 Route::put('calif_quitar_{user}','CalificacionController@quitarPublicacion')->name('calif.quitar');
 Route::get('calificacion_merito_{user}','CalificacionController@muestra')->name('calificacion.merito');
 ##################### NotaFinal  ###########
-Route::get('notFinal','CalificacionController@notafinal')->name('NotaFin.notafinal');
+Route::get('notasFinales','ConocimientoCalifController@tablaNotasFinales')->name('nota.final');
 ################ Libro de recepcion ########
 Route::get('libro','RecepcionController@index')->name('libro.index');
 Route::get('crear_libro','RecepcionController@create')->name('libro.create');
-
+Route::post('libro_store','RecepcionController@store')->name('libro.store');
+Route::delete('libro_delete_{libro}','RecepcionController@destroy')->name('libro.delete');
 ################ Tematica ######################
 Route::get('tematica','TematicaController@index')->name('tematica.index');
 Route::get('create','TematicaController@create')->name('tematica.create');
@@ -205,3 +207,4 @@ Route::post('libro_store','RecepcionController@store')->name('libro.store');
 Route::delete('libro_delete_{libro}','RecepcionController@destroy')->name('libro.delete');
 Route::post('guardarTematica_{call}','TematicaController@store')->name('tematica.store');
 Route::delete('eliminarTematica_{call}','TematicaController@destroy')->name('tematica.destroy');
+Route::get('show_{call}','TematicaController@show')->name('tematica.show');

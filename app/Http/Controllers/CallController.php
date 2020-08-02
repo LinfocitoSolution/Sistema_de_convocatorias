@@ -7,6 +7,13 @@ use App\Convocatoria;
 use App\Unidad;
 use App\Requerimiento;
 use App\Fecha;
+use App\Merito;
+use App\Submerito;
+use App\User;
+use App\Libro;
+use App\Descripcion;
+use App\Tematica;
+use App\Tematica_requerimiento;
 use DB;
 use Validator;
 use App\Http\Requests\ConvocatoriaRequest;
@@ -124,12 +131,23 @@ class CallController extends Controller
     }
     public function generarConvocatoriaLabo(Convocatoria $call)
     {   
-        return view('admin.announcements.plantilla.generar_convocatoria', compact('call'));
+        $meritos=Merito::where('convocatoria_id', $call->id)->get();
+        $submeritos=Submerito::all();
+        $descripciones=Descripcion::all();
+
+        $tematicas = Tematica::all();
+        // $requerimientoId = $call->requerimientos->get();
+        $notas = Tematica_requerimiento::where('convocatoria_id', '=', $call->id)->get(); 
+        return view('admin.announcements.plantilla.generar_convocatoria', compact('call', 'descripciones', 'meritos', 'submeritos', 'notas', 'tematicas'));
     }
 
     public function generarConvocatoriaDocencia(Convocatoria $call)
     {   
-        return view('admin.announcements.plantilla.generar_convocatoriaDoc', compact('call'));
+        $meritos=Merito::where('convocatoria_id', $call->id)->get();
+        $submeritos=Submerito::all();
+        $descripciones=Descripcion::all();
+
+        return view('admin.announcements.plantilla.generar_convocatoriaDoc', compact('call','descripciones', 'meritos', 'submeritos'));
     }
    
     /**
@@ -145,7 +163,8 @@ class CallController extends Controller
         $requerimiento = DB::table('requerimientos')->get();
         $eventos = DB::table('fechas')->get();
         $unidades = DB::table('units')->get();
-       
+        $call->requerimientos()->detach();
+        $call->save();
         return view('admin.announcements.edit',compact('call', 'unidades', 'requerimientos','eventos'));
        /* @else
         return view('admin.annoucements,edit1',compact('call','unidades', 'requerimientos','eventos'));*/
@@ -157,6 +176,8 @@ class CallController extends Controller
         $requerimiento = DB::table('requerimientos')->get();
         $eventos = DB::table('fechas')->get();
         $unidades = DB::table('units')->get();
+        $call->requerimientos()->detach();
+        $call->save();
         return view('admin.announcements.editdoc',compact('call', 'unidades', 'requerimientos','eventos'));
     }
     public function generarConvocatoriaDoc(Convocatoria $call){

@@ -18,8 +18,8 @@
  <div class="col-md-6 mb-2">
     <label class="col-form-label" for="nameUnidad">Tipo Descripcion</label>
    <div class="input-group">
-      <span class="input-group-append"  data-html="true" data-toggle="popover" title="Restricciones" data-content="-Seleccione la unidad que requiera">
-        <button class="btn btn-dark" type="button">U</button>
+      <span class="input-group-append"  data-html="true" data-toggle="popover" title="Restricciones" data-content="-Si selecciona promedio en puntaje colocar 0">
+        <button class="btn btn-dark" type="button">TD</button>
       </span>
       <select class="custom-select form-control" type="text" name="tipo"  >
           

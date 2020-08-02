@@ -19,12 +19,14 @@
                         <form class="form-horizontal"  action="{{ route('registrar.tabla',$call) }}" method="POST">
                            {{ csrf_field() }}                          
                             @include('admin.conocimientoCalif.form')
-                            <div class="form-actions text-center">
+                            <br>
+                            <h6 class="text-danger">*Recuerde que la sumatoria de las notas por auxiliatura debe ser 100</h6>
+                            <div class="form-actions text-center mt-3">
                                 <button class="btn btn-outline-dark" type="submit">Guardar</button>
                                 <a class="btn btn-outline-dark" href="{{route('conocimientoCalif.index')}}">Cancelar</a>
                             </div>
                         </form>
-                        <h6>*Recuerde que la sumatoria de las notas por auxiliatura debe ser 100</h6>    
+                           
                     </div>
                 </div>
             </div>

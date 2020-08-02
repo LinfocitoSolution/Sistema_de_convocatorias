@@ -69,7 +69,7 @@
     });
     doc.addPage();
     var res2 = doc.autoTableHtmlToJson(document.getElementById("tabla2"));
-    doc.autoTable(res2.columns, res2.data, {margin: {top: 100}});
+    doc.autoTable(res2.columns, res2.data, {margin: {top: 60},styles: {fontSize: 9, font: 'PTSans'}});
     
     doc.addPage();
     doc.fromHTML(elemento4, margins.left, margins.top, {

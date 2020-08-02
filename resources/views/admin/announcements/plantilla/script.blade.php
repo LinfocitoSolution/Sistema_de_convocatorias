@@ -59,13 +59,13 @@ doc.autoTable(res.columns, res.data);*/
       'width': margins.width,
       'elementHandlers': specialElementHandlers
   });
-  
+  doc.addPage();
   //AGREAGANDO TABLAS
   var tab1 = doc.autoTableHtmlToJson(document.getElementById("rendimiento-table"));
-  doc.autoTable(tab1.columns, tab1.data, {margin: {top: 215}});
+  doc.autoTable(tab1.columns, tab1.data, {margin: {top: 50},styles: {fontSize: 9, font: 'PTSans'}});
 
-  var tab2 = doc.autoTableHtmlToJson(document.getElementById("rendimiento2-table2"));
-  doc.autoTable(tab2.columns, tab2.data, {margin: {top: 300}});
+//   var tab2 = doc.autoTableHtmlToJson(document.getElementById("rendimiento2-table2"));
+//   doc.autoTable(tab2.columns, tab2.data, {margin: {top: 300}});
 
   //CUARTO DIV
   doc.addPage();
@@ -75,9 +75,9 @@ doc.autoTable(res.columns, res.data);*/
   });
   //TERCER TABLA
   var tab3 = doc.autoTableHtmlToJson(document.getElementById("pruebas-table"));
-  doc.autoTable(tab3.columns, tab3.data, {margin: {top: 300}});
-  var tab4 = doc.autoTableHtmlToJson(document.getElementById("pruebas-table2"));
-  doc.autoTable(tab4.columns, tab4.data, {margin: {top: 315}});
+  doc.autoTable(tab3.columns, tab3.data, {margin: {top: 260},styles: {fontSize: 8, font: 'PTSans'}});
+//   var tab4 = doc.autoTableHtmlToJson(document.getElementById("pruebas-table2"));
+//   doc.autoTable(tab4.columns, tab4.data, {margin: {top: 315}});
 
   //QUINTO DIV
   doc.addPage();
@@ -87,7 +87,7 @@ doc.autoTable(res.columns, res.data);*/
   });
 
   var res = doc.autoTableHtmlToJson(document.getElementById("tab_eventos"));
-  doc.autoTable(res.columns, res.data, {margin: {top: 200}});
+  doc.autoTable(res.columns, res.data, {margin: {top: 190}});
 
 
   var fecha = {!! json_encode($call->gestion) !!};

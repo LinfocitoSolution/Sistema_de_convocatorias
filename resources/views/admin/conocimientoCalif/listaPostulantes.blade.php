@@ -19,6 +19,7 @@
                 <th>Nombre</th>
                 <th>Apellido</th>
                 <th>Nombre de auxiliatura</th>
+                <th>Puntaje</th>
                 <th>Opciones</th>
              </tr>
             </thead>
@@ -30,30 +31,54 @@
                               <td>{{$user->name}}</td>
                               <td>{{$user->lastname}}</td>
                               <td>{{$user->requerimientos->first()->nombre_auxiliatura}}</td>
+                              <p hidden>{{$a=App\Calificacion_conocimiento::where('user_id',$user->id)->first()}}</p>
+                              <td>
+                                @foreach($calf as $caf)
+                            @if($caf->user_id==$user->id)
+                            {{($caf->score)}}
+                            @endif
+                            @endforeach
+                            </td>
                               @if (!App\Calificacion_conocimiento::where('user_id', '=', $user->id)->exists())
                                   @if ($user->requerimientos->first()->tipo_requerimiento == "requerimiento de laboratorio")
                                     <td>                                
-                                      <a class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="Presiona para calificar a un usuario" href="{{ route('calificar.postulante',$user)}}">
-                                          <i class="fa fa-eye"></i>
+                                      <a class="btn btn-dark btn-sm ml-2 mt-2" data-toggle="tooltip" data-trigger="hover" title="Presiona para calificar a un usuario" href="{{ route('calificar.postulante',$user)}}">
+                                          <i class="fa fa-check-square"></i>
                                       </a>
                                     </td>      
                                   @else
                                     <td>                                
-                                      <a class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="Presiona para calificar a un usuario" href="{{ route('calificar.postulanteDoc',$user)}}">
-                                          <i class="fa fa-eye"></i>
+                                      <a class="btn btn-dark btn-sm ml-2 mt-2" data-toggle="tooltip" data-trigger="hover" title="Presiona para calificar a un usuario" href="{{ route('calificar.postulanteDoc',$user)}}">
+                                          <i class="fa fa-check-square"></i>
                                       </a>
                                     </td>      
                                   @endif
-
-                              @else
-                                <td>
+                              @elseif($a->publicado!="si")
+                              <td>
+                              <form action="{{ route('conocimiento.publicar',$user->id) }}" style="display:inline-block;" method="POST">
+                                {{ csrf_field() }}
+                                {{ method_field('PUT') }}
+                                <button class="btn btn-dark btn-sm mt-2 ml-2 px-1" data-toggle="tooltip" data-trigger="hover" title="presiona para publicar la nota"type="submit" margin-left="50" onclick="return confirm('Está seguro que desea publicar esta nota?')">
+                                  <i class="fa fa-cloud"></i>
+                                </button>
+                              </form>
                                   <form action="{{route('eliminar.nota',$user)}}" method="POST" style="display:inline-block;">
                                       {{ csrf_field() }}                                                              
-                                      <button class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title="" type="submit" margin-left="50" onclick="return confirm('Está seguro de eliminar la calificación?')">
+                                      <button class="btn btn-dark btn-sm mx-1 mt-2 ml-1" data-toggle="tooltip" data-trigger="hover" title="presione para eliminar calificación" type="submit" margin-left="50" onclick="return confirm('Está seguro de eliminar la calificación?')">
                                           <i class="fa fa-trash-alt"></i>                                
                                       </button>                            
                                   </form>
                                 </td>
+                                @else
+                                <td>
+                                <form action="{{ route('conocimiento.quitar',$user->id) }}" style="display:inline-block;" method="POST">
+                                  {{ csrf_field() }}
+                                  {{ method_field('PUT') }}
+                                  <button class="btn btn-dark btn-sm mt-2 ml-2" data-toggle="tooltip" data-trigger="hover" title="presiona para quitar la publicacion de nota"type="submit" margin-left="50" onclick="return confirm('Está seguro que desea quitar la publicacion?')">
+                                    <i class="fa fa-times"></i>
+                                  </button>
+                                </form>
+                              </td>
                               @endif
                           @endif
                         @endif                              

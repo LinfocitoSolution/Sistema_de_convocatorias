@@ -6,6 +6,7 @@ use App\Submerito;
 use App\User;
 use App\Libro;
 use App\Descripcion;
+use App\Calificacion_conocimiento;
 use Validator;
 
 use App\Postulante_submerito;
@@ -121,17 +122,17 @@ class CalificacionController extends Controller
        
         
         
-        $calificacion->score=$caf + $puntaje;
+        $calificacion->score=($caf + $puntaje)*0.20;
         $calificacion->documentos=$docen;
         if($docen>$dc)
         {
-        return redirect(route('crearCalif.create',$user))->with([ 'message' => 'la suma total de documentos no puede exceder los registrados de este postulante', 'alert-type' => 'danger' ]);;
+        return redirect(route('crearCalif.create',$user))->with([ 'messageDanger' => 'la suma total de documentos no puede exceder los registrados de este postulante', 'alert-type' => 'danger' ]);
         }
         else 
         {
         $calificacion->save();
        
-        return redirect(route('calif.index'))->with([ 'message' => 'calificacion asignada exitosamente!', 'alert-type' => 'success' ]);;
+        return redirect(route('calif.index'))->with([ 'message' => 'calificacion asignada exitosamente!', 'alert-type' => 'success' ]);
         }
         //return $calificacion->score;
     
@@ -205,7 +206,8 @@ class CalificacionController extends Controller
     }
     public function muestra(User $user)
     {
-        $postulante=(Postulante_submerito::where('user_id',$user->id)->first()->score) * 0.20;
-        return view('admin.calificacion.descripcion' , compact('postulante'));
+        $calf=Calificacion_conocimiento::where('user_id',$user->id)->first();
+        $postulante=(Postulante_submerito::where('user_id',$user->id)->first()->score);
+        return view('admin.calificacion.descripcion' , compact('postulante','calf'));
     }
 }

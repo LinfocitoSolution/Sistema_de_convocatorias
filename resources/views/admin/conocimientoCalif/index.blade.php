@@ -10,7 +10,7 @@
         <div class="card mt-2">
             <div class="card-header">
                 <h1>Tabla de calificaciones</h1>
-                <a class="btn btn-dark px2" data-toggle="tooltip" data-trigger="hover" title="presiona para crear un area" href="{{route('calif.primero')}}">
+                <a class="btn btn-dark px2" data-toggle="tooltip" data-trigger="hover" title="presiona para crear una tabla de calificaciones por convocatoria" href="{{route('calif.primero')}}">
                     Nuevo
                     <i class="fa fa-table"></i>
                 </a>
@@ -34,10 +34,12 @@
                                     <td>
                                     <form action="{{ route('tabla.destroy',$item->convocatoria_id)}}" method="POST" style="display:inline-block;">
                                             {{ csrf_field() }}                                                              
-                                            {{ method_field('DELETE') }}                        
-                                            <button class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title="presiona para eliminar una fecha" type="submit" margin-left="50" onclick="return confirm('Está seguro de eliminar la fecha?')">
-                                                <i class="fa fa-trash-alt"></i>                                
-                                            </button>                            
+                                            {{ method_field('DELETE') }}            
+                                            @if($call->publicado == 'no')            
+                                                <button class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title="presiona para eliminar una fecha" type="submit" margin-left="50" onclick="return confirm('Está seguro de eliminar la tabla?')">
+                                                    <i class="fa fa-trash-alt"></i>                                
+                                                </button>                            
+                                            @endif
                                         </form>
                                     </td>
                                 @endif

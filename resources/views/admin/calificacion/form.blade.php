@@ -13,10 +13,10 @@
             @foreach($meritos as $merito)
             @if($user->requerimientos->first()->convocatorias->first()->id==$merito->convocatoria_id)  
               <tr>
-                <th><strong>Merito:{{$merito->name}}</strong></th>
+                <th><strong>Mérito:{{$merito->name}}</strong></th>
                 
               </tr>
-              <tr><th><strong>Puntaje Limite:{{$merito->score}}</strong></th></tr>
+              <tr><th><strong>Puntaje Límite:{{$merito->score}}</strong></th></tr>
               <tr> 
                
                 
@@ -27,7 +27,7 @@
                   
                   <th>Submerito:{{$submerito->name}}</th></tr>
 
-                  <tr><th>Puntaje Limite:{{$submerito->score}}</th>
+                  <tr><th>Puntaje Límite:{{$submerito->score}}</th>
               </tr>
                <tr>
                   <th>Descripción</th>   

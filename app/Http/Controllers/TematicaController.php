@@ -26,7 +26,7 @@ class TematicaController extends Controller
         {
             return view('admin.tematica.index',compact('callsLab', 'tematicas'));
         }
-        return redirect(route('tematica.unidad'))->with(['message'=>'Registre sus temáticas','alert-type'=>'success']);
+        return redirect(route('tematica.unidad'))->with(['messageDanger'=>'Registre sus temáticas','alert-type'=>'danger']);
     }
 
     /**
@@ -79,9 +79,10 @@ class TematicaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Convocatoria $call)
     {
-        //
+        $tematicas=Tematica::all();
+        return view('admin.tematica.show',compact('call','tematicas'));
     }
 
     /**
@@ -117,17 +118,22 @@ class TematicaController extends Controller
     { 
         $requerimientos = $call->requerimientos()->get();
         $tematicas = Tematica::all();
-        foreach($requerimientos as $r)
+        if($call->publicado == 'no')
         {
             foreach($tematicas as $t)
             {
-                if($t->requerimientos()->first()->id == $r->id)
+                foreach($requerimientos as $r)    
                 {
-                    $t->delete();
-                    // $r->tematicas()->detach();
+                    if($t->requerimientos()->first()->id == $r->id)
+                    {
+                        $t->delete();
+                        // $r->tematicas()->detach();
+                    }
                 }
             }
+            return redirect(route('tematica.index'))->with(['message'=>'Tematicas eliminadas con éxito!','alert-type'=>'success']);
         }
-        return redirect(route('tematica.index'))->with(['message'=>'Tematicas eliminadas con éxito!','alert-type'=>'success']);
+        //ROJO
+        return redirect(route('tematica.index'))->with(['messageDanger'=>'No puede eliminar una temática si la convocatoria está publicada!','alert-type'=>'danger']);
     }
 }

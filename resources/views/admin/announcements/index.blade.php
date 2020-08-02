@@ -17,8 +17,11 @@
           Nuevo
           <i class="fa fa-user-plus"></i>
       </a>
+      <h4>Nota:recuerde crear sus tablas de calificacion una vez creada la convocatoria, sino la convocatoria no puede ser publicada</h4>
         </div>
+        
         <div class="card-body">
+          
          <table class="table table-bordered table-striped table-sm">
             <thead>
              <tr>
@@ -43,46 +46,49 @@
                     
                   
                     <td>
-                      @if($call->publicado=="si")
-                      <form action="{{ route('call.destroy', $call->id) }}" style="display:inline-block;" method="POST">
-                        {{ csrf_field() }}
-                        {{ method_field('DELETE') }}
-                        <button class="btn btn-dark btn-sm mt-2 ml-2" data-toggle="tooltip" data-trigger="hover" title="presiona para eliminar una convocatoria"type="submit" margin-left="50" onclick="return confirm('Está seguro de eliminar la convocatoria?')">
-                          <i class="fa fa-trash-alt"></i>
-                        </button>
-                    </form>
-                    <form action="{{ route('call.quitar', $call->id) }}" style="display:inline-block;" method="POST">
-                      {{ csrf_field() }}
-                      {{ method_field('PUT') }}
-                      <button class="btn btn-dark btn-sm mt-2 ml-2" data-toggle="tooltip" data-trigger="hover" title="presiona para quitar una una convocatoria publicada"type="submit" margin-left="50" onclick="return confirm('Está seguro que desea ocultar esta convocatoria?')">
-                        <i class="fa fa-times"></i>
-                      </button>
-                    </form>
-                    @else
-                      @if($call->tipo_convocatoria=='convocatoria de docencia')
-                        <a class="btn btn-dark btn-sm mt-1 ml-2" data-toggle="tooltip" data-trigger="hover" title="presiona para editar una convocatoria" href="{{ route('call.editardoc', $call) }}">
+                         @if($call->publicado=="si")
+                              <form action="{{ route('call.destroy', $call->id) }}" style="display:inline-block;" method="POST">
+                                  {{ csrf_field() }}
+                                  {{ method_field('DELETE') }}
+                                  <button class="btn btn-dark btn-sm mt-2 ml-2" data-toggle="tooltip" data-trigger="hover" title="presiona para eliminar una convocatoria"type="submit" margin-left="50" onclick="return confirm('Está seguro de eliminar la convocatoria?')">
+                                    <i class="fa fa-trash-alt"></i>
+                                  </button>
+                             </form>
+                            <form action="{{ route('call.quitar', $call->id) }}" style="display:inline-block;" method="POST">
+                                {{ csrf_field() }}
+                                {{ method_field('PUT') }}
+                                <button class="btn btn-dark btn-sm mt-2 ml-2" data-toggle="tooltip" data-trigger="hover" title="presiona para quitar una una convocatoria publicada"type="submit" margin-left="50" onclick="return confirm('Está seguro que desea ocultar esta convocatoria?')">
+                                  <i class="fa fa-times"></i>
+                                </button>
+                            </form>
+                       @else
+                          @if($call->tipo_convocatoria=='convocatoria de docencia')
+                            <a class="btn btn-dark btn-sm mt-1 ml-2" data-toggle="tooltip" data-trigger="hover" title="presiona para editar una convocatoria" href="{{ route('call.editardoc', $call) }}">
+                                <i class="fa fa-pencil-alt"></i>
+                            </a>
+                          @elseif($call->tipo_convocatoria=='convocatoria de laboratorios')
+                          <a class="btn btn-dark btn-sm mt-1 ml-2" data-toggle="tooltip" data-trigger="hover" title="presiona para editar una convocatoria" href="{{ route('call.edit', $call) }}">
                             <i class="fa fa-pencil-alt"></i>
-                        </a>
-                      @elseif($call->tipo_convocatoria=='convocatoria de laboratorios')
-                      <a class="btn btn-dark btn-sm mt-1 ml-2" data-toggle="tooltip" data-trigger="hover" title="presiona para editar una convocatoria" href="{{ route('call.edit', $call) }}">
-                        <i class="fa fa-pencil-alt"></i>
-                      </a>
-                      @endif
-                        <form action="{{ route('call.destroy', $call->id) }}" style="display:inline-block;" method="POST">
-                            {{ csrf_field() }}
-                            {{ method_field('DELETE') }}
-                            <button class="btn btn-dark btn-sm mt-2 ml-2" data-toggle="tooltip" data-trigger="hover" title="presiona para eliminar una convocatoria"type="submit" margin-left="50" onclick="return confirm('Está seguro de eliminar la convocatoria?')">
-                              <i class="fa fa-trash-alt"></i>
-                            </button>
-                        </form>
-                        <form action="{{ route('call.publicar', $call->id) }}" style="display:inline-block;" method="POST">
-                          {{ csrf_field() }}
-                          {{ method_field('PUT') }}
-                          <button class="btn btn-dark btn-sm mt-2 ml-2" data-toggle="tooltip" data-trigger="hover" title="presiona para publicar una convocatoria"type="submit" margin-left="50" onclick="return confirm('Está seguro que desea publicar la convocatoria?')">
-                            <i class="fa fa-cloud"></i>
-                          </button>
-                        </form>
-                        @endif
+                          </a>
+                          @endif
+                            <form action="{{ route('call.destroy', $call->id) }}" style="display:inline-block;" method="POST">
+                                {{ csrf_field() }}
+                                {{ method_field('DELETE') }}
+                                <button class="btn btn-dark btn-sm mt-2 ml-2" data-toggle="tooltip" data-trigger="hover" title="presiona para eliminar una convocatoria"type="submit" margin-left="50" onclick="return confirm('Está seguro de eliminar la convocatoria?')">
+                                  <i class="fa fa-trash-alt"></i>
+                                </button>
+                            </form>
+                            <!-- SOLO SE PERMITEN PUBLICAR AQUELLAS QUE HAYAN REGISTRADO SUS TABLAS -->
+                            @if (App\Tematica_requerimiento::where('convocatoria_id', '=',$call->id)->exists() && App\Merito::where('convocatoria_id', '=',$call->id)->exists())
+                              <form action="{{ route('call.publicar', $call->id) }}" style="display:inline-block;" method="POST">
+                                {{ csrf_field() }}
+                                {{ method_field('PUT') }}
+                                <button class="btn btn-dark btn-sm mt-2 ml-2" data-toggle="tooltip" data-trigger="hover" title="presiona para publicar una convocatoria"type="submit" margin-left="50" onclick="return confirm('Está seguro que desea publicar la convocatoria?')">
+                                  <i class="fa fa-cloud"></i>
+                                </button>
+                              </form>
+                            @endif
+                       @endif
                     </td>
                 </tr>
             @endforeach
