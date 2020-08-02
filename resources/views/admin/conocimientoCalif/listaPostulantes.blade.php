@@ -39,7 +39,7 @@
                             @endif
                             @endforeach
                             </td>
-                              @if (!App\Calificacion_conocimiento::where('user_id', '=', $user->id)->exists())
+                              @if(!App\Calificacion_conocimiento::where('user_id', '=', $user->id)->exists())
                                   @if ($user->requerimientos->first()->tipo_requerimiento == "requerimiento de laboratorio")
                                     <td>                                
                                       <a class="btn btn-dark btn-sm ml-2 mt-2" data-toggle="tooltip" data-trigger="hover" title="Presiona para calificar a un usuario" href="{{ route('calificar.postulante',$user)}}">

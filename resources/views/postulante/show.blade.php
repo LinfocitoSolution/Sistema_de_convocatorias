@@ -57,13 +57,13 @@
                 @if(Auth::user()->roles->first()->name=='Postulante')
                   <div class="text-center">
                         <a class="btn btn-outline-dark  text-white m-2 my-sm-2" data-toggle="tooltip" data-placement="left" title="Presiona el botón para EDITAR" href="{{ route('postulante.edit', $user->id) }}"><i class="fa fa-edit mr-2"></i>Editar</a>
-                        <a class="btn btn-outline-dark  text-white m-2 my-sm-2" data-toggle="tooltip" data-placement="top" title="El botón no esta disponible" href="{{ route('reset.password') }}"><i class="fa fa-key mr-2"></i>Cambiar Contraseña</a>
+                        <a class="btn btn-outline-dark  text-white m-2 my-sm-2" data-toggle="tooltip" data-placement="top" title="Restablecer contraseña" href="{{ route('reset.password') }}"><i class="fa fa-key mr-2"></i>Cambiar Contraseña</a>
                         <a class="btn btn-outline-dark text-white m-2" data-toggle="tooltip" data-placement="right" title="Presiona el botón para volver a la pantalla principal" href="{{url('/')}}"><i class="fa fa-arrow-left mr-2"></i>Atrás</a>
                  </div>
                @else
                 <div class="text-center">
                     <a class="btn btn-outline-dark  text-white m-2 my-sm-2" data-toggle="tooltip" data-placement="left" title="Presiona botón para EDITAR" href="{{ route('postulante.edit', $user->id) }}"><i class="fa fa-edit mr-2"></i>Editar</a>
-                    <a class="btn btn-outline-dark  text-white m-2 my-sm-2" data-toggle="tooltip" data-placement="top" title="El botón no esta disponible" href="{{ route('reset.password') }}"><i class="fa fa-key mr-2"></i>Cambiar Contraseña</a>
+                    <a class="btn btn-outline-dark  text-white m-2 my-sm-2" data-toggle="tooltip" data-placement="top" title="Restablecer contraseña" href="{{ route('reset.password') }}"><i class="fa fa-key mr-2"></i>Cambiar Contraseña</a>
                     <a class="btn btn-outline-dark text-white m-2" data-toggle="tooltip" data-placement="right" title="Presiona el botón para volver alpanel de trabajo" href="{{url('administrador')}}"><i class="fa fa-arrow-left mr-2"></i>Atrás</a>
                 </div>
               @endif
