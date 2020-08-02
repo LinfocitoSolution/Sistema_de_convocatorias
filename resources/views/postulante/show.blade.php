@@ -26,12 +26,14 @@
                             <th>Nombre de usuario</th><td>{{$user->username}}</td>
                         </tr> 
                             <th>Email</th><th>{{$user->email}}</th>
+                    @if(Auth::user()->roles->first()->name=='Postulante')
                         <tr>
                                 <th>Telefono</th><td>{{$user->telephone}}</td>
                         </tr> 
                                 <th>Direccion</th><th>{{$user->direction}}</th>
                         </tr> 
-                                @if ($curriculum != null && $user->habilitados->first()->publicado=="no")
+                       
+                        @if ($curriculum != null && $user->habilitados->first()->publicado=="no")
                                     <form action="{{route('cancelar.postulacion', $user) }}" style="display:inline-block;" method="POST">
                                         {{ csrf_field() }}
                                         {{ method_field('PUT') }}
@@ -43,7 +45,7 @@
                                 @else
                                     <th>Postula a: </th><th>{{$user->requerimientos->first()->nombre_auxiliatura}}
                                 @endif
-                        
+                    @endif
                             <!---{ $user->password }} -->
                         </tbody>
                     </table>

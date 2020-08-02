@@ -1,6 +1,19 @@
-   
-   
-     <div class="invalid-feedback {{ $errors->has('evento')? 'd-block' : '' }}">
+<div class="col-md-6">
+   <label class="col-form-label" for="evento">Evento</label>
+<div class="input-group">
+   <span class="input-group-append" data-html="true" data-toggle="popover" title="Restricciones" data-content= "-M&aacute;ximo 200 caracteres<br> -No acepta caracteres especiales">
+      <button class="btn btn-dark" type="button">E</button>
+   </span>
+
+   <input
+       class="form-control"
+       name="evento"
+       placeholder="Ingrese un evento" type="text" value="{{ old('evento', isset($fecha) ? $fecha->ubicacion : '') }}"> 
+      
+</div>
+</div>
+  
+  <div class="invalid-feedback {{ $errors->has('evento')? 'd-block' : '' }}">
         {{ $errors->has('evento')? $errors->first('evento') : 'El evento ingresado ya existe en nuestro registros'}}
      </div>
   
@@ -57,4 +70,3 @@
 <div class="invalid-feedback {{ $errors->has('ubicacion')? 'd-block' : '' }}">
     {{ $errors->has('ubicacion')? $errors->first('ubicacion') : ''  }}
  </div>
-</div>
