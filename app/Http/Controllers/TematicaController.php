@@ -30,8 +30,8 @@ class TematicaController extends Controller
         {
             return redirect(route('tematica.unidad'))->with(['messageDanger'=>'Necesita crear una convocatoria (laboratorio)!','alert-type'=>'danger']);
         }
-        return 'index';
-        //return view('admin.tematica.index',compact('callsLab', 'tematicas'));
+
+        return view('admin.tematica.index',compact('callsLab', 'tematicas'));
     }
 
     /**
