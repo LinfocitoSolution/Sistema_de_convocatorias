@@ -17,10 +17,10 @@ class RolesTableSeeder extends Seeder
                 'name' => 'Admin',//1
             ],
             [
-                'name' => 'Validador',//2
+                'name' => 'Meritos',//2
             ],
             [
-                'name' => 'Calificador',//3
+                'name' => 'Conocimientos',//3
             ],
             [
                 'name' => 'Postulante',//4

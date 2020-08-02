@@ -77,7 +77,7 @@
             @endif
           <!--fin de acceso-->
           <!--convocatorias-->        
-            @if(Auth::user()->hasPermission('list announcements') || Auth::user()->hasPermission('create announcements') )  
+            @if(Auth::user()->hasPermission('list announcements') || Auth::user()->hasPermission('create announcements_lab') || Auth::user()->hasPermission('create announcements_doc') )  
               <li class="nav-item has-treeview menu-close">
                 <a href="#" class="nav-link active bg-dark">
                   <i class="nav-icon fas fa-file"></i>
@@ -87,13 +87,15 @@
                   </p>
                 </a>
                 <ul class="nav nav-treeview">
-                  @if(Auth::user()->hasPermission('create announcements'))
+                  @if(Auth::user()->hasPermission('create announcements_lab'))
                     <li class="nav-item">
                       <a href="{{ route('call.create')}}" class="nav-link">                
                         <i class="fas fa-plus-square nav-icon"></i>
                         <p>NuevaConvocatoriaLabos</p>
                       </a>
                     </li>
+                  @endif
+                  @if(Auth::user()->hasPermission('create announcements_doc'))
                     <li class="nav-item">
                       <a href="{{route('call.createdoc')}}" class="nav-link">                
                         <i class="fas fa-plus-square nav-icon"></i>
@@ -239,6 +241,7 @@
             @endif
           <!--Fin Fechas-->
           <!---Tematica--->
+          @if(Auth::user()->hasPermission('call unit_tematics') || Auth::user()->hasPermission('list tematics'))
           <li class="nav-item has-treeview menu-close">
             <a href="#" class="nav-link active bg-dark">
               <i class="nav-icon fa fa-table"></i>
@@ -248,26 +251,28 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-              
+              @if(Auth::user()->hasPermission('call unit_tematics'))
                 <li class="nav-item">
                   <a href="{{route('tematica.unidad')}}" class="nav-link">
                     <i class="fas fa-plus-square nav-icon"></i>
                     <p>Nueva Tematica</p>
                   </a>
                 </li>
-             
+              @endif  
+              @if(Auth::user()->hasPermission('list tematics'))
                 <li class="nav-item">
                   <a href="{{route('tematica.index')}}" class="nav-link">
                     <i class="fas fa-th-list nav-icon"></i>
                     <p>Lista </p>
                   </a>
                 </li>
-              
+              @endif
             </ul>
           </li>
+          @endif
           <!---Fin tematica--->
           <!--Inicio de tabla de conocimiento-->
-            @if(Auth::user()->hasPermission('list tablaConocimientos') || Auth::user()->hasPermission('create tablaConocimientos'))
+            @if(Auth::user()->hasPermission('calfi_primero tablaCalif') || Auth::user()->hasPermission('create tablaConocimientos') || Auth::user()->hasPermission('list_postulantes tablaCalif'))
               <li class="nav-item has-treeview menu-close">
                 <a href="#" class="nav-link active bg-dark">
                   <i class="nav-icon fa fa-table"></i>
@@ -277,7 +282,7 @@
                   </p>
                 </a>
                 <ul class="nav nav-treeview">
-                  @if(Auth::user()->hasPermission('create tablaConocimientos'))
+                  @if(Auth::user()->hasPermission('calfi_primero tablaCalif'))
                     <li class="nav-item">
                       <a href="{{route('calif.primero')}}" class="nav-link">
                         <i class="fas fa-plus-square nav-icon"></i>
@@ -294,21 +299,21 @@
                       </a>
                     </li>
                   @endif
-
+                  @if(Auth::user()->hasPermission('list_postulantes tablaCalif'))
                   <li class="nav-item">
                     <a href="{{route('lista.postulantes')}}" class="nav-link">
                       <i class="fas fa-th-list nav-icon"></i>
                       <p>Calificar Postulantes </p>
                     </a>
                   </li>
-
+                  @endif
                 </ul>
               </li>
             @endif
           <!--Fin tabla de conocimiento-->
 
              <!--Postulante-->
-            
+             @if(Auth::user()->hasPermission('list habilitado') )
              <li class="nav-item has-treeview menu-close">
                <a href="#" class="nav-link active bg-dark">
                  <i class="nav-icon fa fa-user-graduate"></i>
@@ -322,6 +327,7 @@
                      
      
                <ul class="nav nav-treeview">
+                @if(Auth::user()->hasPermission('list habilitado'))
                  <li class="nav-item">
                     <a href="{{route('habilitado_inhabilitado.index')}}" class="nav-link">
                        <i class="fas fa-th-list nav-icon"></i>
@@ -329,11 +335,13 @@
                        <p>Lista Postulantes</p>
                     </a>
                   </li>
+                @endif
                </ul>
             </li>
-          
+            @endif
          <!--Fin Postulantes-->
          <!--inicio de tabla de merito-->
+         @if(Auth::user()->hasPermission('primer_paso meritos') || Auth::user()->hasPermission('list meritos') || Auth::user()->hasPermission('lits calificacion_meritos') )
          <li class="nav-item has-treeview menu-close">
           <a href="#" class="nav-link active bg-dark">
             <i class="nav-icon fa fa-table"></i>
@@ -344,6 +352,7 @@
           </a>
 
           <ul class="nav nav-treeview">
+            @if(Auth::user()->hasPermission('primer_paso meritos'))
             <li class="nav-item">
                <a href="{{route('merito.primero')}}" class="nav-link">
                   <i class="fas fa-th-list nav-icon"></i>
@@ -351,10 +360,12 @@
                   <p></p>
                </a>
              </li>
+             @endif
           </ul>   
                 
 
           <ul class="nav nav-treeview">
+            @if(Auth::user()->hasPermission('list meritos'))
             <li class="nav-item">
                <a href="{{route('merito.index')}}" class="nav-link">
                   <i class="fas fa-th-list nav-icon"></i>
@@ -362,8 +373,10 @@
                   <p></p>
                </a>
              </li>
+             @endif
           </ul>
           <ul class="nav nav-treeview">
+            @if(Auth::user()->hasPermission('lits calificacion_meritos'))
             <li class="nav-item">
                <a href="{{route('calif.index')}}" class="nav-link">
                   <i class="fas fa-check-square nav-icon"></i>
@@ -371,11 +384,13 @@
                   <p></p>
                </a>
              </li>
+             @endif
           </ul>
         </li>
+        @endif
          <!--fin de tabla de merito-->
            <!--Recepcion de documentos-->
-           
+           @if(Auth::user()->hasPermission('create books') || Auth::user()->hasPermission('list books') )
            <li class="nav-item has-treeview menu-close">
              <a href="#" class="nav-link active bg-dark">
                <i class="nav-icon fa fa-book-open"></i>
@@ -385,26 +400,28 @@
                </p>
              </a>
              <ul class="nav nav-treeview">
-
+                @if(Auth::user()->hasPermission('create books'))
                  <li class="nav-item">
                    <a href="{{route('libro.create')}}" class="nav-link">
                      <i class="fas fa-plus-square nav-icon"></i>
                      <p>Nuevo </p>
                    </a>
                  </li>
-               
+                @endif
+                @if(Auth::user()->hasPermission('list books'))
                  <li class="nav-item">
                    <a href="{{route('libro.index')}}" class="nav-link">
                      <i class="fas fa-th-list nav-icon"></i>
                      <p>Lista del libro</p>
                    </a>
                  </li>
-              
+                 @endif
              </ul>
            </li>
-         
+           @endif
        <!--Fin libro recepcion-->
        <!-- inicio nota final-->
+       @if(Auth::user()->hasPermission('notaFinal'))
        <li class="nav-item has-treeview menu-close">
         <a href="#" class="nav-link active bg-dark">
           <i class="nav-icon fa fa-table"></i>
@@ -414,15 +431,17 @@
           </p>
         </a>
         <ul class="nav nav-treeview">
-
+          @if(Auth::user()->hasPermission('notaFinal'))
             <li class="nav-item">
               <a href="{{route('nota.final')}}" class="nav-link">
                 <i class="fas fa-plus-square nav-icon"></i>
                 <p>Lista de Notas Finales</p>
               </a>
             </li>
+            @endif
           </ul>
         </li>
+        @endif
        <!--fin de nota final-->
 
         </ul>

@@ -14,17 +14,24 @@ class RequerimientosTableSeeder extends Seeder
     {
         $requerimientos = [
             [
-                'cantidad_de_auxiliares' => '12',
-                'cantidad_horas_academicas' => '12',              
+                'cantidad_de_auxiliares' => '7',
+                'cantidad_horas_academicas' => '80',              
                 'nombre_auxiliatura' => 'Administrador de Laboratorio de Computo',
                 'codigo_auxiliatura' => 'LCO-ADM',
                 'tipo_requerimiento' => 'requerimiento de laboratorio',
             ],
             [
                 'cantidad_de_auxiliares' => '2',
-                'cantidad_horas_academicas' => '56',              
+                'cantidad_horas_academicas' => '80',              
                 'nombre_auxiliatura' => 'Administrador de Laboratorio de Desarrollo',
                 'codigo_auxiliatura' => 'LDS-ADM',
+                'tipo_requerimiento' => 'requerimiento de laboratorio',
+            ],
+            [
+                'cantidad_de_auxiliares' => '2',
+                'cantidad_horas_academicas' => '56',              
+                'nombre_auxiliatura' => 'Auxiliar de Laboratorio de Desarrollo',
+                'codigo_auxiliatura' => 'LDS-AUX',
                 'tipo_requerimiento' => 'requerimiento de laboratorio',
             ],
             [
@@ -35,17 +42,17 @@ class RequerimientosTableSeeder extends Seeder
                 'tipo_requerimiento' => 'requerimiento de laboratorio',
             ],
             [
+                'cantidad_de_auxiliares' => '4',
+                'cantidad_horas_academicas' => '32',              
+                'nombre_auxiliatura' => 'Auxiliar de Laboratorio de Mantenimiento de Software',
+                'codigo_auxiliatura' => 'LM–AUX–SW',
+                'tipo_requerimiento' => 'requerimiento de laboratorio',
+            ],
+            [
                 'cantidad_de_auxiliares' => '1',
                 'cantidad_horas_academicas' => '80',              
                 'nombre_auxiliatura' => 'Administrador de Laboratorio de Mantenimiento de Hardware',
                 'codigo_auxiliatura' => 'LM-ADM-HW',
-                'tipo_requerimiento' => 'requerimiento de laboratorio',
-            ],
-            [
-                'cantidad_de_auxiliares' => '2',
-                'cantidad_horas_academicas' => '56',              
-                'nombre_auxiliatura' => 'Auxiliar de Laboratorio de Desarrollo',
-                'codigo_auxiliatura' => 'LDS-AUX',
                 'tipo_requerimiento' => 'requerimiento de laboratorio',
             ],
             [

@@ -22,11 +22,11 @@ class UsersTableSeeder extends Seeder
                 'remember_token' => '',                
             ],
             [
-                'name' => 'Calificador',
-                'lastname' => 'Calificador',
-                'email' => 'calificador@gmail.com',                                
-                'username' => 'calificador',                
-                'password' => bcrypt('calificador'),
+                'name' => 'Conocimientos',
+                'lastname' => 'Conocimientos',
+                'email' => 'conocimientos@gmail.com',                                
+                'username' => 'conocimientos',                
+                'password' => bcrypt('conocimientos'),
                 'remember_token' => '',                
             ],
             [
@@ -60,11 +60,11 @@ class UsersTableSeeder extends Seeder
             ],
 
             [
-                'name' => 'Validador',
-                'lastname' => 'Validador',
-                'email' => 'validador@gmail.com',                
-                'username' => 'validador',                            
-                'password' => bcrypt('validador'),
+                'name' => 'Meritos',
+                'lastname' => 'Meritos',
+                'email' => 'meritos@gmail.com',                
+                'username' => 'meritos',                            
+                'password' => bcrypt('meritos'),
                 'remember_token' => '',
             ],
 
@@ -76,11 +76,11 @@ class UsersTableSeeder extends Seeder
                 $user->assignRole(['Admin']);
             }
             else{
-                if ($user->name == 'Validador'){
-                    $user->assignRole(['Validador']);
+                if ($user->name == 'Meritos'){
+                    $user->assignRole(['Meritos']);
                 } else {
-                    if($user->name == 'Calificador'){
-                        $user->assignRole(['Calificador']);
+                    if($user->name == 'Conocimientos'){
+                        $user->assignRole(['Conocimientos']);
                     }
                     else{
                         if($user->name == 'Postulante'){

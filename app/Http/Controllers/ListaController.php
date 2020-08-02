@@ -12,15 +12,15 @@ use Illuminate\Http\Request;
 
 class ListaController extends Controller
 {
-    // public function __construct()
-    // {
-    //     $this-> middleware('permission:create habilitado')->only(['create','store']);
-    //     $this-> middleware('permission:list habilitado')->only('index');
-    //     $this-> middleware('permission:edit habilitado')->only(['edit','update']);
-    //     // $this-> middleware('permission:list users')->only('show');//show        
-    //     $this-> middleware('permission:delete habilitado')->only('destroy');
+    public function __construct()
+    {
+        // $this-> middleware('permission:create habilitado')->only(['create','store']);
+        $this-> middleware('permission:list habilitado')->only('index');
+        // $this-> middleware('permission:edit habilitado')->only(['edit','update']);
+        // // $this-> middleware('permission:list users')->only('show');//show        
+        // $this-> middleware('permission:delete habilitado')->only('destroy');
   
-    // }
+    }
 
     /**
      * Display a listing of the resource.

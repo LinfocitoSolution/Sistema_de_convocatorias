@@ -95,7 +95,7 @@ Route::group(['middleware' => 'permission:view-access-management'], function () 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     #######################  Habilitados ###############################
-    Route::resource('habilitado_inhabilitado','ListaController@index');//->middleware('permission:list habilitado');
+    Route::resource('habilitado_inhabilitado','ListaController@index');
     Route::get('documentosPresentar_{user}', 'ListaController@indexlab')->name('documentos.indexlab')->middleware('permission:documentos_indexlab habilitado');
     Route::get('documentosPresentardoc_{user}','ListaController@indexdoce')->name('documentos.indexdoce')->middleware('permission:documentos_indexdoce habilitado');
     Route::put('habilitar_{user}','ListaController@habilitar')->name('documentos.habilitar')->middleware('permission:documentos_habilitar habilitado');
@@ -103,7 +103,7 @@ Route::group(['middleware' => 'permission:view-access-management'], function () 
     Route::put('documentosQuitar_{user}','ListaController@quitar')->name('documento.quitar')->middleware('permission:documento_quitar habilitado');
     Route::get('descripcionPostulante{user}','ListaController@describe')->name('descripcion.desc')->middleware('permission:descripcion habilitado');
 
-    ################ TABLA CALIF ############################################
+    ################ TABLA CALIF Conocimiento ############################################
     Route::get('form_primerPaso','ConocimientoCalifController@primerPaso')->name('calif.primero')->middleware('permission:calfi_primero tablaCalif');
     Route::get('form_segundoPaso','ConocimientoCalifController@segundoPaso')->name('calif.segundo')->middleware('permission:calfi_segundo tablaCalif');
 
@@ -115,9 +115,10 @@ Route::group(['middleware' => 'permission:view-access-management'], function () 
     Route::post('regNotasDoc_{user}','ConocimientoCalifController@regNotasDocencia')->name('registrar.notasDoc')->middleware('permission:registrar_notasDoc tablaCalif');
     Route::delete('eliminarTabla_{item}','ConocimientoCalifController@destroy')->name('tabla.destroy')->middleware('permission:delete tabla tablaCalif');
     Route::post('eliminarNota_{user}','ConocimientoCalifController@eliminarCalificacion')->name('eliminar.nota')->middleware('permission:delete nota tablaCalif');
+    // Route::put('calificacion_con_publicar_{user}','ConocimientoCalifController@publicar')->name('conocimiento.publicar')->middleware('permission:conocimiento_publicar tablaCalif');
+    // Route::put('calif__con_quitar_{user}','ConocimientoCalifController@quitarPublicacion')->name('conocimiento.quitar')->middleware('permission:conocimiento_quitar tablaCalif');
     Route::put('calificacion_con_publicar_{user}','ConocimientoCalifController@publicar')->name('conocimiento.publicar')->middleware('permission:conocimiento_publicar tablaCalif');
     Route::put('calif__con_quitar_{user}','ConocimientoCalifController@quitarPublicacion')->name('conocimiento.quitar')->middleware('permission:conocimiento_quitar tablaCalif');
-
 
     ######################## Méritos #################################################################
     Route::get('Merito','MeritosController@index')->name('merito.index')->middleware('permission:list meritos');
@@ -142,6 +143,8 @@ Route::group(['middleware' => 'permission:view-access-management'], function () 
     Route::get('califMerito_{user}','CalificacionController@create')->name('crearCalif.create')->middleware('permission:create calificacion_meritos');
     Route::post('calif_store_{user}','CalificacionController@store')->name('calif.store')->middleware('permission:create calificacion_meritos');
     Route::delete('calificacion_eliminar_{user}','CalificacionController@delete')->name('calif.delete')->middleware('permission:delete calificacion_meritos');
+    // Route::put('calificacion_publicar_{user}','CalificacionController@publicar')->name('calif.publicar')->middleware('permission:publicar calificacion_meritos');
+    // Route::put('calif_quitar_{user}','CalificacionController@quitarPublicacion')->name('calif.quitar')->middleware('permission:quitar calificacion_meritos');
     Route::put('calificacion_publicar_{user}','CalificacionController@publicar')->name('calif.publicar')->middleware('permission:publicar calificacion_meritos');
     Route::put('calif_quitar_{user}','CalificacionController@quitarPublicacion')->name('calif.quitar')->middleware('permission:quitar calificacion_meritos');
     Route::get('calificacion_merito_{user}','CalificacionController@muestra')->name('calificacion.merito')->middleware('permission:calificacion_meritos');
@@ -168,17 +171,22 @@ Route::group(['middleware' => 'permission:view-access-management'], function () 
     // Route::resource('call', 'CallController');
     Route::get('convocatoria','HomeController@convocatorias')->name('convocatoria');
     Route::get('generar_{call}', 'CallController@generarConvocatoria')->name('generar');
-    Route::get('call_createdoc','CallController@createdoc')->name('call.createdoc');
+    Route::get('call_createdoc','CallController@createdoc')->name('call.createdoc')->middleware('permission:create announcements_doc');
     Route::get('call_{call}_editardoc','CallController@editardoc')->name('call.editardoc');
     Route::post('call_storedoc','CallController@storedoc')->name('call.storedoc');
     Route::delete('call_deletedoc_{call}','CallController@destroydoc')->name('call.destroydoc');
     Route::put('call_updatedoc_{call}','CallController@updatedoc')->name('call.updatedoc');
-    Route::get('generarConv_{call}', 'CallController@generarConvocatoriaLabo')->name('generarConv');
-    Route::get('generarConvDoc_{call}', 'CallController@generarConvocatoriaDocencia')->name('generarConvDoc');
+    // Route::get('generarConv_{call}', 'CallController@generarConvocatoriaLabo')->name('generarConv');
+    // Route::get('generarConvDoc_{call}', 'CallController@generarConvocatoriaDocencia')->name('generarConvDoc');
     Route::put('call_publicar_{call}','CallController@publicarConvocatoria')->name('call.publicar');
     Route::put('call_quitar_{call}','CallController@quitarPublicacion')->name('call.quitar');
     
 });
+
+Route::get('generarConv_{call}', 'CallController@generarConvocatoriaLabo')->name('generarConv');
+Route::get('generarConvDoc_{call}', 'CallController@generarConvocatoriaDocencia')->name('generarConvDoc');
+
+
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 //##############################################################
 Route::get('test', function () {

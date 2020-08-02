@@ -13,17 +13,17 @@ class FechasTableSeeder extends Seeder
     public function run()
     {
         $fechas = [
-            [
-                'evento' => 'convocatoria',
-                'fechaI' => '2020-07-11 20:01:00',
-                'fechaF' => '2021-07-20 17:01:00',              
-                'ubicacion' => 'Facultad de Ciencias y Tecnologia UMSS',                
-            ],
+            // [
+            //     'evento' => 'convocatoria',
+            //     'fechaI' => '2020-07-11 20:01:00',
+            //     'fechaF' => '2021-07-20 17:01:00',              
+            //     'ubicacion' => 'Facultad de Ciencias y Tecnologia UMSS',                
+            // ],
             [
                 'evento' => 'Publicacion de Convocatoria',
                 'fechaI' => '2020-07-20 17:12:00',
                 'fechaF' => '2021-07-11 17:12:00',              
-                'ubicacion' => '',                
+                'ubicacion' => 'Laboratorios de informatica sistemas',                
             ],
             [
                 'evento' => 'Presentacion de Documentos',
@@ -44,7 +44,7 @@ class FechasTableSeeder extends Seeder
                 'ubicacion' => 'en laboratorio informatica sistemas',                
             ],
             [
-                'evento' => 'publicacion de pruebas practicas y de conocimientos',
+                'evento' => 'Rol de pruebas',
                 'fechaI' => '2020-08-25 08:15:00',
                 'fechaF' => '2020-08-31 17:15:00',              
                 'ubicacion' => 'en laboratorio informatica sistemas',                

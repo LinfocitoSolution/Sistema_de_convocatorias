@@ -12,7 +12,7 @@ class Convocatoria_fechaTableSeeder extends Seeder
     public function run()
     {
         DB::table('convocatoria_fecha')->insert([
-            'convocatoria_id' => '1',
+            'convocatoria_id' => '1', 
             'fecha_id' => '1',  
         ]);
         DB::table('convocatoria_fecha')->insert([
@@ -34,10 +34,6 @@ class Convocatoria_fechaTableSeeder extends Seeder
         DB::table('convocatoria_fecha')->insert([
             'convocatoria_id' => '1',
             'fecha_id' => '6',     
-        ]);
-        DB::table('convocatoria_fecha')->insert([
-            'convocatoria_id' => '1',
-            'fecha_id' => '7',      
         ]);
         DB::table('convocatoria_fecha')->insert([
             'convocatoria_id' => '2',
@@ -64,10 +60,7 @@ class Convocatoria_fechaTableSeeder extends Seeder
             'convocatoria_id' => '2',
             'fecha_id' => '6',    
         ]);
-        DB::table('convocatoria_fecha')->insert([
-            'convocatoria_id' => '2',
-            'fecha_id' => '7',    
-        ]);
+
         DB::table('convocatoria_fecha')->insert([
             'convocatoria_id' => '3',
             'fecha_id' => '1',    
@@ -93,10 +86,6 @@ class Convocatoria_fechaTableSeeder extends Seeder
             'fecha_id' => '6',    
         ]);
         DB::table('convocatoria_fecha')->insert([
-            'convocatoria_id' => '3',
-            'fecha_id' => '7',    
-        ]);
-        DB::table('convocatoria_fecha')->insert([
             'convocatoria_id' => '4',
             'fecha_id' => '1',    
         ]);
@@ -120,10 +109,7 @@ class Convocatoria_fechaTableSeeder extends Seeder
             'convocatoria_id' => '4',
             'fecha_id' => '6',    
         ]);
-        DB::table('convocatoria_fecha')->insert([
-            'convocatoria_id' => '4',
-            'fecha_id' => '7',    
-        ]);
+
         DB::table('convocatoria_fecha')->insert([
             'convocatoria_id' => '5',
             'fecha_id' => '1',    
@@ -148,10 +134,7 @@ class Convocatoria_fechaTableSeeder extends Seeder
             'convocatoria_id' => '5',
             'fecha_id' => '6',    
         ]);
-        DB::table('convocatoria_fecha')->insert([
-            'convocatoria_id' => '5',
-            'fecha_id' => '7',    
-        ]);
+
         DB::table('convocatoria_fecha')->insert([
             'convocatoria_id' => '6',
             'fecha_id' => '1',    
@@ -175,10 +158,6 @@ class Convocatoria_fechaTableSeeder extends Seeder
         DB::table('convocatoria_fecha')->insert([
             'convocatoria_id' => '6',
             'fecha_id' => '6',    
-        ]);
-        DB::table('convocatoria_fecha')->insert([
-            'convocatoria_id' => '6',
-            'fecha_id' => '7',    
         ]);
         
     }

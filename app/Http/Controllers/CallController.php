@@ -25,7 +25,7 @@ class CallController extends Controller
      */
     public function __construct()
     {
-        $this-> middleware('permission:create announcements')->only(['create','store']);
+        $this-> middleware('permission:create announcements_lab')->only(['create','store']);
         $this-> middleware('permission:list announcements')->only('index');
         $this-> middleware('permission:edit announcements')->only(['edit','update']);
         // $this-> middleware('permission:list announcements')->only('show');//show        

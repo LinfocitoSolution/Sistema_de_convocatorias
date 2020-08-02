@@ -31,7 +31,8 @@ class PermissionsTableSeeder extends Seeder
             [ 'name' => 'delete areas' ],
 
             [ 'name' => 'list announcements' ],
-            [ 'name' => 'create announcements' ],
+            [ 'name' => 'create announcements_lab' ],
+            [ 'name' => 'create announcements_doc' ],
             [ 'name' => 'edit announcements' ],
             [ 'name' => 'delete announcements' ],
 
@@ -132,8 +133,8 @@ class PermissionsTableSeeder extends Seeder
         ];
 
         $rol_admin = Role::find(1);
-        $rol_validator = Role::find(2);
-        $rol_calificador = Role::find(3);
+        $rol_meritos = Role::find(2);
+        $rol_conocimientos = Role::find(3);
         $rol_postulante = Role::find(4);
         $rol_jefeDepartamento=Role::find(5);
         $rol_secretaria=Role::find(6);
@@ -143,42 +144,73 @@ class PermissionsTableSeeder extends Seeder
             $rol_admin->givePermissionTo($permission);
         }
 
-        $rol_calificador->givePermissionTo([
+        $rol_conocimientos->givePermissionTo([
             'view-access-management',
             'list postulants',
-            'list announcements',
+            'calfi_primero tablaCalif',
+            'list tablaConocimientos',
+            'list_postulantes tablaCalif',
+            'list habilitado',
         ]);
 
         $rol_postulante->givePermissionTo([            
-            'list announcements',//debemos crear otro permiso diferente
             'rotulo_postulante',
+
         ]);
-        $rol_validator->givePermissionTo([
-            'view-access-management',            
-            'list announcements',
+        $rol_meritos->givePermissionTo([
+            'view-access-management',
+            'primer_paso meritos',
+            'list meritos',
+            'lits calificacion_meritos',
+            'list habilitado',
+
+
         ]);
         $rol_secretaria->givePermissionTo([
             'view-access-management',
-            'list areas',
-            'create areas',
-            'edit areas',
-            'delete areas',
-            'list units',
-            'create units',
-            'edit units',
-            'delete units',
-            'list requirements',
-            'create requirements',
-            'edit requirements',
-            'delete requirements',
-            'list announcements',
-            'create announcements',
-            'edit announcements',
-            'delete announcements',
+            // 'list areas',
+            // 'create areas',
+            // 'edit areas',
+            // 'delete areas',
+            // 'list units',
+            // 'create units',
+            // 'edit units',
+            // 'delete units',
+            // 'list requirements',
+            // 'create requirements',
+            // 'edit requirements',
+            // 'delete requirements',
+            // 'list announcements',
+            // 'create announcements',
+            // 'edit announcements',
+            // 'delete announcements',
+            //'create meritos',
+            'create books',
+            'list books',            
+            'delete books',
         ]);
         $rol_jefeDepartamento->givePermissionTo([ 
             'view-access-management',           
+            'notaFinal',
+            'create announcements_lab',
+            'create announcements_doc',
             'list announcements',
+            'list areas',
+            'create areas',
+
+            'list units',
+            'create units',
+
+            'create requirements',
+            'list requirements',
+
+            'create fechas',
+            'list fechas',
+
+            'call unit_tematics',
+            'list tematics',
+            
+            'list habilitado',
         ]);    
 
     }
