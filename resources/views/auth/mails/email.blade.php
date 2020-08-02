@@ -13,6 +13,7 @@ Hello <i>{{ $model->receiver }}</i>,
 <div>
 <p><b>testVarOne:</b>&nbsp;{{ $testVarOne }}</p>
 <p><b>testVarTwo:</b>&nbsp;{{ $testVarTwo }}</p>
+<a href="http://127.0.0.1:8000/reset"></a>
 </div>
  
 Thank You,

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Mail\modelEmail;
+use App\User;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 
@@ -17,6 +18,6 @@ class MailController extends Controller
         $objModel->sender = 'LS';
         $objModel->receiver = 'ReceiverUserName';
  
-        Mail::to("direccion@destino.com")->send(new modelEmail ($objModel));
+        Mail::to("correo@destino.com")->send(new modelEmail ($objModel));
     }
 }
