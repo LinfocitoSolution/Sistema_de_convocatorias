@@ -146,7 +146,8 @@ Route::group(['middleware' => 'permission:view-access-management'], function () 
     Route::put('calif_quitar_{user}','CalificacionController@quitarPublicacion')->name('calif.quitar')->middleware('permission:quitar calificacion_meritos');
     Route::get('calificacion_merito_{user}','CalificacionController@muestra')->name('calificacion.merito')->middleware('permission:calificacion_meritos');
     ##################### NotaFinal  ###########
-    Route::get('notFinal','CalificacionController@notafinal')->name('NotaFin.notafinal')->middleware('permission:notaFinal');
+    //Route::get('notFinal','CalificacionController@notafinal')->name('NotaFin.notafinal')->middleware('permission:notaFinal');
+    Route::get('notasFinales','ConocimientoCalifController@tablaNotasFinales')->name('nota.final')->middleware('permission:notaFinal');
     ################ Libro de recepcion ########
 
     Route::get('libro','RecepcionController@index')->name('libro.index')->middleware('permission:list books');
@@ -161,6 +162,7 @@ Route::group(['middleware' => 'permission:view-access-management'], function () 
     Route::get('tematicaUnidad','TematicaController@tematicaUnidad')->name('tematica.unidad')->middleware('permission:call unit_tematics');
     Route::post('guardarTematica_{call}','TematicaController@store')->name('tematica.store')->middleware('permission: create tematics');
     Route::delete('eliminarTematicas_{call}','TematicaController@destroy')->name('tematica.destroy')->middleware('permission:delete tematics');
+    Route::get('show_{call}','TematicaController@show')->name('tematica.show')->middleware('permission:list tematics');
 
     //##################### CONVOCATORIA ########################## FALTA MIDDLEWARE
     // Route::resource('call', 'CallController');
