@@ -1,4 +1,6 @@
-   <div class="invalid-feedback {{ $errors->has('evento')? 'd-block' : '' }}">
+   
+   
+     <div class="invalid-feedback {{ $errors->has('evento')? 'd-block' : '' }}">
         {{ $errors->has('evento')? $errors->first('evento') : 'El evento ingresado ya existe en nuestro registros'}}
      </div>
   

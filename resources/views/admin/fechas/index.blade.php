@@ -36,14 +36,14 @@
                   <td>{{$fecha->fechaF}}</td>
                   <td>{{$fecha->ubicacion}}</td>                   
                                 <td>
-                                    <a class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title="presiona para editar una fecha"href="{{route('fechas.edit',$fecha)}}">
+                                    <a class="btn btn-dark btn-sm ml-2 my-1" data-toggle="tooltip" data-trigger="hover" title="presiona para editar una fecha"href="{{route('fechas.edit',$fecha)}}">
                                         <i class="fa fa-pencil-alt"></i>
                                     </a> 
                                    
                                     <form action="{{route('fechas.destroy',$fecha->id)}}" method="POST" style="display:inline-block;">
                                         {{ csrf_field() }}                                                              
                                         {{ method_field('DELETE') }}                        
-                                        <button class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title="presiona para eliminar una fecha" type="submit" margin-left="50" onclick="return confirm('Está seguro de eliminar la fecha?')">
+                                        <button class="btn btn-dark btn-sm ml-2 my-1" data-toggle="tooltip" data-trigger="hover" title="presiona para eliminar una fecha" type="submit" margin-left="50" onclick="return confirm('Está seguro de eliminar la fecha?')">
                                             <i class="fa fa-trash-alt"></i>                                
                                         </button>                            
                                     </form>

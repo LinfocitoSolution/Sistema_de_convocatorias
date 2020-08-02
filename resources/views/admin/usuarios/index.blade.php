@@ -47,40 +47,37 @@
                             {{ method_field('DELETE') }}
                               @forelse ($user->roles as $item)
                                 @if ($item->name == 'Postulante')
+                                  <a class="btn btn-dark btn-sm ml-2" data-toggle="tooltip" data-trigger="hover" title="No disponible por el momento" href="{{ route('usuarios.show',$user->id)}}">
+                                    <i class="fa fa-eye"></i>
+                                  </a>
                                   <button class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="Presiona para eliminar usuario" type="submit" margin-left="50" onclick="return confirm('Está seguro de eliminar el usuario?')">
                                     <i class="fa fa-trash-alt"></i>
                                   </button>
-
-                                  <a class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="No disponible por el momento" href="{{ route('usuarios.show',$user->id)}}">
-                                    <i class="fa fa-eye"></i>
-                                  </a>
                                 @else
                                     @if ($item->name != 'Admin')                                
-                                        <button class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="Presiona para eliminar usuario" type="submit" margin-left="50" onclick="return confirm('Está seguro de eliminar el usuario?')">
-                                          <i class="fa fa-trash-alt"></i>
-                                        </button>
-
-                                        <a class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="Presiona para observar al usuario" href="{{ route('usuarios.show',$user->id)}}">
+                                        <a class="btn btn-dark btn-sm ml-2" data-toggle="tooltip" data-trigger="hover" title="Presiona para observar al usuario" href="{{ route('usuarios.show',$user->id)}}">
                                           <i class="fa fa-eye"></i>
                                         </a>
 
-                                        <a class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="Presiona para editar usuario" href="{{ route('usuarios.edit', $user->id) }}">
+                                        <a class="btn btn-dark btn-sm pr-1" data-toggle="tooltip" data-trigger="hover" title="Presiona para editar usuario" href="{{ route('usuarios.edit', $user->id) }}">
                                           <i class="fa fa-edit"></i>
                                         </a>
+                                        <button class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="Presiona para eliminar usuario" type="submit" margin-left="50" onclick="return confirm('Está seguro de eliminar el usuario?')">
+                                          <i class="fa fa-trash-alt"></i>
+                                        </button>
                                     @endif
                                 @endif
                               @empty
-                                  <button class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="Presiona para eliminar usuario" type="submit" margin-left="50" onclick="return confirm('Está seguro de eliminar el usuario?')">
-                                    <i class="fa fa-trash-alt"></i>
-                                  </button>
-
-                                  <a class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="No disponible por el momento" href="{{ route('usuarios.show',$user->id)}}">
+                                  <a class="btn btn-dark btn-sm ml-2" data-toggle="tooltip" data-trigger="hover" title="No disponible por el momento" href="{{ route('usuarios.show',$user->id)}}">
                                     <i class="fa fa-eye"></i>
                                   </a>
 
-                                  <a class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="Presiona para editar usuario" href="{{ route('usuarios.edit', $user->id) }}">
+                                  <a class="btn btn-dark btn-sm pr-1" data-toggle="tooltip" data-trigger="hover" title="Presiona para editar usuario" href="{{ route('usuarios.edit', $user->id) }}">
                                     <i class="fa fa-edit"></i>
                                   </a>
+                                  <button class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="Presiona para eliminar usuario" type="submit" margin-left="50" onclick="return confirm('Está seguro de eliminar el usuario?')">
+                                    <i class="fa fa-trash-alt"></i>
+                                  </button>
                               @endforelse                              
                           </form>
                         </td>
