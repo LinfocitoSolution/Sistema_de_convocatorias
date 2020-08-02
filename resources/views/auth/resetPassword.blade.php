@@ -13,21 +13,19 @@
 					  <!--fin de cabeza-->
 					  <!--Inicio cuerpo de formulario-->	   
 						  <div class="card-body ">
-					
-				             <form method="POST" action="{{url('recuperar')}}">
+				             <form method="POST" action="{{route('confirmar.password')}}">
 								<input type="hidden" name="_token" value="{{ csrf_token() }}">
 								<div class="input-group form-group">
 									<div class="input-group-prepend">
 										<span class="input-group-text"><i class="fas fa-at icon-cog"></i></span>
 									</div>
-									<input type="email" class="form-control" placeholder="Email" name="Email" value="" >
-									{{-- <br><small id="emailHelp" class="form-text text-muted">usuario@example.com</small>comment --}}
+									<input type="password" class="form-control" placeholder="Contraseña actual" name="passviejo" value="" >
 								</div>
 								<div class="input-group form-group">
 									<div class="input-group-prepend">
 										<span class="input-group-text"><i class="fas fa-key icon-cog"></i></span>
 									</div>
-									<input type="password" class="form-control" placeholder="Password" name="Password">
+									<input type="password" class="form-control" placeholder="Nueva contraseña" name="Password">
 								</div>
 								<div class="input-group form-group">
 									<div class="input-group-prepend">
@@ -35,12 +33,8 @@
 									</div>
 									<input type="password" class="form-control" placeholder="Confirmar Password" name="confirmpassword">
 								</div>
-								
-								
 								<button type="submit" class="btn btn-dark rounded-pill active btn-block mt-3"> Recuperar Contraseña </button>
-
-						  </form>
-						       
+						 	 </form>   
 						 </div>
 						 <!--fin de cuerpo de formulario-->
 					  </div>		

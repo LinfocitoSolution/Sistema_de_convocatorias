@@ -22,11 +22,16 @@ class TematicaController extends Controller
     {
         $callsLab = Convocatoria::where('tipo_convocatoria', 'convocatoria de laboratorios')->get();
         $tematicas = Tematica::all();
-        if(!$tematicas->isEmpty())
+        if($tematicas->isEmpty())
         {
-            return view('admin.tematica.index',compact('callsLab', 'tematicas'));
+            return redirect(route('tematica.unidad'))->with(['messageDanger'=>'Registre sus temáticas','alert-type'=>'danger']);
         }
-        return redirect(route('tematica.unidad'))->with(['messageDanger'=>'Registre sus temáticas','alert-type'=>'danger']);
+        if($callsLab->isEmpty())
+        {
+            return redirect(route('tematica.unidad'))->with(['messageDanger'=>'Necesita crear una convocatoria (laboratorio)!','alert-type'=>'danger']);
+        }
+        return 'index';
+        //return view('admin.tematica.index',compact('callsLab', 'tematicas'));
     }
 
     /**
@@ -126,8 +131,9 @@ class TematicaController extends Controller
                 {
                     if($t->requerimientos()->first()->id == $r->id)
                     {
+                        $t->requerimientos()->delete();
                         $t->delete();
-                        // $r->tematicas()->detach();
+                        $r->tematicas()->detach();
                     }
                 }
             }
