@@ -11,8 +11,8 @@
             <div class="col-lg-12">
                 <div class="card mt-2">
                     <div class="card-header">
-                        <h1>Crear tabla de Méritos</h1>
-                        <h2>Puntajes limite para cada convocatoria:</h2>
+                        <h2>Crear tabla de Méritos</h2>
+                        <h3>Puntajes limite para cada convocatoria:</h3>
                         @foreach($calls as $call)
                         @if($call->publicado=="no")
                         @if($call->unit_id==$uni)

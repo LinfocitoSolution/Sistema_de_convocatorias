@@ -9,9 +9,9 @@
     <div class="container"> 
         <div class="card mt-2">
             <div class="card-header">
-                <h1>Descripción</h1>
-            <h1>Submerito:{{$submerito->name}}</h1>
-                <a class="btn btn-dark px2" data-toggle="tooltip" data-trigger="hover" title="" href="{{route('descripcion.create',$submerito)}}">
+                <h2>Descripción</h2>
+            <h4>Submerito:{{$submerito->name}}</h4>
+                <a class="btn btn-dark px2" data-toggle="tooltip" data-trigger="hover" title="Presione para crear una nueva  descripción de puntos" href="{{route('descripcion.create',$submerito)}}">
                     Nueva Descripción
                     <i class="fa fa-table"></i>
                 </a>
@@ -50,9 +50,9 @@
                 
                     </tbody>
                 </table>
-            
-                <a class="btn btn-outline-dark center-block" href="{{ url()->previous() }}">Atras</a>
-                
+                 <div class="form-actions text-center mt-5">
+                    <a class="btn btn-outline-dark center-block" href="{{ url()->previous() }}">Atrás</a>
+                 </div>
                 
                 
             </div>

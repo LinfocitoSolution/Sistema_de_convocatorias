@@ -202,7 +202,7 @@
     $('#add_field').click (function(e) {
         e.preventDefault();//prevenir nuevos clicks
         if(x<campos_max){
-            $('#listas').append('<div>\<input type="text" name="campo[]">\ <button class="btn btn-outline-dark mr-3 my-2  remover_campo">Eliminar</button>\</div>');
+            $('#listas').append('<div class="form-inline">\<div>\<input class="form-control mt-2" style="width:450px;height:43px" type="text" placeholder="Escriba la tematica" name="campo[]">\<button  class="btn btn-outline-dark ml-2 mr-3 my-2  remover_campo">Eliminar</button>\</div>\</div>');
             x++;
          
         }

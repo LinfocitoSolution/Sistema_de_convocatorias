@@ -30,7 +30,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <div class="alert alert-success mb-0">
         {{ session()->get('message') }}
     </div>
+@elseif(session()->has('messageDanger'))
+    <div class="alert alert-danger mb-0">
+        {{session()->get('messageDanger')}}
+    </div>      
 @endif
+
 </head>
 <body class="hold-transition sidebar-mini">
    <div class="wrapper"> 

@@ -32,18 +32,18 @@
                         <td> {{$merito->name}} </td>
                         <td>{{$merito->score}}</td>
                         
-                        <td><a class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title="Crear sub-méritos"href="{{ route('submerito.create',$merito)}}">
+                        <td><a class="btn btn-dark btn-sm ml-2 my-1" data-toggle="tooltip" data-trigger="hover" title="Crear sub-méritos"href="{{ route('submerito.create',$merito)}}">
                             <i class="far fa-plus-square"></i>
                         </a> 
                         
-                        <a class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="Presiona para ver sub-meritos" href="{{ route('subMerito.indexsubmerito',$merito)}}">
+                        <a class="btn btn-dark btn-sm ml-2" data-toggle="tooltip" data-trigger="hover" title="Presiona para ver sub-meritos" href="{{ route('subMerito.indexsubmerito',$merito)}}">
                             <i class="fa fa-eye"></i>
                         </a>
                         
                         <form action="{{ route('merito.destroy', $merito->id) }}" method="POST" style="display:inline-block;">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}                
-                            <button class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title="Eliminar Méritos"  type="submit" margin-left="50" onclick="return confirm('Está seguro que desea eliminar este merito?')">
+                            <button class="btn btn-dark btn-sm ml-2 my-1" data-toggle="tooltip" data-trigger="hover" title="Eliminar Méritos"  type="submit" margin-left="50" onclick="return confirm('Está seguro que desea eliminar este merito?')">
                                 <i class="fa fa-trash-alt"></i>                                
                             </button> 
                             

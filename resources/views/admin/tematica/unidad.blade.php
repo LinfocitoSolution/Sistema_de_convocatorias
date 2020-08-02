@@ -29,7 +29,7 @@
                                </div>
                            </div>
                            <div class="form-actions text-center">
-                            <a class="btn btn-outline-dark" href="#">Atras</a>
+                            <a class="btn btn-outline-dark" href="{{route('tematica.index')}}">Atras</a>
                             <button class="btn btn-outline-dark" type="submit">Siguiente</button>
                            
                      </div> 

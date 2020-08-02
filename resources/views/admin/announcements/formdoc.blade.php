@@ -55,8 +55,10 @@
         <select class="form-control js-example-basic-multiple " name="requerimientos[]" multiple="multiple">
            @foreach($requerimientos as $item)
            @if($item->tipo_requerimiento=='requerimiento de docencia')
-                  <option class="text-dark" value="{{ $item->id }}">{{ $item->nombre_auxiliatura }}</option>
-            @endif     
+           @if(!$item->convocatorias()->exists())
+           <option class="text-dark" value="{{ $item->id }}">{{ $item->nombre_auxiliatura }}</option>
+           @endif 
+           @endif     
            @endforeach
         </select>
         

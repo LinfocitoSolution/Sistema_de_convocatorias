@@ -74,7 +74,8 @@ class MeritosController extends Controller
         
         
         if ($validator->fails()) {
-            return redirect(route('merito.create'))->withErrors($validator);
+            //return redirect(route('merito.create'))->withErrors($validator);
+            return redirect()->back()->withErrors($validator);
         }
         else {
         $meritos->save();

@@ -11,7 +11,7 @@
             <div class="col-lg-12">
                 <div class="card mt-2">
                     <div class="card-header">
-                        <h1> Calificacion de meritos</h1>
+                        <h1> Calificación de meritos</h1>
                     </div>
                          <div class="card-body">
                         <form class="form-horizontal" action="{{route('calif.store',$user)}}" method="POST">                                                      

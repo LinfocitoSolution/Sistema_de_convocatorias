@@ -17,8 +17,11 @@
           Nuevo
           <i class="fa fa-user-plus"></i>
       </a>
+      <h4>Nota:recuerde crear sus tablas de calificacion una vez creada la convocatoria, sino la convocatoria no puede ser publicada</h4>
         </div>
+        
         <div class="card-body">
+          
          <table class="table table-bordered table-striped table-sm">
             <thead>
              <tr>

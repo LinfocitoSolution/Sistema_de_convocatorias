@@ -15,6 +15,7 @@ use App\Tematica;
 use App\Tematica_requerimiento;
 use App\Calificacion_conocimiento;
 use App\Calificacion_merito;
+use App\Postulante_submerito;
 class ConocimientoCalifController extends Controller
 {
     public function __construct()
@@ -175,7 +176,7 @@ class ConocimientoCalifController extends Controller
         $tematicas = Tematica::all();
         $requerimientoId = $user->requerimientos->first()->id;//requerimiento al que se postula
         $notas = Tematica_requerimiento::where('requerimiento_id', '=', $requerimientoId)->get();//solo notas de tematicas que tenga el requerimiento del postulante
-        if(Calificacion_meritos::where('user_id','=',$user->id)->exists())
+        if(Postulante_submerito::where('user_id','=',$user->id)->exists())
         {
             return view('admin.conocimientoCalif.calificarPostulante', compact('user', 'tematicas', 'notas'));
         }
@@ -184,7 +185,7 @@ class ConocimientoCalifController extends Controller
     }
     public function calificarPostDoc(User $user)
     {
-        if(Calificacion_merito::where('user_id','=',$user->id)->exists())
+        if(Postulante_submerito::where('user_id','=',$user->id)->exists())
         {
             return view('admin.conocimientoCalif.calificarPostDoc', compact('user'));
         }
@@ -250,5 +251,12 @@ class ConocimientoCalifController extends Controller
         //return $user;
         $postulante->save();
         return redirect(route('lista.postulantes'))->with([ 'message' => 'Nota quitada exitosamente!', 'alert-type' => 'success' ]);
+    }
+    public function tablaNotasFinales()
+    {   
+        $postulantes = User::where('carrera_id', '!=', 'null')->get();
+        $notasMerito = Calificacion_conocimiento::all();
+        $notasConocimiento = Postulante_submerito::all();
+        return view('admin.notaFinal.index', compact('postulantes', 'notasMerito', 'notasConocimiento'));
     }
 }

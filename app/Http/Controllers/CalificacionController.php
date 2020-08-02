@@ -126,13 +126,13 @@ class CalificacionController extends Controller
         $calificacion->documentos=$docen;
         if($docen>$dc)
         {
-        return redirect(route('crearCalif.create',$user))->with([ 'message' => 'la suma total de documentos no puede exceder los registrados de este postulante', 'alert-type' => 'danger' ]);;
+        return redirect(route('crearCalif.create',$user))->with([ 'messageDanger' => 'la suma total de documentos no puede exceder los registrados de este postulante', 'alert-type' => 'danger' ]);
         }
         else 
         {
         $calificacion->save();
        
-        return redirect(route('calif.index'))->with([ 'message' => 'calificacion asignada exitosamente!', 'alert-type' => 'success' ]);;
+        return redirect(route('calif.index'))->with([ 'message' => 'calificacion asignada exitosamente!', 'alert-type' => 'success' ]);
         }
         //return $calificacion->score;
     
@@ -207,7 +207,7 @@ class CalificacionController extends Controller
     public function muestra(User $user)
     {
         $calf=Calificacion_conocimiento::where('user_id',$user->id)->first();
-        $postulante=(Postulante_submerito::where('user_id',$user->id)->first()->score) * 0.20;
+        $postulante=(Postulante_submerito::where('user_id',$user->id)->first()->score);
         return view('admin.calificacion.descripcion' , compact('postulante','calf'));
     }
 }
