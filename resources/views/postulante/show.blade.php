@@ -25,13 +25,14 @@
                             <th>Nombre de usuario</th><td>{{$user->username}}</td>
                         </tr> 
                             <th>Email</th><th>{{$user->email}}</th>
-                    @if(!isset(Auth::user()->requerimientos))
+                    
                         @if(Auth::user()->roles->first()->name=='Postulante')
                             <tr>
                                     <th>Telefono</th><td>{{$user->telephone}}</td>
                             </tr> 
                                     <th>Direccion</th><th>{{$user->direction}}</th>
                             </tr> 
+                            @if(isset(Auth::user()->requerimientos->first()->id))
                                     @if ($curriculum != 'null' && $user->habilitados->first()->publicado != "si")
                                         <form action="{{route('cancelar.postulacion', $user) }}" style="display:inline-block;" method="POST">
                                             {{ csrf_field() }}
