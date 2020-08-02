@@ -163,7 +163,7 @@ Route::group(['middleware' => 'permission:view-access-management'], function () 
     Route::get('create','TematicaController@create')->name('tematica.create')->middleware('permission:create tematics');
     Route::get('tematicaConvocatoria','TematicaController@tematicaConvocatoria')->name('tematica.convocatoria')->middleware('permission:call tematics');
     Route::get('tematicaUnidad','TematicaController@tematicaUnidad')->name('tematica.unidad')->middleware('permission:call unit_tematics');
-    Route::post('guardarTematica_{call}','TematicaController@store')->name('tematica.store')->middleware('permission: create tematics');
+    Route::post('guardarTematica_{call}','TematicaController@store')->name('tematica.store')->middleware('permission:create tematics');
     Route::delete('eliminarTematicas_{call}','TematicaController@destroy')->name('tematica.destroy')->middleware('permission:delete tematics');
     Route::get('show_{call}','TematicaController@show')->name('tematica.show')->middleware('permission:list tematics');
 
@@ -183,7 +183,7 @@ Route::group(['middleware' => 'permission:view-access-management'], function () 
     
 });
 
-Route::get('generarConv_{call}', 'CallController@generarConvocatoriaLabo')->name('generarConv');
+Route::get('generarConv_{call}', 'CallController@generarConvocatoriaLabo')->name('generarConv');//vista principal
 Route::get('generarConvDoc_{call}', 'CallController@generarConvocatoriaDocencia')->name('generarConvDoc');
 
 
