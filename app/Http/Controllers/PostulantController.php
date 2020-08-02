@@ -83,5 +83,20 @@ class PostulantController extends Controller
         $user->save();        
         return redirect(route('postulante.show',compact('user')))->with([ 'message' => 'Usuario actualizado exitosamente!', 'alert-type' => 'success' ]);
     }
-    
+    public function resetPassword()
+    {
+        return view('auth.resetPassword',compact('user', 'curriculum'));
+    }
+    public function confirmarPassword(Request $request)
+    {
+        $hash = Auth::user()->passwword;
+        return $hash;
+        $password = $request->input('passviejo');
+        if(password_verify ( $password , $hash )){
+            return 'correcto!';
+        }
+        else{
+            return 'incorrecto!';
+        }     
+    }
 }

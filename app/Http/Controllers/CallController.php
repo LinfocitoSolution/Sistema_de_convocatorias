@@ -81,6 +81,7 @@ class CallController extends Controller
         $convocatoria->unit_id=$request->get('unidad');
         $convocatoria->requisitos=$request->input('requisito');
         $convocatoria->gestion=$request->input('gestion');
+        $convocatoria->publicado="no";
         // if ($request->hasFile('archivo')) {
         //     $file = $request->file('archivo');
         //     $nombre = time().$file->getClientOriginalName();
@@ -108,7 +109,8 @@ class CallController extends Controller
         $convocatoria->unit_id=$request->get('unidad');
         $convocatoria->requisitos=$request->input('requisito');
         $convocatoria->gestion=$request->input('gestion');
-        
+        $convocatoria->publicado="no";
+
         $convocatoria->save();
         $unidad = $request->input('unidad');
         $requerimientos=$request->input('requerimientos');

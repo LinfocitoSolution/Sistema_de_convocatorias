@@ -189,12 +189,7 @@ Route::get('generarConvDoc_{call}', 'CallController@generarConvocatoriaDocencia'
 
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 //##############################################################
-Route::get('test', function () {
-    return view('pruebaVerify');
-});// falta los middlewares
-Route::get('reset', function () {
-    return view('auth.index_ResetPassword');
-});// falta los middlewares
+
 
 //######################ROTULO y POSTULANTE###################################
 Route::group(['middleware' => 'permission:rotulo_postulante'], function () {// restriccion formulario de postulante
@@ -209,15 +204,25 @@ Route::group(['middleware' => 'permission:rotulo_postulante'], function () {// r
     Route::post('guardarRotulo','PostulantController@guardarRotulo')->name('rotulo.guardar');//->middleware('permission:rotulo_guardar rotulopostulante');
 });
 //################################################################
-Route::post('reset_password','\App\Http\Controllers\Auth\ResetPasswordController@resetPassword');
-Route::get('enviar_resetPassword','\App\Http\Controllers\Auth\ResetPasswordController@enviarReset_Password');
-Route::post('recuperar','\App\Http\Controllers\Auth\ResetPasswordController@recuperar');
+// Route::get('reset_password','\App\Http\Controllers\Auth\ResetPasswordController@resetPassword');// falta los middlewares
+Route::get('reset_password','PostulantController@resetPassword')->name('reset.password');// falta los middlewares
+Route::post('verificarPass', 'PostulantController@confirmarPassword')->name('confirmar.password');
+Route::get('enviar_resetPassword','\App\Http\Controllers\Auth\ResetPasswordController@enviarReset_Password');// falta los middlewares
+Route::post('recuperar','\App\Http\Controllers\Auth\ResetPasswordController@recuperar');// falta los middlewares
 
 //###################### Email ###################################
-Route::get('mail/send', 'MailController@send');
+Route::get('sendEmail', 'MailController@send');// falta los middlewares
 Route::get('vista', function () {
     return view('auth.mails.email');
-});
+});// falta los middlewares
+Route::get('test', function () {
+    return view('pruebaVerify');
+});// falta los middlewares
+Route::get('reset', function () {
+    return view('auth.index_ResetPassword')->name("reset.password");
+});// falta los middlewares
+
+
 Route::get('/denied', ['as' => 'denied', function() {
     return view('errors.401');
 }]);
