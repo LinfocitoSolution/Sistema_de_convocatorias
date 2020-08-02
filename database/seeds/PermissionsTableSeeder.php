@@ -112,6 +112,8 @@ class PermissionsTableSeeder extends Seeder
             [ 'name' => 'registrar_notasDoc tablaCalif' ],
             [ 'name' => 'delete tabla tablaCalif' ],
             [ 'name' => 'delete nota tablaCalif' ],
+            [ 'name' => 'conocimiento_publicar tablaCalif' ],
+            [ 'name' => 'conocimiento_quitar tablaCalif' ],                   
 
 
             

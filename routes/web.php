@@ -115,6 +115,9 @@ Route::group(['middleware' => 'permission:view-access-management'], function () 
     Route::post('regNotasDoc_{user}','ConocimientoCalifController@regNotasDocencia')->name('registrar.notasDoc')->middleware('permission:registrar_notasDoc tablaCalif');
     Route::delete('eliminarTabla_{item}','ConocimientoCalifController@destroy')->name('tabla.destroy')->middleware('permission:delete tabla tablaCalif');
     Route::post('eliminarNota_{user}','ConocimientoCalifController@eliminarCalificacion')->name('eliminar.nota')->middleware('permission:delete nota tablaCalif');
+    Route::put('calificacion_con_publicar_{user}','ConocimientoCalifController@publicar')->name('conocimiento.publicar')->middleware('permission:conocimiento_publicar tablaCalif');
+    Route::put('calif__con_quitar_{user}','ConocimientoCalifController@quitarPublicacion')->name('conocimiento.quitar')->middleware('permission:conocimiento_quitar tablaCalif');
+
 
     ######################## Méritos #################################################################
     Route::get('Merito','MeritosController@index')->name('merito.index')->middleware('permission:list meritos');
