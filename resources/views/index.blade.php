@@ -25,8 +25,9 @@
  <div class="cabeza">
    <div class="container"> 
      <div class="jumbotron jumbotron-fluid mb-0 pt-4" style="height: 300px;">
-              <div class="h3 text-white text-center mt-0">CONVOCATORIAS AUXILIARES</div>
-              <div class="h4 text-white text-center">UNIVERSIDAD MAYOR DE SAN SIMÓN</div>
+              <div class="h4 text-white text-center mt-0">CONVOCATORIAS AUXILIARES</div>
+              <div class="h5 text-white text-center">UNIVERSIDAD MAYOR DE SAN SIMÓN</div>
+              <div class="h6 text-white text-center">FACULTAD DE CIENCIAS Y TECNOLOGIA</div>
           <div class="row justify-content-center responsive">
                    <div class="col-3 col-md-2">
                       <img class="logoUmss float-left  p-0  mt-4 img-responsive" width="89" height="120" src="{{asset('../imagenes/umss1.png')}} " alt="umss2">
@@ -42,7 +43,7 @@
                        </ol>
                        <div class="carousel-inner">
                            <div class="carousel-item active">
-                              <img src="{{ asset('/imagenes/principalfacu.jpg') }}"  class="d-block w-100" alt="web" width="500" height="210">
+                              <img src="{{ asset('/imagenes/principalfacu.jpg') }}"  class="d-block w-100" alt="web" width="450" height="210">
                               <div class="carousel-caption" >
                                  <div class="text-white pb-5">
                                     <h4>Facultad de ciencias y tecnología</h4>
@@ -50,7 +51,7 @@
                               </div>
                            </div>
                            <div class="carousel-item">
-                                <img src="{{ asset('/imagenes/sistemas.jpg') }}" class="d-block w-100" alt="elem" width="500" height="210">
+                                <img src="{{ asset('/imagenes/sistemas.jpg') }}" class="d-block w-100" alt="elem" width="450" height="210">
                               <div class="carousel-caption">
                                  <div class="text-white pb-4">
                                     <h4>Departamento de Sistemas e Informática</h4>
@@ -58,7 +59,7 @@
                               </div>
                            </div>
                            <div class="carousel-item">
-                               <img src="{{ asset('/imagenes/electronica.jpg') }}" class="d-block w-100" alt="aulalaboratorios" width="500" height="210">
+                               <img src="{{ asset('/imagenes/electronica.jpg') }}" class="d-block w-100" alt="aulalaboratorios" width="450" height="210">
                               <div class="carousel-caption">
                                  <div class="text-white pb-5">
                                    <h4>Departamento de Electrónica</h4>
