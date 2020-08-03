@@ -25,12 +25,13 @@ class HomeController extends Controller
         return 'funciona';
     }*/
     //protected $guard='login';
-    public function index()
+    public function index(Request $request)
     {
         $unidades = Unidad::all();
         $convocatorias = Convocatoria::orderBy('created_at', 'asc')->take(15)->get();
         $user=User::all();
         return view('index', [ 'convocatorias' => $convocatorias] ,['user'=>$user]);
+         
     }
 
     public function registrado()
