@@ -57,7 +57,7 @@
                          @endforeach
                         <tr>
                           <td>Total</td>
-                          <td>16 Aux.</td>
+                          <td>{{count($call->requerimientos()->get())}}</td>
                           <td></td>
                           <td></td>
                         </tr>
@@ -147,7 +147,6 @@
                                     @endif
                                  @endif
                               @endforeach
-                           </tr>
                         @endif
                      @endforeach
                @endforeach
