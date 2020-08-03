@@ -13,10 +13,15 @@
 <!--Styles-->
 <link href="{{asset('/css/bootstrap.min.css')}}" rel="stylesheet">
 <link href="{{ asset('/assets/css/main.css') }}" rel="stylesheet" type="text/css" />
+
 @if(session()->has('message'))
     <div class="alert alert-success mb-0">
         {{ session()->get('message') }}
     </div>
+@elseif(session()->has('messageDanger'))
+    <div class="alert alert-danger mb-0">
+        {{session()->get('messageDanger')}}
+    </div>      
 @endif
 </head>
 

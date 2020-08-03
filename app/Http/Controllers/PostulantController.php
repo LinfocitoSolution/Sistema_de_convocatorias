@@ -85,18 +85,35 @@ class PostulantController extends Controller
     }
     public function resetPassword()
     {
-        return view('auth.resetPassword',compact('user', 'curriculum'));
+        return view('auth.resetPassword');
     }
     public function confirmarPassword(Request $request)
     {
-        $hash = Auth::user()->passwword;
-        return $hash;
+        $hash = Auth::user()->password;
+        $user = Auth::user();
         $password = $request->input('passviejo');
-        if(password_verify ( $password , $hash )){
-            return 'correcto!';
-        }
-        else{
-            return 'incorrecto!';
-        }     
+            $messages=[
+                'password_confirm.same'=>'Campo confirmar contraseña y contraseña no coinciden',
+                'password.regex'=>'La nueva contraseña es inválida, la contraseña debe tener al menos una letra y un numero para ser valido',
+            ];
+            $validator = Validator::make($request->all(), [
+                'password'=>'required|max:25|min:8|regex:/^(?=.*[A-Za-z\d$@$#!%*?&])(?=.*\d)[A-Za-z\d$@$#!%*?&]{8,25}$/S',
+                'password_confirm'=>'required|same:password', 
+            ],$messages);
+            if(password_verify ( $password , $hash ))
+            {
+                if ($validator->fails()) 
+                {
+                    return redirect()->back()->withErrors($validator);
+                }
+                $user->password= $request->input('password');
+                $user->password=(bcrypt( $user->password));
+                $user->save();
+                return redirect(route('postulante.show',compact('user')))->with([ 'message' => 'Contraseña actualizada con éxito!', 'alert-type' => 'success' ]);
+            }
+            else
+            {
+                return redirect(route('reset.password'))->with([ 'messageDanger' => 'Su contraseña actual es incorrecta', 'alert-type' => 'danger' ]);     
+            }
     }
 }

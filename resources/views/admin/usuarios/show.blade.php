@@ -45,7 +45,7 @@
             <div class="card-footer">
                 <div class="text-center">
                         <!----href--{ url('admin/users/' . $user->id . '/edit') }}-->
-                        <a href="{{ route('usuarios.edit', $user->id) }}" class="btn btn-dark btn-xm mr-3" data-toggle="tooltip" data-placement="left" title="Presiona el botón para EDITAR "><span class="fa fa-edit mr-2" aria-hidden="true"></span>Editar</a>
+                       
                        <!--- !! Form::open([
                             'method'=>'DELETE',
                             'url' => ['admin/users', $user->id],
