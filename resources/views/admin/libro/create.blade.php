@@ -20,7 +20,7 @@
                            <input type="hidden" name="_token" value="{{csrf_token()}}">
                            {{ csrf_field() }}                           
                             @include('admin.libro.form')
-                            <div class="form-actions text-center mt-3">
+                            <div class="form-actions text-center mt-4">
                                 <button class="btn btn-outline-dark" type="submit">Guardar</button>
                                 <a class="btn btn-outline-dark" href="{{route('libro.index')}}">Cancelar</a>
                             </div>

@@ -11,17 +11,17 @@
     <div class="row">
       <div class="col-sm-12">   
        <div class="card mt-2" >
-        <div class="card-header">
-        <h1> Convocatorias</h1> 
-        <a class="btn btn-dark px2" data-toggle="tooltip" data-trigger="hover" title="presiona para crear una convocatoria" href="{{ route('call.create')}}">
-          Nuevo
-          <i class="fa fa-user-plus"></i>
-      </a>
-      <h4>Nota:recuerde crear sus tablas de calificacion una vez creada la convocatoria, sino la convocatoria no puede ser publicada</h4>
-        </div>
+         <div class="card-header">
+             <h1> Convocatorias</h1> 
+                <a class="btn btn-dark px2" data-toggle="tooltip" data-trigger="hover" title="presiona para crear una convocatoria" href="{{ route('call.create')}}">
+                   Nuevo
+                    <i class="fa fa-user-plus"></i>
+               </a>
+      
+         </div>
         
         <div class="card-body">
-          
+          <h6 class="text-danger mt-1 mb-2"><b>Nota:</b> Recuerde crear sus tablas de calificacion una vez creada la convocatoria, sino la convocatoria no puede ser publicada</h6> 
          <table class="table table-bordered table-striped table-sm">
             <thead>
              <tr>
@@ -104,6 +104,7 @@
             @endforeach
             </tbody>
            </table>
+           
           </div>
         </div>
       </div> 

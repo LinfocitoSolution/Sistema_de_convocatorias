@@ -178,7 +178,7 @@ class ConocimientoCalifController extends Controller
         $notas = Tematica_requerimiento::where('requerimiento_id', '=', $requerimientoId)->get();//solo notas de tematicas que tenga el requerimiento del postulante
         if($notas->isEmpty())
         {
-            return redirect(route('calif.index'))->with([ 'message' => 'Aún no se han registrado las tablas del requerimiento al que se postula!', 'alert-type' => 'success' ]);
+            return redirect(route('calif.index'))->with([ 'messageDanger' => 'Aún no se han registrado las tablas del requerimiento al que se postula!', 'alert-type' => 'danger' ]);
         }
         if(Postulante_submerito::where('user_id','=',$user->id)->exists())
         {
