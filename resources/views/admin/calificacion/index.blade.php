@@ -5,7 +5,10 @@
 
 @section("content")
  <!-- Content Wrapper. Contains contiene paginas -->
-<div class="content-wrapper">
+
+ <div class="content-wrapper">
+    
+    
     <div class="container"> 
         <div class="card mt-2">
             <div class="card-header">

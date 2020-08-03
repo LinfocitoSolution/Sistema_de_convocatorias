@@ -170,6 +170,14 @@
 
    <!--convocatorias ofertadas-->
  <div class="convocatoria">
+  <h5>Filtro de Unidades:</h5>
+  <div class="dropdown" ><button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Unidades</button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    @foreach($unidade as $uni)
+    <a class="dropdown-item" href="/?unidad={{$uni->id}}">{{$uni->name}}</a><br>
+     @endforeach
+    </div>
+  </div>
    <div class="container mt-4 mb-3">
      <div class="row justify-content-around">
         @foreach ($convocatorias as $convocatoria)

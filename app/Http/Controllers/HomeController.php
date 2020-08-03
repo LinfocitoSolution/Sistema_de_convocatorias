@@ -27,10 +27,19 @@ class HomeController extends Controller
     //protected $guard='login';
     public function index()
     {
-        $unidades = Unidad::all();
-        $convocatorias = Convocatoria::orderBy('created_at', 'asc')->take(15)->get();
-        $user=User::all();
-        return view('index', [ 'convocatorias' => $convocatorias] ,['user'=>$user]);
+        if(request()->has('unidad'))
+        {
+            $unidade = Unidad::all();
+            $convocatorias = Convocatoria::where('unit_id',request("unidad"))->orderBy('created_at', 'asc')->take(15)->get();
+            $user=User::all();
+        }
+        else
+        {
+            $unidade = Unidad::all();
+            $convocatorias = Convocatoria::orderBy('created_at', 'asc')->take(15)->get();
+            $user=User::all();
+        }
+        return view('index', compact('convocatorias','user','unidade'));
     }
 
     public function registrado()
