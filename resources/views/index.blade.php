@@ -94,18 +94,33 @@
     </div>     
  </div> 
  <!-- navbar -->
+ 
  <nav class="navbar sticky-top navbar-expand-lg py-0">
    <a class="navbar-brand  text-white" href="{{url('/')}}" tabindex="-1" >Inicio</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+    <form class="form-inline ml-3">
+      <div class="input-group input-group-sm">
+        <input class="form-control form-control-navbar" type="seacrh" placeholder="Buscar"
+        area-label="seacrh">
+        <div class="input-group-append">
+          <button class="btn btn-navbar" type="submit">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+       
 
    <div class="collapse navbar-collapse" id="navbarSupportedContent">
      <ul class="navbar-nav mr-auto">
        <li class="nav-item" tabindex="0" data-toggle="tooltip" title="Este boton no esta disponible">
          <a class="nav-link text-white" disabled href="#">Información</a>
+      
        </li>
      </ul>
+     
        <!----si es invitado--->
        @if (Auth::guest())
         <form class="form-inline float-xs-right">
