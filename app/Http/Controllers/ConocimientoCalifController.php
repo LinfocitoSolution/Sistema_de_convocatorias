@@ -81,34 +81,47 @@ class ConocimientoCalifController extends Controller
         $notas = $request->input('nota');
         $requerimientosLab = $call->requerimientos()->get();
         $tematicas = Tematica::all();
-        if(array_sum($notas) <= 100*count($requerimientosLab))
+        $sizeOfReq = count($requerimientosLab);
+        $arrayNotas = array();
+        $arrayNotas = array_pad($arrayNotas, $sizeOfReq, 0);
+        $indNotas = 0;
+        //COMPROBACIÓN SI LAS NOTAS DE REQUERIMIENTOS SUMAN 100
+        foreach($tematicas as $t)
         {
-            $aux = 0;
-            foreach($tematicas as $tm)
+            $ind = 0;
+            foreach($requerimientosLab as $re)
             {
-                foreach($requerimientosLab as $r)
-                {
-                    if($r->id == $tm->requerimientos->first()->id)   
-                    {
-                        $tabla = new Tematica_requerimiento();
-                        $tabla->requerimiento_id = $r->id;
-                        $tabla->tematica_id = $tm->id;
-                        $tabla->score = $notas[$aux];
-                        $tabla->convocatoria_id=$call->id;
-                        $tabla->unit_id=$call->unit_id;
-                        $tabla->save();
-                        $aux++;
-                    }
-                }
-            
+                $arrayNotas[$ind]+=$notas[$indNotas];
+                $indNotas++;
+                $ind++;
             }
-             return redirect(route('conocimientoCalif.index'))->with(['message'=>'Tabla creada exitosamente!','alert-type'=>'success']);
         }
-        else
-        { //ROJO
-            return redirect(route('conocimientoCalif.index'))->with(['messageDanger'=>'La tabla no se registró debido a que excedió el puntaje máximo permitido (100pts por requerimiento)!','alert-type'=>'danger']);
+        for($i = 0; $i<$sizeOfReq;$i++)
+        {
+            if($arrayNotas[$i] != 100 )
+            {
+                return redirect(route('conocimientoCalif.index'))->with(['messageDanger'=>'La tabla no se registró debido a que la suma de puntos por requerimiento deben ser 100!','alert-type'=>'danger']);
+            }
         }
-        
+        $aux = 0;
+        foreach($tematicas as $tm)
+        {
+            foreach($requerimientosLab as $r)
+            {
+                if($r->id == $tm->requerimientos->first()->id)   
+                {
+                    $tabla = new Tematica_requerimiento();
+                    $tabla->requerimiento_id = $r->id;
+                    $tabla->tematica_id = $tm->id;
+                    $tabla->score = $notas[$aux];
+                    $tabla->convocatoria_id=$call->id;
+                    $tabla->unit_id=$call->unit_id;
+                    $tabla->save();
+                    $aux++;
+                }
+            }
+        }
+            return redirect(route('conocimientoCalif.index'))->with(['message'=>'Tabla creada exitosamente!','alert-type'=>'success']);
     }
 
     /**
@@ -232,6 +245,12 @@ class ConocimientoCalifController extends Controller
     public function regNotasDocencia(Request $request, User $user)
     {
         $calificacion = new Calificacion_conocimiento();
+        $porA = $request->input('porcentajeA');
+        $porB = $request->input('porcentajeB');
+        if($porA+$porB != 100)
+        {
+            return redirect(route('lista.postulantes'))->with([ 'messageDanger' => 'Los suma de los porcentajes no debe exceder el 100%!', 'alert-type' => 'danger' ]);
+        }
         $notA = $request->input('notA');
         $notB = $request->input('notB');
         $porcA = ($request->input('porcentajeA'))/100;

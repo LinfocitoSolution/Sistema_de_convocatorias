@@ -21,7 +21,7 @@
                             @include('admin.conocimientoCalif.formCalif')
                             <div class="form-actions text-center">
                                 <button class="btn btn-outline-dark" type="submit">Guardar</button>
-                                <a class="btn btn-outline-dark" href="{{route('conocimientoCalif.index')}}">Cancelar</a>
+                                <a class="btn btn-outline-dark" href="{{route('lista.postulantes')}}">Cancelar</a>
                             </div>
                         </form>
                     </div>
