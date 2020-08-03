@@ -27,25 +27,28 @@
                     </thead>
                     <tbody>  
                         @foreach($libros as $libro)
-                       <tr> 
-                         <td>{{App\User::where('id', '=',$libro->user_id )->first()->name}}</td>
-                       <td>{{$libro->documento}}</td>
-                       <td>{{$libro->fecha_entrega}}</td>
-                 
-                
-                        
-                          <td>   
-                          <form action="{{route('libro.delete',$libro)}}" method="POST" style="display:inline-block;">
-                              {{ csrf_field() }}
-                               {{ method_field('DELETE') }}             
-                               <button class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title=""  type="submit" margin-left="50" onclick="return confirm('Está seguro que desea eliminar esta recepcion?')">
-                                   <i class="fa fa-trash-alt"></i>                                
-                                 </button> 
-                             </form>
-                             @endforeach
-                         </td>
-                      </tr>
-                
+                            @foreach ($postulantes as $post) 
+                                @if ($post->id == $libro->user_id)
+                                    <tr> 
+                                    <td>{{$post->name}}</td>
+                                    <td>{{$libro->documento}}</td>
+                                    <td>{{$libro->fecha_entrega}}</td>
+                                    <!-- NO PERMITE MODIFICAR SI LOS POSTULANTES YA HAN SIDO CALIFICADOS -->
+                                    @if (!App\Calificacion_conocimiento::where('user_id', '=',$post->id )->exists())
+                                        <td>   
+                                            <form action="{{route('libro.delete',$libro)}}" method="POST" style="display:inline-block;">
+                                                {{ csrf_field() }}
+                                                {{ method_field('DELETE') }}             
+                                                <button class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title=""  type="submit" margin-left="50" onclick="return confirm('Está seguro que desea eliminar esta recepcion?')">
+                                                <i class="fa fa-trash-alt"></i>                                
+                                                </button> 
+                                            </form>
+                                        </td>
+                                    @endif
+                                    </tr>
+                                @endif
+                            @endforeach
+                        @endforeach                            
                     </tbody>
                 </table>
             </div>
