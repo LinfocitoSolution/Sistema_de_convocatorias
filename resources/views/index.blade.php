@@ -86,7 +86,7 @@
                     <!--fin carrusel-->  
                 </div> 
                 <div class="col-3 col-md-2">
-                   <img  class="logoCarrera float-right  p-0 mt-4  img-responsive" width="89" height="100" src="{{asset('../imagenes/logoInformaticaSistemas.png')}}" alt="carrera"> 
+                   <img  class="logoCarrera float-right  p-0 mt-4  img-responsive" width="89" height="100" src="{{asset('../imagenes/facultadtec.png')}}" alt="carrera"> 
                 </div>
           </div>
       </div>
@@ -247,7 +247,7 @@
               <h5 class="text-white">ENCUENTRANOS EN LAS REDES</h5>
               <div class="redes-footer">
                 <a href="http://websis.umss.edu.bo/"><img src="{{asset('imagenes/websis.jpg')}}" width="60" height="60"></a>
-                <a href="http://www.cs.umss.edu.bo/"><img src="{{asset('imagenes/cs.jpg')}}" width="60" height="60"></a>
+                <a href="http://www.cs.umss.edu.bo/"><img src="{{asset('imagenes/logoInformaticaSistemas.png')}}" width="60" height="60"></a>
                 <a href="http://www.umss.edu.bo/"><img src="{{asset('imagenes/umss1.png')}}" width="40" height="60"></a>
               </div>
               <hr>
