@@ -11,17 +11,17 @@
     <div class="row">
       <div class="col-sm-12">   
        <div class="card mt-2" >
-        <div class="card-header">
-        <h1> Convocatorias</h1> 
-        <a class="btn btn-dark px2" data-toggle="tooltip" data-trigger="hover" title="presiona para crear una convocatoria" href="{{ route('call.create')}}">
-          Nuevo
-          <i class="fa fa-user-plus"></i>
-      </a>
-      <h4>Nota:recuerde crear sus tablas de calificacion una vez creada la convocatoria, sino la convocatoria no puede ser publicada</h4>
-        </div>
+         <div class="card-header">
+             <h1> Convocatorias</h1> 
+                <a class="btn btn-dark px2" data-toggle="tooltip" data-trigger="hover" title="presiona para crear una convocatoria" href="{{ route('call.create')}}">
+                   Nuevo
+                    <i class="fa fa-user-plus"></i>
+               </a>
+      
+         </div>
         
         <div class="card-body">
-          
+          <h6 class="text-danger mt-1 mb-2"><b>Nota:</b> Recuerde crear sus tablas de calificacion una vez creada la convocatoria, sino la convocatoria no puede ser publicada</h6> 
          <table class="table table-bordered table-striped table-sm">
             <thead>
              <tr>
@@ -79,7 +79,17 @@
                                 </button>
                             </form>
                             <!-- SOLO SE PERMITEN PUBLICAR AQUELLAS QUE HAYAN REGISTRADO SUS TABLAS -->
-                            @if (App\Tematica_requerimiento::where('convocatoria_id', '=',$call->id)->exists() && App\Merito::where('convocatoria_id', '=',$call->id)->exists())
+                            @if (App\Tematica_requerimiento::where('convocatoria_id', '=',$call->id)->exists() && App\Merito::where('convocatoria_id', '=',$call->id)->exists() && $call->tipo_convocatoria == 'convocatoria de laboratorios')
+                              <form action="{{ route('call.publicar', $call->id) }}" style="display:inline-block;" method="POST">
+                                {{ csrf_field() }}
+                                {{ method_field('PUT') }}
+                                <button class="btn btn-dark btn-sm mt-2 ml-2" data-toggle="tooltip" data-trigger="hover" title="presiona para publicar una convocatoria"type="submit" margin-left="50" onclick="return confirm('Está seguro que desea publicar la convocatoria?')">
+                                  <i class="fa fa-cloud"></i>
+                                </button>
+                              </form>
+                            @endif
+
+                            @if ($call->tipo_convocatoria == 'convocatoria de docencia' && App\Merito::where('convocatoria_id', '=',$call->id)->exists())
                               <form action="{{ route('call.publicar', $call->id) }}" style="display:inline-block;" method="POST">
                                 {{ csrf_field() }}
                                 {{ method_field('PUT') }}
@@ -94,6 +104,7 @@
             @endforeach
             </tbody>
            </table>
+           
           </div>
         </div>
       </div> 

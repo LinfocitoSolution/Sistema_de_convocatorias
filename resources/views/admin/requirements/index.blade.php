@@ -40,13 +40,13 @@
                   <td>{{$requerimiento->cantidad_horas_academicas}}</td>                  
                    <td>      
                         
-                        <a class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="Presiona para editar requerimiento" href="{{route('requerimientos.edit',$requerimiento)}}">
+                        <a class="btn btn-dark btn-sm ml-2 my-1 pr-1" data-toggle="tooltip" data-trigger="hover" title="Presiona para editar requerimiento" href="{{route('requerimientos.edit',$requerimiento)}}">
                             <i class="fa fa-edit"></i>
                         </a>
                         <form action="{{route('requerimientos.destroy',$requerimiento->id)}}" method="POST" style="display:inline-block;">
                           {{ csrf_field() }}                                                              
                           {{ method_field('DELETE') }}                            
-                          <button class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title="presiona para eliminar un area" type="submit" margin-left="50" onclick="return confirm('Está seguro de eliminar el area?')">
+                          <button class="btn btn-dark btn-sm ml-2 my-1" data-toggle="tooltip" data-trigger="hover" title="presiona para eliminar un area" type="submit" margin-left="50" onclick="return confirm('Está seguro de eliminar el area?')">
                               <i class="fa fa-trash-alt"></i>                                
                           </button>                            
                       </form>

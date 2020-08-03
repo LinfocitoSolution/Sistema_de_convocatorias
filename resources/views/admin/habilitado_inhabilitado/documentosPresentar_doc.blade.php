@@ -5,7 +5,7 @@
 
 @section("content")
 
-<div class="content-wrapper">
+ <div class="content-wrapper">
     <div class="container">
         <div class="card mt-2">
             <div class="card-header">
@@ -75,49 +75,44 @@
                                 <button class="btn btn-dark" onclick="hola2()" type="button">Confirmar la calificacion</button>
                             </div>
                             
-                            </div>
-                            </div>
+                          </div>
+                        </div>
                     </div>
                 </div>
-                @endsection
+  @endsection
                 <form action="{{route('documentos.habilitar',$user->id)}}" method="POST" style="display:inline-block">
                   {{ method_field('PUT')}}
                       {{ csrf_field() }}
-                <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                  <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                     <div class="modal-dialog" role="document">
-                      <div class="modal-content" >
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLongTitle">Estado de calificacion</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <!-- de aqui tendra que tomar los valores para guardar en bse de datos-->
+                        <div class="modal-content" >
+                             <div class="modal-header">
+                                 <h5 class="modal-title text-white" id="exampleModalLongTitle">Estado de calificacion</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true"><i class="fa fa-times"></i></span>
+                                    </button>
+                              </div>
+                            <!-- de aqui tendra que tomar los valores para guardar en bse de datos-->
                         
-                        <div class="modal-body" id="ventana">
+                          <div class="modal-body" id="ventana">
                         
-                          <div class="input-group">
-                         
-                            <div class="input-group-prepend">
-                              <span class="input-group-text text-white">Estado</span>
-                            </div>		  
-                            <input type="text" class="form-control"  name="hab" value="" id="hab">
-                          </div>
-                         <div class="input-group">
-                         
-                            <div class="input-group-prepend">
-                              <span class="input-group-text text-white">Descripcion</span>
+                              <div class="form-group">
+                                 <label for="" class="col-form-label">Estado:</label> 
+                                  <input type="text" class="form-control"  name="hab" value="" id="hab">
+                              </div>
+                              <div class="form-group">
+                                 <label for="recipient-name" class="col-form-label">Descripción:</label>
+                                 <textarea class="form-control" aria-label="With textarea" name="descripcion" value="" id="descripcion"></textarea>
+                              </div>
                             </div>
+                            <div class="modal-footer">
                             
-                            <textarea class="form-control" aria-label="With textarea" name="descripcion" value="" id="descripcion"></textarea>
-                          </div>
-                        </div>
-                        <div class="modal-footer">
-                          <button class="btn btn-outline-dark" type="submit">Confirmar Habilitado/Inhabilitado</button>
-                          <button type="button" class="btn btn-dark" data-dismiss="modal">Cancelar</button>
-                          
-                        </div>
-                        </form>
-                      </div>
+                                <button class="btn btn-outline-dark text-white" type="submit">Confirmar Habilitado/Inhabilitado</button>
+                                <button type="button" class="btn btn-outline-dark text-white" data-dismiss="modal">Cancelar</button>
+                            </div>
+                         </div>
+                       </div>
                     </div>
                   </div>
+                </form>
+                      

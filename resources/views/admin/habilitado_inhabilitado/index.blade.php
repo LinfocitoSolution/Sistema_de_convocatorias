@@ -41,7 +41,7 @@
                     <form action="{{ route('documento.quitar', $user->id) }}" style="display:inline-block;" method="POST">
                         {{ csrf_field() }}
                         {{ method_field('PUT') }}
-                       <td> <button class="btn btn-dark btn-sm mt-2 ml-2" data-toggle="tooltip" data-trigger="hover" title="presiona para quitar una habilitacion publicada"type="submit" margin-left="50" onclick="return confirm('Está seguro que desea ocultar esta publicacion?')">
+                       <td> <button class="btn btn-dark btn-sm my-2 ml-2" data-toggle="tooltip" data-trigger="hover" title="presiona para quitar una habilitacion publicada"type="submit" margin-left="50" onclick="return confirm('Está seguro que desea ocultar esta publicacion?')">
                             <i class="fa fa-times"></i>
                           </button>
                     </form>
@@ -49,7 +49,7 @@
                     @else
                    
                     @if ($req->convocatorias->first()->tipo_convocatoria == 'convocatoria de laboratorios')
-                        <td><a class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title="Presiona para calificar documentos"href="{{route('documentos.indexlab',$user->id)}}">
+                        <td><a class="btn btn-dark btn-sm ml-2 my-1" data-toggle="tooltip" data-trigger="hover" title="Presiona para calificar documentos"href="{{route('documentos.indexlab',$user->id)}}">
                             <i class="fa fa-folder"></i>
                         </a>
                         
@@ -67,7 +67,7 @@
                     @else  
 
                         
-                            <td><a class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title=""href="{{route('documentos.indexdoce',$user->id)}}">
+                            <td><a class="btn btn-dark btn-sm ml-2 my-1" data-toggle="tooltip" data-trigger="hover" title=""href="{{route('documentos.indexdoce',$user->id)}}">
                             <i class="fa fa-folder"></i>
                         </a>
                        
@@ -77,7 +77,7 @@
                     <form action="{{ route('documento.publicar', $user->id) }}" style="display:inline-block;" method="POST">
                         {{ csrf_field() }}
                         {{ method_field('PUT') }}
-                        <button class="btn btn-dark btn-sm mt-2 ml-2" data-toggle="tooltip" data-trigger="hover" title="presiona para publicar la habilitacion"type="submit" margin-left="50" onclick="return confirm('Está seguro que desea publicar esta habilitacion?')">
+                        <button class="btn btn-dark btn-sm my-1 ml-2" data-toggle="tooltip" data-trigger="hover" title="presiona para publicar la habilitacion"type="submit" margin-left="50" onclick="return confirm('Está seguro que desea publicar esta habilitacion?')">
                         <i class="fa fa-cloud"></i>
                         </button>
                     </form>

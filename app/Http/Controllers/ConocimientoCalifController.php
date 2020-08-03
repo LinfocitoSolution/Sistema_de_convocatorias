@@ -50,7 +50,7 @@ class ConocimientoCalifController extends Controller
         $tematicas=Tematica::all();
         if($tematicas->isEmpty())
         {   //ROJO
-            return redirect(route('tematica.unidad'))->with(['message'=>'No tiene temáticas registradas!','alert-type'=>'success']);
+            return redirect(route('tematica.unidad'))->with(['messageDanger'=>'No tiene temáticas registradas!','alert-type'=>'danger']);
         }
         $reqsLab = $tematicas->first()->requerimientos()->distinct()->get(['requerimiento_id']);  
         return view('admin.conocimientoCalif.form_segundopaso', compact('convocatorias', 'reqsLab'));
@@ -106,7 +106,7 @@ class ConocimientoCalifController extends Controller
         }
         else
         { //ROJO
-            return redirect(route('conocimientoCalif.index'))->with(['message'=>'La tabla no se registró debido a que excedió el puntaje máximo permitido (100pts por requerimiento)!','alert-type'=>'success']);
+            return redirect(route('conocimientoCalif.index'))->with(['messageDanger'=>'La tabla no se registró debido a que excedió el puntaje máximo permitido (100pts por requerimiento)!','alert-type'=>'danger']);
         }
         
     }
@@ -162,7 +162,7 @@ class ConocimientoCalifController extends Controller
             return redirect(route('conocimientoCalif.index'))->with([ 'message' => 'Tabla  eliminada!', 'alert-type' => 'success' ]);
         }
         //ROJO
-        return redirect(route('conocimientoCalif.index'))->with([ 'message' => 'No puede eliminar la tabla si la convocatoria está publicada!', 'alert-type' => 'success' ]);
+        return redirect(route('conocimientoCalif.index'))->with([ 'messageDanger' => 'No puede eliminar la tabla si la convocatoria está publicada!', 'alert-type' => 'danger' ]);
     }
     public function listarPostulantes()
     {
@@ -176,11 +176,16 @@ class ConocimientoCalifController extends Controller
         $tematicas = Tematica::all();
         $requerimientoId = $user->requerimientos->first()->id;//requerimiento al que se postula
         $notas = Tematica_requerimiento::where('requerimiento_id', '=', $requerimientoId)->get();//solo notas de tematicas que tenga el requerimiento del postulante
+        
+        if($notas->isEmpty())
+        {
+            return redirect(route('calif.index'))->with([ 'messageDanger' => 'Aún no se han registrado las tablas del requerimiento al que se postula!', 'alert-type' => 'danger' ]);
+        }
         if(Postulante_submerito::where('user_id','=',$user->id)->exists())
         {
             return view('admin.conocimientoCalif.calificarPostulante', compact('user', 'tematicas', 'notas'));
         }
-        return redirect(route('calif.index'))->with([ 'message' => 'Previamente registre sus notas de méritos!', 'alert-type' => 'success' ]);
+        return redirect(route('calif.index'))->with([ 'messageDanger' => 'Previamente registre sus notas de méritos!', 'alert-type' => 'danger' ]);
         
     }
     public function calificarPostDoc(User $user)
@@ -189,19 +194,19 @@ class ConocimientoCalifController extends Controller
         {
             return view('admin.conocimientoCalif.calificarPostDoc', compact('user'));
         }
-        return redirect(route('calif.index'))->with([ 'message' => 'Previamente registre sus notas de méritos!', 'alert-type' => 'success' ]);
+        return redirect(route('calif.index'))->with([ 'messageDanger' => 'Previamente registre sus notas de méritos!', 'alert-type' => 'danger' ]);
     }
 
     public function eliminarCalificacion(User $user)
     {
-        $calificacion = Calificacion_conocimiento::where('user_id', $user->id);
+        $calificacion = Calificacion_conocimiento::where('user_id', $user->id)->first();
         if($calificacion->publicado == 'no')
         {
             $calificacion->delete();
             return redirect(route('lista.postulantes'))->with([ 'message' => 'Nota eliminada exitosamente!', 'alert-type' => 'success' ]);
         }
         //ROJO
-        return redirect(route('lista.postulantes'))->with([ 'message' => 'No puede eliminar la nota si ya está publicada!', 'alert-type' => 'success' ]);
+        return redirect(route('lista.postulantes'))->with([ 'messageDanger' => 'No puede eliminar la nota si ya está publicada!', 'alert-type' => 'danger' ]);
     }
 
     public function registrarNotas(Request $request, User $user)
@@ -220,6 +225,7 @@ class ConocimientoCalifController extends Controller
         $suma*=0.8;
         $calificacion->score=$suma;
         $calificacion->user_id=$user->id;
+        $calificacion->publicado="no";
         $calificacion->save();
         return redirect(route('lista.postulantes'))->with([ 'message' => 'Nota registrada exitosamente!', 'alert-type' => 'success' ]);;
     }
@@ -233,6 +239,7 @@ class ConocimientoCalifController extends Controller
         $total = ($notA*$porcA + $notB*$porcB)*0.8;
         $calificacion->score=$total;
         $calificacion->user_id=$user->id;
+        $calificacion->publicado="no";
         $calificacion->save();
         return redirect(route('lista.postulantes'))->with([ 'message' => 'Nota registrada exitosamente!', 'alert-type' => 'success' ]);;
     }
