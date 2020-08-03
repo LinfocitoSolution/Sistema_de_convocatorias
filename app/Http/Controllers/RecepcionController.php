@@ -5,6 +5,7 @@ use App\Libro;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\LibroRequest;
+use App\Calificacion_conocimiento;
 
 class RecepcionController extends Controller
 {
@@ -16,7 +17,8 @@ class RecepcionController extends Controller
     public function index()
     {
         $libros=Libro::all();
-        return view('admin.libro.index', compact('libros'));
+        $postulantes=User::where('carrera_id', '!=', 'null')->get();
+        return view('admin.libro.index', compact('libros', 'postulantes'));
     }
 
     /**

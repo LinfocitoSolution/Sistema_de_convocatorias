@@ -17,7 +17,7 @@
           </thead>
           <tbody>
             @foreach ($tematicas as $tem)
-                @foreach ($call->requerimientos as $req)
+                @foreach ($requerimientosLab as $req)
                     <tr>
                         @if ($req->id == $tem->requerimientos->first()->id)   
                                 <td>{{$tem ->name}}</td>    

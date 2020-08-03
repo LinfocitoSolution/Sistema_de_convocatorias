@@ -12,11 +12,11 @@
                 <tr>
                     <td>a)&nbsp;Examen escrito de conocimientos (prueba de preselección)</td>                 
                     <td> <div style="width:4em">
-                              <input class="form-control" type="number" id="notA" name="notA" value=""  min="0" max="100">
+                              <input class="form-control" type="number" id="notA" name="notA" value=""  min="0" max="100" required>
                          </div>
                     </td>
                     <td> <div style="width:4em">
-                        <input class="form-control" type="number" id="porcentajeA" name="porcentajeA" value="40" min="1" max="99">
+                        <input class="form-control" type="number" id="porcentajeA" name="porcentajeA" value="40" min="1" max="99" required>
                    </div>
               </td>
                 </tr>
@@ -25,11 +25,11 @@
                         conocimiento y dominio de la materia. Tendrá una duración máxima de 25 minutos: 
                         15 minutos de exposición y 10 minutos de preguntas.</td>                 
                     <td> <div style="width:4em">
-                              <input class="form-control" type="number" id="notB" name="notB" value="" min="0" max="100">
+                              <input class="form-control" type="number" id="notB" name="notB" value="" min="0" max="100" required>
                          </div>
                     </td>
                     <td> <div style="width:4em">
-                        <input class="form-control" type="number" id="porcentajeB" name="porcentajeB" value="60" min="1" max="99">
+                        <input class="form-control" type="number" id="porcentajeB" name="porcentajeB" value="60" min="1" max="99" required>
                    </div>
                 </tr>
          </tbody>
