@@ -179,9 +179,17 @@ class ConocimientoCalifController extends Controller
     }
     public function listarPostulantes()
     {
+        if(request()->has("carrera"))
+        {
+            $postulantes = User::where('carrera_id', '=', request('carrera'))->get();
+        }
+        else 
+        {
+            $postulantes = User::where('carrera_id', '!=', 'null')->get();
+        }
+        $carreras=Carrera::all();
         $calf=Calificacion_conocimiento::all();
-        $postulantes = User::where('carrera_id', '!=', 'null')->get();
-        return view('admin.conocimientoCalif.listaPostulantes', compact('postulantes','calf'));
+        return view('admin.conocimientoCalif.listaPostulantes', compact('postulantes','calf','carreras'));
     }
 
     public function calificarPostulant(User $user)

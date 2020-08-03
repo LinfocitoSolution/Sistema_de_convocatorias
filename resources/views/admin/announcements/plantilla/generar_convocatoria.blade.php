@@ -156,7 +156,6 @@
                                     @endif
                                  @endif
                               @endforeach
-                           </tr>
                         @endif
                      @endforeach
                @endforeach
