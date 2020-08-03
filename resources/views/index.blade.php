@@ -42,7 +42,7 @@
                        </ol>
                        <div class="carousel-inner">
                            <div class="carousel-item active">
-                              <img src="{{ asset('/imagenes/tecno.jpg') }}"  class="d-block w-100" alt="web" width="500" height="210">
+                              <img src="{{ asset('/imagenes/principalfacu.jpg') }}"  class="d-block w-100" alt="web" width="500" height="210">
                               <div class="carousel-caption" >
                                  <div class="text-white pb-5">
                                     <h4>Facultad de ciencias y tecnología</h4>
@@ -58,21 +58,14 @@
                               </div>
                            </div>
                            <div class="carousel-item">
-                               <img src="{{ asset('/imagenes/aula.jpg') }}" class="d-block w-100" alt="aulalaboratorios" width="500" height="210">
+                               <img src="{{ asset('/imagenes/electronica.jpg') }}" class="d-block w-100" alt="aulalaboratorios" width="500" height="210">
                               <div class="carousel-caption">
                                  <div class="text-white pb-5">
-                                   <h3>Laboratorio</h3>
+                                   <h4>Departamento de Electrónica</h4>
                                  </div>
                               </div>
                            </div>
-                           <div class="carousel-item">
-                                 <img src="{{ asset('/imagenes/edificio.jpg') }}" class="d-block w-100" alt="prog" width="500" height="210">
-                              <div class="carousel-caption" >
-                                 <div class="text-white pb-5">
-                                    <h4>Edificio Multiacadémico</h4>
-                                 </div>
-                              </div>   
-                           </div>
+                           
                         </div>
                           <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -102,8 +95,15 @@
 
    <div class="collapse navbar-collapse" id="navbarSupportedContent">
      <ul class="navbar-nav mr-auto">
-       <li class="nav-item" tabindex="0" data-toggle="tooltip" title="Este boton no esta disponible">
-         <a class="nav-link text-white" disabled href="#">Información</a>
+       <li class="nav-item" data-toggle="tooltip" data-trigger="hover" title="Seleccione la unidad que desea ver sus convocatorias">
+        
+        <div class="dropdown" ><button class="btn btn-outline-dark text-white dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Unidades</button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          @foreach($unidade as $uni)
+          <a class="dropdown-item bg-dark text-white" tabindex="0"  href="/?unidad={{$uni->id}}">{{$uni->name}}</a><br>
+           @endforeach
+          </div>
+        </div>
        </li>
      </ul>
        <!----si es invitado--->
@@ -170,22 +170,14 @@
 
    <!--convocatorias ofertadas-->
  <div class="convocatoria">
-  <h5>Filtro de Unidades:</h5>
-  <div class="dropdown" ><button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Unidades</button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    @foreach($unidade as $uni)
-    <a class="dropdown-item" href="/?unidad={{$uni->id}}">{{$uni->name}}</a><br>
-     @endforeach
-    </div>
-  </div>
-   <div class="container mt-4 mb-3">
+    <div class="container mt-4 mb-3">
      <div class="row justify-content-around">
         @foreach ($convocatorias as $convocatoria)
           @if($convocatoria->publicado=="si") 
           <div class="col-lg-5">
                 <div class="card mb-4">
                    <div class="card-header">
-                     <h5 class="card-title">{{$convocatoria->titulo_convocatoria}}</h5>
+                     <h6 class="card-title">{{$convocatoria->titulo_convocatoria}}</h6>
                      <h6>{{App\Unidad::find($convocatoria->unit_id)->name}}</h6>
                    </div> 
                         <div class="card-body"  >
