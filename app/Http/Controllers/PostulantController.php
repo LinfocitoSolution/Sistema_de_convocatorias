@@ -24,8 +24,7 @@ class PostulantController extends Controller
     {
         $callid = $request->input('convoca');
         $call = Convocatoria::find($callid);
-        $carreras = Carrera::all();
-        return view('convocatoria.generar_rotulo',compact('call','carreras'));
+        return view('convocatoria.generar_rotulo',compact('call'));
     } 
     public function guardarRotulo(Request $request)
     {

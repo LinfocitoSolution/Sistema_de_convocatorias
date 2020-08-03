@@ -124,9 +124,7 @@
                                 <button class="btn btn-dark text-white" type="button">C</button>
                              </span>
                                <select  class="custom-select form-control" required id="carrera" name="carrera"> 
-                                 @foreach($carreras as $item)
-                                   <option class="text-dark" value = "carrera"{{ ($item->id == (Auth::user()->carrera_id)) ? 'selected' : '' }}>{{ $item->name }}</option>
-                                 @endforeach	
+                                   <option class="text-dark" value = "carrera"{{App\Carrera::find(Auth::user()->carrera_id)->name}}>{{ App\Carrera::find(Auth::user()->carrera_id)->name}}</option>
                                </select>
                            </div>
                            <div class="invalid-feedback {{ $errors->has('carrera')? 'd-block' : '' }}">
