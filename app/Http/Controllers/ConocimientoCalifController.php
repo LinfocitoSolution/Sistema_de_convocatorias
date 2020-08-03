@@ -176,6 +176,7 @@ class ConocimientoCalifController extends Controller
         $tematicas = Tematica::all();
         $requerimientoId = $user->requerimientos->first()->id;//requerimiento al que se postula
         $notas = Tematica_requerimiento::where('requerimiento_id', '=', $requerimientoId)->get();//solo notas de tematicas que tenga el requerimiento del postulante
+        
         if($notas->isEmpty())
         {
             return redirect(route('calif.index'))->with([ 'messageDanger' => 'Aún no se han registrado las tablas del requerimiento al que se postula!', 'alert-type' => 'danger' ]);
@@ -198,7 +199,7 @@ class ConocimientoCalifController extends Controller
 
     public function eliminarCalificacion(User $user)
     {
-        $calificacion = Calificacion_conocimiento::where('user_id', $user->id);
+        $calificacion = Calificacion_conocimiento::where('user_id', $user->id)->first();
         if($calificacion->publicado == 'no')
         {
             $calificacion->delete();
@@ -224,6 +225,7 @@ class ConocimientoCalifController extends Controller
         $suma*=0.8;
         $calificacion->score=$suma;
         $calificacion->user_id=$user->id;
+        $calificacion->publicado="no";
         $calificacion->save();
         return redirect(route('lista.postulantes'))->with([ 'message' => 'Nota registrada exitosamente!', 'alert-type' => 'success' ]);;
     }
@@ -237,6 +239,7 @@ class ConocimientoCalifController extends Controller
         $total = ($notA*$porcA + $notB*$porcB)*0.8;
         $calificacion->score=$total;
         $calificacion->user_id=$user->id;
+        $calificacion->publicado="no";
         $calificacion->save();
         return redirect(route('lista.postulantes'))->with([ 'message' => 'Nota registrada exitosamente!', 'alert-type' => 'success' ]);;
     }

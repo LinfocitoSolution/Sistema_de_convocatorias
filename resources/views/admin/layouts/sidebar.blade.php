@@ -4,7 +4,7 @@
     <a href="#" class="brand-link">
       <img src="{{ asset('imagenes/linfocito.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-        @if(Auth::user()->roles->first()->name=='Administrador')     
+        @if(Auth::user()->roles->first()->name=='Admin')     
          <span class="brand-text font-weight-light">Administrador</span>
                @else
               @if(Auth::user()->roles->first()->name=='Validador')
