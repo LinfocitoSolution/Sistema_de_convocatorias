@@ -113,7 +113,7 @@
               </li>
             @endif          
           <!--fin convocatorias-->
-          <!--areas-->
+          <!--areas
             @if(Auth::user()->hasPermission('list areas') || Auth::user()->hasPermission('create areas'))            
               <li class="nav-item has-treeview menu-close">
                 <a href="#" class="nav-link active bg-dark">
@@ -142,7 +142,7 @@
                   @endif
                 </ul>              
               </li>
-            @endif
+            @endif-->
           <!--fin de areas-->
           <!--unidades-->
             @if(Auth::user()->hasPermission('list units') || Auth::user()->hasPermission('create units'))
@@ -213,7 +213,7 @@
                 <a href="#" class="nav-link active bg-dark">
                   <i class="nav-icon fa fa-calendar"></i>
                   <p>
-                    Fechas
+                    Fechas-Eventos
                     <i class="right fas fa-angle-left"></i>
                   </p>
                 </a>
@@ -313,7 +313,7 @@
                <a href="#" class="nav-link active bg-dark">
                  <i class="nav-icon fa fa-user-graduate"></i>
                  <p>
-                   Entrega documentos
+                   Habilitados/Inhabilitados
                    <i class="right fas fa-angle-left"></i>
                  </p>
                </a>
