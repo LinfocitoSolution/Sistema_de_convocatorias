@@ -46,7 +46,7 @@
                           </button>
                     </form>
                 </td>
-                    @else
+                   @else
                    
                     @if ($req->convocatorias->first()->tipo_convocatoria == 'convocatoria de laboratorios')
                         <td><a class="btn btn-dark btn-sm ml-2 my-1" data-toggle="tooltip" data-trigger="hover" title="Presiona para calificar documentos"href="{{route('documentos.indexlab',$user->id)}}">
@@ -74,6 +74,8 @@
                     
                         
                     @endif
+                    
+                    @if($user->habilitados->first()->publicado=="no")
                     <form action="{{ route('documento.publicar', $user->id) }}" style="display:inline-block;" method="POST">
                         {{ csrf_field() }}
                         {{ method_field('PUT') }}
@@ -84,7 +86,7 @@
 
                     </td>
                     
-                    
+                    @endif
                     @endif
                         
 
