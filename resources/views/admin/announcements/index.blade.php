@@ -13,6 +13,7 @@
        <div class="card mt-2" >
          <div class="card-header">
              <h1> Convocatorias</h1> 
+            
                 <a class="btn btn-dark px2" data-toggle="tooltip" data-trigger="hover" title="presiona para crear una convocatoria" href="{{ route('call.create')}}">
                    Nuevo
                     <i class="fa fa-user-plus"></i>
@@ -21,6 +22,15 @@
          </div>
         
         <div class="card-body">
+          <h5>Filtro de Gestiones:</h5>
+          <div class="dropdown" ><button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  >Gestiones</button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            @foreach($gestiones as $gestion)
+            <a class="dropdown-item" href="{{route('call.index',['gestion'=>$gestion])}}">{{$gestion}}</a><br>
+             @endforeach
+             <a class="dropdown-item" href="{{route('call.index')}}">Todos</a><br>
+            </div>
+          </div>
           <h6 class="text-danger mt-1 mb-2"><b>Nota:</b> Recuerde crear sus tablas de calificacion una vez creada la convocatoria, sino la convocatoria no puede ser publicada</h6> 
          <table class="table table-bordered table-striped table-sm">
             <thead>

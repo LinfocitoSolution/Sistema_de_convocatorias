@@ -40,7 +40,7 @@ class CallController extends Controller
     public function index()
     {
         $actual = Carbon::now();
-        $calls = Convocatoria::whereYear('gestion', '=',$actual)->get();
+        $calls = Convocatoria::all();
         $gestiones = array();
         $gestiones = array_pad($gestiones, count($calls), 0);
         $i=0;
@@ -52,7 +52,7 @@ class CallController extends Controller
         $gestiones = array_unique($gestiones);
         if(request()->has("gestion"))
         {
-            $calls = Convocatoria::whereYear('gestion', '=',request('unidad'))->get();
+            $calls = Convocatoria::whereYear('gestion', '=',request('gestion'))->get();
             return view('admin.announcements.index', compact('calls', 'gestiones'));
         }
         return view('admin.announcements.index', compact('calls', 'gestiones'));
