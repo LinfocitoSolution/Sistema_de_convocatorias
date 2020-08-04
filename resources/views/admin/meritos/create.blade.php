@@ -16,7 +16,7 @@
                         @foreach($calls as $call)
                         @if($call->publicado=="no")
                         @if($call->unit_id==$uni)
-                    <h2>{{$call->titulo_convocatoria . ":"}} {{100-(App\Merito::where('convocatoria_id', '=',$call->id )->get()->sum("score"))}}</h2>
+                    <h5>{{$call->titulo_convocatoria . ":"}} {{100-(App\Merito::where('convocatoria_id', '=',$call->id )->get()->sum("score"))}}</h5>
                         @endif
                         @endif
                         @endforeach

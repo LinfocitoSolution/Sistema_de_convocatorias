@@ -9,7 +9,7 @@
     <div class="container"> 
         <div class="card mt-2">
             <div class="card-header">
-                <h1>Tabla de calificaciones</h1>
+                <h1>Tabla de conocimientos</h1>
                 <a class="btn btn-dark px2" data-toggle="tooltip" data-trigger="hover" title="presiona para crear una tabla de calificaciones por convocatoria" href="{{route('calif.primero')}}">
                     Nuevo
                     <i class="fa fa-table"></i>

@@ -16,7 +16,7 @@
       
       <!-- Notifications Dropdown Menu -->
       <form class="form-inline ml-3">
-         <img src="{{ asset('imagenes/documentos.png') }}" alt="perfil" class="rounded-circle" width="30" height="30">
+         <img src="{{ asset('imagenes/iconohom.png') }}" alt="perfil" class="rounded-circle" width="30" height="30">
             <div class="btn-group" data-toggle="tooltip" data-placement="left" data-trigger="hover" title="Presiona y selecciona si deseas cerrar sesion">
                @if(Auth::user()->roles->first()->name=='Administrador') 
                   <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown">Administrador</button>

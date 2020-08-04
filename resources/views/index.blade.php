@@ -125,7 +125,7 @@
               <p hidden>{{$a=App\Postulante_submerito::where('user_id',Auth::user()->id)->first()}}</p>
            @if(isset($a)) 
            @if($a->publicado=="si")
-            <a class="btn btn-outline-dark  text-white m-2 my-sm-2" data-toggle="tooltip" data-placement="top" title="Presione para ver su nota de meritos"type="submit" href="{{route('calificacion.merito',ucfirst(Auth::user()->id))}}">Estado Notas de Meritos:</a>
+            <a class="btn btn-outline-dark  text-white m-2 my-sm-2" data-toggle="tooltip" data-placement="top" title="Presione para ver su nota de meritos"type="submit" href="{{route('calificacion.merito',ucfirst(Auth::user()->id))}}">Notas:</a>
            @endif
            @endif
 
