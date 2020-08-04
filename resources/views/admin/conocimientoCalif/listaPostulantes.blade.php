@@ -14,6 +14,7 @@
       </div>
       
       <div class="dropdown" ><button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Carreras</button>
+        <a href="{{route('lista.postulantes')}}"> <button  class="btn btn-dark" >Todo</button> </a>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           @foreach($carreras as $ca)
             <a class="dropdown-item" href="{{route('lista.postulantes',['carrera'=>$ca->id])}}">{{$ca->name}}</a><br>
