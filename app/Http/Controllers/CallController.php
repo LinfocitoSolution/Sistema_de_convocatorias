@@ -180,7 +180,7 @@ class CallController extends Controller
         $requerimiento = DB::table('requerimientos')->get();
         $eventos = DB::table('fechas')->get();
         $unidades = DB::table('units')->get();
-        $call->requerimientos()->detach();
+       
         $call->save();
         return view('admin.announcements.edit',compact('call', 'unidades', 'requerimientos','eventos'));
        /* @else
@@ -193,7 +193,7 @@ class CallController extends Controller
         $requerimiento = DB::table('requerimientos')->get();
         $eventos = DB::table('fechas')->get();
         $unidades = DB::table('units')->get();
-        $call->requerimientos()->detach();
+        
         $call->save();
         return view('admin.announcements.editdoc',compact('call', 'unidades', 'requerimientos','eventos'));
     }
