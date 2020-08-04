@@ -12,6 +12,15 @@
       <div class="card-header">
         <h1> Postulantes</h1> 
       </div>
+      
+      <div class="dropdown" ><button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Carreras</button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          @foreach($carreras as $ca)
+            <a class="dropdown-item" href="{{route('lista.postulantes',['carrera'=>$ca->id])}}">{{$ca->name}}</a><br>
+          @endforeach
+        </div>
+      </div>
+
       <div class="card-body">
          <table class="table table-bordered table-striped table-sm">
             <thead>
