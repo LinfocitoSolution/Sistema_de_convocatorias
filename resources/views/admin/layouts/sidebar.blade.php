@@ -96,37 +96,7 @@
               </li>
             @endif          
           <!--fin convocatorias-->
-          <!--areas
-            @if(Auth::user()->hasPermission('list areas') || Auth::user()->hasPermission('create areas'))            
-              <li class="nav-item has-treeview menu-close">
-                <a href="#" class="nav-link active bg-dark">
-                  <i class="nav-icon fa fa-th-large"></i>
-                  <p>
-                    Areas
-                    <i class="right fas fa-angle-left"></i>
-                  </p>
-                </a>              
-                <ul class="nav nav-treeview">
-                  @if(Auth::user()->hasPermission('create areas'))
-                    <li class="nav-item">
-                      <a href="{{route('area.create')}}" class="nav-link">
-                        <i class="fas fa-plus-square nav-icon"></i>
-                        <p>Nueva</p>
-                      </a>
-                    </li>
-                  @endif
-                  @if(Auth::user()->hasPermission('list areas'))
-                    <li class="nav-item">
-                      <a href="{{ route('area.index')}}" class="nav-link">
-                        <i class="fas fa-th-list nav-icon"></i>
-                        <p>Lista</p>
-                      </a>
-                    </li>
-                  @endif
-                </ul>              
-              </li>
-            @endif-->
-          <!--fin de areas-->
+          
           <!--unidades-->
             @if(Auth::user()->hasPermission('list units') || Auth::user()->hasPermission('create units'))
               <li class="nav-item has-treeview menu-close">

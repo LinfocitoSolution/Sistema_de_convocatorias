@@ -17,6 +17,7 @@ use App\Tematica_requerimiento;
 use DB;
 use Validator;
 use App\Http\Requests\ConvocatoriaRequest;
+use Carbon\Carbon;
 
 class CallController extends Controller
 {
@@ -38,9 +39,23 @@ class CallController extends Controller
      */
     public function index()
     {
+        $actual = Carbon::now();
         $calls = Convocatoria::all();
-       
-        return view('admin.announcements.index', compact('calls'));
+        $gestiones = array();
+        $gestiones = array_pad($gestiones, count($calls), 0);
+        $i=0;
+        foreach($calls as $c)
+        {
+            $gestiones[$i] = substr($c->gestion,0,-6);
+            $i++;
+        }
+        $gestiones = array_unique($gestiones);
+        if(request()->has("gestion"))
+        {
+            $calls = Convocatoria::whereYear('gestion', '=',request('gestion'))->get();
+            return view('admin.announcements.index', compact('calls', 'gestiones'));
+        }
+        return view('admin.announcements.index', compact('calls', 'gestiones'));
     }
     /**
      * Show the form for creating a new resource.
@@ -165,7 +180,7 @@ class CallController extends Controller
         $requerimiento = DB::table('requerimientos')->get();
         $eventos = DB::table('fechas')->get();
         $unidades = DB::table('units')->get();
-        $call->requerimientos()->detach();
+       
         $call->save();
         return view('admin.announcements.edit',compact('call', 'unidades', 'requerimientos','eventos'));
        /* @else
@@ -178,7 +193,7 @@ class CallController extends Controller
         $requerimiento = DB::table('requerimientos')->get();
         $eventos = DB::table('fechas')->get();
         $unidades = DB::table('units')->get();
-        $call->requerimientos()->detach();
+        
         $call->save();
         return view('admin.announcements.editdoc',compact('call', 'unidades', 'requerimientos','eventos'));
     }

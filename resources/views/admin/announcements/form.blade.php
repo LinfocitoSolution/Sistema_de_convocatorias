@@ -39,7 +39,7 @@
               <span class="input-group-append" data-html="true" data-toggle="popover" title="Restricciones" data-content="-El campo gestion tiene que ser despues del dia actual.<br> -El campo gestion tiene que tener el formato de fecha.">
                  <button class="btn btn-dark" type="button">G</button>
               </span> 
-               <input type="date" class="form-control" name="gestion" value="{{old('gestion', date("Y-m-d"), isset($call) ? $call->gestion : '')}}">
+               <input type="date" class="form-control" name="gestion" value="{{old('gestion', isset($call) ? $call->gestion : '')}}">
              
           </div>
           <div class="invalid-feedback {{ $errors->has('gestion')? 'd-block' : '' }}">

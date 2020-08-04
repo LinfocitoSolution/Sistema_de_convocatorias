@@ -98,11 +98,12 @@
        <li class="nav-item" data-toggle="tooltip" data-trigger="hover" title="Seleccione la unidad que desea ver sus convocatorias">
         
         <div class="dropdown" ><button class="btn btn-outline-dark text-white dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Unidades</button>
+          <a href="/"> <button  class="btn btn-dark" >Todos</button> </a>
           <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
           @foreach($unidade as $uni)
           <a class="dropdown-item bg-dark text-white" tabindex="0"  href="/?unidad={{$uni->id}}">{{$uni->name}}</a><br>
            @endforeach
-           <a class="dropdown-item bg-dark text-white" href="/">Todos</a><br>
+           
           </div>
         </div>
        </li>
@@ -202,6 +203,7 @@
                                   @endif
                                  @endforeach</tr>-->
                                 <td>
+                              
                                   @foreach($convocatoria->requerimientos as $convo)
                                   - {{$convo->nombre_auxiliatura}}<br>
                                   @endforeach

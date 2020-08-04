@@ -42,7 +42,6 @@
                                     @foreach ($notasConocimiento as $notaC)
                                         @if ($notaM->user_id == $user->id && $notaC->user_id == $user->id)    
                                             @if ($item->requerimientos->first()->id == $user->requerimientos->first()->id)
-                                                <p id="convocatoria" hidden>{{$item->titulo_convocatoria}}</p>
                                                 <tr>
                                                     <td>{{$user->name}}</td>
                                                     <td>{{$user->lastname}}</td>

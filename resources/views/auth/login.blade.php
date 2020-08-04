@@ -25,7 +25,7 @@
 				
 						<!--cuerpo del login-->				
 						<div class="card-body bg-light">
-							<form class= "form group mt-2" method="POST" action="{{ url('login') }}">
+							<form class= "form group mt-2" method="POST" action="{{ url('login') }}" autocomplete="off">
 								<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 								<div class="input-group form-group" data-toggle="popover" title="Restricciones" data-content="Se puede ingresar con el nombre de usuario o e-mail">
