@@ -112,41 +112,6 @@
        </li>
      </ul>
 
-     <!--buscador-->
-     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-     <form class="form-inline ml-3">
-      <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" name="search" placeholder="Convocatoria" 
-        area-label="seacrh">
-        <div class="input-group-append">
-          <button class="btn btn-navbar" type="text" id="formulario" id="boton">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>
-    </form>
-  </ul>
-  <script>
-    
-    
-      const formulario = document.querySlector('#formulario');
-      const boton = document.querySlector('#boton');
-      
-      const filtrar =()=>{
-        //console.Log(formulario.value);
-      const texto = formulario.value.toLowerCase();
-      for(let producto of productos){
-        let nombre = producto.nombre.toLowercase();
-        if(nombre.indexOf !== -1){
-
-        }
-      }
-     
-      }
-      boton.addEventListener('click', filtrar)
-
-    </script>
      
        <!----si es invitado--->
        @if (Auth::guest())
