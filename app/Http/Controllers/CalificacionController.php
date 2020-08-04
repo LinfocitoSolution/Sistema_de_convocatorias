@@ -7,6 +7,7 @@ use App\User;
 use App\Libro;
 use App\Descripcion;
 use App\Calificacion_conocimiento;
+use App\Carrera;
 use Validator;
 
 use App\Postulante_submerito;
@@ -23,10 +24,21 @@ class CalificacionController extends Controller
     public function index()
     {
         
+      
+    
+        if(request()->has("carrera"))
+        {
+            $users = User::where('carrera_id', '=', request('carrera'))->get();
+        }
+        else 
+        {
+         
+            $users=User::all();
+       
+        }
         $calificacion=Postulante_submerito::all();
-        $users=User::all();
-
-        return view('admin.calificacion.index',compact('users','calificacion','a'));
+        $carreras=Carrera::all();
+        return view('admin.calificacion.index',compact('users','calificacion','a','carreras'));
     }
     
 
