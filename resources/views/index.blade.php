@@ -100,9 +100,10 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+  
     <form class="form-inline ml-3">
       <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" name="search" placeholder="Convocatoria" href="{{route('convocatoria')}}"
+        <input class="form-control form-control-navbar" name="search" placeholder="Convocatoria" 
         area-label="seacrh">
         <div class="input-group-append">
           <button class="btn btn-navbar" type="submit">
@@ -111,9 +112,8 @@
         </div>
       </div>
     </form>
-       
-
-   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
      <ul class="navbar-nav mr-auto">
        <li class="nav-item" tabindex="0" data-toggle="tooltip" title="Este boton no esta disponible">
          <a class="nav-link text-white" disabled href="#">Información</a>
