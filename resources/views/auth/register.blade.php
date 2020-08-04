@@ -54,7 +54,7 @@
 					          <!--Inicio cuerpo de formulario-->  
 						          <div class="card-body">
 					                
-							           <form name="fregistro" class="form-group" method="POST" action={{url("/register")}}  id="formReg"  >                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       	 
+							           <form name="fregistro" class="form-group" method="POST" action={{url("/register")}}  id="formReg" autocomplete="off" >                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       	 
 								           <input type="hidden" name="_token" value="{{ csrf_token() }}">
 									     <div class="form-row" > 
 										          <!--campo nombre-->
@@ -218,8 +218,6 @@
 									          <div class="form-actions text-center"> 
 									               <button type="submit" class="btn btn-outline-dark rounded-pill mt-4 btn-lg px-5" >Confirmar </button> 
 								              </div>
-									
-								  
 						                 </form>
 							        <!--fin de pie formulario-->
 							
