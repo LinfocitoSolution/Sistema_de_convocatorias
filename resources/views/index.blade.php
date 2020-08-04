@@ -8,7 +8,6 @@
    <meta http-equiv="x-ua-compatible" content="ie=edge">
 
    <title> INDEX </title>
-
    <!-- Font Awesome Icons -->
    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
    <!-- Styles -->
@@ -89,15 +88,12 @@
  </div> 
  <!-- navbar -->
  
- <nav class="navbar sticky-top navbar-expand-lg py-0">
+<nav class="navbar sticky-top navbar-expand-lg py-0">
    <a class="navbar-brand  text-white" href="{{url('/')}}" tabindex="-1" >Inicio</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-  
-   
-  
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
      <ul class="navbar-nav mr-auto">
        <li class="nav-item" data-toggle="tooltip" data-trigger="hover" title="Seleccione la unidad que desea ver sus convocatorias">
         
@@ -111,9 +107,7 @@
         </div>
        </li>
      </ul>
-
-     
-       <!----si es invitado--->
+      <!----si es invitado--->
        @if (Auth::guest())
         <form class="form-inline float-xs-right">
           <a class="btn btn-outline-dark  text-white m-2 my-sm-2" data-toggle="tooltip" data-placement="top" title="Si ya te registraste pudes iniciar sesi&oacute;n"type="submit" href="{{url('login')}}">Iniciar Sesión</a>
@@ -154,8 +148,7 @@
                     </a>
            </form>
            @endif
-          </div>  
-    </div>
+        </div>
  </nav>
  <!--fin navbar-->   
  <!--contenido medio-->
@@ -188,8 +181,10 @@
                      <h6 class="card-title">{{$convocatoria->titulo_convocatoria}}</h6>
                      <h6>{{App\Unidad::find($convocatoria->unit_id)->name}}</h6>
                    </div> 
-                        <div class="card-body"  >
-                           <table class="table table-bordered table-striped table-sm">
+                         <div class="card-body" style="height: 150px;
+                         overflow-y:scroll">
+                           <table class="table table-bordered table-striped table-sm" >
+                             
                              <thead>
                                <tr>
                                 <th>Auxiliaturas</th>
@@ -198,8 +193,7 @@
                                </tr>
                              </thead>
                              <tbody>
-                             
-                                <!--<tr>@foreach($convocatoria->fechas as $fecha) 
+                             <!--<tr>@foreach($convocatoria->fechas as $fecha) 
                                   @if($fecha->evento=='convocatoria' || $fecha->evento=='Presentacion de Documentos'  )
                                     <tr>
                                       <td>{{$fecha->evento}}</td>          
@@ -207,13 +201,12 @@
                                     </tr>
                                   @endif
                                  @endforeach</tr>-->
-                                 <td>
+                                <td>
                                   @foreach($convocatoria->requerimientos as $convo)
                                   - {{$convo->nombre_auxiliatura}}<br>
                                   @endforeach
                                 </td>
-                              
-                              </tbody>
+                              </tbody> 
                            </table>         
                               {{-- <form class="form-horizontal" action="/call/{{$convocatoria->pdf_file}" method="GET"> --}}
                              {{-- <a href="call/{{$convocatoria->pdf_file}}" target="_blank" class="btn btn-outline-dark rounded-pill  btn-block" data-toggle="tooltip" data-placement="bottom" data-trigger="hover" title="Presiona el botón para ver la convocatoria">Ver Convocatoria</a>
