@@ -137,37 +137,3 @@ doc.autoTable(res.columns, res.data);*/
   location.href = "/";
 }
 </script>
-
-<script> function paraJoelDelFuturo(){
-  
-  //SEGUNDA FORMA DE HACER LAS TABLAS
-  // var columns = ["Items", "Cant", "Hrs.Academicas", "Nombre de la Auxiliatura", "Cod. de la Auxiliatura"];
-  // var requirements = {!! json_encode($call->requerimientos) !!};
-  // var json = requirements[0].id;
-  // var data = []
-  // console.log(requirements.length);
-  // console.log(requirements[0]);
-  // for(var i=0; i<requirements.length; i++)
-  // {
-  //   data.push([requirements[i].id,requirements[i].cantidad_de_auxiliares,requirements[i].cantidad_horas_academicas,
-  //             requirements[i].nombre_auxiliatura,requirements[i].codigo_auxiliatura]);
-  // }
-  // console.log(data);
-  // doc.autoTable(columns,data,
-  // { margin:{ top: 25 }});
-
-  //ARRAY DE FIRMAS
-  // var x = document.getElementById("firma").querySelectorAll(".fi");
-  // for (var i = 0, l = x.length; i < l; i++) 
-  // { 
-  //   if(i>1)
-  //   {
-  //     doc.text(x[i].textContent,45,160);//string,x,y
-  //   }
-  //   else
-  //   {
-      
-  //   }
-  // }
-}
-</script>

@@ -65,9 +65,13 @@ class ConocimientoCalifController extends Controller
     {
         $callid = $request->input('convoca');
         $call = Convocatoria::find($callid);
-        $tematicas = Tematica::all();
-        $requerimientosLab = $call->requerimientos()->get();
-        return view('admin.conocimientoCalif.create',compact('call', 'requerimientosLab', 'tematicas'));
+        if($call != '')
+        {
+            $tematicas = Tematica::all();
+            $requerimientosLab = $call->requerimientos()->get();
+            return view('admin.conocimientoCalif.create',compact('call', 'requerimientosLab', 'tematicas'));
+        }
+        return redirect(route('conocimientoCalif.index'))->with(['messageDanger'=>'No tiene convocatorias disponibles para esa unidad!','alert-type'=>'danger']);
     }
 
     /**

@@ -53,7 +53,11 @@ class TematicaController extends Controller
     {
         $callid = $request->get('convoca');
         $call = Convocatoria::find($callid);
+        if($call != '')
+        {
         return view('admin.tematica.create',compact('call'));
+        }
+        return redirect(route('tematica.index'))->with(['messageDanger'=>'No tiene convocatorias disponibles para esa unidad!','alert-type'=>'danger']);
     }
 
     /**
