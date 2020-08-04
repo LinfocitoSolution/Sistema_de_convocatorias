@@ -99,10 +99,11 @@
        <li class="nav-item" data-toggle="tooltip" data-trigger="hover" title="Seleccione la unidad que desea ver sus convocatorias">
         
         <div class="dropdown" ><button class="btn btn-outline-dark text-white dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Unidades</button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
           @foreach($unidade as $uni)
           <a class="dropdown-item bg-dark text-white" tabindex="0"  href="/?unidad={{$uni->id}}">{{$uni->name}}</a><br>
            @endforeach
+           <a class="dropdown-item bg-dark text-white" href="/">Todos</a><br>
           </div>
         </div>
        </li>
@@ -185,21 +186,27 @@
                            <table class="table table-bordered table-striped table-sm">
                              <thead>
                                <tr>
-                                 <th>Evento</th>
-                                 <th>Fecha Inicial</th> 
+                                <th>Auxiliaturas</th>
+                                <!-- <th>Evento</th>
+                                 <th>Fecha Inicial</th>--> 
                                </tr>
                              </thead>
                              <tbody>
-                              <tr>
-                                @foreach($convocatoria->fechas as $fecha) 
+                             
+                                <!--<tr>@foreach($convocatoria->fechas as $fecha) 
                                   @if($fecha->evento=='convocatoria' || $fecha->evento=='Presentacion de Documentos'  )
                                     <tr>
                                       <td>{{$fecha->evento}}</td>          
                                       <td>{{$fecha->fechaI}}</td> 
                                     </tr>
                                   @endif
-                                 @endforeach
-                              </tr>
+                                 @endforeach</tr>-->
+                                 <td>
+                                  @foreach($convocatoria->requerimientos as $convo)
+                                  - {{$convo->nombre_auxiliatura}}<br>
+                                  @endforeach
+                                </td>
+                              
                               </tbody>
                            </table>         
                               {{-- <form class="form-horizontal" action="/call/{{$convocatoria->pdf_file}" method="GET"> --}}
