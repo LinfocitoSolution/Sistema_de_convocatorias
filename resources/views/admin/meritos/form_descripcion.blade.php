@@ -30,10 +30,11 @@
    <div class="invalid-feedback {{ $errors->has('tipo')? 'd-block' : '' }}">
     {{ $errors->has('tipo')? $errors->first('tipo') : 'El campo unidade es requerido'  }}
 </div>
+
    
 </div>
 
-        
+<h6 class="text-danger mt-1 mb-2"><b>Nota:</b> Si escoge el tipo de descripcion "Promedio" ingrese en el campo puntaje 0, ya que el puntaje que se va a  calificar es del submerito</h6>
         <div class="col-md-12 mb-3">
             <label class="col-form-label" for="score">Puntaje</label>
             <div class="input-group">
@@ -49,5 +50,7 @@
             {{ $errors->has('score')? $errors->first('score') : 'El campo unidade es requerido'  }}
         </div>
      </div>
+    
      </div>
+     
  

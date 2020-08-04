@@ -289,8 +289,15 @@ class ConocimientoCalifController extends Controller
     public function tablaNotasFinales()
     {   
         $postulantes = User::where('carrera_id', '!=', 'null')->get();
-        $notasMerito = Calificacion_conocimiento::all();
-        $notasConocimiento = Postulante_submerito::all();
-        return view('admin.notaFinal.index', compact('postulantes', 'notasMerito', 'notasConocimiento'));
+        $notasConocimiento = Calificacion_conocimiento::all();
+        $notasMerito = Postulante_submerito::all();
+        $unidades = Unidad::all();
+        if(request()->has("unidad"))
+        {
+            $convocatorias=Convocatoria::where('unit_id', '=', request('unidad'))->where('publicado', '=', 'si')->get();
+            $unidad = Unidad::where('id', '=', request('unidad'))->first();
+            return view('admin.notaFinal.index', compact('postulantes', 'notasMerito', 'notasConocimiento', 'unidades', 'convocatorias', 'unidad'));
+        }
+        return view('admin.notaFinal.index', compact('postulantes', 'notasMerito', 'notasConocimiento', 'unidades'));
     }
 }

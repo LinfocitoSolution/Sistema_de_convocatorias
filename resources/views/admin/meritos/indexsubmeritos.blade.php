@@ -9,8 +9,9 @@
     <div class="container"> 
         <div class="card mt-2">
             <div class="card-header">
-            <h2>Tabla de Sub-Méritos</h2>
-            <h3>Merito:{{$merito->name}}</h3>
+            <h2>Merito:{{$merito->name}}</h2>
+            <h3>Tabla de Sub-Meritos</h3>
+            
                 
                 <a class="btn btn-dark px2" data-toggle="tooltip" data-trigger="hover" title="Presione para crear un nuevo submérito" href="{{ route('submerito.create',$merito)}}">
                     Nuevo Submerito
