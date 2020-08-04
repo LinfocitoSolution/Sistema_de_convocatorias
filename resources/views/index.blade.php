@@ -193,14 +193,7 @@
                              </thead>
                              <tbody>
                              
-                                <!--<tr>@foreach($convocatoria->fechas as $fecha) 
-                                  @if($fecha->evento=='convocatoria' || $fecha->evento=='Presentacion de Documentos'  )
-                                    <tr>
-                                      <td>{{$fecha->evento}}</td>          
-                                      <td>{{$fecha->fechaI}}</td> 
-                                    </tr>
-                                  @endif
-                                 @endforeach</tr>-->
+                                
                                  <td>
                                   @foreach($convocatoria->requerimientos as $convo)
                                   - {{$convo->nombre_auxiliatura}}<br>
