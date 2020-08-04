@@ -15,6 +15,7 @@
 						  <div class="card-body ">
 				             <form method="POST" action="{{route('confirmar.password')}}">
 								<input type="hidden" name="_token" value="{{ csrf_token() }}">
+	
 								 <label class="col-form-label">Contraseña actual</label>
 								<div class="input-group form-group">
 									<div class="input-group-prepend">
@@ -44,7 +45,7 @@
 								<div class="invalid-feedback {{ $errors->has('password_confirm')? 'd-block' : '' }}">
 									{{ $errors->has('password_confirm')? $errors->first('password_confirm') : 'Este campo es requerido'  }}
 								</div>
-								<button type="submit" class="btn btn-outline-dark rounded-pill active btn-block mt-3"> Cambiar Contraseña </button>
+								<button type="submit" class="btn btn-outline-dark rounded-pill btn-block mt-3"> Cambiar Contraseña </button>
 						 	 </form>   
 						 </div>
 						 <!--fin de cuerpo de formulario-->
