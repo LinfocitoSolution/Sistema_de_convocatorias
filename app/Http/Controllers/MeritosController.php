@@ -116,6 +116,7 @@ class MeritosController extends Controller
     if ($validator->fails()) {
         //return Submerito::where('merito_id', '=',$merito->id )->get()->sum("score");
         return redirect(route('submerito.create',compact('merito')))->withErrors($validator);
+        
     }
     else {
         
@@ -123,7 +124,7 @@ class MeritosController extends Controller
 
         $submeritos->save();
         
-        return redirect(route('merito.index'))->with([ 'message' => 'submerito creado exitosamente!', 'alert-type' => 'success' ]);
+        return redirect(route('subMerito.indexsubmerito',compact('merito')))->with([ 'message' => 'submerito creado exitosamente!', 'alert-type' => 'success' ]);
         
     }
     }
@@ -176,9 +177,11 @@ class MeritosController extends Controller
     }
     public function destroysub($id)
     {
+        $a=Submerito::where('id',$id)->first();
+        $merito=Merito::where('id',$a->merito_id)->first();
         Submerito::destroy($id);  
 
-        return redirect(route('merito.index'))->with([ 'message' => 'Submerito   eliminado!', 'alert-type' => 'success' ]);
+        return redirect(route('subMerito.indexsubmerito',compact('merito')))->with([ 'message' => 'Submerito   eliminado!', 'alert-type' => 'success' ]);
     }
     public function submerito()
     {
@@ -212,6 +215,7 @@ class MeritosController extends Controller
     }
     public function storedescripcion(Request $request,Submerito $submerito)
     {
+        
         $descripcion=new Descripcion;
         $descripcion->descripcion=$request->input('descripcion');
         $descripcion->tipo_descripcion=$request->input('tipo');
@@ -249,15 +253,17 @@ class MeritosController extends Controller
 
         $descripcion->save();
         
-        return redirect(route('merito.index'))->with([ 'message' => 'descripcion creada exitosamente!', 'alert-type' => 'success' ]);
+        return redirect(route('descripcion.index',compact('submerito')))->with([ 'message' => 'descripcion creada exitosamente!', 'alert-type' => 'success' ]);
         
     } 
     }
     public function destroyDes($id)
     {
-        Descripcion::destroy($id);  
-
-        return redirect(route('merito.index'))->with([ 'message' => 'Descripcion   eliminado!', 'alert-type' => 'success' ]);
+          
+        $a=Descripcion::where('id',$id)->first();
+        $submerito=Submerito::where('id',$a->submerito_id)->first();
+        Descripcion::destroy($id);
+        return redirect(route('descripcion.index',compact('submerito')))->with([ 'message' => 'Descripcion   eliminado!', 'alert-type' => 'success' ]);
     }
     public function primerPaso()
     {   
