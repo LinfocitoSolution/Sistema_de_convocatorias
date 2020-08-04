@@ -134,6 +134,10 @@
                         <th><strong>{{$merito->name}}</strong></th>
                         <th><strong>{{$merito->score}}</strong></th>
                      </tr>
+                     <tr>
+                        <th>Submerito</th>   
+                        <th></th>
+                     </tr>
                      @foreach($submeritos as $submerito)
                         @if($submerito->merito_id==$merito->id)
                            <tr>
@@ -152,7 +156,6 @@
                                     @endif
                                  @endif
                               @endforeach
-                           </tr>
                         @endif
                      @endforeach
                @endforeach

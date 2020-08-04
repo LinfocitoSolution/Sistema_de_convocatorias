@@ -14,6 +14,10 @@
 <!-- Select2 -->
 <link href="{{URL::asset('https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css')}}" rel="stylesheet" />
 <script src="{{URL::asset('https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js')}}"></script>
+<script src="https://unpkg.com/jspdf"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/2.0.16/jspdf.plugin.autotable.js"></script>
+<script src="{{asset('js/bootstrap.bundle.min.js')}}" type="text/javascript"></script>
+
   <script>
     $(function () {
      $('[data-toggle="popover"]').popover({
@@ -214,4 +218,33 @@
         x--;
     });
 </script>
+
+<script> function notasPDF(){
+    var doc = new jsPDF('p', 'pt', 'letter');
+    var pageHeight = doc.internal.pageSize.height || doc.internal.pageSize.getHeight();
+    var pageWidth = doc.internal.pageSize.width || doc.internal.pageSize.getWidth();
+    doc.setFontSize(18);
+    doc.setFontType('bold');
+    var titulo = document.getElementById('titulo');
+    var gestion = document.getElementById('gestion');
+    doc.text('NOTAS FINALES', pageWidth/2, 100, 'center');
+    // doc.text(gestion.textContent, pageWidth/2,  55, 'center');
+
+    //FECHA
+    var y = (new Date()).getFullYear();
+    var m = (new Date()).getMonth();
+    var d = (new Date()).getDate();
+    var meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+    doc.setFontType('normal');
+    doc.setFontStyle('Arial');
+    doc.setFontSize(12);
+    doc.text("Cochabamba, " + d + " de " + meses[m] + " de " + y, 50, 50);
+
+    doc.setFontType('normal');
+    var res = doc.autoTableHtmlToJson(document.getElementById("tabla-notas"));
+    doc.autoTable(res.columns, res.data, {margin: {top: 160}});
+    doc.save('Tabla de notas finales');
+}
+</script>
+
  

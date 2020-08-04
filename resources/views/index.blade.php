@@ -25,8 +25,9 @@
  <div class="cabeza">
    <div class="container"> 
      <div class="jumbotron jumbotron-fluid mb-0 pt-4" style="height: 300px;">
-              <div class="h3 text-white text-center mt-0">CONVOCATORIAS AUXILIARES</div>
-              <div class="h4 text-white text-center">UNIVERSIDAD MAYOR DE SAN SIMÓN</div>
+              <div class="h4 text-white text-center mt-0">CONVOCATORIAS AUXILIARES</div>
+              <div class="h5 text-white text-center">UNIVERSIDAD MAYOR DE SAN SIMÓN</div>
+              <div class="h6 text-white text-center">FACULTAD DE CIENCIAS Y TECNOLOGIA</div>
           <div class="row justify-content-center responsive">
                    <div class="col-3 col-md-2">
                       <img class="logoUmss float-left  p-0  mt-4 img-responsive" width="89" height="120" src="{{asset('../imagenes/umss1.png')}} " alt="umss2">
@@ -42,7 +43,7 @@
                        </ol>
                        <div class="carousel-inner">
                            <div class="carousel-item active">
-                              <img src="{{ asset('/imagenes/tecno.jpg') }}"  class="d-block w-100" alt="web" width="500" height="210">
+                              <img src="{{ asset('/imagenes/principalfacu.jpg') }}"  class="d-block w-100" alt="web" width="450" height="210">
                               <div class="carousel-caption" >
                                  <div class="text-white pb-5">
                                     <h4>Facultad de ciencias y tecnología</h4>
@@ -50,7 +51,7 @@
                               </div>
                            </div>
                            <div class="carousel-item">
-                                <img src="{{ asset('/imagenes/sistemas.jpg') }}" class="d-block w-100" alt="elem" width="500" height="210">
+                                <img src="{{ asset('/imagenes/sistemas.jpg') }}" class="d-block w-100" alt="elem" width="450" height="210">
                               <div class="carousel-caption">
                                  <div class="text-white pb-4">
                                     <h4>Departamento de Sistemas e Informática</h4>
@@ -58,21 +59,14 @@
                               </div>
                            </div>
                            <div class="carousel-item">
-                               <img src="{{ asset('/imagenes/aula.jpg') }}" class="d-block w-100" alt="aulalaboratorios" width="500" height="210">
+                               <img src="{{ asset('/imagenes/electronica.jpg') }}" class="d-block w-100" alt="aulalaboratorios" width="450" height="210">
                               <div class="carousel-caption">
                                  <div class="text-white pb-5">
-                                   <h3>Laboratorio</h3>
+                                   <h4>Departamento de Electrónica</h4>
                                  </div>
                               </div>
                            </div>
-                           <div class="carousel-item">
-                                 <img src="{{ asset('/imagenes/edificio.jpg') }}" class="d-block w-100" alt="prog" width="500" height="210">
-                              <div class="carousel-caption" >
-                                 <div class="text-white pb-5">
-                                    <h4>Edificio Multiacadémico</h4>
-                                 </div>
-                              </div>   
-                           </div>
+                           
                         </div>
                           <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -86,7 +80,7 @@
                     <!--fin carrusel-->  
                 </div> 
                 <div class="col-3 col-md-2">
-                   <img  class="logoCarrera float-right  p-0 mt-4  img-responsive" width="89" height="100" src="{{asset('../imagenes/logoInformaticaSistemas.png')}}" alt="carrera"> 
+                   <img  class="logoCarrera float-right  p-0 mt-4  img-responsive" width="89" height="100" src="{{asset('../imagenes/facultadtec.png')}}" alt="carrera"> 
                 </div>
           </div>
       </div>
@@ -102,8 +96,16 @@
 
    <div class="collapse navbar-collapse" id="navbarSupportedContent">
      <ul class="navbar-nav mr-auto">
-       <li class="nav-item" tabindex="0" data-toggle="tooltip" title="Este boton no esta disponible">
-         <a class="nav-link text-white" disabled href="#">Información</a>
+       <li class="nav-item" data-toggle="tooltip" data-trigger="hover" title="Seleccione la unidad que desea ver sus convocatorias">
+        
+        <div class="dropdown" ><button class="btn btn-outline-dark text-white dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Unidades</button>
+          <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
+          @foreach($unidade as $uni)
+          <a class="dropdown-item bg-dark text-white" tabindex="0"  href="/?unidad={{$uni->id}}">{{$uni->name}}</a><br>
+           @endforeach
+           <a class="dropdown-item bg-dark text-white" href="/">Todos</a><br>
+          </div>
+        </div>
        </li>
      </ul>
        <!----si es invitado--->
@@ -170,35 +172,41 @@
 
    <!--convocatorias ofertadas-->
  <div class="convocatoria">
-   <div class="container mt-4 mb-3">
+    <div class="container mt-4 mb-3">
      <div class="row justify-content-around">
         @foreach ($convocatorias as $convocatoria)
           @if($convocatoria->publicado=="si") 
           <div class="col-lg-5">
                 <div class="card mb-4">
                    <div class="card-header">
-                     <h5 class="card-title">{{$convocatoria->titulo_convocatoria}}</h5>
+                     <h6 class="card-title">{{$convocatoria->titulo_convocatoria}}</h6>
                      <h6>{{App\Unidad::find($convocatoria->unit_id)->name}}</h6>
                    </div> 
                         <div class="card-body"  >
                            <table class="table table-bordered table-striped table-sm">
                              <thead>
                                <tr>
-                                 <th>Evento</th>
-                                 <th>Fecha Inicial</th> 
+                                <th>Auxiliaturas</th>
+                                <!-- <th>Evento</th>
+                                 <th>Fecha Inicial</th>--> 
                                </tr>
                              </thead>
                              <tbody>
-                              <tr>
-                                @foreach($convocatoria->fechas as $fecha) 
+                             
+                                <!--<tr>@foreach($convocatoria->fechas as $fecha) 
                                   @if($fecha->evento=='convocatoria' || $fecha->evento=='Presentacion de Documentos'  )
                                     <tr>
                                       <td>{{$fecha->evento}}</td>          
                                       <td>{{$fecha->fechaI}}</td> 
                                     </tr>
                                   @endif
-                                 @endforeach
-                              </tr>
+                                 @endforeach</tr>-->
+                                 <td>
+                                  @foreach($convocatoria->requerimientos as $convo)
+                                  - {{$convo->nombre_auxiliatura}}<br>
+                                  @endforeach
+                                </td>
+                              
                               </tbody>
                            </table>         
                               {{-- <form class="form-horizontal" action="/call/{{$convocatoria->pdf_file}" method="GET"> --}}
@@ -247,7 +255,7 @@
               <h5 class="text-white">ENCUENTRANOS EN LAS REDES</h5>
               <div class="redes-footer">
                 <a href="http://websis.umss.edu.bo/"><img src="{{asset('imagenes/websis.jpg')}}" width="60" height="60"></a>
-                <a href="http://www.cs.umss.edu.bo/"><img src="{{asset('imagenes/cs.jpg')}}" width="60" height="60"></a>
+                <a href="http://www.cs.umss.edu.bo/"><img src="{{asset('imagenes/logoInformaticaSistemas.png')}}" width="60" height="60"></a>
                 <a href="http://www.umss.edu.bo/"><img src="{{asset('imagenes/umss1.png')}}" width="40" height="60"></a>
               </div>
               <hr>

@@ -25,7 +25,7 @@
           </div>
           <div class="card-body">
   <div class="medio">
-        <form class="form-group" method="POST" action="/call/{{$call->id}}" enctype="multipart/form-data">
+        <form class="form-group" method="POST" action="{{route('call.update', $call)}}" enctype="multipart/form-data">
           <input type="hidden" name="_token" value="{{ csrf_token() }}">
           {{ method_field('PUT') }}
           
