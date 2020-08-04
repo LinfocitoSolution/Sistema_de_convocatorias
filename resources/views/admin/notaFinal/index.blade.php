@@ -11,16 +11,17 @@
         <div class="card mt-2">
             <div class="card-header">
                 <h1>Lista de  Notas Finales</h1>
+            
+               <div class="dropdown" ><button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Unidades</button>
+                  <a href="{{route('nota.final')}}"> <button  class="btn btn-dark"data-toggle="tooltip" data-trigger="hover"  data-placement="right" title="Presiona para ver lista de todos los postulantes"><i class="fa fa-users mr-2"></i>Todo</button></a>
+                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                       @foreach($unidades as $uni)
+                          <a class="dropdown-item" tabindex="3" href="{{route('nota.final',['unidad'=>$uni->id])}}">{{$uni->name}}</a><br>
+                       @endforeach
+                   </div>
+               </div>
             </div>
-
-            <div class="dropdown" ><button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Unidades</button>
-               <a href="{{route('nota.final')}}"> <button  class="btn btn-dark" >Todo</button> </a>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  @foreach($unidades as $uni)
-                    <a class="dropdown-item" href="{{route('nota.final',['unidad'=>$uni->id])}}">{{$uni->name}}</a><br>
-                  @endforeach
-                </div>
-            </div>
+ 
             <div class="card-body">
                 <table class="table table-bordered table-striped table-sm" id="tabla-notas">
                     <thead>
