@@ -4,7 +4,8 @@
      
 	  <div class="contenido-medio">
 			<div class="container">	
-				<div class="d-flex justify-content-center h-100">
+				<div class="row justify-content-center">
+				  <div class="col-md-6">	
 					<div class="card">
 					  <!--cabeza del formulario-->	
 						<div class="card-header  text-white">
@@ -45,11 +46,17 @@
 								<div class="invalid-feedback {{ $errors->has('password_confirm')? 'd-block' : '' }}">
 									{{ $errors->has('password_confirm')? $errors->first('password_confirm') : 'Este campo es requerido'  }}
 								</div>
-								<button type="submit" class="btn btn-outline-dark rounded-pill btn-block mt-3"> Cambiar Contraseña </button>
-						 	 </form>   
+								<div class="form-actions text-center mt-4 mb-2">
+								    <button type="submit" class="btn btn-outline-dark mr-1"> Cambiar Contraseña </button>
+								    <a class="btn btn-outline-dark ml-1" data-toggle="tooltip" data-placement="right" title="Presione el bot&oacute;n para cancelar" href="{{route('postulante.show',ucfirst(Auth::user()->id))}}">Cancelar</a> 
+								</div>
+							</form>
+							    
 						 </div>
+						 <div class="card-footer"></div>
 						 <!--fin de cuerpo de formulario-->
-					  </div>		
+					  </div>
+				     </div> 		
 				   </div>	
 			   </div>	
 		  </div>
