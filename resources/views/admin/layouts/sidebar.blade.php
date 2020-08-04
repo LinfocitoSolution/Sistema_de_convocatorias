@@ -1,24 +1,7 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="#" class="brand-link">
-      <img src="{{ asset('imagenes/linfocito.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-           style="opacity: .8">
-        @if(Auth::user()->roles->first()->name=='Admin')     
-         <span class="brand-text font-weight-light">Administrador</span>
-               @else
-              @if(Auth::user()->roles->first()->name=='Validador')
-                 <span class="brand-text font-weight-light">Validador</span>
-                 @else
-                 @if(Auth::user()->roles->first()->name=='Secretaria') 
-                    <span class="brand-text font-weight-light">Secretaria</span>
-                    @else
-                     <span class="brand-text font-weight-light">Jefe Departamento</span> 
-                 @endif  
-              @endif   
-          @endif 
-             
-    </a>
+    
 
     <!-- Sidebar -->
     @if(Auth::check())
