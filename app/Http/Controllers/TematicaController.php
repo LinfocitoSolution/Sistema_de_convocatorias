@@ -22,14 +22,6 @@ class TematicaController extends Controller
     {
         $callsLab = Convocatoria::where('tipo_convocatoria', 'convocatoria de laboratorios')->get();
         $tematicas = Tematica::all();
-        if($tematicas->isEmpty())
-        {
-            return redirect(route('tematica.unidad'))->with(['messageDanger'=>'Registre sus temáticas','alert-type'=>'danger']);
-        }
-        if($callsLab->isEmpty())
-        {
-            return redirect(route('tematica.unidad'))->with(['messageDanger'=>'Necesita crear una convocatoria (laboratorio)!','alert-type'=>'danger']);
-        }
         return view('admin.tematica.index',compact('callsLab', 'tematicas'));
     }
 
@@ -132,11 +124,9 @@ class TematicaController extends Controller
             {
                 foreach($requerimientos as $r)    
                 {
-                    if($t->requerimientos()->first()->id == $r->id)
+                    if($t->requerimientos->first()->id == $r->id)
                     {
-                        $t->requerimientos()->delete();
                         $t->delete();
-                        $r->tematicas()->detach();
                     }
                 }
             }

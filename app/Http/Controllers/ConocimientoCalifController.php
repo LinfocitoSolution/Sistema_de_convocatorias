@@ -97,9 +97,12 @@ class ConocimientoCalifController extends Controller
             $ind = 0;
             foreach($requerimientosLab as $re)
             {
-                $arrayNotas[$ind]+=$notas[$indNotas];
-                $indNotas++;
-                $ind++;
+                if($t->requerimientos->first()->id == $re->id)
+                {
+                    $arrayNotas[$ind]+=$notas[$indNotas];
+                    $indNotas++;
+                    $ind++;
+                }
             }
         }
         for($i = 0; $i<$sizeOfReq;$i++)

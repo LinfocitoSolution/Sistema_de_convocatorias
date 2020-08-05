@@ -46,7 +46,7 @@
                              <div class="form-actions text-center">
                                  <a class="btn btn-outline-dark px-4" href="{{route('calif.primero')}}" data-toggle="tooltip" data-placement="left" title="Presione para volver al anterior paso">Atras</a>  
                                  {{-- @if (App\Tematica_requerimiento::where('convocatoria_id', '=', $convocatoria->first()->id)->exists())) --}}
-                                    <button class="btn btn-outline-dark" type="submit" data-toggle="tooltip" data-placement="right" title="Presione para avanzar al formulario de rótulo">Siguiente</button>
+                                    <button class="btn btn-outline-dark" type="submit" data-toggle="tooltip" data-placement="right" title="Presione para avanzar al formulario">Siguiente</button>
                                  {{-- @endif --}}
                              </div> 
                          </form> 
