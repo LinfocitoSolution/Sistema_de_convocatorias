@@ -225,19 +225,22 @@
     var pageWidth = doc.internal.pageSize.width || doc.internal.pageSize.getWidth();
     doc.setFontSize(18);
     doc.setFontType('bold');
-    var titulo = document.getElementById('titulo');
-    var gestion = document.getElementById('gestion');
     doc.text('NOTAS FINALES', pageWidth/2, 100, 'center');
-    // doc.text(gestion.textContent, pageWidth/2,  55, 'center');
 
+    doc.setFontType('normal');
+    doc.setFontStyle('Arial');
+    doc.setFontSize(12);
+    var t = document.getElementById('unidad');
+    if(t != null)
+    {
+        doc.text("Unidad: ".concat(t.textContent), 50, 135);
+    }
+    
     //FECHA
     var y = (new Date()).getFullYear();
     var m = (new Date()).getMonth();
     var d = (new Date()).getDate();
     var meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
-    doc.setFontType('normal');
-    doc.setFontStyle('Arial');
-    doc.setFontSize(12);
     doc.text("Cochabamba, " + d + " de " + meses[m] + " de " + y, 50, 50);
 
     doc.setFontType('normal');

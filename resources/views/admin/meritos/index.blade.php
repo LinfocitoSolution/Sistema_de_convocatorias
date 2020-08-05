@@ -28,6 +28,7 @@
                 <tbody>
                     @foreach($meritos as $merito)
                     <tr>
+                        @if(App\Convocatoria::find($merito->convocatoria_id)->publicado=="no")
                         <td>{{App\Convocatoria::find($merito->convocatoria_id)->titulo_convocatoria}}</td>
                         <td> {{$merito->name}} </td>
                         <td>{{$merito->score}}</td>
@@ -49,6 +50,7 @@
                             
                                                        
                         </form>
+                        @endif
                         @endforeach
                         
                         

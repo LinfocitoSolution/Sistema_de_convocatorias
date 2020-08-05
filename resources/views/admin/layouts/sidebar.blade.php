@@ -1,24 +1,7 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="#" class="brand-link">
-      <img src="{{ asset('imagenes/linfocito.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-           style="opacity: .8">
-        @if(Auth::user()->roles->first()->name=='Admin')     
-         <span class="brand-text font-weight-light">Administrador</span>
-               @else
-              @if(Auth::user()->roles->first()->name=='Validador')
-                 <span class="brand-text font-weight-light">Validador</span>
-                 @else
-                 @if(Auth::user()->roles->first()->name=='Secretaria') 
-                    <span class="brand-text font-weight-light">Secretaria</span>
-                    @else
-                     <span class="brand-text font-weight-light">Jefe Departamento</span> 
-                 @endif  
-              @endif   
-          @endif 
-             
-    </a>
+    
 
     <!-- Sidebar -->
     @if(Auth::check())
@@ -114,37 +97,7 @@
               </li>
             @endif          
           <!--fin convocatorias-->
-          <!--areas-->
-            
-            @if(Auth::user()->hasPermission('responsable de convocarorias'))
-              <li class="nav-item has-treeview menu-close">
-                <a href="#" class="nav-link active bg-dark">
-                  <i class="nav-icon fa fa-th-large"></i>
-                  <p>
-                    Areas
-                    <i class="right fas fa-angle-left"></i>
-                  </p>
-                </a>              
-                <ul class="nav nav-treeview">
-                  
-                    <li class="nav-item">
-                      <a href="{{route('area.create')}}" class="nav-link">
-                        <i class="fas fa-plus-square nav-icon"></i>
-                        <p>Nueva</p>
-                      </a>
-                    </li>
-
-                    <li class="nav-item">
-                      <a href="{{ route('area.index')}}" class="nav-link">
-                        <i class="fas fa-th-list nav-icon"></i>
-                        <p>Lista</p>
-                      </a>
-                    </li>
-                  
-                </ul>              
-              </li>
-            @endif
-          <!--fin de areas-->
+          
           <!--unidades-->
             
             @if(Auth::user()->hasPermission('responsable de convocarorias'))            
@@ -216,7 +169,7 @@
                 <a href="#" class="nav-link active bg-dark">
                   <i class="nav-icon fa fa-calendar"></i>
                   <p>
-                    Fechas
+                    Fechas-Eventos
                     <i class="right fas fa-angle-left"></i>
                   </p>
                 </a>
@@ -318,7 +271,7 @@
                <a href="#" class="nav-link active bg-dark">
                  <i class="nav-icon fa fa-user-graduate"></i>
                  <p>
-                   Entrega documentos
+                   Habilitados/Inhabilitados
                    <i class="right fas fa-angle-left"></i>
                  </p>
                </a>

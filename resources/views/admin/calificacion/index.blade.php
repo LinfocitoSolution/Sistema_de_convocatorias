@@ -14,12 +14,13 @@
             <div class="card-header">
                 <h1>Tabla de Calificación de Méritos</h1>
                 <h5>Filtro de Unidades:</h5>
-                <div class="dropdown" ><button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  >Unidades</button>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <div class="dropdown" ><button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  >Carreras</button>
+                    <a href="{{route('calif.index')}}"> <button  class="btn btn-dark" >Todos</button> </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                   @foreach($carreras as $car)
                   <a class="dropdown-item" href="{{route('calif.index',['carrera'=>$car->id])}}">{{$car->name}}</a><br>
                    @endforeach
-                   <a class="dropdown-item" href="{{route('calif.index')}}">Todos</a><br>
+                   
                   </div>
                 </div>
             </div>

@@ -53,6 +53,7 @@ class ListaController extends Controller
         
         $user->habilitados->first()->name=$request->input('hab');
         $user->habilitados->first()->description=$request->input('descripcion');
+        $user->habilitados->first()->publicado="no";
         $user->save();
         $user->push();
         //return $request->input('hab');

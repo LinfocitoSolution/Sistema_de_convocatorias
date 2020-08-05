@@ -18,19 +18,9 @@
       <form class="form-inline ml-3">
          <img src="{{ asset('imagenes/iconohom.png') }}" alt="perfil" class="rounded-circle" width="30" height="30">
             <div class="btn-group" data-toggle="tooltip" data-placement="left" data-trigger="hover" title="Presiona y selecciona si deseas cerrar sesion">
-               @if(Auth::user()->roles->first()->name=='Administrador') 
-                  <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown">Administrador</button>
-                     @else
-                     @if(Auth::user()->roles->first()->name=='Validador') 
-                        <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown">Validador</button>
-                        @else
-                        @if(Auth::user()->roles->first()->name=='Secretaria')
-                            <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown">Secretaria</button> 
-                            @else
-                             <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown">Administrador</button>
-                        @endif
-                     @endif
-                @endif        
+              
+            <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown">{{Auth::user()->roles->first()->name}}</button>
+                           
                 
                        <div class="dropdown-menu">
                            <div class="dropdown-divider"></div>

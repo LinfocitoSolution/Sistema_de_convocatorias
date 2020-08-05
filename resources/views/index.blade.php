@@ -99,11 +99,12 @@
        <li class="nav-item" data-toggle="tooltip" data-trigger="hover" title="Seleccione la unidad que desea ver sus convocatorias">
         
         <div class="dropdown" ><button class="btn btn-outline-dark text-white dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Unidades</button>
+          <a href="/"> <button  class="btn btn-dark" >Todos</button> </a>
           <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
           @foreach($unidade as $uni)
           <a class="dropdown-item bg-dark text-white" tabindex="0"  href="/?unidad={{$uni->id}}">{{$uni->name}}</a><br>
            @endforeach
-           <a class="dropdown-item bg-dark text-white" href="/">Todos</a><br>
+           
           </div>
         </div>
        </li>
@@ -182,8 +183,9 @@
                      <h6 class="card-title">{{$convocatoria->titulo_convocatoria}}</h6>
                      <h6>{{App\Unidad::find($convocatoria->unit_id)->name}}</h6>
                    </div> 
-                        <div class="card-body"  >
-                           <table class="table table-bordered table-striped table-sm">
+                        <div class="card-body" style="height: 150px;overflow-y:scroll">
+                         
+                           <table class="table table-bordered table-striped table-sm" >
                              <thead>
                                <tr>
                                 <th>Auxiliaturas</th>
@@ -193,14 +195,7 @@
                              </thead>
                              <tbody>
                              
-                                <!--<tr>@foreach($convocatoria->fechas as $fecha) 
-                                  @if($fecha->evento=='convocatoria' || $fecha->evento=='Presentacion de Documentos'  )
-                                    <tr>
-                                      <td>{{$fecha->evento}}</td>          
-                                      <td>{{$fecha->fechaI}}</td> 
-                                    </tr>
-                                  @endif
-                                 @endforeach</tr>-->
+                                
                                  <td>
                                   @foreach($convocatoria->requerimientos as $convo)
                                   - {{$convo->nombre_auxiliatura}}<br>
@@ -213,17 +208,20 @@
                              {{-- <a href="call/{{$convocatoria->pdf_file}}" target="_blank" class="btn btn-outline-dark rounded-pill  btn-block" data-toggle="tooltip" data-placement="bottom" data-trigger="hover" title="Presiona el botón para ver la convocatoria">Ver Convocatoria</a>
                               --}}
                           <!--<a href="{{route('generar',$convocatoria)}}" class="btn btn-outline-dark rounded-pill  btn-block" data-toggle="tooltip" data-placement="bottom" data-trigger="hover" title="Presiona el botón para ver la convocatoria">Ver Convocatoria</a>-->
-                          @if ($convocatoria->tipo_convocatoria == "convocatoria de laboratorios")
-                              <a href="{{route('generarConv',$convocatoria)}}" class="btn btn-outline-dark rounded-pill  btn-block" data-toggle="tooltip" data-placement="bottom" data-trigger="hover" title="Presiona el botón para ver la convocatoria">Ver Convocatoria</a>                              
-                          @else
-                              <a href="{{route('generarConvDoc',$convocatoria)}}" class="btn btn-outline-dark rounded-pill  btn-block" data-toggle="tooltip" data-placement="bottom" data-trigger="hover" title="Presiona el botón para ver la convocatoria">Ver Convocatoria</a> 
-                          @endif
+                          
                            {{-- @if(Auth::check() && Auth::user()->roles->first()->name=='Postulante')
                              <a href="{{route('postulacion.form')}}" target="_blank" class="btn btn-outline-dark rounded-pill btn-block" data-toggle="tooltip" data-placement="bottom" data-trigger="hover" title="Presiona el botón para ver la convocatoria">Postularse</a>
                            @endif
                            --}}
                         </div>
-                        <div class="card-footer"></div>
+                       
+                        
+                          @if ($convocatoria->tipo_convocatoria == "convocatoria de laboratorios")
+                        <a href="{{route('generarConv',$convocatoria)}}" class="btn btn-outline-dark  " data-toggle="tooltip" data-placement="bottom" data-trigger="hover" title="Presiona el botón para ver la convocatoria">Ver Convocatoria</a>                              
+                    @else
+                        <a href="{{route('generarConvDoc',$convocatoria)}}" class="btn btn-outline-dark  " data-toggle="tooltip" data-placement="bottom" data-trigger="hover" title="Presiona el botón para ver la convocatoria">Ver Convocatoria</a> 
+                    @endif
+                        
 
                 </div>
             </div>  
