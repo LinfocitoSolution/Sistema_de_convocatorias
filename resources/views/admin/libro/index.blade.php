@@ -10,7 +10,7 @@
         <div class="card mt-2">
             <div class="card-header">
                 <h4>Libro de recepcion de postulaciones</h4>
-                <a class="btn btn-dark px2" data-toggle="tooltip" data-trigger="hover" title="" href="{{route('libro.create')}}">
+                <a class="btn btn-dark px2" data-toggle="tooltip" data-trigger="hover" data-placement="right" title="Presiona para registrar en el libro de recepción" href="{{route('libro.create')}}">
                     Registrar recepcion
                     <i class="fa fa-table ml-2"></i>
                 </a>
@@ -39,7 +39,7 @@
                                             <form action="{{route('libro.delete',$libro)}}" method="POST" style="display:inline-block;">
                                                 {{ csrf_field() }}
                                                 {{ method_field('DELETE') }}             
-                                                <button class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip" data-trigger="hover" title=""  type="submit" margin-left="50" onclick="return confirm('Está seguro que desea eliminar esta recepcion?')">
+                                                <button class="btn btn-dark btn-sm mx-1 my-1" data-toggle="tooltip"  data-trigger="hover" title="Elimina al postulante"  type="submit" margin-left="50" onclick="return confirm('Está seguro que desea eliminar esta recepcion?')">
                                                 <i class="fa fa-trash-alt"></i>                                
                                                 </button> 
                                             </form>
