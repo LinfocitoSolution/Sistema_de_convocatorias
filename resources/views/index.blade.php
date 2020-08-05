@@ -97,18 +97,18 @@
    <div class="collapse navbar-collapse" id="navbarSupportedContent">
      <ul class="navbar-nav mr-auto">
        <li class="nav-item" data-toggle="tooltip" data-trigger="hover" title="Seleccione la unidad que desea ver sus convocatorias">
-        
-        <div class="dropdown" ><button class="btn btn-outline-dark text-white dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Unidades</button>
-          <a href="/"> <button  class="btn btn-dark" >Todos</button> </a>
+         <div class="dropdown" ><button class="btn btn-outline-dark text-white dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Unidades</button>
           <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
-          @foreach($unidade as $uni)
-          <a class="dropdown-item" tabindex="3"  href="/?unidad={{$uni->id}}">{{$uni->name}}</a><br>
-           @endforeach
-           
-          </div>
+            @foreach($unidade as $uni)
+             <a class="dropdown-item" tabindex="3"  href="/?unidad={{$uni->id}}">{{$uni->name}}</a><br>
+              @endforeach
+           </div>
         </div>
        </li>
-     </ul>
+       <li class="nav-item" data-toggle="tooltip" data-trigger="hover" title="Seleccione para ver todas las convocatorias">
+            <a href="/"> <button  class="btn btn-outline-dark text-white ml-2" >Todos</button> </a>
+       </li>
+      </ul>
        <!----si es invitado--->
        @if (Auth::guest())
         <form class="form-inline float-xs-right">
@@ -180,7 +180,7 @@
           <div class="col-lg-5">
                 <div class="card mb-4">
                    <div class="card-header">
-                     <h6 class="card-title">{{$convocatoria->titulo_convocatoria}}</h6>
+                     <h4 class="card-title"><small>{{$convocatoria->titulo_convocatoria}}</small></h4>
                      <h6>{{App\Unidad::find($convocatoria->unit_id)->name}}</h6>
                    </div> 
                         <div class="card-body" style="height: 150px;overflow-y:scroll">
