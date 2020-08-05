@@ -23,14 +23,14 @@ class CallController extends Controller
     /**
      * Class constructor.
      */
-    public function __construct()
-    {
-        $this-> middleware('permission:create announcements_lab')->only(['create','store']);
-        $this-> middleware('permission:list announcements')->only('index');
-        $this-> middleware('permission:edit announcements')->only(['edit','update']);
-        // $this-> middleware('permission:list announcements')->only('show');//show        
-        $this-> middleware('permission:delete announcements')->only('destroy');
-    }
+    // public function __construct()
+    // {
+    //     $this-> middleware('permission:create announcements_lab')->only(['create','store']);
+    //     $this-> middleware('permission:list announcements')->only('index');
+    //     $this-> middleware('permission:edit announcements')->only(['edit','update']);
+    //     // $this-> middleware('permission:list announcements')->only('show');//show        
+    //     $this-> middleware('permission:delete announcements')->only('destroy');
+    // }
     /**
      * Display a listing of the resource.
      *

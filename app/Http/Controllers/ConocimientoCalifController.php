@@ -18,15 +18,15 @@ use App\Calificacion_merito;
 use App\Postulante_submerito;
 class ConocimientoCalifController extends Controller
 {
-    public function __construct()
-    {
-        $this-> middleware('permission:create tablaConocimientos')->only(['create','store']);
-        $this-> middleware('permission:list tablaConocimientos')->only('index');
-        $this-> middleware('permission:edit tablaConocimientos')->only(['edit','update']);
-        // $this-> middleware('permission:list tablaConocimientos')->only('show');//show        
-        $this-> middleware('permission:delete tablaConocimientos')->only('destroy');
+    // public function __construct()
+    // {
+    //     $this-> middleware('permission:create tablaConocimientos')->only(['create','store']);
+    //     $this-> middleware('permission:list tablaConocimientos')->only('index');
+    //     $this-> middleware('permission:edit tablaConocimientos')->only(['edit','update']);
+    //     // $this-> middleware('permission:list tablaConocimientos')->only('show');//show        
+    //     $this-> middleware('permission:delete tablaConocimientos')->only('destroy');
   
-    }
+    // }
     /**
      * Display a listing of the resource.
      *

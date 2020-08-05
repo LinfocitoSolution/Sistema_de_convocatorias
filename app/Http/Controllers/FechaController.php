@@ -8,14 +8,14 @@ use Illuminate\Http\Request;
 class FechaController extends Controller
 {
         public function __construct()
-    {
-        $this-> middleware('permission:create fechas')->only(['create','store']);
-        $this-> middleware('permission:list fechas')->only('index');
-        $this-> middleware('permission:edit fechas')->only(['edit','update']);
-        // $this-> middleware('permission:list fechas')->only('show');//show        
-        $this-> middleware('permission:delete fechas')->only('destroy');
+    // {
+    //     $this-> middleware('permission:create fechas')->only(['create','store']);
+    //     $this-> middleware('permission:list fechas')->only('index');
+    //     $this-> middleware('permission:edit fechas')->only(['edit','update']);
+    //     // $this-> middleware('permission:list fechas')->only('show');//show        
+    //     $this-> middleware('permission:delete fechas')->only('destroy');
   
-    }
+    // }
     /**
      * Display a listing of the resource.
      *
