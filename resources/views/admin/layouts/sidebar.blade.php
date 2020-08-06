@@ -291,7 +291,7 @@
                 
                </ul>
             </li>
-            @endif
+          @endif
          <!--Fin Postulantes-->
          <!--inicio de tabla de merito-->
          

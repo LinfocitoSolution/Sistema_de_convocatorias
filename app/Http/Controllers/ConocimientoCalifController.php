@@ -94,17 +94,25 @@ class ConocimientoCalifController extends Controller
         //COMPROBACIÓN SI LAS NOTAS DE REQUERIMIENTOS SUMAN 100
         foreach($tematicas as $t)
         {
-            $ind = 0;
-            foreach($requerimientosLab as $re)
-            {
-                if($t->requerimientos->first()->id == $re->id)
+            foreach($t->requerimientos as $r){
+                
+            
+                $ind = 0;
+                foreach($requerimientosLab as $re)
                 {
-                    $arrayNotas[$ind]+=$notas[$indNotas];
-                    $indNotas++;
+                    if($r->id == $re->id)
+                    {
+                        $arrayNotas[$ind]+=$notas[$indNotas];
+                        $indNotas++;
+                        
+                    }
                     $ind++;
                 }
             }
+
         }
+
+        
         for($i = 0; $i<$sizeOfReq;$i++)
         {
             if($arrayNotas[$i] != 100 )
