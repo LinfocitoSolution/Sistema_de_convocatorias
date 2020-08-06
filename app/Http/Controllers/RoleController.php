@@ -14,14 +14,14 @@ class RoleController extends Controller
     /**
      * Class constructor.
      */
-    public function __construct()
-    {
-        $this-> middleware('permission:create roles')->only(['create','store']);
-        $this-> middleware('permission:list roles')->only('index');
-        $this-> middleware('permission:edit roles')->only(['edit','update']);
-        // $this-> middleware('permission:list users')->only('show');//show        
-        $this-> middleware('permission:delete roles')->only('destroy');
-    }
+    // public function __construct()
+    // {
+    //     $this-> middleware('permission:create roles')->only(['create','store']);
+    //     $this-> middleware('permission:list roles')->only('index');
+    //     $this-> middleware('permission:edit roles')->only(['edit','update']);
+    //     // $this-> middleware('permission:list users')->only('show');//show        
+    //     $this-> middleware('permission:delete roles')->only('destroy');
+    // }
     /**
      * Display a listing of the resource.
      *

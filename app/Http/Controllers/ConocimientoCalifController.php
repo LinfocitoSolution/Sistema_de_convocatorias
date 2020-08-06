@@ -18,15 +18,15 @@ use App\Calificacion_merito;
 use App\Postulante_submerito;
 class ConocimientoCalifController extends Controller
 {
-    public function __construct()
-    {
-        $this-> middleware('permission:create tablaConocimientos')->only(['create','store']);
-        $this-> middleware('permission:list tablaConocimientos')->only('index');
-        $this-> middleware('permission:edit tablaConocimientos')->only(['edit','update']);
-        // $this-> middleware('permission:list tablaConocimientos')->only('show');//show        
-        $this-> middleware('permission:delete tablaConocimientos')->only('destroy');
+    // public function __construct()
+    // {
+    //     $this-> middleware('permission:create tablaConocimientos')->only(['create','store']);
+    //     $this-> middleware('permission:list tablaConocimientos')->only('index');
+    //     $this-> middleware('permission:edit tablaConocimientos')->only(['edit','update']);
+    //     // $this-> middleware('permission:list tablaConocimientos')->only('show');//show        
+    //     $this-> middleware('permission:delete tablaConocimientos')->only('destroy');
   
-    }
+    // }
     /**
      * Display a listing of the resource.
      *
@@ -94,17 +94,25 @@ class ConocimientoCalifController extends Controller
         //COMPROBACIÓN SI LAS NOTAS DE REQUERIMIENTOS SUMAN 100
         foreach($tematicas as $t)
         {
-            $ind = 0;
-            foreach($requerimientosLab as $re)
-            {
-                if($t->requerimientos->first()->id == $re->id)
+            foreach($t->requerimientos as $r){
+                
+            
+                $ind = 0;
+                foreach($requerimientosLab as $re)
                 {
-                    $arrayNotas[$ind]+=$notas[$indNotas];
-                    $indNotas++;
+                    if($r->id == $re->id)
+                    {
+                        $arrayNotas[$ind]+=$notas[$indNotas];
+                        $indNotas++;
+                        
+                    }
                     $ind++;
                 }
             }
+
         }
+
+        
         for($i = 0; $i<$sizeOfReq;$i++)
         {
             if($arrayNotas[$i] != 100 )

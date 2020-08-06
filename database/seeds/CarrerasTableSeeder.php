@@ -14,7 +14,7 @@ class CarrerasTableSeeder extends Seeder
     {
         $carreras = [
             [
-                'name' => 'Ing. Sitemas',//1
+                'name' => 'Ing. Sistemas',//1
             ],
             [
                 'name' => 'Ing. Electronica',//2
