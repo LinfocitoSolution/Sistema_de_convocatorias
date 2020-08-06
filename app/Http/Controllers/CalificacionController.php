@@ -34,8 +34,10 @@ class CalificacionController extends Controller
         {
          
             $users=User::all();
+        
        
         }
+    
         $calificacion=Postulante_submerito::all();
         $carreras=Carrera::all();
         return view('admin.calificacion.index',compact('users','calificacion','a','carreras'));

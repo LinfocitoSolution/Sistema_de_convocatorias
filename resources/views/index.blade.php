@@ -29,10 +29,10 @@
               <div class="h5 text-white text-center">UNIVERSIDAD MAYOR DE SAN SIMÓN</div>
               <div class="h6 text-white text-center">FACULTAD DE CIENCIAS Y TECNOLOGIA</div>
           <div class="row justify-content-center responsive">
-                   <div class="col-3 col-md-2">
-                      <img class="logoUmss float-left  p-0  mt-4 img-responsive" width="89" height="120" src="{{asset('../imagenes/umss1.png')}} " alt="umss2">
+                   <div class="col-4 col-md-2">
+                      <img class="logoUmss float-left  p-0 mt-4 img-responsive" width="89" height="120" src="{{asset('../imagenes/umss1.png')}} " alt="umss2">
                    </div>
-                  <div class="col-6 col-md-8"> 
+                  <div class="col-5 col-md-8"> 
                   <!--Carrusel-->  
                     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                        <ol class="carousel-indicators">
@@ -43,15 +43,15 @@
                        </ol>
                        <div class="carousel-inner">
                            <div class="carousel-item active">
-                              <img src="{{ asset('/imagenes/principalfacu.jpg') }}"  class="d-block w-100" alt="web" width="450" height="210">
+                              <img src="{{ asset('/imagenes/principalfacu.jpg') }}"  class="d-block w-100" alt="web" width="400" height="210">
                               <div class="carousel-caption" >
-                                 <div class="text-white pb-5">
+                                 <div class="text-white pb-2">
                                     <h4>Facultad de ciencias y tecnología</h4>
                                  </div>
                               </div>
                            </div>
                            <div class="carousel-item">
-                                <img src="{{ asset('/imagenes/sistemas.jpg') }}" class="d-block w-100" alt="elem" width="450" height="210">
+                                <img src="{{ asset('/imagenes/sistemas.jpg') }}" class="d-block w-100" alt="elem" width="400" height="210">
                               <div class="carousel-caption">
                                  <div class="text-white pb-4">
                                     <h4>Departamento de Sistemas e Informática</h4>
@@ -59,9 +59,9 @@
                               </div>
                            </div>
                            <div class="carousel-item">
-                               <img src="{{ asset('/imagenes/electronica.jpg') }}" class="d-block w-100" alt="aulalaboratorios" width="450" height="210">
+                               <img src="{{ asset('/imagenes/electronica.jpg') }}" class="d-block w-100" alt="aulalaboratorios" width="400" height="210">
                               <div class="carousel-caption">
-                                 <div class="text-white pb-5">
+                                 <div class="text-white pb-3">
                                    <h4>Departamento de Electrónica</h4>
                                  </div>
                               </div>
@@ -79,8 +79,8 @@
                      </div>
                     <!--fin carrusel-->  
                 </div> 
-                <div class="col-3 col-md-2">
-                   <img  class="logoCarrera float-right  p-0 mt-4  img-responsive" width="89" height="100" src="{{asset('../imagenes/facultadtec.png')}}" alt="carrera"> 
+                <div class="col-4 col-md-2">
+                   <img  class="logoCarrera float-right ml-0 p-0 mt-4  img-responsive" width="89" height="100" src="{{asset('../imagenes/facultadtec.png')}}" alt="carrera"> 
                 </div>
           </div>
       </div>
@@ -97,18 +97,18 @@
    <div class="collapse navbar-collapse" id="navbarSupportedContent">
      <ul class="navbar-nav mr-auto">
        <li class="nav-item" data-toggle="tooltip" data-trigger="hover" title="Seleccione la unidad que desea ver sus convocatorias">
-        
-        <div class="dropdown" ><button class="btn btn-outline-dark text-white dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Unidades</button>
-          <a href="/"> <button  class="btn btn-dark" >Todos</button> </a>
+         <div class="dropdown" ><button class="btn btn-outline-dark text-white dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Unidades</button>
           <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
-          @foreach($unidade as $uni)
-          <a class="dropdown-item bg-dark text-white" tabindex="0"  href="/?unidad={{$uni->id}}">{{$uni->name}}</a><br>
-           @endforeach
-           
-          </div>
+            @foreach($unidade as $uni)
+             <a class="dropdown-item" tabindex="3"  href="/?unidad={{$uni->id}}">{{$uni->name}}</a><br>
+              @endforeach
+           </div>
         </div>
        </li>
-     </ul>
+       <li class="nav-item" data-toggle="tooltip" data-trigger="hover" title="Seleccione para ver todas las convocatorias">
+            <a href="/"> <button  class="btn btn-outline-dark text-white ml-2" >Todos</button> </a>
+       </li>
+      </ul>
        <!----si es invitado--->
        @if (Auth::guest())
         <form class="form-inline float-xs-right">
@@ -137,7 +137,7 @@
           <a class="btn btn-outline-dark  text-white m-2 my-sm-2" type="submit" data-toggle="tooltip" data-placement="top" title="Presione el botón para entrar al panel de trabajo" href="{{url('administrador')}}">Panel de Trabajo</a>
           @endif
           <form class="form-inline float-xs-right">
-            <div class="btn-group" data-toggle="tooltip" data-placement="top" data-trigger="hover" title="Presiona y selecciona si deseas cerrar sesion">
+            <div class="btn-group" data-toggle="tooltip" data-placement="top" data-trigger="hover" title="Selecciona si deseas ver tu perfil o cerrar sesión">
               <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown">{{Auth::user()->roles->first()->name}}</button>
                 <div class="dropdown-menu">
                   <div class="dropdown-divider"></div>
@@ -180,7 +180,7 @@
           <div class="col-lg-5">
                 <div class="card mb-4">
                    <div class="card-header">
-                     <h6 class="card-title">{{$convocatoria->titulo_convocatoria}}</h6>
+                     <h4 class="card-title"><small>{{$convocatoria->titulo_convocatoria}}</small></h4>
                      <h6>{{App\Unidad::find($convocatoria->unit_id)->name}}</h6>
                    </div> 
                         <div class="card-body" style="height: 150px;overflow-y:scroll">
