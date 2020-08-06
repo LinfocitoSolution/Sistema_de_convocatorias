@@ -15,15 +15,20 @@ class PermissionsTableSeeder extends Seeder
     {
         $permissions = [
             [ 'name' => 'view-access-management'],
-            [ 'name' => 'list users' ],
-            [ 'name' => 'create users' ],
-            [ 'name' => 'edit users' ],
-            [ 'name' => 'delete users' ],
 
-            [ 'name' => 'list roles' ],
-            [ 'name' => 'create roles' ],
-            [ 'name' => 'edit roles' ],
-            [ 'name' => 'delete roles' ],
+            
+            [ 'name' => 'admin_users' ],
+            // [ 'name' => 'list users' ],
+            // [ 'name' => 'create users' ],
+            // [ 'name' => 'edit users' ],
+            // [ 'name' => 'delete users' ],
+                        
+            [ 'name' => 'admin_roles' ],
+            // [ 'name' => 'delete users' ],
+            // [ 'name' => 'list roles' ],
+            // [ 'name' => 'create roles' ],
+            // [ 'name' => 'edit roles' ],
+            // [ 'name' => 'delete roles' ],
 
             // [ 'name' => 'list areas' ],
             // [ 'name' => 'create areas' ],
@@ -129,7 +134,7 @@ class PermissionsTableSeeder extends Seeder
 //             [ 'name' => 'rotulo_guardar rotulopostulante' ],
             
             // [ 'name' => '' ],
-            [ 'name' => 'rotulo_postulante' ],
+            [ 'name' => 'postulante' ],
             [ 'name' => 'responsable de convocarorias' ],
             [ 'name' => 'comision conocimientos' ],
             [ 'name' => 'comision meritos' ],       
@@ -159,7 +164,7 @@ class PermissionsTableSeeder extends Seeder
         ]);
 
         $rol_postulante->givePermissionTo([            
-            'rotulo_postulante',
+            'postulante',
             // 'calificacion_meritos',
             // 'descripcion habilitado',
 
@@ -201,7 +206,11 @@ class PermissionsTableSeeder extends Seeder
         ]);
         $rol_jefeDepartamento->givePermissionTo([ 
             'view-access-management',
-            'responsable de convocarorias',           
+            'responsable de convocarorias',
+            'comision meritos',    
+            'admin_users',
+            'admin_roles',
+            'comision conocimientos',
             // 'notaFinal',
             // 'create announcements_lab',
             // 'create announcements_doc',

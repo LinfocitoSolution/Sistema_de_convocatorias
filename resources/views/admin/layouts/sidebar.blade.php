@@ -45,7 +45,7 @@
                         <p>Usuarios</p>
                       </a>
                     </li>
-
+                    
                     <li class="nav-item">
                       <a href="{{ route('roles.index')}}" class="nav-link">
                         <i class="fas fa-users nav-icon"></i>
@@ -266,7 +266,7 @@
 
              <!--Postulante-->             
              
-             @if(Auth::user()->hasPermission('comision meritos') || Auth::user()->hasPermission('comision conocimientos')  )
+             @if(Auth::user()->hasPermission('recepcion de documentos'))
              <li class="nav-item has-treeview menu-close">
                <a href="#" class="nav-link active bg-dark">
                  <i class="nav-icon fa fa-user-graduate"></i>
@@ -295,7 +295,7 @@
          <!--Fin Postulantes-->
          <!--inicio de tabla de merito-->
          
-         @if(Auth::user()->hasPermission('comision meritos'))
+         @if(Auth::user()->hasPermission('comision meritos') || Auth::user()->hasPermission('responsable de convocarorias') )
          
          <li class="nav-item has-treeview menu-close">
           <a href="#" class="nav-link active bg-dark">

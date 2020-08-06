@@ -32,7 +32,7 @@
              
             </div>
           </div>
-          <h6 class="text-danger mt-1 mb-2"><b>Nota:</b> Recuerde crear sus tablas de calificacion una vez creada la convocatoria, sino la convocatoria no puede ser publicada</h6> 
+          <h6 class="text-danger mt-1 mb-2"><b>Nota:</b> Recuerde crear sus tablas de calificacion(TEMATICAS) una vez creada la convocatoria, sino la convocatoria no puede ser publicada</h6> 
          <table class="table table-bordered table-striped table-sm">
             <thead>
              <tr>

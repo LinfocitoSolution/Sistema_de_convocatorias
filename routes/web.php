@@ -30,42 +30,45 @@ Auth::routes();
 Route::group(['middleware' => 'permission:view-access-management'], function () {// restriccion de dashboard
     Route::get('administrador','HomeController@registrado');
     //----------------------------------RUTAS USUARIO--------------------------------------------------
-    Route::get('usuarios','UserController@index')->name('usuarios.index')->middleware('permission:list users');
-    Route::get('usuarios_create','UserController@create')->name('usuarios.create')->middleware('permission:create users');
-    Route::post('usuarios_guardar','UserController@store')->name('usuarios.guardar')->middleware('permission:create users');
-    Route::get('usuarios_editar_{user}','UserController@edit')->name('usuarios.edit')->middleware('permission:edit users');
-    Route::put('usuarios_update_{user}','UserController@update')->name('usuarios.update')->middleware('permission:edit users');
-    Route::delete('usuarios_delete_{user}','UserController@destroy')->name('usuarios.destroy')->middleware('permission:delete users');
-    Route::get('usuarios_show_{user}','UserController@show')->name('usuarios.show')->middleware('permission:list users');
-    // Route::resource('usuarios', 'UserController');
-    
+    Route::group(['middleware' => 'permission:admin_users'], function () {
+        Route::get('usuarios','UserController@index')->name('usuarios.index');//->middleware('permission:list users');
+        Route::get('usuarios_create','UserController@create')->name('usuarios.create');//->middleware('permission:create users');
+        Route::post('usuarios_guardar','UserController@store')->name('usuarios.guardar');//->middleware('permission:create users');
+        Route::get('usuarios_editar_{user}','UserController@edit')->name('usuarios.edit');//->middleware('permission:edit users');
+        Route::put('usuarios_update_{user}','UserController@update')->name('usuarios.update');//->middleware('permission:edit users');
+        Route::delete('usuarios_delete_{user}','UserController@destroy')->name('usuarios.destroy');//->middleware('permission:delete users');
+        Route::get('usuarios_show_{user}','UserController@show')->name('usuarios.show');//->middleware('permission:list users');
+        // Route::resource('usuarios', 'UserController');
+    });
     //##################### ROL ####################################
-    Route::get('roles_create', [
-        'as' => 'roles.create',
-        'uses' => 'RoleController@create',
-    ])->middleware('permission:create roles');
-    Route::get('roles', [
-        'as' => 'roles.index',
-        'uses' => 'RoleController@index',
-    ])->middleware('permission:list roles');
-    Route::get('rol_{rol}_edit', [
-        'as' => 'roles.edit',
-        'uses' => 'RoleController@edit',
-    ])->middleware('permission:edit roles');
-    Route::delete('roles_{rol}', [
-        'as' => 'roles.destroy',
-        'uses' => 'RoleController@destroy',
-    ])->middleware('permission:delete roles');
-    Route::post('roles_store', [
-        'as' => 'roles.store',
-        'uses' => 'RoleController@store',
-    ])->middleware('permission:create roles');
-    Route::put('roles_{rol}', [
-        'as' => 'roles.update',
-        'uses' => 'RoleController@update',
-    ])->middleware('permission:edit roles');
-    // Route::get('edit', 'RoleController@edit');
-    // Route::resource('roles', 'RoleController');
+    Route::group(['middleware' => 'permission:admin_roles'], function () {
+        Route::get('roles_create', [
+            'as' => 'roles.create',
+            'uses' => 'RoleController@create',
+        ]);//->middleware('permission:create roles');
+        Route::get('roles', [
+            'as' => 'roles.index',
+            'uses' => 'RoleController@index',
+        ]);//->middleware('permission:list roles');
+        Route::get('rol_{rol}_edit', [
+            'as' => 'roles.edit',
+            'uses' => 'RoleController@edit',
+        ]);//->middleware('permission:edit roles');
+        Route::delete('roles_{rol}', [
+            'as' => 'roles.destroy',
+            'uses' => 'RoleController@destroy',
+        ]);//->middleware('permission:delete roles');
+        Route::post('roles_store', [
+            'as' => 'roles.store',
+            'uses' => 'RoleController@store',
+        ]);//->middleware('permission:create roles');
+        Route::put('roles_{rol}', [
+            'as' => 'roles.update',
+            'uses' => 'RoleController@update',
+        ]);//->middleware('permission:edit roles');
+        // Route::get('edit', 'RoleController@edit');
+        // Route::resource('roles', 'RoleController');
+    });
     Route::group(['middleware' => 'permission:responsable de convocarorias'], function () {        
         //#################### AREA ####################################
         Route::resource('area', 'AreaController');        
@@ -165,13 +168,7 @@ Route::group(['middleware' => 'permission:view-access-management'], function () 
         Route::put('calificacion_publicar_{user}','CalificacionController@publicar')->name('calif.publicar');//->middleware('permission:publicar calificacion_meritos');
         Route::put('calif_quitar_{user}','CalificacionController@quitarPublicacion')->name('calif.quitar');//->middleware('permission:quitar calificacion_meritos');
 
-        //#######################  Habilitados ###############################
-        Route::resource('habilitado_inhabilitado','ListaController@index');
-        Route::get('documentosPresentar_{user}', 'ListaController@indexlab')->name('documentos.indexlab');//->middleware('permission:documentos_indexlab habilitado');
-        Route::get('documentosPresentardoc_{user}','ListaController@indexdoce')->name('documentos.indexdoce');//->middleware('permission:documentos_indexdoce habilitado');
-        Route::put('habilitar_{user}','ListaController@habilitar')->name('documentos.habilitar');//->middleware('permission:documentos_habilitar habilitado');
-        Route::put('documentosPublicar_{user}','ListaController@publicar')->name('documento.publicar');//->middleware('permission:documentos_publicar habilitado');
-        Route::put('sdocumentosQuitar_{user}','ListaController@quitar')->name('documento.quitar');//->middleware('permission:documento_quitar habilitado');
+ 
     });
 
     //#####################################recepcion de docummentos
@@ -181,6 +178,14 @@ Route::group(['middleware' => 'permission:view-access-management'], function () 
         Route::get('crear_libro','RecepcionController@create')->name('libro.create');//->middleware('permission:create books');
         Route::post('libro_store','RecepcionController@store')->name('libro.store');//->middleware('permission:create books');
         Route::delete('libro_delete_{libro}','RecepcionController@destroy')->name('libro.delete');//->middleware('permission:delete books');
+       //#######################  Habilitados ###############################
+       Route::resource('habilitado_inhabilitado','ListaController@index');
+       Route::get('documentosPresentar_{user}', 'ListaController@indexlab')->name('documentos.indexlab');//->middleware('permission:documentos_indexlab habilitado');
+       Route::get('documentosPresentardoc_{user}','ListaController@indexdoce')->name('documentos.indexdoce');//->middleware('permission:documentos_indexdoce habilitado');
+       Route::put('habilitar_{user}','ListaController@habilitar')->name('documentos.habilitar');//->middleware('permission:documentos_habilitar habilitado');
+       Route::put('documentosPublicar_{user}','ListaController@publicar')->name('documento.publicar');//->middleware('permission:documentos_publicar habilitado');
+       Route::put('sdocumentosQuitar_{user}','ListaController@quitar')->name('documento.quitar');//->middleware('permission:documento_quitar habilitado');
+        
     });       
     
 });
@@ -190,10 +195,11 @@ Route::get('generarConv_{call}', 'CallController@generarConvocatoriaLabo')->name
 Route::get('generarConvDoc_{call}', 'CallController@generarConvocatoriaDocencia')->name('generarConvDoc');
 
 //######################ROTULO y POSTULANTE###################################
-Route::group(['middleware' => 'permission:rotulo_postulante'], function () {// restriccion formulario de postulante
-    Route::get('postulante_{user}_show','PostulantController@show')->name('postulante.show');//->middleware('permission:show_postulante rotulopostulante');
+Route::get('postulante_{user}_show','PostulantController@show')->name('postulante.show');//->middleware('permission:show_postulante rotulopostulante');
     Route::get('postulante_edit_{user}','PostulantController@edit')->name('postulante.edit');//->middleware('permission:edit_postulante rotulopostulante');
     Route::put('postulante_{user}_update','PostulantController@update')->name('postulante.update');//->middleware('permission:postulante_update rotulopostulante');
+Route::group(['middleware' => 'permission:postulante'], function () {// restriccion formulario de postulante
+    
     // Route::resource('postulante','PostulantController');
     Route::get('primerPaso','PostulantController@primerPaso')->name('rotulo.primer');//->middleware('permission:primer_rotulo rotulopostulante');
     Route::get('segundoPaso','PostulantController@segundoPaso')->name('rotulo.segundo');//->middleware('permission:segundo_rotulo rotulopostulante');

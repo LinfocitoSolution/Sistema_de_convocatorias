@@ -13,16 +13,20 @@ class UnitsTableSeeder extends Seeder
     {
         $units = [
             [
-                'name' => 'Departamento de Ingenieria de Sistemas',
-                'description' => 'ingenieria en sistemas',              
+                'name' => 'Departamento de Informática y Sistemas',
+                'description' => 'Ingenieria en sistemas,informatica',              
             ],
             [
-                'name' => 'Departamento de Ingenieria de Informatica',
-                'description' => 'ingenieria de informatica',              
+                'name' => 'Departamento de Eléctrica y Electrónica',
+                'description' => 'Ingenieria electronica,electrica',              
             ],
             [
-                'name' => 'Departamento de Ingenieria Electronica',
-                'description' => 'ingenieria electronica',              
+                'name' => 'Departamento de Ingeniería Mecánica-Electromecánica',
+                'description' => 'Ingenieria Mecánica,Electromecánica',              
+            ],
+            [
+                'name' => 'Departamento de Industrias',
+                'description' => 'Ingenieria Industrial',              
             ],
         ];
         foreach ($units as $unit) {

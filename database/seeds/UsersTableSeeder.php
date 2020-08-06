@@ -33,7 +33,7 @@ class UsersTableSeeder extends Seeder
                 'name' => 'Postulante',
                 'lastname' => 'Postulante',
                 'email' => 'postulante@gmail.com',
-                'carrera_id' => 2,
+                'carrera_id' => 1,
                 'direction'=>'Avenida Melchor Perez',
                 'telephone'=>'79869786',
                 'username' => 'postulante',                            

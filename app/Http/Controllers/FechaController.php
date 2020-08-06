@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class FechaController extends Controller
 {
-        public function __construct()
+        // public function __construct()
     // {
     //     $this-> middleware('permission:create fechas')->only(['create','store']);
     //     $this-> middleware('permission:list fechas')->only('index');
