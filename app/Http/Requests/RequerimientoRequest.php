@@ -30,7 +30,7 @@ class RequerimientoRequest extends FormRequest
                 return [
             'nombre_auxiliatura'=>'required|max:100|min:5|regex:/^[\pL\s\-]+$/u|unique:requerimientos,nombre_auxiliatura',
             'codigo_auxiliatura'=>'required|min:3|alpha_dash|max:10|unique:requerimientos,codigo_auxiliatura',
-            'cantidad_de_auxiliares'=>'required|min:1|digits_between:1,5|numeric',
+            'cantidad_de_auxiliares'=>'required|min:1|max:20|numeric',
             'cantidad_horas_academicas'=>'required|min:1|max:100|numeric',
                 ];
             }
@@ -39,7 +39,7 @@ class RequerimientoRequest extends FormRequest
                 return [
                     'nombre_auxiliatura'=>'required|max:100|min:5|regex:/^[\pL\s\-]+$/u|unique:requerimientos,nombre_auxiliatura,' . $this->requerimiento->id . ',id',
                     'codigo_auxiliatura'=>'required|min:3|max:10|alpha_dash|unique:requerimientos,codigo_auxiliatura,' . $this->requerimiento->id . ',id',
-                    'cantidad_de_auxiliares'=>'required|min:1|digits_between:1,5|numeric',
+                    'cantidad_de_auxiliares'=>'required|min:1|max:20|numeric',
                     'cantidad_horas_academicas'=>'required|min:1|max:100|digits_between:1,3|numeric',
                 ];
             }
@@ -63,6 +63,7 @@ class RequerimientoRequest extends FormRequest
             'cantidad_de_auxiliares.min'=>'el valor de la cantidad de auxiliares debe ser mayor a 1',
             'cantidad_de_auxiliares.digits_between'=>'el rango de digitos de la cantidad de auxiliares esta entre 1-5',
             'cantidad_de_auxiliares.numeric'=>'la cantidad de auxiliares solo debe ser numeros',
+            'cantidad_de_auxiliares.max'=>' la cantidad de auxiliares no debe ser mayor a 20 ',
             'cantidad_horas_academicas.required'=>'se requiere la cantidad de horas academicas para continuar',
             'cantidad_horas_academicas.min'=>'la cantidad de horas academicas debe ser mayor a 1 ',
             'cantidad_horas_academicas.max'=>'la cantidad de horas academicas no debe pasar los 100 ',
