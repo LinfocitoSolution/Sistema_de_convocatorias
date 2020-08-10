@@ -266,7 +266,7 @@
 
              <!--Postulante-->             
              
-             @if(Auth::user()->hasPermission('recepcion de documentos'))
+             @if(Auth::user()->hasPermission('habilitado_inhabilitado'))
              <li class="nav-item has-treeview menu-close">
                <a href="#" class="nav-link active bg-dark">
                  <i class="nav-icon fa fa-user-graduate"></i>
@@ -345,7 +345,7 @@
         @endif
          <!--fin de tabla de merito-->
            <!--Recepcion de documentos-->           
-           @if(Auth::user()->hasPermission('recepcion de documentos'))           
+           @if(Auth::user()->hasPermission('libro_recepcion'))           
            <li class="nav-item has-treeview menu-close">
              <a href="#" class="nav-link active bg-dark">
                <i class="nav-icon fa fa-book-open"></i>
