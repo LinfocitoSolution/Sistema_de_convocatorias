@@ -172,12 +172,7 @@ Route::group(['middleware' => 'permission:view-access-management'], function () 
     });
 
     //#####################################recepcion de docummentos
-    Route::group(['middleware' => 'permission:recepcion de documentos'], function () {    
-        ################ Libro de recepcion ########
-        Route::get('libro','RecepcionController@index')->name('libro.index');//->middleware('permission:list books');
-        Route::get('crear_libro','RecepcionController@create')->name('libro.create');//->middleware('permission:create books');
-        Route::post('libro_store','RecepcionController@store')->name('libro.store');//->middleware('permission:create books');
-        Route::delete('libro_delete_{libro}','RecepcionController@destroy')->name('libro.delete');//->middleware('permission:delete books');
+    Route::group(['middleware' => 'permission:habilitado_inhabilitado'], function () {    
        //#######################  Habilitados ###############################
        Route::resource('habilitado_inhabilitado','ListaController@index');
        Route::get('documentosPresentar_{user}', 'ListaController@indexlab')->name('documentos.indexlab');//->middleware('permission:documentos_indexlab habilitado');
@@ -186,7 +181,14 @@ Route::group(['middleware' => 'permission:view-access-management'], function () 
        Route::put('documentosPublicar_{user}','ListaController@publicar')->name('documento.publicar');//->middleware('permission:documentos_publicar habilitado');
        Route::put('sdocumentosQuitar_{user}','ListaController@quitar')->name('documento.quitar');//->middleware('permission:documento_quitar habilitado');
         
-    });       
+    });
+    Route::group(['middleware' => 'permission:libro_recepcion'], function () {
+        ################ Libro de recepcion ########
+        Route::get('libro','RecepcionController@index')->name('libro.index');//->middleware('permission:list books');
+        Route::get('crear_libro','RecepcionController@create')->name('libro.create');//->middleware('permission:create books');
+        Route::post('libro_store','RecepcionController@store')->name('libro.store');//->middleware('permission:create books');
+        Route::delete('libro_delete_{libro}','RecepcionController@destroy')->name('libro.delete');//->middleware('permission:delete books');    
+    });     
     
 });
 
