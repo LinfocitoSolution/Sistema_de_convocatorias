@@ -17,14 +17,14 @@
         
                   <!--cuerpo del perfil-->				
                    <div class="card-body">
-                    
+                    <p class="text-danger">(*)Campo obligatorio</p>
                     <form class="form-vertical" action="{{ route('postulante.update', $user->id) }}" method="POST" autocomplete="off">
                         {{ method_field('PUT')}}
                         {{ csrf_field() }}
                         <div class="form-row">
                             <!----nombre-->
                              <div class="col-md-6 mb-3">
-                                 <label class="col-form-label" for="name">Nombre</label>
+                                 <label class="col-form-label" for="name"><b class="text-danger">(*)</b>Nombre</label>
                                  <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="-M&aacute;ximo 50 caracteres <br> -M&iacute;nimo 3 caracteres <br> -No acepta caracteres especiales">
                                      <span class="input-group-append">
                                          <button class="btn btn-dark text-white" type="button">N</button>
@@ -42,7 +42,7 @@
                          
                           <!------apellido--->
                              <div class="col-md-6 mb-3">
-                                 <label class="col-form-label" for="lastname">Apellido</label>
+                                 <label class="col-form-label" for="lastname"><b class="text-danger">(*)</b>Apellido</label>
                                  <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="-M&aacuteximo 50 caracteres <br> -No acepta caracteres especiales <br>-No acepta n&uacute;meros">
                                      <span class="input-group-append">
                                          <button class="btn btn-dark text-white" type="button">A</button>
@@ -59,7 +59,7 @@
                              </div>
                            <!----E-mail--->
                              <div class="col-md-6 mb-3">
-                                 <label class="col-form-label" for="email">Email</label>
+                                 <label class="col-form-label" for="email"><b class="text-danger">(*)</b>Email</label>
                                  <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="Sigue el ejemplo">
                                      <span class="input-group-append">
                                          <button class="btn btn-dark text-white" type="button">@</button>
@@ -76,7 +76,7 @@
                              </div>
                          <!----nombre de usuario----->
                              <div class="col-md-6 mb-3">
-                                 <label class="col-form-label" for="username">Nombre de Usuario</label>
+                                 <label class="col-form-label" for="username"><b class="text-danger">(*)</b>Nombre de Usuario</label>
                                  <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="-M&aacute;ximo 20 caracteres <br>-Solo se permite alfanum&eacute;rico <br>-No acepta espacios <br>-Se permite may&uacute;sculas">
                                      <span class="input-group-append">
                                          <button class="btn btn-dark text-white" type="button">NU</button>
