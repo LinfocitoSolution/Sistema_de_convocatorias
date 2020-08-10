@@ -14,7 +14,7 @@
                        <div class="card-body">
                            <div class="custom-control custom-switch">
                              <input type="checkbox" class="custom-control-input" id="switch1" name="example">
-                              <label class="custom-control-label" for="switch1" id="switch1t">a) Presentar solicitud escrita dirigida a la Jefatura de Departamento de Informática y Sistemas
+                              <label class="custom-control-label" for="switch1" id="switch1t">a) Presentar solicitud escrita dirigida a la Jefatura de Departamento de su respectiva unidad
                               especificando claramente la(s) auxiliatura(s) a la(s) que se postula:
                               <br>
                                - Código de auxiliatura
