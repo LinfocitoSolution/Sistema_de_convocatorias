@@ -138,7 +138,9 @@ class PermissionsTableSeeder extends Seeder
             [ 'name' => 'responsable de convocarorias' ],
             [ 'name' => 'comision conocimientos' ],
             [ 'name' => 'comision meritos' ],       
-            [ 'name' => 'recepcion de documentos' ],
+            // [ 'name' => 'recepcion de documentos' ],
+            [ 'name' => 'habilitado_inhabilitado' ],       
+            [ 'name' => 'libro_recepcion' ],       
         ];
 
         $rol_admin = Role::find(1);
@@ -173,7 +175,8 @@ class PermissionsTableSeeder extends Seeder
         $rol_meritos->givePermissionTo([
             'view-access-management',
             'comision meritos',
-            'recepcion de documentos',
+            'habilitado_inhabilitado',
+            // 'recepcion de documentos',
             // 'primer_paso meritos',
             // 'list meritos',
             // 'lits calificacion_meritos',
@@ -183,6 +186,7 @@ class PermissionsTableSeeder extends Seeder
         ]);
         $rol_secretaria->givePermissionTo([
             'view-access-management',
+            'libro_recepcion',
             // 'recepcion de documentos',
             // // 'list areas',
             // // 'create areas',
