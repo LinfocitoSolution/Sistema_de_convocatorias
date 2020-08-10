@@ -96,7 +96,7 @@
 
    <div class="collapse navbar-collapse" id="navbarSupportedContent">
      <ul class="navbar-nav mr-auto">
-       <li class="nav-item" data-toggle="tooltip" data-trigger="hover" title="Seleccione la unidad que desea ver sus convocatorias">
+       <li class="nav-item">
          <div class="dropdown" ><button class="btn btn-outline-dark text-white dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Unidades</button>
           <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
             @foreach($unidade as $uni)
@@ -105,15 +105,15 @@
            </div>
         </div>
        </li>
-       <li class="nav-item" data-toggle="tooltip" data-trigger="hover" title="Seleccione para ver todas las convocatorias">
+       <li class="nav-item">
             <a href="/"> <button  class="btn btn-outline-dark text-white ml-2" >Todos</button> </a>
        </li>
       </ul>
        <!----si es invitado--->
        @if (Auth::guest())
         <form class="form-inline float-xs-right">
-          <a class="btn btn-outline-dark  text-white m-2 my-sm-2" data-toggle="tooltip" data-placement="top" title="Si ya te registraste pudes iniciar sesi&oacute;n"type="submit" href="{{url('login')}}">Iniciar Sesión</a>
-          <a class="btn btn-outline-dark  text-white m-2 my-sm-2" data-toggle="tooltip" data-placement="top" title="Reg&iacute;strate si no estas logueado" type="submit" href="{{url('register')}}">Regístrate</a>
+          <a class="btn btn-outline-dark  text-white m-2 my-sm-2" type="submit" href="{{url('login')}}">Iniciar Sesión</a>
+          <a class="btn btn-outline-dark  text-white m-2 my-sm-2" type="submit" href="{{url('register')}}">Regístrate</a>
         </form>
         @else 
        <a class="text-white m-2 my-sm-2">{{Auth::user()->name  }} {{Auth::user()->lastname}}</a>
@@ -121,27 +121,27 @@
           
           @if(Auth::user()->roles->first()->name=='Postulante')
               @if (!App\Curriculum::where('user_id', '=', Auth::user()->id)->exists())
-                  <a class="btn btn-outline-dark  text-white m-2 my-sm-2" data-toggle="tooltip" data-placement="top" title="Presione para generar su rótulo"type="submit" href="{{route('rotulo.primer')}}">Formulario de Postulacion</a>
+                  <a class="btn btn-outline-dark  text-white m-2 my-sm-2" type="submit" href="{{route('rotulo.primer')}}">Formulario de Postulacion</a>
               @else
-              <a class="btn btn-outline-dark  text-white m-2 my-sm-2" data-toggle="tooltip" data-placement="top" title="Presione para ver su estado"type="submit" href="{{route('descripcion.desc',ucfirst(Auth::user()->id))}}">Estado de Entrega de Documentos:</a> 
+              <a class="btn btn-outline-dark  text-white m-2 my-sm-2" type="submit" href="{{route('descripcion.desc',ucfirst(Auth::user()->id))}}">Estado de Entrega de Documentos:</a> 
               @endif
               <p hidden>{{$a=App\Postulante_submerito::where('user_id',Auth::user()->id)->first()}}</p>
            @if(isset($a)) 
            @if($a->publicado=="si")
-            <a class="btn btn-outline-dark  text-white m-2 my-sm-2" data-toggle="tooltip" data-placement="top" title="Presione para ver su nota de meritos"type="submit" href="{{route('calificacion.merito',ucfirst(Auth::user()->id))}}">Notas:</a>
+            <a class="btn btn-outline-dark  text-white m-2 my-sm-2" type="submit" href="{{route('calificacion.merito',ucfirst(Auth::user()->id))}}">Notas:</a>
            @endif
            @endif
 
           @else
           
-          <a class="btn btn-outline-dark  text-white m-2 my-sm-2" type="submit" data-toggle="tooltip" data-placement="top" title="Presione el botón para entrar al panel de trabajo" href="{{url('administrador')}}">Panel de Trabajo</a>
+          <a class="btn btn-outline-dark  text-white m-2 my-sm-2" type="submit" href="{{url('administrador')}}">Panel de Trabajo</a>
           @endif
           <form class="form-inline float-xs-right">
-            <div class="btn-group" data-toggle="tooltip" data-placement="top" data-trigger="hover" title="Selecciona si deseas ver tu perfil o cerrar sesión">
+            <div class="btn-group">
               <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown">{{Auth::user()->roles->first()->name}}</button>
                 <div class="dropdown-menu">
                   <div class="dropdown-divider"></div>
-                    <a class="dropdown-item bg-dark text-white" tabindex="0" data-toggle="tooltip" data-placement="top" data-trigger="hover" title="informacion personal de postulante" href="{{ route('postulante.show',ucfirst(Auth::user()->id))}}">
+                    <a class="dropdown-item bg-dark text-white" tabindex="0" href="{{ route('postulante.show',ucfirst(Auth::user()->id))}}">
                       <i class="fas fa-user mr-2"></i>Perfil
                     </a>
                      <div class="dropdown-divider"></div>
