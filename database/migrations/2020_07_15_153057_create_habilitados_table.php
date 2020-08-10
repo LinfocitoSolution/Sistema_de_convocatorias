@@ -16,7 +16,7 @@ class CreateHabilitadosTable extends Migration
         Schema::create('habilitados', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->nullable();
-            $table->string('description')->nullable();            
+            $table->longText('description')->nullable();            
             
             $table->rememberToken();
             $table->timestamps();

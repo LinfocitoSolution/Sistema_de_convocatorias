@@ -173,6 +173,7 @@ class PermissionsTableSeeder extends Seeder
         $rol_meritos->givePermissionTo([
             'view-access-management',
             'comision meritos',
+            'recepcion de documentos',
             // 'primer_paso meritos',
             // 'list meritos',
             // 'lits calificacion_meritos',
@@ -182,7 +183,7 @@ class PermissionsTableSeeder extends Seeder
         ]);
         $rol_secretaria->givePermissionTo([
             'view-access-management',
-            'recepcion de documentos',
+            // 'recepcion de documentos',
             // // 'list areas',
             // // 'create areas',
             // // 'edit areas',
