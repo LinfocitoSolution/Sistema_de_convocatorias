@@ -10,7 +10,7 @@
         <div class="card mt-2">
             <div class="card-header">
                 <h3>Tabla de Tematicas</h3>
-                <a class="btn btn-dark px2" data-toggle="tooltip" data-trigger="hover" title="presiona para crear una temática" href="{{route('tematica.unidad')}}">
+                <a class="btn btn-dark px2" data-toggle="tooltip" data-trigger="hover"  href="{{route('tematica.unidad')}}">
                     Nuevo
                     <i class="fa fa-table"></i>
                 </a>
@@ -31,7 +31,7 @@
                             @if (isset($aux))
                                 <td>{{$call->titulo_convocatoria}}</td>
                                 <td>
-                                    <a class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="Presiona para ver las tematicas creadas" href="{{route('tematica.show',$call)}}">
+                                    <a class="btn btn-dark btn-sm" data-toggle="tooltip" data-trigger="hover" title="Presione para ver la temática" href="{{route('tematica.show',$call)}}">
                                         <i class="fa fa-eye"></i>
                                     </a>
                                     <form action="{{route('tematica.destroy',$call)}}" method="POST" style="display:inline-block;">

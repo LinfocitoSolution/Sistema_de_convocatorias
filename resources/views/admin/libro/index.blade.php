@@ -10,7 +10,7 @@
         <div class="card mt-2">
             <div class="card-header">
                 <h4>Libro de recepcion de postulaciones</h4>
-                <a class="btn btn-dark px2" data-toggle="tooltip" data-trigger="hover" data-placement="right" title="Presiona para registrar en el libro de recepción" href="{{route('libro.create')}}">
+                <a class="btn btn-dark px2" data-toggle="tooltip" data-trigger="hover" data-placement="right" href="{{route('libro.create')}}">
                     Registrar recepcion
                     <i class="fa fa-table ml-2"></i>
                 </a>

@@ -41,7 +41,7 @@
                     <form action="{{ route('documento.quitar', $user->id) }}" style="display:inline-block;" method="POST">
                         {{ csrf_field() }}
                         {{ method_field('PUT') }}
-                       <td> <button class="btn btn-dark btn-sm my-2 ml-2" data-toggle="tooltip" data-trigger="hover" title="presiona para quitar una habilitacion publicada"type="submit" margin-left="50" onclick="return confirm('Está seguro que desea ocultar esta publicacion?')">
+                       <td> <button class="btn btn-dark btn-sm my-2 ml-2" data-toggle="tooltip" data-trigger="hover" data-placement="right" title="presiona para quitar una habilitacion publicada"type="submit" margin-left="50" onclick="return confirm('Está seguro que desea ocultar esta publicacion?')">
                             <i class="fa fa-times"></i>
                           </button>
                     </form>
