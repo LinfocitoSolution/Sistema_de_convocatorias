@@ -3,7 +3,7 @@
     <div class="col-md-12 mb-3">
         <label class="col-form-label" for="name">Nombre de Unidad</label>
         <div class="input-group">
-            <span class="input-group-append" data-html="true" data-toggle="popover" title="Restricciones" data-content="Nombre de la unidad academica a crear, Ej:Departamento de informatica-sistemas">
+            <span class="input-group-append" data-html="true" data-toggle="popover" data-placement="left" title="Restricciones" data-content="Nombre de la unidad academica a crear, Ej:Departamento de informatica-sistemas">
                 <button class="btn btn-dark" type="button">N</button>
             </span>
             <input

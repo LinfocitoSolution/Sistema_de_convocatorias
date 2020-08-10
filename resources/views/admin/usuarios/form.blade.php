@@ -4,7 +4,7 @@
             <div class="col-md-6 mb-3">
                 <label class="col-form-label" for="name">Nombre</label>
                 <div class="input-group" >
-                    <span class="input-group-append" data-html="true" data-toggle="popover" title="Restricciones" data-content="-M&aacute;ximo 50 caracteres <br> -M&iacute;nimo 3 caracteres <br> -No acepta caracteres especiales">
+                    <span class="input-group-append" data-html="true" data-toggle="popover" data-placement="left" title="Restricciones" data-content="-M&aacute;ximo 50 caracteres <br> -M&iacute;nimo 3 caracteres <br> -No acepta caracteres especiales">
                         <button class="btn btn-dark" type="button">N</button>
                     </span>
                     <input
@@ -39,7 +39,7 @@
             <div class="col-md-6 mb-3">
                 <label class="col-form-label" for="email">Email</label>
                 <div class="input-group" >
-                    <span class="input-group-append" data-html="true" data-toggle="popover" title="Restricciones" data-content="Sigue el ejemplo">
+                    <span class="input-group-append" data-html="true" data-placement="left" data-toggle="popover" title="Restricciones" data-content="Sigue el ejemplo">
                         <button class="btn btn-dark" type="button">@</button>
                     </span>
                     <input
@@ -76,7 +76,7 @@
             <div class="col-md-6 mb-3">
                 <label class="col-form-label" for="password">Contraseña</label>
                 <div class="input-group" >
-                    <span class="input-group-append" data-html="true" data-toggle="popover" title="Restricciones" data-content="-M&aacute;ximo 25 caracteres <br>-M&iacute;nimo 8 caracteres <br>-No permite caracteres especiales <br>-Debe ingresar al menos una letra y un n&uacute;mero<br>-No permite espacios">
+                    <span class="input-group-append" data-html="true" data-toggle="popover" title="Restricciones" data-placement="left" data-content="-M&aacute;ximo 25 caracteres <br>-M&iacute;nimo 8 caracteres <br>-No permite caracteres especiales <br>-Debe ingresar al menos una letra y un n&uacute;mero<br>-No permite espacios">
                         <button class="btn btn-dark" type="button">P</button>
                     </span>
 
@@ -123,7 +123,7 @@
             <div class="col-md-12 mb-3">
                 <label class="col-form-label" for="roles">Roles</label>
                 <div class="input-group" >
-                                                        <span class="input-group-append" data-html="true" data-toggle="popover" title="Restricciones" data-content="Seleccione un rol">
+                                                        <span class="input-group-append" data-html="true" data-toggle="popover" title="Restricciones" data-placement="left" data-content="Seleccione un rol">
                                                             <button class="btn btn-dark" type="button">R</button>
                                                         </span>
                     <select class="form-control js-example-basic-single {{ $errors->has('roles') ? 'is-invalid' : '' }}" name="roles" single="single">

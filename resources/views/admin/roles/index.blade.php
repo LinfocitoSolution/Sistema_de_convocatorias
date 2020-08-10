@@ -15,7 +15,7 @@
         <h1>Roles</h1>
         {{-- <!--la ruta debe llamarse  admin.roles.create--> --}}
         {{-- <a class="btn btn-success px-2" href="{{ url('create') }}">Nuevo --}}
-          <a class="btn btn-dark px-2" data-toggle="tooltip" data-trigger="hover" title="presiona para crear un rol" href="{{ route('roles.create') }}">Nuevo
+          <a class="btn btn-dark px-2" href="{{ route('roles.create') }}">Nuevo
         <i class="fa fa-user-plus"></i>
         </a>
       </div>

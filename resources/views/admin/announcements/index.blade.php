@@ -14,7 +14,7 @@
          <div class="card-header">
              <h1> Convocatorias</h1> 
                <div class="form-inline">
-                <a class="btn btn-dark px2 mr-2" data-toggle="tooltip" data-trigger="hover" title="presiona para crear una convocatoria" href="{{ route('call.create')}}">
+                <a class="btn btn-dark px2 mr-2" href="{{ route('call.create')}}">
                    Nuevo
                     <i class="fa fa-user-plus"></i>
                </a>
