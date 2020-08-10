@@ -16,7 +16,7 @@
                     <div class="custom-control custom-switch">
                         <input type="checkbox" class="custom-control-input" id="switch1" name="example">
                         <label class="custom-control-label" for="switch1">a) Ser estudiante regular y con rendimiento académico de las carreras de
-                            Licenciatura en Ingeniería Informática o Licenciatura en Ingeniería de Sistemas,
+                            Licenciatura en Ingeniería Informática, Licenciatura en Ingeniería de Sistemas, Ingeniería Industrial, Ingeniería Electronica
                             que cursa regularmente en la Universidad. Para las materias de Introducción a la
                             Programación y Elementos de Programación y Estructura de Datos, podrán
                             presentarse además estudiantes de Ing. Electrónica. Para la materia de

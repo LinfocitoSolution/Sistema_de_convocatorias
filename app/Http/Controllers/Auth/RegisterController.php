@@ -55,8 +55,8 @@ class RegisterController extends Controller
             'email' => 'required|email|unique:users',
             'password' => 'required|max:25|min:8|regex:/^(?=.*[A-Za-z\d$@$#!%*?&])(?=.*\d)[A-Za-z\d$@$#!%*?&]{8,25}$/S',
             'confirmpassword' => 'required|same:password',
-            'telephone'=>'required|numeric',
-            'direction'=>'required',
+            'telephone'=>'numeric',
+            'direction'=>'',
         ],[
             'name.required'=>'se requiere el campo nombre para continuar ',
             'name.max'=>'el campo nombre no debe tener mas de 50 caracteres',
