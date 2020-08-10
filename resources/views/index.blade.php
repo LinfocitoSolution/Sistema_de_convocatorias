@@ -25,7 +25,7 @@
    <div class="container"> 
      <div class="jumbotron jumbotron-fluid mb-0 pt-4" style="height: 300px;">
               <div class="h4 text-white text-center mt-0">CONVOCATORIAS AUXILIARES</div>
-              <div class="h5 text-white text-center">UNIVERSIDAD MAYOR DE SAN SIMÓN</div>
+              
               <div class="h6 text-white text-center">FACULTAD DE CIENCIAS Y TECNOLOGIA</div>
           <div class="row justify-content-center responsive">
                    <div class="col-4 col-md-2">
