@@ -6,7 +6,7 @@
   var doc = new jsPDF('p', 'pt', 'letter');
   var pageHeight = doc.internal.pageSize.height || doc.internal.pageSize.getHeight();
   var pageWidth = doc.internal.pageSize.width || doc.internal.pageSize.getWidth();
-
+  doc.setFont("Times");
   doc.setFontSize(15);
   doc.setFontType('bold');
   var titulo = document.getElementById('titulo');
@@ -62,7 +62,7 @@ doc.autoTable(res.columns, res.data);*/
   doc.addPage();
   //AGREAGANDO TABLAS
   var tab1 = doc.autoTableHtmlToJson(document.getElementById("rendimiento-table"));
-  doc.autoTable(tab1.columns, tab1.data, {margin: {top: 50},styles: {fontSize: 9, font: 'PTSans'}});
+  doc.autoTable(tab1.columns, tab1.data, {margin: {top: 50},styles: {fontSize: 9, font: 'Times'}});
 
 //   var tab2 = doc.autoTableHtmlToJson(document.getElementById("rendimiento2-table2"));
 //   doc.autoTable(tab2.columns, tab2.data, {margin: {top: 300}});
@@ -75,7 +75,7 @@ doc.autoTable(res.columns, res.data);*/
   });
   //TERCER TABLA
   var tab3 = doc.autoTableHtmlToJson(document.getElementById("pruebas-table"));
-  doc.autoTable(tab3.columns, tab3.data, {margin: {top: 260},styles: {fontSize: 8, font: 'PTSans'}});
+  doc.autoTable(tab3.columns, tab3.data, {margin: {top: 260},styles: {fontSize: 8, font: 'Times'}});
 //   var tab4 = doc.autoTableHtmlToJson(document.getElementById("pruebas-table2"));
 //   doc.autoTable(tab4.columns, tab4.data, {margin: {top: 315}});
 
@@ -96,7 +96,7 @@ doc.autoTable(res.columns, res.data);*/
   var d = parseInt(fecha.substr(8,10));
   var meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
   doc.setFontType('normal');
-  doc.setFontStyle('Arial');
+  doc.setFontStyle('Times');
   doc.setFontSize(12);
   doc.text("Cochabamba, " + d + " de " + meses[m-1] + " de " + y, 60, 400);
 
@@ -132,8 +132,9 @@ doc.autoTable(res.columns, res.data);*/
   doc.text(textis ,100,715);//string,x,y
   doc.text(textde ,399,715);
   doc.setFontType('normal');
-  doc.setFontStyle('Arial');
-  doc.save('convocatoria.pdf');
+  doc.setFontStyle('Times');
+  var titulo = {!! json_encode($call->titulo_convocatoria) !!};
+  doc.save(titulo);
   location.href = "/";
 }
 </script>
