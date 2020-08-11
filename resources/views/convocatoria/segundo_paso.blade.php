@@ -26,7 +26,7 @@
                           <div class="col-mb-5 mb-3">
                               {{-- <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="Puede seleccionar uno o mas permisos"> --}}
                                 <label class="input-group-text text-white" for="">Convocatoria a postular:</label>                         
-                                <select  class="custom-select form-control" type="text" name="convoca" > 
+                                <select  class="custom-select form-control" type="text" name="convoca" required > 
                                     {{-- {{$unidad= $_GET['unidad']}}   --}}
                                     @foreach($convocatoria as $convo)
                                     @if($convo->publicado=="si")

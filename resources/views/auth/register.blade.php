@@ -48,7 +48,7 @@
 					  <div class="card">
 						   <!--cabeza del formulario-->
 						      <div class="card-header  text-white">
-							     <h3>Registro Postulante</h3>
+							     <h3>Registro de Estudiante</h3>
 						      </div>  
 						   <!--fin de cabeza-->
 					          <!--Inicio cuerpo de formulario-->  

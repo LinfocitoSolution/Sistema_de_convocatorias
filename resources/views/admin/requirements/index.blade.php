@@ -11,7 +11,7 @@
     <div class="card mt-2" >
       <div class="card-header">
         <h1>Requerimientos</h1> 
-            <a class="btn btn-dark" data-toggle="tooltip" data-trigger="hover" title="presiona para crear un requerimiento"href="{{route('requerimientos.create')}}">
+            <a class="btn btn-dark" href="{{route('requerimientos.create')}}">
               Nuevo 
               <i class="fa fa-book"></i>&nbsp;
             </a>

@@ -136,7 +136,8 @@
     doc.text(textde ,399,715);
     doc.setFontType('normal');
     doc.setFontStyle('Arial');
-    doc.save('convocatoria.pdf');
+    var titulo = {!! json_encode($call->titulo_convocatoria) !!};
+    doc.save(titulo);
     location.href = "/";
 }
 </script>

@@ -11,7 +11,7 @@
         <div class="card mt-2">
             <div class="card-header">
                 <h1> Unidades</h1>
-                <a class="btn btn-dark px2" data-toggle="tooltip" data-trigger="hover" title="presiona para crear una unidad" href="{{route('unidades.create')}}">
+                <a class="btn btn-dark px2" href="{{route('unidades.create')}}">
                     Nuevo
                     <i class="fa fa-user-plus"></i>
                 </a>

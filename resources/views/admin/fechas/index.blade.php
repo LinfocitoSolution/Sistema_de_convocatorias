@@ -10,7 +10,7 @@
         <div class="card mt-2">
             <div class="card-header">
                 <h1>Fechas Importantes</h1>
-                <a class="btn btn-dark px2" data-toggle="tooltip" data-trigger="hover" title="presiona para crear un area" href="{{route('fechas.create')}}">
+                <a class="btn btn-dark px2" href="{{route('fechas.create')}}">
                     Nuevo
                     <i class="fa fa-user-plus"></i>
                 </a>
