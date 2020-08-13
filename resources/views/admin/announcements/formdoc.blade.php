@@ -21,7 +21,7 @@
           </span>
           <select class="custom-select form-control" type="text" name="unidad">
               @foreach($unidades as $item)
-                    <option class="text-dark" value="{{ $item->id }}">{{ $item->name }}</option>
+                    <option class="text-dark" value="{{ $item->id }}"@if (old('unidad') == $item->id) {{ 'selected' }} @endif>{{ $item->name }}</option>
               @endforeach
            </select>
        </div>
