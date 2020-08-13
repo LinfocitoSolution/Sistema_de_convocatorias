@@ -58,7 +58,7 @@
     <div class="col-md-12 mb-3">
         <label class="col-form-label" for="codigo_auxiliatura">Código de Auxiliatura</label>
              <div class="input-group">
-        <span class="input-group-append" data-html="true"  data-toggle="popover" title="Restricciones" data-content="-Mínimo 1 <br> -El código auxiliatura debe tener un rango de dígitos entre 3 -2, <br> -El codigo auxiliatura solo permite números, <br> -El código auxiliatura no permite espacios ni caracteres especiales">    
+        <span class="input-group-append" data-html="true"  data-toggle="popover" title="Restricciones" data-content="-M&aacute;ximo 10 <br>-Mínimo 3 <br> -El código auxiliatura debe tener un rango de dígitos entre 3 -2, <br> -El codigo auxiliatura solo permite números, <br> -El código auxiliatura no permite espacios ni caracteres especiales">    
             <button class="btn btn-dark" type="button">CA</button>
         </span>
         <input
@@ -74,7 +74,7 @@
    <div class="col-md-12 mb-3">
       <label class="col-form-label" for="cantidad_de_auxiliares">Cantidad de Auxiliares</label>
       <div class="input-group">
-          <span class="input-group-append" data-html="true"  data-toggle="popover" title="Restricciones" data-content="-Mínimo 1 <br> -El rango de dígitos de la cantidad de auxiliares esta entre 1-5, <br> -La cantidad de auxiliares solo debe ser números">
+          <span class="input-group-append" data-html="true"  data-toggle="popover" title="Restricciones" data-content="-M&aacute;ximo 20 <br>-Mínimo 1 <br> -El rango de dígitos de la cantidad de auxiliares esta entre 1-5, <br> -La cantidad de auxiliares solo debe ser números">
              <button class="btn btn-dark" type="button">CA</button>
           </span>
           <input
