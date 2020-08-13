@@ -66,21 +66,39 @@ class CallController extends Controller
     {
         $calls = Convocatoria::all();
         $unidades = Unidad::all();
-        $requerimientos=Requerimiento::all();
+        $requerimientos=Requerimiento::where('tipo_requerimiento', '=', 'requerimiento de laboratorio')->get();
+        
         $eventos = fecha::all();
-       
-        return view('admin.announcements.create', compact('calls', 'unidades', 'requerimientos', 'eventos'));
-       /* @else
-        return view('admin.announcements.create1' , compact('calls','unidades', 'requerimientos','eventos'));
-        @endif*/
+        foreach($requerimientos as $item)
+        {
+            if($item->tipo_requerimiento=='requerimiento de laboratorio')
+            {
+                if(!$item->convocatorias()->exists())
+                {
+                    return view('admin.announcements.create', compact('calls', 'unidades', 'requerimientos', 'eventos'));
+                }
+            }
+        }
+        return redirect(route('requerimientos.create'))->with([ 'messageDanger' => 'No tiene requerimientos disponibles!', 'alert-type' => 'danger' ]);  
+
     }
     public function createdoc()
     {
         $calls = Convocatoria::all();
         $unidades = Unidad::all();
-        $requerimientos=Requerimiento::all();
+        $requerimientos=Requerimiento::where('tipo_requerimiento', '=', 'requerimiento de docencia')->get();
         $eventos = fecha::all();
-        return view('admin.announcements.createdoc', compact('calls', 'unidades', 'requerimientos', 'eventos'));
+        foreach($requerimientos as $item)
+        {
+            if($item->tipo_requerimiento=='requerimiento de laboratorio')
+            {
+                if(!$item->convocatorias()->exists())
+                {
+                    return view('admin.announcements.createdoc', compact('calls', 'unidades', 'requerimientos', 'eventos'));
+                }
+            }
+        }
+        return redirect(route('requerimientos.create'))->with([ 'messageDanger' => 'No tiene requerimientos disponibles!', 'alert-type' => 'danger' ]);  
     }
     /**
      * Store a newly created resource in storage.
