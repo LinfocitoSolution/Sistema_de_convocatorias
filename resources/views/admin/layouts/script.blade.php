@@ -14,8 +14,8 @@
 <!-- Select2 -->
 <link href="{{URL::asset('https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css')}}" rel="stylesheet" />
 <script src="{{URL::asset('https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js')}}"></script>
-<script src="https://unpkg.com/jspdf"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/2.0.16/jspdf.plugin.autotable.js"></script>
+<script src="{{asset('https://unpkg.com/jspdf@1.5.3/dist/jspdf.min.js')}}"></script>
+<script src="{{asset('https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/2.0.16/jspdf.plugin.autotable.js')}}"></script>
 <script src="{{asset('js/bootstrap.bundle.min.js')}}" type="text/javascript"></script>
 
   <script>
