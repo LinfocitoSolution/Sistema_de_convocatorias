@@ -73,7 +73,7 @@
   <script>
     $(function () {
     $('[data-toggle="popover"]').popover({
-        placement:"right",
+        
         trigger:"hover"
     })
     })
