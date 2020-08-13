@@ -52,6 +52,23 @@
                     {{ $errors->has('email')? $errors->first('email') : 'El campo Email es requerido'  }}
                 </div>
             </div>
+            {{-- UNIDAD --}}
+      
+                <div class="col-md-6 mb-3">
+                    <label class="col-form-label" for="email">Unidad</label>
+                    <div class="input-group" >
+                        <span class="input-group-append" data-html="true" data-placement="left" data-toggle="popover" title="Restricciones" data-content="Sigue el ejemplo">
+                            <button class="btn btn-dark" type="button">U</button>
+                        </span>
+                            <select class="form-control js-example-basic-single" name="unidad" single="single" required>
+                                @foreach($unidades as $item)
+                                    <option value="{{ $item->id }}" {{ (isset($user) && $user->unit_id == $item->id) ? 'selected' : '' }}>{{ $item->name }}</option>
+                                @endforeach
+                            </select>
+                    </div>
+                </div>
+      
+
         <!----nombre de usuario----->
             <div class="col-md-6 mb-3">
                 <label class="col-form-label" for="username">Nombre de Usuario</label>
@@ -118,9 +135,8 @@
                     {{ $errors->has('password_confirm')? $errors->first('password_confirm') : 'Este campo es requerido'  }}
                 </div>
             </div>
-            {{-- @endif --}}
         <!----roles-->
-            <div class="col-md-12 mb-3">
+            <div class="col-md-6 mb-3">
                 <label class="col-form-label" for="roles">Roles</label>
                 <div class="input-group" >
                                                         <span class="input-group-append" data-html="true" data-toggle="popover" title="Restricciones" data-placement="left" data-content="Seleccione un rol">

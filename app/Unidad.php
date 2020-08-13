@@ -19,4 +19,8 @@ class Unidad extends Model
     public function convocatorias(){
         return $this->hasMany('Convocatoria');
     }
+    public function user()
+    {
+       return $this->belongsTo('User');
+    } 
 }

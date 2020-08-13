@@ -10,6 +10,7 @@
         <div class="card mt-2">
             <div class="card-header">
                 <h1>Lista de Postulantes Habilitados e Inhabilitados</h1>
+                <h5>{{(Auth::user()->unit_id != null) ? App\Unidad::find(Auth::user()->unit_id)->name : ''}}</h5>
             </div>
             <div class="card-body">
                 <table class="table table-bordered table-striped table-sm">
@@ -27,6 +28,7 @@
                     <tbody>
                     @foreach($users as $user)
                     @foreach($user->requerimientos as $req )
+                    @if (Auth::user()->unit_id == $user->requerimientos->first()->convocatorias->first()->unit_id || Auth::user()->roles->first()->name == 'Admin')
                     
                     <tr>
                        
@@ -88,10 +90,8 @@
                     
                     @endif
                     @endif
-                        
 
-                   
-                    
+                    @endif
                     @endforeach
                     @endforeach
                      </tr>

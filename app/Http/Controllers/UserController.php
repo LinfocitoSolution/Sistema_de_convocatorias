@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use App\User;
 use Session;
 use App\Role;
+use App\Unidad;
 use DB;
 use Validator;
 use App\Http\Requests\UsuarioRequest;
@@ -45,8 +46,9 @@ class UserController extends Controller
      */
     public function create()
     {
+        $unidades = Unidad::all();
         $roles = DB::table('roles')->get();
-        return view('admin.usuarios.create',compact('roles'));        
+        return view('admin.usuarios.create',compact('roles','unidades'));        
     }
 
     /**
@@ -59,8 +61,8 @@ class UserController extends Controller
     {
         $user = User::create($request->all());
         $user->password=(bcrypt($user->password));
+        $user->unit_id=$request->get('unidad');
         $user->save();
-
         $user->syncRoles($request->roles);
 
         return redirect(route('usuarios.index'))->with([ 'message' => 'Usuario creado exitosamente!', 'alert-type' => 'success' ]);
@@ -99,9 +101,9 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
+        $unidades = Unidad::all();
         $roles = DB::table('roles')->get();
-
-        return view('admin.usuarios.edit',compact('roles','user'));
+        return view('admin.usuarios.edit',compact('roles','user','unidades'));
     }
 
     /**
@@ -115,6 +117,7 @@ class UserController extends Controller
     {
         $user->update($request->all());
         $user->password = (bcrypt($user->password));
+        $user->unit_id=$request->get('unidad');
         $user->save();
 
         $user->syncRoles($request->roles);//con esto asigna el rol seleccionado para los usuarios

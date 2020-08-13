@@ -14,7 +14,9 @@
         <div class="info">
           <a href="#" class="d-block">{{ ucfirst(Auth::user()->name) }} {{ ucfirst(Auth()->user()->lastname)  }}</a>
           <a href="#" class="d-block">{{ ucfirst(Auth::user()->roles->first()->name)  }}</a>
-          
+          @if (Auth::user()->unit_id != null)
+            <a href="#" class="d-block">{{ ucfirst(App\Unidad::find(Auth::user()->unit_id)->name)  }}</a>
+          @endif
         </div>
       </div>
 

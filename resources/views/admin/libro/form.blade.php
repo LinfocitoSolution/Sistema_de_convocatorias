@@ -9,9 +9,9 @@
         <select class="custom-select form-control" type="text" name="name"  >
             @foreach($users as $item)
             @foreach($item->requerimientos as $req)
-
-        <option class="text-dark" value="{{ $item->id }}">{{ $item->name }} {{$item->lastname}}</option>
-            
+            @if (Auth::user()->unit_id == $item->requerimientos->first()->convocatorias->first()->unit_id || Auth::user()->roles->first()->name == 'Admin')
+               <option class="text-dark" value="{{ $item->id }}">{{ $item->name }} {{$item->lastname}}</option>
+            @endif
             @endforeach      
             @endforeach
          </select>
