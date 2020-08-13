@@ -241,7 +241,7 @@
                 <ul class="nav nav-treeview">
                   
                     <li class="nav-item">
-                      <a href="{{route('calif.primero')}}" class="nav-link">
+                      <a href="{{route('calif.segundo', Auth::user()->unit_id)}}" class="nav-link">
                         <i class="fas fa-plus-square nav-icon"></i>
                         <p>Nueva Tabla</p>
                       </a>

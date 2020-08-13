@@ -43,9 +43,9 @@ class ConocimientoCalifController extends Controller
         $unidad=Unidad::all();
         return view('admin.conocimientoCalif.form_primerpaso',compact('unidad'));
     }
-    public function segundoPaso(Request $request)
+    public function segundoPaso(Request $request, Unidad $uni)
     {
-        $uni = $request->input('unidad');
+        // $uni = $request->input('unidad');
         $convocatorias =Convocatoria::where('unit_id','=', $uni)->whereYear('gestion', '=', '2020')->get();
         $tematicas=Tematica::all();
         if($tematicas->isEmpty())

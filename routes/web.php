@@ -113,7 +113,7 @@ Route::group(['middleware' => 'permission:panel de datos'], function () {// rest
     Route::group(['middleware' => 'permission:comision conocimientos'], function () {
 
         Route::get('form_primerPaso','ConocimientoCalifController@primerPaso')->name('calif.primero');
-        Route::get('form_segundoPaso','ConocimientoCalifController@segundoPaso')->name('calif.segundo');
+        Route::get('form_segundoPaso_{uni}','ConocimientoCalifController@segundoPaso')->name('calif.segundo');
         Route::get('listarPostulantes','ConocimientoCalifController@listarPostulantes')->name('lista.postulantes');
         Route::get('calificarPostulante_{user}','ConocimientoCalifController@calificarPostulant')->name('calificar.postulante');
         Route::get('calificarPostulanteDocencia_{user}','ConocimientoCalifController@calificarPostDoc')->name('calificar.postulanteDoc');
