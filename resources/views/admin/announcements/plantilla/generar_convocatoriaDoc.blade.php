@@ -10,6 +10,7 @@
     <link href="{{asset('assets/css/convo/stil.css')}}" rel="stylesheet"> 
 
     @include('admin.announcements.plantilla.scriptDoc')
+    <style type="text/css"> BODY{ font-family: verdana; } </style>
 </head>
 <body>
     <script>
@@ -126,7 +127,7 @@
                         <th><strong>{{$merito->score}}</strong></th>
                      </tr>
                      <tr>
-                        <th>Submerito</th>   
+                        <th>Submerito:</th>   
                         <th></th>
                      </tr>
                      @foreach($submeritos as $submerito)
@@ -136,7 +137,7 @@
                               <th>{{$submerito->score}}</th>
                            </tr>
                            <tr>
-                              <th>Descripción</th>   
+                              <th>Descripción:</th>   
                               <th></th>
                            </tr>
                               @foreach($descripciones as $desc)

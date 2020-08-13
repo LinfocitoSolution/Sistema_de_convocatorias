@@ -10,9 +10,9 @@
     <link href="{{asset('assets/css/convo/stil.css')}}" rel="stylesheet">    
         
     @include('admin.announcements.plantilla.script')
+    <style type="text/css"> BODY{ font-family: verdana; } </style>
  </head>  
  <body>
-
    <script type="text/javascript">
       const conv = {!! json_encode($call) !!};
       // console.log(conv);
@@ -135,7 +135,7 @@
                         <th><strong>{{$merito->score}}</strong></th>
                      </tr>
                      <tr>
-                        <th>Submerito</th>   
+                        <th>Submérito:</th>   
                         <th></th>
                      </tr>
                      @foreach($submeritos as $submerito)
@@ -145,7 +145,7 @@
                               <th>{{$submerito->score}}</th>
                            </tr>
                            <tr>
-                              <th>Descripción</th>   
+                              <th>Descripción:</th>   
                               <th></th>
                            </tr>
                               @foreach($descripciones as $desc)

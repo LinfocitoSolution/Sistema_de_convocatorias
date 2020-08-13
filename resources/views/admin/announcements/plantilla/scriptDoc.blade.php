@@ -25,7 +25,7 @@
     var elemento4 = document.getElementById('parte4');
     var elemento5 = document.getElementById('parte5');
     var res = doc.autoTableHtmlToJson(document.getElementById("requirements-table"));
-    doc.autoTable(res.columns, res.data, {margin: {top: 215}});
+    doc.autoTable(res.columns, res.data, {margin: {top: 215},styles: {fontSize: 8, font: 'times'}});
 
     var specialElementHandlers = {
         '#bypassme': function (element, renderer) {
@@ -42,7 +42,7 @@
         'width': margins.width,
         'elementHandlers': specialElementHandlers
     });
-    doc.fromHTML(elemento2, margins.left, margins.top+280, {
+    doc.fromHTML(elemento2, margins.left, margins.top+300, {
         'width': margins.width,
         'elementHandlers': specialElementHandlers
     });
@@ -63,13 +63,13 @@
     doc.autoTable(columns,data,
     { margin:{ top: 270 }});
 
-    doc.fromHTML(elemento31, margins.left, 380, {
+    doc.fromHTML(elemento31, margins.left, 440, {
         'width': margins.width,
         'elementHandlers': specialElementHandlers
     });
     doc.addPage();
     var res2 = doc.autoTableHtmlToJson(document.getElementById("tabla2"));
-    doc.autoTable(res2.columns, res2.data, {margin: {top: 60},styles: {fontSize: 9, font: 'PTSans'}});
+    doc.autoTable(res2.columns, res2.data, {margin: {top: 60},styles: {fontSize: 8, font: 'times'}});
     
     doc.addPage();
     doc.fromHTML(elemento4, margins.left, margins.top, {
