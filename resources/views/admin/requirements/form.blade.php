@@ -27,9 +27,9 @@
         <span class="input-group-append" data-html="true"  data-toggle="popover" title="Restricciones" data-content="para que tipo de convocatoria va dirigido este requerimiento">
            <button class="btn btn-dark" type="button">TR</button>
         </span>
-        <select name="tipo_requerimiento" class="custom-select form-control" >
-            <option selected class="text-muted"value="requerimiento de laboratorio">Requerimiento de laboratorio</option>
-            <option value="requerimiento de docencia">Requerimiento de docencia</option> 
+        <select name="tipo_requerimiento" class="custom-select form-control">
+        <option value="requerimiento de laboratorio"@if (old('tipo_requerimiento') == "requerimiento de laboratorio") {{ 'selected' }} @endif>Requerimiento de laboratorio</option>
+            <option value="requerimiento de docencia"@if (old('tipo_requerimiento') == "requerimiento de docencia") {{ 'selected' }} @endif>Requerimiento de docencia</option> 
              
         </select>
                     </div>
