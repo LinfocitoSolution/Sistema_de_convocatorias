@@ -18,7 +18,7 @@ class UsersTableSeeder extends Seeder
                 'lastname' => 'Admin',
                 'email' => 'admin@gmail.com',                
                 'username' => 'Admin',                
-                'password' => bcrypt('admin'),
+                'password' => bcrypt('J@5qK6?b$a'),
                 'remember_token' => '',                
             ],
             [
@@ -26,7 +26,7 @@ class UsersTableSeeder extends Seeder
                 'lastname' => 'Conocimientos',
                 'email' => 'conocimientos@gmail.com',                                
                 'username' => 'conocimientos',                
-                'password' => bcrypt('conocimientos'),
+                'password' => bcrypt('J@5qK6?b$c'),
                 'remember_token' => '',                
             ],
             [
@@ -37,7 +37,7 @@ class UsersTableSeeder extends Seeder
                 'direction'=>'Avenida Melchor Perez',
                 'telephone'=>'79869786',
                 'username' => 'postulante',                            
-                'password' => bcrypt('postulante'),
+                'password' => bcrypt('J@5qK6?b$p'),
                 'remember_token' => '',
             ],
 
@@ -46,7 +46,7 @@ class UsersTableSeeder extends Seeder
                 'lastname' => 'Secretaria',
                 'email' => 'secretaria@gmail.com',                
                 'username' => 'secretaria',                            
-                'password' => bcrypt('secretaria'),
+                'password' => bcrypt('J@5qK6?b$s'),
                 'remember_token' => '',
             ],
 
@@ -55,7 +55,7 @@ class UsersTableSeeder extends Seeder
                 'lastname' => 'Jefe Departamento',
                 'email' => 'jefedepartamento@gmail.com',                
                 'username' => 'jefedepartamento',                            
-                'password' => bcrypt('jefedepartamento'),
+                'password' => bcrypt('J@5qK6?b$r'),
                 'remember_token' => '',
             ],
 
@@ -64,7 +64,7 @@ class UsersTableSeeder extends Seeder
                 'lastname' => 'Meritos',
                 'email' => 'meritos@gmail.com',                
                 'username' => 'meritos',                            
-                'password' => bcrypt('meritos'),
+                'password' => bcrypt('J@5qK6?b$m'),
                 'remember_token' => '',
             ],
 
