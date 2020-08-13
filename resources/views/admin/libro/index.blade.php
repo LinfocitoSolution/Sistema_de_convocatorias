@@ -30,7 +30,7 @@
                             @foreach ($postulantes as $post) 
                                 @if ($post->id == $libro->user_id)
                                     <tr> 
-                                    <td>{{$post->name}}</td>
+                                    <td>{{$post->name}} {{$post->lastname}}</td>
                                     <td>{{$libro->documento}}</td>
                                     <td>{{$libro->fecha_entrega}}</td>
                                     <!-- NO PERMITE MODIFICAR SI LOS POSTULANTES YA HAN SIDO CALIFICADOS -->

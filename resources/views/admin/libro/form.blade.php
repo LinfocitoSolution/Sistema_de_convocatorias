@@ -10,7 +10,7 @@
             @foreach($users as $item)
             @foreach($item->requerimientos as $req)
 
-                  <option class="text-dark" value="{{ $item->id }}">{{ $item->name }}</option>
+        <option class="text-dark" value="{{ $item->id }}">{{ $item->name }} {{$item->lastname}}</option>
             
             @endforeach      
             @endforeach
