@@ -10,6 +10,7 @@
         <div class="card mt-2">
             <div class="card-header">
                 <h4>Libro de recepcion de postulaciones</h4>
+                <h5>{{(Auth::user()->unit_id != null) ? App\Unidad::find(Auth::user()->unit_id)->name : ''}}</h5>
                 <a class="btn btn-dark px2" data-toggle="tooltip" data-trigger="hover" data-placement="right" href="{{route('libro.create')}}">
                     Registrar recepcion
                     <i class="fa fa-table ml-2"></i>
@@ -28,6 +29,7 @@
                     <tbody>  
                         @foreach($libros as $libro)
                             @foreach ($postulantes as $post) 
+                            @if (Auth::user()->unit_id == $post->requerimientos->first()->convocatorias->first()->unit_id || Auth::user()->roles->first()->name == 'Admin')
                                 @if ($post->id == $libro->user_id)
                                     <tr> 
                                     <td>{{$post->name}} {{$post->lastname}}</td>
@@ -47,6 +49,7 @@
                                     @endif
                                     </tr>
                                 @endif
+                            @endif
                             @endforeach
                         @endforeach                            
                     </tbody>

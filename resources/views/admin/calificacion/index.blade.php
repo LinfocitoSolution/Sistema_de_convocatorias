@@ -13,6 +13,7 @@
         <div class="card mt-2">
             <div class="card-header">
                 <h2>Tabla de Calificación de Méritos</h2>
+                <h5>{{(Auth::user()->unit_id != null) ? App\Unidad::find(Auth::user()->unit_id)->name : ''}}</h5>
                 <div class="form-inline">
                   
                    <div class="dropdown" ><button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  >Carreras</button>
@@ -26,11 +27,6 @@
                 </div>  
             </div>
             <div class="card-body">
-                
-
-
-                
-               
                 <table class="table table-bordered table-striped table-sm">
                     <thead>
                     <tr>
@@ -45,6 +41,7 @@
                <tbody>  
                    @foreach($users as $user)
                    @foreach($user->habilitados as $hab)
+                   @if (Auth::user()->unit_id == $user->requerimientos->first()->convocatorias->first()->unit_id || Auth::user()->roles->first()->name == 'Admin')
                    @if($hab->name=="habilitado")
                <tr>
                 <td>{{$user->name}}</td>
@@ -114,7 +111,8 @@
                       @endif
                     </td>
                     @endif
-                    @endforeach
+                    @endif
+                    @endforeach                    
                     @endforeach
                      </tr>
                 

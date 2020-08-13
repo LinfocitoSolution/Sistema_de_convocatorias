@@ -11,7 +11,7 @@
         <div class="card mt-2">
             <div class="card-header">
                 <h1>Lista de  Notas Finales</h1>
-            
+                <h5>{{(Auth::user()->unit_id != null) ? App\Unidad::find(Auth::user()->unit_id)->name : ''}}</h5>
                <div class="dropdown" ><button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Unidades</button>
                   <a href="{{route('nota.final')}}"> <button  class="btn btn-dark"data-toggle="tooltip" data-trigger="hover"  data-placement="right"><i class="fa fa-users mr-2"></i>Todo</button></a>
                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -21,7 +21,6 @@
                    </div>
                </div>
             </div>
- 
             <div class="card-body">
                 <table class="table table-bordered table-striped table-sm" id="tabla-notas">
                     <thead>
@@ -39,6 +38,7 @@
                     <p id="unidad" hidden> {{$unidad->name}}</p>
                         @foreach ($convocatorias as $item)
                             @foreach ($postulantes as $user)
+                            @if (Auth::user()->unit_id == $user->requerimientos->first()->convocatorias->first()->unit_id || Auth::user()->roles->first()->name == 'Admin')
                                 @foreach ($notasMerito as $notaM)
                                     @foreach ($notasConocimiento as $notaC)
                                         @if ($notaM->user_id == $user->id && $notaC->user_id == $user->id)    
@@ -55,10 +55,12 @@
                                         @endif
                                     @endforeach        
                                 @endforeach    
+                                @endif
                             @endforeach
                         @endforeach
                     @else
                         @foreach ($postulantes as $user)
+                        @if (Auth::user()->unit_id == $user->requerimientos->first()->convocatorias->first()->unit_id || Auth::user()->roles->first()->name == 'Admin')
                             @foreach ($notasMerito as $notaM)
                                 @foreach ($notasConocimiento as $notaC)
                                         @if ($notaM->user_id == $user->id && $notaC->user_id == $user->id)
@@ -73,6 +75,7 @@
                                         @endif                                    
                                 @endforeach        
                             @endforeach    
+                        @endif
                         @endforeach
                     @endif
                     </tbody>

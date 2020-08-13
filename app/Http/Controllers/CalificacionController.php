@@ -85,7 +85,6 @@ class CalificacionController extends Controller
         $docen=0;
         foreach($meritos as $merito)
         {
-            
             if($user->requerimientos->first()->convocatorias->first()->id==$merito->convocatoria_id)
             {
                 $dc=Libro::where('user_id',$user->id)->first()->documento;

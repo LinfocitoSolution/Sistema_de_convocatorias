@@ -13,6 +13,7 @@
                 <div class="card mt-2">
                     <div class="card-header">
                         <h3>Registrar en libro de recepcion</h3>
+                        <h5>{{(Auth::user()->unit_id != null) ? App\Unidad::find(Auth::user()->unit_id)->name : ''}}</h5>
                     </div>    
                     <div class="card-body">
                         <!---va dentro de action  { route('area.store') }}-->                       

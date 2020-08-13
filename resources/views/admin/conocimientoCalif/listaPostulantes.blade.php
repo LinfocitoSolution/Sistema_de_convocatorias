@@ -11,7 +11,7 @@
     <div class="card mt-2" >
       <div class="card-header">
           <h1> Postulantes</h1> 
-      
+          <h5>{{(Auth::user()->unit_id != null) ? App\Unidad::find(Auth::user()->unit_id)->name : ''}}</h5>
            <div class="dropdown" ><button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Carreras</button>
               <a href="{{route('lista.postulantes')}}"> <button  class="btn btn-dark"><i class="fa fa-users mr-2"></i>Todos</button> </a>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -21,6 +21,7 @@
               </div>
           </div>
       </div>
+      
       <div class="card-body">
          <table class="table table-bordered table-striped table-sm">
             <thead>
@@ -34,6 +35,7 @@
             </thead>
             <tbody>
             @foreach($postulantes as $user)
+              @if (Auth::user()->unit_id == $user->requerimientos->first()->convocatorias->first()->unit_id || Auth::user()->roles->first()->name == 'Admin')
                       <tr>           
                         @if (App\Curriculum::where('user_id', '=', $user->id)->exists())
                           @if($user->habilitados->first()->name == "habilitado")
@@ -92,6 +94,7 @@
                           @endif
                         @endif                              
                       </tr> 
+                @endif
               @endforeach
             </tbody>
            </table>

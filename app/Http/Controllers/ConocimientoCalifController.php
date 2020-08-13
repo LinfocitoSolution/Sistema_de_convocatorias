@@ -95,8 +95,6 @@ class ConocimientoCalifController extends Controller
         foreach($tematicas as $t)
         {
             foreach($t->requerimientos as $r){
-                
-            
                 $ind = 0;
                 foreach($requerimientosLab as $re)
                 {
@@ -109,10 +107,7 @@ class ConocimientoCalifController extends Controller
                     $ind++;
                 }
             }
-
         }
-
-        
         for($i = 0; $i<$sizeOfReq;$i++)
         {
             if($arrayNotas[$i] != 100 )
@@ -123,18 +118,21 @@ class ConocimientoCalifController extends Controller
         $aux = 0;
         foreach($tematicas as $tm)
         {
-            foreach($requerimientosLab as $r)
+            foreach($tm->requerimientos as $tr)
             {
-                if($r->id == $tm->requerimientos->first()->id)   
+                foreach($requerimientosLab as $r)
                 {
-                    $tabla = new Tematica_requerimiento();
-                    $tabla->requerimiento_id = $r->id;
-                    $tabla->tematica_id = $tm->id;
-                    $tabla->score = $notas[$aux];
-                    $tabla->convocatoria_id=$call->id;
-                    $tabla->unit_id=$call->unit_id;
-                    $tabla->save();
-                    $aux++;
+                    if($r->id == $tr->id)   
+                    {
+                        $tabla = new Tematica_requerimiento();
+                        $tabla->requerimiento_id = $r->id;
+                        $tabla->tematica_id = $tm->id;
+                        $tabla->score = $notas[$aux];
+                        $tabla->convocatoria_id=$call->id;
+                        $tabla->unit_id=$call->unit_id;
+                        $tabla->save();
+                        $aux++;
+                    }
                 }
             }
         }
@@ -214,10 +212,9 @@ class ConocimientoCalifController extends Controller
         $tematicas = Tematica::all();
         $requerimientoId = $user->requerimientos->first()->id;//requerimiento al que se postula
         $notas = Tematica_requerimiento::where('requerimiento_id', '=', $requerimientoId)->get();//solo notas de tematicas que tenga el requerimiento del postulante
-        
         if($notas->isEmpty())
         {
-            return redirect(route('calif.index'))->with([ 'messageDanger' => 'Aún no se han registrado las tablas del requerimiento al que se postula!', 'alert-type' => 'danger' ]);
+            return redirect(route('lista.postulantes'))->with([' messageDanger' => 'Aún no se han registrado las tablas del requerimiento al que se postula!', 'alert-type' => 'danger' ]);
         }
         if(Postulante_submerito::where('user_id','=',$user->id)->exists())
         {

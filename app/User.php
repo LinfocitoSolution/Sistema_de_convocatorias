@@ -16,6 +16,7 @@ class User extends Model implements  AuthenticatableContract
     public $table='users';    
     protected $fillable = [
         'id',
+        'unit_id',
         'carrera_id',
         'name',
         'lastname',
@@ -65,4 +66,8 @@ class User extends Model implements  AuthenticatableContract
      {
          return $this->belongsToMany(Postulante_tematica_requerimiento::class)->withTimestamps();
      }       
+     public function unidad()
+     {
+        return $this->hasOne('Unidad');
+     } 
 }
