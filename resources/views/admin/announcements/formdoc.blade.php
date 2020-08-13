@@ -19,7 +19,7 @@
           <span class="input-group-append" data-html="true" data-toggle="popover" placement="right" title="Restricciones" data-content="Seleccione la unidad que requiera.">
             <button class="btn btn-dark" type="button">U</button>
           </span>
-          <select class="custom-select form-control" type="text" name="unidad"  >
+          <select class="custom-select form-control" type="text" name="unidad">
               @foreach($unidades as $item)
                     <option class="text-dark" value="{{ $item->id }}">{{ $item->name }}</option>
               @endforeach
@@ -54,7 +54,9 @@
         </span>
         <select class="form-control js-example-basic-multiple " name="requerimientos[]" multiple="multiple">
            @foreach($requerimientos as $item)
-               <option class="text-dark" value="{{ $item->id }}">{{ $item->nombre_auxiliatura }}</option>
+               @if(!$item->convocatorias()->exists())
+                  <option class="text-dark" value="{{ $item->id }}">{{ $item->nombre_auxiliatura }}</option>
+               @endif
            @endforeach
         </select>
         

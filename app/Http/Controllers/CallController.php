@@ -71,12 +71,9 @@ class CallController extends Controller
         $eventos = fecha::all();
         foreach($requerimientos as $item)
         {
-            if($item->tipo_requerimiento=='requerimiento de laboratorio')
+            if(!$item->convocatorias()->exists())
             {
-                if(!$item->convocatorias()->exists())
-                {
-                    return view('admin.announcements.create', compact('calls', 'unidades', 'requerimientos', 'eventos'));
-                }
+                return view('admin.announcements.create', compact('calls', 'unidades', 'requerimientos', 'eventos'));
             }
         }
         return redirect(route('requerimientos.create'))->with([ 'messageDanger' => 'No tiene requerimientos disponibles!', 'alert-type' => 'danger' ]);  
@@ -90,12 +87,9 @@ class CallController extends Controller
         $eventos = fecha::all();
         foreach($requerimientos as $item)
         {
-            if($item->tipo_requerimiento=='requerimiento de laboratorio')
+            if(!$item->convocatorias()->exists())
             {
-                if(!$item->convocatorias()->exists())
-                {
-                    return view('admin.announcements.createdoc', compact('calls', 'unidades', 'requerimientos', 'eventos'));
-                }
+                return view('admin.announcements.createdoc', compact('calls', 'unidades', 'requerimientos', 'eventos'));
             }
         }
         return redirect(route('requerimientos.create'))->with([ 'messageDanger' => 'No tiene requerimientos disponibles!', 'alert-type' => 'danger' ]);  
