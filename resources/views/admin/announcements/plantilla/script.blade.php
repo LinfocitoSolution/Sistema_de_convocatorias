@@ -1,5 +1,5 @@
-<script src="https://unpkg.com/jspdf"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/2.0.16/jspdf.plugin.autotable.js"></script>
+<script src="{{asset('https://unpkg.com/jspdf@1.5.3/dist/jspdf.min.js')}}"></script>
+<script src="{{asset('https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/2.0.16/jspdf.plugin.autotable.js')}}"></script>
 <script src="{{asset('js/html2canvas.js')}}" type="text/javascript"></script>   
 
 <script> window.onload = async function toPDF(){
