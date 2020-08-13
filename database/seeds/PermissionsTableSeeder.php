@@ -18,7 +18,7 @@ class PermissionsTableSeeder extends Seeder
             [ 'name' => 'admin_usuarios' ],     
             [ 'name' => 'admin_roles' ],
             [ 'name' => 'estudiante' ],
-            [ 'name' => 'responsable de convocarorias' ],
+            [ 'name' => 'responsable de convocatorias' ],
             [ 'name' => 'comision conocimientos' ],
             [ 'name' => 'comision meritos' ],                   
             [ 'name' => 'habilitado_inhabilitado' ],       
@@ -56,7 +56,7 @@ class PermissionsTableSeeder extends Seeder
         ]);
         $rol_jefeDepartamento->givePermissionTo([ 
             'panel de datos',
-            'responsable de convocarorias',
+            'responsable de convocatorias',
             'comision meritos',    
             'admin_usuarios',
             'admin_roles',

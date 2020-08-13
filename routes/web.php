@@ -67,7 +67,7 @@ Route::group(['middleware' => 'permission:panel de datos'], function () {// rest
             'uses' => 'RoleController@update',
         ]);
     });
-    Route::group(['middleware' => 'permission:responsable de convocarorias'], function () {        
+    Route::group(['middleware' => 'permission:responsable de convocatorias'], function () {        
         //#################### AREA ####################################
         Route::resource('area', 'AreaController');        
         //##################### Unidades ########################
