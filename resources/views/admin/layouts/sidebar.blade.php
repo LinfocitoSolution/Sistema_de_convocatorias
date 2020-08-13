@@ -25,7 +25,7 @@
                con font-awesome o culaquier otro icon font library -->
           <!--Acceso-->
             
-            @if(Auth::user()->hasPermission('responsable de convocarorias'))
+            @if(Auth::user()->hasPermission('responsable de convocatorias'))
               <li class="nav-item has-treeview menu-close"> 
 
                 <a href="#" class="nav-link active bg-dark">                                
@@ -60,7 +60,7 @@
           <!--fin de acceso-->
           <!--convocatorias-->        
 
-          @if(Auth::user()->hasPermission('responsable de convocarorias'))  
+          @if(Auth::user()->hasPermission('responsable de convocatorias'))  
         
               <li class="nav-item has-treeview menu-close">
                 <a href="#" class="nav-link active bg-dark">
@@ -100,7 +100,7 @@
           
           <!--unidades-->
             
-            @if(Auth::user()->hasPermission('responsable de convocarorias'))            
+            @if(Auth::user()->hasPermission('responsable de convocatorias'))            
               <li class="nav-item has-treeview menu-close">
                 <a href="#" class="nav-link active bg-dark">
                   <i class="nav-icon fa fa-folder"></i>
@@ -132,7 +132,7 @@
           <!--Requerimientos-->
           
             
-            @if(Auth::user()->hasPermission('responsable de convocarorias'))
+            @if(Auth::user()->hasPermission('responsable de convocatorias'))
               <li class="nav-item has-treeview menu-close">
                 <a href="#" class="nav-link active bg-dark">
                   <i class="nav-icon fa fa-file-alt"></i>
@@ -164,7 +164,7 @@
           <!--Fechas-->
          
             
-            @if(Auth::user()->hasPermission('responsable de convocarorias'))
+            @if(Auth::user()->hasPermission('responsable de convocatorias'))
               <li class="nav-item has-treeview menu-close">
                 <a href="#" class="nav-link active bg-dark">
                   <i class="nav-icon fa fa-calendar"></i>
@@ -195,7 +195,7 @@
           <!--Fin Fechas-->
           <!---Tematica--->          
           
-          @if(Auth::user()->hasPermission('responsable de convocarorias'))
+          @if(Auth::user()->hasPermission('responsable de convocatorias'))
           <li class="nav-item has-treeview menu-close">
             <a href="#" class="nav-link active bg-dark">
               <i class="nav-icon fa fa-table"></i>
@@ -295,7 +295,7 @@
          <!--Fin Postulantes-->
          <!--inicio de tabla de merito-->
          
-         @if(Auth::user()->hasPermission('comision meritos') || Auth::user()->hasPermission('responsable de convocarorias') )
+         @if(Auth::user()->hasPermission('comision meritos') || Auth::user()->hasPermission('responsable de convocatorias') )
          
          <li class="nav-item has-treeview menu-close">
           <a href="#" class="nav-link active bg-dark">
@@ -375,7 +375,7 @@
            @endif
        <!--Fin libro recepcion-->
        <!-- inicio nota final-->             
-       @if(Auth::user()->hasPermission('responsable de convocarorias'))
+       @if(Auth::user()->hasPermission('responsable de convocatorias'))
        <li class="nav-item has-treeview menu-close">
         <a href="#" class="nav-link active bg-dark">
           <i class="nav-icon fa fa-table"></i>

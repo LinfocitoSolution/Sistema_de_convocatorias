@@ -60,7 +60,7 @@
 										          <!--campo nombre-->
 								                     <div class="col-md-6 mb-2">
 								                         <label for="validationTooltip01"class="text-black"><b class="text-danger">(*)</b>Nombre completo</label>
-								                         <div class="input-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="-M&aacute;ximo 50 caracteres <br> -M&iacute;nimo 3 caracteres <br> -No acepta caracteres especiales" >
+								                         <div class="input-group" data-html="true" data-toggle="popover" data-placement="left" title="Restricciones" data-content="-M&aacute;ximo 50 caracteres <br> -M&iacute;nimo 3 caracteres <br> -No acepta caracteres especiales" >
 									                         <div class="input-group-prepend">
 										                         <span class="input-group-text px-3"><i class="fas fa-user-alt icon-cog "></i></span>
 									                          </div>
@@ -95,7 +95,7 @@
 									              <!--campo nombre de usuario -->
 									                 <div class="col-md-6 mb-2">
 								                          <label for="validationTooltip03" class="text-black"><b class="text-danger">(*)</b>Nombre usuario</label>
-								                             <div class="input-group form-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="-M&aacute;ximo 20 caracteres <br>-Solo se permite alfanum&eacute;rico <br>-No acepta espacios <br>-Se permite may&uacute;sculas">
+								                             <div class="input-group form-group" data-html="true" data-toggle="popover" data-placement="left" title="Restricciones" data-content="-M&aacute;ximo 20 caracteres <br>-Solo se permite alfanum&eacute;rico <br>-No acepta espacios <br>-Se permite may&uacute;sculas">
 									                             <div class="input-group-prepend">
 										                             <span class="input-group-text"><i class="fa fa-user-shield icon-cog"></i></span>
 									                               </div>
@@ -128,7 +128,7 @@
 									              <!--campo email-->
 									                      <div class="col-md-6 mb-2">
 								                             <label for="validationTooltip05"class="text-black"><b class="text-danger">(*)</b>E-mail</label>
-								                             <div class="input-group form-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="Sigue el ejemplo">
+								                             <div class="input-group form-group" data-html="true" data-toggle="popover" data-placement="left" title="Restricciones" data-content="Sigue el ejemplo">
 									                              <div class="input-group-prepend">
 										                             <span class="input-group-text px-3"><i class="fa fa-at icon-cog"></i></span>
 									                              </div>
@@ -162,7 +162,7 @@
 									                <!--campo confirmar contraseña-->
 									                    <div class="col-md-6 mb-2">
 								                              <label for="validationTooltip07"class="text-black"><b class="text-danger">(*)</b>Confirma contraseña</label>
-								                             <div class="input-group form-group" data-html="true" data-toggle="popover" title="Restricciones" data-content="confirme la contraseña creada anteriormente">
+								                             <div class="input-group form-group" data-html="true" data-toggle="popover" data-placement="left" title="Restricciones" data-content="confirme la contraseña creada anteriormente">
 									                             <div class="input-group-prepend">
 										                              <span class="input-group-text px-3"><i class="fas fa-key icon-cog"></i></span>
 									                              </div>
